@@ -2,11 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/pages/task_detail_page.dart';
+import 'package:todo_list/widgets/float_button.dart';
+import 'package:todo_list/widgets/show_widget.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
+  @override
+  _MainPageState createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+
+  var scaffoldKey;
+
+
+  @override
+  void initState() {
+    super.initState();
+    scaffoldKey = GlobalKey<ScaffoldState>();
+  }
+
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         elevation: 0,
@@ -16,11 +37,10 @@ class MainPage extends StatelessWidget {
           IconButton(icon: Icon(Icons.search, size: 28,color: Colors.white,), onPressed: () {})
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        elevation: 10,
-        onPressed: () {},
-        child: Icon(Icons.add),
-        backgroundColor: Theme.of(context).primaryColor,
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingButton(
+        childrenPadding: 30,
       ),
       body: Container(
         child: Column(
@@ -92,4 +112,5 @@ class MainPage extends StatelessWidget {
     }
     return list;
   }
+
 }
