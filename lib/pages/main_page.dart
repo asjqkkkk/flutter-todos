@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:todo_list/items/task_item.dart';
@@ -38,9 +40,11 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingButton(
         childrenPadding: 30,
+        origin: Offset(0, 0),
+        initialAngle: pi,
       ),
       body: Container(
         child: Column(
