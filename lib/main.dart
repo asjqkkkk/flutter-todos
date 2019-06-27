@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'ToDo List',
       theme: ThemeData(
         primaryColor: Color.fromRGBO(246,200,200,1),
+        primaryColorDark: Color.fromRGBO(255,180,180,1),
         appBarTheme: AppBarTheme(
-
           textTheme: TextTheme(
             title: TextStyle(color: Colors.white, fontSize: 20)
           )

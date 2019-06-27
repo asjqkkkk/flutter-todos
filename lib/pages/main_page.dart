@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:todo_list/items/task_item.dart';
+import 'package:todo_list/pages/show_demo_page.dart';
 import 'package:todo_list/pages/task_detail_page.dart';
-import 'package:todo_list/widgets/float_button.dart';
+import 'package:todo_list/widgets/floating_border.dart';
 import 'package:todo_list/widgets/show_widget.dart';
 
 class MainPage extends StatefulWidget {
@@ -13,9 +14,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
   var scaffoldKey;
-
 
   @override
   void initState() {
@@ -23,11 +22,8 @@ class _MainPageState extends State<MainPage> {
     scaffoldKey = GlobalKey<ScaffoldState>();
   }
 
-
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
@@ -36,15 +32,26 @@ class _MainPageState extends State<MainPage> {
         title: Text("ToDo List"),
         leading: Image.asset("images/leading.png"),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.search, size: 28,color: Colors.white,), onPressed: () {})
+          IconButton(
+              icon: Icon(
+                Icons.search,
+                size: 28,
+                color: Colors.white,
+              ),
+              onPressed: () {})
         ],
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingButton(
-        childrenPadding: 30,
-        origin: Offset(0, 0),
-        initialAngle: pi,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(new MaterialPageRoute(builder: (cxt) {
+            return ShowDemoPage();
+          }));
+        },
+        child: Icon(Icons.menu),
+        backgroundColor: Theme.of(context).primaryColorDark,
+        shape: FloatingBorder(),
       ),
       body: Container(
         child: Column(
@@ -106,15 +113,14 @@ class _MainPageState extends State<MainPage> {
       list.add(GestureDetector(
         child: TaskItem(i),
         onTap: () {
-          Navigator.of(context).push(
-          new PageRouteBuilder(pageBuilder: (ctx,anm,anmS){
-            return TaskDetailPage(i);
-          },transitionDuration: Duration(seconds: 1))
-          );
+          Navigator.of(context).push(new PageRouteBuilder(
+              pageBuilder: (ctx, anm, anmS) {
+                return TaskDetailPage(i);
+              },
+              transitionDuration: Duration(seconds: 1)));
         },
       ));
     }
     return list;
   }
-
 }
