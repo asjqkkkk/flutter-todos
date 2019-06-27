@@ -1,13 +1,12 @@
 import 'dart:math';
 
-import 'package:circle_list/circle_list.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:todo_list/items/task_item.dart';
-import 'package:todo_list/pages/show_demo_page.dart';
-import 'package:todo_list/pages/task_detail_page.dart';
+import 'package:todo_list/utils/full_screen_dialog_util.dart';
 import 'package:todo_list/widgets/floating_border.dart';
-import 'package:todo_list/widgets/show_widget.dart';
+import 'package:todo_list/widgets/bottom_show_widget.dart';
+import 'all_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -41,50 +40,9 @@ class _MainPageState extends State<MainPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(PageRouteBuilder(
-              opaque: false,
-              pageBuilder: (ctx,anm1,anm2){
-                return Scaffold(
-                  backgroundColor: Colors.black.withOpacity(0.2),
-                  body: CircleList(
-                    children: List.generate(10, (index) {
-                      return Icon(
-                        Icons.details,
-                        color: index % 2 == 0 ? Colors.blue : Colors.orange,
-                        size: 30,
-                      );
-                    }),
-                    innerCircleColor: Colors.grey,
-                    outerCircleColor: Colors.white,
-                    centerWidget: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pop();
-                          debugPrint("点击");
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 3,
-                          height: MediaQuery.of(context).size.width / 3,
-                          decoration: BoxDecoration(
-                            color: Colors.black54,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Container(
-                            color: Colors.transparent,
-                            margin: EdgeInsets.only(bottom: 40),
-                            child: Icon(
-                              Icons.keyboard_arrow_down,
-                              color: Colors.white,
-                              size: 40,
-                            ),
-                          ),
-                        )),
-                  ),
-                );
-              }
-          )
-          );
+          FullScreenDialog.getInstance().showDialog(context, BottomShowWidget());
         },
-        child: Icon(Icons.menu),
+        child: Icon(Icons.menu,size: 30,),
         backgroundColor: Theme.of(context).primaryColorDark,
         shape: FloatingBorder(),
       ),

@@ -42,7 +42,7 @@ dev_dependencies:
   #滑动控件
   carousel_slider: ^1.3.0
   #环形列表
-  circle_list: ^0.0.4
+  circle_list: ^0.0.6
 
 
 
