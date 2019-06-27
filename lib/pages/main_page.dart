@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:circle_list/circle_list.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:todo_list/items/task_item.dart';
@@ -14,13 +15,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var scaffoldKey;
-
-  @override
-  void initState() {
-    super.initState();
-    scaffoldKey = GlobalKey<ScaffoldState>();
-  }
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  bool isFloatShow = false;
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +41,48 @@ class _MainPageState extends State<MainPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(new MaterialPageRoute(builder: (cxt) {
-            return ShowDemoPage();
-          }));
+          Navigator.of(context).push(PageRouteBuilder(
+              opaque: false,
+              pageBuilder: (ctx,anm1,anm2){
+                return Scaffold(
+                  backgroundColor: Colors.black.withOpacity(0.2),
+                  body: CircleList(
+                    children: List.generate(10, (index) {
+                      return Icon(
+                        Icons.details,
+                        color: index % 2 == 0 ? Colors.blue : Colors.orange,
+                        size: 30,
+                      );
+                    }),
+                    innerCircleColor: Colors.grey,
+                    outerCircleColor: Colors.white,
+                    centerWidget: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          debugPrint("点击");
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 3,
+                          height: MediaQuery.of(context).size.width / 3,
+                          decoration: BoxDecoration(
+                            color: Colors.black54,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Container(
+                            color: Colors.transparent,
+                            margin: EdgeInsets.only(bottom: 40),
+                            child: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.white,
+                              size: 40,
+                            ),
+                          ),
+                        )),
+                  ),
+                );
+              }
+          )
+          );
         },
         child: Icon(Icons.menu),
         backgroundColor: Theme.of(context).primaryColorDark,
