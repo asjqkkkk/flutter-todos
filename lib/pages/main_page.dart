@@ -3,9 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:todo_list/items/task_item.dart';
-import 'package:todo_list/utils/full_screen_dialog_util.dart';
-import 'package:todo_list/widgets/floating_border.dart';
-import 'package:todo_list/widgets/bottom_show_widget.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
 import 'all_page.dart';
 

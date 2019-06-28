@@ -40,21 +40,27 @@ class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
           child: child,
         );
       },
-      child: FloatingActionButton(
-        onPressed: () {
-          FullScreenDialog.getInstance().showDialog(context, BottomShowWidget(
-            onExit: () {
-              _controller.reverse();
-            },
-          ));
-          _controller.forward();
-        },
-        child: Icon(
-          Icons.menu,
-          size: 30,
+      child: Transform.rotate(
+        angle: -pi / 2,
+        child: FloatingActionButton(
+          onPressed: () {
+            FullScreenDialog.getInstance().showDialog(context, BottomShowWidget(
+              onExit: () {
+                _controller.reverse();
+              },
+            ));
+            _controller.forward();
+          },
+          child: Transform.rotate(
+            angle: pi / 2,
+            child: Icon(
+              Icons.menu,
+              size: 25,
+            ),
+          ),
+          backgroundColor: Theme.of(context).primaryColorDark,
+          shape: FloatingBorder(),
         ),
-        backgroundColor: Theme.of(context).primaryColorDark,
-        shape: FloatingBorder(),
       ),
     );
   }
