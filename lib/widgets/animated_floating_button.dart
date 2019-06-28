@@ -5,12 +5,12 @@ import 'package:todo_list/utils/full_screen_dialog_util.dart';
 import 'package:todo_list/widgets/bottom_show_widget.dart';
 import 'package:todo_list/widgets/floating_border.dart';
 
-class ScaleFloatingButton extends StatefulWidget {
+class AnimatedFloatingButton extends StatefulWidget {
   @override
-  _ScaleFloatingButtonState createState() => _ScaleFloatingButtonState();
+  _AnimatedFloatingButtonState createState() => _AnimatedFloatingButtonState();
 }
 
-class _ScaleFloatingButtonState extends State<ScaleFloatingButton>
+class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation _animation;
@@ -19,7 +19,7 @@ class _ScaleFloatingButtonState extends State<ScaleFloatingButton>
   void initState() {
     _controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 500));
-    _animation = new Tween(begin: 1.0, end: 2.0)
+    _animation = new Tween(begin: 0.0, end: 1.0)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
     super.initState();
   }
@@ -35,12 +35,10 @@ class _ScaleFloatingButtonState extends State<ScaleFloatingButton>
     return AnimatedBuilder(
       animation: _animation,
       builder: (ctx, child) {
-        return Transform.rotate(
-          angle: (1- _animation.value) * pi * 2,
-            child: Transform.scale(
-          scale: _animation.value,
+        return Transform.translate(
+          offset: Offset(0, (_animation.value) * 56),
           child: child,
-        ));
+        );
       },
       child: FloatingActionButton(
         onPressed: () {
