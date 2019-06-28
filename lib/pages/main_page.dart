@@ -6,6 +6,7 @@ import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/utils/full_screen_dialog_util.dart';
 import 'package:todo_list/widgets/floating_border.dart';
 import 'package:todo_list/widgets/bottom_show_widget.dart';
+import 'package:todo_list/widgets/scale_floating_button.dart';
 import 'all_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -38,14 +39,7 @@ class _MainPageState extends State<MainPage> {
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          FullScreenDialog.getInstance().showDialog(context, BottomShowWidget());
-        },
-        child: Icon(Icons.menu,size: 30,),
-        backgroundColor: Theme.of(context).primaryColorDark,
-        shape: FloatingBorder(),
-      ),
+      floatingActionButton: ScaleFloatingButton(),
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

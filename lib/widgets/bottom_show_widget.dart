@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:circle_list/circle_list.dart';
 
 class BottomShowWidget extends StatefulWidget {
+
+  final VoidCallback onExit;
+
+
+  BottomShowWidget({this.onExit});
+
   @override
   _BottomShowWidgetState createState() => _BottomShowWidgetState();
 }
@@ -119,7 +125,7 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
   }
 
   void doExit(BuildContext context, AnimationController controller) {
-
+    widget?.onExit();
     controller.reverse().then((r) {
       Navigator.of(context).pop();
     });
