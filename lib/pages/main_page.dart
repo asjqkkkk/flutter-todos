@@ -26,7 +26,9 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         elevation: 0,
         title: Text("ToDo List"),
-        leading: Image.asset("images/leading.png"),
+        leading: InkWell(child: Image.asset("images/leading.png"),onTap: (){
+          scaffoldKey.currentState.openDrawer();
+        },),
         actions: <Widget>[
           IconButton(
               icon: Icon(
@@ -36,6 +38,9 @@ class _MainPageState extends State<MainPage> {
               ),
               onPressed: () {})
         ],
+      ),
+      drawer: Drawer(
+        child: NavPage(),
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

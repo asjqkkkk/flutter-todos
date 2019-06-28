@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:todo_list/pages/main_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'i10n/localization_intl.dart';
+
 void main(){
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
           // ... app-specific localization delegate[s] here
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
+          DemoLocalizationsDelegate()
         ],
         supportedLocales: [
           const Locale('en', 'US'), // 美国英语
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
           debugPrint("locales:${locales}   supportedLocales${supportedLocales} ");
 
         },
-        locale: Locale('en', 'US'),
+        locale: Locale('zh', 'CN'),
       theme: ThemeData(
         primaryColor: Color.fromRGBO(246,200,200,1),
         primaryColorDark: Color.fromRGBO(255,180,180,1),

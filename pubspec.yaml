@@ -31,7 +31,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   #intl语言包
-#  intl_translation: ^0.17.5
+  intl_translation: ^0.17.5
 
 
   #网络请求
@@ -49,7 +49,7 @@ dev_dependencies:
   #环形列表
   circle_list: ^0.0.7
   #intl语言包
-#  intl: ^0.15.8
+  intl: ^0.15.8
 
 
 
