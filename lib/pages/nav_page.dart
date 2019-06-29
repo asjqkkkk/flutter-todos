@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/pages/language_page.dart';
 
@@ -18,6 +19,7 @@ class NavPage extends StatelessWidget {
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: (){
             Navigator.push(context, new MaterialPageRoute(builder: (ctx){
+
               return LanguagePage();
             }));
           },

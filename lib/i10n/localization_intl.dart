@@ -22,7 +22,39 @@ class DemoLocalizations {
     return Intl.message(
       'Change Language',
       name: 'languageTitle',
-      desc: 'Change Language',
+      desc: '修改语言',
+    );
+  }
+
+  String get welcomeWord{
+    return Intl.message(
+      'Hello, ',
+      name: 'welcomeWord',
+      desc: '主页的欢迎词',
+    );
+  }
+
+
+  String taskItems(int taskNumbers){
+    return Intl.plural(
+      taskNumbers,
+      zero: "You have never written a list of tasks.\nLet's get started soon.",
+      one: "This is your todo-list,\nToday, you have 1 task to complete. ",
+      many: "This is your todo-list,\nToday, you have $taskNumbers tasks to complete. ",
+      other:"This is your todo-list,\nToday, you have $taskNumbers tasks to complete. ",
+      args: [taskNumbers],
+      name: "taskItems"
+    );
+  }
+
+  String itemNumber(int number){
+    return Intl.plural(
+        number,
+        zero: "There is No items ",
+        one: "1 item ",
+        other: "$number items ",
+        args: [number],
+        name: "itemNumber"
     );
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 
 class TaskInfoWidget extends StatelessWidget {
 
@@ -80,7 +81,7 @@ class TaskInfoWidget extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: Text(
-                  "3 Items ",
+                  "${DemoLocalizations.of(context).itemNumber(3)}",
                   style: TextStyle(fontSize: 10),
                 ),
               ),
