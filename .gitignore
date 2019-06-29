@@ -1,0 +1,6 @@
+.dart_tool/pub/bin/sdk-version
+.dart_tool/pub/bin/intl_translation/extract_to_arb.dart.snapshot.dart2
+.dart_tool/pub/bin/intl_translation/generate_from_arb.dart.snapshot.dart2
+.dart_tool/pub/bin/intl_translation/make_examples_const.dart.snapshot.dart2
+.dart_tool/pub/bin/intl_translation/rewrite_intl_messages.dart.snapshot.dart2
+.dart_tool/pub/bin/test/test.dart.snapshot.dart2
