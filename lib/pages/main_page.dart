@@ -2,10 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/items/task_item.dart';
-import 'package:todo_list/utils/full_screen_dialog_util.dart';
-import 'package:todo_list/widgets/floating_border.dart';
-import 'package:todo_list/widgets/bottom_show_widget.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
 import 'all_page.dart';
 
@@ -26,7 +24,9 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         elevation: 0,
         title: Text("ToDo List"),
-        leading: Image.asset("images/leading.png"),
+        leading: InkWell(child: Image.asset("images/leading.png"),onTap: (){
+          scaffoldKey.currentState.openDrawer();
+        },),
         actions: <Widget>[
           IconButton(
               icon: Icon(
@@ -36,6 +36,9 @@ class _MainPageState extends State<MainPage> {
               ),
               onPressed: () {})
         ],
+      ),
+      drawer: Drawer(
+        child: NavPage(),
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -58,7 +61,7 @@ class _MainPageState extends State<MainPage> {
               child: Container(
                 margin: EdgeInsets.only(top: 40, left: 12),
                 child: Text(
-                  "Hello, Old Li.",
+                  "${DemoLocalizations.of(context).welcomeWord}Old Li.",
                   style: TextStyle(fontSize: 30, color: Colors.white),
                 ),
               ),
@@ -68,7 +71,7 @@ class _MainPageState extends State<MainPage> {
               child: Container(
                 margin: EdgeInsets.only(top: 8, left: 12),
                 child: Text(
-                  "This is your todo-list,\nToday,You have 3 task to complete.",
+                  "${DemoLocalizations.of(context).taskItems(3)}",
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
               ),

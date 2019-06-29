@@ -1,0 +1,29 @@
+{
+  "@@last_modified": "2019-06-29T09:44:38.418387",
+  "languageTitle": "Change Language",
+  "@languageTitle": {
+    "description": "修改语言",
+    "type": "text",
+    "placeholders": {}
+  },
+  "welcomeWord": "Hello, ",
+  "@welcomeWord": {
+    "description": "主页的欢迎词",
+    "type": "text",
+    "placeholders": {}
+  },
+  "taskItems": "{taskNumbers,plural, =0{You have never written a list of tasks.\nLet''s get started soon.}=1{This is your todo-list,\nToday, you have 1 task to complete. }many{This is your todo-list,\nToday, you have {taskNumbers} tasks to complete. }other{This is your todo-list,\nToday, you have {taskNumbers} tasks to complete. }}",
+  "@taskItems": {
+    "type": "text",
+    "placeholders": {
+      "taskNumbers": {}
+    }
+  },
+  "itemNumber": "{number,plural, =0{There is No items }=1{1 item }other{{number} items }}",
+  "@itemNumber": {
+    "type": "text",
+    "placeholders": {
+      "number": {}
+    }
+  }
+}

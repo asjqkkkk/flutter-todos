@@ -31,7 +31,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   #intl语言包
-#  intl_translation: ^0.17.5
+  intl_translation: ^0.17.5
 
 
   #网络请求
@@ -41,7 +41,7 @@ dev_dependencies:
   #Flare插件
   flare_flutter: ^1.5.0
   #状态管理
-  provider: ^2.0.1
+  provider: ^3.0.0+1
   #单元测试
   test: ^1.6.0
   #滑动控件
@@ -49,7 +49,7 @@ dev_dependencies:
   #环形列表
   circle_list: ^0.0.7
   #intl语言包
-#  intl: ^0.15.8
+  intl: ^0.15.8
 
 
 

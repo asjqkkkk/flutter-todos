@@ -1,0 +1,29 @@
+{
+  "@@last_modified": "2019-06-28T15:08:05.980030",
+  "languageTitle": "切换语言",
+  "@languageTitle": {
+    "description": "Change Language",
+    "type": "text",
+    "placeholders": {}
+  },
+  "welcomeWord": "你好呀, ",
+  "@welcomeWord": {
+    "description": "主页的欢迎词",
+    "type": "text",
+    "placeholders": {}
+  },
+  "taskItems": "{taskNumbers,plural, =0{你还没有写过任务清单呢.\n快快开始吧.}=1{下面你的任务清单,\n今天, 你有 1 项任务尚未完成. }many{下面是你的任务清单,\n今天, 你有 {taskNumbers} 份任务尚未完成. }other{下面是你的任务清单,\n今天, 你有 {taskNumbers} 份任务尚未完成. }}",
+  "@taskItems": {
+    "type": "text",
+    "placeholders": {
+      "taskNumbers": {}
+    }
+  },
+  "itemNumber": "{number,plural, =0{还没有任务详情哦 }=1{1 项 }other{{number} 项 }}",
+  "@itemNumber": {
+    "type": "text",
+    "placeholders": {
+      "number": {}
+    }
+  }
+}
