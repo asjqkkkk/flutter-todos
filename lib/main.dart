@@ -10,9 +10,11 @@ import 'package:todo_list/utils/shared_util.dart';
 import 'i10n/localization_intl.dart';
 
 void main() {
+  
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(
+
     ProviderConfig.getInstance().getGlobal(MyApp()),
   );
 }
@@ -55,6 +57,6 @@ class MyApp extends StatelessWidget {
             appBarTheme: AppBarTheme(
                 textTheme: TextTheme(
                     title: TextStyle(color: Colors.white, fontSize: 20)))),
-        home: MainPage());
+        home: ProviderConfig.getInstance().getMainPage());
   }
 }

@@ -54,7 +54,7 @@ class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
           child: Transform.rotate(
             angle: pi / 2,
             child: Icon(
-              Icons.menu,
+              Icons.add,
               size: 25,
             ),
           ),

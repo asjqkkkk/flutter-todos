@@ -17,9 +17,8 @@ class NavPage extends StatelessWidget {
           title: Text(DemoLocalizations.of(context).languageTitle),
           leading: Icon(Icons.language),
           trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: (){
-            Navigator.push(context, new MaterialPageRoute(builder: (ctx){
-
+          onTap: () {
+            Navigator.push(context, new MaterialPageRoute(builder: (ctx) {
               return LanguagePage();
             }));
           },

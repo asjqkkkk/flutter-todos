@@ -1,32 +1,27 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
-import 'package:todo_list/items/task_item.dart';
+import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
 import 'all_page.dart';
 
-class MainPage extends StatefulWidget {
-  @override
-  _MainPageState createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  bool isFloatShow = false;
-
-  @override
+class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
+    final model = Provider.of<MainPageModel>(context);
+
     return Scaffold(
-      key: scaffoldKey,
+      key: model.scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         elevation: 0,
         title: Text("ToDo List"),
-        leading: InkWell(child: Image.asset("images/leading.png"),onTap: (){
-          scaffoldKey.currentState.openDrawer();
-        },),
+        leading: IconButton(
+          icon: Icon(Icons.keyboard_arrow_down,color: Colors.white,size: 35,),
+          onPressed: () {
+            model.scaffoldKey.currentState.openDrawer();
+          },
+        ),
         actions: <Widget>[
           IconButton(
               icon: Icon(
@@ -79,7 +74,7 @@ class _MainPageState extends State<MainPage> {
             Container(
               margin: EdgeInsets.only(top: 40),
               child: CarouselSlider(
-                items: _getCards(context),
+                items: model.logic.getCards(context),
                 aspectRatio: 1,
                 height: MediaQuery.of(context).size.width - 100,
                 viewportFraction: 0.8,
@@ -95,22 +90,5 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     );
-  }
-
-  List<Widget> _getCards(context) {
-    List<Widget> list = [];
-    for (var i = 0; i < 10; i++) {
-      list.add(GestureDetector(
-        child: TaskItem(i),
-        onTap: () {
-          Navigator.of(context).push(new PageRouteBuilder(
-              pageBuilder: (ctx, anm, anmS) {
-                return TaskDetailPage(i);
-              },
-              transitionDuration: Duration(seconds: 1)));
-        },
-      ));
-    }
-    return list;
   }
 }

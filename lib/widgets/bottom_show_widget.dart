@@ -71,18 +71,41 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                 animation: _animationBottomShow,
                 child: CircleList(
                   showInitialAnimation: true,
-                  children: List.generate(10, (index) {
-                    return GestureDetector(
-                      onTap: () {
-                        debugPrint("$index");
-                      },
-                      child: Icon(
-                        Icons.drive_eta,
-                        color: Colors.red.withOpacity(0.1 * (index + 1)),
-                        size: 40,
-                      ),
-                    );
-                  }),
+                  children: [
+                    Icon(
+                      Icons.laptop_chromebook,
+                      color: Colors.redAccent,
+                      size: 30,
+                    ),
+                    Icon(
+                      Icons.chrome_reader_mode,
+                      color: Colors.lightBlueAccent,
+                      size: 30,
+                    ),
+                    Icon(
+                      Icons.videogame_asset,
+                      color: Colors.orangeAccent,
+                      size: 30,
+                    ),
+                    Icon(
+                      Icons.local_drink,
+                      color: Colors.green,
+                      size: 30,
+                    ),
+                    Icon(
+                      Icons.landscape,
+                      color: Colors.pinkAccent,
+                      size: 30,
+                    ),Icon(
+                      Icons.drive_eta,
+                      color: Colors.cyanAccent,
+                      size: 30,
+                    ),Icon(
+                      Icons.directions_run,
+                      color: Colors.brown,
+                      size: 30,
+                    ),
+                  ],
                   innerCircleColor: Theme.of(context).primaryColor,
                   outerCircleColor: Colors.white,
                   centerWidget: GestureDetector(
