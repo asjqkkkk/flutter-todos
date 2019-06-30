@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/pages/all_page.dart';
 
@@ -30,9 +31,9 @@ class ProviderConfig{
     );
   }
   
-  ChangeNotifierProvider<TaskDetailPageModel> getTaskDetailPage(int index){
+  ChangeNotifierProvider<TaskDetailPageModel> getTaskDetailPage(int index, TaskBean taskBean){
      return ChangeNotifierProvider<TaskDetailPageModel>(
-       builder:(context) => TaskDetailPageModel(),
+       builder:(context) => TaskDetailPageModel(taskBean),
        child: TaskDetailPage(index),
      );
    }

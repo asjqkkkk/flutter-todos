@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/model/task_detail_page_model.dart';
 
 class TaskInfoWidget extends StatelessWidget {
-
   final int index;
   final double space;
+  final double overallProgress;
+  final int taskNumbers;
+  final String taskName;
 
-
-  TaskInfoWidget(this.index, {this.space = 20});
+  TaskInfoWidget(this.index,
+      {this.space = 20,
+      this.overallProgress = 0,
+      this.taskNumbers = 0,
+      this.taskName = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,7 @@ class TaskInfoWidget extends StatelessWidget {
               Expanded(
                 child: Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only( top: 16),
+                  margin: EdgeInsets.only(top: 16),
                   child: Hero(
                     tag: "task_icon${index}",
                     child: Container(
@@ -44,13 +50,15 @@ class TaskInfoWidget extends StatelessWidget {
                     width: 42,
                     height: 42,
                     margin: EdgeInsets.only(top: 16),
-                    child: space == 20 ?SizedBox(): Hero(
-                      tag: "task_more${index}",
-                      child: Icon(
-                        Icons.more_vert,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
+                    child: space == 20
+                        ? SizedBox()
+                        : Hero(
+                            tag: "task_more${index}",
+                            child: Icon(
+                              Icons.more_vert,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
                   ),
                 ),
               )
@@ -66,9 +74,8 @@ class TaskInfoWidget extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: Text(
-                  "Read Book ",
-                  style: TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                  "${taskName} ",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -81,7 +88,7 @@ class TaskInfoWidget extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: Text(
-                  "${DemoLocalizations.of(context).itemNumber(3)}",
+                  "${DemoLocalizations.of(context).itemNumber(taskNumbers)}",
                   style: TextStyle(fontSize: 10),
                 ),
               ),
@@ -95,7 +102,7 @@ class TaskInfoWidget extends StatelessWidget {
               child: Material(
                   color: Colors.transparent,
                   child: Text(
-                    "50%",
+                    "${(overallProgress * 100).toInt()}%",
                     style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                   )),
             ),
@@ -108,9 +115,9 @@ class TaskInfoWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
                 child: LinearProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(
-                      Theme.of(context).primaryColor),
-                  value: 0.5,
+                  valueColor:
+                      AlwaysStoppedAnimation(Theme.of(context).primaryColor),
+                  value: overallProgress,
                   backgroundColor: Color.fromRGBO(224, 224, 224, 1),
                 ),
               ),

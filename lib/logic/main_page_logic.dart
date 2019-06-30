@@ -12,19 +12,19 @@ class MainPageLogic{
 
 
   List<Widget> getCards(context) {
-    List<Widget> list = [];
-    for (var i = 0; i < 10; i++) {
-      list.add(GestureDetector(
-        child: TaskItem(i),
+
+    return List.generate(_model.tasks.length, (index){
+      final taskBean = _model.tasks[index];
+      return GestureDetector(
+        child: TaskItem(index,taskBean),
         onTap: () {
           Navigator.of(context).push(new PageRouteBuilder(
               pageBuilder: (ctx, anm, anmS) {
-                return ProviderConfig.getInstance().getTaskDetailPage(i);
+                return ProviderConfig.getInstance().getTaskDetailPage(index,taskBean);
               },
               transitionDuration: Duration(seconds: 1)));
         },
-      ));
-    }
-    return list;
+      );
+    });
   }
 }

@@ -9,6 +9,7 @@ import 'all_page.dart';
 class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<MainPageModel>(context);
+    model.setContext(context);
 
     return Scaffold(
       key: model.scaffoldKey,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
 
 class TaskItem extends StatelessWidget {
   final int index;
+  final TaskBean taskBean;
 
-  TaskItem(this.index);
+  TaskItem(this.index, this.taskBean);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,15 @@ class TaskItem extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
-                  child: Container(margin: EdgeInsets.only(left: 16,right: 16),child: TaskInfoWidget(index, space: width / 3,)))),
+                  child: Container(
+                      margin: EdgeInsets.only(left: 16, right: 16),
+                      child: TaskInfoWidget(
+                        index,
+                        space: width / 3,
+                        taskName: taskBean?.taskName??"",
+                        taskNumbers: taskBean?.taskDetailNum??0,
+                        overallProgress: taskBean?.overallProgress??0.0,
+                      )))),
         ],
       ),
     );
