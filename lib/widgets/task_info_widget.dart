@@ -67,18 +67,35 @@ class TaskInfoWidget extends StatelessWidget {
           SizedBox(
             height: space,
           ),
-          Container(
-            alignment: Alignment.bottomLeft,
-            child: Hero(
-              tag: "task_title${index}",
-              child: Material(
-                color: Colors.transparent,
-                child: Text(
-                  "${taskName} ",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          Row(
+            children: <Widget>[
+              Expanded(
+                flex: 9,
+                child: Container(
+                  alignment: Alignment.bottomLeft,
+                  child: Hero(
+                    tag: "task_title${index}",
+                    child: Material(
+                      color: Colors.transparent,
+                      child: Text(
+                        "${taskName} ",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
+              overallProgress == 1.0 ? Expanded(
+                  flex: 1,
+                  child: Hero(
+                    tag: "task_complete${index}",
+                    child: Icon(
+                      Icons.check_circle,
+                      color: Colors.greenAccent,
+                    ),
+                  )) : SizedBox()
+            ],
           ),
           Container(
             margin: EdgeInsets.only(top: 5),

@@ -38,7 +38,7 @@ class TaskItem extends StatelessWidget {
                         index,
                         space: width / 3,
                         taskName: taskBean?.taskName??"",
-                        taskNumbers: taskBean?.taskDetailNum??0,
+                        taskNumbers: taskBean?.detailList?.length??0,
                         overallProgress: taskBean?.overallProgress??0.0,
                       )))),
         ],

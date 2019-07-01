@@ -11,7 +11,8 @@ class TaskDetailItem extends StatefulWidget {
       {this.itemProgress = 0.0,
       this.onChecked,
       @required this.itemName,
-      this.index = 0, this.onProgressChanged});
+      this.index = 0,
+      this.onProgressChanged});
 
   @override
   _TaskDetailItemState createState() => _TaskDetailItemState();
@@ -35,7 +36,7 @@ class _TaskDetailItemState extends State<TaskDetailItem>
         CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
     Future.delayed(
         Duration(
-          seconds: 1,
+          milliseconds: 600,
         ), () {
       _controller.forward();
     });
@@ -106,6 +107,12 @@ class _TaskDetailItemState extends State<TaskDetailItem>
                     )),
                 Expanded(
                     flex: 1,
+                    child: progressShow ? SizedBox() : Text(
+                      "${(currentProgress * 100).toInt()}%",
+                      style: TextStyle(fontSize: 8),
+                    )),
+                Expanded(
+                    flex: 1,
                     child: IconButton(
                         icon: Icon(
                           progressShow
@@ -141,7 +148,7 @@ class _TaskDetailItemState extends State<TaskDetailItem>
                   setState(() {
                     currentProgress = value;
                   });
-                  if(widget.onProgressChanged != null){
+                  if (widget.onProgressChanged != null) {
                     widget.onProgressChanged(value);
                   }
                 }),

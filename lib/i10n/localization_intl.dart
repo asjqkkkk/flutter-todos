@@ -18,6 +18,10 @@ class DemoLocalizations {
     return Localizations.of<DemoLocalizations>(context, DemoLocalizations);
   }
 
+  String get appName{
+    return Intl.message("One Day",name: "appName",desc: "app的名字");
+  }
+
   String get languageTitle {
     return Intl.message(
       'Change Language',

@@ -1,5 +1,11 @@
 {
-  "@@last_modified": "2019-06-29T09:44:38.418387",
+  "@@last_modified": "2019-07-01T09:59:52.217683",
+  "appName": "One Day",
+  "@appName": {
+    "description": "app的名字",
+    "type": "text",
+    "placeholders": {}
+  },
   "languageTitle": "Change Language",
   "@languageTitle": {
     "description": "修改语言",

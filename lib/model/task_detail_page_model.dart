@@ -7,8 +7,7 @@ class TaskDetailPageModel extends ChangeNotifier{
   TaskDetailPageLogic logic;
   BuildContext context;
 
-  bool isExisting = false;
-  double overallProgress = 0.0;
+  bool isExiting = false;
   TaskBean taskBean;
   List<double> progressList = [];
 
@@ -17,7 +16,6 @@ class TaskDetailPageModel extends ChangeNotifier{
   TaskDetailPageModel(TaskBean taskBean){
     logic = TaskDetailPageLogic(this);
     this.taskBean = taskBean;
-    this.overallProgress = taskBean?.overallProgress??0.0;
     this.progressList.clear();
   }
 

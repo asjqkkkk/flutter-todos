@@ -16,7 +16,7 @@ class MainPage extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         elevation: 0,
-        title: Text("ToDo List"),
+        title: Text(DemoLocalizations.of(context).appName),
         leading: IconButton(
           icon: Icon(Icons.keyboard_arrow_down,color: Colors.white,size: 35,),
           onPressed: () {

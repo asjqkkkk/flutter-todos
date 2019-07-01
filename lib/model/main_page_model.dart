@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/json/task_bean.dart';
 
+
 class MainPageModel extends ChangeNotifier{
 
   MainPageLogic logic;

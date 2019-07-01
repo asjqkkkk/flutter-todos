@@ -35,8 +35,8 @@ class TaskBean {
       {
         "taskName":"读书",
         "taskType":"read_book",
-        "taskDetailNum":3,
-        "overallProgress":0.5,
+        "taskDetailNum":4,
+        "overallProgress":0.75,
         "detailList":[
           {
             "taskDetailName":"白夜行",
@@ -48,6 +48,10 @@ class TaskBean {
           },
           {
             "taskDetailName":"恶意",
+            "itemProgress":1.0,
+          },
+          {
+            "taskDetailName":"谁杀了他",
             "itemProgress":1.0,
           },
         ],

@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/items/task_detail_item.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
 
 class TaskDetailPage extends StatelessWidget {
   final int index;
+  final MainPageModel mainPageModel;
 
-  TaskDetailPage(this.index);
+  TaskDetailPage(this.index, {this.mainPageModel});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class TaskDetailPage extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () {
-        model.isExisting = true;
+        model.isExiting = true;
         model.refresh();
         Navigator.of(context).pop();
       },
@@ -37,7 +39,8 @@ class TaskDetailPage extends StatelessWidget {
               leading: IconButton(
                   icon: Icon(Icons.arrow_back_ios),
                   onPressed: () {
-                    model.isExisting = true;
+                    model.isExiting = true;
+
                     model.refresh();
                     Navigator.of(context).pop();
                   }),
@@ -60,30 +63,29 @@ class TaskDetailPage extends StatelessWidget {
                     margin: EdgeInsets.only(left: 50, top: 20, right: 50),
                     child: TaskInfoWidget(
                       index,
-                      taskNumbers: model?.taskBean?.taskDetailNum??0,
+                      taskNumbers: model?.taskBean?.detailList?.length??0,
                       taskName: model?.taskBean?.taskName??"",
-                      overallProgress: model.overallProgress,
+                      overallProgress: model.taskBean?.overallProgress??0.0,
                     )),
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(
                         left: 50, top: 20, right: 50, bottom: 20),
-                    child: !model.isExisting
+                    child: !model.isExiting
                         ? ListView(
                             children:
                                 List.generate(model?.taskBean?.detailList?.length??0, (index) {
                                   TaskDetailBean taskDetailBean = model.taskBean.detailList[index];
                             return TaskDetailItem(
+                              index: index,
                               itemProgress: taskDetailBean.itemProgress,
                               itemName: taskDetailBean.taskDetailName,
                               onProgressChanged: (progress){
-                                taskDetailBean.itemProgress = progress;
-                                model.overallProgress = model.logic.getOverallProgress();
+                                model.logic.refreshProgress(taskDetailBean, progress, mainPageModel);
                                 model.refresh();
                               },
                               onChecked: (progress){
-                                taskDetailBean.itemProgress = progress;
-                                model.overallProgress = model.logic.getOverallProgress();
+                                model.logic.refreshProgress(taskDetailBean, progress, mainPageModel);
                                 model.refresh();
                               },
                             );
@@ -98,4 +100,5 @@ class TaskDetailPage extends StatelessWidget {
       ),
     );
   }
+
 }

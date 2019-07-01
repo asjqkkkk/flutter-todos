@@ -10,11 +10,9 @@ import 'package:todo_list/utils/shared_util.dart';
 import 'i10n/localization_intl.dart';
 
 void main() {
-  
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(
-
     ProviderConfig.getInstance().getGlobal(MyApp()),
   );
 }
@@ -24,15 +22,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<GlobalModel>(context);
-    SharedUtil.instance.getStringList(Keys.currentLanguage).then((list){
-      if(list == null) return;
-      if(list == model.currentLanguage) return;
-      model.currentLanguage = list;
-      model.refresh();
-    });
+    model.setContext(context);
 
     return MaterialApp(
-        title: 'ToDo List',
+        title: model.appName,
         localizationsDelegates: [
           // ... app-specific localization delegate[s] here
           GlobalMaterialLocalizations.delegate,
@@ -47,9 +40,8 @@ class MyApp extends StatelessWidget {
             (Locale locale, Iterable<Locale> supportedLocales) {},
         localeListResolutionCallback:
             (List<Locale> locales, Iterable<Locale> supportedLocales) {
-          debugPrint(
-              "locales:${locales}   supportedLocales${supportedLocales} ");
-        },
+          debugPrint("app:${model.appName}");
+            },
         locale: Locale(model.currentLanguage[0], model.currentLanguage[1]),
         theme: ThemeData(
             primaryColor: Color.fromRGBO(246, 200, 200, 1),

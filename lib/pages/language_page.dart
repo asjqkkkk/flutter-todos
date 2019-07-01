@@ -28,6 +28,7 @@ class LanguagePage extends StatelessWidget {
       onTap: () {
         final model = Provider.of<GlobalModel>(context);
         model.currentLanguage = [languageCode,countruCode];
+        model.appName = DemoLocalizations.of(context).appName;
         model.refresh();
         SharedUtil.instance.saveStringList(Keys.currentLanguage, [languageCode, countruCode]);
       },

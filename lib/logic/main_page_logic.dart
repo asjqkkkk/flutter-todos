@@ -20,9 +20,9 @@ class MainPageLogic{
         onTap: () {
           Navigator.of(context).push(new PageRouteBuilder(
               pageBuilder: (ctx, anm, anmS) {
-                return ProviderConfig.getInstance().getTaskDetailPage(index,taskBean);
+                return ProviderConfig.getInstance().getTaskDetailPage(index,taskBean,mainPageModel: _model);
               },
-              transitionDuration: Duration(seconds: 1)));
+              transitionDuration: Duration(milliseconds: 800)));
         },
       );
     });
