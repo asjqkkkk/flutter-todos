@@ -4,3 +4,14 @@
 .dart_tool/pub/bin/intl_translation/make_examples_const.dart.snapshot.dart2
 .dart_tool/pub/bin/intl_translation/rewrite_intl_messages.dart.snapshot.dart2
 .dart_tool/pub/bin/test/test.dart.snapshot.dart2
+.idea/
+.flutter-plugins
+.packages
+pubspec.lock
+android/local.properties
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+ios/Flutter/Generated.xcconfig
+android/.gradle/
+build/
+android/gradlew
+android/gradlew.bat

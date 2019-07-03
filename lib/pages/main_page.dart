@@ -17,8 +17,8 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         title: Text(DemoLocalizations.of(context).appName),
-        leading: IconButton(
-          icon: Icon(Icons.keyboard_arrow_down,color: Colors.white,size: 35,),
+        leading: FlatButton(
+          child: Image.asset("images/leading.png"),
           onPressed: () {
             model.scaffoldKey.currentState.openDrawer();
           },

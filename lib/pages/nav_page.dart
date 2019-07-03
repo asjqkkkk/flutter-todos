@@ -1,18 +1,18 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/pages/language_page.dart';
+import 'package:todo_list/widgets/nav_head.dart';
 
 class NavPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
-        UserAccountsDrawerHeader(
-          accountName: Text("name"),
-          accountEmail: Text("email"),
-          margin: EdgeInsets.all(0),
-        ),
+        NavHead(),
         ListTile(
           title: Text(DemoLocalizations.of(context).languageTitle),
           leading: Icon(Icons.language),
@@ -26,4 +26,6 @@ class NavPage extends StatelessWidget {
       ],
     );
   }
+
+
 }
