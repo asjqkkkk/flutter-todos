@@ -47,7 +47,7 @@ dev_dependencies:
   #滑动控件
   carousel_slider: ^1.3.0
   #环形列表
-  circle_list: ^0.0.8
+  circle_list: ^0.1.0
   #intl语言包
   intl: ^0.15.8
 

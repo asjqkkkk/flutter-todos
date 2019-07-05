@@ -13,10 +13,11 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this,duration: Duration(seconds: 60));
-    _animation = Tween(begin: 0.0,end: 1.0).animate(_controller);
-    _controller.addStatusListener((status){
-      if(status == AnimationStatus.completed){
+    _controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 60));
+    _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
         debugPrint("动画完成");
         _controller.reset();
         _controller.forward();
@@ -46,13 +47,15 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
       height: navHeaderHeight,
       decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
-            Theme.of(context).primaryColorDark,
-            Theme.of(context).primaryColor,
-            Colors.white.withOpacity(0.6),
-
-          ], begin: Alignment.topCenter,end: Alignment.bottomCenter)),
+        Theme.of(context).primaryColorDark,
+        Theme.of(context).primaryColor,
+        Colors.white.withOpacity(0.6),
+      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: Stack(
         children: <Widget>[
+          Stack(
+            children: getRain(navHeaderHeight, context),
+          ),
           Positioned(
             child: getCircle(context, circleOneRadius),
             left: -circleOneRadius,
@@ -65,9 +68,7 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
           ),
           Positioned(
             child: getCircle(context, circleThreeRadius),
-            left: circleOneRadius +
-                circleTwoRadius * 2 +
-                circleThreeRadius * 2,
+            left: circleOneRadius + circleTwoRadius * 2 + circleThreeRadius * 2,
             top: 0,
           ),
           Positioned(
@@ -77,8 +78,11 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
           ),
           Positioned(
             child: getCircle(context, circleFiveRadius),
-            right: - circleFiveRadius,
-            bottom: -30,
+            left: circleOneRadius +
+                circleTwoRadius +
+                circleThreeRadius +
+                circleFiveRadius,
+            bottom: -50,
           ),
         ],
       ),
@@ -87,10 +91,13 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
 
   Widget getCircle(BuildContext context, double circleOneRadius) {
     final angle = getRandomAngle();
-    final randomPosOrNeg = Random().nextBool() == true ? 1: -1;
+    final randomPosOrNeg = Random().nextBool() == true ? 1 : -1;
     return AnimatedBuilder(
-      builder: (ctx,child){
-        return Transform.rotate(angle: angle * _animation.value * randomPosOrNeg,child: child,);
+      builder: (ctx, child) {
+        return Transform.rotate(
+          angle: angle * _animation.value * randomPosOrNeg,
+          child: child,
+        );
       },
       animation: _animation,
       child: Container(
@@ -134,15 +141,54 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
       list.add(Theme.of(context).primaryColor);
       list.add(Theme.of(context).primaryColorDark);
     } else {
-      list.insert(Random().nextInt(randomColorList.length), Colors.white.withOpacity(0.8));
+      list.insert(Random().nextInt(randomColorList.length),
+          Colors.white.withOpacity(0.8));
     }
     return list;
   }
 
-  double getRandomAngle(){
+  double getRandomAngle() {
     final randomNumberOne = Random().nextInt(10);
-    final randomPosOrNeg = Random().nextBool() == true ? 1: -1;
+    final randomPosOrNeg = Random().nextBool() == true ? 1 : -1;
     final randomNumberTwo = Random().nextDouble();
-    return pi * 2 + randomNumberOne * (pi * 2)  + (pi * 2) * randomPosOrNeg * randomNumberTwo;
+    return pi * 2 +
+        randomNumberOne * (pi * 2) +
+        (pi * 2) * randomPosOrNeg * randomNumberTwo;
+  }
+
+  List<Widget> getRain(double navHeaderHeight, BuildContext context) {
+    final randomNum = Random().nextInt(20) + 1;
+
+    List<Widget> list = List.generate(randomNum, (index) {
+      final randomWidth = Random().nextDouble() * 10;
+      final randomHeight = Random().nextDouble() * 30;
+      final randomL = Random().nextDouble() * navHeaderHeight;
+      final randomT = Random().nextDouble() * navHeaderHeight;
+      return AnimatedBuilder(
+        animation: _animation,
+        builder: (ctx, child) {
+          return Positioned(
+            child: child,
+            left: randomL - navHeaderHeight * _animation.value,
+            top: randomT + navHeaderHeight * _animation.value,
+          );
+        },
+        child: Transform.rotate(
+          angle: pi / 6,
+          child: Container(
+            width: randomWidth,
+            height: randomHeight,
+            decoration: BoxDecoration(
+                borderRadius:
+                    BorderRadius.all(Radius.circular(randomWidth / 2)),
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Theme.of(context).primaryColor, Colors.white])),
+          ),
+        ),
+      );
+    });
+    return list;
   }
 }

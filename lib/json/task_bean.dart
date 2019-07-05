@@ -36,7 +36,7 @@ class TaskBean {
         "taskName":"读书",
         "taskType":"read_book",
         "taskDetailNum":4,
-        "overallProgress":0.75,
+        "overallProgress":0.625,
         "detailList":[
           {
             "taskDetailName":"白夜行",
