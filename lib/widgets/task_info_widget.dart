@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
+import 'package:flare_flutter/flare_actor.dart';
 
 class TaskInfoWidget extends StatelessWidget {
   final int index;
@@ -86,15 +87,21 @@ class TaskInfoWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              overallProgress == 1.0 ? Expanded(
-                  flex: 1,
-                  child: Hero(
-                    tag: "task_complete${index}",
-                    child: Icon(
-                      Icons.check_circle,
-                      color: Colors.greenAccent,
-                    ),
-                  )) : SizedBox()
+              overallProgress == 1.0
+                  ? Expanded(
+                      flex: 1,
+                      child: Container(
+                        width: 40,
+                          height: 40,
+                          child: Hero(
+                            tag: "task_complete${index}",
+                            child: FlareActor(
+                        "flrs/success.flr",
+                        fit: BoxFit.scaleDown,
+                        animation: "success",
+                      ),
+                          )))
+                  : SizedBox()
             ],
           ),
           Container(

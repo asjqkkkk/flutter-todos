@@ -39,7 +39,7 @@ dev_dependencies:
   #本地存储
   shared_preferences: ^0.5.2
   #Flare插件
-  flare_flutter: ^1.5.0
+  flare_flutter: ^1.5.2
   #状态管理
   provider: ^3.0.0+1
   #单元测试
@@ -61,6 +61,7 @@ flutter:
 
   assets:
     - images/
+    - flrs/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
