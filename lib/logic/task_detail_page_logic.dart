@@ -7,7 +7,7 @@ class TaskDetailPageLogic{
 
   TaskDetailPageLogic(this._model);
 
-  double getOverallProgress(){
+  double _getOverallProgress(){
     int length = _model.taskBean.detailList.length;
     double overallProgress = 0.0;
     for(int i = 0; i < length;i++){
@@ -19,7 +19,7 @@ class TaskDetailPageLogic{
 
   void refreshProgress(TaskDetailBean taskDetailBean, progress, MainPageModel model) {
     taskDetailBean.itemProgress = progress;
-    getOverallProgress();
+    _getOverallProgress();
     model.refresh();
     _model.refresh();
   }
