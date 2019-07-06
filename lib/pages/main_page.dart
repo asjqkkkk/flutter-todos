@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
 import 'all_page.dart';
@@ -11,6 +12,7 @@ import 'all_page.dart';
 class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<MainPageModel>(context);
+    final globalModel = Provider.of<GlobalModel>(context);
     model.setContext(context);
 
     return Scaffold(
@@ -30,7 +32,7 @@ class MainPage extends StatelessWidget {
               icon: Icon(
                 Icons.search,
                 size: 28,
-                color: Colors.white,
+                color: globalModel.logic.getWhiteInDark(),
               ),
               onPressed: () {
 //                DBProvider.db.createTask(TaskBean.fromMapList(TaskBean.getMockData())[0]);
@@ -63,7 +65,7 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.only(top: 40, left: 12),
                 child: Text(
                   "${DemoLocalizations.of(context).welcomeWord}Old Li.",
-                  style: TextStyle(fontSize: 30, color: Colors.white),
+                  style: TextStyle(fontSize: 30, color: globalModel.logic.getWhiteInDark()),
                 ),
               ),
             ),
@@ -73,7 +75,7 @@ class MainPage extends StatelessWidget {
                 margin: EdgeInsets.only(top: 8, left: 12),
                 child: Text(
                   "${DemoLocalizations.of(context).taskItems(3)}",
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                  style: TextStyle(fontSize: 15, color: globalModel.logic.getWhiteInDark()),
                 ),
               ),
             ),

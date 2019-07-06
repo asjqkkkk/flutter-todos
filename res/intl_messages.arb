@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-01T09:59:52.217683",
+  "@@last_modified": "2019-07-06T19:30:39.845874",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -12,9 +12,27 @@
     "type": "text",
     "placeholders": {}
   },
+  "changeTheme": "Change Theme",
+  "@changeTheme": {
+    "description": "切换主题",
+    "type": "text",
+    "placeholders": {}
+  },
   "welcomeWord": "Hello, ",
   "@welcomeWord": {
     "description": "主页的欢迎词",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pink": "pink",
+  "@pink": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dark": "dark",
+  "@dark": {
+    "description": "主题颜色",
     "type": "text",
     "placeholders": {}
   },

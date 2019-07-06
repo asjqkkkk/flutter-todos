@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/items/task_detail_item.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
+import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
 
 class TaskDetailPage extends StatelessWidget {
@@ -15,6 +17,8 @@ class TaskDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<TaskDetailPageModel>(context);
+    final globalModel = Provider.of<GlobalModel>(context);
+    model.setContext(context);
 
     return WillPopScope(
       onWillPop: () {
@@ -28,7 +32,7 @@ class TaskDetailPage extends StatelessWidget {
             tag: "task_bg${index}",
             child: Container(
                 decoration: BoxDecoration(
-              color: Colors.white,
+              color: globalModel.logic.getBgInDark(),
               borderRadius: BorderRadius.circular(15.0),
             )),
           ),

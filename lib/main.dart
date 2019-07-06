@@ -6,6 +6,7 @@ import 'package:todo_list/pages/main_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/utils/theme_util.dart';
 
 import 'i10n/localization_intl.dart';
 
@@ -43,12 +44,7 @@ class MyApp extends StatelessWidget {
           debugPrint("app:${model.appName}");
             },
         locale: Locale(model.currentLanguage[0], model.currentLanguage[1]),
-        theme: ThemeData(
-            primaryColor: Color.fromRGBO(246, 200, 200, 1),
-            primaryColorDark: Color.fromRGBO(255, 180, 180, 1),
-            appBarTheme: AppBarTheme(
-                textTheme: TextTheme(
-                    title: TextStyle(color: Colors.white, fontSize: 20)))),
+        theme: ThemeUtil.getInstance().getTheme(model.currentThemeType),
         home: ProviderConfig.getInstance().getMainPage());
   }
 }

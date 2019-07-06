@@ -30,11 +30,35 @@ class DemoLocalizations {
     );
   }
 
+  String get changeTheme {
+    return Intl.message(
+      'Change Theme',
+      name: 'changeTheme',
+      desc: '切换主题',
+    );
+  }
+
   String get welcomeWord{
     return Intl.message(
       'Hello, ',
       name: 'welcomeWord',
       desc: '主页的欢迎词',
+    );
+  }
+
+  String get pink{
+    return Intl.message(
+      'pink',
+      name: 'pink',
+      desc: '主题颜色',
+    );
+  }
+
+  String get dark{
+    return Intl.message(
+      'dark',
+      name: 'dark',
+      desc: '主题颜色',
     );
   }
 

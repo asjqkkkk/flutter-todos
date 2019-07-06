@@ -59,7 +59,7 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                       width: 56,
                       height: 56,
                       decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
+                        color: Colors.grey.withOpacity(0.5),
                         shape: BoxShape.circle
                       ),
                     ),
@@ -70,40 +70,41 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
               AnimatedBuilder(
                 animation: _animationBottomShow,
                 child: CircleList(
+                  origin: Offset(0, -size.width / 2 + 20),
                   showInitialAnimation: true,
                   children: [
                     Icon(
                       Icons.laptop_chromebook,
                       color: Colors.redAccent,
-                      size: 30,
+                      size: 50,
                     ),
                     Icon(
                       Icons.chrome_reader_mode,
                       color: Colors.lightBlueAccent,
-                      size: 30,
+                      size: 50,
                     ),
                     Icon(
                       Icons.videogame_asset,
                       color: Colors.orangeAccent,
-                      size: 30,
+                      size: 50,
                     ),
                     Icon(
                       Icons.local_drink,
                       color: Colors.green,
-                      size: 30,
+                      size: 50,
                     ),
                     Icon(
                       Icons.landscape,
                       color: Colors.pinkAccent,
-                      size: 30,
+                      size: 50,
                     ),Icon(
                       Icons.drive_eta,
                       color: Colors.cyanAccent,
-                      size: 30,
+                      size: 50,
                     ),Icon(
                       Icons.directions_run,
                       color: Colors.brown,
-                      size: 30,
+                      size: 50,
                     ),
                   ],
                   innerCircleColor: Theme.of(context).primaryColor,
@@ -122,11 +123,10 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                         ),
                         child: Container(
                           color: Colors.transparent,
-                          margin: EdgeInsets.only(bottom: 40),
                           child: Icon(
                             Icons.keyboard_arrow_down,
                             color: Colors.white,
-                            size: 40,
+                            size: 50,
                           ),
                         ),
                       )),

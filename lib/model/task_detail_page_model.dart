@@ -3,14 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
+import 'package:todo_list/utils/shared_util.dart';
 
 class TaskDetailPageModel extends ChangeNotifier{
 
   TaskDetailPageLogic logic;
   BuildContext context;
 
-  bool isExiting = false;
-  bool isAnimationComplete = false;
+  bool isExiting = false; //是否正在退出中
+  bool isAnimationComplete = false;   //进入的动画是否完成
   Timer timer;
   TaskBean taskBean;
   List<double> progressList = [];
@@ -28,7 +29,7 @@ class TaskDetailPageModel extends ChangeNotifier{
     });
   }
 
-  void setContext(BuildContext context){
+  void setContext(BuildContext context) async{
     if(this.context == null){
         this.context = context;
     }

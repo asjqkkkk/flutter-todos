@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
 
 class TaskItem extends StatelessWidget {
@@ -11,6 +13,7 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width - 100;
+    final globalModel = Provider.of<GlobalModel>(context);
 
     return Container(
       width: width,
@@ -21,7 +24,7 @@ class TaskItem extends StatelessWidget {
               tag: "task_bg${index}",
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: globalModel.logic.getBgInDark(),
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 margin: EdgeInsets.all(4),

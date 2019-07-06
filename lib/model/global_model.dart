@@ -8,6 +8,7 @@ class GlobalModel extends ChangeNotifier {
   GlobalLogic logic;
   BuildContext context;
   String appName = "One Day";
+  String currentThemeType = "pink";
 
 
   List<String> currentLanguage = ["zh", "CN"];
@@ -24,6 +25,13 @@ class GlobalModel extends ChangeNotifier {
         if (list == null) return;
         if (list == currentLanguage) return;
         currentLanguage = list;
+        notifyListeners();
+      });
+
+      SharedUtil.instance.getString(Keys.currentThemeType).then((theme){
+        if(theme == null) return;
+        if(theme == currentThemeType) return;
+        currentThemeType = theme;
         notifyListeners();
       });
     }

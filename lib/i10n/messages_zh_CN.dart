@@ -27,8 +27,11 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "appName" : MessageLookupByLibrary.simpleMessage("一日"),
+    "changeTheme" : MessageLookupByLibrary.simpleMessage("切换主题"),
+    "dark" : MessageLookupByLibrary.simpleMessage("不见五指"),
     "itemNumber" : m0,
     "languageTitle" : MessageLookupByLibrary.simpleMessage("切换语言"),
+    "pink" : MessageLookupByLibrary.simpleMessage("略施粉黛"),
     "taskItems" : m1,
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("你好呀, ")
   };

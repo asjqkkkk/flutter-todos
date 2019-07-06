@@ -12,6 +12,24 @@
     "type": "text",
     "placeholders": {}
   },
+    "changeTheme": "切换主题",
+    "@changeTheme": {
+      "description": "切换主题",
+      "type": "text",
+      "placeholders": {}
+    },
+      "pink": "略施粉黛",
+      "@pink": {
+        "description": "主题颜色",
+        "type": "text",
+        "placeholders": {}
+      },
+      "dark": "不见五指",
+      "@dark": {
+        "description": "主题颜色",
+        "type": "text",
+        "placeholders": {}
+      },
   "welcomeWord": "你好呀, ",
   "@welcomeWord": {
     "description": "主页的欢迎词",

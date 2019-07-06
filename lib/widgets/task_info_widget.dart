@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:todo_list/utils/shared_util.dart';
 
 class TaskInfoWidget extends StatelessWidget {
   final int index;
@@ -19,6 +20,8 @@ class TaskInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[

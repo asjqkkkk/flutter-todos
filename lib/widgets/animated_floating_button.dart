@@ -56,6 +56,7 @@ class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
             child: Icon(
               Icons.add,
               size: 25,
+              color: Colors.white,
             ),
           ),
           backgroundColor: Theme.of(context).primaryColorDark,
