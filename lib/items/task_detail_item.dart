@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class TaskDetailItem extends StatefulWidget {
@@ -25,27 +27,27 @@ class _TaskDetailItemState extends State<TaskDetailItem>
 
   AnimationController _controller;
   Animation _animation;
+  Timer timer;
 
   @override
   void initState() {
-    super.initState();
     currentProgress = widget.itemProgress;
     _controller = AnimationController(
         vsync: this, duration: Duration(milliseconds: 1000));
     _animation = Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
-    Future.delayed(
-        Duration(
-          milliseconds: 600,
-        ), () {
-      _controller.forward();
+    timer = Timer(Duration(milliseconds: 600), (){
+      _controller?.forward();
     });
+    super.initState();
   }
 
   @override
   void dispose() {
-    super.dispose();
+    timer?.cancel();
+    _controller?.dispose();
     debugPrint("taskDetailItem销毁");
+    super.dispose();
   }
 
   @override

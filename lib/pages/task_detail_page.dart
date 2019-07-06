@@ -66,6 +66,7 @@ class TaskDetailPage extends StatelessWidget {
                       taskNumbers: model?.taskBean?.detailList?.length??0,
                       taskName: model?.taskBean?.taskName??"",
                       overallProgress: model.taskBean?.overallProgress??0.0,
+                      canShowSucess: !model.isExiting && model.isAnimationComplete,
                     )),
                 Expanded(
                   child: Container(

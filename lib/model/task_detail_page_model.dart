@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
@@ -8,6 +10,8 @@ class TaskDetailPageModel extends ChangeNotifier{
   BuildContext context;
 
   bool isExiting = false;
+  bool isAnimationComplete = false;
+  Timer timer;
   TaskBean taskBean;
   List<double> progressList = [];
 
@@ -17,6 +21,11 @@ class TaskDetailPageModel extends ChangeNotifier{
     logic = TaskDetailPageLogic(this);
     this.taskBean = taskBean;
     this.progressList.clear();
+    timer = Timer(Duration(seconds: 1), (){
+      isAnimationComplete = true;
+      notifyListeners();
+      debugPrint("执行");
+    });
   }
 
   void setContext(BuildContext context){
@@ -27,8 +36,10 @@ class TaskDetailPageModel extends ChangeNotifier{
 
   @override
   void dispose(){
-    super.dispose();
+    timer?.cancel();
     debugPrint("TaskDetailPageModel销毁了");
+    super.dispose();
+
   }
 
   void refresh(){

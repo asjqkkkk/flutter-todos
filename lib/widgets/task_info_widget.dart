@@ -9,12 +9,13 @@ class TaskInfoWidget extends StatelessWidget {
   final double overallProgress;
   final int taskNumbers;
   final String taskName;
+  final bool canShowSucess;
 
   TaskInfoWidget(this.index,
       {this.space = 20,
       this.overallProgress = 0,
       this.taskNumbers = 0,
-      this.taskName = ""});
+      this.taskName = "", this.canShowSucess = false});
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +88,7 @@ class TaskInfoWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              overallProgress == 1.0
+              overallProgress == 1.0 && canShowSucess
                   ? Expanded(
                       flex: 1,
                       child: Container(

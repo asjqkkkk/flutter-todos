@@ -40,6 +40,7 @@ class TaskItem extends StatelessWidget {
                         taskName: taskBean?.taskName??"",
                         taskNumbers: taskBean?.detailList?.length??0,
                         overallProgress: taskBean?.overallProgress??0.0,
+                        canShowSucess: true,
                       )))),
         ],
       ),
