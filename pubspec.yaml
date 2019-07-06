@@ -50,6 +50,8 @@ dev_dependencies:
   circle_list: ^0.1.1
   #intl语言包
   intl: ^0.15.8
+  #本地数据库
+  sqflite: ^1.1.6
 
 
 

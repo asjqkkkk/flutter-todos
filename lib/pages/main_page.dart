@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
 import 'all_page.dart';
@@ -30,7 +32,10 @@ class MainPage extends StatelessWidget {
                 size: 28,
                 color: Colors.white,
               ),
-              onPressed: () {})
+              onPressed: () {
+//                DBProvider.db.createTask(TaskBean.fromMapList(TaskBean.getMockData())[0]);
+              DBProvider.db.getTasks();
+              })
         ],
       ),
       drawer: Drawer(
