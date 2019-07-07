@@ -59,7 +59,7 @@ class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
               color: Colors.white,
             ),
           ),
-          backgroundColor: Theme.of(context).primaryColorDark,
+          backgroundColor: Theme.of(context).primaryColor,
           shape: FloatingBorder(),
         ),
       ),

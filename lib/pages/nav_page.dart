@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/pages/language_page.dart';
+import 'package:todo_list/pages/setting_page.dart';
 import 'package:todo_list/pages/theme_page.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 
@@ -34,6 +35,17 @@ class NavPage extends StatelessWidget {
             }));
           },
         ),
+        ListTile(
+          title: Text(DemoLocalizations.of(context).appSetting),
+          leading: Icon(Icons.settings),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          onTap: () {
+            Navigator.push(context, new MaterialPageRoute(builder: (ctx) {
+              return SettingPage();
+            }));
+          },
+        ),
+
       ],
     );
   }

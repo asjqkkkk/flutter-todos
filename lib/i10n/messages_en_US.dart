@@ -22,12 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(number) => "${Intl.plural(number, zero: 'There is No items ', one: '1 item ', other: '${number} items ')}";
 
-  static m1(taskNumbers) => "${Intl.plural(taskNumbers, zero: 'You have never written a list of tasks.\nLet\'s get started soon.', one: 'This is your todo-list,\nToday, you have 1 task to complete. ', many: 'This is your todo-list,\nToday, you have ${taskNumbers} tasks to complete. ', other: 'This is your todo-list,Today, you have ${taskNumbers} tasks to complete. ')}";
+  static m1(taskNumbers) => "${Intl.plural(taskNumbers, zero: 'You have never written a list of tasks.\nLet\'s get started soon.', one: 'This is your todo-list,\nToday, you have 1 task to complete. ', many: 'This is your todo-list,\nToday, you have ${taskNumbers} tasks to complete. ', other: 'This is your todo-list,\nToday, you have ${taskNumbers} tasks to complete. ')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "aboutApp" : MessageLookupByLibrary.simpleMessage("About"),
     "appName" : MessageLookupByLibrary.simpleMessage("One Day"),
+    "appSetting" : MessageLookupByLibrary.simpleMessage("Setting"),
+    "backgroundGradient" : MessageLookupByLibrary.simpleMessage("Background Gradient"),
     "changeTheme" : MessageLookupByLibrary.simpleMessage("Change Theme"),
+    "checkUpdate" : MessageLookupByLibrary.simpleMessage("Check Update"),
     "coffee" : MessageLookupByLibrary.simpleMessage("coffee"),
     "cyan" : MessageLookupByLibrary.simpleMessage("cyan"),
     "dark" : MessageLookupByLibrary.simpleMessage("dark"),

@@ -38,6 +38,38 @@ class DemoLocalizations {
     );
   }
 
+  String get appSetting {
+    return Intl.message(
+      'Setting',
+      name: 'appSetting',
+      desc: 'app设置',
+    );
+  }
+
+  String get backgroundGradient {
+    return Intl.message(
+      'Background Gradient',
+      name: 'backgroundGradient',
+      desc: 'app设置',
+    );
+  }
+
+  String get aboutApp {
+    return Intl.message(
+      'About',
+      name: 'aboutApp',
+      desc: '关于',
+    );
+  }
+
+  String get checkUpdate {
+    return Intl.message(
+      'Check Update',
+      name: 'checkUpdate',
+      desc: '检查更新',
+    );
+  }
+
   String get welcomeWord{
     return Intl.message(
       'Hello, ',

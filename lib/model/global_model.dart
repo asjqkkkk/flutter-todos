@@ -7,11 +7,12 @@ class GlobalModel extends ChangeNotifier {
 
   GlobalLogic logic;
   BuildContext context;
-  String appName = "One Day";
-  String currentThemeType = "pink";
+  String appName = "一日"; //app的名字，目前这个还有些问题
+  String currentThemeType = "pink"; //当前的主题颜色
+  bool isBgGradient = false;  //是否开启主页背景渐变
 
 
-  List<String> currentLanguage = ["zh", "CN"];
+  List<String> currentLanguage = ["zh", "CN"];   //当前的app语言
 
 
   GlobalModel() {
@@ -21,19 +22,9 @@ class GlobalModel extends ChangeNotifier {
   void setContext(BuildContext context) {
     if (this.context == null) {
       this.context = context;
-      SharedUtil.instance.getStringList(Keys.currentLanguage).then((list) {
-        if (list == null) return;
-        if (list == currentLanguage) return;
-        currentLanguage = list;
-        notifyListeners();
-      });
-
-      SharedUtil.instance.getString(Keys.currentThemeType).then((theme){
-        if(theme == null) return;
-        if(theme == currentThemeType) return;
-        currentThemeType = theme;
-        notifyListeners();
-      });
+      logic.getCurrentThemeType();
+      logic.getCurrentLanguage();
+      logic.getIsBgGradient();
     }
   }
 

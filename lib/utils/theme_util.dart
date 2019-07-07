@@ -17,10 +17,7 @@ class ThemeUtil {
   ) {
     switch (themeName) {
       case MyTheme.defaultTheme:
-        return ThemeData(
-            primaryColor: MyThemeColor.defaultColor,
-            primaryColorDark: _getDarkColor(MyThemeColor.defaultColor),
-            appBarTheme: getAppBarTheme(Colors.white));
+        return _getThemeData(MyThemeColor.defaultColor);
         break;
       case MyTheme.darkTheme:
         return ThemeData(
@@ -28,36 +25,39 @@ class ThemeUtil {
             appBarTheme: getAppBarTheme(Colors.grey));
         break;
       case MyTheme.coffeeTheme:
-        return ThemeData(
-            primaryColor: MyThemeColor.coffeeColor,
-            primaryColorDark: _getDarkColor(MyThemeColor.coffeeColor),
-            appBarTheme: getAppBarTheme(Colors.white));
+        return _getThemeData(MyThemeColor.coffeeColor);
       case MyTheme.cyanTheme:
-        return ThemeData(
-            primaryColor: MyThemeColor.cyanColor,
-            primaryColorDark: _getDarkColor(MyThemeColor.cyanColor),
-            appBarTheme: getAppBarTheme(Colors.white));
+        return _getThemeData(MyThemeColor.cyanColor);
         break;
       case MyTheme.purpleTheme:
-        return ThemeData(
-            primaryColor: MyThemeColor.purpleColor,
-            primaryColorDark: _getDarkColor(MyThemeColor.purpleColor),
-            appBarTheme: getAppBarTheme(Colors.white));
+        return _getThemeData(MyThemeColor.purpleColor);
         break;
       case MyTheme.greenTheme:
-        return ThemeData(
-            primaryColor: MyThemeColor.greenColor,
-            primaryColorDark: _getDarkColor(MyThemeColor.greenColor),
-            appBarTheme: getAppBarTheme(Colors.white));
+        return _getThemeData(MyThemeColor.greenColor);
         break;
     }
   }
 
+  ThemeData _getThemeData(Color color) {
+    return ThemeData(
+          primaryColor: color,
+          primaryColorDark: _getDarkColor(color),
+          primaryColorLight: _getLightColor(color),
+          appBarTheme: getAppBarTheme(Colors.white));
+  }
+
   Color _getDarkColor(Color color) {
-    int red = color.red;
-    int green = color.green;
-    int blue = color.blue;
-    return Color.fromRGBO(red, green, blue, 1);
+    int red = color.red - 20 <= 0 ? color.red : color.red - 20;
+    int green = color.green - 20 <= 0? color.green : color.green - 20;
+    int blue = color.blue - 20 <= 0? color.blue : color.blue - 20;
+    return Color.fromRGBO(red,green,blue, 1);
+  }
+  
+  Color _getLightColor(Color color){
+    int red = color.red + 20 >= 255 ? color.red : color.red + 20;
+    int green = color.green + 20 >= 255 ? color.green : color.green + 20;
+    int blue = color.blue + 20 >= 255 ? color.blue : color.blue + 20;
+    return Color.fromRGBO(red,green,blue, 1);
   }
 
   AppBarTheme getAppBarTheme(Color color) {

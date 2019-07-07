@@ -18,6 +18,30 @@
       "type": "text",
       "placeholders": {}
     },
+  "appSetting": "设置",
+  "@appSetting": {
+    "description": "app设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutApp": "关于",
+  "@aboutApp": {
+    "description": "关于",
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkUpdate": "检查更新",
+  "@checkUpdate": {
+    "description": "检查更新",
+    "type": "text",
+    "placeholders": {}
+  },
+  "backgroundGradient": "背景渐变",
+  "@backgroundGradient": {
+    "description": "app设置",
+    "type": "text",
+    "placeholders": {}
+  },
       "pink": "略施粉黛",
       "@pink": {
         "description": "主题颜色",

@@ -22,7 +22,7 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
     _controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 500));
     _animation = new Tween(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
+        CurvedAnimation(parent: _controller, curve: Curves.easeInOutSine));
     _controller.forward();
     super.initState();
   }
