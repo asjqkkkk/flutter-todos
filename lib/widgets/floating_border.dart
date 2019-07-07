@@ -1,8 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:todo_list/utils/size_util.dart';
 
-class FloatingBorder extends ShapeBorder{
+class FloatingBorder extends ShapeBorder {
   @override
   // TODO: implement dimensions
   EdgeInsetsGeometry get dimensions => EdgeInsets.only();
@@ -20,23 +21,14 @@ class FloatingBorder extends ShapeBorder{
     //正六边形边长
     double length = rect.width / 2;
     //正六边形以最左为起点，顺时针六个点的坐标
-    Offset one = Offset(center.dx - length, center.dy);
-    Offset two = Offset(length / 2 + one.dx, center.dy - ((sqrt(3) / 2) * length));
-    Offset three = Offset(two.dx + length, two.dy);
-    Offset four = Offset(one.dx + length * 2, one.dy);
-    Offset five = Offset(three.dx, center.dy + ((sqrt(3) / 2) * length));
-    Offset six = Offset(two.dx, five.dy);
+    Point one = Point(center.dx - length, center.dy);
+    Point two = Point(length / 2 + one.x, center.dy - ((sqrt(3) / 2) * length));
+    Point three = Point(two.x + length, two.y);
+    Point four = Point(one.x + length * 2, one.y);
+    Point five = Point(three.x, center.dy + ((sqrt(3) / 2) * length));
+    Point six = Point(two.x, five.y);
 
-    Path path = Path()
-    ..moveTo(one.dx, one.dy)
-    ..lineTo(two.dx, two.dy)
-    ..lineTo(three.dx, three.dy)
-    ..lineTo(four.dx, four.dy)
-    ..lineTo(five.dx, five.dy)
-    ..lineTo(six.dx, six.dy)
-    ..close();
-
-    return path;
+    return _drawRoundPolygon([one, two, three, four, five, six], 3);
   }
 
   @override
@@ -50,4 +42,24 @@ class FloatingBorder extends ShapeBorder{
     return null;
   }
 
+  Path _drawRoundPolygon(List<Point> ps, double distance) {
+    var path = Path();
+    ps.add(ps[0]);
+    ps.add(ps[1]);
+    var p0 = LineInterCircle.intersectionPoint(ps[1], ps[0], distance);
+    path.moveTo(p0.x, p0.y);
+    for (int i = 0; i < ps.length - 2; i++) {
+      var p1 = ps[i];
+      var p2 = ps[i + 1];
+      var p3 = ps[i + 2];
+      var interP1 = LineInterCircle.intersectionPoint(p1, p2, distance);
+      var interP2 = LineInterCircle.intersectionPoint(p3, p2, distance);
+      path.lineTo(interP1.x, interP1.y);
+      path.arcToPoint(
+        Offset(interP2.x, interP2.y),
+        radius: Radius.circular(distance * 6),
+      );
+    }
+    return path;
+  }
 }

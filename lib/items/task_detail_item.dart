@@ -74,7 +74,6 @@ class _TaskDetailItemState extends State<TaskDetailItem>
                     materialTapTargetSize: MaterialTapTargetSize.padded,
                     value: currentProgress == 1.0,
                     onChanged: (value) {
-                      debugPrint("oncheck${value}");
                       setState(() {
                         if (value) {
                           currentProgress = 1.0;
@@ -98,6 +97,9 @@ class _TaskDetailItemState extends State<TaskDetailItem>
                             currentProgress = 0.0;
                           } else {
                             currentProgress = 1.0;
+                          }
+                          if (widget.onChecked != null) {
+                            widget.onChecked(currentProgress);
                           }
                         });
                       },
