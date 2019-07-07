@@ -31,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "coffee" : MessageLookupByLibrary.simpleMessage("coffee"),
     "cyan" : MessageLookupByLibrary.simpleMessage("cyan"),
     "dark" : MessageLookupByLibrary.simpleMessage("dark"),
+    "deleteTask" : MessageLookupByLibrary.simpleMessage("Delete"),
+    "editTask" : MessageLookupByLibrary.simpleMessage("Edit"),
     "green" : MessageLookupByLibrary.simpleMessage("green"),
     "itemNumber" : m0,
     "languageTitle" : MessageLookupByLibrary.simpleMessage("Change Language"),

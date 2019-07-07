@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-07T09:24:59.634989",
+  "@@last_modified": "2019-07-07T10:22:38.350689",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -57,6 +57,18 @@
   "dark": "dark",
   "@dark": {
     "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "editTask": "Edit",
+  "@editTask": {
+    "description": "编辑任务",
+    "type": "text",
+    "placeholders": {}
+  },
+  "deleteTask": "Delete",
+  "@deleteTask": {
+    "description": "删除任务",
     "type": "text",
     "placeholders": {}
   },

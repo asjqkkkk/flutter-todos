@@ -37,7 +37,7 @@ class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
       builder: (ctx, child) {
         return Transform.translate(
           offset: Offset(0, (_animation.value) * 56),
-          child: child,
+          child: Transform.scale(scale:1 - _animation.value,child: child),
         );
       },
       child: Transform.rotate(

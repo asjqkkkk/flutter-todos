@@ -94,6 +94,22 @@ class DemoLocalizations {
     );
   }
 
+  String get editTask{
+    return Intl.message(
+      'Edit',
+      name: 'editTask',
+      desc: '编辑任务',
+    );
+  }
+
+  String get deleteTask{
+    return Intl.message(
+      'Delete',
+      name: 'deleteTask',
+      desc: '删除任务',
+    );
+  }
+
 
   String taskItems(int taskNumbers){
     return Intl.plural(

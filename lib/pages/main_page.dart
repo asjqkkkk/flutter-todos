@@ -7,6 +7,7 @@ import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
+import 'package:todo_list/widgets/menu_icon.dart';
 import 'all_page.dart';
 
 class MainPage extends StatelessWidget {
@@ -22,7 +23,7 @@ class MainPage extends StatelessWidget {
         elevation: 0,
         title: Text(DemoLocalizations.of(context).appName),
         leading: FlatButton(
-          child: Image.asset("images/leading.png"),
+          child: MenuIcon(globalModel.logic.getWhiteInDark()),
           onPressed: () {
             model.scaffoldKey.currentState.openDrawer();
           },

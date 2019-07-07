@@ -41,7 +41,7 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
     final double circleTwoRadius = navHeaderHeight / 8;
     final double circleThreeRadius = navHeaderHeight / 7;
     final double circleFourRadius = navHeaderHeight / 5;
-//    final double circleFiveRadius = navHeaderHeight / 2;
+    final double circleFiveRadius = navHeaderHeight / 3;
 
     return Container(
       height: navHeaderHeight,
@@ -76,14 +76,15 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
             left: circleOneRadius + circleTwoRadius + circleThreeRadius,
             top: navHeaderHeight - circleFourRadius * 5 / 3,
           ),
-//          Positioned(
-//            child: getCircle(context, circleFiveRadius),
-//            left: circleOneRadius +
-//                circleTwoRadius +
-//                circleThreeRadius +
-//                circleFiveRadius,
-//            bottom: -50,
-//          ),
+          Positioned(
+            child: getCircle(context, circleFiveRadius),
+            left: circleOneRadius +
+                circleTwoRadius +
+                circleThreeRadius +
+                circleFourRadius +
+                circleFiveRadius,
+            bottom: circleFiveRadius - 50,
+          ),
         ],
       ),
     );
@@ -162,7 +163,7 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
     List<Widget> list = List.generate(randomNum, (index) {
       final randomWidth = Random().nextDouble() * 3 + 1;
       final randomHeight = Random().nextDouble() * 30;
-      final randomL = Random().nextDouble() * navHeaderHeight;
+      final randomL = Random().nextDouble() * navHeaderHeight * 4 / 3;
       final randomT = Random().nextDouble() * navHeaderHeight;
       return AnimatedBuilder(
         animation: _animation,

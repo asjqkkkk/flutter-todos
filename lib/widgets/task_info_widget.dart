@@ -3,6 +3,7 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/popmenu_botton.dart';
 
 class TaskInfoWidget extends StatelessWidget {
   final int index;
@@ -16,12 +17,11 @@ class TaskInfoWidget extends StatelessWidget {
       {this.space = 20,
       this.overallProgress = 0,
       this.taskNumbers = 0,
-      this.taskName = "", this.canShowSucess = false});
+      this.taskName = "",
+      this.canShowSucess = false});
 
   @override
   Widget build(BuildContext context) {
-
-
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
@@ -52,19 +52,17 @@ class TaskInfoWidget extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.centerRight,
                   child: Container(
-                    width: 42,
-                    height: 42,
-                    margin: EdgeInsets.only(top: 16),
-                    child: space == 20
-                        ? SizedBox()
-                        : Hero(
-                            tag: "task_more${index}",
-                            child: Icon(
-                              Icons.more_vert,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                          ),
-                  ),
+                      width: 42,
+                      height: 42,
+                      margin: EdgeInsets.only(top: 16),
+                      child: space == 20
+                          ? SizedBox()
+                          : Hero(
+                              tag: "task_more${index}",
+                              child: Material(
+                                color: Colors.transparent,
+                                child: PopMenuBt()
+                              ))),
                 ),
               )
             ],
@@ -95,15 +93,15 @@ class TaskInfoWidget extends StatelessWidget {
                   ? Expanded(
                       flex: 1,
                       child: Container(
-                        width: 40,
+                          width: 40,
                           height: 40,
                           child: Hero(
                             tag: "task_complete${index}",
                             child: FlareActor(
-                        "flrs/success.flr",
-                        fit: BoxFit.scaleDown,
-                        animation: "success",
-                      ),
+                              "flrs/success.flr",
+                              fit: BoxFit.scaleDown,
+                              animation: "success",
+                            ),
                           )))
                   : SizedBox()
             ],

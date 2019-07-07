@@ -6,6 +6,7 @@ import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
 import 'package:todo_list/utils/theme_util.dart';
+import 'package:todo_list/widgets/popmenu_botton.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
 
 class TaskDetailPage extends StatelessWidget {
@@ -51,14 +52,14 @@ class TaskDetailPage extends StatelessWidget {
               elevation: 0,
               backgroundColor: Colors.transparent,
               actions: <Widget>[
-                IconButton(
-                    icon: Hero(
-                        tag: "task_more${index}",
-                        child: Icon(
-                          Icons.more_vert,
-                          color: Theme.of(context).primaryColor,
-                        )),
-                    onPressed: null)
+                Hero(
+                    tag: "task_more${index}",
+                    child: Material(
+                      color: Colors.transparent,
+                      child: PopMenuBt()
+                    )
+                ),
+
               ],
             ),
             body: Column(

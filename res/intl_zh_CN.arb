@@ -54,6 +54,18 @@
         "type": "text",
         "placeholders": {}
       },
+  "editTask": "编辑",
+  "@editTask": {
+    "description": "编辑任务",
+    "type": "text",
+    "placeholders": {}
+  },
+  "deleteTask": "删除",
+  "@deleteTask": {
+    "description": "删除任务",
+    "type": "text",
+    "placeholders": {}
+  },
   "welcomeWord": "你好呀, ",
   "@welcomeWord": {
     "description": "主页的欢迎词",

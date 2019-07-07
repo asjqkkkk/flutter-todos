@@ -31,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "coffee" : MessageLookupByLibrary.simpleMessage("想入啡啡"),
     "cyan" : MessageLookupByLibrary.simpleMessage("蓝天白云"),
     "dark" : MessageLookupByLibrary.simpleMessage("不见五指"),
+    "deleteTask" : MessageLookupByLibrary.simpleMessage("删除"),
+    "editTask" : MessageLookupByLibrary.simpleMessage("编辑"),
     "green" : MessageLookupByLibrary.simpleMessage("青青草原"),
     "itemNumber" : m0,
     "languageTitle" : MessageLookupByLibrary.simpleMessage("切换语言"),

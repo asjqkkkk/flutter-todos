@@ -30,7 +30,7 @@ class ThemeUtil {
       case MyTheme.coffeeTheme:
         return ThemeData(
             primaryColor: MyThemeColor.coffeeColor,
-            primaryColorDark: _getDarkColor(MyThemeColor.purpleColor),
+            primaryColorDark: _getDarkColor(MyThemeColor.coffeeColor),
             appBarTheme: getAppBarTheme(Colors.white));
       case MyTheme.cyanTheme:
         return ThemeData(

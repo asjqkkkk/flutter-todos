@@ -4,9 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_list/model/global_model.dart';
 
 class BottomShowWidget extends StatefulWidget {
-
   final VoidCallback onExit;
-
 
   BottomShowWidget({this.onExit});
 
@@ -17,17 +15,16 @@ class BottomShowWidget extends StatefulWidget {
 class _BottomShowWidgetState extends State<BottomShowWidget>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
-  Animation<double> _animationBottomShow;
+  Animation<double> _animation;
 
   @override
   void initState() {
     _controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 500));
-    _animationBottomShow = new Tween(begin: 0.0, end: 1.0).animate(
+    _animation = new Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
     _controller.forward();
     super.initState();
-
   }
 
   @override
@@ -41,7 +38,6 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final globalModel = Provider.of<GlobalModel>(context);
-
 
     return GestureDetector(
       onTap: () {
@@ -58,21 +54,23 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                 bottom: 20,
                 left: size.width / 2 - 28,
                 child: AnimatedBuilder(
-                    animation: _animationBottomShow,
+                    animation: _animation,
                     child: Container(
                       width: 56,
                       height: 56,
                       decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.5),
-                        shape: BoxShape.circle
-                      ),
+                          color: Colors.grey.withOpacity(0.5),
+                          shape: BoxShape.circle),
                     ),
                     builder: (ctx, child) {
-                      return Transform.scale(scale: (size.height / 28) * (_animationBottomShow.value),child: child,);
+                      return Transform.scale(
+                        scale: (size.height / 28) * (_animation.value),
+                        child: child,
+                      );
                     }),
               ),
               AnimatedBuilder(
-                animation: _animationBottomShow,
+                animation: _animation,
                 child: CircleList(
                   origin: Offset(0, -size.width / 2 + 20),
                   showInitialAnimation: true,
@@ -80,35 +78,37 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                     Icon(
                       Icons.laptop_chromebook,
                       color: Colors.redAccent,
-                      size: 50,
+                      size: 40,
                     ),
                     Icon(
                       Icons.chrome_reader_mode,
                       color: Colors.lightBlueAccent,
-                      size: 50,
+                      size: 40,
                     ),
                     Icon(
                       Icons.videogame_asset,
                       color: Colors.orangeAccent,
-                      size: 50,
+                      size: 40,
                     ),
                     Icon(
                       Icons.local_drink,
                       color: Colors.green,
-                      size: 50,
+                      size: 40,
                     ),
                     Icon(
                       Icons.landscape,
                       color: Colors.pinkAccent,
-                      size: 50,
-                    ),Icon(
+                      size: 40,
+                    ),
+                    Icon(
                       Icons.drive_eta,
                       color: Colors.cyanAccent,
-                      size: 50,
-                    ),Icon(
+                      size: 40,
+                    ),
+                    Icon(
                       Icons.directions_run,
                       color: Colors.brown,
-                      size: 50,
+                      size: 40,
                     ),
                   ],
                   innerCircleColor: Theme.of(context).primaryColor,
@@ -140,8 +140,9 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                       offset: Offset(
                           0,
                           MediaQuery.of(context).size.height -
-                              (_animationBottomShow.value) * size.width),
-                      child: child);
+                              (_animation.value) * size.width),
+                      child: Transform.scale(
+                          scale: _animation.value, child: child));
                 },
               ),
             ],
