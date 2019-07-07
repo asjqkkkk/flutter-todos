@@ -157,10 +157,10 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
   }
 
   List<Widget> getRain(double navHeaderHeight, BuildContext context) {
-    final randomNum = Random().nextInt(20) + 1;
+    final randomNum = Random().nextInt(50) + 1;
 
     List<Widget> list = List.generate(randomNum, (index) {
-      final randomWidth = Random().nextDouble() * 10;
+      final randomWidth = Random().nextDouble() * 3 + 1;
       final randomHeight = Random().nextDouble() * 30;
       final randomL = Random().nextDouble() * navHeaderHeight;
       final randomT = Random().nextDouble() * navHeaderHeight;

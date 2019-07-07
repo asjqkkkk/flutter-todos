@@ -24,6 +24,30 @@
         "type": "text",
         "placeholders": {}
       },
+        "coffee": "想入啡啡",
+        "@coffee": {
+          "description": "主题颜色",
+          "type": "text",
+          "placeholders": {}
+        },
+  "cyan": "蓝天白云",
+  "@cyan": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "green": "青青草原",
+  "@green": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "purple": "紫气东来",
+  "@purple": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
       "dark": "不见五指",
       "@dark": {
         "description": "主题颜色",

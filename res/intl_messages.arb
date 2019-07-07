@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-06T19:30:39.845874",
+  "@@last_modified": "2019-07-07T09:24:59.634989",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -26,6 +26,30 @@
   },
   "pink": "pink",
   "@pink": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "coffee": "coffee",
+  "@coffee": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cyan": "cyan",
+  "@cyan": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "green": "green",
+  "@green": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "purple": "purple",
+  "@purple": {
     "description": "主题颜色",
     "type": "text",
     "placeholders": {}

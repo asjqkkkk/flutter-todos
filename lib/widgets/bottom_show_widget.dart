@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:circle_list/circle_list.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_list/model/global_model.dart';
 
 class BottomShowWidget extends StatefulWidget {
 
@@ -38,6 +40,8 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final globalModel = Provider.of<GlobalModel>(context);
+
 
     return GestureDetector(
       onTap: () {
@@ -108,7 +112,7 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                     ),
                   ],
                   innerCircleColor: Theme.of(context).primaryColor,
-                  outerCircleColor: Colors.white,
+                  outerCircleColor: globalModel.logic.getBgInDark(),
                   centerWidget: GestureDetector(
                       onTap: () {
                         doExit(context, _controller);

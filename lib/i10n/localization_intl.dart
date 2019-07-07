@@ -54,6 +54,38 @@ class DemoLocalizations {
     );
   }
 
+  String get coffee{
+    return Intl.message(
+      'coffee',
+      name: 'coffee',
+      desc: '主题颜色',
+    );
+  }
+
+  String get cyan{
+    return Intl.message(
+      'cyan',
+      name: 'cyan',
+      desc: '主题颜色',
+    );
+  }
+
+  String get green{
+    return Intl.message(
+      'green',
+      name: 'green',
+      desc: '主题颜色',
+    );
+  }
+
+  String get purple{
+    return Intl.message(
+      'purple',
+      name: 'purple',
+      desc: '主题颜色',
+    );
+  }
+
   String get dark{
     return Intl.message(
       'dark',
