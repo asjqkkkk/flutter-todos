@@ -1,7 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:circle_list/circle_list.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/model/global_model.dart';
+import 'package:circle_list/circle_list.dart';
 
 class BottomShowWidget extends StatefulWidget {
   final VoidCallback onExit;
