@@ -2,8 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/task_icon_config.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:circle_list/circle_list.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:todo_list/pages/edit_task_page.dart';
 
 class BottomShowWidget extends StatefulWidget {
   final VoidCallback onExit;
@@ -18,6 +21,15 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _animation;
+  List<TaskIcon> _children = [
+    TaskIcon(Colors.blueGrey, "default", Icons.add),
+    TaskIcon(Colors.teal, "radio", Icons.chrome_reader_mode),
+    TaskIcon(Colors.orangeAccent, "game", Icons.videogame_asset),
+    TaskIcon(Colors.green, "read", Icons.book),
+    TaskIcon(Colors.brown, "sports", Icons.directions_run),
+    TaskIcon(Colors.cyanAccent, "drive", Icons.drive_eta),
+    TaskIcon(Colors.pink, "work", Icons.work),
+  ];
 
   @override
   void initState() {
@@ -74,46 +86,32 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
               AnimatedBuilder(
                 animation: _animation,
                 child: CircleList(
+                  initialAngle: -pi / 2,
                   origin: Offset(0, -size.width / 2 + 20),
                   showInitialAnimation: true,
-                  children: [
-                    Icon(
-                      Icons.laptop_chromebook,
-                      color: Colors.redAccent,
-                      size: 40,
-                    ),
-                    Icon(
-                      Icons.chrome_reader_mode,
-                      color: Colors.lightBlueAccent,
-                      size: 40,
-                    ),
-                    Icon(
-                      Icons.videogame_asset,
-                      color: Colors.orangeAccent,
-                      size: 40,
-                    ),
-                    Icon(
-                      Icons.local_drink,
-                      color: Colors.green,
-                      size: 40,
-                    ),
-                    Icon(
-                      Icons.landscape,
-                      color: Colors.pinkAccent,
-                      size: 40,
-                    ),
-                    Icon(
-                      Icons.drive_eta,
-                      color: Colors.cyanAccent,
-                      size: 40,
-                    ),
-                    Icon(
-                      Icons.directions_run,
-                      color: Colors.brown,
-                      size: 40,
-                    ),
-                  ],
-                  innerCircleColor: Theme.of(context).primaryColor,
+                  children: List.generate(_children.length, (index) {
+                    return GestureDetector(
+                      onTap: (){
+                        debugPrint("点击：${_children[index].taskName}");
+                        Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx){
+                          return EditTaskPage(_children[index]);
+                        }));
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                                color: _children[index].color, width: 1)),
+                        child: Icon(
+                          _children[index].iconData,
+                          size: 40,
+                          color: _children[index].color,
+                        ),
+                      ),
+                    );
+                  }),
+                  innerCircleColor: Theme.of(context).primaryColorLight,
                   outerCircleColor: globalModel.logic.getBgInDark(),
                   centerWidget: GestureDetector(
                       onTap: () {
