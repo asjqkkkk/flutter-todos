@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/config/task_icon_config.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:circle_list/circle_list.dart';
@@ -93,9 +94,11 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                     return GestureDetector(
                       onTap: (){
                         debugPrint("点击：${_children[index].taskName}");
+                        doExit(context, _controller);
                         Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx){
-                          return EditTaskPage(_children[index]);
+                         return ProviderConfig.getInstance().getEditTaskPage(_children[index],mainPageModel: globalModel.mainPageModel,);
                         }));
+
                       },
                       child: Container(
                         padding: EdgeInsets.all(10),

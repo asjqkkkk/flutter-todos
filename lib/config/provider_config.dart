@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/task_icon_config.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/pages/all_page.dart';
@@ -38,4 +39,11 @@ class ProviderConfig {
       child: TaskDetailPage(index,mainPageModel: mainPageModel,),
     );
   }
+
+  ChangeNotifierProvider<EditTaskPageModel> getEditTaskPage(TaskIcon taskIcon,{MainPageModel mainPageModel}){
+     return ChangeNotifierProvider<EditTaskPageModel>(
+       builder:(context) => EditTaskPageModel(),
+       child: EditTaskPage(taskIcon,mainPageModel: mainPageModel,),
+     );
+   }
 }
