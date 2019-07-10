@@ -126,6 +126,14 @@ class DemoLocalizations {
     );
   }
 
+  String get blueGray{
+    return Intl.message(
+      'blue-gray',
+      name: 'blueGray',
+      desc: '主题颜色',
+    );
+  }
+
   String get editTask{
     return Intl.message(
       'Edit',

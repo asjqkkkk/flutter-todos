@@ -8,6 +8,7 @@ import 'package:todo_list/model/global_model.dart';
 import 'package:circle_list/circle_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:todo_list/pages/edit_task_page.dart';
+import 'package:todo_list/utils/theme_util.dart';
 
 class BottomShowWidget extends StatefulWidget {
   final VoidCallback onExit;
@@ -23,13 +24,13 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
   AnimationController _controller;
   Animation<double> _animation;
   List<TaskIcon> _children = [
-    TaskIcon(Colors.blueGrey, "default", Icons.add),
-    TaskIcon(Colors.teal, "radio", Icons.chrome_reader_mode),
-    TaskIcon(Colors.orangeAccent, "game", Icons.videogame_asset),
-    TaskIcon(Colors.green, "read", Icons.book),
-    TaskIcon(Colors.brown, "sports", Icons.directions_run),
-    TaskIcon(Colors.cyanAccent, "drive", Icons.drive_eta),
-    TaskIcon(Colors.pink, "work", Icons.work),
+    TaskIcon(MyThemeColor.defaultColor, "default", Icons.add),
+    TaskIcon(MyThemeColor.coffeeColor, "radio", Icons.chrome_reader_mode),
+    TaskIcon(MyThemeColor.cyanColor, "game", Icons.videogame_asset),
+    TaskIcon(MyThemeColor.purpleColor, "read", Icons.book),
+    TaskIcon(MyThemeColor.greenColor, "sports", Icons.directions_run),
+    TaskIcon(MyThemeColor.darkColor, "drive", Icons.drive_eta),
+    TaskIcon(MyThemeColor.blueGrayColor, "work", Icons.work),
   ];
 
   @override

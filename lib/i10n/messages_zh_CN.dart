@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName" : MessageLookupByLibrary.simpleMessage("一日"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("设置"),
     "backgroundGradient" : MessageLookupByLibrary.simpleMessage("背景渐变"),
+    "blueGray" : MessageLookupByLibrary.simpleMessage("炊烟袅袅"),
     "changeTheme" : MessageLookupByLibrary.simpleMessage("切换主题"),
     "checkUpdate" : MessageLookupByLibrary.simpleMessage("检查更新"),
     "coffee" : MessageLookupByLibrary.simpleMessage("想入啡啡"),

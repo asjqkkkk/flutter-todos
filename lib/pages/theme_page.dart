@@ -22,6 +22,7 @@ class ThemePage extends StatelessWidget {
             getThemeBloc(DemoLocalizations.of(context).green, MyThemeColor.greenColor,MyTheme.greenTheme,context),
             getThemeBloc(DemoLocalizations.of(context).purple, MyThemeColor.purpleColor,MyTheme.purpleTheme,context),
             getThemeBloc(DemoLocalizations.of(context).cyan, MyThemeColor.cyanColor,MyTheme.cyanTheme,context),
+            getThemeBloc(DemoLocalizations.of(context).blueGray, MyThemeColor.blueGrayColor,MyTheme.blueGrayTheme,context),
 
           ],
         ),

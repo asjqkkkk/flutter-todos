@@ -42,18 +42,18 @@
     "type": "text",
     "placeholders": {}
   },
-      "pink": "略施粉黛",
-      "@pink": {
-        "description": "主题颜色",
-        "type": "text",
-        "placeholders": {}
-      },
-        "coffee": "想入啡啡",
-        "@coffee": {
-          "description": "主题颜色",
-          "type": "text",
-          "placeholders": {}
-        },
+  "pink": "略施粉黛",
+  "@pink": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+    "coffee": "想入啡啡",
+    "@coffee": {
+      "description": "主题颜色",
+      "type": "text",
+      "placeholders": {}
+    },
   "cyan": "蓝天白云",
   "@cyan": {
     "description": "主题颜色",
@@ -72,12 +72,18 @@
     "type": "text",
     "placeholders": {}
   },
-      "dark": "不见五指",
-      "@dark": {
-        "description": "主题颜色",
-        "type": "text",
-        "placeholders": {}
-      },
+  "dark": "不见五指",
+  "@dark": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "blueGray": "炊烟袅袅",
+  "@blueGray": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
   "editTask": "编辑",
   "@editTask": {
     "description": "编辑任务",

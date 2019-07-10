@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-07T13:16:26.901296",
+  "@@last_modified": "2019-07-10T16:09:25.339573",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -80,6 +80,12 @@
   },
   "dark": "dark",
   "@dark": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "blueGray": "blue-gray",
+  "@blueGray": {
     "description": "主题颜色",
     "type": "text",
     "placeholders": {}

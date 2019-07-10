@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/task_icon_config.dart';
@@ -12,23 +13,58 @@ class EditTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final EditTaskPageModel model = Provider.of<EditTaskPageModel>(context);
+    model.setContext(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text(taskIcon.taskName),backgroundColor: taskIcon.color,),
+      backgroundColor: model.bgColor,
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: taskIcon.color),
+        backgroundColor: model.bgColor,
+        elevation: 0,
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.check,color: taskIcon.color,), onPressed: null)
+        ],
+      ),
       body: Container(
         child: Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(bottom: 100),
-              child: ListView(
-                children: List.generate(30, (index) {
-                  return Text(
-                    "第${index}条",
-                    style: TextStyle(fontSize: 20),
-                  );
-                }),
+              margin: EdgeInsets.only(bottom: 100,left: 50,right: 50),
+              child: NotificationListener<OverscrollIndicatorNotification>(
+                onNotification: (overScroll) {
+                  overScroll.disallowGlow();
+                },
+                child: ListView(
+
+                  children: List.generate(30, (index) {
+                    return Container(
+                      margin: EdgeInsets.only(bottom: 10,top: 10),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            width: 7,
+                            height: 7,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: taskIcon.color,
+                            ),
+                          ),
+                          SizedBox(width: 15,),
+                          Expanded(
+                            child: Text("第$index项",style: TextStyle(
+                              color: Color.fromRGBO(130, 130, 130, 1),
+                              fontSize: 20,
+                            ),),
+                          ),
+                          IconButton(icon: Icon(Icons.delete_outline,color: taskIcon.color.withOpacity(0.5),), onPressed: (){
+
+                          })
+                        ],
+                      ),
+                    );
+                  }),
+                ),
               ),
             ),
             Positioned(
@@ -37,17 +73,23 @@ class EditTaskPage extends StatelessWidget {
               child: Container(
                 height: 100,
                 width: MediaQuery.of(context).size.width,
-                color: Colors.white,
+                color: model.bgColor,
                 alignment: Alignment.center,
                 child: Column(
                   children: <Widget>[
                     Container(
                       height: 1,
-                      color: Colors.grey,
+                      color: Colors.grey.withOpacity(0.5),
                     ),
                     TextField(
-                      onChanged: (value){
+                      onChanged: (value) {
                         debugPrint("当前的内容是:${value}");
+                        if(value.isEmpty){
+                          model.canAddTask = false;
+                        } else {
+                          model.canAddTask = true;
+                        }
+                        model.refresh();
                       },
                       decoration: InputDecoration(
                           hintText: "添加任务",
@@ -56,15 +98,20 @@ class EditTaskPage extends StatelessWidget {
                             taskIcon.iconData,
                             color: taskIcon.color,
                           ),
-                          suffixIcon: Container(
-                            margin: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                color: Colors.grey.withOpacity(0.4)),
-                            child: Icon(
-                              Icons.arrow_upward,
-                              color: Colors.white,
-                              size: 20,
+                          suffixIcon: GestureDetector(
+                            onTap: (){
+
+                            },
+                            child: Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: model.canAddTask ? taskIcon.color :Colors.grey.withOpacity(0.4)),
+                              child: Icon(
+                                Icons.arrow_upward,
+                                color: model.bgColor,
+                                size: 20,
+                              ),
                             ),
                           )),
                     ),
@@ -74,7 +121,7 @@ class EditTaskPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          getIconText(
+                          model.logic.getIconText(
                             icon: Icon(
                               Icons.date_range,
                               color: taskIcon.color,
@@ -82,7 +129,7 @@ class EditTaskPage extends StatelessWidget {
                             text: "截止日期",
                             onTap: () {},
                           ),
-                          getIconText(
+                          model.logic.getIconText(
                             icon: Icon(
                               Icons.notifications_active,
                               color: taskIcon.color,
@@ -90,7 +137,7 @@ class EditTaskPage extends StatelessWidget {
                             text: "提醒我",
                             onTap: () {},
                           ),
-                          getIconText(
+                          model.logic.getIconText(
                             icon: Icon(
                               Icons.repeat,
                               color: taskIcon.color,
@@ -105,27 +152,6 @@ class EditTaskPage extends StatelessWidget {
                 ),
               ),
             )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget getIconText({Icon icon, String text, VoidCallback onTap}) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.fromLTRB(10, 4, 10, 4),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            color: Colors.grey.withOpacity(0.2)),
-        child: Row(
-          children: <Widget>[
-            icon,
-            SizedBox(
-              width: 4,
-            ),
-            Text(text),
           ],
         ),
       ),

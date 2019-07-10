@@ -35,29 +35,32 @@ class ThemeUtil {
       case MyTheme.greenTheme:
         return _getThemeData(MyThemeColor.greenColor);
         break;
+      case MyTheme.blueGrayTheme:
+        return _getThemeData(MyThemeColor.blueGrayColor);
+        break;
     }
   }
 
   ThemeData _getThemeData(Color color) {
     return ThemeData(
-          primaryColor: color,
-          primaryColorDark: _getDarkColor(color),
-          primaryColorLight: _getLightColor(color),
-          appBarTheme: getAppBarTheme(Colors.white));
+        primaryColor: color,
+        primaryColorDark: _getDarkColor(color),
+        primaryColorLight: _getLightColor(color),
+        appBarTheme: getAppBarTheme(Colors.white));
   }
 
   Color _getDarkColor(Color color) {
     int red = color.red - 20 <= 0 ? color.red : color.red - 20;
-    int green = color.green - 20 <= 0? color.green : color.green - 20;
-    int blue = color.blue - 20 <= 0? color.blue : color.blue - 20;
-    return Color.fromRGBO(red,green,blue, 1);
+    int green = color.green - 20 <= 0 ? color.green : color.green - 20;
+    int blue = color.blue - 20 <= 0 ? color.blue : color.blue - 20;
+    return Color.fromRGBO(red, green, blue, 1);
   }
-  
-  Color _getLightColor(Color color){
+
+  Color _getLightColor(Color color) {
     int red = color.red + 20 >= 255 ? color.red : color.red + 20;
     int green = color.green + 20 >= 255 ? color.green : color.green + 20;
     int blue = color.blue + 20 >= 255 ? color.blue : color.blue + 20;
-    return Color.fromRGBO(red,green,blue, 1);
+    return Color.fromRGBO(red, green, blue, 1);
   }
 
   AppBarTheme getAppBarTheme(Color color) {
@@ -74,6 +77,7 @@ class MyTheme {
   static const String cyanTheme = "cyan";
   static const String purpleTheme = "purple";
   static const String greenTheme = "green";
+  static const String blueGrayTheme = "blueGray";
 }
 
 class MyThemeColor {
@@ -83,4 +87,5 @@ class MyThemeColor {
   static const Color cyanColor = Color.fromRGBO(143, 227, 235, 1);
   static const Color greenColor = Color.fromRGBO(151, 215, 178, 1);
   static const Color purpleColor = Color.fromRGBO(205, 188, 255, 1);
+  static const Color blueGrayColor = Color.fromRGBO(135, 170, 171, 1);
 }

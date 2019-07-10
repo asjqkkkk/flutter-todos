@@ -72,12 +72,18 @@
     "type": "text",
     "placeholders": {}
   },
-      "dark": "dark",
-      "@dark": {
-        "description": "主题颜色",
-        "type": "text",
-        "placeholders": {}
-      },
+  "dark": "dark",
+  "@dark": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "blueGray": "blue-gray",
+  "@blueGray": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
   "editTask": "Edit",
   "@editTask": {
     "description": "编辑任务",
