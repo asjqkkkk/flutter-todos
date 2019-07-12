@@ -1,15 +1,14 @@
 import 'dart:math';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_list/config/task_icon_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/edit_task_page_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 
 class EditTaskPage extends StatelessWidget {
-  final TaskIcon taskIcon;
+  final TaskIconBean taskIcon;
   final MainPageModel mainPageModel;
 
   EditTaskPage(this.taskIcon, {this.mainPageModel});
@@ -19,18 +18,20 @@ class EditTaskPage extends StatelessWidget {
     final EditTaskPageModel model = Provider.of<EditTaskPageModel>(context);
     model.setContext(context);
     model.setTaskIcon(taskIcon);
+    final iconColor = ColorBean.fromBean(taskIcon.colorBean);
+    final iconData = IconBean.fromBean(taskIcon.iconBean);
 
     return Scaffold(
       backgroundColor: model.bgColor,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: taskIcon.color),
+        iconTheme: IconThemeData(color: iconColor),
         backgroundColor: model.bgColor,
         elevation: 0,
         actions: <Widget>[
           IconButton(
               icon: Icon(
                 Icons.check,
-                color: taskIcon.color,
+                color: iconColor,
               ),
               tooltip: DemoLocalizations.of(context).submit,
               onPressed: () {})
@@ -51,7 +52,7 @@ class EditTaskPage extends StatelessWidget {
                     return Dismissible(
                       background: Container(
                         alignment: Alignment.centerLeft,
-                        color: taskIcon.color,
+                        color: iconColor,
                         padding: EdgeInsets.only(left: 10),
                         child: Icon(
                           Icons.delete,
@@ -60,7 +61,7 @@ class EditTaskPage extends StatelessWidget {
                       ),
                       secondaryBackground: Container(
                         alignment: Alignment.centerRight,
-                        color: taskIcon.color,
+                        color: iconColor,
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
                           Icons.delete,
@@ -78,7 +79,7 @@ class EditTaskPage extends StatelessWidget {
                               height: 7,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: taskIcon.color,
+                                color: iconColor,
                               ),
                             ),
                             SizedBox(
@@ -123,8 +124,8 @@ class EditTaskPage extends StatelessWidget {
                           hintText: DemoLocalizations.of(context).addTask,
                           border: InputBorder.none,
                           prefixIcon: Icon(
-                            taskIcon.iconData,
-                            color: taskIcon.color,
+                            iconData,
+                            color: iconColor,
                           ),
                           suffixIcon: GestureDetector(
                             onTap: model.logic.submitOneItem,
@@ -133,7 +134,7 @@ class EditTaskPage extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
                                   color: model.canAddTask
-                                      ? taskIcon.color
+                                      ? iconColor
                                       : Colors.grey.withOpacity(0.4)),
                               child: Icon(
                                 Icons.arrow_upward,
@@ -152,7 +153,7 @@ class EditTaskPage extends StatelessWidget {
                           model.logic.getIconText(
                             icon: Icon(
                               Icons.timer,
-                              color: taskIcon.color,
+                              color: iconColor,
                             ),
                             text:  model.logic.getEndTimeText(),
                             onTap: model.logic.pickEndTime,
@@ -160,7 +161,7 @@ class EditTaskPage extends StatelessWidget {
                           model.logic.getIconText(
                             icon: Icon(
                               Icons.notifications_active,
-                              color: taskIcon.color,
+                              color: iconColor,
                             ),
                             text: DemoLocalizations.of(context).remindMe,
                             onTap: () {},
@@ -168,7 +169,7 @@ class EditTaskPage extends StatelessWidget {
                           model.logic.getIconText(
                             icon: Icon(
                               Icons.repeat,
-                              color: taskIcon.color,
+                              color: iconColor,
                             ),
                             text: DemoLocalizations.of(context).repeat,
                             onTap: () {},

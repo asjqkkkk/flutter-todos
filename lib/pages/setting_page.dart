@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/about_page.dart';
+import 'package:todo_list/pages/icon_setting_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
 class SettingPage extends StatelessWidget {
@@ -30,6 +32,18 @@ class SettingPage extends StatelessWidget {
                       Keys.backgroundGradient, globalModel.isBgGradient);
                   globalModel.refresh();
                 }),
+          ),
+          ListTile(
+            title: Text(DemoLocalizations.of(context).iconSetting),
+            leading: Icon(
+              Icons.insert_emoticon,
+            ),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) {
+                return ProviderConfig.getInstance().getIconSettingPage();
+              }));
+            },
           ),
           ListTile(
             title: Text(DemoLocalizations.of(context).aboutApp),

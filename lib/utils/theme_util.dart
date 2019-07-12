@@ -50,16 +50,18 @@ class ThemeUtil {
   }
 
   Color _getDarkColor(Color color) {
-    int red = color.red - 20 <= 0 ? color.red : color.red - 20;
-    int green = color.green - 20 <= 0 ? color.green : color.green - 20;
-    int blue = color.blue - 20 <= 0 ? color.blue : color.blue - 20;
+    int number = 20;
+    int red = color.red - number <= 0 ? color.red : color.red - number;
+    int green = color.green - number <= 0 ? color.green : color.green - number;
+    int blue = color.blue - number <= 0 ? color.blue : color.blue - number;
     return Color.fromRGBO(red, green, blue, 1);
   }
 
   Color _getLightColor(Color color) {
-    int red = color.red + 20 >= 255 ? color.red : color.red + 20;
-    int green = color.green + 20 >= 255 ? color.green : color.green + 20;
-    int blue = color.blue + 20 >= 255 ? color.blue : color.blue + 20;
+    int number = 30;
+    int red = color.red + number >= 255 ? color.red : color.red + number;
+    int green = color.green + number >= 255 ? color.green : color.green + number;
+    int blue = color.blue + number >= 255 ? color.blue : color.blue + number;
     return Color.fromRGBO(red, green, blue, 1);
   }
 

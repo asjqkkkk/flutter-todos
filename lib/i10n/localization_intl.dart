@@ -62,6 +62,17 @@ class DemoLocalizations {
     );
   }
 
+  String get iconSetting => Intl.message('Icon Setting', name: 'iconSetting', desc: '图标设置',);
+  String get currentIcons => Intl.message('Current Icons', name: 'currentIcons', desc: '当前图标',);
+  String get game => Intl.message('Game', name: 'game', desc: '打游戏',);
+  String get music => Intl.message('Music', name: 'music', desc: '听歌',);
+  String get read => Intl.message('Read', name: 'read', desc: '读书',);
+  String get sports => Intl.message('Sports', name: 'sports', desc: '运动',);
+  String get travel => Intl.message('Travel', name: 'travel', desc: '旅行',);
+  String get work => Intl.message('Work', name: 'work', desc: '工作',);
+
+
+
   String get checkUpdate {
     return Intl.message(
       'Check Update',

@@ -30,6 +30,55 @@
     "type": "text",
     "placeholders": {}
   },
+  "iconSetting": "图标设置",
+  "@iconSetting": {
+    "description": "图标设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "currentIcons": "当前图标",
+  "@currentIcons": {
+    "description": "当前图标",
+    "type": "text",
+    "placeholders": {}
+  },
+  "game": "打游戏",
+  "@game": {
+    "description": "打游戏",
+    "type": "text",
+    "placeholders": {}
+  },
+  "music": "听歌",
+  "@music": {
+    "description": "听歌",
+    "type": "text",
+    "placeholders": {}
+  },
+  "read": "读书",
+  "@read": {
+    "description": "读书",
+    "type": "text",
+    "placeholders": {}
+  },
+  "sports": "运动",
+  "@sports": {
+    "description": "运动",
+    "type": "text",
+    "placeholders": {}
+  },
+  "travel": "旅行",
+  "@travel": {
+    "description": "旅行",
+    "type": "text",
+    "placeholders": {}
+  },
+  "work": "工作",
+  "@work": {
+    "description": "工作",
+    "type": "text",
+    "placeholders": {}
+  },
+
   "checkUpdate": "检查更新",
   "@checkUpdate": {
     "description": "检查更新",

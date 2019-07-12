@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
@@ -78,12 +79,13 @@ class EditTaskPageLogic {
       firstDate: initialDate,
       lastDate: lastDate,
         builder: (BuildContext context, Widget child) {
+        final color = ColorBean.fromBean(_model.taskIcon.colorBean);
           return FittedBox(
             child: Theme(
               child: child,
               data: ThemeData(
-                primaryColor: _model.taskIcon.color,
-                accentColor: _model.taskIcon.color,
+                primaryColor: color,
+                accentColor: color,
                 buttonTheme: ButtonThemeData(
                     textTheme: ButtonTextTheme.accent
                 ),

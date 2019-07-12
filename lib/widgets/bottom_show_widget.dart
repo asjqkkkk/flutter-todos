@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/provider_config.dart';
-import 'package:todo_list/config/task_icon_config.dart';
+import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:circle_list/circle_list.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,8 +12,9 @@ import 'package:todo_list/utils/theme_util.dart';
 
 class BottomShowWidget extends StatefulWidget {
   final VoidCallback onExit;
+  final List<TaskIconBean> taskIconBeans;
 
-  BottomShowWidget({this.onExit});
+  BottomShowWidget({this.onExit, this.taskIconBeans});
 
   @override
   _BottomShowWidgetState createState() => _BottomShowWidgetState();
@@ -23,14 +24,7 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _animation;
-  List<TaskIcon> _children = [
-    TaskIcon(MyThemeColor.coffeeColor, "radio", Icons.chrome_reader_mode),
-    TaskIcon(MyThemeColor.cyanColor, "game", Icons.videogame_asset),
-    TaskIcon(MyThemeColor.defaultColor, "read", Icons.book),
-    TaskIcon(MyThemeColor.greenColor, "sports", Icons.directions_run),
-    TaskIcon(MyThemeColor.darkColor, "drive", Icons.drive_eta),
-    TaskIcon(MyThemeColor.blueGrayColor, "work", Icons.work),
-  ];
+  List<TaskIconBean> _children = [];
 
   @override
   void initState() {
@@ -39,6 +33,8 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
     _animation = new Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(parent: _controller, curve: Curves.easeInOutSine));
     _controller.forward();
+    _children.clear();
+    _children.addAll(widget.taskIconBeans);
     super.initState();
   }
 
@@ -105,9 +101,9 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
 
                         },
                         child: Icon(
-                          _children[index].iconData,
+                          IconBean.fromBean(_children[index].iconBean),
                           size: 40,
-                          color: _children[index].color,
+                          color: ColorBean.fromBean(_children[index].colorBean),
                         ),
                       );
                     }),

@@ -6,3 +6,4 @@ export 'task_detail_page.dart';
 export 'setting_page.dart';
 export 'about_page.dart';
 export 'edit_task_page.dart';
+export 'icon_setting_page.dart';
