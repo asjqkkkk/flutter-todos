@@ -7,6 +7,9 @@ class EditTaskPageModel extends ChangeNotifier{
   EditTaskPageLogic logic;
   BuildContext context;
   Color bgColor = Colors.white;
+  final TextEditingController textEditingController = TextEditingController();
+
+  List<String> taskDetails = [];
 
   bool canAddTask = false;    //能否添加任务
 
@@ -24,10 +27,13 @@ class EditTaskPageModel extends ChangeNotifier{
   @override
   void dispose(){
     super.dispose();
+    textEditingController?.removeListener(logic.editListener);
+    textEditingController?.dispose();
     debugPrint("EditTaskPageModel销毁了");
   }
 
   void refresh(){
     notifyListeners();
   }
+
 }

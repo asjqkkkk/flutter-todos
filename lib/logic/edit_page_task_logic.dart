@@ -38,4 +38,26 @@ class EditTaskPageLogic{
     _model.refresh();
   }
 
+  //提交一项任务
+  void submitOneItem(){
+    _model.taskDetails.add(_model.textEditingController.text);
+    _model.textEditingController.clear();
+    _model.refresh();
+  }
+
+  //监听文字，提交按钮是否可以点击
+  void editListener(){
+    final text = _model.textEditingController.text;
+    if(text.isEmpty){
+      _model.canAddTask = false;
+    } else {
+      _model.canAddTask = true;
+    }
+    _model.refresh();
+  }
+
+  void removeItem(int index){
+    _model.taskDetails.removeAt(index);
+    _model.refresh();
+  }
 }

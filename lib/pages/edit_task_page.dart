@@ -23,23 +23,30 @@ class EditTaskPage extends StatelessWidget {
         backgroundColor: model.bgColor,
         elevation: 0,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.check,color: taskIcon.color,), onPressed: null)
+          IconButton(
+              icon: Icon(
+                Icons.check,
+                color: taskIcon.color,
+              ),
+              tooltip: "提交",
+              onPressed: (){
+
+              })
         ],
       ),
       body: Container(
         child: Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(bottom: 100,left: 50,right: 50),
+              margin: EdgeInsets.only(bottom: 100, left: 50, right: 50),
               child: NotificationListener<OverscrollIndicatorNotification>(
                 onNotification: (overScroll) {
                   overScroll.disallowGlow();
                 },
                 child: ListView(
-
-                  children: List.generate(30, (index) {
+                  children: List.generate(model.taskDetails.length, (index) {
                     return Container(
-                      margin: EdgeInsets.only(bottom: 10,top: 10),
+                      margin: EdgeInsets.only(bottom: 10, top: 10),
                       child: Row(
                         children: <Widget>[
                           Container(
@@ -50,16 +57,25 @@ class EditTaskPage extends StatelessWidget {
                               color: taskIcon.color,
                             ),
                           ),
-                          SizedBox(width: 15,),
-                          Expanded(
-                            child: Text("第$index项",style: TextStyle(
-                              color: Color.fromRGBO(130, 130, 130, 1),
-                              fontSize: 20,
-                            ),),
+                          SizedBox(
+                            width: 15,
                           ),
-                          IconButton(icon: Icon(Icons.delete_outline,color: taskIcon.color.withOpacity(0.5),), onPressed: (){
-
-                          })
+                          Expanded(
+                            child: Text(
+                              model.taskDetails[index],
+                              style: TextStyle(
+                                color: Color.fromRGBO(130, 130, 130, 1),
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.delete_outline,
+                              color: taskIcon.color.withOpacity(0.5),
+                            ),
+                            onPressed: () => model.logic.removeItem(index),
+                          )
                         ],
                       ),
                     );
@@ -82,15 +98,9 @@ class EditTaskPage extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.5),
                     ),
                     TextField(
-                      onChanged: (value) {
-                        debugPrint("当前的内容是:${value}");
-                        if(value.isEmpty){
-                          model.canAddTask = false;
-                        } else {
-                          model.canAddTask = true;
-                        }
-                        model.refresh();
-                      },
+                      controller: model.textEditingController
+                        ..addListener(model.logic.editListener),
+                      autofocus: model.taskDetails.length > 0 ? false : true,
                       decoration: InputDecoration(
                           hintText: "添加任务",
                           border: InputBorder.none,
@@ -99,14 +109,14 @@ class EditTaskPage extends StatelessWidget {
                             color: taskIcon.color,
                           ),
                           suffixIcon: GestureDetector(
-                            onTap: (){
-
-                            },
+                            onTap: model.logic.submitOneItem,
                             child: Container(
                               margin: EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
-                                  color: model.canAddTask ? taskIcon.color :Colors.grey.withOpacity(0.4)),
+                                  color: model.canAddTask
+                                      ? taskIcon.color
+                                      : Colors.grey.withOpacity(0.4)),
                               child: Icon(
                                 Icons.arrow_upward,
                                 color: model.bgColor,
