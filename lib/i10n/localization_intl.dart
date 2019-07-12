@@ -150,6 +150,12 @@ class DemoLocalizations {
     );
   }
 
+  String get submit => Intl.message('Submit', name: 'submit', desc: '提交任务',);
+  String get addTask => Intl.message('add a task', name: 'addTask', desc: '添加任务',);
+  String get deadline => Intl.message('deadline', name: 'deadline', desc: '截止日期',);
+  String get remindMe => Intl.message('remind me', name: 'remindMe', desc: '提醒我',);
+  String get repeat => Intl.message('repeat', name: 'repeat', desc: '重复',);
+
 
   String taskItems(int taskNumbers){
     return Intl.plural(

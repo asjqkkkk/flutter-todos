@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "aboutApp" : MessageLookupByLibrary.simpleMessage("关于"),
+    "addTask" : MessageLookupByLibrary.simpleMessage("添加任务"),
     "appName" : MessageLookupByLibrary.simpleMessage("一日"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("设置"),
     "backgroundGradient" : MessageLookupByLibrary.simpleMessage("背景渐变"),
@@ -36,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "coffee" : MessageLookupByLibrary.simpleMessage("想入啡啡"),
     "cyan" : MessageLookupByLibrary.simpleMessage("蓝天白云"),
     "dark" : MessageLookupByLibrary.simpleMessage("不见五指"),
+    "deadline" : MessageLookupByLibrary.simpleMessage("截止日期"),
     "deleteTask" : MessageLookupByLibrary.simpleMessage("删除"),
     "editTask" : MessageLookupByLibrary.simpleMessage("编辑"),
     "green" : MessageLookupByLibrary.simpleMessage("青青草原"),
@@ -43,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageTitle" : MessageLookupByLibrary.simpleMessage("切换语言"),
     "pink" : MessageLookupByLibrary.simpleMessage("略施粉黛"),
     "purple" : MessageLookupByLibrary.simpleMessage("紫气东来"),
+    "remindMe" : MessageLookupByLibrary.simpleMessage("提醒我"),
+    "repeat" : MessageLookupByLibrary.simpleMessage("重复"),
+    "submit" : MessageLookupByLibrary.simpleMessage("提交"),
     "taskItems" : m1,
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("你好呀, ")
   };

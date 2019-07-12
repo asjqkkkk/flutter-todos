@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-10T16:09:25.339573",
+  "@@last_modified": "2019-07-12T11:54:31.414719",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -99,6 +99,36 @@
   "deleteTask": "Delete",
   "@deleteTask": {
     "description": "删除任务",
+    "type": "text",
+    "placeholders": {}
+  },
+  "submit": "Submit",
+  "@submit": {
+    "description": "提交任务",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addTask": "add a task",
+  "@addTask": {
+    "description": "添加任务",
+    "type": "text",
+    "placeholders": {}
+  },
+  "deadline": "deadline",
+  "@deadline": {
+    "description": "截止日期",
+    "type": "text",
+    "placeholders": {}
+  },
+  "remindMe": "remind me",
+  "@remindMe": {
+    "description": "提醒我",
+    "type": "text",
+    "placeholders": {}
+  },
+  "repeat": "repeat",
+  "@repeat": {
+    "description": "重复",
     "type": "text",
     "placeholders": {}
   },

@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "aboutApp" : MessageLookupByLibrary.simpleMessage("About"),
+    "addTask" : MessageLookupByLibrary.simpleMessage("add a task"),
     "appName" : MessageLookupByLibrary.simpleMessage("One Day"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("Setting"),
     "backgroundGradient" : MessageLookupByLibrary.simpleMessage("Background Gradient"),
@@ -36,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "coffee" : MessageLookupByLibrary.simpleMessage("coffee"),
     "cyan" : MessageLookupByLibrary.simpleMessage("cyan"),
     "dark" : MessageLookupByLibrary.simpleMessage("dark"),
+    "deadline" : MessageLookupByLibrary.simpleMessage("deadline"),
     "deleteTask" : MessageLookupByLibrary.simpleMessage("Delete"),
     "editTask" : MessageLookupByLibrary.simpleMessage("Edit"),
     "green" : MessageLookupByLibrary.simpleMessage("green"),
@@ -43,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageTitle" : MessageLookupByLibrary.simpleMessage("Change Language"),
     "pink" : MessageLookupByLibrary.simpleMessage("pink"),
     "purple" : MessageLookupByLibrary.simpleMessage("purple"),
+    "remindMe" : MessageLookupByLibrary.simpleMessage("remind me"),
+    "repeat" : MessageLookupByLibrary.simpleMessage("repeat"),
+    "submit" : MessageLookupByLibrary.simpleMessage("Submit"),
     "taskItems" : m1,
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("Hello, ")
   };

@@ -96,6 +96,36 @@
     "type": "text",
     "placeholders": {}
   },
+  "submit": "Submit",
+  "@submit": {
+    "description": "提交任务",
+    "type": "text",
+    "placeholders": {}
+  },
+  "addTask": "add a task",
+  "@addTask": {
+    "description": "添加任务",
+    "type": "text",
+    "placeholders": {}
+  },
+  "deadline": "deadline",
+  "@deadline": {
+    "description": "截止日期",
+    "type": "text",
+    "placeholders": {}
+  },
+  "remindMe": "remind me",
+  "@remindMe": {
+    "description": "提醒我",
+    "type": "text",
+    "placeholders": {}
+  },
+  "repeat": "repeat",
+  "@repeat": {
+    "description": "重复",
+    "type": "text",
+    "placeholders": {}
+  },
   "welcomeWord": "Hello, ",
   "@welcomeWord": {
     "description": "主页的欢迎词",

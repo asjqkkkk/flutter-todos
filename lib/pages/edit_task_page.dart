@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/task_icon_config.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/edit_task_page_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 
@@ -15,6 +18,7 @@ class EditTaskPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final EditTaskPageModel model = Provider.of<EditTaskPageModel>(context);
     model.setContext(context);
+    model.setTaskIcon(taskIcon);
 
     return Scaffold(
       backgroundColor: model.bgColor,
@@ -28,10 +32,8 @@ class EditTaskPage extends StatelessWidget {
                 Icons.check,
                 color: taskIcon.color,
               ),
-              tooltip: "提交",
-              onPressed: (){
-
-              })
+              tooltip: DemoLocalizations.of(context).submit,
+              onPressed: () {})
         ],
       ),
       body: Container(
@@ -43,43 +45,59 @@ class EditTaskPage extends StatelessWidget {
                 onNotification: (overScroll) {
                   overScroll.disallowGlow();
                 },
-                child: ListView(
-                  children: List.generate(model.taskDetails.length, (index) {
-                    return Container(
-                      margin: EdgeInsets.only(bottom: 10, top: 10),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            width: 7,
-                            height: 7,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: taskIcon.color,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Expanded(
-                            child: Text(
-                              model.taskDetails[index],
-                              style: TextStyle(
-                                color: Color.fromRGBO(130, 130, 130, 1),
-                                fontSize: 20,
+                child: ListView.builder(
+                  itemCount: model.taskDetails.length,
+                  itemBuilder: (ctx, index) {
+                    return Dismissible(
+                      background: Container(
+                        alignment: Alignment.centerLeft,
+                        color: taskIcon.color,
+                        padding: EdgeInsets.only(left: 10),
+                        child: Icon(
+                          Icons.delete,
+                          color: Colors.white,
+                        ),
+                      ),
+                      secondaryBackground: Container(
+                        alignment: Alignment.centerRight,
+                        color: taskIcon.color,
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.delete,
+                          color: Colors.white,
+                        ),
+                      ),
+                      key: ValueKey(index + Random().nextDouble()),
+                      onDismissed: (d) => model.logic.removeItem(index),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 10, top: 10),
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              width: 7,
+                              height: 7,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: taskIcon.color,
                               ),
                             ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.delete_outline,
-                              color: taskIcon.color.withOpacity(0.5),
+                            SizedBox(
+                              width: 15,
                             ),
-                            onPressed: () => model.logic.removeItem(index),
-                          )
-                        ],
+                            Expanded(
+                              child: Text(
+                                model.taskDetails[index],
+                                style: TextStyle(
+                                  color: Color.fromRGBO(130, 130, 130, 1),
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
-                  }),
+                  },
                 ),
               ),
             ),
@@ -102,7 +120,7 @@ class EditTaskPage extends StatelessWidget {
                         ..addListener(model.logic.editListener),
                       autofocus: model.taskDetails.length > 0 ? false : true,
                       decoration: InputDecoration(
-                          hintText: "添加任务",
+                          hintText: DemoLocalizations.of(context).addTask,
                           border: InputBorder.none,
                           prefixIcon: Icon(
                             taskIcon.iconData,
@@ -136,15 +154,15 @@ class EditTaskPage extends StatelessWidget {
                               Icons.date_range,
                               color: taskIcon.color,
                             ),
-                            text: "截止日期",
-                            onTap: () {},
+                            text:  model.logic.getEndTimeText(),
+                            onTap: model.logic.pickEndTime,
                           ),
                           model.logic.getIconText(
                             icon: Icon(
                               Icons.notifications_active,
                               color: taskIcon.color,
                             ),
-                            text: "提醒我",
+                            text: DemoLocalizations.of(context).remindMe,
                             onTap: () {},
                           ),
                           model.logic.getIconText(
@@ -152,7 +170,7 @@ class EditTaskPage extends StatelessWidget {
                               Icons.repeat,
                               color: taskIcon.color,
                             ),
-                            text: "重复",
+                            text: DemoLocalizations.of(context).repeat,
                             onTap: () {},
                           ),
                         ],

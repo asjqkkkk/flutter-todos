@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/task_icon_config.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/utils/theme_util.dart';
 
@@ -10,6 +11,8 @@ class EditTaskPageModel extends ChangeNotifier{
   final TextEditingController textEditingController = TextEditingController();
 
   List<String> taskDetails = [];
+  DateTime deadLine;
+  TaskIcon taskIcon;
 
   bool canAddTask = false;    //能否添加任务
 
@@ -34,6 +37,12 @@ class EditTaskPageModel extends ChangeNotifier{
 
   void refresh(){
     notifyListeners();
+  }
+
+  void setTaskIcon(TaskIcon taskIcon) {
+    if(this.taskIcon == null){
+      this.taskIcon = taskIcon;
+    }
   }
 
 }
