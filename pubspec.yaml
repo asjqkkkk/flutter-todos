@@ -38,8 +38,6 @@ dev_dependencies:
   dio: ^2.1.2
   #本地存储
   shared_preferences: ^0.5.2
-  #Flare插件
-  flare_flutter: ^1.5.2
   #状态管理
   provider: ^3.0.0+1
   #单元测试
@@ -55,6 +53,7 @@ dev_dependencies:
 
 
 
+
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
@@ -63,7 +62,7 @@ flutter:
 
   assets:
     - images/
-    - flrs/
+    - local_json/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -1,0 +1,5912 @@
+[
+  {
+    "codePoint": "58743",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59469",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57458",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60219",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57744",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57745",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57746",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59470",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59692",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59668",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59700",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59471",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59472",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59473",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59475",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58894",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57669",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58425",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57747",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57347",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57670",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57576",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57671",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57672",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57958",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58727",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58430",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59476",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57854",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58269",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57436",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58270",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58928",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58929",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58930",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58931",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58932",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58933",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58934",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58935",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57749",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57748",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57429",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60220",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59477",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59478",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59479",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59480",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57369",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60221",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59659",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57574",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59481",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59482",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58819",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57673",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58820",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58848",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58843",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58821",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58822",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58823",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58824",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58849",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58846",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58847",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58840",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57440",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59483",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59484",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59485",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59486",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59487",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59488",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59489",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59490",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58271",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58272",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58739",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57894",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57895",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58044",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58273",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59491",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57371",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57674",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59492",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57756",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57763",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57764",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57765",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57766",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "60222",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58669",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57675",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57767",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58895",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57768",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57769",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57770",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58274",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58275",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58276",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58277",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59493",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59494",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59495",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57896",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57897",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57898",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57899",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57900",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57901",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57902",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57903",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57904",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57905",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57906",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57907",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57451",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58278",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58279",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58280",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58281",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58282",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58283",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58284",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57771",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57772",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57773",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57774",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58285",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58286",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59101",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59496",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59497",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58428",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57519",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60223",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59498",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59369",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59701",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59702",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57520",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57521",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57522",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57523",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57524",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57572",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57525",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57526",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57452",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58287",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58288",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59644",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58289",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58290",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58291",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58825",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59638",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59639",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59640",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60224",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58119",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58120",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58740",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58292",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58293",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59499",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57527",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57546",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57547",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58826",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59444",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59445",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59500",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59693",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58827",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58828",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "60225",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60226",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59501",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59502",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57676",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57528",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58829",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57372",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58045",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58046",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58047",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58048",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58049",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58050",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58051",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59503",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58294",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58417",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58295",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58296",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57529",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58297",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59669",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58122",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58936",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57552",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57551",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57530",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57677",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57678",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57679",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58298",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58299",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59660",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57680",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58060",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59504",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58302",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58300",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58301",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58303",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58304",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58305",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58306",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58307",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58308",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58309",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58423",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58310",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59505",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57775",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59670",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58311",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59506",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59691",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59694",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57708",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58742",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59507",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58123",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58124",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58312",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58125",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57776",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58165",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58169",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57777",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58167",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57531",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57532",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58670",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58671",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58674",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58672",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58673",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58676",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58726",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58675",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58677",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58678",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58896",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59509",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58898",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58897",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58947",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58948",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58126",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59374",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59510",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59511",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59695",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59671",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59672",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57681",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57949",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58899",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57778",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58313",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58744",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58728",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59643",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57534",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58943",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57373",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57344",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57345",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59686",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58733",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59512",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58900",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58901",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58902",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59651",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59513",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58830",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58831",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57374",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59514",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58314",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58315",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58316",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58317",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58318",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58319",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59515",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59516",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57375",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57376",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58746",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59517",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59518",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57453",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57454",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59519",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57437",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57441",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57438",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57450",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57442",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58052",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58054",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58323",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58320",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58321",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58322",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58324",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58325",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58326",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58327",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58328",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58329",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58330",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58331",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58332",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58333",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58334",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58335",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57682",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58336",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58338",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58339",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59520",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59521",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59661",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58844",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "60227",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57683",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58340",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58341",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58342",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58343",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58681",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59652",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59653",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58344",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59522",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59523",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58055",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58056",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58057",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58903",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57703",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57908",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57909",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57910",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57911",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57912",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57913",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57914",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57915",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57916",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57917",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57918",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57919",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57920",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57921",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57922",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57959",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57923",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57924",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57950",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57925",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57926",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57927",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57928",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57929",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57535",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57684",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57430",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57431",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57432",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60228",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58832",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58833",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57930",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59687",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58127",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57377",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59662",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57685",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59524",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59656",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60229",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57779",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57780",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57781",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59525",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58345",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58346",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57784",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58347",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58348",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59375",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59376",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59526",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57426",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58349",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58350",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58353",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58354",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58128",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58129",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58170",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58355",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57379",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59527",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59645",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57380",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57951",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59528",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59529",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59530",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60230",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58682",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59531",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59532",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59650",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59533",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58356",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58357",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57568",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57539",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59666",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57686",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59657",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59534",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59535",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59536",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57931",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57932",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57933",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57934",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57935",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57936",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57937",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59537",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57540",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58358",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58130",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58131",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58132",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58133",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58134",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58135",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58136",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58138",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58139",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58140",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58141",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60231",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59538",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59703",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59539",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58359",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59540",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58142",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58143",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58144",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58145",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58845",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59541",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58683",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58684",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58360",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58361",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58362",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57390",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57391",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57392",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59663",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59673",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59674",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57952",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57687",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57711",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58424",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59542",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57542",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58937",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58687",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58685",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58686",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58688",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58689",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58690",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58691",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58710",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58692",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58693",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58694",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58695",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58696",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58697",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58698",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58699",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58700",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58701",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58702",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58703",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58704",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58705",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58706",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58707",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58708",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58709",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58711",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58712",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58713",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59377",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57782",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57543",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57544",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57783",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59543",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59544",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59545",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58364",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58363",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58365",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58366",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58367",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58368",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58369",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57384",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58370",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57709",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59546",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57688",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57569",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58715",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57689",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59547",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59696",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58146",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58834",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57938",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57545",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57385",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57386",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57387",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59697",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57459",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58904",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57575",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57939",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57940",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57955",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57948",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58371",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59378",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59379",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58905",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58835",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58836",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59675",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58147",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57704",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57388",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58372",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58426",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59103",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58373",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57443",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58716",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58374",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58375",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58376",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58377",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58717",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58729",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57785",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58944",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58906",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57786",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57393",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57706",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57787",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58945",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57548",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57395",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58741",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57455",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59548",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57348",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59380",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59383",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59381",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59382",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59384",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59698",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59658",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58938",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59676",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59549",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59550",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59551",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57710",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59385",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59552",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58378",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59685",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58379",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58380",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58381",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58382",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58383",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59386",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57396",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57397",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57398",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59553",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59387",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59388",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59554",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59555",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59556",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59557",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59558",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59559",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59560",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59561",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59389",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59390",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59391",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58714",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58730",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58939",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59677",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57549",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58148",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58907",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58908",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58909",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58149",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58910",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58911",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58912",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58150",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57563",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57564",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58151",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57565",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57566",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58384",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58385",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58386",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58427",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58387",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58418",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58419",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58420",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58389",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59562",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59665",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59076",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59077",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58718",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58719",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57399",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57400",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57401",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59654",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57403",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57445",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57439",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59392",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59393",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59563",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60232",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57550",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58390",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58940",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58166",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59564",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59678",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57567",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59565",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58949",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59403",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57941",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59566",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59567",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57404",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57405",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57446",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57406",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59447",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59446",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58720",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59568",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57407",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59679",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59569",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57690",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58837",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57691",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57692",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57693",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57447",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58391",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59688",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59646",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57408",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57409",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57410",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57433",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57434",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57435",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57694",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57695",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57696",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57712",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59570",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58732",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58721",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59571",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59704",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59689",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57553",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59572",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60233",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58392",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58393",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58394",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59680",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58152",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59681",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57573",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58946",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58722",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57697",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57713",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58153",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57960",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59573",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59404",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57961",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57790",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57791",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57792",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57793",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57570",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58915",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57794",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59574",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58154",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57698",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57699",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59409",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59410",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59411",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59412",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59413",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59576",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59577",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59578",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59579",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59581",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59580",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59582",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59583",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59584",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59585",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59586",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59587",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59588",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59589",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59590",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59591",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57795",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59592",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59405",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59593",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59594",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59595",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59596",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57953",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59105",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57411",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58429",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57800",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57805",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57806",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57807",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57808",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57816",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57817",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57818",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58155",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58916",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57412",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57413",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58395",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57448",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58156",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60234",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60235",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58917",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58918",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57414",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57700",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57427",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "60236",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57942",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58157",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58158",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59597",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59690",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57554",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59598",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59448",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59450",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59449",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59600",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57555",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57556",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57557",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57558",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57415",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57571",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57819",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59601",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58723",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58396",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58734",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57943",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58397",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58841",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58842",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59602",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "57444",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57416",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58735",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59705",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59603",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57417",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57559",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59604",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59699",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59605",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59606",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58398",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58399",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58919",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58920",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58921",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58922",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59607",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59608",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59609",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57957",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58159",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58160",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58161",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58400",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58923",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58724",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57954",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57701",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59706",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59707",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59708",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59709",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59710",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59711",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57560",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58401",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59610",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59611",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59612",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59613",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58924",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58402",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59682",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58405",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58403",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58404",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58406",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57956",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59614",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59615",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59616",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58407",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59667",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58162",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59617",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58725",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58736",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58737",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58738",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58408",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58745",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59618",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59619",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59620",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59621",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58747",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58409",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59622",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59623",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58163",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57705",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57702",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "58838",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58839",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59683",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57824",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59624",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57944",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57945",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57946",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58925",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57456",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57457",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57418",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57419",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57420",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58168",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59625",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59626",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59627",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59628",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58410",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58411",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59629",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59630",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59631",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59632",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59633",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59634",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59635",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58421",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59636",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59637",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58926",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57561",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57421",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57422",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57423",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57424",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57562",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58927",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57788",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57346",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58164",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59684",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58412",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58413",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58414",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58422",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58416",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58941",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57425",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57449",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57707",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59406",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57789",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58942",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57825",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57826",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59641",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "57947",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "true"
+  },
+  {
+    "codePoint": "59642",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59647",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "59648",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  },
+  {
+    "codePoint": "58731",
+    "fontFamily": "MaterialIcons",
+    "fontPackage": "null",
+    "matchTextDirection": "false"
+  }
+]

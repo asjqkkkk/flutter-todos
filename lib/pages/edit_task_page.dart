@@ -151,7 +151,7 @@ class EditTaskPage extends StatelessWidget {
                         children: <Widget>[
                           model.logic.getIconText(
                             icon: Icon(
-                              Icons.date_range,
+                              Icons.timer,
                               color: taskIcon.color,
                             ),
                             text:  model.logic.getEndTimeText(),

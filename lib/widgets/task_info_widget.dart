@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
-import 'package:flare_flutter/flare_actor.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/popmenu_botton.dart';
 
@@ -11,14 +10,12 @@ class TaskInfoWidget extends StatelessWidget {
   final double overallProgress;
   final int taskNumbers;
   final String taskName;
-  final bool canShowSucess;
 
   TaskInfoWidget(this.index,
       {this.space = 20,
       this.overallProgress = 0,
       this.taskNumbers = 0,
-      this.taskName = "",
-      this.canShowSucess = false});
+      this.taskName = "",});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +86,7 @@ class TaskInfoWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              overallProgress == 1.0 && canShowSucess
+              overallProgress == 1.0
                   ? Expanded(
                       flex: 1,
                       child: Container(
@@ -97,11 +94,7 @@ class TaskInfoWidget extends StatelessWidget {
                           height: 40,
                           child: Hero(
                             tag: "task_complete${index}",
-                            child: FlareActor(
-                              "flrs/success.flr",
-                              fit: BoxFit.scaleDown,
-                              animation: "success",
-                            ),
+                            child: Icon(Icons.check_circle,color: Colors.greenAccent,),
                           )))
                   : SizedBox()
             ],

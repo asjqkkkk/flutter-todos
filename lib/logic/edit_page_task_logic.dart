@@ -51,12 +51,13 @@ class EditTaskPageLogic {
   //监听文字，提交按钮是否可以点击
   void editListener() {
     final text = _model.textEditingController.text;
-    if (text.isEmpty) {
+    if (text.isEmpty && _model.canAddTask == true) {
       _model.canAddTask = false;
-    } else {
+      _model.refresh();
+    } else if(text.isNotEmpty && _model.canAddTask == false) {
       _model.canAddTask = true;
+      _model.refresh();
     }
-    _model.refresh();
   }
 
   //删除一项任务
