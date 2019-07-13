@@ -48,12 +48,14 @@ class SharedUtil{
   }
 
 
-  void readAndSaveList(String key, String data) async{
+  Future<bool> readAndSaveList(String key, String data) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String account =  prefs.getString(Keys.account) ?? "default";
     List<String> strings = prefs.getStringList(key + account) ?? [];
+    if(strings.length >= 10) return false;
     strings.add(data);
     await prefs.setStringList(key + account, strings);
+    return true;
   }
 
 

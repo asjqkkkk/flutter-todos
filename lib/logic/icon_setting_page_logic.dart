@@ -2,10 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/icon_list_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/utils/theme_util.dart';
+import 'package:todo_list/widgets/custom_icon_widget.dart';
 
 class IconSettingPageLogic {
   final IconSettingPageModel _model;
@@ -14,49 +17,60 @@ class IconSettingPageLogic {
 
   void onIconPress(IconBean iconBean) {
     showDialog(
+      barrierDismissible: false,
         context: _model.context,
         builder: (ctx) {
           return AlertDialog(
             elevation: 0.0,
-            title: const Text('Pick a color!'),
-            content: SingleChildScrollView(
-              child: ColorPicker(
-                pickerColor: _model.currentPickerColor,
-                onColorChanged: (color) {
-                  _model.currentPickerColor = color;
-                },
-                enableLabel: true,
-                pickerAreaHeightPercent: 0.8,
-              ),
-            ),
-            actions: <Widget>[
-              FlatButton(
-                child: const Text('Got it'),
-                onPressed: () async {
-                  ColorBean colorBean =
-                      ColorBean.fromColor(_model.currentPickerColor);
-                  TaskIconBean taskIconBean = TaskIconBean(
-                      taskName: _model.currentIconName.isEmpty
-                          ? "default"
-                          : _model.currentIconName,
-                      colorBean: colorBean,
-                  iconBean: iconBean);
-                  final data = jsonEncode(taskIconBean.toMap());
-                  debugPrint("data:${data}");
-                  SharedUtil.instance.readAndSaveList(Keys.taskIconBeans, data);
-                  getTaskList();
-                  Navigator.of(_model.context).pop();
-                },
-              ),
-            ],
+            contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+            title: Text(DemoLocalizations.of(_model.context).customIcon),
+            content: CustomIconWidget(
+              iconData: IconBean.fromBean(iconBean),
+              onApplyTap: (color) async{
+                _model.currentPickerColor = color;
+                ColorBean colorBean =
+                ColorBean.fromColor(_model.currentPickerColor);
+                TaskIconBean taskIconBean = TaskIconBean(
+                    taskName: _model.currentIconName.isEmpty
+                        ? DemoLocalizations.of(_model.context).defaultIconName
+                        : _model.currentIconName,
+                    colorBean: colorBean,
+                    iconBean: iconBean);
+                final data = jsonEncode(taskIconBean.toMap());
+                final canAddMore = await SharedUtil.instance.readAndSaveList(Keys.taskIconBeans, data);
+                if(!canAddMore){
+                  showCanNotAddIcon();
+                }
+                getTaskList();
+              },
+              pickerColor: _model.currentPickerColor,
+              onTextChange: (text){
+                final name = text.isEmpty ? DemoLocalizations.of(_model.context).defaultIconName : text;
+                _model.currentIconName = name;
+              },
+            )
           );
         });
   }
 
+
   void getTaskList() async {
-    final list = await IconListUtil.getInstance().getIconWithCache(_model.context);
+    final list =
+        await IconListUtil.getInstance().getIconWithCache(_model.context);
     _model.taskIcons.clear();
     _model.taskIcons.addAll(list);
     _model.refresh();
+  }
+
+  void showCanNotAddIcon(){
+    showDialog(context: _model.context,builder: (ctx){
+      return AlertDialog(
+        content: Text(DemoLocalizations.of(_model.context).canNotAddMoreIcon),
+      );
+    });
+  }
+
+  void removeIcon(){
+
   }
 }

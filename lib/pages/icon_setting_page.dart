@@ -17,10 +17,31 @@ class IconSettingPage extends StatelessWidget {
       body: Container(
           child: Column(
         children: <Widget>[
-          Container(
-            child: Text(DemoLocalizations.of(context).currentIcons),
-            margin: EdgeInsets.only(top: 20, left: 25),
-            alignment: Alignment.topLeft,
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  child: Text(DemoLocalizations.of(context).currentIcons),
+                  margin: EdgeInsets.only(top: 20, left: 25),
+                  alignment: Alignment.centerLeft,
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  child: GestureDetector(
+                    child: model.isDeleting
+                        ? Icon(Icons.check, color: Colors.green,size: 20,)
+                        : Icon(Icons.border_color,size: 20,),
+                    onTap: () {
+                      model.isDeleting = !model.isDeleting;
+                      model.refresh();
+                    },
+                  ),
+                  margin: EdgeInsets.only(top: 20, right: 25),
+                  alignment: Alignment.centerRight,
+                ),
+              ),
+            ],
           ),
           Container(
             height: 150,

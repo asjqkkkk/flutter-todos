@@ -72,6 +72,16 @@ class DemoLocalizations {
   String get work => Intl.message('Work', name: 'work', desc: '工作',);
 
 
+  String get setIconName => Intl.message('icon name', name: 'setIconName', desc: '给图标设置一个名字吧',);
+  String get defaultIconName => Intl.message('default', name: 'defaultIconName', desc: '默认',);
+  String get customIcon => Intl.message('Custom Icon', name: 'customIcon', desc: '自定义图标',);
+  String get cancel => Intl.message('cancel', name: 'cancel', desc: '取消',);
+  String get ok => Intl.message('ok', name: 'ok', desc: '确定',);
+  String get pickAColor => Intl.message('Pick a color!', name: 'pickAColor', desc: '选择一个颜色吧!',);
+  String get canNotAddMoreIcon => Intl.message('You can only customize up to 10 icons.', name: 'canNotAddMoreIcon', desc: '最多只能自定义10个图标',);
+
+
+
 
   String get checkUpdate {
     return Intl.message(

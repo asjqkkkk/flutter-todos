@@ -84,6 +84,48 @@
     "type": "text",
     "placeholders": {}
   },
+  "setIconName": "icon name",
+  "@setIconName": {
+    "description": "给图标设置一个名字吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "defaultIconName": "default",
+  "@defaultIconName": {
+    "description": "默认",
+    "type": "text",
+    "placeholders": {}
+  },
+  "customIcon": "Custom Icon",
+  "@customIcon": {
+    "description": "自定义图标",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancel": "cancel",
+  "@cancel": {
+    "description": "取消",
+    "type": "text",
+    "placeholders": {}
+  },
+  "ok": "ok",
+  "@ok": {
+    "description": "确定",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pickAColor": "Pick a color!",
+  "@pickAColor": {
+    "description": "选择一个颜色吧!",
+    "type": "text",
+    "placeholders": {}
+  },
+  "canNotAddMoreIcon": "You can only customize up to 10 icons.",
+  "@canNotAddMoreIcon": {
+    "description": "最多只能自定义10个图标",
+    "type": "text",
+    "placeholders": {}
+  },
   "checkUpdate": "Check Update",
   "@checkUpdate": {
     "description": "检查更新",
