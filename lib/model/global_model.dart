@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/model/main_page_model.dart';
-import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/utils/theme_util.dart';
 
 
 class GlobalModel extends ChangeNotifier {
 
   GlobalLogic logic;
   BuildContext context;
-  String appName = "一日"; //app的名字，目前这个还有些问题
-  String currentThemeType = "pink"; //当前的主题颜色
-  bool isBgGradient = false;  //是否开启主页背景渐变
+
+  //app的名字，目前这个还有些问题
+  String appName = "一日";
+
+  //当前的主题颜色
+  ThemeBean currentThemeBean;
+  //是否开启主页背景渐变
+  bool isBgGradient = false;
 
   MainPageModel mainPageModel;
 
@@ -25,7 +31,12 @@ class GlobalModel extends ChangeNotifier {
   void setContext(BuildContext context) {
     if (this.context == null) {
       this.context = context;
-      logic.getCurrentThemeType();
+      currentThemeBean = ThemeBean(
+        themeName: "pink",
+        colorBean: ColorBean.fromColor(MyThemeColor.defaultColor),
+        themeType: MyTheme.defaultTheme,
+      );
+      logic.getCurrentTheme();
       logic.getCurrentLanguage();
       logic.getIsBgGradient();
     }

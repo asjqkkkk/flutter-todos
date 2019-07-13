@@ -54,4 +54,11 @@ class ProviderConfig {
      );
    }
 
+   ChangeNotifierProvider<ThemePageModel> getThemePage(){
+      return ChangeNotifierProvider<ThemePageModel>(
+        builder:(context) => ThemePageModel(),
+        child: ThemePage(),
+      );
+    }
+
 }

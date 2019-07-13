@@ -22,8 +22,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<GlobalModel>(context);
-    model.setContext(context);
+    final model = Provider.of<GlobalModel>(context)..setContext(context);
 
     return MaterialApp(
         title: model.appName,
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
           debugPrint("app:${model.appName}");
             },
         locale: Locale(model.currentLanguage[0], model.currentLanguage[1]),
-        theme: ThemeUtil.getInstance().getTheme(model.currentThemeType),
+        theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),
         home: ProviderConfig.getInstance().getMainPage());
   }
 }

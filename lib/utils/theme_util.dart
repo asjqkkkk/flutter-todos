@@ -1,4 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/json/theme_bean.dart';
+import 'package:todo_list/utils/shared_util.dart';
 
 class ThemeUtil {
   static ThemeUtil _instance;
@@ -12,36 +17,16 @@ class ThemeUtil {
 
   ThemeUtil._internal();
 
-  ThemeData getTheme(
-    String themeName,
-  ) {
-    switch (themeName) {
-      case MyTheme.defaultTheme:
-        return _getThemeData(MyThemeColor.defaultColor);
-        break;
-      case MyTheme.darkTheme:
-        return ThemeData(
-            brightness: Brightness.dark,
-            appBarTheme: getAppBarTheme(Colors.grey));
-        break;
-      case MyTheme.coffeeTheme:
-        return _getThemeData(MyThemeColor.coffeeColor);
-      case MyTheme.cyanTheme:
-        return _getThemeData(MyThemeColor.cyanColor);
-        break;
-      case MyTheme.purpleTheme:
-        return _getThemeData(MyThemeColor.purpleColor);
-        break;
-      case MyTheme.greenTheme:
-        return _getThemeData(MyThemeColor.greenColor);
-        break;
-      case MyTheme.blueGrayTheme:
-        return _getThemeData(MyThemeColor.blueGrayColor);
-        break;
-    }
+  ThemeData getTheme(ThemeBean themeBean,) {
+    return _getThemeData(ColorBean.fromBean(themeBean.colorBean), themeBean.themeType);
   }
 
-  ThemeData _getThemeData(Color color) {
+  ThemeData _getThemeData(Color color, String themeType) {
+    if(themeType == MyTheme.darkTheme){
+      return ThemeData(
+          brightness: Brightness.dark,
+          appBarTheme: getAppBarTheme(Colors.grey));
+    }
     return ThemeData(
         primaryColor: color,
         primaryColorDark: _getDarkColor(color),
@@ -60,7 +45,8 @@ class ThemeUtil {
   Color _getLightColor(Color color) {
     int number = 30;
     int red = color.red + number >= 255 ? color.red : color.red + number;
-    int green = color.green + number >= 255 ? color.green : color.green + number;
+    int green =
+        color.green + number >= 255 ? color.green : color.green + number;
     int blue = color.blue + number >= 255 ? color.blue : color.blue + number;
     return Color.fromRGBO(red, green, blue, 1);
   }
@@ -69,6 +55,59 @@ class ThemeUtil {
     return AppBarTheme(
         iconTheme: IconThemeData(color: color),
         textTheme: TextTheme(title: TextStyle(color: color, fontSize: 20)));
+  }
+
+  List<ThemeBean> defaultThemeBeans(BuildContext context) => [
+        ThemeBean(
+          themeName: DemoLocalizations.of(context).pink,
+          colorBean: ColorBean.fromColor(MyThemeColor.defaultColor),
+          themeType: MyTheme.defaultTheme,
+        ),
+        ThemeBean(
+          themeName: DemoLocalizations.of(context).dark,
+          colorBean: ColorBean.fromColor(MyThemeColor.darkColor),
+          themeType: MyTheme.darkTheme,
+        ),
+        ThemeBean(
+          themeName: DemoLocalizations.of(context).coffee,
+          colorBean: ColorBean.fromColor(MyThemeColor.coffeeColor),
+          themeType: MyTheme.coffeeTheme,
+        ),
+        ThemeBean(
+          themeName: DemoLocalizations.of(context).green,
+          colorBean: ColorBean.fromColor(MyThemeColor.greenColor),
+          themeType: MyTheme.greenTheme,
+        ),
+        ThemeBean(
+          themeName: DemoLocalizations.of(context).purple,
+          colorBean: ColorBean.fromColor(MyThemeColor.purpleColor),
+          themeType: MyTheme.purpleTheme,
+        ),
+        ThemeBean(
+          themeName: DemoLocalizations.of(context).cyan,
+          colorBean: ColorBean.fromColor(MyThemeColor.cyanColor),
+          themeType: MyTheme.cyanTheme,
+        ),
+        ThemeBean(
+          themeName: DemoLocalizations.of(context).blueGray,
+          colorBean: ColorBean.fromColor(MyThemeColor.blueGrayColor),
+          themeType: MyTheme.blueGrayTheme,
+        ),
+      ];
+
+
+
+  Future<List<ThemeBean>> getThemeListWithCache(BuildContext context) async{
+    List<String> strings =
+    await SharedUtil.instance.readList(Keys.themeBeans);
+    List<ThemeBean> list = [];
+    for (var o in strings) {
+      final data = jsonDecode(o);
+      ThemeBean themeBean = ThemeBean.fromMap(data);
+      list.add(themeBean);
+    }
+    final defaultList = defaultThemeBeans(context);
+    return List.from(defaultList + list);
   }
 }
 

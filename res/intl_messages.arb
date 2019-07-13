@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-13T14:10:37.655861",
+  "@@last_modified": "2019-07-13T19:12:21.794428",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -129,6 +129,18 @@
   "canNotEditDefaultIcon": "Can't edit the default icon",
   "@canNotEditDefaultIcon": {
     "description": "默认图标无法编辑哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "customTheme": "Custom Theme",
+  "@customTheme": {
+    "description": "自定义主题",
+    "type": "text",
+    "placeholders": {}
+  },
+  "canNotAddMoreTheme": "You can only customize up to 10 themes.",
+  "@canNotAddMoreTheme": {
+    "description": "最多只能自定义10个主题哦",
     "type": "text",
     "placeholders": {}
   },

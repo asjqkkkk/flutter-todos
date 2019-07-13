@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/utils/full_screen_dialog_util.dart';
 import 'package:todo_list/utils/icon_list_util.dart';
 import 'package:todo_list/widgets/bottom_show_widget.dart';
-import 'package:todo_list/widgets/floating_border.dart';
+import 'package:todo_list/config/floating_border.dart';
 
 class AnimatedFloatingButton extends StatefulWidget {
   @override

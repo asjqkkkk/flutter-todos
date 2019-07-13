@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/pages/language_page.dart';
 import 'package:todo_list/pages/setting_page.dart';
@@ -31,7 +32,7 @@ class NavPage extends StatelessWidget {
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
             Navigator.push(context, new MaterialPageRoute(builder: (ctx) {
-              return ThemePage();
+              return ProviderConfig.getInstance().getThemePage();
             }));
           },
         ),

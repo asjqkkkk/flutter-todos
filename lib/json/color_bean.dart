@@ -37,4 +37,13 @@ class ColorBean {
       'opacity': opacity.toString()
     };
   }
+
+
+  bool equalTo(other){
+    if(other.runtimeType != ColorBean) return false;
+    ColorBean bean = other;
+    return bean.red == red && bean.green == green && bean.blue == blue && bean.opacity == opacity;
+  }
+
+
 }
