@@ -14,8 +14,8 @@ class TaskIconBean {
   static TaskIconBean fromMap(Map<String, dynamic> map) {
     TaskIconBean bean = new TaskIconBean();
     bean.taskName = map['taskName'];
-    bean.colorBean = ColorBean.fromMap(map['colorData']);
-    bean.iconBean = IconBean.fromMap(map['iconData']);
+    bean.colorBean = ColorBean.fromMap(map['colorBean']);
+    bean.iconBean = IconBean.fromMap(map['iconBean']);
     return bean;
   }
 
@@ -25,6 +25,15 @@ class TaskIconBean {
       list[i] = fromMap(mapList[i]);
     }
     return list;
+  }
+
+
+  Map<dynamic, dynamic> toMap() {
+    return {
+      'taskName': taskName,
+      'iconBean': iconBean.toMap(),
+      'colorBean': colorBean.toMap()
+    };
   }
 }
 
@@ -55,6 +64,15 @@ class ColorBean {
     colorData.green = color.green;
     colorData.blue = color.blue;
     return colorData;
+  }
+
+  Map<dynamic, dynamic> toMap() {
+    return {
+      'red': red.toString(),
+      'green': green.toString(),
+      'blue': blue.toString(),
+      'opacity': opacity.toString()
+    };
   }
 }
 
@@ -103,5 +121,14 @@ class IconBean {
   static Future<List<IconBean>> loadAsset() async {
     String json = await rootBundle.loadString('local_json/icon_json.json');
     return IconBean.fromMapList(jsonDecode(json));
+  }
+
+  Map<dynamic, dynamic> toMap() {
+    return {
+      'codePoint': codePoint.toString(),
+      'fontFamily': fontFamily??"",
+      'fontPackage': fontPackage??"",
+      'matchTextDirection': matchTextDirection.toString()
+    };
   }
 }

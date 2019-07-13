@@ -48,7 +48,13 @@ class SharedUtil{
   }
 
 
-
+  void readAndSaveList(String key, String data) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String account =  prefs.getString(Keys.account) ?? "default";
+    List<String> strings = prefs.getStringList(key + account) ?? [];
+    strings.add(data);
+    await prefs.setStringList(key + account, strings);
+  }
 
 
   //-----------------------------------------------------get----------------------------------------------------
@@ -79,5 +85,11 @@ class SharedUtil{
     return prefs.getStringList(key);
   }
 
+  Future<List<String>> readList(String key) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String account =  prefs.getString(Keys.account) ?? "default";
+    List<String> strings = prefs.getStringList(key + account) ?? [];
+    return strings;
+  }
 
 }

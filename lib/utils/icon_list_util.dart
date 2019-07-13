@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
+import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 
 class IconListUtil{
@@ -16,7 +19,7 @@ class IconListUtil{
   IconListUtil._internal();
 
 
-  List<TaskIconBean> getTaskIcons(BuildContext context){
+  List<TaskIconBean> getDefaultTaskIcons(BuildContext context){
     return [TaskIconBean(
         taskName: DemoLocalizations.of(context).music,
         iconBean: IconBean.fromIconData(Icons.music_note),
@@ -41,5 +44,20 @@ class IconListUtil{
           taskName: DemoLocalizations.of(context).work,
           iconBean: IconBean.fromIconData(Icons.work),
           colorBean: ColorBean.fromColor(MyThemeColor.blueGrayColor)),];
+  }
+
+
+
+  Future<List<TaskIconBean>> getIconWithCache(BuildContext context) async{
+    List<String> strings =
+        await SharedUtil.instance.readList(Keys.taskIconBeans);
+    List<TaskIconBean> list = [];
+    for (var o in strings) {
+      final data = jsonDecode(o);
+      TaskIconBean taskIconBean = TaskIconBean.fromMap(data);
+      list.add(taskIconBean);
+    }
+    final defaultList = getDefaultTaskIcons(context);
+    return List.from(list + defaultList);
   }
 }

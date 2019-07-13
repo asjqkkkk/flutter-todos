@@ -10,6 +10,8 @@ class IconSettingPageModel extends ChangeNotifier {
   BuildContext context;
 
   List<TaskIconBean> taskIcons = [];
+  Color currentPickerColor;
+  String currentIconName = "";
 
   IconSettingPageModel() {
     logic = IconSettingPageLogic(this);
@@ -18,8 +20,8 @@ class IconSettingPageModel extends ChangeNotifier {
   void setContext(BuildContext context) {
     if (this.context == null) {
       this.context = context;
-      taskIcons.clear();
-      taskIcons.addAll(IconListUtil.getInstance().getTaskIcons(context));
+      currentPickerColor = Theme.of(context).primaryColor;
+      logic.getTaskList();
     }
   }
 

@@ -44,12 +44,13 @@ class _AnimatedFloatingButtonState extends State<AnimatedFloatingButton>
       child: Transform.rotate(
         angle: -pi / 2,
         child: FloatingActionButton(
-          onPressed: () {
+          onPressed: ()  async{
             FullScreenDialog.getInstance().showDialog(context, BottomShowWidget(
               onExit: () {
                 _controller.reverse();
               },
-              taskIconBeans: IconListUtil.getInstance().getTaskIcons(context),
+              taskIconBeans:await IconListUtil.getInstance().getIconWithCache(context)
+              ,
             ));
             _controller.forward();
           },

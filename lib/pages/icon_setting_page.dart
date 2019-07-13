@@ -72,9 +72,12 @@ class IconSettingPage extends StatelessWidget {
                           final icon = icons[index];
                           return Container(
                             margin: EdgeInsets.all(10),
-                            child: Icon(
-                              IconBean.fromBean(icon),
-                              size: 30,
+                            child: IconButton(
+                              onPressed: () => model.logic.onIconPress(icon),
+                              icon: Icon(
+                                IconBean.fromBean(icon),
+                                size: 30,
+                              ),
                             ),
                           );
                         }),
