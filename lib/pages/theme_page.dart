@@ -113,8 +113,7 @@ class ThemePage extends StatelessWidget {
       onTap: () {
         globalModel.currentThemeBean = themeBean;
         globalModel.refresh();
-        SharedUtil.instance
-            .saveString(Keys.currentThemeBean, jsonEncode(themeBean.toMap()));
+        SharedUtil.instance.saveString(Keys.currentThemeBean, jsonEncode(themeBean.toMap()));
       },
       child: Container(
         height: (size.width - 140) / 3,

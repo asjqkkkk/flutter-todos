@@ -38,7 +38,7 @@ class GlobalLogic{
     SharedUtil.instance.getString(Keys.currentThemeBean).then((theme){
       if(theme == null) return;
       ThemeBean themeBean = ThemeBean.fromMap(jsonDecode(theme));
-      if(themeBean.themeType == themeBean.themeType) return;
+      if(themeBean.themeType == _model.currentThemeBean.themeType) return;
       _model.currentThemeBean = themeBean;
       _model.refresh();
     });

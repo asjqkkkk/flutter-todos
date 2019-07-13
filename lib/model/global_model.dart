@@ -14,7 +14,11 @@ class GlobalModel extends ChangeNotifier {
   String appName = "一日";
 
   //当前的主题颜色
-  ThemeBean currentThemeBean;
+  ThemeBean currentThemeBean = ThemeBean(
+    themeName: "pink",
+    colorBean: ColorBean.fromColor(MyThemeColor.defaultColor),
+    themeType: MyTheme.defaultTheme,
+  );
   //是否开启主页背景渐变
   bool isBgGradient = false;
 
@@ -31,11 +35,6 @@ class GlobalModel extends ChangeNotifier {
   void setContext(BuildContext context) {
     if (this.context == null) {
       this.context = context;
-      currentThemeBean = ThemeBean(
-        themeName: "pink",
-        colorBean: ColorBean.fromColor(MyThemeColor.defaultColor),
-        themeType: MyTheme.defaultTheme,
-      );
       logic.getCurrentTheme();
       logic.getCurrentLanguage();
       logic.getIsBgGradient();

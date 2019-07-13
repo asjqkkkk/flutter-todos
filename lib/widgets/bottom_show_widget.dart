@@ -41,7 +41,7 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
   @override
   void dispose() {
     _controller.dispose();
-    debugPrint("top_show销毁");
+    debugPrint("BottomShowWidget销毁");
     super.dispose();
   }
 
