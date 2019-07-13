@@ -8,12 +8,14 @@ class CustomIconWidget extends StatefulWidget {
   final Function onApplyTap;
   final Color pickerColor;
   final ValueChanged<String> onTextChange;
+  final String iconName;
 
-  CustomIconWidget(
-      {this.iconData,
-      this.onApplyTap,
-      this.pickerColor, this.onTextChange,})
-      : assert(iconData != null),
+  CustomIconWidget({
+    this.iconData,
+    this.onApplyTap,
+    this.pickerColor,
+    this.onTextChange, this.iconName,
+  })  : assert(iconData != null),
         assert(onApplyTap != null),
         assert(onTextChange != null),
         assert(pickerColor != null);
@@ -52,23 +54,30 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
           Container(
             margin: EdgeInsets.all(10),
             width: 260,
-            child: TextField(
-              onChanged: (text) => widget.onTextChange(text),
-              decoration: InputDecoration(
-                hintText: DemoLocalizations.of(context).setIconName,
-                prefixIcon: Icon(
-                  widget.iconData,
-                  color: currentIconColor,
+            child: Form(
+              autovalidate: true,
+              child: TextFormField(
+                initialValue: widget.iconName ?? null,
+                validator: (text){
+                  widget.onTextChange(text);
+                  return null;
+                },
+                decoration: InputDecoration(
+                  hintText: DemoLocalizations.of(context).setIconName,
+                  prefixIcon: Icon(
+                    widget.iconData,
+                    color: currentIconColor,
+                  ),
                 ),
+                maxLength: 20,
+                maxLines: 1,
               ),
-              maxLength: 20,
-              maxLines: 1,
             ),
           ),
           Row(
             children: List.generate(defaultColors.length, (index) {
               return InkWell(
-                onTap: (){
+                onTap: () {
                   setState(() {
                     currentSelectIndex = index;
                     currentIconColor = defaultColors[index];
@@ -81,7 +90,9 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: defaultColors[index],
-                    border:currentSelectIndex == index ? Border.all(width: 2,color: Colors.black) : null,
+                    border: currentSelectIndex == index
+                        ? Border.all(width: 2, color: Colors.black)
+                        : null,
                   ),
                 ),
               );
@@ -93,7 +104,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                 Expanded(
                   flex: 1,
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       _showColorPicker(context);
                     },
                     child: Container(
@@ -141,7 +152,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                         DemoLocalizations.of(context).ok,
                         style: TextStyle(color: Colors.black),
                       ),
-                      onPressed: (){
+                      onPressed: () {
                         widget.onApplyTap(currentIconColor);
                         Navigator.of(context).pop();
                       },
@@ -155,7 +166,6 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
       ),
     );
   }
-
 
   void _showColorPicker(BuildContext context) {
     showDialog(
@@ -177,8 +187,11 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
             ),
             actions: <Widget>[
               FlatButton(
-                child: Text(DemoLocalizations.of(context).cancel,style: TextStyle(color: Colors.redAccent),),
-                onPressed: ()  {
+                child: Text(
+                  DemoLocalizations.of(context).cancel,
+                  style: TextStyle(color: Colors.redAccent),
+                ),
+                onPressed: () {
                   currentIconColor = widget.pickerColor;
                   currentSelectIndex = -1;
                   Navigator.of(context).pop();
@@ -187,9 +200,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
               FlatButton(
                 child: Text(DemoLocalizations.of(context).ok),
                 onPressed: () {
-                  setState(() {
-
-                  });
+                  setState(() {});
                   Navigator.of(context).pop();
                 },
               ),

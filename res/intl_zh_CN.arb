@@ -114,9 +114,15 @@
     "type": "text",
     "placeholders": {}
   },
-  "canNotAddMoreIcon": "最多只能自定义10个图标",
+  "canNotAddMoreIcon": "最多只能自定义10个图标哦",
   "@canNotAddMoreIcon": {
     "description": "最多只能自定义10个图标",
+    "type": "text",
+    "placeholders": {}
+  },
+  "canNotEditDefaultIcon": "默认图标无法编辑哦",
+  "@canNotEditDefaultIcon": {
+    "description": "默认图标无法编辑哦",
     "type": "text",
     "placeholders": {}
   },

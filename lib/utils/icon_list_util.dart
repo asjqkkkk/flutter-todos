@@ -58,6 +58,6 @@ class IconListUtil{
       list.add(taskIconBean);
     }
     final defaultList = getDefaultTaskIcons(context);
-    return List.from(list + defaultList);
+    return List.from(defaultList + list);
   }
 }

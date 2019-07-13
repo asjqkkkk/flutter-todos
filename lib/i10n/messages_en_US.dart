@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "backgroundGradient" : MessageLookupByLibrary.simpleMessage("Background Gradient"),
     "blueGray" : MessageLookupByLibrary.simpleMessage("blue-gray"),
     "canNotAddMoreIcon" : MessageLookupByLibrary.simpleMessage("You can only customize up to 10 icons."),
+    "canNotEditDefaultIcon" : MessageLookupByLibrary.simpleMessage("Can\'t edit the default icon"),
     "cancel" : MessageLookupByLibrary.simpleMessage("cancel"),
     "changeTheme" : MessageLookupByLibrary.simpleMessage("Change Theme"),
     "checkUpdate" : MessageLookupByLibrary.simpleMessage("Check Update"),

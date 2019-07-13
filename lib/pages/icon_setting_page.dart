@@ -30,8 +30,15 @@ class IconSettingPage extends StatelessWidget {
                 child: Container(
                   child: GestureDetector(
                     child: model.isDeleting
-                        ? Icon(Icons.check, color: Colors.green,size: 20,)
-                        : Icon(Icons.border_color,size: 20,),
+                        ? Icon(
+                            Icons.check,
+                            color: Colors.green,
+                            size: 20,
+                          )
+                        : Icon(
+                            Icons.border_color,
+                            size: 20,
+                          ),
                     onTap: () {
                       model.isDeleting = !model.isDeleting;
                       model.refresh();
@@ -45,6 +52,7 @@ class IconSettingPage extends StatelessWidget {
           ),
           Container(
             height: 150,
+            margin: EdgeInsets.only(top: 10),
             alignment: Alignment.center,
             child: GridView.count(
               crossAxisCount: 2,
@@ -53,14 +61,53 @@ class IconSettingPage extends StatelessWidget {
                 model.taskIcons.length,
                 (index) {
                   final taskIcon = model.taskIcons[index];
-                  return IconButton(
-                      icon: Icon(
-                        IconBean.fromBean(taskIcon.iconBean),
-                        color: ColorBean.fromBean(taskIcon.colorBean),
-                        size: 40,
+                  return Stack(
+                    children: <Widget>[
+                      AbsorbPointer(
+                        absorbing: model.isDeleting ? true : false,
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Tooltip(
+                            message: taskIcon.taskName,
+                            child: InkWell(
+                                child: Icon(
+                                  IconBean.fromBean(taskIcon.iconBean),
+                                  color: ColorBean.fromBean(taskIcon.colorBean),
+                                  size: 40,
+                                ),
+                                onTap: () {
+                                  model.logic.tapDefaultIcon(index);
+                                  if (index <= 5) return;
+                                  model.logic.onIconPress(
+                                    model.taskIcons[index].iconBean,
+                                    colorBean: model.taskIcons[index].colorBean,
+                                    name: model.taskIcons[index].taskName,
+                                    index: index,
+                                    isEdit: true,
+                                  );
+                                }),
+                          ),
+                        ),
                       ),
-                      tooltip: taskIcon.taskName,
-                      onPressed: () {});
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: AbsorbPointer(
+                          absorbing: model.isDeleting ? false : true,
+                          child: Opacity(
+                            opacity: (index > 5 && model.isDeleting) ? 1.0 : 0.0,
+                            child: GestureDetector(
+                              onTap: () => model.logic.removeIcon(index),
+                              child: Icon(
+                                Icons.cancel,
+                                color: Colors.redAccent,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  );
                 },
               ),
             ),

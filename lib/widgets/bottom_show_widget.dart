@@ -91,8 +91,8 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                     origin: Offset(0, -size.width / 2 + 20),
                     showInitialAnimation: true,
                     children: List.generate(_children.length, (index) {
-                      return GestureDetector(
-                        onTap: (){
+                      return IconButton(
+                        onPressed: (){
                           debugPrint("点击：${_children[index].taskName}");
                           doExit(context, _controller);
                           Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx){
@@ -100,7 +100,8 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                           }));
 
                         },
-                        child: Icon(
+                        tooltip: _children[index].taskName,
+                        icon: Icon(
                           IconBean.fromBean(_children[index].iconBean),
                           size: 40,
                           color: ColorBean.fromBean(_children[index].colorBean),

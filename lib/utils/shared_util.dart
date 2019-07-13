@@ -58,6 +58,22 @@ class SharedUtil{
     return true;
   }
 
+  void readAndExchangeList(String key, String data, int index) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String account =  prefs.getString(Keys.account) ?? "default";
+    List<String> strings = prefs.getStringList(key + account) ?? [];
+    strings[index] = data;
+    await prefs.setStringList(key + account, strings);
+  }
+
+  void readAndRemoveList(String key,int index) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String account =  prefs.getString(Keys.account) ?? "default";
+    List<String> strings = prefs.getStringList(key + account) ?? [];
+    strings.removeAt(index);
+    await prefs.setStringList(key + account, strings);
+  }
+
 
   //-----------------------------------------------------get----------------------------------------------------
 

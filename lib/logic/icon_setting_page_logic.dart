@@ -15,7 +15,7 @@ class IconSettingPageLogic {
 
   IconSettingPageLogic(this._model);
 
-  void onIconPress(IconBean iconBean) {
+  void onIconPress(IconBean iconBean, {ColorBean colorBean, String name, bool isEdit = false, int index}) {
     showDialog(
       barrierDismissible: false,
         context: _model.context,
@@ -37,17 +37,25 @@ class IconSettingPageLogic {
                     colorBean: colorBean,
                     iconBean: iconBean);
                 final data = jsonEncode(taskIconBean.toMap());
-                final canAddMore = await SharedUtil.instance.readAndSaveList(Keys.taskIconBeans, data);
-                if(!canAddMore){
-                  showCanNotAddIcon();
+                if(isEdit){
+                  //如果不是新增而是编辑
+                  SharedUtil.instance.readAndExchangeList(Keys.taskIconBeans, data, index - 6);
+                } else{
+                  //如果是新增
+                  final canAddMore = await SharedUtil.instance.readAndSaveList(Keys.taskIconBeans, data);
+                  if(!canAddMore){
+                    showCanNotAddIcon();
+                  }
                 }
+
                 getTaskList();
               },
-              pickerColor: _model.currentPickerColor,
+              pickerColor: colorBean == null ? _model.currentPickerColor : ColorBean.fromBean(colorBean),
               onTextChange: (text){
                 final name = text.isEmpty ? DemoLocalizations.of(_model.context).defaultIconName : text;
                 _model.currentIconName = name;
               },
+              iconName: name,
             )
           );
         });
@@ -70,7 +78,18 @@ class IconSettingPageLogic {
     });
   }
 
-  void removeIcon(){
+  void tapDefaultIcon(int index){
+    if (index <= 5) {
+      showDialog(context: _model.context, builder: (ctx){
+        return AlertDialog(
+          content: Text(DemoLocalizations.of(_model.context).canNotEditDefaultIcon),
+        );
+      });
+    };
+  }
 
+  void removeIcon(int index){
+    SharedUtil.instance.readAndRemoveList(Keys.taskIconBeans,index - 6);
+    getTaskList();
   }
 }

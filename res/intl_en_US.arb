@@ -126,6 +126,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "canNotEditDefaultIcon": "Can't edit the default icon",
+  "@canNotEditDefaultIcon": {
+    "description": "默认图标无法编辑哦",
+    "type": "text",
+    "placeholders": {}
+  },
   "checkUpdate": "Check Update",
   "@checkUpdate": {
     "description": "检查更新",
