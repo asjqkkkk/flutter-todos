@@ -45,6 +45,7 @@ class TaskItem extends StatelessWidget {
                         taskBean: taskBean,
                         onDelete: onDelete,
                         onEdit: onEdit,
+                        isCardChangeWithBg: globalModel.isCardChangeWithBg,
                       )))),
         ],
       ),

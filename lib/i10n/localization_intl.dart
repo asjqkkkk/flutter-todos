@@ -54,6 +54,7 @@ class DemoLocalizations {
     );
   }
   String get bgChangeWithCard => Intl.message('Background follow task icon color', name: 'bgChangeWithCard', desc: '背景跟随任务图标颜色',);
+  String get cardChangeWithBg => Intl.message('Task icon color follow background', name: 'cardChangeWithBg', desc: '任务图标颜色跟随背景',);
   String get enableInfiniteScroll => Intl.message('Task card cycle slide', name: 'enableInfiniteScroll', desc: '任务卡片循环滑动',);
 
 

@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "canNotAddMoreTheme" : MessageLookupByLibrary.simpleMessage("You can only customize up to 10 themes."),
     "canNotEditDefaultIcon" : MessageLookupByLibrary.simpleMessage("Can\'t edit the default icon"),
     "cancel" : MessageLookupByLibrary.simpleMessage("cancel"),
+    "cardChangeWithBg" : MessageLookupByLibrary.simpleMessage("Task icon color follow background"),
     "changeTheme" : MessageLookupByLibrary.simpleMessage("Change Theme"),
     "checkUpdate" : MessageLookupByLibrary.simpleMessage("Check Update"),
     "coffee" : MessageLookupByLibrary.simpleMessage("coffee"),

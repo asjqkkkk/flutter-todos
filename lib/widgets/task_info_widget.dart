@@ -12,14 +12,15 @@ class TaskInfoWidget extends StatelessWidget {
   final TaskBean taskBean;
   final VoidCallback onDelete;
   final VoidCallback onEdit;
+  final bool isCardChangeWithBg;
 
   TaskInfoWidget(this.index,
-      {this.space = 20,this.taskBean, this.onDelete, this.onEdit});
+      {this.space = 20,this.taskBean, this.onDelete, this.onEdit, this.isCardChangeWithBg = false});
 
   @override
   Widget build(BuildContext context) {
 
-    final taskColor = ColorBean.fromBean(taskBean.taskIconBean.colorBean);
+    final taskColor = isCardChangeWithBg ? Theme.of(context).primaryColor : ColorBean.fromBean(taskBean.taskIconBean.colorBean);
     final taskIconData = IconBean.fromBean(taskBean.taskIconBean.iconBean);
 
     return SingleChildScrollView(

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -43,10 +45,35 @@ class SettingPage extends StatelessWidget {
             trailing: Switch(
                 value: globalModel.isBgChangeWithCard,
                 activeColor: Theme.of(context).primaryColor,
-                onChanged: (value) {
+                onChanged: (value){
                   globalModel.isBgChangeWithCard = value;
-                  SharedUtil.instance.saveBoolean(
-                      Keys.backgroundChangeWithCard, globalModel.isBgChangeWithCard);
+                  if(globalModel.isCardChangeWithBg && value){
+                    globalModel.isCardChangeWithBg = false;
+                    SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground, false);
+                  }
+                  SharedUtil.instance.saveBoolean(Keys.backgroundChangeWithCard, globalModel.isBgChangeWithCard);
+                  globalModel.refresh();
+                }),
+          ),
+          ListTile(
+            title: Text(DemoLocalizations.of(context).cardChangeWithBg),
+            leading: Transform(
+              transform: Matrix4.rotationY(pi),
+              origin: Offset(12, 0.0),
+              child: Icon(
+                Icons.format_color_fill,
+              ),
+            ),
+            trailing: Switch(
+                value: globalModel.isCardChangeWithBg,
+                activeColor: Theme.of(context).primaryColor,
+                onChanged: (value) {
+                  globalModel.isCardChangeWithBg = value;
+                  if(globalModel.isBgChangeWithCard && value){
+                    globalModel.isBgChangeWithCard = false;
+                    SharedUtil.instance.saveBoolean(Keys.backgroundChangeWithCard, false);
+                  }
+                  SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground, globalModel.isCardChangeWithBg);
                   globalModel.refresh();
                 }),
           ),

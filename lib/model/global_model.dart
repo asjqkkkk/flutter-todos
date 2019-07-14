@@ -22,8 +22,11 @@ class GlobalModel extends ChangeNotifier {
   //是否开启主页背景渐变
   bool isBgGradient = false;
 
-  //是否开启主页背景跟随卡片背景
+  //是否开启主页背景颜色跟随卡片图标颜色
   bool isBgChangeWithCard = false;
+
+  //是否开启卡片图标颜色跟随主页背景
+  bool isCardChangeWithBg = false;
 
   //是否开启主页卡片无限循环滚动
   bool enableInfiniteScroll = true;

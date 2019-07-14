@@ -32,11 +32,10 @@ class ProviderConfig {
   }
 
   ChangeNotifierProvider<TaskDetailPageModel> getTaskDetailPage(
-      int index, TaskBean taskBean,
-      {MainPageModel mainPageModel}) {
+      int index, TaskBean taskBean,) {
     return ChangeNotifierProvider<TaskDetailPageModel>(
       builder: (context) => TaskDetailPageModel(taskBean),
-      child: TaskDetailPage(index,mainPageModel: mainPageModel,),
+      child: TaskDetailPage(index,),
     );
   }
 

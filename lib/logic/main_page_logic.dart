@@ -28,7 +28,7 @@ class MainPageLogic {
           Navigator.of(context).push(new PageRouteBuilder(
               pageBuilder: (ctx, anm, anmS) {
                 return ProviderConfig.getInstance()
-                    .getTaskDetailPage(index, taskBean, mainPageModel: _model);
+                    .getTaskDetailPage(index, taskBean);
               },
               transitionDuration: Duration(milliseconds: 800)));
         },
@@ -84,7 +84,7 @@ class MainPageLogic {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter)
           : null,
-      color: _getbgColor(isBgGradient, isBgChangeWithCard),
+      color: _getBgColor(isBgGradient, isBgChangeWithCard),
     );
   }
 
@@ -105,7 +105,7 @@ class MainPageLogic {
     }
   }
 
-  Color _getbgColor(bool isBgGradient, bool isBgChangeWithCard) {
+  Color _getBgColor(bool isBgGradient, bool isBgChangeWithCard) {
     if (isBgGradient) {
       return null;
     }

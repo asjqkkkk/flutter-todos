@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-14T18:16:58.510946",
+  "@@last_modified": "2019-07-14T22:21:19.833294",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -33,6 +33,12 @@
   "bgChangeWithCard": "Background follow task icon color",
   "@bgChangeWithCard": {
     "description": "背景跟随任务图标颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cardChangeWithBg": "Task icon color follow background",
+  "@cardChangeWithBg": {
+    "description": "任务图标颜色跟随背景",
     "type": "text",
     "placeholders": {}
   },

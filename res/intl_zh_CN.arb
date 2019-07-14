@@ -162,6 +162,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "cardChangeWithBg": "任务图标颜色跟随背景",
+  "@cardChangeWithBg": {
+    "description": "任务图标颜色跟随背景",
+    "type": "text",
+    "placeholders": {}
+  },
   "backgroundGradient": "背景渐变",
   "@backgroundGradient": {
     "description": "app设置",

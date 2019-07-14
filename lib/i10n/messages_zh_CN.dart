@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "canNotAddMoreTheme" : MessageLookupByLibrary.simpleMessage("最多只能自定义10个主题哦"),
     "canNotEditDefaultIcon" : MessageLookupByLibrary.simpleMessage("默认图标无法编辑哦"),
     "cancel" : MessageLookupByLibrary.simpleMessage("取消"),
+    "cardChangeWithBg" : MessageLookupByLibrary.simpleMessage("任务图标颜色跟随背景"),
     "changeTheme" : MessageLookupByLibrary.simpleMessage("切换主题"),
     "checkUpdate" : MessageLookupByLibrary.simpleMessage("检查更新"),
     "coffee" : MessageLookupByLibrary.simpleMessage("想入啡啡"),

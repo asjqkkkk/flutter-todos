@@ -30,6 +30,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "cardChangeWithBg": "Task icon color follow background",
+  "@cardChangeWithBg": {
+    "description": "任务图标颜色跟随背景",
+    "type": "text",
+    "placeholders": {}
+  },
   "enableInfiniteScroll": "Task card cycle slide",
   "@enableInfiniteScroll": {
     "description": "任务卡片循环滑动",

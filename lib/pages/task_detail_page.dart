@@ -14,16 +14,16 @@ import 'package:todo_list/widgets/task_info_widget.dart';
 
 class TaskDetailPage extends StatelessWidget {
   final int index;
-  final MainPageModel mainPageModel;
 
-  TaskDetailPage(this.index, {this.mainPageModel,});
+  TaskDetailPage(this.index);
 
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<TaskDetailPageModel>(context);
     final globalModel = Provider.of<GlobalModel>(context);
+    final mainPageModel = globalModel.mainPageModel;
     model.setContext(context);
-    final taskColor = ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
+    final taskColor = globalModel.isBgChangeWithCard ? Theme.of(context).primaryColor : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
 
     return WillPopScope(
       onWillPop: (){
@@ -69,6 +69,7 @@ class TaskDetailPage extends StatelessWidget {
                     child: TaskInfoWidget(
                       index,
                       taskBean: model.taskBean,
+                      isCardChangeWithBg: globalModel.isBgChangeWithCard,
                     )),
                 Expanded(
                   child: Container(
