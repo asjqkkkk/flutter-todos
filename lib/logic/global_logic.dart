@@ -54,4 +54,13 @@ class GlobalLogic{
     });
   }
 
+  void getIsBgChangeWithCard(){
+    SharedUtil.instance.getBoolean(Keys.backgroundChangeWithCard).then((value){
+      if(value == null) return;
+      if(value == _model.isBgChangeWithCard) return;
+      _model.isBgChangeWithCard = value;
+      _model.refresh();
+    });
+  }
+
 }

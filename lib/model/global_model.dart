@@ -22,6 +22,9 @@ class GlobalModel extends ChangeNotifier {
   //是否开启主页背景渐变
   bool isBgGradient = false;
 
+  //是否开启主页背景跟随卡片背景
+  bool isBgChangeWithCard = false;
+
   MainPageModel mainPageModel;
 
 
@@ -38,6 +41,7 @@ class GlobalModel extends ChangeNotifier {
       logic.getCurrentTheme();
       logic.getCurrentLanguage();
       logic.getIsBgGradient();
+      logic.getIsBgChangeWithCard();
     }
   }
 

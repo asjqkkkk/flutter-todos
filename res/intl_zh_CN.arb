@@ -138,9 +138,21 @@
     "type": "text",
     "placeholders": {}
   },
+  "writeAtLeastOneTaskItem": "请至少写下一项任务哦",
+  "@writeAtLeastOneTaskItem": {
+    "description": "请至少写下一项任务哦",
+    "type": "text",
+    "placeholders": {}
+  },
   "checkUpdate": "检查更新",
   "@checkUpdate": {
     "description": "检查更新",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bgChangeWithCard": "背景跟随任务图标颜色",
+  "@bgChangeWithCard": {
+    "description": "背景跟随任务图标颜色",
     "type": "text",
     "placeholders": {}
   },
@@ -150,6 +162,7 @@
     "type": "text",
     "placeholders": {}
   },
+
   "pink": "略施粉黛",
   "@pink": {
     "description": "主题颜色",

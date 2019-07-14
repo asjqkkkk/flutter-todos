@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName" : MessageLookupByLibrary.simpleMessage("One Day"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("Setting"),
     "backgroundGradient" : MessageLookupByLibrary.simpleMessage("Background Gradient"),
+    "bgChangeWithCard" : MessageLookupByLibrary.simpleMessage("Background follow task icon color"),
     "blueGray" : MessageLookupByLibrary.simpleMessage("blue-gray"),
     "canNotAddMoreIcon" : MessageLookupByLibrary.simpleMessage("You can only customize up to 10 icons."),
     "canNotAddMoreTheme" : MessageLookupByLibrary.simpleMessage("You can only customize up to 10 themes."),
@@ -70,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "taskItems" : m1,
     "travel" : MessageLookupByLibrary.simpleMessage("Travel"),
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("Hello, "),
-    "work" : MessageLookupByLibrary.simpleMessage("Work")
+    "work" : MessageLookupByLibrary.simpleMessage("Work"),
+    "writeAtLeastOneTaskItem" : MessageLookupByLibrary.simpleMessage("Please write at least one task.")
   };
 }

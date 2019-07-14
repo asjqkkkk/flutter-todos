@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appName" : MessageLookupByLibrary.simpleMessage("一日"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("设置"),
     "backgroundGradient" : MessageLookupByLibrary.simpleMessage("背景渐变"),
+    "bgChangeWithCard" : MessageLookupByLibrary.simpleMessage("背景跟随任务图标颜色"),
     "blueGray" : MessageLookupByLibrary.simpleMessage("炊烟袅袅"),
     "canNotAddMoreIcon" : MessageLookupByLibrary.simpleMessage("最多只能自定义10个图标哦"),
     "canNotAddMoreTheme" : MessageLookupByLibrary.simpleMessage("最多只能自定义10个主题哦"),
@@ -70,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "taskItems" : m1,
     "travel" : MessageLookupByLibrary.simpleMessage("旅行"),
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("你好呀, "),
-    "work" : MessageLookupByLibrary.simpleMessage("工作")
+    "work" : MessageLookupByLibrary.simpleMessage("工作"),
+    "writeAtLeastOneTaskItem" : MessageLookupByLibrary.simpleMessage("请至少写下一项任务哦")
   };
 }

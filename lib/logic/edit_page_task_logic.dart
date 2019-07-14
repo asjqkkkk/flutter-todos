@@ -178,7 +178,7 @@ class EditTaskPageLogic {
     if(_model.taskDetails.length == 0){
       showDialog(context: _model.context,builder: (ctx){
         return AlertDialog(
-          content: Text("请至少写下一项任务哦"),
+          content: Text(DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
         );
       });
       return;

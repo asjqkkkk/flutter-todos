@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/items/task_detail_item.dart';
@@ -43,25 +45,25 @@ class TaskDetailPage extends StatelessWidget {
             backgroundColor: Colors.transparent,
             appBar: AppBar(
               iconTheme: IconThemeData(color: taskColor),
-              leading: IconButton(
-                  icon: Icon(Icons.arrow_back_ios),
-                  onPressed: () {
-                    model.isExiting = true;
-
-                    model.refresh();
-                    Navigator.of(context).pop();
-                  }),
+              leading: model.isAnimationComplete && !model.isExiting
+                  ? IconButton(
+                      icon: Icon(Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios),
+                      onPressed: () {
+                        model.isExiting = true;
+                        model.refresh();
+                        Navigator.of(context).pop();
+                      })
+                  : SizedBox(),
               elevation: 0,
               backgroundColor: Colors.transparent,
               actions: <Widget>[
                 Hero(
                     tag: "task_more${index}",
                     child: Material(
-                      color: Colors.transparent,
-                      child: PopMenuBt(iconColor: taskColor,)
-                    )
-                ),
-
+                        color: Colors.transparent,
+                        child: PopMenuBt(
+                          iconColor: taskColor,
+                        ))),
               ],
             ),
             body: Column(
@@ -78,20 +80,24 @@ class TaskDetailPage extends StatelessWidget {
                         left: 50, top: 20, right: 50, bottom: 20),
                     child: !model.isExiting
                         ? ListView(
-                            children:
-                                List.generate(model?.taskBean?.detailList?.length??0, (index) {
-                                  TaskDetailBean taskDetailBean = model.taskBean.detailList[index];
+                            children: List.generate(
+                                model?.taskBean?.detailList?.length ?? 0,
+                                (index) {
+                            TaskDetailBean taskDetailBean =
+                                model.taskBean.detailList[index];
                             return TaskDetailItem(
                               index: index,
                               itemProgress: taskDetailBean.itemProgress,
                               itemName: taskDetailBean.taskDetailName,
                               iconColor: taskColor,
-                              onProgressChanged: (progress){
-                                model.logic.refreshProgress(taskDetailBean, progress, mainPageModel);
+                              onProgressChanged: (progress) {
+                                model.logic.refreshProgress(
+                                    taskDetailBean, progress, mainPageModel);
                                 model.refresh();
                               },
-                              onChecked: (progress){
-                                model.logic.refreshProgress(taskDetailBean, progress, mainPageModel);
+                              onChecked: (progress) {
+                                model.logic.refreshProgress(
+                                    taskDetailBean, progress, mainPageModel);
                                 model.refresh();
                               },
                             );
@@ -106,5 +112,4 @@ class TaskDetailPage extends StatelessWidget {
       ),
     );
   }
-
 }

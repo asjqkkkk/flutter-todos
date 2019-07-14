@@ -11,6 +11,8 @@ class MainPageModel extends ChangeNotifier{
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   List<TaskBean> tasks = [];
 
+  int currentCardIndex = 0;
+
   MainPageModel(){
     logic = MainPageLogic(this);
   }

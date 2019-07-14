@@ -35,6 +35,21 @@ class SettingPage extends StatelessWidget {
                 }),
           ),
           ListTile(
+            title: Text(DemoLocalizations.of(context).bgChangeWithCard),
+            leading: Icon(
+              Icons.format_color_fill,
+            ),
+            trailing: Switch(
+                value: globalModel.isBgChangeWithCard,
+                activeColor: Theme.of(context).primaryColor,
+                onChanged: (value) {
+                  globalModel.isBgChangeWithCard = value;
+                  SharedUtil.instance.saveBoolean(
+                      Keys.backgroundChangeWithCard, globalModel.isBgChangeWithCard);
+                  globalModel.refresh();
+                }),
+          ),
+          ListTile(
             title: Text(DemoLocalizations.of(context).iconSetting),
             leading: Icon(
               Icons.insert_emoticon,

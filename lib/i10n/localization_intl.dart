@@ -53,6 +53,8 @@ class DemoLocalizations {
       desc: 'app设置',
     );
   }
+  String get bgChangeWithCard => Intl.message('Background follow task icon color', name: 'bgChangeWithCard', desc: '背景跟随任务图标颜色',);
+
 
   String get aboutApp {
     return Intl.message(
@@ -82,6 +84,7 @@ class DemoLocalizations {
   String get canNotEditDefaultIcon => Intl.message('Can\'t edit the default icon', name: 'canNotEditDefaultIcon', desc: '默认图标无法编辑哦',);
   String get customTheme => Intl.message('Custom Theme', name: 'customTheme', desc: '自定义主题',);
   String get canNotAddMoreTheme => Intl.message('You can only customize up to 10 themes.', name: 'canNotAddMoreTheme', desc: '最多只能自定义10个主题哦',);
+  String get writeAtLeastOneTaskItem => Intl.message('Please write at least one task.', name: 'writeAtLeastOneTaskItem', desc: '请至少写下一项任务哦',);
 
 
 

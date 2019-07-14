@@ -24,6 +24,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "bgChangeWithCard": "Background follow task icon color",
+  "@bgChangeWithCard": {
+    "description": "背景跟随任务图标颜色",
+    "type": "text",
+    "placeholders": {}
+  },
   "backgroundGradient": "Background Gradient",
   "@backgroundGradient": {
     "description": "app设置",
@@ -150,18 +156,24 @@
     "type": "text",
     "placeholders": {}
   },
-      "pink": "pink",
-      "@pink": {
-        "description": "主题颜色",
-        "type": "text",
-        "placeholders": {}
-      },
-        "coffee": "coffee",
-        "@coffee": {
-          "description": "主题颜色",
-          "type": "text",
-          "placeholders": {}
-        },
+  "writeAtLeastOneTaskItem": "Please write at least one task.",
+  "@writeAtLeastOneTaskItem": {
+    "description": "请至少写下一项任务哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pink": "pink",
+  "@pink": {
+    "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+    "coffee": "coffee",
+    "@coffee": {
+      "description": "主题颜色",
+      "type": "text",
+      "placeholders": {}
+    },
   "cyan": "cyan",
   "@cyan": {
     "description": "主题颜色",

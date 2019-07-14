@@ -17,18 +17,7 @@ class MainPage extends StatelessWidget {
     model.setContext(context);
     globalModel.setMainPageModel(model);
     return Container(
-      decoration: BoxDecoration(
-        gradient: globalModel.isBgGradient ? LinearGradient(
-            colors: [
-              Theme.of(context).primaryColorLight,
-              Theme.of(context).primaryColor,
-              Theme.of(context).primaryColorDark,
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter
-        ) : null,
-        color: globalModel.isBgGradient ? null : Theme.of(context).primaryColor
-      ),
+      decoration: model.logic.getBackground(globalModel),
       child: Scaffold(
         key: model.scaffoldKey,
         backgroundColor: Colors.transparent,
@@ -60,7 +49,9 @@ class MainPage extends StatelessWidget {
         ),
         floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: AnimatedFloatingButton(),
+        floatingActionButton: AnimatedFloatingButton(
+          bgColor: globalModel.isBgChangeWithCard ? model.logic.getCurrentCardColor() : null,
+        ),
         body: Container(
           child: SingleChildScrollView(
             child: Column(
@@ -110,7 +101,10 @@ class MainPage extends StatelessWidget {
                     enableInfiniteScroll: model.tasks.length >= 3,
                     reverse: false,
                     enlargeCenterPage: true,
-                    onPageChanged: (index) {},
+                    onPageChanged: (index) {
+                      model.currentCardIndex = index;
+                      model.refresh();
+                    },
                     scrollDirection: Axis.horizontal,
                   ),
                 )

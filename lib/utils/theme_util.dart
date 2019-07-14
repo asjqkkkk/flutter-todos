@@ -29,12 +29,12 @@ class ThemeUtil {
     }
     return ThemeData(
         primaryColor: color,
-        primaryColorDark: _getDarkColor(color),
-        primaryColorLight: _getLightColor(color),
+        primaryColorDark: getDarkColor(color),
+        primaryColorLight: getLightColor(color),
         appBarTheme: getAppBarTheme(Colors.white));
   }
 
-  Color _getDarkColor(Color color) {
+  Color getDarkColor(Color color) {
     int number = 20;
     int red = color.red - number <= 0 ? color.red : color.red - number;
     int green = color.green - number <= 0 ? color.green : color.green - number;
@@ -42,7 +42,7 @@ class ThemeUtil {
     return Color.fromRGBO(red, green, blue, 1);
   }
 
-  Color _getLightColor(Color color) {
+  Color getLightColor(Color color) {
     int number = 30;
     int red = color.red + number >= 255 ? color.red : color.red + number;
     int green =
