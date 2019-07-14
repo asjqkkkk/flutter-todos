@@ -103,7 +103,7 @@ class MainPage extends StatelessWidget {
                     enlargeCenterPage: true,
                     onPageChanged: (index) {
                       model.currentCardIndex = index;
-                      model.refresh();
+                      if(globalModel.isBgChangeWithCard) model.refresh();
                     },
                     scrollDirection: Axis.horizontal,
                   ),
