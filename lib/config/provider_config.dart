@@ -40,9 +40,9 @@ class ProviderConfig {
     );
   }
 
-  ChangeNotifierProvider<EditTaskPageModel> getEditTaskPage(TaskIconBean taskIcon,{MainPageModel mainPageModel}){
+  ChangeNotifierProvider<EditTaskPageModel> getEditTaskPage(TaskIconBean taskIcon,{MainPageModel mainPageModel, TaskBean taskBean}){
      return ChangeNotifierProvider<EditTaskPageModel>(
-       builder:(context) => EditTaskPageModel(),
+       builder:(context) => EditTaskPageModel(oldTaskBean: taskBean),
        child: EditTaskPage(taskIcon,mainPageModel: mainPageModel,),
      );
   }

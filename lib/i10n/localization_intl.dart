@@ -54,6 +54,7 @@ class DemoLocalizations {
     );
   }
   String get bgChangeWithCard => Intl.message('Background follow task icon color', name: 'bgChangeWithCard', desc: '背景跟随任务图标颜色',);
+  String get enableInfiniteScroll => Intl.message('Task card cycle slide', name: 'enableInfiniteScroll', desc: '任务卡片循环滑动',);
 
 
   String get aboutApp {
@@ -85,6 +86,7 @@ class DemoLocalizations {
   String get customTheme => Intl.message('Custom Theme', name: 'customTheme', desc: '自定义主题',);
   String get canNotAddMoreTheme => Intl.message('You can only customize up to 10 themes.', name: 'canNotAddMoreTheme', desc: '最多只能自定义10个主题哦',);
   String get writeAtLeastOneTaskItem => Intl.message('Please write at least one task.', name: 'writeAtLeastOneTaskItem', desc: '请至少写下一项任务哦',);
+  String get defaultTitle => Intl.message('Default title', name: 'defaultTitle', desc: '默认标题',);
 
 
 

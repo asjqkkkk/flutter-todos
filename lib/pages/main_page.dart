@@ -38,10 +38,7 @@ class MainPage extends StatelessWidget {
                   size: 28,
                   color: globalModel.logic.getWhiteInDark(),
                 ),
-                onPressed: () {
-                DBProvider.db.createTask(TaskBean.fromMapList(TaskBean.getMockData())[0]);
-                  DBProvider.db.getTasks();
-                })
+                onPressed: () => model.logic.queryTask("打"),)
           ],
         ),
         drawer: Drawer(
@@ -98,7 +95,7 @@ class MainPage extends StatelessWidget {
                     height: MediaQuery.of(context).size.width - 100,
                     viewportFraction: 0.8,
                     initialPage: 0,
-                    enableInfiniteScroll: model.tasks.length >= 3,
+                    enableInfiniteScroll: model.tasks.length >= 3 && globalModel.enableInfiniteScroll,
                     reverse: false,
                     enlargeCenterPage: true,
                     onPageChanged: (index) {

@@ -7,6 +7,7 @@ class TaskBean {
   int id;
   String taskName;
   String taskType;
+  String account;
   int taskStatus;
   int taskDetailNum = 0;
   double overallProgress;
@@ -35,6 +36,7 @@ class TaskBean {
       this.overallProgress = 0.0,
       this.createDate = "",
       this.finishDate = "",
+      this.account = "default",
       this.startDate = "",
       this.deadLine = "",
       this.taskIconBean,
@@ -47,6 +49,7 @@ class TaskBean {
     taskBean.taskType = map['taskType'];
     taskBean.taskDetailNum = map['taskDetailNum'];
     taskBean.taskStatus = map['taskStatus'];
+    taskBean.account = map['account'];
     taskBean.overallProgress = double.parse(map['overallProgress']);
     taskBean.createDate = map['createDate'];
     taskBean.finishDate = map['finishDate'];
@@ -83,6 +86,7 @@ class TaskBean {
       'taskDetailNum': taskDetailNum,
       'overallProgress': overallProgress.toString(),
       'createDate': createDate,
+      'account': account,
       'finishDate': finishDate,
       'startDate': startDate,
       'deadLine': deadLine,
@@ -94,49 +98,12 @@ class TaskBean {
     //把list转换为string的时候不要直接使用tostring，要用jsonEncode
   }
 
+
   @override
   String toString() {
-    return 'TaskBean{id: $id, taskName: $taskName, taskType: $taskType, taskStatus: $taskStatus, taskDetailNum: $taskDetailNum, overallProgress: $overallProgress, createDate: $createDate, finishDate: $finishDate, startDate: $startDate, deadLine: $deadLine, taskIconBean: $taskIconBean, detailList: $detailList}';
+    return 'TaskBean{id: $id, taskName: $taskName, taskType: $taskType, account: $account, taskStatus: $taskStatus, taskDetailNum: $taskDetailNum, overallProgress: $overallProgress, createDate: $createDate, finishDate: $finishDate, startDate: $startDate, deadLine: $deadLine, taskIconBean: $taskIconBean, detailList: $detailList}';
   }
 
-  static getMockData() {
-    return [
-      {
-        "taskName": "读书",
-        "taskType": "read_book",
-        "taskDetailNum": 4,
-        "overallProgress": '0.625',
-        "taskStatus": 1,
-        "detailList": [
-          {"taskDetailName": "白夜行", "itemProgress": '0.5'},
-          {"taskDetailName": "解忧杂货铺", "itemProgress": '0.0'},
-          {"taskDetailName": "恶意", "itemProgress": '1.0'},
-          {"taskDetailName": "谁杀了他", "itemProgress": '1.0'}
-        ]
-      },
-      {
-        "taskName": "写博客",
-        "taskType": "write_blog",
-        "taskDetailNum": 1,
-        "overallProgress": '0.5',
-        "taskStatus": 1,
-        "detailList": [
-          {"taskDetailName": "文档", "itemProgress": '0.5'}
-        ]
-      },
-      {
-        "taskName": "动漫",
-        "taskType": "read_book",
-        "taskDetailNum": 2,
-        "overallProgress": '0.75',
-        "taskStatus": 1,
-        "detailList": [
-          {"taskDetailName": "多罗罗", "itemProgress": '1.0'},
-          {"taskDetailName": "jojo第四季", "itemProgress": '0.5'}
-        ]
-      }
-    ];
-  }
 }
 
 //单个任务详情的json数据

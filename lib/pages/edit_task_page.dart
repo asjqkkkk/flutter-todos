@@ -19,6 +19,8 @@ class EditTaskPage extends StatelessWidget {
     model.setContext(context);
     model.setMainPageModel(mainPageModel);
     model.setTaskIcon(taskIconBean);
+
+
     final iconColor = ColorBean.fromBean(taskIconBean.colorBean);
     final iconData = IconBean.fromBean(taskIconBean.iconBean);
 
@@ -35,7 +37,7 @@ class EditTaskPage extends StatelessWidget {
                 color: iconColor,
               ),
               tooltip: DemoLocalizations.of(context).submit,
-              onPressed: model.logic.submitNewTask)
+              onPressed: model.logic.onSubmitTap)
         ],
         title: Container(
           height: 49,
@@ -51,7 +53,7 @@ class EditTaskPage extends StatelessWidget {
                 },
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: "默认标题:${taskIconBean.taskName}",
+                  hintText: model.logic.getHintTitle(),
                 ),
                 maxLines: 1,
               ),
@@ -71,6 +73,8 @@ class EditTaskPage extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: model.taskDetails.length,
                   itemBuilder: (ctx, index) {
+
+
                     return Dismissible(
                       background: Container(
                         alignment: Alignment.centerLeft,
@@ -109,7 +113,7 @@ class EditTaskPage extends StatelessWidget {
                             ),
                             Expanded(
                               child: Text(
-                                model.taskDetails[index].taskDetailName,
+                                  model.taskDetails[index].taskDetailName,
                                 style: TextStyle(
                                   color: Color.fromRGBO(130, 130, 130, 1),
                                   fontSize: 20,

@@ -144,6 +144,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "defaultTitle": "默认标题",
+  "@defaultTitle": {
+    "description": "默认标题",
+    "type": "text",
+    "placeholders": {}
+  },
   "checkUpdate": "检查更新",
   "@checkUpdate": {
     "description": "检查更新",
@@ -162,7 +168,12 @@
     "type": "text",
     "placeholders": {}
   },
-
+  "enableInfiniteScroll": "任务卡片循环滑动",
+  "@enableInfiniteScroll": {
+    "description": "任务卡片循环滑动",
+    "type": "text",
+    "placeholders": {}
+  },
   "pink": "略施粉黛",
   "@pink": {
     "description": "主题颜色",

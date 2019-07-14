@@ -63,4 +63,13 @@ class GlobalLogic{
     });
   }
 
+  void getEnableInfiniteScroll() {
+    SharedUtil.instance.getBoolean(Keys.enableInfiniteScroll).then((value){
+      if(value == null) return;
+      if(value == _model.enableInfiniteScroll) return;
+      _model.enableInfiniteScroll = value;
+      _model.refresh();
+    });
+  }
+
 }

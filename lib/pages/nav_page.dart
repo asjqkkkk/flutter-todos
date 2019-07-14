@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/provider_config.dart';
@@ -21,7 +22,7 @@ class NavPage extends StatelessWidget {
           leading: Icon(Icons.language),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            Navigator.push(context, new MaterialPageRoute(builder: (ctx) {
+            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
               return LanguagePage();
             }));
           },
@@ -31,7 +32,7 @@ class NavPage extends StatelessWidget {
           leading: Icon(Icons.color_lens),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            Navigator.push(context, new MaterialPageRoute(builder: (ctx) {
+            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
               return ProviderConfig.getInstance().getThemePage();
             }));
           },
@@ -41,7 +42,7 @@ class NavPage extends StatelessWidget {
           leading: Icon(Icons.settings),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            Navigator.push(context, new MaterialPageRoute(builder: (ctx) {
+            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
               return SettingPage();
             }));
           },

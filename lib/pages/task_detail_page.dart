@@ -16,7 +16,7 @@ class TaskDetailPage extends StatelessWidget {
   final int index;
   final MainPageModel mainPageModel;
 
-  TaskDetailPage(this.index, {this.mainPageModel});
+  TaskDetailPage(this.index, {this.mainPageModel,});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,8 @@ class TaskDetailPage extends StatelessWidget {
     final taskColor = ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
 
     return WillPopScope(
-      onWillPop: () {
-        model.isExiting = true;
-        model.refresh();
-        Navigator.of(context).pop();
+      onWillPop: (){
+        model.logic.exitPage();
       },
       child: Stack(
         children: <Widget>[
@@ -48,11 +46,7 @@ class TaskDetailPage extends StatelessWidget {
               leading: model.isAnimationComplete && !model.isExiting
                   ? IconButton(
                       icon: Icon(Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios),
-                      onPressed: () {
-                        model.isExiting = true;
-                        model.refresh();
-                        Navigator.of(context).pop();
-                      })
+                      onPressed: model.logic.exitPage,)
                   : SizedBox(),
               elevation: 0,
               backgroundColor: Colors.transparent,
@@ -63,6 +57,8 @@ class TaskDetailPage extends StatelessWidget {
                         color: Colors.transparent,
                         child: PopMenuBt(
                           iconColor: taskColor,
+                          onDelete: () => model.logic.deleteTask(mainPageModel),
+                          onEdit: () => model.logic.editTask(mainPageModel),
                         ))),
               ],
             ),

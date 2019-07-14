@@ -25,6 +25,9 @@ class GlobalModel extends ChangeNotifier {
   //是否开启主页背景跟随卡片背景
   bool isBgChangeWithCard = false;
 
+  //是否开启主页卡片无限循环滚动
+  bool enableInfiniteScroll = true;
+
   MainPageModel mainPageModel;
 
 
@@ -42,6 +45,7 @@ class GlobalModel extends ChangeNotifier {
       logic.getCurrentLanguage();
       logic.getIsBgGradient();
       logic.getIsBgChangeWithCard();
+      logic.getEnableInfiniteScroll();
     }
   }
 

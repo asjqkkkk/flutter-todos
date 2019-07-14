@@ -4,10 +4,9 @@ import 'dart:io';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/utils/shared_util.dart';
 
-
-class DBProvider{
-
+class DBProvider {
   DBProvider._();
 
   static final DBProvider db = DBProvider._();
@@ -26,48 +25,81 @@ class DBProvider{
     String path = join(dataBasePath, "todo.db");
     return await openDatabase(path, version: 1, onOpen: (db) {},
         onCreate: (Database db, int version) async {
-          await db.execute("CREATE TABLE TodoList ("
-              "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-              "account TEXT,"
-              "taskName TEXT,"
-              "taskType TEXT,"
-              "taskStatus INTEGER,"
-              "taskDetailNum INTEGER,"
-              "overallProgress TEXT,"
-              "createDate TEXT,"
-              "finishDate TEXT,"
-              "startDate TEXT,"
-              "deadLine TEXT,"
-              "detailList TEXT,"
-              "taskIconBean TEXT"
-              ")");
-        });
+      await db.execute("CREATE TABLE TodoList ("
+          "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+          "account TEXT,"
+          "taskName TEXT,"
+          "taskType TEXT,"
+          "taskStatus INTEGER,"
+          "taskDetailNum INTEGER,"
+          "overallProgress TEXT,"
+          "createDate TEXT,"
+          "finishDate TEXT,"
+          "startDate TEXT,"
+          "deadLine TEXT,"
+          "detailList TEXT,"
+          "taskIconBean TEXT"
+          ")");
+    });
     //注意，上面创建表的时候最后一行不能带逗号
   }
 
-
   //创建一项任务
-  Future createTask(TaskBean task) async{
+  Future createTask(TaskBean task) async {
     final db = await database;
     task.id = await db.insert("TodoList", task.toMap());
   }
 
   //查询所有任务
-  Future<List<TaskBean>> getTasks() async{
+  Future<List<TaskBean>> getTasks() async {
     final db = await database;
-    var list = await db.query("TodoList");
+    final account =
+        await SharedUtil.instance.getString(Keys.account) ?? "default";
+    var list =
+        await db.query("TodoList", where: "account = ?", whereArgs: [account]);
     List<TaskBean> beans = [];
     beans.clear();
     beans.addAll(TaskBean.fromMapList(list));
     return beans;
   }
 
-//  Future updateDiary(Diary newDiary) async {
-//    final db = await database;
-//    var res = await db.update("Diary", newDiary.toMap(),
-//        where: "id = ?", whereArgs: [newDiary.id]);
-//    return res;
-//  }
+  void updateTask(TaskBean taskBean) async {
+    final db = await database;
+    int id = await db.update("TodoList", taskBean.toMap(),
+        where: "id = ?", whereArgs: [taskBean.id]);
+    print("更新");
+  }
+
+  Future deleteTask(int id) async {
+    final db = await database;
+    db.delete("TodoList", where: "id = ?", whereArgs: [id]);
+    print("删除");
+  }
+
+  //通过加上百分号，进行模糊查询
+  Future<List<TaskBean>> queryTask(String query) async {
+    final db = await database;
+    final account =
+        await SharedUtil.instance.getString(Keys.account) ?? "default";
+    var list = await db.query("TodoList",
+        where:
+            "account = ? AND (taskName LIKE ? "
+                "OR detailList LIKE ? "
+                "OR startDate LIKE ? "
+                "OR deadLine LIKE ?)",
+        whereArgs: [
+          account,
+          "%$query%",
+          "%$query%",
+          "%$query%",
+          "%$query%",
+        ]);
+    List<TaskBean> beans = [];
+    beans.clear();
+    beans.addAll(TaskBean.fromMapList(list));
+    return beans;
+  }
+
 //
 //  Future getDiary(int id) async {
 //    final db = await database;
@@ -100,9 +132,5 @@ class DBProvider{
 //    final db = await database;
 //    db.rawDelete("Delete * from Diary");
 //  }
-
-
-
-
 
 }

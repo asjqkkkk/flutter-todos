@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/provider_config.dart';
@@ -50,13 +51,28 @@ class SettingPage extends StatelessWidget {
                 }),
           ),
           ListTile(
+            title: Text(DemoLocalizations.of(context).enableInfiniteScroll),
+            leading: Icon(
+              Icons.repeat,
+            ),
+            trailing: Switch(
+                value: globalModel.enableInfiniteScroll,
+                activeColor: Theme.of(context).primaryColor,
+                onChanged: (value) {
+                  globalModel.enableInfiniteScroll = value;
+                  SharedUtil.instance.saveBoolean(
+                      Keys.enableInfiniteScroll, globalModel.enableInfiniteScroll);
+                  globalModel.refresh();
+                }),
+          ),
+          ListTile(
             title: Text(DemoLocalizations.of(context).iconSetting),
             leading: Icon(
               Icons.insert_emoticon,
             ),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) {
+              Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
                 return ProviderConfig.getInstance().getIconSettingPage();
               }));
             },
@@ -68,7 +84,7 @@ class SettingPage extends StatelessWidget {
             ),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) {
+              Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
                 return EditIconPage();
               }));
             },

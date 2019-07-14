@@ -16,11 +16,15 @@ class TaskDetailPageModel extends ChangeNotifier{
   TaskBean taskBean;
   List<double> progressList = [];
 
+  //这个progress用于判断进度是否改变，当被改变后退出的时候就更新数据库
+  double progress;
+
 
 
   TaskDetailPageModel(TaskBean taskBean){
     logic = TaskDetailPageLogic(this);
     this.taskBean = taskBean;
+    this.progress = taskBean.overallProgress;
     this.progressList.clear();
     timer = Timer(Duration(seconds: 1), (){
       isAnimationComplete = true;
@@ -42,6 +46,7 @@ class TaskDetailPageModel extends ChangeNotifier{
     super.dispose();
 
   }
+
 
   void refresh(){
     notifyListeners();

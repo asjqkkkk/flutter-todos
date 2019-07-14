@@ -7,8 +7,10 @@ import 'package:todo_list/widgets/task_info_widget.dart';
 class TaskItem extends StatelessWidget {
   final int index;
   final TaskBean taskBean;
+  final VoidCallback onDelete;
+  final VoidCallback onEdit;
 
-  TaskItem(this.index, this.taskBean);
+  TaskItem(this.index, this.taskBean, {this.onDelete, this.onEdit});
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,8 @@ class TaskItem extends StatelessWidget {
                         index,
                         space: width / 3,
                         taskBean: taskBean,
+                        onDelete: onDelete,
+                        onEdit: onEdit,
                       )))),
         ],
       ),

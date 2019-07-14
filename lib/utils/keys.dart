@@ -7,4 +7,5 @@ class Keys{
   static final String taskIconBeans = "task_icon_beans";
   static final String themeBeans = "theme_beans";
   static final String currentThemeBean = "current_theme_bean";
+  static final String enableInfiniteScroll = "enable_infinite_scroll";
 }

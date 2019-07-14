@@ -51,7 +51,7 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
     final globalModel = Provider.of<GlobalModel>(context);
 
     return WillPopScope(
-      onWillPop: (){
+      onWillPop: () {
         doExit(context, _controller);
       },
       child: GestureDetector(
@@ -74,7 +74,9 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                         width: 56,
                         height: 56,
                         decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColorDark.withOpacity(0.2),
+                            color: Theme.of(context)
+                                .primaryColorDark
+                                .withOpacity(0.2),
                             shape: BoxShape.circle),
                       ),
                       builder: (ctx, child) {
@@ -92,13 +94,20 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                     showInitialAnimation: true,
                     children: List.generate(_children.length, (index) {
                       return IconButton(
-                        onPressed: (){
+                        onPressed: () {
                           debugPrint("点击：${_children[index].taskName}");
                           doExit(context, _controller);
-                          Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx){
-                           return ProviderConfig.getInstance().getEditTaskPage(_children[index],mainPageModel: globalModel.mainPageModel,);
-                          }));
-
+                          Navigator.of(context).push(
+                            new CupertinoPageRoute(
+                              builder: (ctx) {
+                                return ProviderConfig.getInstance()
+                                    .getEditTaskPage(
+                                  _children[index],
+                                  mainPageModel: globalModel.mainPageModel,
+                                );
+                              },
+                            ),
+                          );
                         },
                         tooltip: _children[index].taskName,
                         icon: Icon(

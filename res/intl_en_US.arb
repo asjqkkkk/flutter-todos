@@ -30,6 +30,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "enableInfiniteScroll": "Task card cycle slide",
+  "@enableInfiniteScroll": {
+    "description": "任务卡片循环滑动",
+    "type": "text",
+    "placeholders": {}
+  },
   "backgroundGradient": "Background Gradient",
   "@backgroundGradient": {
     "description": "app设置",
@@ -147,6 +153,12 @@
   "canNotAddMoreTheme": "You can only customize up to 10 themes.",
   "@canNotAddMoreTheme": {
     "description": "最多只能自定义10个主题哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "defaultTitle": "Default title",
+  "@defaultTitle": {
+    "description": "默认标题",
     "type": "text",
     "placeholders": {}
   },

@@ -173,6 +173,11 @@ class EditTaskPageLogic {
     return DateTime.parse(date);
   }
 
+  void onSubmitTap(){
+    bool isEdit = isEditOldTask();
+    isEdit ? submitOldTask() : submitNewTask();
+  }
+
   //创建新的任务
   void submitNewTask() async{
     if(_model.taskDetails.length == 0){
@@ -184,9 +189,26 @@ class EditTaskPageLogic {
       return;
     }
 
+    TaskBean taskBean = await transformDataToBean();
+    await DBProvider.db.createTask(taskBean);
+    _model.mainPageModel.logic.getTasks();
+    Navigator.of(_model.context).pop();
+  }
+
+  //修改旧的任务
+  void submitOldTask() async{
+    TaskBean taskBean = await transformDataToBean(id: _model.oldTaskBean.id);
+    DBProvider.db.updateTask(taskBean);
+    _model.mainPageModel.logic.getTasks();
+    Navigator.of(_model.context).popUntil((route) => route.isFirst);
+  }
+
+  Future<TaskBean> transformDataToBean({int id}) async {
+    final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
     final taskName = _model.currentTaskName.isEmpty ? _model.taskIcon.taskName : _model.currentTaskName;
     TaskBean taskBean = TaskBean(
       taskName: taskName,
+      account: account,
       taskType: _model.taskIcon.taskName,
       taskDetailNum: _model.taskDetails.length,
       createDate: DateTime.now().toIso8601String(),
@@ -195,10 +217,39 @@ class EditTaskPageLogic {
       detailList: _model.taskDetails,
       taskIconBean: _model.taskIcon,
     );
-    await DBProvider.db.createTask(taskBean);
-    _model.mainPageModel.logic.getTasks();
-    Navigator.of(_model.context).pop();
+    if(id != null){
+      taskBean.id = id;
+    }
+    return taskBean;
   }
 
+  
+  //用旧任务数据初始化所有数据
+  void initialDataFromOld(TaskBean oldTaskBean){
+    if(oldTaskBean != null){
+      _model.taskDetails.clear();
+      _model.taskDetails.addAll(oldTaskBean.detailList);
+      if(oldTaskBean.deadLine != null)
+      _model.deadLine = DateTime.parse(oldTaskBean.deadLine);
+      if(oldTaskBean.startDate != null)
+      _model.startDate = DateTime.parse(oldTaskBean.startDate);
+      _model.taskIcon = oldTaskBean.taskIconBean;
+      _model.currentTaskName = oldTaskBean.taskName;
+    }
+  }
+  
+
+
+  bool isEditOldTask(){
+    return _model.oldTaskBean != null;
+  }
+
+  String getHintTitle(){
+    bool isEdit = isEditOldTask();
+    final context = _model.context;
+    String defaultTitle = "${DemoLocalizations.of(context).defaultTitle}:${_model.taskIcon.taskName}";
+    String oldTaskTitle = "${_model.oldTaskBean.taskName}";
+    return isEdit ? oldTaskTitle : defaultTitle;
+  }
 
 }

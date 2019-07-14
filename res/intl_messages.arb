@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-14T13:24:40.640643",
+  "@@last_modified": "2019-07-14T18:16:58.510946",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -33,6 +33,12 @@
   "bgChangeWithCard": "Background follow task icon color",
   "@bgChangeWithCard": {
     "description": "背景跟随任务图标颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "enableInfiniteScroll": "Task card cycle slide",
+  "@enableInfiniteScroll": {
+    "description": "任务卡片循环滑动",
     "type": "text",
     "placeholders": {}
   },
@@ -153,6 +159,12 @@
   "writeAtLeastOneTaskItem": "Please write at least one task.",
   "@writeAtLeastOneTaskItem": {
     "description": "请至少写下一项任务哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "defaultTitle": "Default title",
+  "@defaultTitle": {
+    "description": "默认标题",
     "type": "text",
     "placeholders": {}
   },

@@ -11,6 +11,7 @@ class EditTaskPageModel extends ChangeNotifier{
   BuildContext context;
   Color bgColor = Colors.white;
   final TextEditingController textEditingController = TextEditingController();
+  MainPageModel mainPageModel;
 
   //任务清单
   List<TaskDetailBean> taskDetails = [];
@@ -19,16 +20,17 @@ class EditTaskPageModel extends ChangeNotifier{
   //开始日期
   DateTime startDate;
   TaskIconBean taskIcon;
-
   String currentTaskName = "";
 
   //能否添加一项任务
   bool canAddTaskDetail = false;
 
-  MainPageModel mainPageModel;
+  //当这个值不为空的时候，表示不是新增一个task，而是编辑已存在的task
+  TaskBean oldTaskBean;
 
-  EditTaskPageModel(){
+  EditTaskPageModel({this.oldTaskBean}){
     logic = EditTaskPageLogic(this);
+    logic.initialDataFromOld(oldTaskBean);
   }
 
   void setContext(BuildContext context){

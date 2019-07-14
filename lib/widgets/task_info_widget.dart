@@ -10,9 +10,11 @@ class TaskInfoWidget extends StatelessWidget {
   final int index;
   final double space;
   final TaskBean taskBean;
+  final VoidCallback onDelete;
+  final VoidCallback onEdit;
 
   TaskInfoWidget(this.index,
-      {this.space = 20,this.taskBean});
+      {this.space = 20,this.taskBean, this.onDelete, this.onEdit});
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,8 @@ class TaskInfoWidget extends StatelessWidget {
                                 color: Colors.transparent,
                                 child: PopMenuBt(
                                   iconColor: taskColor,
+                                  onDelete: onDelete,
+                                  onEdit: onEdit,
                                 )
                               ))),
                 ),
