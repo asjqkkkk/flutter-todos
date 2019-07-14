@@ -248,7 +248,7 @@ class EditTaskPageLogic {
     bool isEdit = isEditOldTask();
     final context = _model.context;
     String defaultTitle = "${DemoLocalizations.of(context).defaultTitle}:${_model.taskIcon.taskName}";
-    String oldTaskTitle = "${_model.oldTaskBean.taskName}";
+    String oldTaskTitle = "${_model?.oldTaskBean?.taskName}";
     return isEdit ? oldTaskTitle : defaultTitle;
   }
 
