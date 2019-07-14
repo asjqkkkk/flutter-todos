@@ -36,7 +36,10 @@ class DBProvider{
               "overallProgress TEXT,"
               "createDate TEXT,"
               "finishDate TEXT,"
-              "detailList TEXT"
+              "startDate TEXT,"
+              "deadLine TEXT,"
+              "detailList TEXT,"
+              "taskIconBean TEXT"
               ")");
         });
     //注意，上面创建表的时候最后一行不能带逗号
@@ -47,19 +50,16 @@ class DBProvider{
   Future createTask(TaskBean task) async{
     final db = await database;
     task.id = await db.insert("TodoList", task.toMap());
-    print("task:${task}");
   }
 
   //查询所有任务
-  Future<List<Map<String, dynamic>>> getTasks() async{
+  Future<List<TaskBean>> getTasks() async{
     final db = await database;
-    var list = db.query("TodoList");
-    list.then((List<Map<String, dynamic>> data){
-      print("list:${TaskBean.fromMapList(data)}");
-
-    });
-    return list;
-
+    var list = await db.query("TodoList");
+    List<TaskBean> beans = [];
+    beans.clear();
+    beans.addAll(TaskBean.fromMapList(list));
+    return beans;
   }
 
 //  Future updateDiary(Diary newDiary) async {

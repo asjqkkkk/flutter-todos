@@ -222,6 +222,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "startDate": "start date",
+  "@startDate": {
+    "description": "开始日期",
+    "type": "text",
+    "placeholders": {}
+  },
   "remindMe": "remind me",
   "@remindMe": {
     "description": "提醒我",
@@ -231,6 +237,18 @@
   "repeat": "repeat",
   "@repeat": {
     "description": "重复",
+    "type": "text",
+    "placeholders": {}
+  },
+  "startAfterEnd": "The start date need be smaller than the end date.",
+  "@startAfterEnd": {
+    "description": "开始日期要比结束日期小才行哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "endBeforeStart": "The end date need be bigger than the start date.",
+  "@endBeforeStart": {
+    "description": "结束日期要比开始日期大才行哦",
     "type": "text",
     "placeholders": {}
   },

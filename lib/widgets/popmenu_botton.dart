@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 
 class PopMenuBt extends StatelessWidget {
+
+  final Color iconColor;
+
+  const PopMenuBt({Key key, this.iconColor}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
@@ -21,7 +27,7 @@ class PopMenuBt extends StatelessWidget {
       },
       icon: Icon(
         Icons.more_vert,
-        color: Theme.of(context).primaryColor,
+        color: iconColor ?? Theme.of(context).primaryColor,
       ),
     );
   }

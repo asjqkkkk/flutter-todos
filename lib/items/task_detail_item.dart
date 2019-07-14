@@ -8,13 +8,14 @@ class TaskDetailItem extends StatefulWidget {
   final TheProgress onProgressChanged;
   final String itemName;
   final int index;
+  final Color iconColor;
 
   TaskDetailItem(
       {this.itemProgress = 0.0,
       this.onChecked,
       @required this.itemName,
       this.index = 0,
-      this.onProgressChanged});
+      this.onProgressChanged, this.iconColor});
 
   @override
   _TaskDetailItemState createState() => _TaskDetailItemState();
@@ -85,7 +86,7 @@ class _TaskDetailItemState extends State<TaskDetailItem>
                         widget.onChecked(currentProgress);
                       }
                     },
-                    activeColor: Theme.of(context).primaryColor,
+                    activeColor: widget.iconColor ?? Theme.of(context).primaryColor,
                   ),
                 ),
                 Expanded(
@@ -147,6 +148,7 @@ class _TaskDetailItemState extends State<TaskDetailItem>
             margin: EdgeInsets.only(left: 22),
             height: 5,
             child: Slider(
+              activeColor: widget.iconColor ?? Theme.of(context).primaryColor,
                 value: currentProgress,
                 onChanged: (value) {
                   setState(() {

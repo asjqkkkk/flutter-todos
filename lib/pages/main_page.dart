@@ -50,7 +50,7 @@ class MainPage extends StatelessWidget {
                   color: globalModel.logic.getWhiteInDark(),
                 ),
                 onPressed: () {
-//                DBProvider.db.createTask(TaskBean.fromMapList(TaskBean.getMockData())[0]);
+                DBProvider.db.createTask(TaskBean.fromMapList(TaskBean.getMockData())[0]);
                   DBProvider.db.getTasks();
                 })
           ],
@@ -92,14 +92,14 @@ class MainPage extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.only(top: 8, left: 12),
                     child: Text(
-                      "${DemoLocalizations.of(context).taskItems(3)}",
+                      "${DemoLocalizations.of(context).taskItems(model.tasks.length)}",
                       style: TextStyle(
                           fontSize: 15,
                           color: globalModel.logic.getWhiteInDark()),
                     ),
                   ),
                 ),
-                Container(
+                model.tasks.length == 0 ? SizedBox() : Container(
                   margin: EdgeInsets.only(top: 40),
                   child: CarouselSlider(
                     items: model.logic.getCards(context),
@@ -107,7 +107,7 @@ class MainPage extends StatelessWidget {
                     height: MediaQuery.of(context).size.width - 100,
                     viewportFraction: 0.8,
                     initialPage: 0,
-                    enableInfiniteScroll: true,
+                    enableInfiniteScroll: model.tasks.length >= 3,
                     reverse: false,
                     enlargeCenterPage: true,
                     onPageChanged: (index) {},

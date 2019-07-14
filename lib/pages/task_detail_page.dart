@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/items/task_detail_item.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
@@ -20,6 +21,7 @@ class TaskDetailPage extends StatelessWidget {
     final model = Provider.of<TaskDetailPageModel>(context);
     final globalModel = Provider.of<GlobalModel>(context);
     model.setContext(context);
+    final taskColor = ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
 
     return WillPopScope(
       onWillPop: () {
@@ -40,7 +42,7 @@ class TaskDetailPage extends StatelessWidget {
           Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
-              iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
+              iconTheme: IconThemeData(color: taskColor),
               leading: IconButton(
                   icon: Icon(Icons.arrow_back_ios),
                   onPressed: () {
@@ -56,7 +58,7 @@ class TaskDetailPage extends StatelessWidget {
                     tag: "task_more${index}",
                     child: Material(
                       color: Colors.transparent,
-                      child: PopMenuBt()
+                      child: PopMenuBt(iconColor: taskColor,)
                     )
                 ),
 
@@ -68,9 +70,7 @@ class TaskDetailPage extends StatelessWidget {
                     margin: EdgeInsets.only(left: 50, top: 20, right: 50),
                     child: TaskInfoWidget(
                       index,
-                      taskNumbers: model?.taskBean?.detailList?.length??0,
-                      taskName: model?.taskBean?.taskName??"",
-                      overallProgress: model.taskBean?.overallProgress??0.0,
+                      taskBean: model.taskBean,
                     )),
                 Expanded(
                   child: Container(
@@ -85,6 +85,7 @@ class TaskDetailPage extends StatelessWidget {
                               index: index,
                               itemProgress: taskDetailBean.itemProgress,
                               itemName: taskDetailBean.taskDetailName,
+                              iconColor: taskColor,
                               onProgressChanged: (progress){
                                 model.logic.refreshProgress(taskDetailBean, progress, mainPageModel);
                                 model.refresh();

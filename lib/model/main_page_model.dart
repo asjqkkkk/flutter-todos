@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/database/database.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/json/task_bean.dart';
 
@@ -17,8 +18,7 @@ class MainPageModel extends ChangeNotifier{
   void setContext(BuildContext context){
     if(this.context == null){
         this.context = context;
-        tasks.clear();
-        tasks.addAll(TaskBean.fromMapList(TaskBean.getMockData()));
+        logic.getTasks();
     }
   }
 

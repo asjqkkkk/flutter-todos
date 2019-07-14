@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
+import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/utils/theme_util.dart';
 
 class EditTaskPageModel extends ChangeNotifier{
@@ -10,11 +12,20 @@ class EditTaskPageModel extends ChangeNotifier{
   Color bgColor = Colors.white;
   final TextEditingController textEditingController = TextEditingController();
 
-  List<String> taskDetails = [];
+  //任务清单
+  List<TaskDetailBean> taskDetails = [];
+  //截止日期
   DateTime deadLine;
+  //开始日期
+  DateTime startDate;
   TaskIconBean taskIcon;
 
-  bool canAddTask = false;    //能否添加任务
+  String currentTaskName = "";
+
+  //能否添加一项任务
+  bool canAddTaskDetail = false;
+
+  MainPageModel mainPageModel;
 
   EditTaskPageModel(){
     logic = EditTaskPageLogic(this);
@@ -43,6 +54,10 @@ class EditTaskPageModel extends ChangeNotifier{
     if(this.taskIcon == null){
       this.taskIcon = taskIcon;
     }
+  }
+
+  void setMainPageModel(MainPageModel mainPageModel) {
+    this.mainPageModel = mainPageModel;
   }
 
 }

@@ -1,19 +1,48 @@
 import 'dart:convert';
 
+import 'package:todo_list/json/task_icon_bean.dart';
+
 //单个任务的json数据
 class TaskBean {
   int id;
-  String taskName = "";
-  String taskType = "";
-  int taskStatus = 0;
+  String taskName;
+  String taskType;
+  int taskStatus;
   int taskDetailNum = 0;
-  double overallProgress = 0.0;
-  String createDate = "";
-  String finishDate = "";
+  double overallProgress;
+
+  //创建任务的时间
+  String createDate;
+
+  //任务完成的时间
+  String finishDate;
+
+  //用户设置的任务开始时间
+  String startDate;
+
+  //用户设置的任务结束时间
+  String deadLine;
+
+  //当前任务的图标信息
+  TaskIconBean taskIconBean;
   List<TaskDetailBean> detailList = [];
+
+  TaskBean(
+      {this.taskName = "",
+      this.taskType = "",
+      this.taskStatus = TaskStatus.todo,
+      this.taskDetailNum,
+      this.overallProgress = 0.0,
+      this.createDate = "",
+      this.finishDate = "",
+      this.startDate = "",
+      this.deadLine = "",
+      this.taskIconBean,
+      this.detailList});
 
   static TaskBean fromMap(Map<String, dynamic> map) {
     TaskBean taskBean = new TaskBean();
+    taskBean.id = map['id'];
     taskBean.taskName = map['taskName'];
     taskBean.taskType = map['taskType'];
     taskBean.taskDetailNum = map['taskDetailNum'];
@@ -21,6 +50,14 @@ class TaskBean {
     taskBean.overallProgress = double.parse(map['overallProgress']);
     taskBean.createDate = map['createDate'];
     taskBean.finishDate = map['finishDate'];
+    taskBean.startDate = map['startDate'];
+    taskBean.deadLine = map['deadLine'];
+    if(map['taskIconBean'] is String){
+      var taskIconBean = jsonDecode(map['taskIconBean']);
+      taskBean.taskIconBean = TaskIconBean.fromMap(taskIconBean);
+    } else {
+      taskBean.taskIconBean = TaskIconBean.fromMap(map['taskIconBean']);
+    }
     if (map['detailList'] is String) {
       var detailList = jsonDecode(map['detailList']);
       taskBean.detailList = TaskDetailBean.fromMapList(detailList);
@@ -47,6 +84,9 @@ class TaskBean {
       'overallProgress': overallProgress.toString(),
       'createDate': createDate,
       'finishDate': finishDate,
+      'startDate': startDate,
+      'deadLine': deadLine,
+      'taskIconBean': jsonEncode(taskIconBean.toMap()),
       'detailList': jsonEncode(List.generate(detailList.length, (index) {
         return detailList[index].toMap();
       }))
@@ -56,7 +96,7 @@ class TaskBean {
 
   @override
   String toString() {
-    return 'TaskBean{id: $id, taskName: $taskName, taskType: $taskType, taskStatus: $taskStatus, taskDetailNum: $taskDetailNum, overallProgress: $overallProgress, createDate: $createDate, finishDate: $finishDate, detailList: $detailList}';
+    return 'TaskBean{id: $id, taskName: $taskName, taskType: $taskType, taskStatus: $taskStatus, taskDetailNum: $taskDetailNum, overallProgress: $overallProgress, createDate: $createDate, finishDate: $finishDate, startDate: $startDate, deadLine: $deadLine, taskIconBean: $taskIconBean, detailList: $detailList}';
   }
 
   static getMockData() {
@@ -101,8 +141,10 @@ class TaskBean {
 
 //单个任务详情的json数据
 class TaskDetailBean {
-  String taskDetailName = "";
-  double itemProgress = 0.0;
+  String taskDetailName;
+  double itemProgress;
+
+  TaskDetailBean({this.taskDetailName = "", this.itemProgress = 0.0});
 
   static TaskDetailBean fromMap(Map<String, dynamic> map) {
     TaskDetailBean taskDetailBean = new TaskDetailBean();
@@ -125,4 +167,10 @@ class TaskDetailBean {
       'itemProgress': itemProgress.toString()
     };
   }
+}
+
+class TaskStatus {
+  static const int todo = 0;
+  static const int doing = 1;
+  static const int done = 2;
 }

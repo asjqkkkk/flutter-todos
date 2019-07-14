@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/provider_config.dart';
+import 'package:todo_list/database/database.dart';
 import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/pages/task_detail_page.dart';
@@ -12,7 +13,6 @@ class MainPageLogic{
 
 
   List<Widget> getCards(context) {
-
     return List.generate(_model.tasks.length, (index){
       final taskBean = _model.tasks[index];
       return GestureDetector(
@@ -47,5 +47,15 @@ class MainPageLogic{
         ),
       ),
     );
+  }
+
+  void getTasks(){
+    DBProvider.db.getTasks().then((tasks){
+      debugPrint("${tasks}");
+      if(tasks == null) return;
+      _model.tasks.clear();
+      _model.tasks.addAll(tasks);
+      _model.refresh();
+    });
   }
 }

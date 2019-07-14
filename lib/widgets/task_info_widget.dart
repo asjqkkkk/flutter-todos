@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/popmenu_botton.dart';
@@ -7,18 +9,17 @@ import 'package:todo_list/widgets/popmenu_botton.dart';
 class TaskInfoWidget extends StatelessWidget {
   final int index;
   final double space;
-  final double overallProgress;
-  final int taskNumbers;
-  final String taskName;
+  final TaskBean taskBean;
 
   TaskInfoWidget(this.index,
-      {this.space = 20,
-      this.overallProgress = 0,
-      this.taskNumbers = 0,
-      this.taskName = "",});
+      {this.space = 20,this.taskBean});
 
   @override
   Widget build(BuildContext context) {
+
+    final taskColor = ColorBean.fromBean(taskBean.taskIconBean.colorBean);
+    final taskIconData = IconBean.fromBean(taskBean.taskIconBean.iconBean);
+
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
@@ -35,12 +36,12 @@ class TaskInfoWidget extends StatelessWidget {
                         height: 42,
                         decoration: BoxDecoration(
                             border: Border.all(
-                              color: Theme.of(context).primaryColor,
+                              color: taskColor,
                             ),
                             shape: BoxShape.circle),
                         child: Icon(
-                          Icons.book,
-                          color: Theme.of(context).primaryColor,
+                          taskIconData,
+                          color: taskColor,
                         )),
                   ),
                 ),
@@ -58,7 +59,9 @@ class TaskInfoWidget extends StatelessWidget {
                               tag: "task_more${index}",
                               child: Material(
                                 color: Colors.transparent,
-                                child: PopMenuBt()
+                                child: PopMenuBt(
+                                  iconColor: taskColor,
+                                )
                               ))),
                 ),
               )
@@ -78,7 +81,7 @@ class TaskInfoWidget extends StatelessWidget {
                     child: Material(
                       color: Colors.transparent,
                       child: Text(
-                        "${taskName} ",
+                        "${taskBean.taskName} ",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -86,12 +89,12 @@ class TaskInfoWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              overallProgress == 1.0
+              taskBean.overallProgress == 1.0
                   ? Expanded(
                       flex: 1,
                       child: Container(
-                          width: 40,
-                          height: 40,
+                          width: 25,
+                          height: 25,
                           child: Hero(
                             tag: "task_complete${index}",
                             child: Icon(Icons.check_circle,color: Colors.greenAccent,),
@@ -107,7 +110,7 @@ class TaskInfoWidget extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: Text(
-                  "${DemoLocalizations.of(context).itemNumber(taskNumbers)}",
+                  "${DemoLocalizations.of(context).itemNumber(taskBean.taskDetailNum)}",
                   style: TextStyle(fontSize: 10),
                 ),
               ),
@@ -121,7 +124,7 @@ class TaskInfoWidget extends StatelessWidget {
               child: Material(
                   color: Colors.transparent,
                   child: Text(
-                    "${(overallProgress * 100).toInt()}%",
+                    "${(taskBean.overallProgress * 100).toInt()}%",
                     style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                   )),
             ),
@@ -135,8 +138,8 @@ class TaskInfoWidget extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(10)),
                 child: LinearProgressIndicator(
                   valueColor:
-                      AlwaysStoppedAnimation(Theme.of(context).primaryColor),
-                  value: overallProgress,
+                      AlwaysStoppedAnimation(taskColor),
+                  value: taskBean.overallProgress,
                   backgroundColor: Color.fromRGBO(224, 224, 224, 1),
                 ),
               ),

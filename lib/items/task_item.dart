@@ -40,9 +40,7 @@ class TaskItem extends StatelessWidget {
                       child: TaskInfoWidget(
                         index,
                         space: width / 3,
-                        taskName: taskBean?.taskName??"",
-                        taskNumbers: taskBean?.detailList?.length??0,
-                        overallProgress: taskBean?.overallProgress??0.0,
+                        taskBean: taskBean,
                       )))),
         ],
       ),

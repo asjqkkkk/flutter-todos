@@ -179,8 +179,11 @@ class DemoLocalizations {
   String get submit => Intl.message('Submit', name: 'submit', desc: '提交任务',);
   String get addTask => Intl.message('add a task', name: 'addTask', desc: '添加任务',);
   String get deadline => Intl.message('deadline', name: 'deadline', desc: '截止日期',);
+  String get startDate => Intl.message('start date', name: 'startDate', desc: '开始日期',);
   String get remindMe => Intl.message('remind me', name: 'remindMe', desc: '提醒我',);
   String get repeat => Intl.message('repeat', name: 'repeat', desc: '重复',);
+  String get startAfterEnd => Intl.message('The start date need be smaller than the end date.', name: 'startAfterEnd', desc: '开始日期要比结束日期小才行哦',);
+  String get endBeforeStart => Intl.message('The end date need be bigger than the start date.', name: 'endBeforeStart', desc: '结束日期要比开始日期大才行哦',);
 
 
   String taskItems(int taskNumbers){

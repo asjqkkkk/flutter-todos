@@ -8,18 +8,19 @@ import 'package:todo_list/model/edit_task_page_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 
 class EditTaskPage extends StatelessWidget {
-  final TaskIconBean taskIcon;
+  final TaskIconBean taskIconBean;
   final MainPageModel mainPageModel;
 
-  EditTaskPage(this.taskIcon, {this.mainPageModel});
+  EditTaskPage(this.taskIconBean, {this.mainPageModel});
 
   @override
   Widget build(BuildContext context) {
     final EditTaskPageModel model = Provider.of<EditTaskPageModel>(context);
     model.setContext(context);
-    model.setTaskIcon(taskIcon);
-    final iconColor = ColorBean.fromBean(taskIcon.colorBean);
-    final iconData = IconBean.fromBean(taskIcon.iconBean);
+    model.setMainPageModel(mainPageModel);
+    model.setTaskIcon(taskIconBean);
+    final iconColor = ColorBean.fromBean(taskIconBean.colorBean);
+    final iconData = IconBean.fromBean(taskIconBean.iconBean);
 
     return Scaffold(
       backgroundColor: model.bgColor,
@@ -34,8 +35,29 @@ class EditTaskPage extends StatelessWidget {
                 color: iconColor,
               ),
               tooltip: DemoLocalizations.of(context).submit,
-              onPressed: () {})
+              onPressed: model.logic.submitNewTask)
         ],
+        title: Container(
+          height: 49,
+          child: Form(
+            autovalidate: true,
+            child: Theme(
+              data: ThemeData(platform: TargetPlatform.android),
+              child: TextFormField(
+                textAlign: TextAlign.center,
+                validator: (text){
+                  model.currentTaskName = text;
+                  return null;
+                },
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "默认标题:${taskIconBean.taskName}",
+                ),
+                maxLines: 1,
+              ),
+            ),
+          ),
+        ),
       ),
       body: Container(
         child: Stack(
@@ -87,7 +109,7 @@ class EditTaskPage extends StatelessWidget {
                             ),
                             Expanded(
                               child: Text(
-                                model.taskDetails[index],
+                                model.taskDetails[index].taskDetailName,
                                 style: TextStyle(
                                   color: Color.fromRGBO(130, 130, 130, 1),
                                   fontSize: 20,
@@ -116,33 +138,36 @@ class EditTaskPage extends StatelessWidget {
                       height: 1,
                       color: Colors.grey.withOpacity(0.5),
                     ),
-                    TextField(
-                      controller: model.textEditingController
-                        ..addListener(model.logic.editListener),
-                      autofocus: model.taskDetails.length > 0 ? false : true,
-                      decoration: InputDecoration(
-                          hintText: DemoLocalizations.of(context).addTask,
-                          border: InputBorder.none,
-                          prefixIcon: Icon(
-                            iconData,
-                            color: iconColor,
-                          ),
-                          suffixIcon: GestureDetector(
-                            onTap: model.logic.submitOneItem,
-                            child: Container(
-                              margin: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: model.canAddTask
-                                      ? iconColor
-                                      : Colors.grey.withOpacity(0.4)),
-                              child: Icon(
-                                Icons.arrow_upward,
-                                color: model.bgColor,
-                                size: 20,
-                              ),
+                    Theme(
+                      data: ThemeData(platform: TargetPlatform.android),
+                      child: TextField(
+                        controller: model.textEditingController
+                          ..addListener(model.logic.editListener),
+                        autofocus: model.taskDetails.length > 0 ? false : true,
+                        decoration: InputDecoration(
+                            hintText: DemoLocalizations.of(context).addTask,
+                            border: InputBorder.none,
+                            prefixIcon: Icon(
+                              iconData,
+                              color: iconColor,
                             ),
-                          )),
+                            suffixIcon: GestureDetector(
+                              onTap: model.logic.submitOneItem,
+                              child: Container(
+                                margin: EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: model.canAddTaskDetail
+                                        ? iconColor
+                                        : Colors.grey.withOpacity(0.4)),
+                                child: Icon(
+                                  Icons.arrow_upward,
+                                  color: model.bgColor,
+                                  size: 20,
+                                ),
+                              ),
+                            )),
+                      ),
                     ),
                     Container(
                       height: 40,
@@ -155,25 +180,25 @@ class EditTaskPage extends StatelessWidget {
                               Icons.timer,
                               color: iconColor,
                             ),
+                            text: model.logic.getStartTimeText(),
+                            onTap: model.logic.pickStartTime,
+                          ),
+                          model.logic.getIconText(
+                            icon: Icon(
+                              Icons.timelapse,
+                              color: iconColor,
+                            ),
                             text:  model.logic.getEndTimeText(),
                             onTap: model.logic.pickEndTime,
                           ),
-                          model.logic.getIconText(
-                            icon: Icon(
-                              Icons.notifications_active,
-                              color: iconColor,
-                            ),
-                            text: DemoLocalizations.of(context).remindMe,
-                            onTap: () {},
-                          ),
-                          model.logic.getIconText(
-                            icon: Icon(
-                              Icons.repeat,
-                              color: iconColor,
-                            ),
-                            text: DemoLocalizations.of(context).repeat,
-                            onTap: () {},
-                          ),
+//                          model.logic.getIconText(
+//                            icon: Icon(
+//                              Icons.repeat,
+//                              color: iconColor,
+//                            ),
+//                            text: DemoLocalizations.of(context).repeat,
+//                            onTap: () {},
+//                          ),
                         ],
                       ),
                     )
