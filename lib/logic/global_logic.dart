@@ -25,51 +25,48 @@ class GlobalLogic{
     return themeType == MyTheme.darkTheme ? Colors.grey[800] : Colors.white;
   }
 
-  void getCurrentLanguage(){
-    SharedUtil.instance.getStringList(Keys.currentLanguage).then((list) {
-      if (list == null) return;
-      if (list == _model.currentLanguage) return;
-      _model.currentLanguage = list;
-      _model.refresh();
-    });
+  Future getCurrentLanguage() async{
+    final list = await SharedUtil.instance.getStringList(Keys.currentLanguage);
+    if (list == null) return;
+    if (list == _model.currentLanguage) return;
+    _model.currentLanguage = list;
   }
 
-  void getCurrentTheme(){
-    SharedUtil.instance.getString(Keys.currentThemeBean).then((theme){
-      if(theme == null) return;
-      ThemeBean themeBean = ThemeBean.fromMap(jsonDecode(theme));
-      if(themeBean.themeType == _model.currentThemeBean.themeType) return;
-      _model.currentThemeBean = themeBean;
-      _model.refresh();
-    });
+  Future getCurrentTheme() async{
+    final theme = await SharedUtil.instance.getString(Keys.currentThemeBean);
+    if(theme == null) return;
+    ThemeBean themeBean = ThemeBean.fromMap(jsonDecode(theme));
+    if(themeBean.themeType == _model.currentThemeBean.themeType) return;
+    _model.currentThemeBean = themeBean;
   }
 
 
-  void getIsBgGradient(){
-    SharedUtil.instance.getBoolean(Keys.backgroundGradient).then((value){
-      if(value == null) return;
-      if(value == _model.isBgGradient) return;
-      _model.isBgGradient = value;
-      _model.refresh();
-    });
+  Future getIsBgGradient()async{
+    final isBgGradient = await SharedUtil.instance.getBoolean(Keys.backgroundGradient);
+    if(isBgGradient == null) return;
+    if(isBgGradient == _model.isBgGradient) return;
+    _model.isBgGradient = isBgGradient;
   }
 
-  void getIsBgChangeWithCard(){
-    SharedUtil.instance.getBoolean(Keys.backgroundChangeWithCard).then((value){
-      if(value == null) return;
-      if(value == _model.isBgChangeWithCard) return;
-      _model.isBgChangeWithCard = value;
-      _model.refresh();
-    });
+  Future getIsBgChangeWithCard() async {
+    final isBgChangeWithCard = await SharedUtil.instance.getBoolean(Keys.backgroundChangeWithCard);
+    if(isBgChangeWithCard == null) return;
+    if(isBgChangeWithCard == _model.isBgChangeWithCard) return;
+    _model.isBgChangeWithCard = isBgChangeWithCard;
   }
 
-  void getEnableInfiniteScroll() {
-    SharedUtil.instance.getBoolean(Keys.enableInfiniteScroll).then((value){
-      if(value == null) return;
-      if(value == _model.enableInfiniteScroll) return;
-      _model.enableInfiniteScroll = value;
-      _model.refresh();
-    });
+  Future getIsCardChangeWithBg() async {
+    final isCardChangeWithBg = await SharedUtil.instance.getBoolean(Keys.cardChangeWithBackground);
+    if(isCardChangeWithBg == null) return;
+    if(isCardChangeWithBg == _model.isCardChangeWithBg) return;
+    _model.isCardChangeWithBg = isCardChangeWithBg;
+  }
+
+  Future getEnableInfiniteScroll() async{
+    final enableInfiniteScroll = await SharedUtil.instance.getBoolean(Keys.enableInfiniteScroll);
+    if(enableInfiniteScroll == null) return;
+    if(enableInfiniteScroll == _model.enableInfiniteScroll) return;
+    _model.enableInfiniteScroll = enableInfiniteScroll;
   }
 
 }

@@ -23,7 +23,7 @@ class TaskDetailPage extends StatelessWidget {
     final globalModel = Provider.of<GlobalModel>(context);
     final mainPageModel = globalModel.mainPageModel;
     model.setContext(context);
-    final taskColor = globalModel.isBgChangeWithCard ? Theme.of(context).primaryColor : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
+    final taskColor = globalModel.isCardChangeWithBg ? Theme.of(context).primaryColor : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
 
     return WillPopScope(
       onWillPop: (){
@@ -69,7 +69,7 @@ class TaskDetailPage extends StatelessWidget {
                     child: TaskInfoWidget(
                       index,
                       taskBean: model.taskBean,
-                      isCardChangeWithBg: globalModel.isBgChangeWithCard,
+                      isCardChangeWithBg: globalModel.isCardChangeWithBg,
                     )),
                 Expanded(
                   child: Container(

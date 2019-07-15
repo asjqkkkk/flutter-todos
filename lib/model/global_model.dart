@@ -4,9 +4,7 @@ import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/utils/theme_util.dart';
 
-
 class GlobalModel extends ChangeNotifier {
-
   GlobalLogic logic;
   BuildContext context;
 
@@ -19,6 +17,7 @@ class GlobalModel extends ChangeNotifier {
     colorBean: ColorBean.fromColor(MyThemeColor.defaultColor),
     themeType: MyTheme.defaultTheme,
   );
+
   //是否开启主页背景渐变
   bool isBgGradient = false;
 
@@ -33,9 +32,7 @@ class GlobalModel extends ChangeNotifier {
 
   MainPageModel mainPageModel;
 
-
-  List<String> currentLanguage = ["zh", "CN"];   //当前的app语言
-
+  List<String> currentLanguage = ["zh", "CN"]; //当前的app语言
 
   GlobalModel() {
     logic = GlobalLogic(this);
@@ -44,16 +41,21 @@ class GlobalModel extends ChangeNotifier {
   void setContext(BuildContext context) {
     if (this.context == null) {
       this.context = context;
-      logic.getCurrentTheme();
-      logic.getCurrentLanguage();
-      logic.getIsBgGradient();
-      logic.getIsBgChangeWithCard();
-      logic.getEnableInfiniteScroll();
+      Future.wait([
+        logic.getCurrentTheme(),
+        logic.getCurrentLanguage(),
+        logic.getIsBgGradient(),
+        logic.getIsBgChangeWithCard(),
+        logic.getIsCardChangeWithBg(),
+        logic.getEnableInfiniteScroll()
+      ]).then((value) {
+        refresh();
+      });
     }
   }
 
-  void setMainPageModel(MainPageModel mainPageModel){
-    if(this.mainPageModel == null){
+  void setMainPageModel(MainPageModel mainPageModel) {
+    if (this.mainPageModel == null) {
       this.mainPageModel = mainPageModel;
     }
   }
