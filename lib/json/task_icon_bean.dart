@@ -45,22 +45,25 @@ class IconBean {
   int codePoint;
   String fontFamily;
   String fontPackage;
+  String iconName;
   bool matchTextDirection;
 
   IconBean(
       {this.codePoint,
         this.fontFamily,
         this.fontPackage,
+        this.iconName,
         this.matchTextDirection});
 
   static IconData fromBean(IconBean bean) =>
-      IconData(bean.codePoint, fontFamily: bean.fontFamily);
+      IconData(bean.codePoint, fontFamily: bean.fontFamily, fontPackage: bean.fontPackage == "null" ? null : bean.fontPackage);
 
   static IconBean fromMap(Map<String, dynamic> map) {
     IconBean bean = new IconBean();
     bean.codePoint = int.parse(map['codePoint']);
     bean.fontFamily = map['fontFamily'];
     bean.fontPackage = map['fontPackage'];
+    bean.iconName = map['iconName'];
     bean.matchTextDirection = map['taskStatus'] == 'ture';
     return bean;
   }
@@ -92,6 +95,7 @@ class IconBean {
       'codePoint': codePoint.toString(),
       'fontFamily': fontFamily??"",
       'fontPackage': fontPackage??"",
+      'iconName': iconName??"",
       'matchTextDirection': matchTextDirection.toString()
     };
   }

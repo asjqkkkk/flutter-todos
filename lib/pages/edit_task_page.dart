@@ -20,7 +20,6 @@ class EditTaskPage extends StatelessWidget {
     model.setMainPageModel(mainPageModel);
     model.setTaskIcon(taskIconBean);
 
-
     final iconColor = ColorBean.fromBean(taskIconBean.colorBean);
     final iconData = IconBean.fromBean(taskIconBean.iconBean);
 
@@ -47,7 +46,7 @@ class EditTaskPage extends StatelessWidget {
               data: ThemeData(platform: TargetPlatform.android),
               child: TextFormField(
                 textAlign: TextAlign.center,
-                validator: (text){
+                validator: (text) {
                   model.currentTaskName = text;
                   return null;
                 },
@@ -73,8 +72,6 @@ class EditTaskPage extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: model.taskDetails.length,
                   itemBuilder: (ctx, index) {
-
-
                     return Dismissible(
                       background: Container(
                         alignment: Alignment.centerLeft,
@@ -113,13 +110,21 @@ class EditTaskPage extends StatelessWidget {
                             ),
                             Expanded(
                               child: Text(
-                                  model.taskDetails[index].taskDetailName,
+                                model.taskDetails[index].taskDetailName,
                                 style: TextStyle(
                                   color: Color.fromRGBO(130, 130, 130, 1),
                                   fontSize: 20,
                                 ),
                               ),
                             ),
+                            IconButton(
+                              icon: Icon(
+                                Icons.arrow_upward,
+                                color: iconColor,
+                              ),
+                              onPressed: () => model.logic
+                                  .moveToTop(index, model.taskDetails),
+                            )
                           ],
                         ),
                       ),
@@ -192,7 +197,7 @@ class EditTaskPage extends StatelessWidget {
                               Icons.timelapse,
                               color: iconColor,
                             ),
-                            text:  model.logic.getEndTimeText(),
+                            text: model.logic.getEndTimeText(),
                             onTap: model.logic.pickEndTime,
                           ),
 //                          model.logic.getIconText(

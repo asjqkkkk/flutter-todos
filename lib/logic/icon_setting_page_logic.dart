@@ -55,7 +55,7 @@ class IconSettingPageLogic {
                 final name = text.isEmpty ? DemoLocalizations.of(_model.context).defaultIconName : text;
                 _model.currentIconName = name;
               },
-              iconName: name,
+              iconName: name ?? iconBean.iconName,
             )
           );
         });

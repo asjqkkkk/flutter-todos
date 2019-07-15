@@ -67,25 +67,34 @@ class IconSettingPage extends StatelessWidget {
                         absorbing: model.isDeleting ? true : false,
                         child: Container(
                           alignment: Alignment.center,
-                          child: Tooltip(
-                            message: taskIcon.taskName,
-                            child: InkWell(
-                                child: Icon(
-                                  IconBean.fromBean(taskIcon.iconBean),
-                                  color: ColorBean.fromBean(taskIcon.colorBean),
-                                  size: 40,
-                                ),
-                                onTap: () {
-                                  model.logic.tapDefaultIcon(index);
-                                  if (index <= 5) return;
-                                  model.logic.onIconPress(
-                                    model.taskIcons[index].iconBean,
-                                    colorBean: model.taskIcons[index].colorBean,
-                                    name: model.taskIcons[index].taskName,
-                                    index: index,
-                                    isEdit: true,
-                                  );
-                                }),
+                          child: Column(
+                            children: <Widget>[
+                              InkWell(
+                                  child: Icon(
+                                    IconBean.fromBean(taskIcon.iconBean),
+                                    color: ColorBean.fromBean(
+                                        taskIcon.colorBean),
+                                    size: 40,
+                                  ),
+                                  onTap: () {
+                                    model.logic.tapDefaultIcon(index);
+                                    if (index <= 5) return;
+                                    model.logic.onIconPress(
+                                      model.taskIcons[index].iconBean,
+                                      colorBean:
+                                          model.taskIcons[index].colorBean,
+                                      name: model.taskIcons[index].taskName,
+                                      index: index,
+                                      isEdit: true,
+                                    );
+                                  }),
+                              SizedBox(height: 2,),
+                              Text(
+                                taskIcon.taskName,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(fontSize: 12),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -95,7 +104,8 @@ class IconSettingPage extends StatelessWidget {
                         child: AbsorbPointer(
                           absorbing: model.isDeleting ? false : true,
                           child: Opacity(
-                            opacity: (index > 5 && model.isDeleting) ? 1.0 : 0.0,
+                            opacity:
+                                (index > 5 && model.isDeleting) ? 1.0 : 0.0,
                             child: GestureDetector(
                               onTap: () => model.logic.removeIcon(index),
                               child: Icon(
@@ -117,41 +127,49 @@ class IconSettingPage extends StatelessWidget {
             color: Theme.of(context).dividerColor,
           ),
           Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                alignment: Alignment.center,
-                child: FutureBuilder(
-                    future: IconBean.loadAsset(),
-                    builder: (context, snapshot) {
-                      if (!snapshot.hasData) {
+            child: Container(
+              alignment: Alignment.center,
+              child: FutureBuilder(
+                  future: IconBean.loadAsset(),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return Container(
+                        width: 100,
+                        height: 100,
+                        alignment: Alignment.center,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              Theme.of(context).primaryColor),
+                        ),
+                      );
+                    }
+                    List<IconBean> icons = snapshot.data;
+                    return GridView.count(
+                      crossAxisCount: 5,
+                      children: List.generate(icons.length, (index) {
+                        final icon = icons[index];
                         return Container(
-                          width: 100,
-                          height: 100,
-                          alignment: Alignment.center,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                                Theme.of(context).primaryColor),
+                          margin: EdgeInsets.all(10),
+                          child: Column(
+                            children: <Widget>[
+                              IconButton(
+                                onPressed: () => model.logic.onIconPress(icon),
+                                icon: Icon(
+                                  IconBean.fromBean(icon),
+                                  size: 30,
+                                ),
+                              ),
+                              Text(
+                                icons[index].iconName,
+                                style: TextStyle(fontSize: 10),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
                           ),
                         );
-                      }
-                      List<IconBean> icons = snapshot.data;
-                      return Wrap(
-                        children: List.generate(icons.length, (index) {
-                          final icon = icons[index];
-                          return Container(
-                            margin: EdgeInsets.all(10),
-                            child: IconButton(
-                              onPressed: () => model.logic.onIconPress(icon),
-                              icon: Icon(
-                                IconBean.fromBean(icon),
-                                size: 30,
-                              ),
-                            ),
-                          );
-                        }),
-                      );
-                    }),
-              ),
+                      }),
+                    );
+                  }),
             ),
           )
         ],

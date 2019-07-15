@@ -239,7 +239,7 @@ class EditTaskPageLogic {
   }
   
 
-
+  //表示当前是属于创建新的任务还是修改旧的任务
   bool isEditOldTask(){
     return _model.oldTaskBean != null;
   }
@@ -250,6 +250,14 @@ class EditTaskPageLogic {
     String defaultTitle = "${DemoLocalizations.of(context).defaultTitle}:${_model.taskIcon.taskName}";
     String oldTaskTitle = "${_model?.oldTaskBean?.taskName}";
     return isEdit ? oldTaskTitle : defaultTitle;
+  }
+
+  //将当前item置于顶层
+  void moveToTop(int index, List list){
+    final item = list[index];
+    list.removeAt(index);
+    list.insert(0, item);
+    _model.refresh();
   }
 
 }
