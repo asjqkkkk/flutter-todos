@@ -200,6 +200,11 @@ class EditTaskPageLogic {
     TaskBean taskBean = await transformDataToBean(id: _model.oldTaskBean.id,overallProgress: _getOverallProgress());
     DBProvider.db.updateTask(taskBean);
     _model.mainPageModel.logic.getTasks();
+    if(_model.taskDetailPageModel != null){
+      _model.taskDetailPageModel.isExiting = true;
+      _model.taskDetailPageModel.refresh();
+      debugPrint("刷新");
+    }
     Navigator.of(_model.context).popUntil((route) => route.isFirst);
   }
 

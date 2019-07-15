@@ -95,10 +95,7 @@ class TaskDetailPage extends StatelessWidget {
                                     margin: EdgeInsets.only(
                                       bottom: index ==
                                               model.taskBean.detailList
-                                                      .length -
-                                                  1
-                                          ? 20
-                                          : 0,
+                                                      .length - 1 ? 20 : 0,
                                       left: 50,right: 50
                                     ),
                                     child: TaskDetailItem(

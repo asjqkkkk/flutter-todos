@@ -6,18 +6,27 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/edit_task_page_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
+import 'package:todo_list/model/task_detail_page_model.dart';
 
 class EditTaskPage extends StatelessWidget {
   final TaskIconBean taskIconBean;
   final MainPageModel mainPageModel;
 
-  EditTaskPage(this.taskIconBean, {this.mainPageModel});
+  //detailModel如果不为空，表示这个页面是从浏览页面过来的
+  final TaskDetailPageModel taskDetailPageModel;
+
+  EditTaskPage(
+    this.taskIconBean, {
+    this.mainPageModel,
+    this.taskDetailPageModel,
+  });
 
   @override
   Widget build(BuildContext context) {
     final EditTaskPageModel model = Provider.of<EditTaskPageModel>(context);
     model.setContext(context);
     model.setMainPageModel(mainPageModel);
+    model.setTaskDetailPageModel(taskDetailPageModel);
     model.setTaskIcon(taskIconBean);
 
     final iconColor = ColorBean.fromBean(taskIconBean.colorBean);

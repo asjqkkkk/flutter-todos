@@ -59,7 +59,8 @@ class TaskDetailPageLogic{
               .getEditTaskPage(
             _model.taskBean.taskIconBean,
             mainPageModel: mainPageModel,
-            taskBean: _model.taskBean
+            taskBean: _model.taskBean,
+            taskDetailPageModel: _model,
           );
         },
       ),
