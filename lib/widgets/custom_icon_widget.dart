@@ -74,58 +74,58 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
               ),
             ),
           ),
-          Row(
-            children: List.generate(defaultColors.length, (index) {
-              return InkWell(
-                onTap: () {
-                  setState(() {
-                    currentSelectIndex = index;
-                    currentIconColor = defaultColors[index];
-                  });
-                },
-                child: Container(
-                  width: 20,
-                  height: 20,
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: defaultColors[index],
-                    border: currentSelectIndex == index
-                        ? Border.all(width: 2, color: Colors.black)
-                        : null,
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: List.generate(defaultColors.length, (index) {
+                return InkWell(
+                  onTap: () {
+                    setState(() {
+                      currentSelectIndex = index;
+                      currentIconColor = defaultColors[index];
+                    });
+                  },
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: defaultColors[index],
+                      border: currentSelectIndex == index
+                          ? Border.all(width: 2, color: Colors.black)
+                          : null,
+                    ),
                   ),
-                ),
-              );
-            }),
+                );
+              }),
+            ),
           ),
           Container(
             child: Row(
               children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: InkWell(
-                    onTap: () {
-                      _showColorPicker(context);
-                    },
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      height: 35,
-                      width: 35,
-                      margin: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.redAccent,
-                            Colors.greenAccent,
-                            Colors.blueAccent,
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        border: currentSelectIndex == 7
-                            ? Border.all(color: currentIconColor, width: 4)
-                            : null,
+                InkWell(
+                  onTap: () {
+                    _showColorPicker(context);
+                  },
+                  child: Container(
+                    height: 35,
+                    width: 35,
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.redAccent,
+                          Colors.greenAccent,
+                          Colors.blueAccent,
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                       ),
+                      border: currentSelectIndex == 7
+                          ? Border.all(color: currentIconColor, width: 4)
+                          : null,
                     ),
                   ),
                 ),

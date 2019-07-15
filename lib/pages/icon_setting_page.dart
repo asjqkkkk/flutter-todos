@@ -146,6 +146,7 @@ class IconSettingPage extends StatelessWidget {
                     List<IconBean> icons = snapshot.data;
                     return GridView.count(
                       crossAxisCount: 5,
+                      childAspectRatio: 0.8,
                       padding: EdgeInsets.all(2),
                       children: List.generate(icons.length, (index) {
                         final icon = icons[index];
