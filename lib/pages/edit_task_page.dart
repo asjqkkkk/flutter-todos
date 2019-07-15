@@ -80,6 +80,7 @@ class EditTaskPage extends StatelessWidget {
                 },
                 child: ListView.builder(
                   itemCount: model.taskDetails.length,
+                  controller: model.scrollController,
                   itemBuilder: (ctx, index) {
                     return Dismissible(
                       background: Container(

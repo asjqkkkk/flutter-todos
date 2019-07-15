@@ -12,6 +12,8 @@ class EditTaskPageModel extends ChangeNotifier{
   BuildContext context;
   Color bgColor = Colors.white;
   final TextEditingController textEditingController = TextEditingController();
+  final ScrollController scrollController = ScrollController();
+
   MainPageModel mainPageModel;
   TaskDetailPageModel taskDetailPageModel;
 
@@ -48,6 +50,7 @@ class EditTaskPageModel extends ChangeNotifier{
     super.dispose();
     textEditingController?.removeListener(logic.editListener);
     textEditingController?.dispose();
+    scrollController?.dispose();
     debugPrint("EditTaskPageModel销毁了");
   }
 

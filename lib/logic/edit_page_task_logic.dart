@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
+import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
@@ -35,13 +38,14 @@ class EditTaskPageLogic {
 
   //当为夜间模式时候，白色背景替换为特定灰色
   void getBgInDark() async {
-    String currentThemeType =
-        await SharedUtil.instance.getString(Keys.currentThemeType) ??
-            MyTheme.defaultTheme;
+    String theme =
+        await SharedUtil.instance.getString(Keys.currentThemeBean);
+    if(theme == null) return;
+    ThemeBean themeBean = ThemeBean.fromMap(jsonDecode(theme));
     Color color =
-        currentThemeType == MyTheme.darkTheme ? Colors.grey[800] : Colors.white;
+    themeBean.themeType == MyTheme.darkTheme ? Colors.grey[800] : Colors.white;
     _model.bgColor = color;
-    _model.refresh();
+    if(_model.bgColor != color) _model.refresh();
   }
 
   //提交一项任务
@@ -50,6 +54,8 @@ class EditTaskPageLogic {
     _model.taskDetails.add(TaskDetailBean(taskDetailName: text));
     _model.textEditingController.clear();
     _model.refresh();
+    final scroller = _model.scrollController;
+    scroller.animateTo(scroller.position.maxScrollExtent, duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine);
   }
 
   //监听文字，提交按钮是否可以点击

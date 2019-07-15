@@ -146,10 +146,11 @@ class IconSettingPage extends StatelessWidget {
                     List<IconBean> icons = snapshot.data;
                     return GridView.count(
                       crossAxisCount: 5,
+                      padding: EdgeInsets.all(2),
                       children: List.generate(icons.length, (index) {
                         final icon = icons[index];
                         return Container(
-                          margin: EdgeInsets.all(10),
+                          margin: EdgeInsets.all(4),
                           child: Column(
                             children: <Widget>[
                               IconButton(
@@ -159,10 +160,13 @@ class IconSettingPage extends StatelessWidget {
                                   size: 30,
                                 ),
                               ),
-                              Text(
-                                icons[index].iconName,
-                                style: TextStyle(fontSize: 10),
-                                overflow: TextOverflow.ellipsis,
+                              SizedBox(height: 8,),
+                              Expanded(
+                                child: Text(
+                                  icons[index].iconName,
+                                  style: TextStyle(fontSize: 10),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             ],
                           ),
