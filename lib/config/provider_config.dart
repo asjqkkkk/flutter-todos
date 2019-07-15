@@ -32,32 +32,41 @@ class ProviderConfig {
   }
 
   ChangeNotifierProvider<TaskDetailPageModel> getTaskDetailPage(
-      int index, TaskBean taskBean,) {
+    int index,
+    TaskBean taskBean,
+  ) {
     return ChangeNotifierProvider<TaskDetailPageModel>(
       builder: (context) => TaskDetailPageModel(taskBean),
-      child: TaskDetailPage(index,),
+      child: TaskDetailPage(
+        index,
+      ),
     );
   }
 
-  ChangeNotifierProvider<EditTaskPageModel> getEditTaskPage(TaskIconBean taskIcon,{MainPageModel mainPageModel, TaskBean taskBean}){
-     return ChangeNotifierProvider<EditTaskPageModel>(
-       builder:(context) => EditTaskPageModel(oldTaskBean: taskBean),
-       child: EditTaskPage(taskIcon,mainPageModel: mainPageModel,),
-     );
+  ChangeNotifierProvider<EditTaskPageModel> getEditTaskPage(
+      TaskIconBean taskIcon,
+      {MainPageModel mainPageModel,
+      TaskBean taskBean}) {
+    return ChangeNotifierProvider<EditTaskPageModel>(
+      builder: (context) => EditTaskPageModel(oldTaskBean: taskBean),
+      child: EditTaskPage(
+        taskIcon,
+        mainPageModel: mainPageModel,
+      ),
+    );
   }
 
-  ChangeNotifierProvider<IconSettingPageModel> getIconSettingPage(){
-     return ChangeNotifierProvider<IconSettingPageModel>(
-       builder:(context) => IconSettingPageModel(),
-       child: IconSettingPage(),
-     );
-   }
+  ChangeNotifierProvider<IconSettingPageModel> getIconSettingPage() {
+    return ChangeNotifierProvider<IconSettingPageModel>(
+      builder: (context) => IconSettingPageModel(),
+      child: IconSettingPage(),
+    );
+  }
 
-   ChangeNotifierProvider<ThemePageModel> getThemePage(){
-      return ChangeNotifierProvider<ThemePageModel>(
-        builder:(context) => ThemePageModel(),
-        child: ThemePage(),
-      );
-    }
-
+  ChangeNotifierProvider<ThemePageModel> getThemePage() {
+    return ChangeNotifierProvider<ThemePageModel>(
+      builder: (context) => ThemePageModel(),
+      child: ThemePage(),
+    );
+  }
 }

@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:todo_list/json/color_bean.dart';
 export 'package:todo_list/json/color_bean.dart';
 
-
 class TaskIconBean {
   String taskName;
   IconBean iconBean;
@@ -30,7 +29,6 @@ class TaskIconBean {
     return list;
   }
 
-
   Map<dynamic, dynamic> toMap() {
     return {
       'taskName': taskName,
@@ -39,7 +37,6 @@ class TaskIconBean {
     };
   }
 }
-
 
 class IconBean {
   int codePoint;
@@ -50,13 +47,13 @@ class IconBean {
 
   IconBean(
       {this.codePoint,
-        this.fontFamily,
-        this.fontPackage,
-        this.iconName,
-        this.matchTextDirection});
+      this.fontFamily,
+      this.fontPackage,
+      this.iconName,
+      this.matchTextDirection});
 
-  static IconData fromBean(IconBean bean) =>
-      IconData(bean.codePoint, fontFamily: bean.fontFamily, fontPackage: bean.fontPackage == "null" ? null : bean.fontPackage);
+  static IconData fromBean(IconBean bean) => IconData(bean.codePoint,
+      fontFamily: bean.fontFamily,);
 
   static IconBean fromMap(Map<String, dynamic> map) {
     IconBean bean = new IconBean();
@@ -64,7 +61,7 @@ class IconBean {
     bean.fontFamily = map['fontFamily'];
     bean.fontPackage = map['fontPackage'];
     bean.iconName = map['iconName'];
-    bean.matchTextDirection = map['taskStatus'] == 'ture';
+    bean.matchTextDirection = map['matchTextDirection'] == 'ture';
     return bean;
   }
 
@@ -93,9 +90,9 @@ class IconBean {
   Map<dynamic, dynamic> toMap() {
     return {
       'codePoint': codePoint.toString(),
-      'fontFamily': fontFamily??"",
-      'fontPackage': fontPackage??"",
-      'iconName': iconName??"",
+      'fontFamily': fontFamily ?? "",
+      'fontPackage': fontPackage ?? "",
+      'iconName': iconName ?? "",
       'matchTextDirection': matchTextDirection.toString()
     };
   }

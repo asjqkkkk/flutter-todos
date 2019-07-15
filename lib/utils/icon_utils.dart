@@ -16,7 +16,7 @@ class IconUtil {
   List<IconData> get icons => _icons;
 
 
-
+  List<String> get iconNames => _iconNames;
 
 
   List<IconData> _icons = [
@@ -1007,7 +1007,7 @@ class IconUtil {
     Icons.zoom_out_map
   ];
 
-  List<String> iconNames = [
+  List<String> _iconNames = [
     "threesixty",
     "threed_rotation",
     "four_k",

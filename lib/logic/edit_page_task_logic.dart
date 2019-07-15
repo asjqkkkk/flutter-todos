@@ -197,13 +197,22 @@ class EditTaskPageLogic {
 
   //修改旧的任务
   void submitOldTask() async{
-    TaskBean taskBean = await transformDataToBean(id: _model.oldTaskBean.id);
+    TaskBean taskBean = await transformDataToBean(id: _model.oldTaskBean.id,overallProgress: _getOverallProgress());
     DBProvider.db.updateTask(taskBean);
     _model.mainPageModel.logic.getTasks();
     Navigator.of(_model.context).popUntil((route) => route.isFirst);
   }
 
-  Future<TaskBean> transformDataToBean({int id}) async {
+  double _getOverallProgress(){
+    int length = _model.taskDetails.length;
+    double overallProgress = 0.0;
+    for(int i = 0; i < length;i++){
+      overallProgress += _model.taskDetails[i].itemProgress / length;
+    }
+    return overallProgress;
+  }
+
+  Future<TaskBean> transformDataToBean({int id, double overallProgress = 0.0}) async {
     final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
     final taskName = _model.currentTaskName.isEmpty ? _model.taskIcon.taskName : _model.currentTaskName;
     TaskBean taskBean = TaskBean(
@@ -216,6 +225,7 @@ class EditTaskPageLogic {
       deadLine: _model.deadLine?.toIso8601String(),
       detailList: _model.taskDetails,
       taskIconBean: _model.taskIcon,
+      overallProgress: overallProgress,
     );
     if(id != null){
       taskBean.id = id;

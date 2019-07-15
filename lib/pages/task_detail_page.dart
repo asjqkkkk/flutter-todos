@@ -23,10 +23,12 @@ class TaskDetailPage extends StatelessWidget {
     final globalModel = Provider.of<GlobalModel>(context);
     final mainPageModel = globalModel.mainPageModel;
     model.setContext(context);
-    final taskColor = globalModel.isCardChangeWithBg ? Theme.of(context).primaryColor : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
+    final taskColor = globalModel.isCardChangeWithBg
+        ? Theme.of(context).primaryColor
+        : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
 
     return WillPopScope(
-      onWillPop: (){
+      onWillPop: () {
         model.logic.exitPage();
       },
       child: Stack(
@@ -45,8 +47,11 @@ class TaskDetailPage extends StatelessWidget {
               iconTheme: IconThemeData(color: taskColor),
               leading: model.isAnimationComplete && !model.isExiting
                   ? IconButton(
-                      icon: Icon(Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios),
-                      onPressed: model.logic.exitPage,)
+                      icon: Icon(Platform.isAndroid
+                          ? Icons.arrow_back
+                          : Icons.arrow_back_ios),
+                      onPressed: model.logic.exitPage,
+                    )
                   : SizedBox(),
               elevation: 0,
               backgroundColor: Colors.transparent,
@@ -73,32 +78,55 @@ class TaskDetailPage extends StatelessWidget {
                     )),
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(
-                        left: 50, top: 20, right: 50, bottom: 20),
+                    margin: EdgeInsets.only(top: 20),
                     child: !model.isExiting
-                        ? ListView(
-                            children: List.generate(
+                        ? NotificationListener<
+                                OverscrollIndicatorNotification>(
+                            onNotification: (overScroll) {
+                              overScroll.disallowGlow();
+                            },
+                            child: ListView(
+                              children: List.generate(
                                 model?.taskBean?.detailList?.length ?? 0,
                                 (index) {
-                            TaskDetailBean taskDetailBean =
-                                model.taskBean.detailList[index];
-                            return TaskDetailItem(
-                              index: index,
-                              itemProgress: taskDetailBean.itemProgress,
-                              itemName: taskDetailBean.taskDetailName,
-                              iconColor: taskColor,
-                              onProgressChanged: (progress) {
-                                model.logic.refreshProgress(
-                                    taskDetailBean, progress, mainPageModel);
-                                model.refresh();
-                              },
-                              onChecked: (progress) {
-                                model.logic.refreshProgress(
-                                    taskDetailBean, progress, mainPageModel);
-                                model.refresh();
-                              },
-                            );
-                          }))
+                                  TaskDetailBean taskDetailBean =
+                                      model.taskBean.detailList[index];
+                                  return Container(
+                                    margin: EdgeInsets.only(
+                                      bottom: index ==
+                                              model.taskBean.detailList
+                                                      .length -
+                                                  1
+                                          ? 20
+                                          : 0,
+                                      left: 50,right: 50
+                                    ),
+                                    child: TaskDetailItem(
+                                      index: index,
+                                      itemProgress:
+                                          taskDetailBean.itemProgress,
+                                      itemName:
+                                          taskDetailBean.taskDetailName,
+                                      iconColor: taskColor,
+                                      onProgressChanged: (progress) {
+                                        model.logic.refreshProgress(
+                                            taskDetailBean,
+                                            progress,
+                                            mainPageModel);
+                                        model.refresh();
+                                      },
+                                      onChecked: (progress) {
+                                        model.logic.refreshProgress(
+                                            taskDetailBean,
+                                            progress,
+                                            mainPageModel);
+                                        model.refresh();
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                            ))
                         : SizedBox(),
                   ),
                 )
