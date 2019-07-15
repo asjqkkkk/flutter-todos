@@ -52,6 +52,8 @@ dev_dependencies:
   sqflite: ^1.1.6
   #取色框
   flutter_colorpicker: ^0.2.5
+  #图片缓存
+  cached_network_image: ^1.1.0
 
 
 

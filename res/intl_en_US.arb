@@ -60,6 +60,30 @@
     "type": "text",
     "placeholders": {}
   },
+  "navigatorSetting": "Navigator Setting",
+  "@navigatorSetting": {
+    "description": "导航栏设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "meteorShower": "Meteor Shower",
+  "@meteorShower": {
+    "description": "天体流星",
+    "type": "text",
+    "placeholders": {}
+  },
+  "netPicture": "Network Picture",
+  "@netPicture": {
+    "description": "网络图片",
+    "type": "text",
+    "placeholders": {}
+  },
+  "picture": "Picture",
+  "@picture": {
+    "description": "图片",
+    "type": "text",
+    "placeholders": {}
+  },
   "currentIcons": "Current Icons",
   "@currentIcons": {
     "description": "当前图标",

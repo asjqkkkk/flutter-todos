@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
             (List<Locale> locales, Iterable<Locale> supportedLocales) {
           debugPrint("app:${model.appName}");
             },
-        locale: Locale(model.currentLanguage[0], model.currentLanguage[1]),
+        locale: Locale(model.currentLanguageCode[0], model.currentLanguageCode[1]),
         theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),
         home: ProviderConfig.getInstance().getMainPage());
   }

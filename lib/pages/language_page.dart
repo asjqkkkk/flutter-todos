@@ -5,48 +5,54 @@ import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
 class LanguagePage extends StatelessWidget {
+  final List<LanguageData> languageDatas = [
+    LanguageData("中文", "zh", "CN", "一日"),
+    LanguageData("English", "en", "US", "One Day"),
+  ];
+
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<GlobalModel>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(DemoLocalizations.of(context).languageTitle),
       ),
       body: Container(
-        child: Wrap(
-          children: <Widget>[
-            getLanguageBlock("中文", "zh", "CN", Colors.brown,context),
-            getLanguageBlock("English", "en", "US", Colors.red,context),
-          ],
+        child: ListView(
+          children: List.generate(languageDatas.length, (index) {
+            final String languageCode = languageDatas[index].languageCode;
+            final String countryCode = languageDatas[index].countryCode;
+            final String language = languageDatas[index].language;
+            final String appName = languageDatas[index].appName;
+            return RadioListTile(
+              value: language,
+              groupValue: model.currentLanguage,
+              onChanged: (value) {
+                model.currentLanguageCode = [languageCode, countryCode];
+                model.currentLanguage = language;
+                model.appName = appName;
+                model.refresh();
+                SharedUtil.instance.saveStringList(
+                    Keys.currentLanguageCode, [languageCode, countryCode]);
+                SharedUtil.instance.saveString(Keys.currentLanguage, language);
+                SharedUtil.instance.saveString(Keys.appName, appName);
+              },
+              title: Text(languageDatas[index].language),
+            );
+          }),
         ),
       ),
     );
   }
+}
 
-  Widget getLanguageBlock(String description, String languageCode,
-      String countruCode, Color blockColor, BuildContext context) {
-    return InkWell(
-      onTap: () {
-        final model = Provider.of<GlobalModel>(context);
-        model.currentLanguage = [languageCode,countruCode];
-        model.appName = DemoLocalizations.of(context).appName;
-        model.refresh();
-        SharedUtil.instance.saveStringList(Keys.currentLanguage, [languageCode, countruCode]);
-      },
-      child: Container(
-        margin: EdgeInsets.all(20),
-        height: 100,
-        width: 100,
-        alignment: Alignment.center,
-        child: Text(
-          description,
-          style: TextStyle(color: Colors.white),
-        ),
-        decoration: BoxDecoration(
-          color: blockColor,
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
-      ),
-    );
-  }
+class LanguageData {
+  String language;
+  String languageCode;
+  String countryCode;
+  String appName;
+
+  LanguageData(
+      this.language, this.languageCode, this.countryCode, this.appName);
 }

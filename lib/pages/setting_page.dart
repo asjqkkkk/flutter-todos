@@ -10,6 +10,8 @@ import 'package:todo_list/pages/about_page.dart';
 import 'package:todo_list/pages/icon_setting_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
+import 'navigator_setting_page.dart';
+
 class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,75 +23,71 @@ class SettingPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          ListTile(
+          SwitchListTile(
             title: Text(DemoLocalizations.of(context).backgroundGradient),
-            leading: Icon(
+            secondary: const Icon(
               Icons.invert_colors,
             ),
-            trailing: Switch(
-                value: globalModel.isBgGradient,
-                activeColor: Theme.of(context).primaryColor,
-                onChanged: (value) {
-                  globalModel.isBgGradient = value;
-                  SharedUtil.instance.saveBoolean(
-                      Keys.backgroundGradient, globalModel.isBgGradient);
-                  globalModel.refresh();
-                }),
+            value: globalModel.isBgGradient,
+            activeColor: Theme.of(context).primaryColor,
+            onChanged: (value) {
+              globalModel.isBgGradient = value;
+              SharedUtil.instance.saveBoolean(
+                  Keys.backgroundGradient, globalModel.isBgGradient);
+              globalModel.refresh();
+            },
           ),
-          ListTile(
+          SwitchListTile(
             title: Text(DemoLocalizations.of(context).bgChangeWithCard),
-            leading: Icon(
+            secondary: const Icon(
               Icons.format_color_fill,
             ),
-            trailing: Switch(
-                value: globalModel.isBgChangeWithCard,
-                activeColor: Theme.of(context).primaryColor,
-                onChanged: (value){
-                  globalModel.isBgChangeWithCard = value;
-                  if(globalModel.isCardChangeWithBg && value){
-                    globalModel.isCardChangeWithBg = false;
-                    SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground, false);
-                  }
-                  SharedUtil.instance.saveBoolean(Keys.backgroundChangeWithCard, globalModel.isBgChangeWithCard);
-                  globalModel.refresh();
-                }),
+            value: globalModel.isBgChangeWithCard,
+            activeColor: Theme.of(context).primaryColor,
+            onChanged: (value){
+              globalModel.isBgChangeWithCard = value;
+              if(globalModel.isCardChangeWithBg && value){
+                globalModel.isCardChangeWithBg = false;
+                SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground, false);
+              }
+              SharedUtil.instance.saveBoolean(Keys.backgroundChangeWithCard, globalModel.isBgChangeWithCard);
+              globalModel.refresh();
+            },
           ),
-          ListTile(
+          SwitchListTile(
             title: Text(DemoLocalizations.of(context).cardChangeWithBg),
-            leading: Transform(
+            secondary: Transform(
               transform: Matrix4.rotationY(pi),
               origin: Offset(12, 0.0),
-              child: Icon(
+              child: const Icon(
                 Icons.format_color_fill,
               ),
             ),
-            trailing: Switch(
-                value: globalModel.isCardChangeWithBg,
-                activeColor: Theme.of(context).primaryColor,
-                onChanged: (value) {
-                  globalModel.isCardChangeWithBg = value;
-                  if(globalModel.isBgChangeWithCard && value){
-                    globalModel.isBgChangeWithCard = false;
-                    SharedUtil.instance.saveBoolean(Keys.backgroundChangeWithCard, false);
-                  }
-                  SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground, globalModel.isCardChangeWithBg);
-                  globalModel.refresh();
-                }),
+            value: globalModel.isCardChangeWithBg,
+            activeColor: Theme.of(context).primaryColor,
+            onChanged: (value) {
+              globalModel.isCardChangeWithBg = value;
+              if(globalModel.isBgChangeWithCard && value){
+                globalModel.isBgChangeWithCard = false;
+                SharedUtil.instance.saveBoolean(Keys.backgroundChangeWithCard, false);
+              }
+              SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground, globalModel.isCardChangeWithBg);
+              globalModel.refresh();
+            },
           ),
-          ListTile(
+          SwitchListTile(
             title: Text(DemoLocalizations.of(context).enableInfiniteScroll),
-            leading: Icon(
+            secondary: const Icon(
               Icons.repeat,
             ),
-            trailing: Switch(
-                value: globalModel.enableInfiniteScroll,
-                activeColor: Theme.of(context).primaryColor,
-                onChanged: (value) {
-                  globalModel.enableInfiniteScroll = value;
-                  SharedUtil.instance.saveBoolean(
-                      Keys.enableInfiniteScroll, globalModel.enableInfiniteScroll);
-                  globalModel.refresh();
-                }),
+            value: globalModel.enableInfiniteScroll,
+            activeColor: Theme.of(context).primaryColor,
+            onChanged: (value) {
+              globalModel.enableInfiniteScroll = value;
+              SharedUtil.instance.saveBoolean(
+                  Keys.enableInfiniteScroll, globalModel.enableInfiniteScroll);
+              globalModel.refresh();
+            },
           ),
           ListTile(
             title: Text(DemoLocalizations.of(context).iconSetting),
@@ -100,6 +98,18 @@ class SettingPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
                 return ProviderConfig.getInstance().getIconSettingPage();
+              }));
+            },
+          ),
+          ListTile(
+            title: Text(DemoLocalizations.of(context).navigatorSetting),
+            leading: Icon(
+              Icons.navigation,
+            ),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+                return NavSettingPage();
               }));
             },
           ),

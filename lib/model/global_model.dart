@@ -7,11 +7,12 @@ import 'package:todo_list/utils/theme_util.dart';
 class GlobalModel extends ChangeNotifier {
   GlobalLogic logic;
   BuildContext context;
+  MainPageModel mainPageModel;
 
-  //app的名字，目前这个还有些问题
+  //app的名字
   String appName = "一日";
 
-  //当前的主题颜色
+  //当前的主题颜色数据
   ThemeBean currentThemeBean = ThemeBean(
     themeName: "pink",
     colorBean: ColorBean.fromColor(MyThemeColor.defaultColor),
@@ -30,9 +31,13 @@ class GlobalModel extends ChangeNotifier {
   //是否开启主页卡片无限循环滚动
   bool enableInfiniteScroll = true;
 
-  MainPageModel mainPageModel;
 
-  List<String> currentLanguage = ["zh", "CN"]; //当前的app语言
+  //当前语言
+  List<String> currentLanguageCode = ["zh", "CN"];
+  String currentLanguage = "中文";
+
+  //当前导航栏头部背景
+  String currentNavHeader = "MeteorShower";
 
   GlobalModel() {
     logic = GlobalLogic(this);
@@ -43,8 +48,11 @@ class GlobalModel extends ChangeNotifier {
       this.context = context;
       Future.wait([
         logic.getCurrentTheme(),
+        logic.getAppName(),
+        logic.getCurrentLanguageCode(),
         logic.getCurrentLanguage(),
         logic.getIsBgGradient(),
+        logic.getCurrentNavHeader(),
         logic.getIsBgChangeWithCard(),
         logic.getIsCardChangeWithBg(),
         logic.getEnableInfiniteScroll()

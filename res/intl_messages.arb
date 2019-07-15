@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-14T22:21:19.833294",
+  "@@last_modified": "2019-07-15T22:30:53.305620",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -57,6 +57,30 @@
   "iconSetting": "Icon Setting",
   "@iconSetting": {
     "description": "图标设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "navigatorSetting": "Navigator Setting",
+  "@navigatorSetting": {
+    "description": "导航栏设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "meteorShower": "Meteor Shower",
+  "@meteorShower": {
+    "description": "天体流星",
+    "type": "text",
+    "placeholders": {}
+  },
+  "netPicture": "Network Picture",
+  "@netPicture": {
+    "description": "网络图片",
+    "type": "text",
+    "placeholders": {}
+  },
+  "picture": "Picture",
+  "@picture": {
+    "description": "图片",
     "type": "text",
     "placeholders": {}
   },

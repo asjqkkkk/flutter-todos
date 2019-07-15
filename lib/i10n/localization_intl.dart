@@ -67,6 +67,11 @@ class DemoLocalizations {
   }
 
   String get iconSetting => Intl.message('Icon Setting', name: 'iconSetting', desc: '图标设置',);
+  String get navigatorSetting => Intl.message('Navigator Setting', name: 'navigatorSetting', desc: '导航栏设置',);
+  String get meteorShower => Intl.message('Meteor Shower', name: 'meteorShower', desc: '天体流星',);
+  String get netPicture => Intl.message('Network Picture', name: 'netPicture', desc: '网络图片',);
+  String get picture => Intl.message('Picture', name: 'picture', desc: '图片',);
+
   String get currentIcons => Intl.message('Current Icons', name: 'currentIcons', desc: '当前图标',);
   String get game => Intl.message('Game', name: 'game', desc: '打游戏',);
   String get music => Intl.message('Music', name: 'music', desc: '听歌',);

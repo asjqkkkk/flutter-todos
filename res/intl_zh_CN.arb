@@ -36,6 +36,30 @@
     "type": "text",
     "placeholders": {}
   },
+  "navigatorSetting": "导航栏设置",
+  "@navigatorSetting": {
+    "description": "导航栏设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "meteorShower": "天体流星",
+  "@meteorShower": {
+    "description": "天体流星",
+    "type": "text",
+    "placeholders": {}
+  },
+  "netPicture": "网络图片",
+  "@netPicture": {
+    "description": "网络图片",
+    "type": "text",
+    "placeholders": {}
+  },
+  "picture": "图片",
+  "@picture": {
+    "description": "图片",
+    "type": "text",
+    "placeholders": {}
+  },
   "currentIcons": "当前图标",
   "@currentIcons": {
     "description": "当前图标",

@@ -1,5 +1,8 @@
 class Keys{
+  static final String currentLanguageCode = "current_language_code";
   static final String currentLanguage = "current_language";
+  static final String currentNavHeader = "current_nav_header";
+  static final String appName = "app_name";
   static final String account = "account";
   static final String currentThemeType = "current_theme_type";
   static final String backgroundGradient = "background_gradient";

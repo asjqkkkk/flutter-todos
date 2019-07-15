@@ -25,11 +25,18 @@ class GlobalLogic{
     return themeType == MyTheme.darkTheme ? Colors.grey[800] : Colors.white;
   }
 
-  Future getCurrentLanguage() async{
-    final list = await SharedUtil.instance.getStringList(Keys.currentLanguage);
+  Future getCurrentLanguageCode() async{
+    final list = await SharedUtil.instance.getStringList(Keys.currentLanguageCode);
     if (list == null) return;
-    if (list == _model.currentLanguage) return;
-    _model.currentLanguage = list;
+    if (list == _model.currentLanguageCode) return;
+    _model.currentLanguageCode = list;
+  }
+
+  Future getCurrentLanguage() async{
+    final currentLanguage = await SharedUtil.instance.getString(Keys.currentLanguage);
+    if (currentLanguage == null) return;
+    if (currentLanguage == _model.currentLanguage) return;
+    _model.currentLanguage = currentLanguage;
   }
 
   Future getCurrentTheme() async{
@@ -40,12 +47,26 @@ class GlobalLogic{
     _model.currentThemeBean = themeBean;
   }
 
+  Future getAppName() async{
+    final appName = await SharedUtil.instance.getString(Keys.appName);
+    if(appName == null) return;
+    if(appName == _model.appName) return;
+    _model.appName = appName;
+  }
+
 
   Future getIsBgGradient()async{
     final isBgGradient = await SharedUtil.instance.getBoolean(Keys.backgroundGradient);
     if(isBgGradient == null) return;
     if(isBgGradient == _model.isBgGradient) return;
     _model.isBgGradient = isBgGradient;
+  }
+
+  Future getCurrentNavHeader()async{
+    final currentNavHeader = await SharedUtil.instance.getString(Keys.currentNavHeader);
+    if(currentNavHeader == null) return;
+    if(currentNavHeader == _model.currentNavHeader) return;
+    _model.currentNavHeader = currentNavHeader;
   }
 
   Future getIsBgChangeWithCard() async {
