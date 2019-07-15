@@ -98,8 +98,7 @@ class ThemeUtil {
 
 
   Future<List<ThemeBean>> getThemeListWithCache(BuildContext context) async{
-    List<String> strings =
-    await SharedUtil.instance.readList(Keys.themeBeans);
+    List<String> strings = await SharedUtil.instance.readList(Keys.themeBeans);
     List<ThemeBean> list = [];
     for (var o in strings) {
       final data = jsonDecode(o);
