@@ -43,6 +43,8 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
     final double circleFourRadius = navHeaderHeight / 5;
     final double circleFiveRadius = navHeaderHeight / 3;
 
+    final rains = getRain(navHeaderHeight, context);
+
     return Container(
       height: navHeaderHeight,
       decoration: BoxDecoration(
@@ -53,8 +55,33 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
       ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: Stack(
         children: <Widget>[
-          Stack(
-            children: getRain(navHeaderHeight, context),
+          AnimatedBuilder(
+            animation: _animation,
+            builder: (ctx, child) {
+              return ClipRect(
+                clipper: CustomRect(),
+                child: Transform.translate(
+                  offset: Offset(
+                    0,
+                    _animation.value * navHeaderHeight,
+                  ),
+                  child: child,
+                ),
+              );
+            },
+            child: Stack(
+              children: [
+                Transform.translate(
+                  offset: Offset((1 - _animation.value) * navHeaderHeight, -navHeaderHeight),
+                  child: Stack(
+                    children: rains,
+                  ),
+                ),
+                Stack(
+                  children: rains,
+                ),
+              ],
+            ),
           ),
           Positioned(
             child: getCircle(context, circleOneRadius),
@@ -165,15 +192,7 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
       final randomHeight = Random().nextDouble() * 30;
       final randomL = Random().nextDouble() * navHeaderHeight * 4 / 3;
       final randomT = Random().nextDouble() * navHeaderHeight;
-      return AnimatedBuilder(
-        animation: _animation,
-        builder: (ctx, child) {
-          return Positioned(
-            child: child,
-            left: randomL - navHeaderHeight * _animation.value,
-            top: randomT + navHeaderHeight * _animation.value,
-          );
-        },
+      return Positioned(
         child: Transform.rotate(
           angle: pi / 6,
           child: Container(
@@ -181,15 +200,31 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
             height: randomHeight,
             decoration: BoxDecoration(
                 borderRadius:
-                    BorderRadius.all(Radius.circular(randomWidth / 2)),
+                BorderRadius.all(Radius.circular(randomWidth / 2)),
                 gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [Theme.of(context).primaryColor, Colors.white])),
           ),
         ),
+        left: randomL - navHeaderHeight * _animation.value,
+        top: randomT + navHeaderHeight * _animation.value,
       );
     });
     return list;
+  }
+}
+
+
+class CustomRect extends CustomClipper<Rect> {
+  @override
+  Rect getClip(Size size) {
+    Rect rect = Rect.fromLTRB(0.0, 0.0, size.width, size.height);
+    return rect;
+  }
+
+  @override
+  bool shouldReclip(CustomRect oldClipper) {
+    return false;
   }
 }
