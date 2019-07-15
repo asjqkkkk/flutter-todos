@@ -62,7 +62,7 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
                 clipper: CustomRect(),
                 child: Transform.translate(
                   offset: Offset(
-                    0,
+                    (1 - _animation.value) * navHeaderHeight,
                     _animation.value * navHeaderHeight,
                   ),
                   child: child,
@@ -72,7 +72,13 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
             child: Stack(
               children: [
                 Transform.translate(
-                  offset: Offset((1 - _animation.value) * navHeaderHeight, -navHeaderHeight),
+                  offset: Offset(0.0, -navHeaderHeight),
+                  child: Stack(
+                    children: rains,
+                  ),
+                ),
+                Transform.translate(
+                  offset: Offset(-navHeaderHeight, 0.0),
                   child: Stack(
                     children: rains,
                   ),

@@ -7,7 +7,6 @@ import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/about_page.dart';
-import 'package:todo_list/pages/edit_icon_page.dart';
 import 'package:todo_list/pages/icon_setting_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
@@ -107,12 +106,12 @@ class SettingPage extends StatelessWidget {
           ListTile(
             title: Text(DemoLocalizations.of(context).aboutApp),
             leading: Icon(
-              Icons.info,
+              Icons.info_outline,
             ),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
               Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
-                return EditIconPage();
+                return AboutPage();
               }));
             },
           ),
