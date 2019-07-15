@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/provider_config.dart';
@@ -8,6 +10,7 @@ import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/pages/task_detail_page.dart';
 import 'package:todo_list/utils/theme_util.dart';
+import 'package:todo_list/widgets/loading_widget.dart';
 
 class MainPageLogic {
   final MainPageModel _model;
@@ -125,7 +128,7 @@ class MainPageLogic {
   }
 
   void deleteTask(int id) async {
-    DBProvider.db.deleteTask(id).then((a){
+    DBProvider.db.deleteTask(id).then((a) {
       getTasks();
     });
   }
@@ -134,13 +137,37 @@ class MainPageLogic {
     Navigator.of(_model.context).push(
       new CupertinoPageRoute(
         builder: (ctx) {
-          return ProviderConfig.getInstance()
-              .getEditTaskPage(
+          return ProviderConfig.getInstance().getEditTaskPage(
               taskBean.taskIconBean,
               mainPageModel: _model,
-              taskBean: taskBean
-          );
+              taskBean: taskBean);
         },
+      ),
+    );
+  }
+
+  //当任务列表为空时显示的内容
+  Widget getEmptyWidget() {
+    final context = _model.context;
+    final size  = MediaQuery.of(context).size;
+    final theMin = min(size.width, size.height);
+    return LoadingWidget(
+      child: Container(
+        height: theMin,
+        width: theMin,
+        margin: EdgeInsets.fromLTRB(10, 50, 10, 0),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: RadialGradient(
+              colors: [
+                Theme.of(context).primaryColor,
+                Theme.of(context).primaryColorLight,
+                Theme.of(context).primaryColor,
+                Theme.of(context).primaryColorLight,
+              ],
+            )),
+        child: Icon(Icons.favorite, size: 50,color: Theme.of(context).primaryColorLight,),
       ),
     );
   }

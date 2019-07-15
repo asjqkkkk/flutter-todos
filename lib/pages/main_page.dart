@@ -87,7 +87,7 @@ class MainPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                model.tasks.length == 0 ? SizedBox() : Container(
+                model.tasks.length == 0 ? model.logic.getEmptyWidget() : Container(
                   margin: EdgeInsets.only(top: 40),
                   child: CarouselSlider(
                     items: model.logic.getCards(context),
@@ -104,7 +104,7 @@ class MainPage extends StatelessWidget {
                     },
                     scrollDirection: Axis.horizontal,
                   ),
-                )
+                ),
               ],
             ),
           ),
