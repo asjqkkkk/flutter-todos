@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-15T22:30:53.305620",
+  "@@last_modified": "2019-07-16T13:58:39.536727",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -195,6 +195,18 @@
   "defaultTitle": "Default title",
   "@defaultTitle": {
     "description": "默认标题",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatarLocal": "Select an avatar from the local",
+  "@avatarLocal": {
+    "description": "从本地选取头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatarNet": "Select an avatar from the network",
+  "@avatarNet": {
+    "description": "从网络选取头像",
     "type": "text",
     "placeholders": {}
   },

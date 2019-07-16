@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/logic/main_page_logic.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
@@ -33,12 +34,13 @@ class MainPage extends StatelessWidget {
           ),
           actions: <Widget>[
             IconButton(
-                icon: Icon(
-                  Icons.search,
-                  size: 28,
-                  color: globalModel.logic.getWhiteInDark(),
-                ),
-                onPressed: () => model.logic.queryTask("打"),)
+              icon: Icon(
+                Icons.search,
+                size: 28,
+                color: globalModel.logic.getWhiteInDark(),
+              ),
+              onPressed: () => model.logic.queryTask("打"),
+            )
           ],
         ),
         drawer: Drawer(
@@ -47,7 +49,9 @@ class MainPage extends StatelessWidget {
         floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: AnimatedFloatingButton(
-          bgColor: globalModel.isBgChangeWithCard ? model.logic.getCurrentCardColor() : null,
+          bgColor: globalModel.isBgChangeWithCard
+              ? model.logic.getCurrentCardColor()
+              : null,
         ),
         body: Container(
           child: SingleChildScrollView(
@@ -56,11 +60,35 @@ class MainPage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.fromLTRB(62, 8, 50, 0),
-                  width: 60,
-                  height: 60,
-                  child: ClipRRect(
-                    child: Image.asset("images/avator.jpg"),
-                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                  child: PopupMenuButton(
+                    onSelected: (value) => model.logic.onAvatarSelect(value),
+                    itemBuilder: (ctx) {
+                      return [
+                        PopupMenuItem(
+                          value: AvatarType.local,
+                          child: Container(
+                            child: Text(DemoLocalizations.of(context).avatarLocal),
+                            alignment: Alignment.centerLeft,
+                          ),
+                        ),
+                        PopupMenuItem(
+                          value: AvatarType.net,
+                          child: Container(
+                            child:
+                                Text(DemoLocalizations.of(context).avatarNet),
+                            alignment: Alignment.centerLeft,
+                          ),
+                        ),
+                      ];
+                    },
+                    child: Container(
+                      width: 60,
+                      height: 60,
+                      child: ClipRRect(
+                        child: Image.asset("images/avatar.jpg"),
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                      ),
+                    ),
                   ),
                 ),
                 Container(
@@ -87,24 +115,27 @@ class MainPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                model.tasks.length == 0 ? model.logic.getEmptyWidget() : Container(
-                  margin: EdgeInsets.only(top: 40),
-                  child: CarouselSlider(
-                    items: model.logic.getCards(context),
-                    aspectRatio: 1,
-                    height: MediaQuery.of(context).size.width - 100,
-                    viewportFraction: 0.8,
-                    initialPage: 0,
-                    enableInfiniteScroll: model.tasks.length >= 3 && globalModel.enableInfiniteScroll,
-                    reverse: false,
-                    enlargeCenterPage: true,
-                    onPageChanged: (index) {
-                      model.currentCardIndex = index;
-                      if(globalModel.isBgChangeWithCard) model.refresh();
-                    },
-                    scrollDirection: Axis.horizontal,
-                  ),
-                ),
+                model.tasks.length == 0
+                    ? model.logic.getEmptyWidget()
+                    : Container(
+                        margin: EdgeInsets.only(top: 40),
+                        child: CarouselSlider(
+                          items: model.logic.getCards(context),
+                          aspectRatio: 1,
+                          height: MediaQuery.of(context).size.width - 100,
+                          viewportFraction: 0.8,
+                          initialPage: 0,
+                          enableInfiniteScroll: model.tasks.length >= 3 &&
+                              globalModel.enableInfiniteScroll,
+                          reverse: false,
+                          enlargeCenterPage: true,
+                          onPageChanged: (index) {
+                            model.currentCardIndex = index;
+                            if (globalModel.isBgChangeWithCard) model.refresh();
+                          },
+                          scrollDirection: Axis.horizontal,
+                        ),
+                      ),
               ],
             ),
           ),

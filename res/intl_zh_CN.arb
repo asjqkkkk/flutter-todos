@@ -174,6 +174,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "avatarLocal": "从本地选取头像",
+  "@avatarLocal": {
+    "description": "从本地选取头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatarNet": "从网络选取头像",
+  "@avatarNet": {
+    "description": "从网络选取头像",
+    "type": "text",
+    "placeholders": {}
+  },
   "checkUpdate": "检查更新",
   "@checkUpdate": {
     "description": "检查更新",

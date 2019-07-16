@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -11,6 +12,7 @@ import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/pages/task_detail_page.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
+import 'package:image_picker/image_picker.dart';
 
 class MainPageLogic {
   final MainPageModel _model;
@@ -171,4 +173,28 @@ class MainPageLogic {
       ),
     );
   }
+
+  //头像设置
+  void onAvatarSelect(AvatarType type){
+    switch(type){
+      case AvatarType.local:
+        break;
+      case AvatarType.net:
+        break;
+    }
+  }
+
+
+
+  Future getImage() async {
+    File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    debugPrint("path:${image?.path}");
+
+  }
+}
+
+
+enum AvatarType{
+  local,
+  net,
 }

@@ -192,6 +192,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "avatarLocal": "Select an avatar from the local",
+  "@avatarLocal": {
+    "description": "从本地选取头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatarNet": "Select an avatar from the network",
+  "@avatarNet": {
+    "description": "从网络选取头像",
+    "type": "text",
+    "placeholders": {}
+  },
   "checkUpdate": "Check Update",
   "@checkUpdate": {
     "description": "检查更新",
@@ -270,6 +282,7 @@
     "type": "text",
     "placeholders": {}
   },
+
   "deadline": "deadline",
   "@deadline": {
     "description": "截止日期",

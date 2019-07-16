@@ -94,6 +94,10 @@ class DemoLocalizations {
   String get writeAtLeastOneTaskItem => Intl.message('Please write at least one task.', name: 'writeAtLeastOneTaskItem', desc: '请至少写下一项任务哦',);
   String get defaultTitle => Intl.message('Default title', name: 'defaultTitle', desc: '默认标题',);
 
+  String get avatarLocal => Intl.message('Select an avatar from the local', name: 'avatarLocal', desc: '从本地选取头像',);
+  String get avatarNet => Intl.message('Select an avatar from the network', name: 'avatarNet', desc: '从网络选取头像',);
+
+
 
 
 
@@ -186,6 +190,7 @@ class DemoLocalizations {
       desc: '删除任务',
     );
   }
+
 
   String get submit => Intl.message('Submit', name: 'submit', desc: '提交任务',);
   String get addTask => Intl.message('add a task', name: 'addTask', desc: '添加任务',);

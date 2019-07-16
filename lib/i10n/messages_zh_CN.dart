@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "addTask" : MessageLookupByLibrary.simpleMessage("添加任务"),
     "appName" : MessageLookupByLibrary.simpleMessage("一日"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("设置"),
+    "avatarLocal" : MessageLookupByLibrary.simpleMessage("从本地选取头像"),
+    "avatarNet" : MessageLookupByLibrary.simpleMessage("从网络选取头像"),
     "backgroundGradient" : MessageLookupByLibrary.simpleMessage("背景渐变"),
     "bgChangeWithCard" : MessageLookupByLibrary.simpleMessage("背景跟随任务图标颜色"),
     "blueGray" : MessageLookupByLibrary.simpleMessage("炊烟袅袅"),

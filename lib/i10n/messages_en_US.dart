@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "addTask" : MessageLookupByLibrary.simpleMessage("add a task"),
     "appName" : MessageLookupByLibrary.simpleMessage("One Day"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("Setting"),
+    "avatarLocal" : MessageLookupByLibrary.simpleMessage("Select an avatar from the local"),
+    "avatarNet" : MessageLookupByLibrary.simpleMessage("Select an avatar from the network"),
     "backgroundGradient" : MessageLookupByLibrary.simpleMessage("Background Gradient"),
     "bgChangeWithCard" : MessageLookupByLibrary.simpleMessage("Background follow task icon color"),
     "blueGray" : MessageLookupByLibrary.simpleMessage("blue-gray"),
