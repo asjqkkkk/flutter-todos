@@ -13,6 +13,8 @@ class MainPageModel extends ChangeNotifier{
 
   int currentCardIndex = 0;
 
+  int currentAvatarType = CurrentAvatarType.defaultType;
+
   MainPageModel(){
     logic = MainPageLogic(this);
   }
@@ -21,6 +23,11 @@ class MainPageModel extends ChangeNotifier{
     if(this.context == null){
         this.context = context;
         logic.getTasks();
+        Future.wait([
+          logic.getAvatar(),
+        ]).then((value) {
+          refresh();
+        });
     }
   }
 
@@ -34,4 +41,11 @@ class MainPageModel extends ChangeNotifier{
   void refresh(){
     notifyListeners();
   }
+}
+
+
+class CurrentAvatarType{
+  static const int defaultType = 0;
+  static const int local = 1;
+  static const int net = 2;
 }

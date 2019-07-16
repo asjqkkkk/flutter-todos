@@ -19,7 +19,7 @@ class _LoadingWidgetState extends State<LoadingWidget>
   @override
   void initState() {
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
+        AnimationController(vsync: this, duration: Duration(seconds: 10));
     animation = Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(parent: _controller, curve: Curves.ease));
     _controller.addStatusListener((status) {

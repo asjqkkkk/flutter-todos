@@ -5,14 +5,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
-import 'package:todo_list/pages/task_detail_page.dart';
+import 'package:todo_list/utils/file_util.dart';
+import 'package:todo_list/utils/permission_request_util.dart';
+import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:image_cropper/image_cropper.dart';
 
 class MainPageLogic {
   final MainPageModel _model;
@@ -151,50 +155,131 @@ class MainPageLogic {
   //当任务列表为空时显示的内容
   Widget getEmptyWidget() {
     final context = _model.context;
-    final size  = MediaQuery.of(context).size;
-    final theMin = min(size.width, size.height);
-    return LoadingWidget(
-      child: Container(
-        height: theMin,
-        width: theMin,
-        margin: EdgeInsets.fromLTRB(10, 50, 10, 0),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: RadialGradient(
-              colors: [
-                Theme.of(context).primaryColor,
-                Theme.of(context).primaryColorLight,
-                Theme.of(context).primaryColor,
-                Theme.of(context).primaryColorLight,
-              ],
-            )),
-        child: Icon(Icons.favorite, size: 50,color: Theme.of(context).primaryColorLight,),
+    final size = MediaQuery.of(context).size;
+    final theMin = min(size.width - 100, size.height - 100);
+    return Container(
+      alignment: Alignment.center,
+      child: LoadingWidget(
+        child: Container(
+          height: theMin,
+          width: theMin,
+          margin: EdgeInsets.fromLTRB(10, 50, 10, 0),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                colors: [
+                  Theme.of(context).primaryColor,
+                  Theme.of(context).primaryColorLight,
+                  Theme.of(context).primaryColor,
+                  Theme.of(context).primaryColorLight,
+                ],
+              )),
+          child: Icon(
+            Icons.favorite,
+            size: 50,
+            color: Theme.of(context).primaryColorLight,
+          ),
+        ),
       ),
     );
   }
 
   //头像设置
-  void onAvatarSelect(AvatarType type){
-    switch(type){
+  void onAvatarSelect(AvatarType type) {
+    switch (type) {
       case AvatarType.local:
+        PermissionReqUtil.getInstance().requestPermission(
+          PermissionGroup.photos,
+          granted: () {
+            getImage();
+          },
+          deniedDes: DemoLocalizations.of(_model.context).deniedDes,
+          context: _model.context,
+          openSetting: DemoLocalizations.of(_model.context).openSystemSetting,
+        );
         break;
       case AvatarType.net:
         break;
     }
   }
 
-
-
+  //这里权限申请还是需要做好才行
   Future getImage() async {
     File image = await ImagePicker.pickImage(source: ImageSource.gallery);
-    debugPrint("path:${image?.path}");
+    if (image != null) {
+      if (Platform.isAndroid) {
+        PermissionReqUtil.getInstance().requestPermission(
+          PermissionGroup.photos,
+          granted: () {
+            _saveAndGetAvatarFile(image);
+          },
+          deniedDes: DemoLocalizations.of(_model.context).deniedDes,
+          context: _model.context,
+          openSetting: DemoLocalizations.of(_model.context).openSystemSetting,
+        );
+        return;
+      }
+      _saveAndGetAvatarFile(image);
+    }
+  }
 
+  void _saveAndGetAvatarFile(File file) async {
+
+    File croppedFile = await ImageCropper.cropImage(
+      sourcePath: file.path,
+      ratioX: 1.0,
+      ratioY: 1.0,
+      maxWidth: 512,
+      maxHeight: 512,
+    );
+    if(croppedFile == null) return;
+
+    String newPath = await FileUtil.getInstance().getSavePath('/avatar/');
+    String name = 'avator.jpg';
+    File newFile = croppedFile.copySync(newPath + name);
+    if (newFile.existsSync()) {
+      final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
+      SharedUtil.instance.saveString(Keys.localAvatarPath + account, newFile.path);
+      SharedUtil.instance.saveInt(Keys.currentAvatarType + account, CurrentAvatarType.local);
+      _model.currentAvatarType = CurrentAvatarType.local;
+      _model.refresh();
+    }
+  }
+
+  Future<Widget> getAvatarWidget() async{
+    final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
+    switch (_model.currentAvatarType) {
+      case CurrentAvatarType.defaultType:
+        return Image.asset("images/avatar.jpg");
+        break;
+      case CurrentAvatarType.local:
+        final local = await SharedUtil().getString(Keys.localAvatarPath + account);
+        File file = File(local);
+        if(file.existsSync()){
+          return Image.file(File(local),fit: BoxFit.scaleDown,);
+        } else {
+          return Image.asset("images/avatar.jpg");
+        }
+        break;
+      case CurrentAvatarType.net:
+        final net = await SharedUtil().getString(Keys.netAvatarPath + account);
+        return Image.network(net);
+        break;
+    }
+  }
+  
+  Future getAvatar() async{
+    final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
+    final currentAvatarType = await SharedUtil.instance.getInt(Keys.currentAvatarType + account);
+    debugPrint("type:${currentAvatarType}");
+    if(currentAvatarType == null) return;
+    if(currentAvatarType == _model.currentAvatarType) return;
+    _model.currentAvatarType = currentAvatarType;
   }
 }
 
-
-enum AvatarType{
+enum AvatarType {
   local,
   net,
 }

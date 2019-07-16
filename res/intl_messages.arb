@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-16T13:58:39.536727",
+  "@@last_modified": "2019-07-16T15:51:43.820401",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -207,6 +207,36 @@
   "avatarNet": "Select an avatar from the network",
   "@avatarNet": {
     "description": "从网络选取头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "deniedDes": "Permission denied",
+  "@deniedDes": {
+    "description": "权限被拒绝",
+    "type": "text",
+    "placeholders": {}
+  },
+  "disabledDes": "Permission not available",
+  "@disabledDes": {
+    "description": "权限不可用",
+    "type": "text",
+    "placeholders": {}
+  },
+  "restrictedDes": "Permission is restricted",
+  "@restrictedDes": {
+    "description": "权限被限制",
+    "type": "text",
+    "placeholders": {}
+  },
+  "unknownDes": "Unknown permission",
+  "@unknownDes": {
+    "description": "未知权限",
+    "type": "text",
+    "placeholders": {}
+  },
+  "openSystemSetting": "Open System Setting",
+  "@openSystemSetting": {
+    "description": "打开系统设置",
     "type": "text",
     "placeholders": {}
   },

@@ -7,6 +7,19 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
     }
+
+    //下面这部分是修复androidx.core冲突的问题
+    subprojects {
+        project.configurations.all {
+            resolutionStrategy.eachDependency { details ->
+
+                if (details.requested.group == 'androidx.core'
+                        && !details.requested.name.contains('androidx') ) {
+                    details.useVersion "1.0.0"
+                }
+            }
+        }
+    }
 }
 
 allprojects {

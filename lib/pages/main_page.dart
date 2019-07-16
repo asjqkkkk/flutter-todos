@@ -67,7 +67,8 @@ class MainPage extends StatelessWidget {
                         PopupMenuItem(
                           value: AvatarType.local,
                           child: Container(
-                            child: Text(DemoLocalizations.of(context).avatarLocal),
+                            child:
+                                Text(DemoLocalizations.of(context).avatarLocal),
                             alignment: Alignment.centerLeft,
                           ),
                         ),
@@ -85,7 +86,19 @@ class MainPage extends StatelessWidget {
                       width: 60,
                       height: 60,
                       child: ClipRRect(
-                        child: Image.asset("images/avatar.jpg"),
+                        child: FutureBuilder(
+                          future: model.logic.getAvatarWidget(),
+                          builder: (ctx, snapshot) {
+                            if (snapshot.hasData) {
+                              return snapshot.data;
+                            } else {
+                              return CircularProgressIndicator(
+                                valueColor:
+                                    AlwaysStoppedAnimation(Colors.white),
+                              );
+                            }
+                          },
+                        ),
                         borderRadius: BorderRadius.all(Radius.circular(30)),
                       ),
                     ),

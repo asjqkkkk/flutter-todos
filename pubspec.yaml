@@ -56,8 +56,12 @@ dev_dependencies:
   cached_network_image: ^1.1.0
   #图片选取
   image_picker: ^0.6.0+16
-
-
+  #权限申请
+  permission_handler: ^3.1.0
+  #路径获取
+  path_provider: ^1.1.2
+  #图片裁剪
+  image_cropper: ^1.0.2
 
 
 

@@ -98,6 +98,12 @@ class DemoLocalizations {
   String get avatarNet => Intl.message('Select an avatar from the network', name: 'avatarNet', desc: '从网络选取头像',);
 
 
+  String get deniedDes => Intl.message('Permission denied', name: 'deniedDes', desc: '权限被拒绝',);
+  String get disabledDes => Intl.message('Permission not available', name: 'disabledDes', desc: '权限不可用',);
+  String get restrictedDes => Intl.message('Permission is restricted', name: 'restrictedDes', desc: '权限被限制',);
+  String get unknownDes => Intl.message('Unknown permission', name: 'unknownDes', desc: '未知权限',);
+  String get openSystemSetting => Intl.message('Open System Setting', name: 'openSystemSetting', desc: '打开系统设置',);
+
 
 
 

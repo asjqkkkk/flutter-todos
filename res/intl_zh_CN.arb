@@ -186,6 +186,36 @@
     "type": "text",
     "placeholders": {}
   },
+  "deniedDes": "权限被拒绝",
+  "@deniedDes": {
+    "description": "权限被拒绝",
+    "type": "text",
+    "placeholders": {}
+  },
+  "disabledDes": "权限不可用",
+  "@disabledDes": {
+    "description": "权限不可用",
+    "type": "text",
+    "placeholders": {}
+  },
+  "restrictedDes": "权限被限制",
+  "@restrictedDes": {
+    "description": "权限被限制",
+    "type": "text",
+    "placeholders": {}
+  },
+  "unknownDes": "未知权限",
+  "@unknownDes": {
+    "description": "未知权限",
+    "type": "text",
+    "placeholders": {}
+  },
+  "openSystemSetting": "打开系统设置",
+  "@openSystemSetting": {
+    "description": "打开系统设置",
+    "type": "text",
+    "placeholders": {}
+  },
   "checkUpdate": "检查更新",
   "@checkUpdate": {
     "description": "检查更新",
