@@ -35,7 +35,8 @@ class NavSettingPage extends StatelessWidget {
               value: "NetPicture",
               groupValue: globalModel.currentNavHeader,
               subtitle: CachedNetworkImage(
-                imageUrl: "https://api.dujin.org/bing/1366.php",
+
+                imageUrl:netUrl,
                 placeholder: (context, url) => new Container(
                   alignment: Alignment.center,
                   child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),
@@ -43,7 +44,35 @@ class NavSettingPage extends StatelessWidget {
                 errorWidget: (context, url, error) => new Icon(Icons.error,color: Colors.redAccent,),
               ),
               onChanged: (value) async{
-                await onChanged(globalModel, value);
+                showDialog(context: context, builder: (ctx){
+                  return AlertDialog(
+                    title: Text("输入图片地址"),
+                    content: Form(
+                      autovalidate: true,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(icon: Icon(Icons.cancel), onPressed: (){
+
+                          },),
+                        ),
+                        validator: (text){
+
+                        },
+                        initialValue: netUrl,
+                      ),
+                    ),
+                    actions: <Widget>[
+                      FlatButton(onPressed: (){
+                        Navigator.of(context).pop();
+                      }, child: Text(DemoLocalizations.of(context).cancel, style: TextStyle(color: Colors.redAccent),),),
+                      FlatButton(onPressed: (){
+                        Navigator.of(context).pop();
+
+                      }, child: Text(DemoLocalizations.of(context).ok, style: TextStyle(color: Colors.green),),),
+                    ],
+                  );
+                });
+//                await onChanged(globalModel, value);
               },
               title: Text(DemoLocalizations.of(context).netPicture),
             ),
