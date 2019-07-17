@@ -10,13 +10,13 @@ import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
+import 'package:todo_list/pages/avatar_page.dart';
 import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:image_cropper/image_cropper.dart';
 
 class MainPageLogic {
   final MainPageModel _model;
@@ -185,72 +185,11 @@ class MainPageLogic {
     );
   }
 
-  //头像设置
-  void onAvatarSelect(AvatarType type) {
-    switch (type) {
-      case AvatarType.local:
-        PermissionReqUtil.getInstance().requestPermission(
-          PermissionGroup.photos,
-          granted: () {
-            getImage();
-          },
-          deniedDes: DemoLocalizations.of(_model.context).deniedDes,
-          context: _model.context,
-          openSetting: DemoLocalizations.of(_model.context).openSystemSetting,
-        );
-        break;
-      case AvatarType.net:
-        break;
-    }
-  }
-
-  //这里权限申请还是需要做好才行
-  Future getImage() async {
-    File image = await ImagePicker.pickImage(source: ImageSource.gallery);
-    if (image != null) {
-      if (Platform.isAndroid) {
-        PermissionReqUtil.getInstance().requestPermission(
-          PermissionGroup.photos,
-          granted: () {
-            _saveAndGetAvatarFile(image);
-          },
-          deniedDes: DemoLocalizations.of(_model.context).deniedDes,
-          context: _model.context,
-          openSetting: DemoLocalizations.of(_model.context).openSystemSetting,
-        );
-        return;
-      }
-      _saveAndGetAvatarFile(image);
-    }
-  }
-
-  void _saveAndGetAvatarFile(File file) async {
-
-    File croppedFile = await ImageCropper.cropImage(
-      sourcePath: file.path,
-      ratioX: 1.0,
-      ratioY: 1.0,
-      maxWidth: 512,
-      maxHeight: 512,
-    );
-    if(croppedFile == null) return;
-
-    String newPath = await FileUtil.getInstance().getSavePath('/avatar/');
-    String name = 'avator.jpg';
-    File newFile = croppedFile.copySync(newPath + name);
-    if (newFile.existsSync()) {
-      final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
-      SharedUtil.instance.saveString(Keys.localAvatarPath + account, newFile.path);
-      SharedUtil.instance.saveInt(Keys.currentAvatarType + account, CurrentAvatarType.local);
-      _model.currentAvatarType = CurrentAvatarType.local;
-      _model.refresh();
-    }
-  }
 
   Future<Widget> getAvatarWidget() async{
     final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
     switch (_model.currentAvatarType) {
-      case CurrentAvatarType.defaultType:
+      case CurrentAvatarType.defaultAvatar:
         return Image.asset("images/avatar.jpg");
         break;
       case CurrentAvatarType.local:
@@ -277,9 +216,12 @@ class MainPageLogic {
     if(currentAvatarType == _model.currentAvatarType) return;
     _model.currentAvatarType = currentAvatarType;
   }
+
+  void onAvatarTap() {
+    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx){
+      return new AvatarPage(mainPageModel: _model,);
+    }));
+  }
+
 }
 
-enum AvatarType {
-  local,
-  net,
-}

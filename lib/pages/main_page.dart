@@ -60,46 +60,29 @@ class MainPage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.fromLTRB(62, 8, 50, 0),
-                  child: PopupMenuButton(
-                    onSelected: (value) => model.logic.onAvatarSelect(value),
-                    itemBuilder: (ctx) {
-                      return [
-                        PopupMenuItem(
-                          value: AvatarType.local,
-                          child: Container(
-                            child:
-                                Text(DemoLocalizations.of(context).avatarLocal),
-                            alignment: Alignment.centerLeft,
+                  child: InkWell(
+                    onTap: model.logic.onAvatarTap,
+                    child: Hero(
+                      tag: 'avatar',
+                      child: Container(
+                        width: 60,
+                        height: 60,
+                        child: ClipRRect(
+                          child: FutureBuilder(
+                            future: model.logic.getAvatarWidget(),
+                            builder: (ctx, snapshot) {
+                              if (snapshot.hasData) {
+                                return snapshot.data;
+                              } else {
+                                return CircularProgressIndicator(
+                                  valueColor:
+                                      AlwaysStoppedAnimation(Colors.white),
+                                );
+                              }
+                            },
                           ),
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
                         ),
-                        PopupMenuItem(
-                          value: AvatarType.net,
-                          child: Container(
-                            child:
-                                Text(DemoLocalizations.of(context).avatarNet),
-                            alignment: Alignment.centerLeft,
-                          ),
-                        ),
-                      ];
-                    },
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      child: ClipRRect(
-                        child: FutureBuilder(
-                          future: model.logic.getAvatarWidget(),
-                          builder: (ctx, snapshot) {
-                            if (snapshot.hasData) {
-                              return snapshot.data;
-                            } else {
-                              return CircularProgressIndicator(
-                                valueColor:
-                                    AlwaysStoppedAnimation(Colors.white),
-                              );
-                            }
-                          },
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
                       ),
                     ),
                   ),

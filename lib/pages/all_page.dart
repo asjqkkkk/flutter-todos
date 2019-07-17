@@ -8,3 +8,4 @@ export 'setting_page.dart';
 export 'about_page.dart';
 export 'edit_task_page.dart';
 export 'icon_setting_page.dart';
+export 'avatar_page.dart';

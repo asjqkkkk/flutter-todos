@@ -13,7 +13,7 @@ class MainPageModel extends ChangeNotifier{
 
   int currentCardIndex = 0;
 
-  int currentAvatarType = CurrentAvatarType.defaultType;
+  int currentAvatarType = CurrentAvatarType.defaultAvatar;
 
   MainPageModel(){
     logic = MainPageLogic(this);
@@ -45,7 +45,7 @@ class MainPageModel extends ChangeNotifier{
 
 
 class CurrentAvatarType{
-  static const int defaultType = 0;
+  static const int defaultAvatar = 0;
   static const int local = 1;
   static const int net = 2;
 }
