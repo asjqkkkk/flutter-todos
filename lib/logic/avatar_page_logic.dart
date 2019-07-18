@@ -1,9 +1,10 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/all_model.dart';
-
+import 'package:image_crop/image_crop.dart';
 import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
@@ -56,59 +57,53 @@ class AvatarPageLogic{
   }
 
   void _saveAndGetAvatarFile(File file) async {
-//    File croppedFile = await ImageCropper.cropImage(
-//      sourcePath: file.path,
-//      ratioX: 1.0,
-//      ratioY: 1.0,
-//      maxWidth: 512,
-//      maxHeight: 512,
-//    );
-//    if(croppedFile == null) return;
 
+    _model.currentAvatarType = CurrentAvatarType.local;
+    _model.currentAvatarUrl = file.path;
+    _model.refresh();
+
+
+  }
+
+  void onSaveTap() async{
+    final croppedFile = await ImageCrop.cropImage(
+      file: File(_model.currentAvatarUrl),
+      area: _model.cropKey.currentState.area,
+    );
     String newPath = await FileUtil.getInstance().getSavePath('/avatar/');
-    String name = 'avator.jpg';
-    File newFile = file.copySync(newPath + name);
+    String name = '${DateTime.now().millisecondsSinceEpoch}.jpg';
+    File newFile = croppedFile.copySync(newPath + name);
     if (newFile.existsSync()) {
-      final account =
-          await SharedUtil.instance.getString(Keys.account) ?? "default";
-      await SharedUtil.instance.saveString(Keys.localAvatarPath + account, newFile.path);
-      await SharedUtil.instance.saveInt(Keys.currentAvatarType + account, CurrentAvatarType.local);
+      await SharedUtil.instance.saveString(Keys.localAvatarPath, newFile.path);
+      await SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
       _model.mainPageModel.currentAvatarType = CurrentAvatarType.local;
-      getAvatarWidget().then((a){
-        _model.refresh();
-      });
-      _model.mainPageModel.logic.getAvatarWidget().then((a){
+
+      _model.mainPageModel.logic.getCurrentAvatar().then((a){
         _model.mainPageModel.refresh();
+        Navigator.of(_model.context).pop();
       });
     }
   }
 
-  Future getAvatarWidget() async {
 
-    final mainPageModel = _model.mainPageModel;
 
-    final account =
-        await SharedUtil.instance.getString(Keys.account) ?? "default";
-    switch (mainPageModel.currentAvatarType) {
+  ImageProvider getAvatarProvider(){
+    final avatarType = _model.currentAvatarType;
+    final url = _model.currentAvatarUrl;
+    switch (avatarType) {
       case CurrentAvatarType.defaultAvatar:
-        _model.currentAvatarWidget = Image.asset("images/avatar.jpg");
+        return AssetImage("images/avatar.jpg");
         break;
       case CurrentAvatarType.local:
-        final local = await SharedUtil().getString(Keys.localAvatarPath + account);
-        File file = File(local);
-        debugPrint("存在吗:${file.existsSync()}");
-        if (file.existsSync()) {
-          _model.currentAvatarWidget = Image.file(
-            file,
-            fit: BoxFit.scaleDown,
-          );
+        File file = File(url);
+        if(file.existsSync()){
+          return FileImage(file);
         } else {
-          _model.currentAvatarWidget = Image.asset("images/avatar.jpg");
+          return AssetImage("images/avatar.jpg");
         }
         break;
       case CurrentAvatarType.net:
-        final net = await SharedUtil().getString(Keys.netAvatarPath + account);
-        _model.currentAvatarWidget = Image.network(net);
+        return NetworkImage(url);
         break;
     }
   }

@@ -55,7 +55,6 @@ class ThemePageLogic {
               FlatButton(
                 child: Text(DemoLocalizations.of(context).ok),
                 onPressed: () async {
-                  final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
                   final beans = await SharedUtil.instance.readList(Keys.themeBeans) ?? [];
                   if (beans.length >= 10) {
                     _showCanNotAddTheme();
@@ -70,7 +69,7 @@ class ThemePageLogic {
                   );
                   final data = jsonEncode(themeBean.toMap());
                   beans.add(data);
-                  SharedUtil.instance.saveStringList(Keys.themeBeans + account, beans);
+                  SharedUtil.instance.saveStringList(Keys.themeBeans, beans);
                   getThemeList();
                   Navigator.of(context).pop();
                 },

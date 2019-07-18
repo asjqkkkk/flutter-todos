@@ -16,9 +16,8 @@ class MainPageModel extends ChangeNotifier{
   //当前头像的类型
   int currentAvatarType = CurrentAvatarType.defaultAvatar;
 
-  //当前的头像Widget
-  Widget currentAvatarWidget;
-
+  //当前的头像url,比如本地的就是本地路径，网络就是网络地址
+  String currentAvatarUrl = "images/avatar.jpg";
 
 
   MainPageModel(){
@@ -30,8 +29,8 @@ class MainPageModel extends ChangeNotifier{
         this.context = context;
         logic.getTasks();
         Future.wait([
-          logic.getAvatar(),
-          logic.getAvatarWidget(),
+          logic.getAvatarType(),
+          logic.getCurrentAvatar(),
         ]).then((value) {
           refresh();
         });

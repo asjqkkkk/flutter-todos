@@ -61,7 +61,7 @@ dev_dependencies:
   #路径获取
   path_provider: ^1.1.2
   #图片裁剪
-#  image_cropper: ^1.0.2
+  image_crop: ^0.2.1
 
 
 

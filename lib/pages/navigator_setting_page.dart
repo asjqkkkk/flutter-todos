@@ -86,8 +86,7 @@ class NavSettingPage extends StatelessWidget {
     if(globalModel.currentNavHeader != value){
       globalModel.currentNavHeader = value;
       globalModel.refresh();
-      final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
-      await SharedUtil.instance.saveString(Keys.currentNavHeader + account, value);
+      await SharedUtil.instance.saveString(Keys.currentNavHeader, value);
     }
   }
 }

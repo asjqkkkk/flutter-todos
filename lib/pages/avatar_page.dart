@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:image_crop/image_crop.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/avatar_page_model.dart';
@@ -12,11 +12,9 @@ class AvatarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final model = Provider.of<AvatarPageModel>(context);
     model.setMainPageModel(mainPageModel);
     model.setContext(context);
-
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -47,18 +45,37 @@ class AvatarPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Hero(
-        tag: "avatar",
-        child: Container(
-          alignment: Alignment.center,
-          child: model.currentAvatarWidget ?? CircularProgressIndicator(
-            valueColor:
-            AlwaysStoppedAnimation(Colors.white),
+      body: Stack(
+        children: <Widget>[
+          Hero(
+            tag: "avatar",
+            child: Container(
+              alignment: Alignment.center,
+              child: Container(
+                margin: EdgeInsets.all(2),
+                child: Crop(
+                  key: model.cropKey,
+                  image: model.logic.getAvatarProvider(),
+                  aspectRatio: 1.0,
+                ),
+              ),
+            ),
           ),
-        ),
+          Align(
+            alignment: Alignment(0, 0.8),
+            child: FlatButton(
+              color: Theme.of(context).primaryColor,
+              highlightColor: Theme.of(context).primaryColorLight,
+              colorBrightness: Brightness.dark,
+              splashColor: Theme.of(context).primaryColorDark,
+              child: Text("保存"),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)),
+              onPressed: model.logic.onSaveTap,
+            ),
+          )
+        ],
       ),
     );
   }
-
-
 }

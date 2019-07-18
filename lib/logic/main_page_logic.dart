@@ -186,32 +186,48 @@ class MainPageLogic {
   }
 
 
-  Future getAvatarWidget() async{
-    final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
+  Future getCurrentAvatar() async{
     switch (_model.currentAvatarType) {
       case CurrentAvatarType.defaultAvatar:
-        _model.currentAvatarWidget = Image.asset("images/avatar.jpg");
+        _model.currentAvatarUrl = "images/avatar.jpg";
         break;
       case CurrentAvatarType.local:
-        final local = await SharedUtil().getString(Keys.localAvatarPath + account);
+        final local = await SharedUtil().getString(Keys.localAvatarPath);
         File file = File(local);
-        debugPrint("file存在吗:${file.existsSync()}");
         if(file.existsSync()){
-          _model.currentAvatarWidget = Image.file(file,fit: BoxFit.fill,);
+          _model.currentAvatarUrl = file.path;
         } else {
-          _model.currentAvatarWidget = Image.asset("images/avatar.jpg");
+          _model.currentAvatarUrl = "images/avatar.jpg";
         }
         break;
       case CurrentAvatarType.net:
-        final net = await SharedUtil().getString(Keys.netAvatarPath + account);
-        _model.currentAvatarWidget = Image.network(net);
+        final net = await SharedUtil().getString(Keys.netAvatarPath);
+        _model.currentAvatarUrl = net;
+        break;
+    }
+  }
+
+  Widget getAvatarWidget(){
+    switch (_model.currentAvatarType) {
+      case CurrentAvatarType.defaultAvatar:
+        return Image.asset("images/avatar.jpg");
+        break;
+      case CurrentAvatarType.local:
+        File file = File(_model.currentAvatarUrl);
+        if(file.existsSync()){
+          return Image.file(file,fit: BoxFit.fill,);
+        } else {
+          return Image.asset("images/avatar.jpg");
+        }
+        break;
+      case CurrentAvatarType.net:
+        return Image.network(_model.currentAvatarUrl);
         break;
     }
   }
   
-  Future getAvatar() async{
-    final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
-    final currentAvatarType = await SharedUtil.instance.getInt(Keys.currentAvatarType + account);
+  Future getAvatarType() async{
+    final currentAvatarType = await SharedUtil.instance.getInt(Keys.currentAvatarType );
     debugPrint("type:${currentAvatarType}");
     if(currentAvatarType == null) return;
     if(currentAvatarType == _model.currentAvatarType) return;

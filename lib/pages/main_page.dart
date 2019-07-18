@@ -68,11 +68,7 @@ class MainPage extends StatelessWidget {
                         width: 60,
                         height: 60,
                         child: ClipRRect(
-                          child: model.currentAvatarWidget ??
-                              CircularProgressIndicator(
-                                valueColor:
-                                    AlwaysStoppedAnimation(Colors.white),
-                              ),
+                          child: model.logic.getAvatarWidget(),
                           borderRadius: BorderRadius.all(Radius.circular(30)),
                         ),
                       ),
