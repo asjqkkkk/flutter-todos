@@ -71,4 +71,11 @@ class ProviderConfig {
       child: ThemePage(),
     );
   }
+
+  ChangeNotifierProvider<AvatarPageModel> getAvatarPage({MainPageModel mainPageModel}){
+     return ChangeNotifierProvider<AvatarPageModel>(
+       builder:(context) => AvatarPageModel(),
+       child: AvatarPage(mainPageModel: mainPageModel,),
+     );
+   }
 }

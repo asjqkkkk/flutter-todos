@@ -11,9 +11,15 @@ class MainPageModel extends ChangeNotifier{
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   List<TaskBean> tasks = [];
 
+  //当前滑动的卡片位置
   int currentCardIndex = 0;
-
+  //当前头像的类型
   int currentAvatarType = CurrentAvatarType.defaultAvatar;
+
+  //当前的头像Widget
+  Widget currentAvatarWidget;
+
+
 
   MainPageModel(){
     logic = MainPageLogic(this);
@@ -25,6 +31,7 @@ class MainPageModel extends ChangeNotifier{
         logic.getTasks();
         Future.wait([
           logic.getAvatar(),
+          logic.getAvatarWidget(),
         ]).then((value) {
           refresh();
         });

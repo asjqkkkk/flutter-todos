@@ -186,24 +186,25 @@ class MainPageLogic {
   }
 
 
-  Future<Widget> getAvatarWidget() async{
+  Future getAvatarWidget() async{
     final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
     switch (_model.currentAvatarType) {
       case CurrentAvatarType.defaultAvatar:
-        return Image.asset("images/avatar.jpg");
+        _model.currentAvatarWidget = Image.asset("images/avatar.jpg");
         break;
       case CurrentAvatarType.local:
         final local = await SharedUtil().getString(Keys.localAvatarPath + account);
         File file = File(local);
+        debugPrint("file存在吗:${file.existsSync()}");
         if(file.existsSync()){
-          return Image.file(File(local),fit: BoxFit.scaleDown,);
+          _model.currentAvatarWidget = Image.file(file,fit: BoxFit.fill,);
         } else {
-          return Image.asset("images/avatar.jpg");
+          _model.currentAvatarWidget = Image.asset("images/avatar.jpg");
         }
         break;
       case CurrentAvatarType.net:
         final net = await SharedUtil().getString(Keys.netAvatarPath + account);
-        return Image.network(net);
+        _model.currentAvatarWidget = Image.network(net);
         break;
     }
   }
@@ -219,7 +220,7 @@ class MainPageLogic {
 
   void onAvatarTap() {
     Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx){
-      return new AvatarPage(mainPageModel: _model,);
+      return ProviderConfig.getInstance().getAvatarPage(mainPageModel: _model);
     }));
   }
 
