@@ -55,7 +55,22 @@ class EditTaskPageLogic {
     _model.textEditingController.clear();
     _model.refresh();
     final scroller = _model.scrollController;
-    scroller.animateTo(scroller.position.maxScrollExtent, duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine);
+    Future.delayed(Duration(milliseconds: 100), (){
+      scroller?.animateTo(scroller?.position?.maxScrollExtent, duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine);
+    });
+  }
+
+  //监测软键盘
+  void scrollToEndWhenEdit(){
+    //检测软键盘是否弹出
+    if(MediaQuery.of(_model.context).viewInsets.bottom > 100){
+      debugPrint("软键盘弹出}");
+      final scroller = _model.scrollController;
+      debugPrint("当前:${scroller?.position?.pixels??100}  全:${scroller?.position?.maxScrollExtent??100}");
+      scroller?.animateTo(scroller?.position?.maxScrollExtent, duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine);
+    } else{
+      debugPrint("软键盘收起");
+    }
   }
 
   //监听文字，提交按钮是否可以点击
@@ -179,6 +194,7 @@ class EditTaskPageLogic {
     return DateTime.parse(date);
   }
 
+  //右上角的提交按钮
   void onSubmitTap(){
     bool isEdit = isEditOldTask();
     isEdit ? submitOldTask() : submitNewTask();
@@ -214,6 +230,7 @@ class EditTaskPageLogic {
     Navigator.of(_model.context).popUntil((route) => route.isFirst);
   }
 
+  //获取当前任务总进度
   double _getOverallProgress(){
     int length = _model.taskDetails.length;
     double overallProgress = 0.0;

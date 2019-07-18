@@ -32,6 +32,8 @@ class EditTaskPage extends StatelessWidget {
     final iconColor = ColorBean.fromBean(taskIconBean.colorBean);
     final iconData = IconBean.fromBean(taskIconBean.iconBean);
 
+//    model.logic.scrollToEndWhenEdit();
+
     return Scaffold(
       backgroundColor: model.bgColor,
       appBar: AppBar(
@@ -73,12 +75,13 @@ class EditTaskPage extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(bottom: 100, left: 50, right: 50),
+              margin: EdgeInsets.only( left: 50, right: 50),
               child: NotificationListener<OverscrollIndicatorNotification>(
                 onNotification: (overScroll) {
                   overScroll.disallowGlow();
                 },
                 child: ListView.builder(
+                  padding: EdgeInsets.only(bottom: 100),
                   itemCount: model.taskDetails.length,
                   controller: model.scrollController,
                   itemBuilder: (ctx, index) {

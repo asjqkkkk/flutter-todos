@@ -62,7 +62,6 @@ class AvatarPageLogic{
     _model.currentAvatarUrl = file.path;
     _model.refresh();
 
-
   }
 
   void onSaveTap() async{
@@ -70,14 +69,18 @@ class AvatarPageLogic{
       file: File(_model.currentAvatarUrl),
       area: _model.cropKey.currentState.area,
     );
-    String newPath = await FileUtil.getInstance().getSavePath('/avatar/');
+    await _saveImage(croppedFile);
+  }
+
+  Future _saveImage(File file) async {
+     String newPath = await FileUtil.getInstance().getSavePath('/avatar/');
     String name = '${DateTime.now().millisecondsSinceEpoch}.jpg';
-    File newFile = croppedFile.copySync(newPath + name);
+    File newFile = file.copySync(newPath + name);
     if (newFile.existsSync()) {
       await SharedUtil.instance.saveString(Keys.localAvatarPath, newFile.path);
       await SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
       _model.mainPageModel.currentAvatarType = CurrentAvatarType.local;
-
+    
       _model.mainPageModel.logic.getCurrentAvatar().then((a){
         _model.mainPageModel.refresh();
         Navigator.of(_model.context).pop();
