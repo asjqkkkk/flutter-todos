@@ -72,6 +72,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "dailyPic": "Daily wallpaper",
+  "@dailyPic": {
+    "description": "每日壁纸",
+    "type": "text",
+    "placeholders": {}
+  },
   "netPicture": "Network Picture",
   "@netPicture": {
     "description": "网络图片",
@@ -201,6 +207,24 @@
   "avatarNet": "Select an avatar from the network",
   "@avatarNet": {
     "description": "从网络选取头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatarHistory": "Select an avatar from the history",
+  "@avatarHistory": {
+    "description": "历史头像记录",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatar": "avatar",
+  "@avatar": {
+    "description": "头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "history": "history",
+  "@history": {
+    "description": "历史",
     "type": "text",
     "placeholders": {}
   },

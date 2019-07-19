@@ -69,6 +69,7 @@ class DemoLocalizations {
   String get iconSetting => Intl.message('Icon Setting', name: 'iconSetting', desc: '图标设置',);
   String get navigatorSetting => Intl.message('Navigator Setting', name: 'navigatorSetting', desc: '导航栏设置',);
   String get meteorShower => Intl.message('Meteor Shower', name: 'meteorShower', desc: '天体流星',);
+  String get dailyPic => Intl.message('Daily wallpaper', name: 'dailyPic', desc: '每日壁纸',);
   String get netPicture => Intl.message('Network Picture', name: 'netPicture', desc: '网络图片',);
   String get picture => Intl.message('Picture', name: 'picture', desc: '图片',);
 
@@ -96,6 +97,9 @@ class DemoLocalizations {
 
   String get avatarLocal => Intl.message('Select an avatar from the local', name: 'avatarLocal', desc: '从本地选取头像',);
   String get avatarNet => Intl.message('Select an avatar from the network', name: 'avatarNet', desc: '从网络选取头像',);
+  String get avatarHistory => Intl.message('Select an avatar from the history', name: 'avatarHistory', desc: '历史头像记录',);
+  String get avatar => Intl.message('avatar', name: 'avatar', desc: '头像',);
+  String get history => Intl.message('history', name: 'history', desc: '历史',);
 
 
   String get deniedDes => Intl.message('Permission denied', name: 'deniedDes', desc: '权限被拒绝',);

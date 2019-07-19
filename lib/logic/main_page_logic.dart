@@ -189,11 +189,13 @@ class MainPageLogic {
   Future getCurrentAvatar() async{
     switch (_model.currentAvatarType) {
       case CurrentAvatarType.defaultAvatar:
-        _model.currentAvatarUrl = "images/avatar.jpg";
+        final path =  await FileUtil.getInstance().copyAssetToFile("images/", "avatar.jpg", "/avatar/", "avatar.jpg");
+        _model.currentAvatarUrl = path;
+        _model.currentAvatarType = CurrentAvatarType.local;
         break;
       case CurrentAvatarType.local:
-        final local = await SharedUtil().getString(Keys.localAvatarPath);
-        File file = File(local);
+        final path = await SharedUtil().getString(Keys.localAvatarPath) ?? "";
+        File file = File(path);
         if(file.existsSync()){
           _model.currentAvatarUrl = file.path;
         } else {
@@ -205,23 +207,24 @@ class MainPageLogic {
         _model.currentAvatarUrl = net;
         break;
     }
+
   }
 
   Widget getAvatarWidget(){
     switch (_model.currentAvatarType) {
       case CurrentAvatarType.defaultAvatar:
-        return Image.asset("images/avatar.jpg");
+        return Image.asset("images/avatar.jpg",fit: BoxFit.cover,);
         break;
       case CurrentAvatarType.local:
         File file = File(_model.currentAvatarUrl);
         if(file.existsSync()){
           return Image.file(file,fit: BoxFit.fill,);
         } else {
-          return Image.asset("images/avatar.jpg");
+          return Image.asset("images/avatar.jpg",fit: BoxFit.cover,);
         }
         break;
       case CurrentAvatarType.net:
-        return Image.network(_model.currentAvatarUrl);
+        return Image.network(_model.currentAvatarUrl,fit: BoxFit.cover,);
         break;
     }
   }

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
@@ -11,23 +12,34 @@ import 'package:todo_list/pages/setting_page.dart';
 import 'package:todo_list/pages/theme_page.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+
 class NavPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
 
-
-
     final size = MediaQuery.of(context).size;
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
+
     return Column(
       children: <Widget>[
-        globalModel.currentNavHeader == "MeteorShower" ? NavHead() : CachedNetworkImage(
-          imageUrl: "https://api.dujin.org/bing/1366.php",
-          placeholder: (context, url) => new Container(
-            alignment: Alignment.center,
-            child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),
-          ),
-          errorWidget: (context, url, error) => new Icon(Icons.error),
+        Container(
+          height: statusBarHeight + 160,
+          child: globalModel.currentNavHeader == "MeteorShower"
+              ? NavHead()
+              : CachedNetworkImage(
+            fit: BoxFit.cover,
+                  cacheManager: CustomCacheManager(),
+                  imageUrl: "https://api.dujin.org/bing/1366.php",
+                  placeholder: (context, url) => new Container(
+                        alignment: Alignment.center,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              Theme.of(context).primaryColor),
+                        ),
+                      ),
+                  errorWidget: (context, url, error) => new Icon(Icons.error),
+                ),
         ),
         ListTile(
           title: Text(DemoLocalizations.of(context).languageTitle),
@@ -59,10 +71,7 @@ class NavPage extends StatelessWidget {
             }));
           },
         ),
-
       ],
     );
   }
-
-
 }

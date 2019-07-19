@@ -53,5 +53,5 @@ class AvatarPageModel extends ChangeNotifier{
 
 enum AvatarType {
   local,
-  net,
+  history,
 }

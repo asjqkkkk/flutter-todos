@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-16T15:51:43.820401",
+  "@@last_modified": "2019-07-18T18:19:45.539851",
   "appName": "One Day",
   "@appName": {
     "description": "app的名字",
@@ -69,6 +69,12 @@
   "meteorShower": "Meteor Shower",
   "@meteorShower": {
     "description": "天体流星",
+    "type": "text",
+    "placeholders": {}
+  },
+  "dailyPic": "Daily wallpaper",
+  "@dailyPic": {
+    "description": "每日壁纸",
     "type": "text",
     "placeholders": {}
   },
@@ -207,6 +213,24 @@
   "avatarNet": "Select an avatar from the network",
   "@avatarNet": {
     "description": "从网络选取头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatarHistory": "Select an avatar from the history",
+  "@avatarHistory": {
+    "description": "历史头像记录",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatar": "avatar",
+  "@avatar": {
+    "description": "头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "history": "history",
+  "@history": {
+    "description": "历史",
     "type": "text",
     "placeholders": {}
   },

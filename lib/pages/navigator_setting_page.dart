@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
@@ -32,54 +33,61 @@ class NavSettingPage extends StatelessWidget {
               title: Text(DemoLocalizations.of(context).meteorShower),
             ),
             RadioListTile(
-              value: "NetPicture",
+              value: "DailyPic",
               groupValue: globalModel.currentNavHeader,
               subtitle: CachedNetworkImage(
-
                 imageUrl:netUrl,
+                cacheManager: CustomCacheManager(),
                 placeholder: (context, url) => new Container(
                   alignment: Alignment.center,
                   child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),
                 ),
                 errorWidget: (context, url, error) => new Icon(Icons.error,color: Colors.redAccent,),
               ),
-              onChanged: (value) async{
-                showDialog(context: context, builder: (ctx){
-                  return AlertDialog(
-                    title: Text("输入图片地址"),
-                    content: Form(
-                      autovalidate: true,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          suffixIcon: IconButton(icon: Icon(Icons.cancel), onPressed: (){
-
-                          },),
-                        ),
-                        validator: (text){
-
-                        },
-                        initialValue: netUrl,
-                      ),
-                    ),
-                    actions: <Widget>[
-                      FlatButton(onPressed: (){
-                        Navigator.of(context).pop();
-                      }, child: Text(DemoLocalizations.of(context).cancel, style: TextStyle(color: Colors.redAccent),),),
-                      FlatButton(onPressed: (){
-                        Navigator.of(context).pop();
-
-                      }, child: Text(DemoLocalizations.of(context).ok, style: TextStyle(color: Colors.green),),),
-                    ],
-                  );
-                });
-//                await onChanged(globalModel, value);
-              },
-              title: Text(DemoLocalizations.of(context).netPicture),
+              onChanged: (value) => onChanged(globalModel, value),
+              title: Text(DemoLocalizations.of(context).dailyPic),
             ),
+//            RadioListTile(
+//              value: "NetPicture",
+//              groupValue: globalModel.currentNavHeader,
+//              onChanged: (value) => onChanged(globalModel, value),
+//              title: Text(DemoLocalizations.of(context).netPicture),
+//            ),
           ],
         ),
       ),
     );
+  }
+
+  void show(BuildContext context, String netUrl) {
+     showDialog(context: context, builder: (ctx){
+      return AlertDialog(
+        title: Text("输入图片地址"),
+        content: Form(
+          autovalidate: true,
+          child: TextFormField(
+            decoration: InputDecoration(
+              suffixIcon: IconButton(icon: Icon(Icons.cancel), onPressed: (){
+    
+              },),
+            ),
+            validator: (text){
+    
+            },
+            initialValue: netUrl,
+          ),
+        ),
+        actions: <Widget>[
+          FlatButton(onPressed: (){
+            Navigator.of(context).pop();
+          }, child: Text(DemoLocalizations.of(context).cancel, style: TextStyle(color: Colors.redAccent),),),
+          FlatButton(onPressed: (){
+            Navigator.of(context).pop();
+    
+          }, child: Text(DemoLocalizations.of(context).ok, style: TextStyle(color: Colors.green),),),
+        ],
+      );
+    });
   }
 
   Future onChanged(GlobalModel globalModel, value) async {

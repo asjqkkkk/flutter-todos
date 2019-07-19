@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
-export 'keys.dart';
-import 'keys.dart';
+export 'package:todo_list/config/keys.dart';
+import 'package:todo_list/config/keys.dart';
 
 class SharedUtil{
 

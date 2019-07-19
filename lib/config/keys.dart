@@ -15,4 +15,6 @@ class Keys{
   static final String localAvatarPath = "local_avatar_path";
   static final String netAvatarPath = "net_avatar_path";
   static final String currentAvatarType = "current_avatar_type";
+
+
 }

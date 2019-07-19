@@ -20,7 +20,7 @@ class AvatarPage extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("头像"),
+        title: Text(DemoLocalizations.of(context).avatar,),
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (value) => model.logic.onAvatarSelect(value, context),
@@ -34,9 +34,9 @@ class AvatarPage extends StatelessWidget {
                   ),
                 ),
                 PopupMenuItem(
-                  value: AvatarType.net,
+                  value: AvatarType.history,
                   child: Container(
-                    child: Text(DemoLocalizations.of(context).avatarNet),
+                    child: Text(DemoLocalizations.of(context).avatarHistory),
                     alignment: Alignment.centerLeft,
                   ),
                 ),
@@ -52,11 +52,12 @@ class AvatarPage extends StatelessWidget {
             child: Container(
               alignment: Alignment.center,
               child: Container(
-                margin: EdgeInsets.all(2),
+                padding: EdgeInsets.all(20),
                 child: Crop(
                   key: model.cropKey,
                   image: model.logic.getAvatarProvider(),
                   aspectRatio: 1.0,
+                  maximumScale: 1.0,
                 ),
               ),
             ),

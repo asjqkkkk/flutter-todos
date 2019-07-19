@@ -48,6 +48,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "dailyPic": "每日壁纸",
+  "@dailyPic": {
+    "description": "每日壁纸",
+    "type": "text",
+    "placeholders": {}
+  },
   "netPicture": "网络图片",
   "@netPicture": {
     "description": "网络图片",
@@ -183,6 +189,24 @@
   "avatarNet": "从网络选取头像",
   "@avatarNet": {
     "description": "从网络选取头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatarHistory": "历史头像记录",
+  "@avatarHistory": {
+    "description": "历史头像记录",
+    "type": "text",
+    "placeholders": {}
+  },
+  "avatar": "头像",
+  "@avatar": {
+    "description": "头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "history": "历史",
+  "@history": {
+    "description": "历史",
     "type": "text",
     "placeholders": {}
   },
