@@ -19,7 +19,7 @@ class DemoLocalizations {
   }
 
   String get appName{
-    return Intl.message("One Day",name: "appName",desc: "app的名字");
+    return Intl.message("One Day List",name: "appName",desc: "app的名字");
   }
 
   String get languageTitle {
@@ -65,6 +65,9 @@ class DemoLocalizations {
       desc: '关于',
     );
   }
+
+  String get versionDescription => Intl.message('Version Description', name: 'versionDescription', desc: '版本描述',);
+
 
   String get iconSetting => Intl.message('Icon Setting', name: 'iconSetting', desc: '图标设置',);
   String get navigatorSetting => Intl.message('Navigator Setting', name: 'navigatorSetting', desc: '导航栏设置',);

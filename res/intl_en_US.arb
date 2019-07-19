@@ -1,6 +1,6 @@
 {
   "@@last_modified": "2019-06-28T17:59:54.925401",
-  "appName": "One Day",
+  "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
     "type": "text",
@@ -51,6 +51,12 @@
   "aboutApp": "About",
   "@aboutApp": {
     "description": "关于",
+    "type": "text",
+    "placeholders": {}
+  },
+  "versionDescription": "Version Description",
+  "@versionDescription": {
+    "description": "版本描述",
     "type": "text",
     "placeholders": {}
   },

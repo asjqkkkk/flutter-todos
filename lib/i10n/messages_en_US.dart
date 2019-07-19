@@ -28,7 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "aboutApp" : MessageLookupByLibrary.simpleMessage("About"),
     "addTask" : MessageLookupByLibrary.simpleMessage("add a task"),
-    "appName" : MessageLookupByLibrary.simpleMessage("One Day"),
+    "appName" : MessageLookupByLibrary.simpleMessage("One Day List"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("Setting"),
     "avatar" : MessageLookupByLibrary.simpleMessage("avatar"),
     "avatarHistory" : MessageLookupByLibrary.simpleMessage("Select an avatar from the history"),
@@ -88,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "taskItems" : m1,
     "travel" : MessageLookupByLibrary.simpleMessage("Travel"),
     "unknownDes" : MessageLookupByLibrary.simpleMessage("Unknown permission"),
+    "versionDescription" : MessageLookupByLibrary.simpleMessage("Version Description"),
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("Hello, "),
     "work" : MessageLookupByLibrary.simpleMessage("Work"),
     "writeAtLeastOneTaskItem" : MessageLookupByLibrary.simpleMessage("Please write at least one task.")

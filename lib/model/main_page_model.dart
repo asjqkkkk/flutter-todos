@@ -16,7 +16,7 @@ class MainPageModel extends ChangeNotifier {
   int currentAvatarType = CurrentAvatarType.defaultAvatar;
 
   //当前的头像url,比如本地的就是本地路径，网络就是网络地址
-  String currentAvatarUrl = "images/avatar.jpg";
+  String currentAvatarUrl = "images/icon.png";
 
   MainPageModel() {
     logic = MainPageLogic(this);

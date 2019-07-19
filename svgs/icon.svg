@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="121px" viewBox="0 0 150 121" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>编组</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M53.5145264,78.03061 L30.1188865,56.3844355 C23.024615,49.8206553 11.9525765,50.2507034 5.38879625,57.3449749 C-1.17498398,64.4392464 -0.744935863,75.5112849 6.34933561,82.0750651 L42.6450758,115.656704 C49.7607062,122.240246 60.8724316,121.784973 67.4256304,114.641388 L145.227727,29.8299992 C151.761255,22.707857 151.28409,11.637749 144.161947,5.10422084 C137.039805,-1.42930728 125.969697,-0.952141317 119.436169,6.17000085 L53.5145264,78.03061 Z" id="path-1"></path>
+        <linearGradient x1="5.8822005%" y1="39.9674805%" x2="124.013784%" y2="39.9674805%" id="linearGradient-3">
+            <stop stop-color="#E4B7A0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="76.9952039%" y1="29.9631357%" x2="-16.1317766%" y2="29.9631357%" id="linearGradient-4">
+            <stop stop-color="#97D7B2" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="19.7760331%" x2="107.301361%" y2="99.4577817%" id="linearGradient-5">
+            <stop stop-color="#C5B1FF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="5.3874438%" x2="50%" y2="117.750159%" id="linearGradient-6">
+            <stop stop-color="#8FE3EB" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="-33.3237229%" x2="50%" y2="115.132424%" id="linearGradient-7">
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="0%"></stop>
+            <stop stop-color="#F6C8C8" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon" transform="translate(-25.000000, -45.000000)">
+            <g id="编组-2" transform="translate(1.000000, 1.000000)">
+                <g id="编组" transform="translate(24.000000, 44.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="蒙版" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    <g mask="url(#mask-2)">
+                        <g transform="translate(-32.000000, -36.000000)">
+                            <polygon id="路径-3" fill="url(#linearGradient-3)" points="75 80 204.970998 108.811389 205 0"></polygon>
+                            <polygon id="路径-4" fill="url(#linearGradient-4)" points="5 200 105 200 99.4913945 42 5 80"></polygon>
+                            <polygon id="路径-5" fill="url(#linearGradient-5)" points="205 200 75 80 205 75.322914 205 108.811389"></polygon>
+                            <polygon id="路径-6" fill="url(#linearGradient-6)" points="5 200 205 200 99.4913945 42"></polygon>
+                            <polygon id="路径-2" fill="url(#linearGradient-7)" points="204.970998 75.322914 1.42108547e-14 85.1070565 5 0"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

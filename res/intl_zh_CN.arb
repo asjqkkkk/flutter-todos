@@ -1,6 +1,6 @@
 {
   "@@last_modified": "2019-06-28T15:08:05.980030",
-  "appName": "一日",
+  "appName": "一日清单",
   "@appName": {
     "description": "app的名字",
     "type": "text",
@@ -27,6 +27,12 @@
   "aboutApp": "关于",
   "@aboutApp": {
     "description": "关于",
+    "type": "text",
+    "placeholders": {}
+  },
+  "versionDescription": "版本描述",
+  "@versionDescription": {
+    "description": "版本描述",
     "type": "text",
     "placeholders": {}
   },

@@ -28,7 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "aboutApp" : MessageLookupByLibrary.simpleMessage("关于"),
     "addTask" : MessageLookupByLibrary.simpleMessage("添加任务"),
-    "appName" : MessageLookupByLibrary.simpleMessage("一日"),
+    "appName" : MessageLookupByLibrary.simpleMessage("一日清单"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("设置"),
     "avatar" : MessageLookupByLibrary.simpleMessage("头像"),
     "avatarHistory" : MessageLookupByLibrary.simpleMessage("历史头像记录"),
@@ -88,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "taskItems" : m1,
     "travel" : MessageLookupByLibrary.simpleMessage("旅行"),
     "unknownDes" : MessageLookupByLibrary.simpleMessage("未知权限"),
+    "versionDescription" : MessageLookupByLibrary.simpleMessage("版本描述"),
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("你好呀, "),
     "work" : MessageLookupByLibrary.simpleMessage("工作"),
     "writeAtLeastOneTaskItem" : MessageLookupByLibrary.simpleMessage("请至少写下一项任务哦")

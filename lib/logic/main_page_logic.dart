@@ -5,18 +5,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
-import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
-import 'package:todo_list/pages/avatar_page.dart';
 import 'package:todo_list/utils/file_util.dart';
-import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MainPageLogic {
   final MainPageModel _model;
@@ -158,31 +155,43 @@ class MainPageLogic {
     final size = MediaQuery.of(context).size;
     final theMin = min(size.width - 100, size.height - 100);
     return Container(
+      margin: EdgeInsets.only(top: 40),
       alignment: Alignment.center,
-      child: LoadingWidget(
-        child: Container(
-          height: theMin,
+      child: SvgPicture.asset(
+          "svgs/empty_list.svg",
+          color: Colors.white,
           width: theMin,
-          margin: EdgeInsets.fromLTRB(10, 50, 10, 0),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: RadialGradient(
-                colors: [
-                  Theme.of(context).primaryColor,
-                  Theme.of(context).primaryColorLight,
-                  Theme.of(context).primaryColor,
-                  Theme.of(context).primaryColorLight,
-                ],
-              )),
-          child: Icon(
-            Icons.favorite,
-            size: 50,
-            color: Theme.of(context).primaryColorLight,
-          ),
-        ),
+          height: theMin,
+          semanticsLabel: 'empty list',
       ),
     );
+
+//    return Container(
+//      alignment: Alignment.center,
+//      child: LoadingWidget(
+//        child: Container(
+//          height: theMin,
+//          width: theMin,
+//          margin: EdgeInsets.fromLTRB(10, 50, 10, 0),
+//          alignment: Alignment.center,
+//          decoration: BoxDecoration(
+//              shape: BoxShape.circle,
+//              gradient: RadialGradient(
+//                colors: [
+//                  Theme.of(context).primaryColor,
+//                  Theme.of(context).primaryColorLight,
+//                  Theme.of(context).primaryColor,
+//                  Theme.of(context).primaryColorLight,
+//                ],
+//              )),
+//          child: Icon(
+//            Icons.favorite,
+//            size: 50,
+//            color: Theme.of(context).primaryColorLight,
+//          ),
+//        ),
+//      ),
+//    );
   }
 
 
