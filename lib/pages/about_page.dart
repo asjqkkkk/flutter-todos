@@ -1,8 +1,10 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:package_info/package_info.dart';
+import 'package:todo_list/pages/webview_page.dart';
 
 class AboutPage extends StatefulWidget {
   @override
@@ -34,107 +36,130 @@ class _AboutPageState extends State<AboutPage> {
       body: Container(
         child: Container(
           margin: EdgeInsets.all(20),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  child: Card(
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                      child: Container(
-                          width: 100,
-                          height: 100,
-                          margin: EdgeInsets.all(10),
-                          child: Image.asset("images/icon.png"))),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 20, left: 10),
-                  child: Text(
-                    DemoLocalizations.of(context).appName,
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                    ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    child: Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                        child: Container(
+                            width: 70,
+                            height: 70,
+                            margin: EdgeInsets.all(10),
+                            child: Image.asset("images/icon.png"))),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 20, left: 10),
-                  child: FutureBuilder(
-                      future: PackageInfo.fromPlatform(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          PackageInfo packageInfo = snapshot.data;
-                          return Text(
-                            packageInfo.version,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Theme.of(context).primaryColor ==
-                                        Color(0xff212121)
-                                    ? Colors.white
-                                    : Color.fromRGBO(141, 141, 141, 1.0)),
-                          );
-                        } else
-                          return Container();
-                      }),
-                ),
-                Container(
+                  Container(
+                    margin: EdgeInsets.only(left: 50,top: 2),
+                    height: 90,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            child: Text(
+                              DemoLocalizations.of(context).appName,
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.bottomLeft,
+                            child: FutureBuilder(
+                                future: PackageInfo.fromPlatform(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData) {
+                                    PackageInfo packageInfo = snapshot.data;
+                                    return Text(
+                                      packageInfo.version,
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color: Theme.of(context).primaryColor ==
+                                              Color(0xff212121)
+                                              ? Colors.white
+                                              : Color.fromRGBO(141, 141, 141, 1.0)),
+                                    );
+                                  } else
+                                    return Container();
+                                }),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              Expanded(
+                child: Container(
                   margin: EdgeInsets.only(top: 20, bottom: 20),
                   child: Card(
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     child: Container(
-                      height: min(size.width, size.height) - 40,
                       margin: EdgeInsets.only(left: 20, top: 30),
-                      child: ListView(
-                          children:
-                              List.generate(descriptions.length + 1, (index) {
-                        if (index == 0) {
-                          return Container(
-                            margin: EdgeInsets.only(bottom: 20),
-                            child: Text(
-                              DemoLocalizations.of(context).versionDescription,
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
+                      child: NotificationListener<OverscrollIndicatorNotification>(
+                        onNotification: (overScroll) {
+                          overScroll.disallowGlow();
+                        },
+                        child: ListView(
+                            children:
+                                List.generate(descriptions.length + 1, (index) {
+                          if (index == 0) {
+                            return Container(
+                              margin: EdgeInsets.only(bottom: 20),
+                              child: Text(
+                                DemoLocalizations.of(context).versionDescription,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          );
-                        } else {
-                          final data = descriptions[index - 1];
+                            );
+                          } else {
+                            final data = descriptions[index - 1];
 
-                          return Container(
-                            margin: EdgeInsets.only(right: 14),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Container(
-                                  margin: EdgeInsets.only(top: 7),
-                                  width: 7,
-                                  height: 7,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color.fromRGBO(141, 141, 141, 1.0),
+                            return Container(
+                              margin: EdgeInsets.only(right: 14),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    margin: EdgeInsets.only(top: 7),
+                                    width: 7,
+                                    height: 7,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Color.fromRGBO(141, 141, 141, 1.0),
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: 12,
-                                ),
-                                Expanded(child: getDescriptionItem(data)),
-                              ],
-                            ),
-                          );
-                        }
-                      })),
+                                  SizedBox(
+                                    width: 12,
+                                  ),
+                                  Expanded(child: getDescriptionItem(data)),
+                                ],
+                              ),
+                            );
+                          }
+                        })),
+                      ),
                     ),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -144,7 +169,13 @@ class _AboutPageState extends State<AboutPage> {
   Widget getDescriptionItem(String data) {
     if (data.contains("http")) {
       return InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+              return WebViewPage(
+                data.replaceAll("Github地址:", ""), title: "作者的github",
+              );
+          }));
+        },
         child: Text(
           data,
           style: TextStyle(color: Colors.blueAccent),

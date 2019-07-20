@@ -166,32 +166,7 @@ class MainPageLogic {
       ),
     );
 
-//    return Container(
-//      alignment: Alignment.center,
-//      child: LoadingWidget(
-//        child: Container(
-//          height: theMin,
-//          width: theMin,
-//          margin: EdgeInsets.fromLTRB(10, 50, 10, 0),
-//          alignment: Alignment.center,
-//          decoration: BoxDecoration(
-//              shape: BoxShape.circle,
-//              gradient: RadialGradient(
-//                colors: [
-//                  Theme.of(context).primaryColor,
-//                  Theme.of(context).primaryColorLight,
-//                  Theme.of(context).primaryColor,
-//                  Theme.of(context).primaryColorLight,
-//                ],
-//              )),
-//          child: Icon(
-//            Icons.favorite,
-//            size: 50,
-//            color: Theme.of(context).primaryColorLight,
-//          ),
-//        ),
-//      ),
-//    );
+
   }
 
 
