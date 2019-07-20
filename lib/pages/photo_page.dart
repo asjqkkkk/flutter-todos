@@ -27,6 +27,7 @@ class _PhotoPageState extends State<PhotoPage> {
 
   LoadingFlag loadingFlag = LoadingFlag.loading;
   RefreshController _refreshController;
+  CancelToken cancelToken;
 
   @override
   Widget build(BuildContext context) {
@@ -71,24 +72,26 @@ class _PhotoPageState extends State<PhotoPage> {
                       final url = photos[index].urls.small;
                       return InkWell(
                         onTap: () {
-                          Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
-                              return ImagePage(
-                                imageUrls: List.generate(photos.length, (index){
-                                  return photos[index].urls.regular;
-                                }),
-                                initialPageIndex: index,
-                                onSelect: (current){
-                                  final currentUrl = photos[current].urls.small;
-                                  SharedUtil.instance
-                                      .saveString(Keys.currentNetPicUrl, currentUrl);
-                                  SharedUtil.instance.saveString(
-                                      Keys.currentNavHeader, widget.selectValue);
-                                  globalModel.currentNetPicUrl = currentUrl;
-                                  globalModel.currentNavHeader = widget.selectValue;
-                                  globalModel.refresh();
-                                  Navigator.of(context).pop();
-                                },
-                              );
+                          Navigator.of(context)
+                              .push(new CupertinoPageRoute(builder: (ctx) {
+                            return ImagePage(
+                              imageUrls: List.generate(photos.length, (index) {
+                                return photos[index].urls.regular;
+                              }),
+                              initialPageIndex: index,
+                              onSelect: (current) {
+                                final currentUrl = photos[current].urls.small;
+                                SharedUtil.instance.saveString(
+                                    Keys.currentNetPicUrl, currentUrl);
+                                SharedUtil.instance.saveString(
+                                    Keys.currentNavHeader, widget.selectValue);
+                                globalModel.currentNetPicUrl = currentUrl;
+                                globalModel.currentNavHeader =
+                                    widget.selectValue;
+                                globalModel.refresh();
+                                Navigator.of(context).pop();
+                              },
+                            );
                           }));
                         },
                         child: Container(
@@ -103,8 +106,9 @@ class _PhotoPageState extends State<PhotoPage> {
                                 placeholder: (context, url) => new Container(
                                       alignment: Alignment.center,
                                       child: CircularProgressIndicator(
-                                        valueColor: AlwaysStoppedAnimation<Color>(
-                                            Theme.of(context).primaryColor),
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                                Theme.of(context).primaryColor),
                                       ),
                                     ),
                                 errorWidget: (context, url, error) => new Icon(
@@ -132,22 +136,29 @@ class _PhotoPageState extends State<PhotoPage> {
   void initState() {
     super.initState();
     _refreshController = RefreshController(initialRefresh: true);
-    getPhotos();
+    cancelToken = CancelToken();
+    getPhotos(cancelToken: cancelToken,);
   }
 
   @override
   void dispose() {
     _refreshController?.dispose();
+    cancelToken?.cancel();
     super.dispose();
   }
 
   void loadMorePhoto() {
     getPhotos(
       page: (photos.length / 20).toInt() + 1,
+      cancelToken: cancelToken,
     );
   }
 
-  void getPhotos({int page = 1, int perPage = 20}) {
+  void getPhotos({
+    int page = 1,
+    int perPage = 20,
+    CancelToken cancelToken,
+  }) {
     ApiService.instance.getPhotos(
       success: (beans) {
         List<PhotoBean> datas = beans;
@@ -160,13 +171,11 @@ class _PhotoPageState extends State<PhotoPage> {
           _refreshController.loadComplete();
         }
         refresh();
-
       },
       failed: (fail) {
         loadingFlag = LoadingFlag.error;
         _refreshController?.footerMode?.value = LoadStatus.failed;
         refresh();
-
       },
       error: (error) {
         loadingFlag = LoadingFlag.error;
@@ -182,8 +191,8 @@ class _PhotoPageState extends State<PhotoPage> {
     );
   }
 
-  void refresh(){
-    if(mounted){
+  void refresh() {
+    if (mounted) {
       setState(() {});
     }
   }

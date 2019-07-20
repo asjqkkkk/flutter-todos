@@ -3,13 +3,11 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/language_page.dart';
 import 'package:todo_list/pages/setting_page.dart';
-import 'package:todo_list/pages/theme_page.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -28,6 +26,16 @@ class NavPage extends StatelessWidget {
       padding: EdgeInsets.all(0),
       children: <Widget>[
         getNavHeader(globalModel, context),
+        ListTile(
+          title: Text(DemoLocalizations.of(context).doneList),
+          leading: Icon(Icons.done_all),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          onTap: () {
+            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+              return ProviderConfig.getInstance().getDoneTaskPage();
+            }));
+          },
+        ),
         ListTile(
           title: Text(DemoLocalizations.of(context).languageTitle),
           leading: Icon(Icons.language),

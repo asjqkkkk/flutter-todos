@@ -1,8 +1,20 @@
 {
-  "@@last_modified": "2019-07-20T11:18:31.591638",
+  "@@last_modified": "2019-07-20T19:23:09.817787",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
+    "type": "text",
+    "placeholders": {}
+  },
+  "doneList": "Done List",
+  "@doneList": {
+    "description": "完成列表",
+    "type": "text",
+    "placeholders": {}
+  },
+  "toFinishTask": "Try to complete a task!",
+  "@toFinishTask": {
+    "description": "努力去完成一项任务吧!",
     "type": "text",
     "placeholders": {}
   },

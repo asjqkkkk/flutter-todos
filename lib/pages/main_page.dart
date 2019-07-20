@@ -42,7 +42,7 @@ class MainPage extends StatelessWidget {
                 size: 28,
                 color: globalModel.logic.getWhiteInDark(),
               ),
-              onPressed: () => model.logic.queryTask("打"),
+              onPressed: () => model.logic.queryTask("旅行"),
             )
           ],
         ),

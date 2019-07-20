@@ -143,7 +143,7 @@ class TaskInfoWidget extends StatelessWidget {
               tag: "task_progressbar${index}",
               child: Container(
                 height: 10,
-                margin: EdgeInsets.only(top: 12),
+                margin: EdgeInsets.only(top: 12, bottom: 10),
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                   child: LinearProgressIndicator(

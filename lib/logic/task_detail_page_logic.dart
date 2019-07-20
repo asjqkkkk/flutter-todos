@@ -33,6 +33,9 @@ class TaskDetailPageLogic{
     _model.isExiting = true;
     _model.refresh();
     if(needUpdateDatabase()) {
+      if(_model.taskBean.overallProgress == 1.0){
+        _model.taskBean.finishDate = DateTime.now().toIso8601String();
+      }
       DBProvider.db.updateTask(_model.taskBean);
       Navigator.of(_model.context).popUntil((route) => route.isFirst);
       return;
@@ -48,7 +51,6 @@ class TaskDetailPageLogic{
   void deleteTask(MainPageModel mainPageModel){
     exitPage();
     mainPageModel.logic.deleteTask(_model.taskBean.id);
-    mainPageModel.logic.getTasks();
   }
 
   void editTask(MainPageModel mainPageModel){

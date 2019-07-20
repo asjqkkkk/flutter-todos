@@ -19,7 +19,6 @@ class TaskItem extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final double width = size.width;
     final double height = size.height;
-    debugPrint("size:${size}");
     final minSize = min(width, height);
     final globalModel = Provider.of<GlobalModel>(context);
 
@@ -57,9 +56,11 @@ class TaskItem extends StatelessWidget {
               ),
               child: Container(
                 margin: EdgeInsets.only(left: 16, right: 16),
-                child: minSize < 600 ? SingleChildScrollView(
-                  child: widget,
-                ) : widget,
+                child: minSize < 600
+                    ? SingleChildScrollView(
+                        child: widget,
+                      )
+                    : widget,
               ),
             ),
           ),

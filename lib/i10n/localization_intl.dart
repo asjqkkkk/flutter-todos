@@ -22,6 +22,10 @@ class DemoLocalizations {
     return Intl.message("One Day List",name: "appName",desc: "app的名字");
   }
 
+  String get doneList => Intl.message('Done List', name: 'doneList', desc: '完成列表',);
+  String get toFinishTask => Intl.message('Try to complete a task!', name: 'toFinishTask', desc: '努力去完成一项任务吧!',);
+
+
   String get languageTitle {
     return Intl.message(
       'Change Language',

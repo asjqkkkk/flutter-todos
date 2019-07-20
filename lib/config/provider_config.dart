@@ -77,5 +77,12 @@ class ProviderConfig {
        builder:(context) => AvatarPageModel(),
        child: AvatarPage(mainPageModel: mainPageModel,),
      );
+  }
+
+  ChangeNotifierProvider<DoneTaskPageModel> getDoneTaskPage(){
+     return ChangeNotifierProvider<DoneTaskPageModel>(
+       builder:(context) => DoneTaskPageModel(),
+       child: DoneTaskPage(),
+     );
    }
 }

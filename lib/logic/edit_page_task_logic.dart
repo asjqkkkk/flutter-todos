@@ -213,7 +213,8 @@ class EditTaskPageLogic {
 
     TaskBean taskBean = await transformDataToBean();
     await DBProvider.db.createTask(taskBean);
-    _model.mainPageModel.logic.getTasks();
+    await _model.mainPageModel.logic.getTasks();
+    _model.refresh();
     Navigator.of(_model.context).pop();
   }
 
@@ -221,7 +222,8 @@ class EditTaskPageLogic {
   void submitOldTask() async{
     TaskBean taskBean = await transformDataToBean(id: _model.oldTaskBean.id,overallProgress: _getOverallProgress());
     DBProvider.db.updateTask(taskBean);
-    _model.mainPageModel.logic.getTasks();
+    await _model.mainPageModel.logic.getTasks();
+    _model.mainPageModel.refresh();
     if(_model.taskDetailPageModel != null){
       _model.taskDetailPageModel.isExiting = true;
       _model.taskDetailPageModel.refresh();

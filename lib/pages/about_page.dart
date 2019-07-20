@@ -20,9 +20,6 @@ class _AboutPageState extends State<AboutPage> {
     "拉人入坑Flutter,也是我喜闻乐见的一件事",
     "如果你觉得这个项目不错，不妨去Github上为项目点个赞",
     "Github地址:https://github.com/asjqkkkk",
-    "又或者,奖励作者一点护发费",
-    "护发费:",
-    "当然,能感受到双份的快乐也是坠吼的!",
   ];
 
   @override
@@ -182,10 +179,7 @@ class _AboutPageState extends State<AboutPage> {
         ),
       );
     }
-    if (data.contains("护发费:")) {
-      return Image.asset("images/avatar.jpg");
-    } else {
-      return Text(data);
-    }
+    return Text(data);
+
   }
 }

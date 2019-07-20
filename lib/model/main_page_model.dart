@@ -25,10 +25,10 @@ class MainPageModel extends ChangeNotifier {
   void setContext(BuildContext context) {
     if (this.context == null) {
       this.context = context;
-      logic.getTasks();
       logic.getAvatarType().then((value) {
         Future.wait(
           [
+            logic.getTasks(),
             logic.getCurrentAvatar(),
           ],
         ).then((value) {

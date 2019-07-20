@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/photo_page.dart';
@@ -43,7 +42,6 @@ class NavSettingPage extends StatelessWidget {
               title: Text(DemoLocalizations.of(context).netPicture),
               subtitle: globalModel.currentNetPicUrl == "" ? null : CachedNetworkImage(
                 imageUrl:globalModel.currentNetPicUrl,
-                cacheManager: CustomCacheManager(),
                 placeholder: (context, url) => new Container(
                   alignment: Alignment.center,
                   child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),

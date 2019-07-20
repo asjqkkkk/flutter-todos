@@ -63,20 +63,19 @@ class MainPageLogic {
     );
   }
 
-  void getTasks() {
-    DBProvider.db.getTasks().then((tasks) {
-      debugPrint("获取任务数据:${tasks}");
-      if (tasks == null) return;
-      _model.tasks.clear();
-      _model.tasks.addAll(tasks);
-      _model.refresh();
-    });
+  Future getTasks() async{
+   final tasks = await  DBProvider.db.getTasks();
+   if (tasks == null) return;
+   _model.tasks.clear();
+   _model.tasks.addAll(tasks);
   }
 
   void queryTask(String query) {
-    DBProvider.db.queryTask(query).then((tasks) {
+
+    DBProvider.db.getTasks(isDone: true).then((tasks) {
       debugPrint("查询的数据是:${tasks}");
     });
+
   }
 
   Decoration getBackground(GlobalModel globalModel) {
@@ -130,9 +129,11 @@ class MainPageLogic {
     return ColorBean.fromBean(_model.tasks[index].taskIconBean.colorBean);
   }
 
-  void deleteTask(int id) async {
+  void deleteTask(int id) {
     DBProvider.db.deleteTask(id).then((a) {
-      getTasks();
+      getTasks().then((value){
+        _model.refresh();
+      });
     });
   }
 

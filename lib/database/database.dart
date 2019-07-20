@@ -49,13 +49,13 @@ class DBProvider {
     task.id = await db.insert("TodoList", task.toMap());
   }
 
-  //查询所有任务
-  Future<List<TaskBean>> getTasks() async {
+  //查询所有任务,isDone为true表示查询已经完成的任务,否则表示未完成
+  Future<List<TaskBean>> getTasks({bool isDone = false}) async {
     final db = await database;
     final account =
         await SharedUtil.instance.getString(Keys.account) ?? "default";
     var list =
-        await db.query("TodoList", where: "account = ?", whereArgs: [account]);
+        await db.query("TodoList", where: "account = ?" + (isDone ? " AND overallProgress = ?" : " AND overallProgress != ?"), whereArgs: [account, "1.0"]);
     List<TaskBean> beans = [];
     beans.clear();
     beans.addAll(TaskBean.fromMapList(list));

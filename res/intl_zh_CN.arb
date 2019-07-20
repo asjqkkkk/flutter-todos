@@ -6,6 +6,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "doneList": "完成列表",
+  "@doneList": {
+    "description": "完成列表",
+    "type": "text",
+    "placeholders": {}
+  },
+  "toFinishTask": "努力去完成一项任务吧",
+  "@toFinishTask": {
+    "description": "努力去完成一项任务吧!",
+    "type": "text",
+    "placeholders": {}
+  },
   "languageTitle": "切换语言",
   "@languageTitle": {
     "description": "Change Language",

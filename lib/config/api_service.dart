@@ -1,7 +1,7 @@
-
 import 'package:todo_list/json/photo_bean.dart';
 
 import 'api_strategy.dart';
+export 'package:dio/dio.dart';
 
 class ApiService {
   factory ApiService() => _getInstance();
@@ -24,26 +24,32 @@ class ApiService {
   }
 
   //获取图片
-  void getPhotos({Function success, Function failed,
-    Function error, Map<String, String> params}){
+  void getPhotos({
+    Function success,
+    Function failed,
+    Function error,
+    Map<String, String> params,
+    CancelToken token,
+  }) {
     ApiStrategy.getInstance().get(
-        "https://api.unsplash.com/photos/",
-            (data) {
-          if(data.toString().contains("errors")){
-            failed(data);
-          } else{
-            List<PhotoBean> beans = PhotoBean.fromMapList(data);
-            success(beans);
-          }
-        },
-        params: params,
-        errorCallBack: (errorMessage) {
-          error(errorMessage);
-        });
+      "https://api.unsplash.com/photos/",
+      (data) {
+        if (data.toString().contains("errors")) {
+          failed(data);
+        } else {
+          List<PhotoBean> beans = PhotoBean.fromMapList(data);
+          success(beans);
+        }
+      },
+      params: params,
+      errorCallBack: (errorMessage) {
+        error(errorMessage);
+      },
+      token: token,
+    );
   }
 
-
-  //通用的请求
+//通用的请求
 //  void postCommon(Map<String, String> params, Function success,
 //      Function failed, Function error, String url) {
 //    ApiStrategy.getInstance().post(
@@ -60,8 +66,5 @@ class ApiService {
 //          error(errorMessage);
 //        });
 //  }
-
-
-
 
 }

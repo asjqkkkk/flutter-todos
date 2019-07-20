@@ -1,13 +1,14 @@
 import 'package:dio/dio.dart';
 export 'package:dio/dio.dart';
 
-class ApiStrategy{
+class ApiStrategy {
   static ApiStrategy _instance;
+
   //云服务器：http://111.230.251.115/oldchen/
   //本地：http://192.168.1.103:8080/
   static final String baseUrl = "http://111.230.251.115/oldchen/";
-  static const int connectTimeOut = 10 * 1000;//连接超时时间为10秒
-  static const int receiveTimeOut = 15 * 1000;//响应超时时间为15秒
+  static const int connectTimeOut = 10 * 1000; //连接超时时间为10秒
+  static const int receiveTimeOut = 15 * 1000; //响应超时时间为15秒
 
   Dio _client;
 
@@ -18,8 +19,8 @@ class ApiStrategy{
     return _instance;
   }
 
-  ApiStrategy._internal(){
-    if(_client == null){
+  ApiStrategy._internal() {
+    if (_client == null) {
       BaseOptions options = new BaseOptions();
       options.connectTimeout = connectTimeOut;
       options.receiveTimeout = receiveTimeOut;
@@ -34,61 +35,115 @@ class ApiStrategy{
     }
   }
 
-
   Dio get client => _client;
   static const String GET = "get";
   static const String POST = "post";
 
-  static String getBaseUrl(){
+  static String getBaseUrl() {
     return baseUrl;
   }
 
   //get请求
-  void get(String url, Function callBack,
-      {Map<String, String> params, Function errorCallBack}) async {
-    _request(url, callBack,
-        method: GET, params: params, errorCallBack: errorCallBack);
+  void get(
+    String url,
+    Function callBack, {
+    Map<String, String> params,
+    Function errorCallBack,
+    CancelToken token,
+  }) async {
+    _request(
+      url,
+      callBack,
+      method: GET,
+      params: params,
+      errorCallBack: errorCallBack,
+      token: token,
+    );
   }
 
   //post请求
-  void post(String url, Function callBack,
-      {Map<String, String> params, Function errorCallBack}) async {
-    _request(url, callBack,
-        method: POST, params: params, errorCallBack: errorCallBack);
+  void post(
+    String url,
+    Function callBack, {
+    Map<String, String> params,
+    Function errorCallBack,
+    CancelToken token,
+  }) async {
+    _request(
+      url,
+      callBack,
+      method: POST,
+      params: params,
+      errorCallBack: errorCallBack,
+      token: token,
+    );
   }
 
   //post请求
-  void postUpload(String url, Function callBack,ProgressCallback progressCallBack,
-      {FormData formData, Function errorCallBack}) async {
-    _request(url, callBack,
-        method: POST, formData: formData, errorCallBack: errorCallBack, progressCallBack:  progressCallBack);
+  void postUpload(
+    String url,
+    Function callBack,
+    ProgressCallback progressCallBack, {
+    FormData formData,
+    Function errorCallBack,
+    CancelToken token,
+  }) async {
+    _request(
+      url,
+      callBack,
+      method: POST,
+      formData: formData,
+      errorCallBack: errorCallBack,
+      progressCallBack: progressCallBack,
+      token: token,
+    );
   }
 
-
-  void _request(String url, Function callBack, {String method,
-        Map<String, String> params, FormData formData, Function errorCallBack, ProgressCallback progressCallBack}
-        ) async {
-
+  void _request(
+    String url,
+    Function callBack, {
+    String method,
+    Map<String, String> params,
+    FormData formData,
+    Function errorCallBack,
+    ProgressCallback progressCallBack,
+    CancelToken token,
+  }) async {
     if (params != null && params.isNotEmpty) {
       print("<net> params :" + params.toString());
     }
 
     String errorMsg = "";
     int statusCode;
-    try{
+    try {
       Response response;
       if (method == GET) {
         //组合GET请求的参数
-        if(params != null && params.isNotEmpty){
-          response = await _client.get(url, queryParameters: params);
-        }else{
-          response = await _client.get(url);
+        if (params != null && params.isNotEmpty) {
+          response = await _client.get(
+            url,
+            queryParameters: params,
+            cancelToken: token,
+          );
+        } else {
+          response = await _client.get(
+            url,
+            cancelToken: token,
+          );
         }
       } else {
         if (params != null && params.isNotEmpty || formData.isNotEmpty) {
-          response = await _client.post(url, data: formData??new FormData.from(params), onSendProgress: progressCallBack);
+          response = await _client.post(
+            url,
+            data: formData ?? new FormData.from(params),
+            onSendProgress: progressCallBack,
+            cancelToken: token,
+          );
         } else {
-          response = await _client.post(url);
+          response = await _client.post(
+            url,
+            cancelToken: token,
+          );
         }
       }
 
@@ -104,7 +159,7 @@ class ApiStrategy{
       if (callBack != null) {
         callBack(response.data);
       }
-    }catch(e){
+    } catch (e) {
       _handError(errorCallBack, e.toString());
     }
   }
@@ -116,5 +171,4 @@ class ApiStrategy{
     }
     print("<net> errorMsg :" + errorMsg);
   }
-
 }
