@@ -38,17 +38,19 @@ class TaskDetailPageLogic {
         mainPageModel.tasks.removeAt(mainPageModel.currentTapIndex);
       }
       DBProvider.db.updateTask(_model.taskBean);
-      mainPageModel.refresh();
       if (_model.doneTaskPageModel != null) {
+        mainPageModel.logic.getTasks();
         _model.doneTaskPageModel.logic.getDoneTasks().then((value) {
           _model.doneTaskPageModel.refresh();
           Navigator.of(context).pop();
         });
       } else {
+        print("点击退出");
         _model.isExiting = true;
         _model.refresh();
         Navigator.of(context).popUntil((route) => route.isFirst);
       }
+      mainPageModel.refresh();
       return;
     }
     _model.isExiting = true;
