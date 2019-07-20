@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:todo_list/widgets/loading_widget.dart';
 import 'dart:io';
 
-import 'package:todo_list/widgets/loading_widget.dart';
+import 'package:todo_list/widgets/scale_animation_widget.dart';
 
 class WebViewPage extends StatefulWidget {
   final String url;
@@ -16,6 +17,7 @@ class WebViewPage extends StatefulWidget {
 
 class _WebViewPageState extends State<WebViewPage> {
   FlutterWebviewPlugin flutterWebviewPlugin;
+  bool isError = false;
 
 
   @override
@@ -40,6 +42,11 @@ class _WebViewPageState extends State<WebViewPage> {
         flutterWebviewPlugin.show();
       }
     });
+    flutterWebviewPlugin.onHttpError.listen((error){
+      setState(() {
+        isError = true;
+      });
+    });
     return WillPopScope(
       onWillPop: (){
         flutterWebviewPlugin.close().then((a){
@@ -58,32 +65,13 @@ class _WebViewPageState extends State<WebViewPage> {
           url: widget.url,
           hidden: true,
           initialChild: Center(
+            child: Container(
+            alignment: Alignment.center,
             child: LoadingWidget(
-              child:  Container(
-              alignment: Alignment.center,
-              child: LoadingWidget(
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  margin: EdgeInsets.fromLTRB(10, 50, 10, 0),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: RadialGradient(
-                        colors: [
-                          Theme.of(context).primaryColor,
-                          Theme.of(context).primaryColorLight,
-                          Theme.of(context).primaryColor,
-                          Theme.of(context).primaryColorLight,
-                        ],
-                      )),
-                  child: Icon(
-                    Icons.favorite,
-                    size: 50,
-                    color: Theme.of(context).primaryColorLight,
-                  ),
-                ),
-              ),
+              flag: isError ? LoadingFlag.error : LoadingFlag.loading,
+              errorCallBack: (){
+                flutterWebviewPlugin.reload();
+              },
             ),
             ),
           ),

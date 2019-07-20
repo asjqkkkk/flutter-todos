@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
+import 'package:todo_list/pages/photo_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 
@@ -13,9 +15,6 @@ class NavSettingPage extends StatelessWidget {
 
     final globalModel = Provider.of<GlobalModel>(context);
 
-    final netUrl = "https://api.dujin.org/bing/1366.php";
-
-
     return Scaffold(
       appBar: AppBar(
         title: Text(DemoLocalizations.of(context).navigatorSetting),
@@ -24,19 +23,17 @@ class NavSettingPage extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             RadioListTile(
-              value: "MeteorShower",
+              value: NavHeadType.meteorShower,
               groupValue: globalModel.currentNavHeader,
               subtitle: NavHead(),
-              onChanged: (value) async{
-                await onChanged(globalModel, value);
-              },
+              onChanged: (value) => onChanged(globalModel, value),
               title: Text(DemoLocalizations.of(context).meteorShower),
             ),
             RadioListTile(
-              value: "DailyPic",
+              value: NavHeadType.dailyPic,
               groupValue: globalModel.currentNavHeader,
               subtitle: CachedNetworkImage(
-                imageUrl:netUrl,
+                imageUrl:NavHeadType.dailyPicUrl,
                 cacheManager: CustomCacheManager(),
                 placeholder: (context, url) => new Container(
                   alignment: Alignment.center,
@@ -47,12 +44,21 @@ class NavSettingPage extends StatelessWidget {
               onChanged: (value) => onChanged(globalModel, value),
               title: Text(DemoLocalizations.of(context).dailyPic),
             ),
-//            RadioListTile(
-//              value: "NetPicture",
-//              groupValue: globalModel.currentNavHeader,
-//              onChanged: (value) => onChanged(globalModel, value),
-//              title: Text(DemoLocalizations.of(context).netPicture),
-//            ),
+            RadioListTile(
+              value: NavHeadType.netPicture,
+              groupValue: globalModel.currentNavHeader,
+              onChanged: (value) => onChanged(globalModel, value,context: context),
+              title: Text(DemoLocalizations.of(context).netPicture),
+              subtitle: globalModel.currentNetPicUrl == "" ? null : CachedNetworkImage(
+                imageUrl:globalModel.currentNetPicUrl,
+                cacheManager: CustomCacheManager(),
+                placeholder: (context, url) => new Container(
+                  alignment: Alignment.center,
+                  child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),
+                ),
+                errorWidget: (context, url, error) => new Icon(Icons.error,color: Colors.redAccent,),
+              ),
+            ),
           ],
         ),
       ),
@@ -90,11 +96,32 @@ class NavSettingPage extends StatelessWidget {
     });
   }
 
-  Future onChanged(GlobalModel globalModel, value) async {
+  Future onChanged(GlobalModel globalModel, value, {BuildContext context}) async {
+
+    if(context != null){
+      Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+          return PhotoPage(
+            selectValue: value,
+          );
+      }));
+      return;
+    }
+
     if(globalModel.currentNavHeader != value){
       globalModel.currentNavHeader = value;
       globalModel.refresh();
       await SharedUtil.instance.saveString(Keys.currentNavHeader, value);
     }
   }
+}
+
+class NavHeadType{
+  static const String meteorShower = "MeteorShower";
+  static const String dailyPic = "DailyPic";
+  static const String netPicture = "NetPicture";
+
+
+  static const String dailyPicUrl =  "https://api.dujin.org/bing/1366.php";
+
+
 }

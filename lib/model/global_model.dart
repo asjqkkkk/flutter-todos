@@ -38,6 +38,8 @@ class GlobalModel extends ChangeNotifier {
 
   //当前导航栏头部背景
   String currentNavHeader = "MeteorShower";
+  //导航栏头部选择网络图片时的图片地址
+  String currentNetPicUrl = "";
 
   GlobalModel() {
     logic = GlobalLogic(this);
@@ -53,6 +55,7 @@ class GlobalModel extends ChangeNotifier {
         logic.getCurrentLanguage(),
         logic.getIsBgGradient(),
         logic.getCurrentNavHeader(),
+        logic.getCurrentNetPicUrl(),
         logic.getIsBgChangeWithCard(),
         logic.getIsCardChangeWithBg(),
         logic.getEnableInfiniteScroll()

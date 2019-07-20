@@ -12,7 +12,7 @@ import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
-import 'package:todo_list/widgets/loading_widget.dart';
+import 'package:todo_list/widgets/scale_animation_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MainPageLogic {

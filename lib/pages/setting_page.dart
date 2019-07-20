@@ -6,10 +6,9 @@ import 'package:provider/provider.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
-import 'package:todo_list/pages/about_page.dart';
-import 'package:todo_list/pages/icon_setting_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
+import 'all_page.dart';
 import 'navigator_setting_page.dart';
 
 class SettingPage extends StatelessWidget {

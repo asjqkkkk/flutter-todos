@@ -48,6 +48,10 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final maxSize = max(size.height, size.width);
+    final minSize = min(size.height, size.width);
+    final circleSize = minSize;
+    final Offset circleOrigin = Offset((size.width - circleSize) / 2, 0);
     final globalModel = Provider.of<GlobalModel>(context);
 
     return WillPopScope(
@@ -81,75 +85,79 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                       ),
                       builder: (ctx, child) {
                         return Transform.scale(
-                          scale: (size.height / 28) * (_animation.value),
+                          scale: (max(size.height, size.width) / 28) * (_animation.value),
                           child: child,
                         );
                       }),
                 ),
-                AnimatedBuilder(
-                  animation: _animation,
-                  child: CircleList(
-                    initialAngle: -pi / 2,
-                    origin: Offset(0, -size.width / 2 + 20),
-                    showInitialAnimation: true,
-                    children: List.generate(_children.length, (index) {
-                      return IconButton(
-                        onPressed: () {
-                          debugPrint("点击：${_children[index].taskName}");
-                          doExit(context, _controller);
-                          Navigator.of(context).push(
-                            new CupertinoPageRoute(
-                              builder: (ctx) {
-                                return ProviderConfig.getInstance()
-                                    .getEditTaskPage(
-                                  _children[index],
-                                  mainPageModel: globalModel.mainPageModel,
-                                );
-                              },
-                            ),
-                          );
-                        },
-                        tooltip: _children[index].taskName,
-                        icon: Icon(
-                          IconBean.fromBean(_children[index].iconBean),
-                          size: 40,
-                          color: ColorBean.fromBean(_children[index].colorBean),
-                        ),
-                      );
-                    }),
-                    innerCircleColor: Theme.of(context).primaryColorLight,
-                    outerCircleColor: globalModel.logic.getBgInDark(),
-                    centerWidget: GestureDetector(
-                        onTap: () {
-                          doExit(context, _controller);
-                          debugPrint("点击");
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 3,
-                          height: MediaQuery.of(context).size.width / 3,
-                          decoration: BoxDecoration(
-                            color: Colors.black54,
-                            shape: BoxShape.circle,
+                Positioned(
+                  left: circleOrigin.dx,
+                  top: circleOrigin.dy,
+                  child: AnimatedBuilder(
+                    animation: _animation,
+                    child: CircleList(
+                      initialAngle: pi / 2,
+                      origin: Offset(0, -min(size.height, size.width) / 2 + 20),
+                      showInitialAnimation: true,
+                      children: List.generate(_children.length, (index) {
+                        return IconButton(
+                          onPressed: () {
+                            debugPrint("点击：${_children[index].taskName}");
+                            doExit(context, _controller);
+                            Navigator.of(context).push(
+                              new CupertinoPageRoute(
+                                builder: (ctx) {
+                                  return ProviderConfig.getInstance()
+                                      .getEditTaskPage(
+                                    _children[index],
+                                    mainPageModel: globalModel.mainPageModel,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                          tooltip: _children[index].taskName,
+                          icon: Icon(
+                            IconBean.fromBean(_children[index].iconBean),
+                            size: 40,
+                            color: ColorBean.fromBean(_children[index].colorBean),
                           ),
+                        );
+                      }),
+                      innerCircleColor: Theme.of(context).primaryColorLight,
+                      outerCircleColor: globalModel.logic.getBgInDark(),
+                      centerWidget: GestureDetector(
+                          onTap: () {
+                            doExit(context, _controller);
+                            debugPrint("点击");
+                          },
                           child: Container(
-                            color: Colors.transparent,
-                            child: Icon(
-                              Icons.keyboard_arrow_down,
-                              color: Colors.white,
-                              size: 50,
+                            width: MediaQuery.of(context).size.width / 3,
+                            height: MediaQuery.of(context).size.width / 3,
+                            decoration: BoxDecoration(
+                              color: Colors.black54,
+                              shape: BoxShape.circle,
                             ),
-                          ),
-                        )),
+                            child: Container(
+                              color: Colors.transparent,
+                              child: Icon(
+                                Icons.keyboard_arrow_down,
+                                color: Colors.white,
+                                size: 50,
+                              ),
+                            ),
+                          )),
+                    ),
+                    builder: (ctx, child) {
+                      return Transform.translate(
+                          offset: Offset(
+                              0,
+                              MediaQuery.of(context).size.height -
+                                  (_animation.value) * circleSize),
+                          child: Transform.scale(
+                              scale: _animation.value, child: child));
+                    },
                   ),
-                  builder: (ctx, child) {
-                    return Transform.translate(
-                        offset: Offset(
-                            0,
-                            MediaQuery.of(context).size.height -
-                                (_animation.value) * size.width),
-                        child: Transform.scale(
-                            scale: _animation.value, child: child));
-                  },
                 ),
               ],
             ),

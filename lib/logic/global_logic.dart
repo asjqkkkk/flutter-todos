@@ -69,6 +69,13 @@ class GlobalLogic{
     _model.currentNavHeader = currentNavHeader;
   }
 
+  Future getCurrentNetPicUrl()async{
+    final currentNetPicUrl = await SharedUtil.instance.getString(Keys.currentNetPicUrl);
+    if(currentNetPicUrl == null) return;
+    if(currentNetPicUrl == _model.currentNavHeader) return;
+    _model.currentNetPicUrl = currentNetPicUrl;
+  }
+
   Future getIsBgChangeWithCard() async {
     final isBgChangeWithCard = await SharedUtil.instance.getBoolean(Keys.backgroundChangeWithCard);
     if(isBgChangeWithCard == null) return;

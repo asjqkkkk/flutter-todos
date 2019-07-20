@@ -35,4 +35,15 @@ void main(){
 
 
   });
+
+
+  test(("测试"), (){
+
+    final a = 20 / 20;
+    final b = 40 / 20;
+    final c = 44 / 20;
+
+    print("a:${a}  b:${b}  c:${c.toInt()}");
+
+  });
 }

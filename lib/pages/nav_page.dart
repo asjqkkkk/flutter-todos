@@ -13,36 +13,29 @@ import 'package:todo_list/pages/theme_page.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+import 'image_page.dart';
+import 'navigator_setting_page.dart';
+
 class NavPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
 
-    final size = MediaQuery.of(context).size;
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
+    final size = MediaQuery
+        .of(context)
+        .size;
+    final double statusBarHeight = MediaQuery
+        .of(context)
+        .padding
+        .top;
 
     return Column(
       children: <Widget>[
-        Container(
-          height: statusBarHeight + 160,
-          child: globalModel.currentNavHeader == "MeteorShower"
-              ? NavHead()
-              : CachedNetworkImage(
-            fit: BoxFit.cover,
-                  cacheManager: CustomCacheManager(),
-                  imageUrl: "https://api.dujin.org/bing/1366.php",
-                  placeholder: (context, url) => new Container(
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                              Theme.of(context).primaryColor),
-                        ),
-                      ),
-                  errorWidget: (context, url, error) => new Icon(Icons.error),
-                ),
-        ),
+        getNavHeader(globalModel, context),
         ListTile(
-          title: Text(DemoLocalizations.of(context).languageTitle),
+          title: Text(DemoLocalizations
+              .of(context)
+              .languageTitle),
           leading: Icon(Icons.language),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
@@ -52,7 +45,9 @@ class NavPage extends StatelessWidget {
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations.of(context).changeTheme),
+          title: Text(DemoLocalizations
+              .of(context)
+              .changeTheme),
           leading: Icon(Icons.color_lens),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
@@ -62,7 +57,9 @@ class NavPage extends StatelessWidget {
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations.of(context).appSetting),
+          title: Text(DemoLocalizations
+              .of(context)
+              .appSetting),
           leading: Icon(Icons.settings),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
@@ -73,5 +70,43 @@ class NavPage extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget getNavHeader(GlobalModel model, context) {
+    if (model.currentNavHeader == NavHeadType.meteorShower) {
+      return NavHead();
+    } else {
+      final url = model.currentNavHeader == NavHeadType.dailyPic
+          ? NavHeadType.dailyPicUrl
+          : model.currentNetPicUrl;
+      return GestureDetector(
+        onTap: (){
+          Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+              return ImagePage(
+                imageUrls: [url],
+              );
+          }));
+        },
+        child: Hero(
+          tag: "tag_0",
+          child: CachedNetworkImage(
+            fit: BoxFit.cover,
+            cacheManager: CustomCacheManager(),
+            imageUrl: url,
+            placeholder: (context, url) =>
+            new Container(
+              alignment: Alignment.center,
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                    Theme
+                        .of(context)
+                        .primaryColor),
+              ),
+            ),
+            errorWidget: (context, url, error) => new Icon(Icons.error),
+          ),
+        ),
+      );
+    };
   }
 }

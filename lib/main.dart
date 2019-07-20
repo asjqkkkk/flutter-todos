@@ -11,8 +11,8 @@ import 'package:todo_list/utils/theme_util.dart';
 import 'i10n/localization_intl.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+//  SystemChrome.setPreferredOrientations(
+//      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(
     ProviderConfig.getInstance().getGlobal(MyApp()),
   );

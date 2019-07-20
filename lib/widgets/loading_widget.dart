@@ -1,54 +1,106 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 
-class LoadingWidget extends StatefulWidget {
-  final Widget child;
+class LoadingWidget extends StatelessWidget {
+  final Color progressColor;
+  final Color textColor;
+  final double textSize;
+  final String loadingText;
+  final String emptyText;
+  final String errorText;
+  final LoadingFlag flag;
+  final VoidCallback errorCallBack;
+  final double size;
 
-  const LoadingWidget({Key key, @required this.child}) : super(key: key);
-
-  @override
-  _LoadingWidgetState createState() => _LoadingWidgetState();
-}
-
-class _LoadingWidgetState extends State<LoadingWidget>
-    with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation animation;
-
-  @override
-  void initState() {
-    _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 10));
-    animation = Tween(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(parent: _controller, curve: Curves.ease));
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _controller.reset();
-        _controller.forward();
-      }
-    });
-    _controller.forward();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  LoadingWidget(
+      {this.progressColor,
+      this.textColor,
+      this.textSize,
+      this.loadingText,
+      this.flag = LoadingFlag.loading,
+      this.errorCallBack,
+      this.emptyText,
+      this.errorText, this.size = 100});
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: animation,
-      builder: (ctx, child) {
-        return Transform.scale(
-          scale: ((animation.value - 0.5) * 2).abs(),
-          child: child,
+
+    final primaryColor = Theme.of(context).primaryColor;
+
+    switch (flag) {
+      case LoadingFlag.loading:
+        return Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: size / 2,
+                width: size / 2,
+                child: CircularProgressIndicator(
+                  strokeWidth: size / 10,
+                  valueColor: AlwaysStoppedAnimation(
+                      progressColor ?? primaryColor),
+                ),
+              ),
+              SizedBox(
+                height: size / 5,
+              ),
+              Text(
+                loadingText ?? DemoLocalizations.of(context).loading,
+                style: TextStyle(
+                    fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
+              )
+            ],
+          ),
         );
-      },
-      child: widget.child,
-    );
+        break;
+      case LoadingFlag.error:
+        return Center(
+          child: Column(
+            children: <Widget>[
+              SvgPicture.asset(
+                "svgs/loading_error.svg",
+                color: progressColor ?? primaryColor,
+                width: size,
+                height: size,
+                semanticsLabel: 'loading error',
+              ),
+              FlatButton(
+                  onPressed: errorCallBack ?? (){},
+                  child: Text(
+                    "${errorText??""}" + DemoLocalizations.of(context).reLoading,
+                    style: TextStyle(fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
+                  )),
+            ],
+          ),
+        );
+        break;
+      case LoadingFlag.success:
+        return SizedBox();
+        break;
+      case LoadingFlag.empty:
+        return Center(
+          child: Column(
+            children: <Widget>[
+              SvgPicture.asset(
+                "svgs/empty_list.svg",
+                color: progressColor ?? primaryColor,
+                width: size,
+                height: size,
+                semanticsLabel: 'empty list',
+              ),
+              Text(
+                emptyText ?? DemoLocalizations.of(context).loadingEmpty,
+                style: TextStyle(
+                    fontSize: textSize ?? size / 5, color:primaryColor),
+              ),
+            ],
+          ),
+        );
+        break;
+    }
   }
 }
+
+enum LoadingFlag { loading, error, success, empty }

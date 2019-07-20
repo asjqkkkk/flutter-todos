@@ -397,5 +397,42 @@
     "placeholders": {
       "number": {}
     }
-  }
+  },
+  "loadingEmpty": "什么都没有哦",
+  "@loadingEmpty": {
+    "description": "什么都没有哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loadingError": "加载出错了",
+  "@loadingError": {
+    "description": "加载出错了",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loading": "加载中...",
+  "@loading": {
+    "description": "加载中...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pullUpToLoadMore": "上拉加载更多",
+  "@pullUpToLoadMore": {
+    "description": "上拉加载更多",
+    "type": "text",
+    "placeholders": {}
+  },
+  "pullDownToRefresh": "下拉刷新",
+  "@pullDownToRefresh": {
+    "description": "下拉刷新",
+    "type": "text",
+    "placeholders": {}
+  },
+ "reLoading": "点击重新加载",
+ "@reLoading": {
+   "description": "点击重新加载",
+   "type": "text",
+   "placeholders": {}
+ }
+
 }
