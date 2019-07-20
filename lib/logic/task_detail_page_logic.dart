@@ -37,20 +37,21 @@ class TaskDetailPageLogic {
         _model.taskBean.finishDate = DateTime.now().toIso8601String();
         mainPageModel.tasks.removeAt(mainPageModel.currentTapIndex);
       }
-      DBProvider.db.updateTask(_model.taskBean);
-      if (_model.doneTaskPageModel != null) {
-        mainPageModel.logic.getTasks();
-        _model.doneTaskPageModel.logic.getDoneTasks().then((value) {
-          _model.doneTaskPageModel.refresh();
+      DBProvider.db.updateTask(_model.taskBean).then((value){
+        if (_model.doneTaskPageModel != null) {
+          mainPageModel.logic.getTasks();
+          _model.doneTaskPageModel.logic.getDoneTasks().then((value) {
+            _model.doneTaskPageModel.refresh();
+            Navigator.of(context).pop();
+          });
+        } else {
+          print("点击退出");
+          _model.isExiting = true;
+          _model.refresh();
           Navigator.of(context).pop();
-        });
-      } else {
-        print("点击退出");
-        _model.isExiting = true;
-        _model.refresh();
-        Navigator.of(context).popUntil((route) => route.isFirst);
-      }
-      mainPageModel.refresh();
+        }
+        mainPageModel.refresh();
+      });
       return;
     }
     _model.isExiting = true;

@@ -48,7 +48,7 @@ class TaskItem extends StatelessWidget {
             ),
           ),
           Container(
-            height: minSize - 100,
+            height: minSize,
             child: Card(
               margin: EdgeInsets.all(0),
               shape: RoundedRectangleBorder(
