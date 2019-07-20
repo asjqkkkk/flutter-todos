@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +17,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<MainPageModel>(context);
     final globalModel = Provider.of<GlobalModel>(context);
+    final size = MediaQuery.of(context).size;
     model.setContext(context);
     globalModel.setMainPageModel(model);
     return Container(
@@ -102,12 +105,12 @@ class MainPage extends StatelessWidget {
                 model.tasks.length == 0
                     ? model.logic.getEmptyWidget()
                     : Container(
-                        margin: EdgeInsets.only(top: 40),
+                        margin: EdgeInsets.only(top: 40,bottom: 40),
                         child: CarouselSlider(
                           items: model.logic.getCards(context),
-                          aspectRatio: 1,
-                          height: MediaQuery.of(context).size.width - 100,
-                          viewportFraction: 0.8,
+                          aspectRatio:  1,
+                          height: min(size.width, size.height) - 100,
+                          viewportFraction: size.height >= size.width ? 0.8 : 0.5,
                           initialPage: 0,
                           enableInfiniteScroll: model.tasks.length >= 3 &&
                               globalModel.enableInfiniteScroll,

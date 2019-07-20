@@ -9,7 +9,7 @@ import 'package:todo_list/widgets/loading_widget.dart';
 class ImagePage extends StatefulWidget {
   final List<String> imageUrls;
   final int initialPageIndex;
-  final VoidCallback onSelect;
+  final Function onSelect;
 
   const ImagePage({Key key, @required this.imageUrls, this.initialPageIndex, this.onSelect}) : super(key: key);
 
@@ -45,7 +45,7 @@ class _ImagePageState extends State<ImagePage> {
             ),
             onPressed: (){
               Navigator.pop(context);
-              widget.onSelect();
+              widget.onSelect(currentPage);
             },
           )
         ],

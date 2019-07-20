@@ -23,79 +23,83 @@ class TaskInfoWidget extends StatelessWidget {
     final taskColor = isCardChangeWithBg ? Theme.of(context).primaryColor : ColorBean.fromBean(taskBean.taskIconBean.colorBean);
     final taskIconData = IconBean.fromBean(taskBean.taskIconBean.iconBean);
 
-    return SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(top: 16),
-                  child: Hero(
-                    tag: "task_icon${index}",
-                    child: Container(
-                        width: 42,
-                        height: 42,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: taskColor,
-                            ),
-                            shape: BoxShape.circle),
-                        child: Icon(
-                          taskIconData,
-                          color: taskColor,
-                        )),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  alignment: Alignment.centerRight,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(top: 16),
+                child: Hero(
+                  tag: "task_icon${index}",
                   child: Container(
                       width: 42,
                       height: 42,
-                      margin: EdgeInsets.only(top: 16),
-                      child: space == 20
-                          ? SizedBox()
-                          : Hero(
-                              tag: "task_more${index}",
-                              child: Material(
-                                color: Colors.transparent,
-                                child: PopMenuBt(
-                                  iconColor: taskColor,
-                                  onDelete: onDelete,
-                                  onEdit: onEdit,
-                                )
-                              ))),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: taskColor,
+                          ),
+                          shape: BoxShape.circle),
+                      child: Icon(
+                        taskIconData,
+                        color: taskColor,
+                      )),
                 ),
-              )
-            ],
-          ),
-          SizedBox(
-            height: space,
-          ),
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 9,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                alignment: Alignment.centerRight,
                 child: Container(
-                  alignment: Alignment.bottomLeft,
-                  child: Hero(
-                    tag: "task_title${index}",
-                    child: Material(
-                      color: Colors.transparent,
-                      child: Text(
-                        "${taskBean.taskName} ",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                    width: 42,
+                    height: 42,
+                    margin: EdgeInsets.only(top: 16),
+                    child: space == 20
+                        ? SizedBox()
+                        : Hero(
+                            tag: "task_more${index}",
+                            child: Material(
+                              color: Colors.transparent,
+                              child: PopMenuBt(
+                                iconColor: taskColor,
+                                onDelete: onDelete,
+                                onEdit: onEdit,
+                              )
+                            ))),
+              ),
+            )
+          ],
+        ),
+        SizedBox(
+          height: space,
+        ),
+        Column(
+          children: <Widget>[
+            Container(
+              height: 50,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 9,
+                    child: Container(
+                      alignment: Alignment.bottomLeft,
+                      child: Hero(
+                        tag: "task_title${index}",
+                        child: Material(
+                          color: Colors.transparent,
+                          child: Text(
+                            "${taskBean.taskName} ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-              taskBean.overallProgress == 1.0
-                  ? Expanded(
+                  taskBean.overallProgress == 1.0
+                      ? Expanded(
                       flex: 1,
                       child: Container(
                           width: 25,
@@ -104,54 +108,56 @@ class TaskInfoWidget extends StatelessWidget {
                             tag: "task_complete${index}",
                             child: Icon(Icons.check_circle,color: Colors.greenAccent,),
                           )))
-                  : SizedBox()
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            alignment: Alignment.bottomLeft,
-            child: Hero(
-              tag: "task_items${index}",
-              child: Material(
-                color: Colors.transparent,
-                child: Text(
-                  "${DemoLocalizations.of(context).itemNumber(taskBean.taskDetailNum)}",
-                  style: TextStyle(fontSize: 10),
-                ),
+                      : SizedBox()
+                ],
               ),
             ),
-          ),
-          Container(
-            alignment: Alignment.centerRight,
-            margin: EdgeInsets.only(top: 5),
-            child: Hero(
-              tag: "task_progress${index}",
-              child: Material(
+            Container(
+              margin: EdgeInsets.only(top: 5),
+              alignment: Alignment.bottomLeft,
+              child: Hero(
+                tag: "task_items${index}",
+                child: Material(
                   color: Colors.transparent,
                   child: Text(
-                    "${(taskBean.overallProgress * 100).toInt()}%",
-                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
-                  )),
-            ),
-          ),
-          Hero(
-            tag: "task_progressbar${index}",
-            child: Container(
-              height: 10,
-              margin: EdgeInsets.only(top: 12),
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                child: LinearProgressIndicator(
-                  valueColor:
-                      AlwaysStoppedAnimation(taskColor),
-                  value: taskBean.overallProgress,
-                  backgroundColor: Color.fromRGBO(224, 224, 224, 1),
+                    "${DemoLocalizations.of(context).itemNumber(taskBean.taskDetailNum)}",
+                    style: TextStyle(fontSize: 10),
+                  ),
                 ),
               ),
             ),
-          )
-        ],
-      ),
+            Container(
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.only(top: 5),
+              child: Hero(
+                tag: "task_progress${index}",
+                child: Material(
+                    color: Colors.transparent,
+                    child: Text(
+                      "${(taskBean.overallProgress * 100).toInt()}%",
+                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                    )),
+              ),
+            ),
+            Hero(
+              tag: "task_progressbar${index}",
+              child: Container(
+                height: 10,
+                margin: EdgeInsets.only(top: 12),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  child: LinearProgressIndicator(
+                    valueColor:
+                    AlwaysStoppedAnimation(taskColor),
+                    value: taskBean.overallProgress,
+                    backgroundColor: Color.fromRGBO(224, 224, 224, 1),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }

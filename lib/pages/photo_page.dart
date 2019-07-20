@@ -77,12 +77,13 @@ class _PhotoPageState extends State<PhotoPage> {
                                   return photos[index].urls.small;
                                 }),
                                 initialPageIndex: index,
-                                onSelect: (){
+                                onSelect: (current){
+                                  final currentUrl = photos[current].urls.small;
                                   SharedUtil.instance
-                                      .saveString(Keys.currentNetPicUrl, url);
+                                      .saveString(Keys.currentNetPicUrl, currentUrl);
                                   SharedUtil.instance.saveString(
                                       Keys.currentNavHeader, widget.selectValue);
-                                  globalModel.currentNetPicUrl = url;
+                                  globalModel.currentNetPicUrl = currentUrl;
                                   globalModel.currentNavHeader = widget.selectValue;
                                   globalModel.refresh();
                                   Navigator.of(context).pop();

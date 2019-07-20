@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/json/task_bean.dart';
@@ -14,26 +16,33 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width - 100;
+    final size = MediaQuery.of(context).size;
+    final double width = size.width;
+    final double height = size.height;
+    debugPrint("size:${size}");
+    final minSize = min(width, height);
     final globalModel = Provider.of<GlobalModel>(context);
 
     return Container(
-      width: width,
-      height: width,
+      margin: EdgeInsets.all(10),
+      width: minSize,
+      height: minSize,
       child: Stack(
         children: <Widget>[
           Hero(
-              tag: "task_bg${index}",
-              child: Container(
-                decoration: BoxDecoration(
-                  color: globalModel.logic.getBgInDark(),
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                margin: EdgeInsets.all(4),
-              )),
+            tag: "task_bg${index}",
+            child: Container(
+              height: minSize - 100,
+              decoration: BoxDecoration(
+                color: globalModel.logic.getBgInDark(),
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+            ),
+          ),
           Container(
-              height: width,
+              height: minSize - 100,
               child: Card(
+                margin: EdgeInsets.all(0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
@@ -41,7 +50,7 @@ class TaskItem extends StatelessWidget {
                       margin: EdgeInsets.only(left: 16, right: 16),
                       child: TaskInfoWidget(
                         index,
-                        space: width / 3,
+                        space: (minSize - 100) / 3,
                         taskBean: taskBean,
                         onDelete: onDelete,
                         onEdit: onEdit,

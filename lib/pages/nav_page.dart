@@ -21,21 +21,15 @@ class NavPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
 
-    final size = MediaQuery
-        .of(context)
-        .size;
-    final double statusBarHeight = MediaQuery
-        .of(context)
-        .padding
-        .top;
+    final size = MediaQuery.of(context).size;
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
 
-    return Column(
+    return ListView(
+      padding: EdgeInsets.all(0),
       children: <Widget>[
         getNavHeader(globalModel, context),
         ListTile(
-          title: Text(DemoLocalizations
-              .of(context)
-              .languageTitle),
+          title: Text(DemoLocalizations.of(context).languageTitle),
           leading: Icon(Icons.language),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
@@ -45,9 +39,7 @@ class NavPage extends StatelessWidget {
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations
-              .of(context)
-              .changeTheme),
+          title: Text(DemoLocalizations.of(context).changeTheme),
           leading: Icon(Icons.color_lens),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
@@ -57,9 +49,7 @@ class NavPage extends StatelessWidget {
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations
-              .of(context)
-              .appSetting),
+          title: Text(DemoLocalizations.of(context).appSetting),
           leading: Icon(Icons.settings),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
@@ -76,37 +66,34 @@ class NavPage extends StatelessWidget {
     if (model.currentNavHeader == NavHeadType.meteorShower) {
       return NavHead();
     } else {
-      final url = model.currentNavHeader == NavHeadType.dailyPic
-          ? NavHeadType.dailyPicUrl
-          : model.currentNetPicUrl;
+      final url = model.currentNetPicUrl;
       return GestureDetector(
-        onTap: (){
+        onTap: () {
           Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
-              return ImagePage(
-                imageUrls: [url],
-              );
+            return ImagePage(
+              imageUrls: [url],
+            );
           }));
         },
         child: Hero(
           tag: "tag_0",
-          child: CachedNetworkImage(
-            fit: BoxFit.cover,
-            cacheManager: CustomCacheManager(),
-            imageUrl: url,
-            placeholder: (context, url) =>
-            new Container(
-              alignment: Alignment.center,
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                    Theme
-                        .of(context)
-                        .primaryColor),
-              ),
-            ),
-            errorWidget: (context, url, error) => new Icon(Icons.error),
-          ),
+          child: model.currentNavHeader == NavHeadType.dailyPic
+              ? Image.network(NavHeadType.dailyPicUrl)
+              : CachedNetworkImage(
+                  fit: BoxFit.cover,
+                  imageUrl: url,
+                  placeholder: (context, url) => new Container(
+                        alignment: Alignment.center,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              Theme.of(context).primaryColor),
+                        ),
+                      ),
+                  errorWidget: (context, url, error) => new Icon(Icons.error),
+                ),
         ),
       );
-    };
+    }
+    ;
   }
 }

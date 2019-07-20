@@ -32,15 +32,7 @@ class NavSettingPage extends StatelessWidget {
             RadioListTile(
               value: NavHeadType.dailyPic,
               groupValue: globalModel.currentNavHeader,
-              subtitle: CachedNetworkImage(
-                imageUrl:NavHeadType.dailyPicUrl,
-                cacheManager: CustomCacheManager(),
-                placeholder: (context, url) => new Container(
-                  alignment: Alignment.center,
-                  child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),
-                ),
-                errorWidget: (context, url, error) => new Icon(Icons.error,color: Colors.redAccent,),
-              ),
+              subtitle: Image.network(NavHeadType.dailyPicUrl),
               onChanged: (value) => onChanged(globalModel, value),
               title: Text(DemoLocalizations.of(context).dailyPic),
             ),

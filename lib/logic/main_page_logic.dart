@@ -153,7 +153,7 @@ class MainPageLogic {
   Widget getEmptyWidget() {
     final context = _model.context;
     final size = MediaQuery.of(context).size;
-    final theMin = min(size.width - 100, size.height - 100);
+    final theMin = min(size.width, size.height) / 2;
     return Container(
       margin: EdgeInsets.only(top: 40),
       alignment: Alignment.center,
