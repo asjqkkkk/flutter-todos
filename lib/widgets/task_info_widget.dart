@@ -24,7 +24,7 @@ class TaskInfoWidget extends StatelessWidget {
     final taskIconData = IconBean.fromBean(taskBean.taskIconBean.iconBean);
 
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Row(
           children: <Widget>[

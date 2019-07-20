@@ -23,6 +23,15 @@ class TaskItem extends StatelessWidget {
     final minSize = min(width, height);
     final globalModel = Provider.of<GlobalModel>(context);
 
+    final widget = TaskInfoWidget(
+      index,
+      space: (minSize - 100) / 5,
+      taskBean: taskBean,
+      onDelete: onDelete,
+      onEdit: onEdit,
+      isCardChangeWithBg: globalModel.isCardChangeWithBg,
+    );
+
     return Container(
       margin: EdgeInsets.all(10),
       width: minSize,
@@ -40,22 +49,20 @@ class TaskItem extends StatelessWidget {
             ),
           ),
           Container(
-              height: minSize - 100,
-              child: Card(
-                margin: EdgeInsets.all(0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  child: Container(
-                      margin: EdgeInsets.only(left: 16, right: 16),
-                      child: TaskInfoWidget(
-                        index,
-                        space: (minSize - 100) / 3,
-                        taskBean: taskBean,
-                        onDelete: onDelete,
-                        onEdit: onEdit,
-                        isCardChangeWithBg: globalModel.isCardChangeWithBg,
-                      )))),
+            height: minSize - 100,
+            child: Card(
+              margin: EdgeInsets.all(0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: Container(
+                margin: EdgeInsets.only(left: 16, right: 16),
+                child: minSize < 600 ? SingleChildScrollView(
+                  child: widget,
+                ) : widget,
+              ),
+            ),
+          ),
         ],
       ),
     );

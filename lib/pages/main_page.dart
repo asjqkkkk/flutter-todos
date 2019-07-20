@@ -81,7 +81,7 @@ class MainPage extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
                   child: Container(
-                    margin: EdgeInsets.only(top: 40, left: 12),
+                    margin: EdgeInsets.only(top: 20, left: 12),
                     child: Text(
                       "${DemoLocalizations.of(context).welcomeWord}Old Li.",
                       style: TextStyle(

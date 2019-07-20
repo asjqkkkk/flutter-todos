@@ -74,7 +74,7 @@ class _PhotoPageState extends State<PhotoPage> {
                           Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
                               return ImagePage(
                                 imageUrls: List.generate(photos.length, (index){
-                                  return photos[index].urls.small;
+                                  return photos[index].urls.regular;
                                 }),
                                 initialPageIndex: index,
                                 onSelect: (current){
@@ -95,20 +95,23 @@ class _PhotoPageState extends State<PhotoPage> {
                           margin: EdgeInsets.all(10),
                           child: ClipRRect(
                             borderRadius: BorderRadius.all(Radius.circular(20)),
-                            child: CachedNetworkImage(
-                              imageUrl: url,
-                              fit: BoxFit.cover,
-                              placeholder: (context, url) => new Container(
-                                    alignment: Alignment.center,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                          Theme.of(context).primaryColor),
+                            child: Hero(
+                              tag: "tag_${index}",
+                              child: CachedNetworkImage(
+                                imageUrl: url,
+                                fit: BoxFit.cover,
+                                placeholder: (context, url) => new Container(
+                                      alignment: Alignment.center,
+                                      child: CircularProgressIndicator(
+                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                            Theme.of(context).primaryColor),
+                                      ),
                                     ),
-                                  ),
-                              errorWidget: (context, url, error) => new Icon(
-                                    Icons.error,
-                                    color: Colors.redAccent,
-                                  ),
+                                errorWidget: (context, url, error) => new Icon(
+                                      Icons.error,
+                                      color: Colors.redAccent,
+                                    ),
+                              ),
                             ),
                           ),
                         ),

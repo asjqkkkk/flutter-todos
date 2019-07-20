@@ -75,7 +75,7 @@ class TaskDetailPage extends StatelessWidget {
                       index,
                       taskBean: model.taskBean,
                       isCardChangeWithBg: globalModel.isCardChangeWithBg,
-                    )),
+                    ),),
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(top: 20),
