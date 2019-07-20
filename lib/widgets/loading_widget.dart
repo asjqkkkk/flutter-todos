@@ -58,6 +58,7 @@ class LoadingWidget extends StatelessWidget {
       case LoadingFlag.error:
         return Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SvgPicture.asset(
                 "svgs/loading_error.svg",
@@ -82,6 +83,7 @@ class LoadingWidget extends StatelessWidget {
       case LoadingFlag.empty:
         return Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SvgPicture.asset(
                 "svgs/empty_list.svg",

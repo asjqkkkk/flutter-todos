@@ -13,14 +13,23 @@ class TaskInfoWidget extends StatelessWidget {
   final VoidCallback onDelete;
   final VoidCallback onEdit;
   final bool isCardChangeWithBg;
+  final bool isExisting;
 
-  TaskInfoWidget(this.index,
-      {this.space = 20,this.taskBean, this.onDelete, this.onEdit, this.isCardChangeWithBg = false});
+  TaskInfoWidget(
+    this.index, {
+    this.space = 20,
+    this.taskBean,
+    this.onDelete,
+    this.onEdit,
+    this.isCardChangeWithBg = false,
+    this.isExisting = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-
-    final taskColor = isCardChangeWithBg ? Theme.of(context).primaryColor : ColorBean.fromBean(taskBean.taskIconBean.colorBean);
+    final taskColor = isCardChangeWithBg
+        ? Theme.of(context).primaryColor
+        : ColorBean.fromBean(taskBean.taskIconBean.colorBean);
     final taskIconData = IconBean.fromBean(taskBean.taskIconBean.iconBean);
 
     return Column(
@@ -61,13 +70,12 @@ class TaskInfoWidget extends StatelessWidget {
                         : Hero(
                             tag: "task_more${index}",
                             child: Material(
-                              color: Colors.transparent,
-                              child: PopMenuBt(
-                                iconColor: taskColor,
-                                onDelete: onDelete,
-                                onEdit: onEdit,
-                              )
-                            ))),
+                                color: Colors.transparent,
+                                child: PopMenuBt(
+                                  iconColor: taskColor,
+                                  onDelete: onDelete,
+                                  onEdit: onEdit,
+                                )))),
               ),
             )
           ],
@@ -98,16 +106,19 @@ class TaskInfoWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  taskBean.overallProgress == 1.0
+                  taskBean.overallProgress == 1.0 && !isExisting
                       ? Expanded(
-                      flex: 1,
-                      child: Container(
-                          width: 25,
-                          height: 25,
-                          child: Hero(
-                            tag: "task_complete${index}",
-                            child: Icon(Icons.check_circle,color: Colors.greenAccent,),
-                          )))
+                          flex: 1,
+                          child: Container(
+                              width: 25,
+                              height: 25,
+                              child: Hero(
+                                tag: "task_complete${index}",
+                                child: Icon(
+                                  Icons.check_circle,
+                                  color: Colors.greenAccent,
+                                ),
+                              )))
                       : SizedBox()
                 ],
               ),
@@ -135,7 +146,8 @@ class TaskInfoWidget extends StatelessWidget {
                     color: Colors.transparent,
                     child: Text(
                       "${(taskBean.overallProgress * 100).toInt()}%",
-                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
                     )),
               ),
             ),
@@ -147,8 +159,7 @@ class TaskInfoWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                   child: LinearProgressIndicator(
-                    valueColor:
-                    AlwaysStoppedAnimation(taskColor),
+                    valueColor: AlwaysStoppedAnimation(taskColor),
                     value: taskBean.overallProgress,
                     backgroundColor: Color.fromRGBO(224, 224, 224, 1),
                   ),

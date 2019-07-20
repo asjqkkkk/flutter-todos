@@ -31,6 +31,7 @@ class MainPageLogic {
           onDelete: () => _model.logic.deleteTask(taskBean.id),
         ),
         onTap: () {
+          _model.currentTapIndex = index;
           Navigator.of(context).push(new PageRouteBuilder(
               pageBuilder: (ctx, anm, anmS) {
                 return ProviderConfig.getInstance()

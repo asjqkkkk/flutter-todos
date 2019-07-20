@@ -220,6 +220,14 @@ class EditTaskPageLogic {
 
   //修改旧的任务
   void submitOldTask() async{
+    if(_model.taskDetails.length == 0){
+      showDialog(context: _model.context,builder: (ctx){
+        return AlertDialog(
+          content: Text(DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
+        );
+      });
+      return;
+    }
     TaskBean taskBean = await transformDataToBean(id: _model.oldTaskBean.id,overallProgress: _getOverallProgress());
     DBProvider.db.updateTask(taskBean);
     await _model.mainPageModel.logic.getTasks();

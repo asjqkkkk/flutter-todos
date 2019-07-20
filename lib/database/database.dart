@@ -62,7 +62,7 @@ class DBProvider {
     return beans;
   }
 
-  void updateTask(TaskBean taskBean) async {
+  Future updateTask(TaskBean taskBean) async {
     final db = await database;
     int id = await db.update("TodoList", taskBean.toMap(),
         where: "id = ?", whereArgs: [taskBean.id]);

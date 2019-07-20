@@ -19,10 +19,11 @@ class TaskDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<TaskDetailPageModel>(context);
     final globalModel = Provider.of<GlobalModel>(context);
     final mainPageModel = globalModel.mainPageModel;
-    model.setContext(context);
+    final model = Provider.of<TaskDetailPageModel>(context)
+      ..setContext(context)
+      ..setGlobalModel(globalModel);
     final taskColor = globalModel.isCardChangeWithBg
         ? Theme.of(context).primaryColor
         : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
@@ -70,18 +71,19 @@ class TaskDetailPage extends StatelessWidget {
             body: Column(
               children: <Widget>[
                 Container(
-                    margin: EdgeInsets.only(left: 50, top: 20, right: 50),
-                    child: TaskInfoWidget(
-                      index,
-                      taskBean: model.taskBean,
-                      isCardChangeWithBg: globalModel.isCardChangeWithBg,
-                    ),),
+                  margin: EdgeInsets.only(left: 50, top: 20, right: 50),
+                  child: TaskInfoWidget(
+                    index,
+                    taskBean: model.taskBean,
+                    isCardChangeWithBg: globalModel.isCardChangeWithBg,
+                    isExisting: model.isExiting,
+                  ),
+                ),
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(top: 20),
                     child: !model.isExiting
-                        ? NotificationListener<
-                                OverscrollIndicatorNotification>(
+                        ? NotificationListener<OverscrollIndicatorNotification>(
                             onNotification: (overScroll) {
                               overScroll.disallowGlow();
                             },
@@ -93,17 +95,19 @@ class TaskDetailPage extends StatelessWidget {
                                       model.taskBean.detailList[index];
                                   return Container(
                                     margin: EdgeInsets.only(
-                                      bottom: index ==
-                                              model.taskBean.detailList
-                                                      .length - 1 ? 20 : 0,
-                                      left: 50,right: 50
-                                    ),
+                                        bottom: index ==
+                                                model.taskBean.detailList
+                                                        .length -
+                                                    1
+                                            ? 20
+                                            : 0,
+                                        left: 50,
+                                        right: 50),
                                     child: TaskDetailItem(
                                       index: index,
-                                      itemProgress:
-                                          taskDetailBean.itemProgress,
-                                      itemName:
-                                          taskDetailBean.taskDetailName,
+                                      showAnimation: model.doneTaskPageModel == null,
+                                      itemProgress: taskDetailBean.itemProgress,
+                                      itemName: taskDetailBean.taskDetailName,
                                       iconColor: taskColor,
                                       onProgressChanged: (progress) {
                                         model.logic.refreshProgress(

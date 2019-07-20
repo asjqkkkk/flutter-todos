@@ -9,13 +9,17 @@ class TaskDetailItem extends StatefulWidget {
   final String itemName;
   final int index;
   final Color iconColor;
+  final bool showAnimation;
 
-  TaskDetailItem(
-      {this.itemProgress = 0.0,
-      this.onChecked,
-      @required this.itemName,
-      this.index = 0,
-      this.onProgressChanged, this.iconColor});
+  TaskDetailItem({
+    this.itemProgress = 0.0,
+    this.onChecked,
+    @required this.itemName,
+    this.index = 0,
+    this.onProgressChanged,
+    this.iconColor,
+    this.showAnimation = true,
+  });
 
   @override
   _TaskDetailItemState createState() => _TaskDetailItemState();
@@ -28,6 +32,9 @@ class _TaskDetailItemState extends State<TaskDetailItem>
 
   AnimationController _controller;
   Animation _animation;
+
+  //这个定时器是因为hero动画大概时间是1秒，等动画结束后再执行列表划出动画
+  //不过如果任务详情页是从"完成列表"页面过来的，就没又hero动画了，自然不需要这个timer
   Timer timer;
 
   @override
@@ -37,7 +44,11 @@ class _TaskDetailItemState extends State<TaskDetailItem>
         vsync: this, duration: Duration(milliseconds: 1000));
     _animation = Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
-    timer = Timer(Duration(milliseconds: 600), (){
+    if(!widget.showAnimation) {
+      _controller?.forward();
+      return;
+    }
+      timer = Timer(Duration(milliseconds: 600), () {
       _controller?.forward();
     });
     super.initState();
@@ -86,7 +97,8 @@ class _TaskDetailItemState extends State<TaskDetailItem>
                         widget.onChecked(currentProgress);
                       }
                     },
-                    activeColor: widget.iconColor ?? Theme.of(context).primaryColor,
+                    activeColor:
+                        widget.iconColor ?? Theme.of(context).primaryColor,
                   ),
                 ),
                 Expanded(
@@ -112,10 +124,12 @@ class _TaskDetailItemState extends State<TaskDetailItem>
                     )),
                 Expanded(
                     flex: 1,
-                    child: progressShow ? SizedBox() : Text(
-                      "${(currentProgress * 100).toInt()}%",
-                      style: TextStyle(fontSize: 8),
-                    )),
+                    child: progressShow
+                        ? SizedBox()
+                        : Text(
+                            "${(currentProgress * 100).toInt()}%",
+                            style: TextStyle(fontSize: 8),
+                          )),
                 Expanded(
                     flex: 1,
                     child: IconButton(
@@ -148,7 +162,7 @@ class _TaskDetailItemState extends State<TaskDetailItem>
             margin: EdgeInsets.only(left: 22),
             height: 5,
             child: Slider(
-              activeColor: widget.iconColor ?? Theme.of(context).primaryColor,
+                activeColor: widget.iconColor ?? Theme.of(context).primaryColor,
                 value: currentProgress,
                 onChanged: (value) {
                   setState(() {

@@ -33,10 +33,13 @@ class ProviderConfig {
 
   ChangeNotifierProvider<TaskDetailPageModel> getTaskDetailPage(
     int index,
-    TaskBean taskBean,
-  ) {
+    TaskBean taskBean, {DoneTaskPageModel doneTaskPageModel,
+  }) {
     return ChangeNotifierProvider<TaskDetailPageModel>(
-      builder: (context) => TaskDetailPageModel(taskBean),
+      builder: (context) => TaskDetailPageModel(
+            taskBean,
+        doneTaskPageModel : doneTaskPageModel,
+          ),
       child: TaskDetailPage(
         index,
       ),
@@ -46,7 +49,7 @@ class ProviderConfig {
   ChangeNotifierProvider<EditTaskPageModel> getEditTaskPage(
       TaskIconBean taskIcon,
       {MainPageModel mainPageModel,
-        TaskDetailPageModel taskDetailPageModel,
+      TaskDetailPageModel taskDetailPageModel,
       TaskBean taskBean}) {
     return ChangeNotifierProvider<EditTaskPageModel>(
       builder: (context) => EditTaskPageModel(oldTaskBean: taskBean),
@@ -72,17 +75,20 @@ class ProviderConfig {
     );
   }
 
-  ChangeNotifierProvider<AvatarPageModel> getAvatarPage({MainPageModel mainPageModel}){
-     return ChangeNotifierProvider<AvatarPageModel>(
-       builder:(context) => AvatarPageModel(),
-       child: AvatarPage(mainPageModel: mainPageModel,),
-     );
+  ChangeNotifierProvider<AvatarPageModel> getAvatarPage(
+      {MainPageModel mainPageModel}) {
+    return ChangeNotifierProvider<AvatarPageModel>(
+      builder: (context) => AvatarPageModel(),
+      child: AvatarPage(
+        mainPageModel: mainPageModel,
+      ),
+    );
   }
 
-  ChangeNotifierProvider<DoneTaskPageModel> getDoneTaskPage(){
-     return ChangeNotifierProvider<DoneTaskPageModel>(
-       builder:(context) => DoneTaskPageModel(),
-       child: DoneTaskPage(),
-     );
-   }
+  ChangeNotifierProvider<DoneTaskPageModel> getDoneTaskPage() {
+    return ChangeNotifierProvider<DoneTaskPageModel>(
+      builder: (context) => DoneTaskPageModel(),
+      child: DoneTaskPage(),
+    );
+  }
 }

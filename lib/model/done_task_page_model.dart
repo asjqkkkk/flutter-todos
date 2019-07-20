@@ -13,6 +13,9 @@ class DoneTaskPageModel extends ChangeNotifier{
   LoadingFlag loadingFlag = LoadingFlag.loading;
   List<TaskBean> doneTasks = [];
 
+  //当前点击到的已完成任务的index，方便再任务列表页面删除用的
+  int currentTapIndex = 0;
+
   DoneTaskPageModel(){
     logic = DoneTaskPageLogic(this);
   }

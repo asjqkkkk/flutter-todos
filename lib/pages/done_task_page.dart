@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/model/done_task_page_model.dart';
@@ -30,11 +29,7 @@ class DoneTaskPage extends StatelessWidget {
                   final task = model.doneTasks[index];
                   final color = ColorBean.fromBean(task.taskIconBean.colorBean);
                   return GestureDetector(
-                    onTap: (){
-                      Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
-                          return ProviderConfig.getInstance().getTaskDetailPage(index, task);
-                      }));
-                    },
+                    onTap: () => model.logic.onTaskTap(index, task),
                     child: Container(
                       margin: EdgeInsets.all(10),
                       child: ClipRRect(
@@ -44,9 +39,10 @@ class DoneTaskPage extends StatelessWidget {
                           child: Text(
                             task.taskName,
                             style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                           color: color,
                         ),
@@ -56,6 +52,7 @@ class DoneTaskPage extends StatelessWidget {
                 }),
               )
             : LoadingWidget(
+                flag: model.loadingFlag,
                 errorCallBack: () {},
                 emptyText: DemoLocalizations.of(context).toFinishTask,
               ),
