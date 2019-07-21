@@ -24,7 +24,7 @@ class TaskItem extends StatelessWidget {
 
     final widget = TaskInfoWidget(
       index,
-      space: (minSize - 100) / 5,
+      space: (minSize - 100) / 4,
       taskBean: taskBean,
       onDelete: onDelete,
       onEdit: onEdit,
@@ -33,14 +33,12 @@ class TaskItem extends StatelessWidget {
 
     return Container(
       margin: EdgeInsets.all(10),
-      width: minSize,
-      height: minSize,
       child: Stack(
         children: <Widget>[
           Hero(
             tag: "task_bg${index}",
             child: Container(
-              height: minSize - 100,
+              height: minSize,
               decoration: BoxDecoration(
                 color: globalModel.logic.getBgInDark(),
                 borderRadius: BorderRadius.circular(15.0),

@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:package_info/package_info.dart';
+import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/webview_page.dart';
 
 class AboutPage extends StatefulWidget {
@@ -25,12 +27,22 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final globalModel = Provider.of<GlobalModel>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(DemoLocalizations.of(context).aboutApp),
+        title: Text(
+          DemoLocalizations.of(context).aboutApp,
+          style: TextStyle(
+            color: Colors.grey,
+          ),
+        ),
+        backgroundColor: globalModel.logic.getBgInDark(),
+        iconTheme: IconThemeData(color: Colors.grey),
+        elevation: 0.0,
       ),
       body: Container(
+        color: globalModel.logic.getBgInDark(),
         child: Container(
           margin: EdgeInsets.all(20),
           child: Column(
@@ -45,7 +57,8 @@ class _AboutPageState extends State<AboutPage> {
                     child: Card(
                         elevation: 5,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
                         child: Container(
                             width: 70,
                             height: 70,
@@ -53,7 +66,7 @@ class _AboutPageState extends State<AboutPage> {
                             child: Image.asset("images/icon.png"))),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 50,top: 2),
+                    margin: EdgeInsets.only(left: 50, top: 2),
                     height: 90,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -82,10 +95,12 @@ class _AboutPageState extends State<AboutPage> {
                                       packageInfo.version,
                                       style: TextStyle(
                                           fontSize: 20,
-                                          color: Theme.of(context).primaryColor ==
-                                              Color(0xff212121)
-                                              ? Colors.white
-                                              : Color.fromRGBO(141, 141, 141, 1.0)),
+                                          color:
+                                              Theme.of(context).primaryColor ==
+                                                      Color(0xff212121)
+                                                  ? Colors.white
+                                                  : Color.fromRGBO(
+                                                      141, 141, 141, 1.0)),
                                     );
                                   } else
                                     return Container();
@@ -106,7 +121,8 @@ class _AboutPageState extends State<AboutPage> {
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     child: Container(
                       margin: EdgeInsets.only(left: 20, top: 30),
-                      child: NotificationListener<OverscrollIndicatorNotification>(
+                      child:
+                          NotificationListener<OverscrollIndicatorNotification>(
                         onNotification: (overScroll) {
                           overScroll.disallowGlow();
                         },
@@ -117,7 +133,8 @@ class _AboutPageState extends State<AboutPage> {
                             return Container(
                               margin: EdgeInsets.only(bottom: 20),
                               child: Text(
-                                DemoLocalizations.of(context).versionDescription,
+                                DemoLocalizations.of(context)
+                                    .versionDescription,
                                 style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
@@ -168,9 +185,10 @@ class _AboutPageState extends State<AboutPage> {
       return InkWell(
         onTap: () {
           Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
-              return WebViewPage(
-                data.replaceAll("Github地址:", ""), title: "作者的github",
-              );
+            return WebViewPage(
+              data.replaceAll("Github地址:", ""),
+              title: "作者的github",
+            );
           }));
         },
         child: Text(
@@ -180,6 +198,5 @@ class _AboutPageState extends State<AboutPage> {
       );
     }
     return Text(data);
-
   }
 }

@@ -70,10 +70,7 @@ class TaskDetailPageLogic {
     _model.refresh();
     final doneTaskPageModel = _model.doneTaskPageModel;
     if (doneTaskPageModel != null) {
-      doneTaskPageModel.doneTasks
-          .removeAt(doneTaskPageModel.currentTapIndex);
-      if (doneTaskPageModel.doneTasks.length == 0)
-        doneTaskPageModel.loadingFlag = LoadingFlag.empty;
+      doneTaskPageModel.doneTasks.removeAt(doneTaskPageModel.currentTapIndex);
       doneTaskPageModel.refresh();
     }
     exitPage(isDeleting: true);

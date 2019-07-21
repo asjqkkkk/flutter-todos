@@ -30,4 +30,18 @@ class DoneTaskPageLogic {
       );
     }));
   }
+
+  //将时间做转换
+  String getTimeText(String date) {
+    DateTime time = DateTime.parse(date);
+    return "${time.year}-${time.month}-${time.day}";
+  }
+
+  String getDiffTimeText(String dateStart, String dateEnd){
+    DateTime timeStart = DateTime.parse(dateStart);
+    DateTime timeEnd = DateTime.parse(dateEnd);
+    Duration diff =  timeStart.difference(timeEnd);
+
+    return diff.inDays == 0 ? "${diff.inHours} 小时" : "${diff.inDays} 天";
+  }
 }
