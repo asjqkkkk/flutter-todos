@@ -75,17 +75,18 @@ class NavPage extends StatelessWidget {
       return NavHead();
     } else {
       final url = model.currentNetPicUrl;
+      bool isDailyPic = model.currentNavHeader == NavHeadType.dailyPic;
       return GestureDetector(
         onTap: () {
           Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
             return ImagePage(
-              imageUrls: [url],
+              imageUrls: [isDailyPic ?NavHeadType.dailyPicUrl : url],
             );
           }));
         },
         child: Hero(
           tag: "tag_0",
-          child: model.currentNavHeader == NavHeadType.dailyPic
+          child: isDailyPic
               ? Image.network(NavHeadType.dailyPicUrl)
               : CachedNetworkImage(
                   fit: BoxFit.cover,

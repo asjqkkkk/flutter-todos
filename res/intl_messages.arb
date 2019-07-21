@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-20T19:23:09.817787",
+  "@@last_modified": "2019-07-21T14:32:24.392430",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -17,6 +17,50 @@
     "description": "努力去完成一项任务吧!",
     "type": "text",
     "placeholders": {}
+  },
+  "taskNum": "Task Number",
+  "@taskNum": {
+    "description": "任务数",
+    "type": "text",
+    "placeholders": {}
+  },
+  "createDate": "Create Date",
+  "@createDate": {
+    "description": "创建日期",
+    "type": "text",
+    "placeholders": {}
+  },
+  "completeDate": "Complete Date",
+  "@completeDate": {
+    "description": "完成日期",
+    "type": "text",
+    "placeholders": {}
+  },
+  "spendTime": "Spend Time",
+  "@spendTime": {
+    "description": "用时",
+    "type": "text",
+    "placeholders": {}
+  },
+  "changedTimes": "Changed Times",
+  "@changedTimes": {
+    "description": "修改次数",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hours": "{hours,plural, =0{Too Fast}=1{1 hour}many{{hours} hours}other{{hours} hours}}",
+  "@hours": {
+    "type": "text",
+    "placeholders": {
+      "hours": {}
+    }
+  },
+  "days": "{days,plural, =0{Too Fast}=1{1 day}many{{days} days}other{{days} days}}",
+  "@days": {
+    "type": "text",
+    "placeholders": {
+      "days": {}
+    }
   },
   "languageTitle": "Change Language",
   "@languageTitle": {

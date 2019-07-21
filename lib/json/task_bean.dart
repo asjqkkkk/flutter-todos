@@ -12,6 +12,9 @@ class TaskBean {
   int taskDetailNum = 0;
   double overallProgress;
 
+  //任务修改次数
+  int changeTimes;
+
   //创建任务的时间
   String createDate;
 
@@ -34,6 +37,7 @@ class TaskBean {
       this.taskStatus = TaskStatus.todo,
       this.taskDetailNum,
       this.overallProgress = 0.0,
+      this.changeTimes = 0,
       this.createDate = "",
       this.finishDate = "",
       this.account = "default",
@@ -50,6 +54,7 @@ class TaskBean {
     taskBean.taskDetailNum = map['taskDetailNum'];
     taskBean.taskStatus = map['taskStatus'];
     taskBean.account = map['account'];
+    taskBean.changeTimes = map['changeTimes'] ?? 0;
     taskBean.overallProgress = double.parse(map['overallProgress']);
     taskBean.createDate = map['createDate'];
     taskBean.finishDate = map['finishDate'];
@@ -84,9 +89,10 @@ class TaskBean {
       'taskType': taskType,
       'taskStatus': taskStatus,
       'taskDetailNum': taskDetailNum,
-      'overallProgress': overallProgress.toString(),
+      'overallProgress': (overallProgress >= 1.0 ? 1.0 : overallProgress).toString(),
       'createDate': createDate,
       'account': account,
+      'changeTimes': changeTimes ?? 0,
       'finishDate': finishDate,
       'startDate': startDate,
       'deadLine': deadLine,

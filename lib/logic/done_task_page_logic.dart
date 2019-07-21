@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 
@@ -37,11 +38,14 @@ class DoneTaskPageLogic {
     return "${time.year}-${time.month}-${time.day}";
   }
 
-  String getDiffTimeText(String dateStart, String dateEnd){
+  String getDiffTimeText(String dateStart, String dateEnd) {
     DateTime timeStart = DateTime.parse(dateStart);
     DateTime timeEnd = DateTime.parse(dateEnd);
-    Duration diff =  timeStart.difference(timeEnd);
+    Duration diff = timeStart.difference(timeEnd);
+    final context = _model.context;
 
-    return diff.inDays == 0 ? "${diff.inHours} 小时" : "${diff.inDays} 天";
+    return diff.inDays == 0
+        ? "${DemoLocalizations.of(context).hours(diff.inHours)}"
+        : "${DemoLocalizations.of(context).days(diff.inDays)}";
   }
 }

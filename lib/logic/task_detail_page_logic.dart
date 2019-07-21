@@ -33,10 +33,11 @@ class TaskDetailPageLogic {
     final mainPageModel = _model.globalModel.mainPageModel;
     bool needUpdate = needUpdateDatabase();
     if (needUpdate && !isDeleting) {
-      if (_model.taskBean.overallProgress == 1.0) {
+      if (_model.taskBean.overallProgress >= 1.0) {
         _model.taskBean.finishDate = DateTime.now().toIso8601String();
         mainPageModel.tasks.removeAt(mainPageModel.currentTapIndex);
       }
+      _model.taskBean.changeTimes++;
       DBProvider.db.updateTask(_model.taskBean).then((value){
         if (_model.doneTaskPageModel != null) {
           mainPageModel.logic.getTasks();

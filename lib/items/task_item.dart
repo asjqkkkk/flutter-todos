@@ -24,7 +24,7 @@ class TaskItem extends StatelessWidget {
 
     final widget = TaskInfoWidget(
       index,
-      space: (minSize - 100) / 4,
+      space: 21,
       taskBean: taskBean,
       onDelete: onDelete,
       onEdit: onEdit,
@@ -38,7 +38,6 @@ class TaskItem extends StatelessWidget {
           Hero(
             tag: "task_bg${index}",
             child: Container(
-              height: minSize,
               decoration: BoxDecoration(
                 color: globalModel.logic.getBgInDark(),
                 borderRadius: BorderRadius.circular(15.0),
@@ -46,7 +45,6 @@ class TaskItem extends StatelessWidget {
             ),
           ),
           Container(
-            height: minSize,
             child: Card(
               margin: EdgeInsets.all(0),
               shape: RoundedRectangleBorder(
@@ -54,11 +52,7 @@ class TaskItem extends StatelessWidget {
               ),
               child: Container(
                 margin: EdgeInsets.only(left: 16, right: 16),
-                child: minSize < 600
-                    ? SingleChildScrollView(
-                        child: widget,
-                      )
-                    : widget,
+                child: widget,
               ),
             ),
           ),

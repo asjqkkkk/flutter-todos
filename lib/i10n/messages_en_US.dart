@@ -20,9 +20,13 @@ typedef MessageIfAbsent(String message_str, List args);
 class MessageLookup extends MessageLookupByLibrary {
   get localeName => 'en_US';
 
-  static m0(number) => "${Intl.plural(number, zero: 'There is No items ', one: '1 item ', other: '${number} items ')}";
+  static m0(days) => "${Intl.plural(days, zero: 'Too Fast', one: '1 day', many: '${days} days', other: '${days} days')}";
 
-  static m1(taskNumbers) => "${Intl.plural(taskNumbers, zero: 'You have never written a list of tasks.\nLet\'s get started soon.', one: 'This is your todo-list,\nToday, you have 1 task to complete. ', many: 'This is your todo-list,\nToday, you have ${taskNumbers} tasks to complete. ', other: 'This is your todo-list,\nToday, you have ${taskNumbers} tasks to complete. ')}";
+  static m1(hours) => "${Intl.plural(hours, zero: 'Too Fast', one: '1 hour', many: '${hours} hours', other: '${hours} hours')}";
+
+  static m2(number) => "${Intl.plural(number, zero: 'There is No items ', one: '1 item ', other: '${number} items ')}";
+
+  static m3(taskNumbers) => "${Intl.plural(taskNumbers, zero: 'You have never written a list of tasks.\nLet\'s get started soon.', one: 'This is your todo-list,\nToday, you have 1 task to complete. ', many: 'This is your todo-list,\nToday, you have ${taskNumbers} tasks to complete. ', other: 'This is your todo-list,\nToday, you have ${taskNumbers} tasks to complete. ')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -43,14 +47,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancel" : MessageLookupByLibrary.simpleMessage("cancel"),
     "cardChangeWithBg" : MessageLookupByLibrary.simpleMessage("Task icon color follow background"),
     "changeTheme" : MessageLookupByLibrary.simpleMessage("Change Theme"),
+    "changedTimes" : MessageLookupByLibrary.simpleMessage("Changed Times"),
     "checkUpdate" : MessageLookupByLibrary.simpleMessage("Check Update"),
     "coffee" : MessageLookupByLibrary.simpleMessage("coffee"),
+    "completeDate" : MessageLookupByLibrary.simpleMessage("Finish Date"),
+    "createDate" : MessageLookupByLibrary.simpleMessage("Create Date"),
     "currentIcons" : MessageLookupByLibrary.simpleMessage("Current Icons"),
     "customIcon" : MessageLookupByLibrary.simpleMessage("Custom Icon"),
     "customTheme" : MessageLookupByLibrary.simpleMessage("Custom Theme"),
     "cyan" : MessageLookupByLibrary.simpleMessage("cyan"),
     "dailyPic" : MessageLookupByLibrary.simpleMessage("Daily wallpaper"),
     "dark" : MessageLookupByLibrary.simpleMessage("dark"),
+    "days" : m0,
     "deadline" : MessageLookupByLibrary.simpleMessage("deadline"),
     "defaultIconName" : MessageLookupByLibrary.simpleMessage("default"),
     "defaultTitle" : MessageLookupByLibrary.simpleMessage("Default title"),
@@ -64,8 +72,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "game" : MessageLookupByLibrary.simpleMessage("Game"),
     "green" : MessageLookupByLibrary.simpleMessage("green"),
     "history" : MessageLookupByLibrary.simpleMessage("history"),
+    "hours" : m1,
     "iconSetting" : MessageLookupByLibrary.simpleMessage("Icon Setting"),
-    "itemNumber" : m0,
+    "itemNumber" : m2,
     "languageTitle" : MessageLookupByLibrary.simpleMessage("Change Language"),
     "loading" : MessageLookupByLibrary.simpleMessage("loading..."),
     "loadingEmpty" : MessageLookupByLibrary.simpleMessage("nothing at all"),
@@ -88,11 +97,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "repeat" : MessageLookupByLibrary.simpleMessage("repeat"),
     "restrictedDes" : MessageLookupByLibrary.simpleMessage("Permission is restricted"),
     "setIconName" : MessageLookupByLibrary.simpleMessage("icon name"),
+    "spendTime" : MessageLookupByLibrary.simpleMessage("Spend Time"),
     "sports" : MessageLookupByLibrary.simpleMessage("Sports"),
     "startAfterEnd" : MessageLookupByLibrary.simpleMessage("The start date need be smaller than the end date."),
     "startDate" : MessageLookupByLibrary.simpleMessage("start date"),
     "submit" : MessageLookupByLibrary.simpleMessage("Submit"),
-    "taskItems" : m1,
+    "taskItems" : m3,
+    "taskNum" : MessageLookupByLibrary.simpleMessage("Task Number"),
     "toFinishTask" : MessageLookupByLibrary.simpleMessage("Try to complete a task!"),
     "travel" : MessageLookupByLibrary.simpleMessage("Travel"),
     "unknownDes" : MessageLookupByLibrary.simpleMessage("Unknown permission"),

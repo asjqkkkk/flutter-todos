@@ -108,7 +108,7 @@ class MainPage extends StatelessWidget {
                         margin: EdgeInsets.only(top: 40,bottom: 40),
                         child: CarouselSlider(
                           items: model.logic.getCards(context),
-                          aspectRatio:  1,
+                          aspectRatio:  16 / 9,
                           height: min(size.width, size.height) - 100,
                           viewportFraction: size.height >= size.width ? 0.8 : 0.5,
                           initialPage: 0,

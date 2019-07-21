@@ -20,9 +20,13 @@ typedef MessageIfAbsent(String message_str, List args);
 class MessageLookup extends MessageLookupByLibrary {
   get localeName => 'zh_CN';
 
-  static m0(number) => "${Intl.plural(number, zero: '还没有任务详情哦 ', one: '1 项 ', other: '${number} 项 ')}";
+  static m0(days) => "${Intl.plural(days, zero: '太快了!', one: '1 天', many: '${days} 天', other: '${days} 天')}";
 
-  static m1(taskNumbers) => "${Intl.plural(taskNumbers, zero: '你还没有写过任务清单呢.\n快快开始吧.', one: '下面你的任务清单,\n今天, 你有 1 项任务尚未完成. ', many: '下面是你的任务清单,\n今天, 你有 ${taskNumbers} 份任务尚未完成. ', other: '下面是你的任务清单,\n今天, 你有 ${taskNumbers} 份任务尚未完成. ')}";
+  static m1(hours) => "${Intl.plural(hours, zero: '太快了!', one: '1 小时', many: '${hours} 小时', other: '${hours} 小时')}";
+
+  static m2(number) => "${Intl.plural(number, zero: '还没有任务详情哦 ', one: '1 项 ', other: '${number} 项 ')}";
+
+  static m3(taskNumbers) => "${Intl.plural(taskNumbers, zero: '你还没有写过任务清单呢.\n快快开始吧.', one: '下面你的任务清单,\n今天, 你有 1 项任务尚未完成. ', many: '下面是你的任务清单,\n今天, 你有 ${taskNumbers} 份任务尚未完成. ', other: '下面是你的任务清单,\n今天, 你有 ${taskNumbers} 份任务尚未完成. ')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -43,14 +47,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancel" : MessageLookupByLibrary.simpleMessage("取消"),
     "cardChangeWithBg" : MessageLookupByLibrary.simpleMessage("任务图标颜色跟随背景"),
     "changeTheme" : MessageLookupByLibrary.simpleMessage("切换主题"),
+    "changedTimes" : MessageLookupByLibrary.simpleMessage("修改次数"),
     "checkUpdate" : MessageLookupByLibrary.simpleMessage("检查更新"),
     "coffee" : MessageLookupByLibrary.simpleMessage("想入啡啡"),
+    "completeDate" : MessageLookupByLibrary.simpleMessage("完成日期"),
+    "createDate" : MessageLookupByLibrary.simpleMessage("创建日期"),
     "currentIcons" : MessageLookupByLibrary.simpleMessage("当前图标"),
     "customIcon" : MessageLookupByLibrary.simpleMessage("自定义图标"),
     "customTheme" : MessageLookupByLibrary.simpleMessage("自定义主题"),
     "cyan" : MessageLookupByLibrary.simpleMessage("蓝天白云"),
     "dailyPic" : MessageLookupByLibrary.simpleMessage("每日壁纸"),
     "dark" : MessageLookupByLibrary.simpleMessage("不见五指"),
+    "days" : m0,
     "deadline" : MessageLookupByLibrary.simpleMessage("截止日期"),
     "defaultIconName" : MessageLookupByLibrary.simpleMessage("默认"),
     "defaultTitle" : MessageLookupByLibrary.simpleMessage("默认标题"),
@@ -64,8 +72,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "game" : MessageLookupByLibrary.simpleMessage("打游戏"),
     "green" : MessageLookupByLibrary.simpleMessage("青青草原"),
     "history" : MessageLookupByLibrary.simpleMessage("历史"),
+    "hours" : m1,
     "iconSetting" : MessageLookupByLibrary.simpleMessage("图标设置"),
-    "itemNumber" : m0,
+    "itemNumber" : m2,
     "languageTitle" : MessageLookupByLibrary.simpleMessage("切换语言"),
     "loading" : MessageLookupByLibrary.simpleMessage("加载中..."),
     "loadingEmpty" : MessageLookupByLibrary.simpleMessage("什么都没有哦"),
@@ -88,11 +97,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "repeat" : MessageLookupByLibrary.simpleMessage("重复"),
     "restrictedDes" : MessageLookupByLibrary.simpleMessage("权限被限制"),
     "setIconName" : MessageLookupByLibrary.simpleMessage("图标名"),
+    "spendTime" : MessageLookupByLibrary.simpleMessage("用时"),
     "sports" : MessageLookupByLibrary.simpleMessage("运动"),
     "startAfterEnd" : MessageLookupByLibrary.simpleMessage("开始日期要比结束日期小才行哦"),
     "startDate" : MessageLookupByLibrary.simpleMessage("开始日期"),
     "submit" : MessageLookupByLibrary.simpleMessage("提交"),
-    "taskItems" : m1,
+    "taskItems" : m3,
+    "taskNum" : MessageLookupByLibrary.simpleMessage("任务数"),
     "toFinishTask" : MessageLookupByLibrary.simpleMessage("努力去完成一项任务吧"),
     "travel" : MessageLookupByLibrary.simpleMessage("旅行"),
     "unknownDes" : MessageLookupByLibrary.simpleMessage("未知权限"),

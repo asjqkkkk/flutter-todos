@@ -24,6 +24,33 @@ class DemoLocalizations {
 
   String get doneList => Intl.message('Done List', name: 'doneList', desc: '完成列表',);
   String get toFinishTask => Intl.message('Try to complete a task!', name: 'toFinishTask', desc: '努力去完成一项任务吧!',);
+  String get taskNum => Intl.message('Task Number', name: 'taskNum', desc: '任务数',);
+  String get createDate => Intl.message('Create Date', name: 'createDate', desc: '创建日期',);
+  String get completeDate => Intl.message('Complete Date', name: 'completeDate', desc: '完成日期',);
+  String get spendTime => Intl.message('Spend Time', name: 'spendTime', desc: '用时',);
+  String get changedTimes => Intl.message('Changed Times', name: 'changedTimes', desc: '修改次数',);
+  String hours(int hours){
+    return Intl.plural(
+        hours,
+        zero: "Too Fast",
+        one: "1 hour",
+        many: "$hours hours",
+        other:"$hours hours",
+        args: [hours],
+        name: "hours"
+    );
+  }
+  String days(int days){
+    return Intl.plural(
+        days,
+        zero: "Too Fast",
+        one: "1 day",
+        many: "$days days",
+        other:"$days days",
+        args: [days],
+        name: "days"
+    );
+  }
 
 
   String get languageTitle {
@@ -114,10 +141,6 @@ class DemoLocalizations {
   String get restrictedDes => Intl.message('Permission is restricted', name: 'restrictedDes', desc: '权限被限制',);
   String get unknownDes => Intl.message('Unknown permission', name: 'unknownDes', desc: '未知权限',);
   String get openSystemSetting => Intl.message('Open System Setting', name: 'openSystemSetting', desc: '打开系统设置',);
-
-
-
-
 
 
   String get checkUpdate {

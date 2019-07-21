@@ -229,6 +229,7 @@ class EditTaskPageLogic {
       return;
     }
     TaskBean taskBean = await transformDataToBean(id: _model.oldTaskBean.id,overallProgress: _getOverallProgress());
+    taskBean.changeTimes++;
     DBProvider.db.updateTask(taskBean);
     await _model.mainPageModel.logic.getTasks();
     _model.mainPageModel.refresh();

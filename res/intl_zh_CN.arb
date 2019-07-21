@@ -18,6 +18,50 @@
     "type": "text",
     "placeholders": {}
   },
+  "taskNum": "任务数",
+  "@taskNum": {
+    "description": "任务数",
+    "type": "text",
+    "placeholders": {}
+  },
+  "createDate": "创建日期",
+  "@createDate": {
+    "description": "创建日期",
+    "type": "text",
+    "placeholders": {}
+  },
+  "completeDate": "完成日期",
+  "@completeDate": {
+    "description": "完成日期",
+    "type": "text",
+    "placeholders": {}
+  },
+  "spendTime": "用时",
+  "@spendTime": {
+    "description": "用时",
+    "type": "text",
+    "placeholders": {}
+  },
+  "changedTimes": "修改次数",
+  "@changedTimes": {
+    "description": "修改次数",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hours": "{hours,plural, =0{太快了!}=1{1 小时}many{{hours} 小时}other{{hours} 小时}}",
+  "@hours": {
+    "type": "text",
+    "placeholders": {
+      "hours": {}
+    }
+  },
+  "days": "{days,plural, =0{太快了!}=1{1 天}many{{days} 天}other{{days} 天}}",
+  "@days": {
+    "type": "text",
+    "placeholders": {
+      "days": {}
+    }
+  },
   "languageTitle": "切换语言",
   "@languageTitle": {
     "description": "Change Language",

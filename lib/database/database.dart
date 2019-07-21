@@ -22,24 +22,33 @@ class DBProvider {
   initDB() async {
     var dataBasePath = await getDatabasesPath();
     String path = join(dataBasePath, "todo.db");
-    return await openDatabase(path, version: 1, onOpen: (db) {},
-        onCreate: (Database db, int version) async {
-      await db.execute("CREATE TABLE TodoList ("
-          "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-          "account TEXT,"
-          "taskName TEXT,"
-          "taskType TEXT,"
-          "taskStatus INTEGER,"
-          "taskDetailNum INTEGER,"
-          "overallProgress TEXT,"
-          "createDate TEXT,"
-          "finishDate TEXT,"
-          "startDate TEXT,"
-          "deadLine TEXT,"
-          "detailList TEXT,"
-          "taskIconBean TEXT"
-          ")");
-    });
+    return await openDatabase(
+      path,
+      version: 2,
+      onOpen: (db) {},
+      onCreate: (Database db, int version) async {
+        await db.execute("CREATE TABLE TodoList ("
+            "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            "account TEXT,"
+            "taskName TEXT,"
+            "taskType TEXT,"
+            "taskStatus INTEGER,"
+            "taskDetailNum INTEGER,"
+            "overallProgress TEXT,"
+            "createDate TEXT,"
+            "finishDate TEXT,"
+            "startDate TEXT,"
+            "deadLine TEXT,"
+            "detailList TEXT,"
+            "taskIconBean TEXT"
+            ")");
+      },
+      onUpgrade: (Database db, int oldVersion, int newVersion) async{
+        if(oldVersion < 2){
+         await db.execute("ALTER TABLE TodoList ADD COLUMN changeTimes INTEGER DEFAULT 0");
+        }
+      },
+    );
     //注意，上面创建表的时候最后一行不能带逗号
   }
 
@@ -54,8 +63,10 @@ class DBProvider {
     final db = await database;
     final account =
         await SharedUtil.instance.getString(Keys.account) ?? "default";
-    var list =
-        await db.query("TodoList", where: "account = ?" + (isDone ? " AND overallProgress = ?" : " AND overallProgress != ?"), whereArgs: [account, "1.0"]);
+    var list = await db.query("TodoList",
+        where: "account = ?" +
+            (isDone ? " AND overallProgress >= ?" : " AND overallProgress < ?"),
+        whereArgs: [account, "1.0"]);
     List<TaskBean> beans = [];
     beans.clear();
     beans.addAll(TaskBean.fromMapList(list));
@@ -81,11 +92,10 @@ class DBProvider {
     final account =
         await SharedUtil.instance.getString(Keys.account) ?? "default";
     var list = await db.query("TodoList",
-        where:
-            "account = ? AND (taskName LIKE ? "
-                "OR detailList LIKE ? "
-                "OR startDate LIKE ? "
-                "OR deadLine LIKE ?)",
+        where: "account = ? AND (taskName LIKE ? "
+            "OR detailList LIKE ? "
+            "OR startDate LIKE ? "
+            "OR deadLine LIKE ?)",
         whereArgs: [
           account,
           "%$query%",
