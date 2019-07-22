@@ -79,6 +79,7 @@ class DoneTaskPage extends StatelessWidget {
                           padding: EdgeInsets.all(10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               Container(
                                 width: itemHeight,
@@ -101,6 +102,7 @@ class DoneTaskPage extends StatelessWidget {
                                   fontSize: textSize,
                                   color: textColor,
                                 ),
+                                maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                               ),
                               Text(
@@ -112,6 +114,7 @@ class DoneTaskPage extends StatelessWidget {
                                   fontSize: textSize,
                                   color: textColor,
                                 ),
+                                maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ],
@@ -179,6 +182,7 @@ class DoneTaskPage extends StatelessWidget {
                           padding: EdgeInsets.all(10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               Container(
                                 width: itemHeight,
@@ -191,7 +195,6 @@ class DoneTaskPage extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: textSize,
                                     color: textColor,
-                                    fontWeight: FontWeight.bold
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -205,6 +208,7 @@ class DoneTaskPage extends StatelessWidget {
                                   color: textColor,
                                 ),
                                 overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
                               ),
                               Text(
                                 "${DemoLocalizations
@@ -216,6 +220,7 @@ class DoneTaskPage extends StatelessWidget {
                                   color: textColor,
                                 ),
                                 overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
                               ),
                             ],
                           ),
