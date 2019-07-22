@@ -27,6 +27,7 @@ class DBProvider {
       version: 2,
       onOpen: (db) {},
       onCreate: (Database db, int version) async {
+        print("当前版本:${version}");
         await db.execute("CREATE TABLE TodoList ("
             "id INTEGER PRIMARY KEY AUTOINCREMENT,"
             "account TEXT,"
@@ -35,6 +36,7 @@ class DBProvider {
             "taskStatus INTEGER,"
             "taskDetailNum INTEGER,"
             "overallProgress TEXT,"
+            "changeTimes INTEGER,"
             "createDate TEXT,"
             "finishDate TEXT,"
             "startDate TEXT,"
@@ -44,7 +46,9 @@ class DBProvider {
             ")");
       },
       onUpgrade: (Database db, int oldVersion, int newVersion) async{
-        if(oldVersion < 2){
+        print("新版本:${newVersion}");
+        print("旧版本:${oldVersion}");
+        if(oldVersion <= 2){
          await db.execute("ALTER TABLE TodoList ADD COLUMN changeTimes INTEGER DEFAULT 0");
         }
       },
@@ -77,7 +81,7 @@ class DBProvider {
     final db = await database;
     int id = await db.update("TodoList", taskBean.toMap(),
         where: "id = ?", whereArgs: [taskBean.id]);
-    print("更新");
+    print("更新数据库");
   }
 
   Future deleteTask(int id) async {

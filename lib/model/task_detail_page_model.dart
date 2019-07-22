@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/model/done_task_page_model.dart';
+import 'package:todo_list/model/search_page_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
 import 'global_model.dart';
@@ -28,12 +29,15 @@ class TaskDetailPageModel extends ChangeNotifier {
 
   //如果不为空，表示是否从"完成列表"过来的
   DoneTaskPageModel doneTaskPageModel;
+  //如果不为空，表示是否从"搜索界面"过来的
+  SearchPageModel searchPageModel;
 
   TaskDetailPageModel(TaskBean taskBean,
-      { DoneTaskPageModel doneTaskPageModel,}) {
+      { DoneTaskPageModel doneTaskPageModel, SearchPageModel searchPageModel,}) {
     logic = TaskDetailPageLogic(this);
     this.taskBean = taskBean;
     this.doneTaskPageModel = doneTaskPageModel;
+    this.searchPageModel = searchPageModel;
     this.progress = taskBean.overallProgress;
     this.progressList.clear();
     if(doneTaskPageModel != null){

@@ -101,8 +101,20 @@ class LoadingWidget extends StatelessWidget {
           ),
         );
         break;
+
+      case LoadingFlag.idle:
+        return Center(
+          child: SvgPicture.asset(
+            "svgs/idle.svg",
+            color: progressColor ?? primaryColor,
+            width: size,
+            height: size,
+            semanticsLabel: 'idle',
+          ),
+        );
+        break;
     }
   }
 }
 
-enum LoadingFlag { loading, error, success, empty }
+enum LoadingFlag { loading, error, success, empty ,idle}

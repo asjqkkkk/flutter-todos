@@ -12,7 +12,7 @@ class MainPageModel extends ChangeNotifier {
   //当前滑动的卡片位置
   int currentCardIndex = 0;
 
-  //当前点击接入详情页的index，方便在详情页里面操作删除、更新等
+  //当前点击进入详情页的index，方便在详情页里面操作删除、更新等
   int currentTapIndex = 0;
 
   //当前头像的类型

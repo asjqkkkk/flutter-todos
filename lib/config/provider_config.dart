@@ -34,11 +34,13 @@ class ProviderConfig {
   ChangeNotifierProvider<TaskDetailPageModel> getTaskDetailPage(
     int index,
     TaskBean taskBean, {DoneTaskPageModel doneTaskPageModel,
+        SearchPageModel searchPageModel,
   }) {
     return ChangeNotifierProvider<TaskDetailPageModel>(
       builder: (context) => TaskDetailPageModel(
             taskBean,
         doneTaskPageModel : doneTaskPageModel,
+        searchPageModel : searchPageModel,
           ),
       child: TaskDetailPage(
         index,
@@ -89,6 +91,13 @@ class ProviderConfig {
     return ChangeNotifierProvider<DoneTaskPageModel>(
       builder: (context) => DoneTaskPageModel(),
       child: DoneTaskPage(),
+    );
+  }
+
+  ChangeNotifierProvider<SearchPageModel> getSearchPage() {
+    return ChangeNotifierProvider<SearchPageModel>(
+      builder: (context) => SearchPageModel(),
+      child: SearchPage(),
     );
   }
 }

@@ -9,6 +9,7 @@ import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
+import 'package:todo_list/pages/search_page.dart';
 import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
@@ -25,7 +26,7 @@ class MainPageLogic {
       final taskBean = _model.tasks[index];
       return GestureDetector(
         child: TaskItem(
-          index,
+          taskBean.id,
           taskBean,
           onEdit: () => _model.logic.editTask(taskBean),
           onDelete: () => _model.logic.deleteTask(taskBean.id),
@@ -35,7 +36,7 @@ class MainPageLogic {
           Navigator.of(context).push(new PageRouteBuilder(
               pageBuilder: (ctx, anm, anmS) {
                 return ProviderConfig.getInstance()
-                    .getTaskDetailPage(index, taskBean);
+                    .getTaskDetailPage(taskBean.id, taskBean);
               },
               transitionDuration: Duration(milliseconds: 800)));
         },
@@ -69,14 +70,6 @@ class MainPageLogic {
    if (tasks == null) return;
    _model.tasks.clear();
    _model.tasks.addAll(tasks);
-  }
-
-  void queryTask(String query) {
-
-    DBProvider.db.getTasks(isDone: true).then((tasks) {
-      debugPrint("查询的数据是:${tasks}");
-    });
-
   }
 
   Decoration getBackground(GlobalModel globalModel) {
@@ -152,7 +145,7 @@ class MainPageLogic {
   }
 
   //当任务列表为空时显示的内容
-  Widget getEmptyWidget() {
+  Widget getEmptyWidget(GlobalModel globalModel) {
     final context = _model.context;
     final size = MediaQuery.of(context).size;
     final theMin = min(size.width, size.height) / 2;
@@ -161,7 +154,7 @@ class MainPageLogic {
       alignment: Alignment.center,
       child: SvgPicture.asset(
           "svgs/empty_list.svg",
-          color: Colors.white,
+          color: globalModel.logic.getWhiteInDark(),
           width: theMin,
           height: theMin,
           semanticsLabel: 'empty list',
@@ -226,6 +219,12 @@ class MainPageLogic {
   void onAvatarTap() {
     Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx){
       return ProviderConfig.getInstance().getAvatarPage(mainPageModel: _model);
+    }));
+  }
+
+  void onSearchTap(){
+    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx){
+      return ProviderConfig.getInstance().getSearchPage();
     }));
   }
 

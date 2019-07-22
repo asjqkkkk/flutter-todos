@@ -28,24 +28,34 @@ class TaskDetailPageLogic {
     _model.refresh();
   }
 
+  //页面退出需要执行的逻辑,isDeleting表示这个页面是否执行了删除当前任务的操作
   void exitPage({bool isDeleting = false}) {
     final context = _model.context;
     final mainPageModel = _model.globalModel.mainPageModel;
     bool needUpdate = needUpdateDatabase();
     if (needUpdate && !isDeleting) {
+      //如果一个任务中的所有任务项都完成了,因为主页面都是未完成任务，所以删除主页面的该任务
       if (_model.taskBean.overallProgress >= 1.0) {
         _model.taskBean.finishDate = DateTime.now().toIso8601String();
-        mainPageModel.tasks.removeAt(mainPageModel.currentTapIndex);
+        removeTask(mainPageModel);
       }
       _model.taskBean.changeTimes++;
       DBProvider.db.updateTask(_model.taskBean).then((value){
+        //如果是从"完成列表"过来
         if (_model.doneTaskPageModel != null) {
           mainPageModel.logic.getTasks();
           _model.doneTaskPageModel.logic.getDoneTasks().then((value) {
             _model.doneTaskPageModel.refresh();
             Navigator.of(context).pop();
           });
-        } else {
+        }
+        //如果是从"搜索页面"过来
+        else if(_model.searchPageModel != null){
+          mainPageModel.logic.getTasks();
+          _model.searchPageModel.logic.onEditingComplete();
+          Navigator.of(context).pop();
+        }
+        else {
           print("点击退出");
           _model.isExiting = true;
           _model.refresh();
@@ -65,16 +75,32 @@ class TaskDetailPageLogic {
   }
 
   void deleteTask(MainPageModel mainPageModel) {
-    mainPageModel.tasks.removeAt(mainPageModel.currentTapIndex);
-    mainPageModel.refresh();
+    removeTask(mainPageModel);
     DBProvider.db.deleteTask(_model.taskBean.id);
     _model.refresh();
+    //如果是从“完成列表”过来
     final doneTaskPageModel = _model.doneTaskPageModel;
     if (doneTaskPageModel != null) {
       doneTaskPageModel.doneTasks.removeAt(doneTaskPageModel.currentTapIndex);
       doneTaskPageModel.refresh();
     }
+    //如果是从"搜索界面"过来
+    final searchPageModel = _model.searchPageModel;
+    if(searchPageModel != null){
+      searchPageModel.searchTasks.removeAt(searchPageModel.currentTapIndex);
+      searchPageModel.refresh();
+    }
     exitPage(isDeleting: true);
+  }
+
+  void removeTask(MainPageModel mainPageModel) {
+    for (var i = 0; i < mainPageModel.tasks.length; i++) {
+      var task = mainPageModel.tasks[i];
+      if(task.id == _model.taskBean.id){
+        mainPageModel.tasks.removeAt(i);
+        return;
+      }
+    }
   }
 
   void editTask(MainPageModel mainPageModel) {

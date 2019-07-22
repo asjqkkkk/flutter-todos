@@ -25,6 +25,12 @@ class GlobalLogic{
     return themeType == MyTheme.darkTheme ? Colors.grey[800] : Colors.white;
   }
 
+  //当为夜间模式时候，主题色背景替换为特定灰色
+  Color getPrimaryInDark(BuildContext context){
+    final themeType = _model.currentThemeBean.themeType;
+    return themeType == MyTheme.darkTheme ? Colors.grey : Theme.of(context).primaryColor;
+  }
+
   Future getCurrentLanguageCode() async{
     final list = await SharedUtil.instance.getStringList(Keys.currentLanguageCode);
     if (list == null) return;
@@ -95,6 +101,10 @@ class GlobalLogic{
     if(enableInfiniteScroll == null) return;
     if(enableInfiniteScroll == _model.enableInfiniteScroll) return;
     _model.enableInfiniteScroll = enableInfiniteScroll;
+  }
+
+  bool isDarkNow(){
+    return _model.currentThemeBean.themeType == MyTheme.darkTheme;
   }
 
 }

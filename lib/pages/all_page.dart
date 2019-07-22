@@ -12,3 +12,4 @@ export 'avatar_page.dart';
 export 'avatar_history_page.dart';
 export 'photo_page.dart';
 export 'done_task_page.dart';
+export 'search_page.dart';

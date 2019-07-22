@@ -14,6 +14,7 @@ class DoneTaskPageLogic {
     final tasks = await DBProvider.db.getTasks(isDone: true);
     if (tasks.length == 0) {
       _model.loadingFlag = LoadingFlag.empty;
+      _model.doneTasks.clear();
       return;
     }
     _model.doneTasks.clear();
@@ -25,7 +26,7 @@ class DoneTaskPageLogic {
     _model.currentTapIndex = index;
     Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
       return ProviderConfig.getInstance().getTaskDetailPage(
-        index,
+        task.id,
         task,
         doneTaskPageModel: _model,
       );

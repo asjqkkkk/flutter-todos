@@ -24,7 +24,7 @@ class TaskItem extends StatelessWidget {
 
     final widget = TaskInfoWidget(
       index,
-      space: 21,
+      space: 0,
       taskBean: taskBean,
       onDelete: onDelete,
       onEdit: onEdit,

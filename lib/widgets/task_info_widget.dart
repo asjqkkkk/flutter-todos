@@ -31,7 +31,6 @@ class TaskInfoWidget extends StatelessWidget {
         ? Theme.of(context).primaryColor
         : ColorBean.fromBean(taskBean.taskIconBean.colorBean);
     final taskIconData = IconBean.fromBean(taskBean.taskIconBean.iconBean);
-    debugPrint("进度:${taskBean.overallProgress}");
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,

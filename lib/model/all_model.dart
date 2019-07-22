@@ -6,3 +6,4 @@ export 'icon_setting_page_model.dart';
 export 'theme_page_model.dart';
 export 'avatar_page_model.dart';
 export 'done_task_page_model.dart';
+export 'search_page_model.dart';

@@ -42,7 +42,7 @@ class MainPage extends StatelessWidget {
                 size: 28,
                 color: globalModel.logic.getWhiteInDark(),
               ),
-              onPressed: () => model.logic.queryTask("旅行"),
+              onPressed: () => model.logic.onSearchTap(),
             )
           ],
         ),
@@ -103,7 +103,7 @@ class MainPage extends StatelessWidget {
                   ),
                 ),
                 model.tasks.length == 0
-                    ? model.logic.getEmptyWidget()
+                    ? model.logic.getEmptyWidget(globalModel)
                     : Container(
                         margin: EdgeInsets.only(top: 40,bottom: 40),
                         child: CarouselSlider(
