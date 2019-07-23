@@ -54,6 +54,7 @@ class EditTaskPage extends StatelessWidget {
           child: Form(
             autovalidate: true,
             child: Theme(
+              //目前ios还存在长按复制奔溃的问题，这里是为了解决这个问题
               data: ThemeData(platform: TargetPlatform.android),
               child: TextFormField(
                 textAlign: TextAlign.center,

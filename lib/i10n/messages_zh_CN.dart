@@ -69,6 +69,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "editTask" : MessageLookupByLibrary.simpleMessage("编辑"),
     "enableInfiniteScroll" : MessageLookupByLibrary.simpleMessage("任务卡片循环滑动"),
     "endBeforeStart" : MessageLookupByLibrary.simpleMessage("结束日期要比开始日期大才行哦"),
+    "feedback" : MessageLookupByLibrary.simpleMessage("意见反馈"),
+    "feedbackCantBeNull" : MessageLookupByLibrary.simpleMessage("意见反馈内容不能为空哦"),
+    "feedbackIsTooLittle" : MessageLookupByLibrary.simpleMessage("意见反馈内容太少了，再加点儿吧"),
+    "feedbackNeedEmoji" : MessageLookupByLibrary.simpleMessage("选个评价表情吧 "),
     "game" : MessageLookupByLibrary.simpleMessage("打游戏"),
     "green" : MessageLookupByLibrary.simpleMessage("青青草原"),
     "history" : MessageLookupByLibrary.simpleMessage("历史"),
@@ -111,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "versionDescription" : MessageLookupByLibrary.simpleMessage("版本描述"),
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("你好呀, "),
     "work" : MessageLookupByLibrary.simpleMessage("工作"),
-    "writeAtLeastOneTaskItem" : MessageLookupByLibrary.simpleMessage("请至少写下一项任务哦")
+    "writeAtLeastOneTaskItem" : MessageLookupByLibrary.simpleMessage("请至少写下一项任务哦"),
+    "writeYourContactInfo" : MessageLookupByLibrary.simpleMessage("是否留下你的联系方式"),
+    "writeYourFeedback" : MessageLookupByLibrary.simpleMessage("写下你的意见或是建议吧")
   };
 }

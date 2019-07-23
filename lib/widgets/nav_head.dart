@@ -18,7 +18,6 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        debugPrint("动画完成");
         _controller.reset();
         _controller.forward();
       }

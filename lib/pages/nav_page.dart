@@ -11,6 +11,7 @@ import 'package:todo_list/pages/setting_page.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+import 'feedback_page.dart';
 import 'image_page.dart';
 import 'navigator_setting_page.dart';
 
@@ -53,6 +54,16 @@ class NavPage extends StatelessWidget {
           onTap: () {
             Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
               return ProviderConfig.getInstance().getThemePage();
+            }));
+          },
+        ),
+        ListTile(
+          title: Text(DemoLocalizations.of(context).feedback),
+          leading: Icon(Icons.comment),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          onTap: () {
+            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+              return FeedbackPage();
             }));
           },
         ),

@@ -56,21 +56,24 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
             width: 260,
             child: Form(
               autovalidate: true,
-              child: TextFormField(
-                initialValue: widget.iconName ?? null,
-                validator: (text){
-                  widget.onTextChange(text);
-                  return null;
-                },
-                decoration: InputDecoration(
-                  hintText: DemoLocalizations.of(context).setIconName,
-                  prefixIcon: Icon(
-                    widget.iconData,
-                    color: currentIconColor,
+              child: Theme(
+                data: ThemeData(platform: TargetPlatform.android),
+                child: TextFormField(
+                  initialValue: widget.iconName ?? null,
+                  validator: (text){
+                    widget.onTextChange(text);
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    hintText: DemoLocalizations.of(context).setIconName,
+                    prefixIcon: Icon(
+                      widget.iconData,
+                      color: currentIconColor,
+                    ),
                   ),
+                  maxLength: 20,
+                  maxLines: 1,
                 ),
-                maxLength: 20,
-                maxLines: 1,
               ),
             ),
           ),

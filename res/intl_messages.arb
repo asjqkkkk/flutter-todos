@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-23T09:56:06.885287",
+  "@@last_modified": "2019-07-23T15:55:11.072053",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -77,6 +77,42 @@
   "changeTheme": "Change Theme",
   "@changeTheme": {
     "description": "切换主题",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedback": "Feedback",
+  "@feedback": {
+    "description": "意见反馈",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackCantBeNull": "feedback cannot be empty",
+  "@feedbackCantBeNull": {
+    "description": "意见反馈内容不能为空哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackIsTooLittle": "feedback is too little, add a little more",
+  "@feedbackIsTooLittle": {
+    "description": "意见反馈内容太少了，再加点儿吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackNeedEmoji": "please choose an emoji ",
+  "@feedbackNeedEmoji": {
+    "description": "选个评价表情吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeYourFeedback": "write your feedback ",
+  "@writeYourFeedback": {
+    "description": "写下你的意见或是建议吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeYourContactInfo": "whether to leave your contact information",
+  "@writeYourContactInfo": {
+    "description": "是否留下你的联系方式",
     "type": "text",
     "placeholders": {}
   },

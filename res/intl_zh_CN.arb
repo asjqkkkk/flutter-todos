@@ -80,6 +80,42 @@
       "type": "text",
       "placeholders": {}
     },
+  "feedback": "意见反馈",
+  "@feedback": {
+    "description": "意见反馈",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackCantBeNull": "意见反馈内容不能为空哦",
+  "@feedbackCantBeNull": {
+    "description": "意见反馈内容不能为空哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackIsTooLittle": "意见反馈内容太少了，再加点儿吧",
+  "@feedbackIsTooLittle": {
+    "description": "意见反馈内容太少了，再加点儿吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackNeedEmoji": "选个评价表情吧 ",
+  "@feedbackNeedEmoji": {
+    "description": "选个评价表情吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeYourFeedback": "写下你的意见或是建议吧",
+  "@writeYourFeedback": {
+    "description": "写下你的意见或是建议吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeYourContactInfo": "是否留下你的联系方式",
+  "@writeYourContactInfo": {
+    "description": "是否留下你的联系方式",
+    "type": "text",
+    "placeholders": {}
+  },
   "appSetting": "设置",
   "@appSetting": {
     "description": "app设置",

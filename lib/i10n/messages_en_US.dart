@@ -69,6 +69,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "editTask" : MessageLookupByLibrary.simpleMessage("Edit"),
     "enableInfiniteScroll" : MessageLookupByLibrary.simpleMessage("Task card cycle slide"),
     "endBeforeStart" : MessageLookupByLibrary.simpleMessage("The end date need be bigger than the start date."),
+    "feedback" : MessageLookupByLibrary.simpleMessage("Feedback"),
+    "feedbackCantBeNull" : MessageLookupByLibrary.simpleMessage("feedback cannot be empty"),
+    "feedbackIsTooLittle" : MessageLookupByLibrary.simpleMessage("feedback is too little, add a little more"),
+    "feedbackNeedEmoji" : MessageLookupByLibrary.simpleMessage("please choose an emoji "),
     "game" : MessageLookupByLibrary.simpleMessage("Game"),
     "green" : MessageLookupByLibrary.simpleMessage("green"),
     "history" : MessageLookupByLibrary.simpleMessage("history"),
@@ -111,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "versionDescription" : MessageLookupByLibrary.simpleMessage("Version Description"),
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("Hello, "),
     "work" : MessageLookupByLibrary.simpleMessage("Work"),
-    "writeAtLeastOneTaskItem" : MessageLookupByLibrary.simpleMessage("Please write at least one task.")
+    "writeAtLeastOneTaskItem" : MessageLookupByLibrary.simpleMessage("Please write at least one task."),
+    "writeYourContactInfo" : MessageLookupByLibrary.simpleMessage("whether to leave your contact information"),
+    "writeYourFeedback" : MessageLookupByLibrary.simpleMessage("write your feedback ")
   };
 }

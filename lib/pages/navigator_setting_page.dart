@@ -40,14 +40,23 @@ class NavSettingPage extends StatelessWidget {
               groupValue: globalModel.currentNavHeader,
               onChanged: (value) => onChanged(globalModel, value,context: context),
               title: Text(DemoLocalizations.of(context).netPicture),
-              subtitle: globalModel.currentNetPicUrl == "" ? null : CachedNetworkImage(
-                imageUrl:globalModel.currentNetPicUrl,
-                placeholder: (context, url) => new Container(
-                  alignment: Alignment.center,
-                  child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),
+              subtitle: globalModel.currentNetPicUrl == "" ? null : GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+                    return PhotoPage(
+                      selectValue: NavHeadType.netPicture,
+                    );
+                  }));
+                },
+                child: CachedNetworkImage(
+                  imageUrl:globalModel.currentNetPicUrl,
+                  placeholder: (context, url) => new Container(
+                    alignment: Alignment.center,
+                    child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),
+                  ),
+                  errorWidget: (context, url, error) => new Icon(Icons.error,color: Colors.redAccent,),
                 ),
-                errorWidget: (context, url, error) => new Icon(Icons.error,color: Colors.redAccent,),
-              ),
+              )
             ),
           ],
         ),
@@ -55,40 +64,9 @@ class NavSettingPage extends StatelessWidget {
     );
   }
 
-  void show(BuildContext context, String netUrl) {
-     showDialog(context: context, builder: (ctx){
-      return AlertDialog(
-        title: Text("输入图片地址"),
-        content: Form(
-          autovalidate: true,
-          child: TextFormField(
-            decoration: InputDecoration(
-              suffixIcon: IconButton(icon: Icon(Icons.cancel), onPressed: (){
-    
-              },),
-            ),
-            validator: (text){
-    
-            },
-            initialValue: netUrl,
-          ),
-        ),
-        actions: <Widget>[
-          FlatButton(onPressed: (){
-            Navigator.of(context).pop();
-          }, child: Text(DemoLocalizations.of(context).cancel, style: TextStyle(color: Colors.redAccent),),),
-          FlatButton(onPressed: (){
-            Navigator.of(context).pop();
-    
-          }, child: Text(DemoLocalizations.of(context).ok, style: TextStyle(color: Colors.green),),),
-        ],
-      );
-    });
-  }
-
   Future onChanged(GlobalModel globalModel, value, {BuildContext context}) async {
 
-    if(context != null){
+    if(context != null && globalModel.currentNetPicUrl == ""){
       Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
           return PhotoPage(
             selectValue: value,
