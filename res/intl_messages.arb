@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-23T17:11:43.713992",
+  "@@last_modified": "2019-07-23T23:48:57.539426",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -125,6 +125,12 @@
   "submitSuccess": "submit success!",
   "@submitSuccess": {
     "description": "提交成功！",
+    "type": "text",
+    "placeholders": {}
+  },
+  "thanksForFeedback": "Thanks for your feedback",
+  "@thanksForFeedback": {
+    "description": "感谢你的反馈",
     "type": "text",
     "placeholders": {}
   },
@@ -347,6 +353,12 @@
   "avatar": "avatar",
   "@avatar": {
     "description": "头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "save": "save",
+  "@save": {
+    "description": "保存",
     "type": "text",
     "placeholders": {}
   },

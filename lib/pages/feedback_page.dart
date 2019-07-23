@@ -25,7 +25,7 @@ class FeedbackPage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.check),
-            onPressed: model.logic.onFeedbackSubmit,
+            onPressed: () => model.logic.onFeedbackSubmit(),
           )
         ],
       ),

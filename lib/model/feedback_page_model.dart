@@ -2,11 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class FeedbackPageModel extends ChangeNotifier{
 
   FeedbackPageLogic logic;
   BuildContext context;
+  final LoadingController loadingController = LoadingController();
 
   int currentSelectSvg = -99;
 
@@ -21,8 +23,6 @@ class FeedbackPageModel extends ChangeNotifier{
   String feedbackContent = "";
   String contactWay = "";
   final CancelToken cancelToken = CancelToken();
-
-  LoadingFlag loadingFlag = LoadingFlag.loading;
 
   FeedbackPageModel(){
     logic = FeedbackPageLogic(this);

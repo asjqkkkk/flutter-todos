@@ -6,14 +6,14 @@ import 'package:todo_list/json/common_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/full_screen_dialog_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 
-class FeedbackPageLogic{
-
+class FeedbackPageLogic {
   final FeedbackPageModel _model;
 
   FeedbackPageLogic(this._model);
 
-  void onSvgTap(int index){
+  void onSvgTap(int index) {
     if (_model.currentSelectSvg == index) {
       _model.currentSelectSvg = -99;
     } else {
@@ -21,7 +21,6 @@ class FeedbackPageLogic{
     }
     _model.refresh();
   }
-
 
   void showWrongDialog(BuildContext context, String description) {
     showDialog(
@@ -57,84 +56,66 @@ class FeedbackPageLogic{
       showWrongDialog(context, DemoLocalizations.of(context).feedbackNeedEmoji);
       return;
     }
-    _model.loadingFlag = LoadingFlag.loading;
-    _model.refresh();
+
+    _model.loadingController.setFlag(LoadingFlag.loading);
     showDialog(
         context: context,
         builder: (ctx) {
-
-
-
           return GestureDetector(
             onTap: (){
-              _model.loadingFlag = LoadingFlag.success;
-              _model.refresh();
-              print("点击");
+              _model.loadingController.setFlag(LoadingFlag.success);
             },
-            child: Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.fromLTRB(size.width / 6, size.height / 4,
-                  size.width / 6, size.height / 4),
-              child: Card(
-                child: LoadingWidget(
-                  flag: _model.loadingFlag,
-                  loadingText: getLoadingText(),
-                  successWidget: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+            child: NetLoadingWidget(
+              loadingController: _model.loadingController,
+              successWidget: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Column(
                     children: <Widget>[
-                      Text(DemoLocalizations.of(context).submitSuccess),
-                      FlatButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                          Navigator.of(context).pop();
-                        },
-                        child: Text(DemoLocalizations.of(context).ok),
-                      )
+                      Text(
+                        DemoLocalizations.of(context).submitSuccess,
+                        style: TextStyle(fontSize: 30),
+                      ),
+                      SizedBox(height: 10,),
+                      Container(
+                        margin: EdgeInsets.only(left: 10,right: 10),
+                        child: Text(
+                          DemoLocalizations.of(context).thanksForFeedback,
+                          style: TextStyle(fontSize: 30),
+                        ),
+                      ),
                     ],
                   ),
-                ),
+                  FlatButton(
+                    color: Theme.of(context).primaryColor,
+                    highlightColor: Theme.of(context).primaryColorLight,
+                    colorBrightness: Brightness.dark,
+                    splashColor: Theme.of(context).primaryColorDark,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0)),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(DemoLocalizations.of(context).ok),
+                  )
+                ],
               ),
             ),
           );
         });
-
-//    final account =
-//        await SharedUtil.instance.getString(Keys.account) ?? "default";
+    final account =
+        await SharedUtil.instance.getString(Keys.account) ?? "default";
 //    ApiService.instance.postSuggestion({
 //      "account": account,
 //      "suggestion": _model.feedbackContent,
 //      "connectWay": _model.contactWay ?? "",
 //    }, (CommonBean bean) {
-//      _model.loadingFlag = LoadingFlag.success;
-//      _model.refresh();
+//      _model.loadingController.setFlag(LoadingFlag.success);
 //    }, (CommonBean bean) {
-//      _model.loadingFlag = LoadingFlag.error;
-//      _model.refresh();
+//      _model.loadingController.setFlag(LoadingFlag.error);
 //    }, (error) {
-//      _model.loadingFlag = LoadingFlag.error;
-//      _model.refresh();
+//      _model.loadingController.setFlag(LoadingFlag.error);
 //    }, _model.cancelToken);
   }
-
-  String getLoadingText() {
-    final context = _model.context;
-    switch (_model.loadingFlag) {
-      case LoadingFlag.loading:
-        return DemoLocalizations.of(context).waitAMoment;
-        break;
-      case LoadingFlag.error:
-        return DemoLocalizations.of(context).submitAgain;
-        break;
-      case LoadingFlag.success:
-        return DemoLocalizations.of(context).submitSuccess;
-        break;
-      case LoadingFlag.empty:
-        return "";
-        break;
-      case LoadingFlag.idle:
-        return "";
-        break;
-    }
-  }
-
 }

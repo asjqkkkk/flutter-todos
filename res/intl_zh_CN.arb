@@ -128,6 +128,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "thanksForFeedback": "感谢你的反馈",
+  "@thanksForFeedback": {
+    "description": "感谢你的反馈",
+    "type": "text",
+    "placeholders": {}
+  },
   "submitAgain": "重新提交",
   "@submitAgain": {
     "description": "重新提交",
@@ -323,6 +329,12 @@
   "avatar": "头像",
   "@avatar": {
     "description": "头像",
+    "type": "text",
+    "placeholders": {}
+  },
+  "save": "保存",
+  "@save": {
+    "description": "保存",
     "type": "text",
     "placeholders": {}
   },

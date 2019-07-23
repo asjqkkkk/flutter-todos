@@ -69,7 +69,7 @@ class AvatarPage extends StatelessWidget {
               highlightColor: Theme.of(context).primaryColorLight,
               colorBrightness: Brightness.dark,
               splashColor: Theme.of(context).primaryColorDark,
-              child: Text("保存"),
+              child: Text(DemoLocalizations.of(context).save),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0)),
               onPressed: model.logic.onSaveTap,

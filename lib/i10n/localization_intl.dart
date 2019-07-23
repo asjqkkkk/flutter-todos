@@ -79,6 +79,7 @@ class DemoLocalizations {
   String get writeYourContactInfo => Intl.message('whether to leave your contact information', name: 'writeYourContactInfo', desc: '是否留下你的联系方式',);
   String get waitAMoment => Intl.message('please wait for a moment...', name: 'waitAMoment', desc: '请稍后...',);
   String get submitSuccess => Intl.message('submit success!', name: 'submitSuccess', desc: '提交成功！',);
+  String get thanksForFeedback => Intl.message('Thanks for your feedback', name: 'thanksForFeedback', desc: '感谢你的反馈',);
   String get submitAgain => Intl.message('submit again', name: 'submitAgain', desc: '重新提交',);
 
   String get appSetting {
@@ -145,6 +146,7 @@ class DemoLocalizations {
   String get avatarNet => Intl.message('Select an avatar from the network', name: 'avatarNet', desc: '从网络选取头像',);
   String get avatarHistory => Intl.message('Select an avatar from the history', name: 'avatarHistory', desc: '历史头像记录',);
   String get avatar => Intl.message('avatar', name: 'avatar', desc: '头像',);
+  String get save => Intl.message('save', name: 'save', desc: '保存',);
   String get history => Intl.message('history', name: 'history', desc: '历史',);
 
 

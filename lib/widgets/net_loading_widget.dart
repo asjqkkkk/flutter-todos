@@ -6,8 +6,9 @@ import 'loading_widget.dart';
 class NetLoadingWidget extends StatefulWidget {
 
   final LoadingController loadingController;
+  final Widget successWidget;
 
-  const NetLoadingWidget({Key key, this.loadingController,}) : super(key: key);
+  const NetLoadingWidget({Key key, this.loadingController, this.successWidget,}) : super(key: key);
 
   @override
   _NetLoadingWidgetState createState() => _NetLoadingWidgetState();
@@ -22,17 +23,9 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
   Widget build(BuildContext context) {
 
     final size = MediaQuery.of(context).size;
-    var key;
 
-    @override
-    void initState() {
-      key = GlobalKey();
-      widget?.loadingController?._setState(this);
-      super.initState();
-    }
 
     return Scaffold(
-      key: key,
       backgroundColor: Colors.black.withOpacity(0.3),
       body: Container(
         width: size.width,
@@ -42,22 +35,13 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
           width: size.width / 3 * 2,
           height: size.height / 2,
           child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30.0),
+            ),
             child: LoadingWidget(
               flag: loadingFlag,
               loadingText: getLoadingText(),
-              successWidget: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(DemoLocalizations.of(context).submitSuccess),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      Navigator.of(context).pop();
-                    },
-                    child: Text(DemoLocalizations.of(context).ok),
-                  )
-                ],
-              ),
+              successWidget: widget.successWidget,
             ),
           ),
         ),
@@ -65,6 +49,12 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
     );
   }
 
+
+  @override
+  void initState() {
+    super.initState();
+    widget?.loadingController?._setState(this);
+  }
 
   String getLoadingText() {
     switch (loadingFlag) {
@@ -88,21 +78,29 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
 }
 
 
+//这里面的state没有去执行dispose，不知道会不会内存泄漏
 class LoadingController{
 
 
   _NetLoadingWidgetState _state;
 
   void setFlag(LoadingFlag loadingFlag){
-    _state.loadingFlag = loadingFlag;
-    _state.setState((){});
+    _state?.loadingFlag = loadingFlag;
+    if(_state.mounted){
+      _state?.setState((){});
+    }
+    print("设置:${_state?.loadingFlag}");
   }
 
 
   void _setState(_NetLoadingWidgetState state){
-    if(this._state == null){
+    if(this?._state == null){
+      this?._state = state;
+    } else {
+      this._state = null;
       this._state = state;
     }
   }
+
 
 }
