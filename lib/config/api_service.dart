@@ -1,4 +1,6 @@
-import 'package:todo_list/json/photo_bean.dart';
+
+
+import 'package:todo_list/json/all_beans.dart';
 
 import 'api_strategy.dart';
 export 'package:dio/dio.dart';
@@ -49,22 +51,28 @@ class ApiService {
     );
   }
 
-//通用的请求
-//  void postCommon(Map<String, String> params, Function success,
-//      Function failed, Function error, String url) {
-//    ApiStrategy.getInstance().post(
-//        url, (data) {
-//          CommonBean commonBean = CommonBean.fromMap(data);
-//          if (commonBean.status == 0) {
-//            success(commonBean);
-//          } else {
-//            failed(commonBean);
-//          }
-//        },
-//        params: params,
-//        errorCallBack: (errorMessage) {
-//          error(errorMessage);
-//        });
-//  }
+  //提交建议
+  void postSuggestion(Map<String, String> params, Function success,
+      Function failed, Function error, CancelToken token){
+    postCommon(params, success, failed, error, "fUser/suggestion", token);
+  }
+
+  //通用的请求
+  void postCommon(Map<String, String> params, Function success,
+      Function failed, Function error, String url, CancelToken token) {
+    ApiStrategy.getInstance().post(
+        url, (data) {
+          CommonBean commonBean = CommonBean.fromMap(data);
+          if (commonBean.status == 0) {
+            success(commonBean);
+          } else {
+            failed(commonBean);
+          }
+        },
+        params: params,
+        errorCallBack: (errorMessage) {
+          error(errorMessage);
+        },token: token);
+  }
 
 }

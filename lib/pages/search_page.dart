@@ -43,10 +43,7 @@ class SearchPage extends StatelessWidget {
                 ),
                 onPressed:() => model.textEditingController?.clear(),),
             border: InputBorder.none,
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(10.0),
-              ),
+            focusedBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: bgColor, width: 1),
             ),
           ),

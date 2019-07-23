@@ -77,6 +77,9 @@ class DemoLocalizations {
   String get feedbackNeedEmoji => Intl.message('please choose an emoji ', name: 'feedbackNeedEmoji', desc: '选个评价表情吧',);
   String get writeYourFeedback => Intl.message('write your feedback ', name: 'writeYourFeedback', desc: '写下你的意见或是建议吧',);
   String get writeYourContactInfo => Intl.message('whether to leave your contact information', name: 'writeYourContactInfo', desc: '是否留下你的联系方式',);
+  String get waitAMoment => Intl.message('please wait for a moment...', name: 'waitAMoment', desc: '请稍后...',);
+  String get submitSuccess => Intl.message('submit success!', name: 'submitSuccess', desc: '提交成功！',);
+  String get submitAgain => Intl.message('submit again', name: 'submitAgain', desc: '重新提交',);
 
   String get appSetting {
     return Intl.message(

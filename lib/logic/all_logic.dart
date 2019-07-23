@@ -7,3 +7,4 @@ export 'theme_page_logic.dart';
 export 'avatar_page_logic.dart';
 export 'done_task_page_logic.dart';
 export 'search_page_logic.dart';
+export 'feedback_page_logic.dart';

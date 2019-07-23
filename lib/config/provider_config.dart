@@ -100,4 +100,11 @@ class ProviderConfig {
       child: SearchPage(),
     );
   }
+
+  ChangeNotifierProvider<FeedbackPageModel> getFeedbackPage(){
+     return ChangeNotifierProvider<FeedbackPageModel>(
+       builder:(context) => FeedbackPageModel(),
+       child: FeedbackPage(),
+     );
+   }
 }

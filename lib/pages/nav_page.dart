@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +9,6 @@ import 'package:todo_list/pages/setting_page.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'feedback_page.dart';
 import 'image_page.dart';
 import 'navigator_setting_page.dart';
 
@@ -63,7 +60,7 @@ class NavPage extends StatelessWidget {
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
             Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
-              return FeedbackPage();
+              return ProviderConfig.getInstance().getFeedbackPage();
             }));
           },
         ),

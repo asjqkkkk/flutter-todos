@@ -7,3 +7,4 @@ export 'theme_page_model.dart';
 export 'avatar_page_model.dart';
 export 'done_task_page_model.dart';
 export 'search_page_model.dart';
+export 'feedback_page_model.dart';

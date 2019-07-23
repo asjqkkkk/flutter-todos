@@ -116,6 +116,24 @@
     "type": "text",
     "placeholders": {}
   },
+  "waitAMoment": "请稍后...",
+  "@waitAMoment": {
+    "description": "请稍后...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "submitSuccess": "提交成功!",
+  "@submitSuccess": {
+    "description": "提交成功！",
+    "type": "text",
+    "placeholders": {}
+  },
+  "submitAgain": "重新提交",
+  "@submitAgain": {
+    "description": "重新提交",
+    "type": "text",
+    "placeholders": {}
+  },
   "appSetting": "设置",
   "@appSetting": {
     "description": "app设置",

@@ -11,6 +11,7 @@ class LoadingWidget extends StatelessWidget {
   final String errorText;
   final LoadingFlag flag;
   final VoidCallback errorCallBack;
+  final Widget successWidget;
   final double size;
 
   LoadingWidget(
@@ -21,7 +22,7 @@ class LoadingWidget extends StatelessWidget {
       this.flag = LoadingFlag.loading,
       this.errorCallBack,
       this.emptyText,
-      this.errorText, this.size = 100});
+      this.errorText, this.size = 100, this.successWidget});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +79,7 @@ class LoadingWidget extends StatelessWidget {
         );
         break;
       case LoadingFlag.success:
-        return SizedBox();
+        return successWidget ?? SizedBox();
         break;
       case LoadingFlag.empty:
         return Center(

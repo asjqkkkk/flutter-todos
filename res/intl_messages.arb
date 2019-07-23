@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-23T15:55:11.072053",
+  "@@last_modified": "2019-07-23T17:11:43.713992",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -113,6 +113,24 @@
   "writeYourContactInfo": "whether to leave your contact information",
   "@writeYourContactInfo": {
     "description": "是否留下你的联系方式",
+    "type": "text",
+    "placeholders": {}
+  },
+  "waitAMoment": "please wait for a moment...",
+  "@waitAMoment": {
+    "description": "请稍后...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "submitSuccess": "submit success!",
+  "@submitSuccess": {
+    "description": "提交成功！",
+    "type": "text",
+    "placeholders": {}
+  },
+  "submitAgain": "submit again",
+  "@submitAgain": {
+    "description": "重新提交",
     "type": "text",
     "placeholders": {}
   },
