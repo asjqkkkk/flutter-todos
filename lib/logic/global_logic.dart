@@ -25,10 +25,16 @@ class GlobalLogic{
     return themeType == MyTheme.darkTheme ? Colors.grey[800] : Colors.white;
   }
 
+  //当为夜间模式时候，主题色背景替换为灰色
+  Color getPrimaryGreyInDark(BuildContext context){
+    final themeType = _model.currentThemeBean.themeType;
+    return themeType == MyTheme.darkTheme ? Colors.grey : Theme.of(context).primaryColor;
+  }
+
   //当为夜间模式时候，主题色背景替换为特定灰色
   Color getPrimaryInDark(BuildContext context){
     final themeType = _model.currentThemeBean.themeType;
-    return themeType == MyTheme.darkTheme ? Colors.grey : Theme.of(context).primaryColor;
+    return themeType == MyTheme.darkTheme ? Colors.grey[800] : Theme.of(context).primaryColor;
   }
 
   Future getCurrentLanguageCode() async{

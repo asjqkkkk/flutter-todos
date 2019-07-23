@@ -106,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "taskNum" : MessageLookupByLibrary.simpleMessage("任务数"),
     "toFinishTask" : MessageLookupByLibrary.simpleMessage("努力去完成一项任务吧"),
     "travel" : MessageLookupByLibrary.simpleMessage("旅行"),
+    "tryToSearch" : MessageLookupByLibrary.simpleMessage("试试搜一下标题、内容吧"),
     "unknownDes" : MessageLookupByLibrary.simpleMessage("未知权限"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("版本描述"),
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("你好呀, "),

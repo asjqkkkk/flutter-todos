@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/database/database.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
@@ -17,27 +18,28 @@ class SearchPage extends StatelessWidget {
     final globalModel = Provider.of<GlobalModel>(context);
     final model = Provider.of<SearchPageModel>(context)..setContext(context);
     final primaryColor = globalModel.logic.getPrimaryInDark(context);
-    final bgColor = globalModel.logic.getBgInDark();
+    final bgColor = globalModel.logic.getWhiteInDark();
+    final whiteInDark = globalModel.logic.getWhiteInDark();
 
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: primaryColor,
       appBar: AppBar(
         elevation: 0.0,
         title: TextField(
           style: TextStyle(
-            color: primaryColor,
+            color: bgColor,
           ),
           textInputAction: TextInputAction.search,
           autofocus: true,
           controller: model.textEditingController,
           onEditingComplete: model.logic.onEditingComplete,
           decoration: new InputDecoration(
-            hintText: "Search...",
-            hintStyle: new TextStyle(color: primaryColor),
+            hintText: DemoLocalizations.of(context).tryToSearch,
+            hintStyle: new TextStyle(color: bgColor),
             suffixIcon: IconButton(
                 icon: Icon(
                   Icons.clear,
-                  color: primaryColor,
+                  color: bgColor,
                 ),
                 onPressed:() => model.textEditingController?.clear(),),
             border: InputBorder.none,
@@ -45,19 +47,20 @@ class SearchPage extends StatelessWidget {
               borderRadius: BorderRadius.all(
                 Radius.circular(10.0),
               ),
-              borderSide: BorderSide(color: primaryColor, width: 1),
+              borderSide: BorderSide(color: bgColor, width: 1),
             ),
           ),
         ),
-        backgroundColor: bgColor,
+        backgroundColor: primaryColor,
         iconTheme: IconThemeData(
-          color: primaryColor,
+          color: bgColor,
         ),
       ),
       body: Container(
           child: model.loadingFlag != LoadingFlag.success
               ? LoadingWidget(
                   flag: model.loadingFlag,
+            progressColor: bgColor,
                 )
               : GridView.count(
                   crossAxisCount: 2,

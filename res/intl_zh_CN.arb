@@ -6,6 +6,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "tryToSearch": "试试搜一下标题、内容吧",
+  "@tryToSearch": {
+    "description": "试试搜一下标题、内容吧",
+    "type": "text",
+    "placeholders": {}
+  },
   "doneList": "完成列表",
   "@doneList": {
     "description": "完成列表",

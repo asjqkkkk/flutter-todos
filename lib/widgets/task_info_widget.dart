@@ -90,7 +90,7 @@ class TaskInfoWidget extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    flex: 9,
+                    flex: 8,
                     child: Container(
                       alignment: Alignment.bottomLeft,
                       child: Hero(
@@ -108,7 +108,7 @@ class TaskInfoWidget extends StatelessWidget {
                   ),
                   taskBean.overallProgress >= 1.0 && !isExisting
                       ? Expanded(
-                          flex: 1,
+                          flex: 2,
                           child: Container(
                               width: 25,
                               height: 25,
@@ -139,7 +139,6 @@ class TaskInfoWidget extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.centerRight,
-              margin: EdgeInsets.only(top: 5),
               child: Hero(
                 tag: "task_progress${index}",
                 child: Material(

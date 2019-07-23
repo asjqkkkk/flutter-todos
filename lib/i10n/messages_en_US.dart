@@ -106,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "taskNum" : MessageLookupByLibrary.simpleMessage("Task Number"),
     "toFinishTask" : MessageLookupByLibrary.simpleMessage("Try to complete a task!"),
     "travel" : MessageLookupByLibrary.simpleMessage("Travel"),
+    "tryToSearch" : MessageLookupByLibrary.simpleMessage("Try searching for the title or content"),
     "unknownDes" : MessageLookupByLibrary.simpleMessage("Unknown permission"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("Version Description"),
     "welcomeWord" : MessageLookupByLibrary.simpleMessage("Hello, "),
