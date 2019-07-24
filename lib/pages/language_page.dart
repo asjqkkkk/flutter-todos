@@ -31,6 +31,7 @@ class LanguagePage extends StatelessWidget {
               onChanged: (value) {
                 model.currentLanguageCode = [languageCode, countryCode];
                 model.currentLanguage = language;
+                model.currentLocale = Locale(languageCode, countryCode);
                 model.appName = appName;
                 model.refresh();
                 SharedUtil.instance.saveStringList(

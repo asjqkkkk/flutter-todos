@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/model/all_model.dart';
-import 'package:todo_list/pages/main_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 
 import 'i10n/localization_intl.dart';
@@ -37,12 +34,23 @@ class MyApp extends StatelessWidget {
           const Locale('zh', 'CN'), // 中文简体
         ],
         localeResolutionCallback:
-            (Locale locale, Iterable<Locale> supportedLocales) {},
+            (Locale locale, Iterable<Locale> supportedLocales) {
+              debugPrint("locale:${locale}   sups:${supportedLocales}" );
+              if(model.currentLocale == locale) return;
+              for (var supportedLocale in supportedLocales) {
+                if(supportedLocale == locale){
+                  model.currentLocale = locale;
+                  model.currentLanguageCode = [locale.languageCode, locale.countryCode];
+                  locale.countryCode == "CN" ? model.currentLanguage = "中文" : model.currentLanguage ="English";
+                  return;
+                }
+              }
+            },
         localeListResolutionCallback:
             (List<Locale> locales, Iterable<Locale> supportedLocales) {
-          debugPrint("app:${model.appName}");
+              debugPrint("locatassss:${locales}  sups:${supportedLocales}");
             },
-        locale: Locale(model.currentLanguageCode[0], model.currentLanguageCode[1]),
+        locale: model.currentLocale,
         theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),
         home: ProviderConfig.getInstance().getMainPage());
   }

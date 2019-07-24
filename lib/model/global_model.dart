@@ -35,6 +35,7 @@ class GlobalModel extends ChangeNotifier {
   //当前语言
   List<String> currentLanguageCode = ["zh", "CN"];
   String currentLanguage = "中文";
+  Locale currentLocale;
 
   //当前导航栏头部背景
   String currentNavHeader = "MeteorShower";
@@ -60,6 +61,7 @@ class GlobalModel extends ChangeNotifier {
         logic.getIsCardChangeWithBg(),
         logic.getEnableInfiniteScroll()
       ]).then((value) {
+        currentLocale = Locale(currentLanguageCode[0], currentLanguageCode[1]);
         refresh();
       });
     }
