@@ -125,11 +125,15 @@ class GlobalLogic{
     _model.enableWeatherShow = enableWeatherShow;
   }
 
-  void getWeatherNow(String position){
+  void getWeatherNow(String position,{BuildContext context}){
     ApiService.instance.getWeatherNow((WeatherBean weatherBean){
       debugPrint("请求结果:${weatherBean.toString()}");
       _model.weatherBean = weatherBean;
+      _model.enableWeatherShow = true;
       _model.refresh();
+      if(context != null) {
+        Navigator.pop(context);
+      }
     }, (WeatherBean weatherBean){
 
     }, (error){

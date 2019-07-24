@@ -46,13 +46,15 @@ class SettingPage extends StatelessWidget {
             ),
             value: globalModel.isBgChangeWithCard,
             activeColor: Theme.of(context).primaryColor,
-            onChanged: (value){
+            onChanged: (value) {
               globalModel.isBgChangeWithCard = value;
-              if(globalModel.isCardChangeWithBg && value){
+              if (globalModel.isCardChangeWithBg && value) {
                 globalModel.isCardChangeWithBg = false;
-                SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground, false);
+                SharedUtil.instance
+                    .saveBoolean(Keys.cardChangeWithBackground, false);
               }
-              SharedUtil.instance.saveBoolean(Keys.backgroundChangeWithCard, globalModel.isBgChangeWithCard);
+              SharedUtil.instance.saveBoolean(Keys.backgroundChangeWithCard,
+                  globalModel.isBgChangeWithCard);
               globalModel.refresh();
             },
           ),
@@ -69,11 +71,13 @@ class SettingPage extends StatelessWidget {
             activeColor: Theme.of(context).primaryColor,
             onChanged: (value) {
               globalModel.isCardChangeWithBg = value;
-              if(globalModel.isBgChangeWithCard && value){
+              if (globalModel.isBgChangeWithCard && value) {
                 globalModel.isBgChangeWithCard = false;
-                SharedUtil.instance.saveBoolean(Keys.backgroundChangeWithCard, false);
+                SharedUtil.instance
+                    .saveBoolean(Keys.backgroundChangeWithCard, false);
               }
-              SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground, globalModel.isCardChangeWithBg);
+              SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground,
+                  globalModel.isCardChangeWithBg);
               globalModel.refresh();
             },
           ),
@@ -90,29 +94,66 @@ class SettingPage extends StatelessWidget {
             activeColor: Theme.of(context).primaryColor,
             onChanged: (value) {
               debugPrint("value:${value}");
-              if(value){
+              if (value) {
                 PermissionReqUtil.getInstance().requestPermission(
-                  PermissionGroup.locationWhenInUse,
-                  context: context,
-                  granted: () async{
-                    globalModel.enableWeatherShow = true;
-                    SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, true);
-                    globalModel.refresh();
-                    //在android模拟器上无法获取位置
-                    Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.lowest);
-                    final lat = position.latitude;
-                    final lon = position.longitude;
-                    debugPrint("位置:${position}");
-                    SharedUtil.instance.saveString(Keys.currentPosition, "${lat},${lon}");
-                    debugPrint("value:${globalModel.enableWeatherShow}");
-                    globalModel.logic.getWeatherNow("${lat},${lon}");
-                  },);
-              } else{
+                    PermissionGroup.locationWhenInUse,
+                    context: context, granted: () async {
+                  globalModel.enableWeatherShow = true;
+                  SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, true);
+                  globalModel.refresh();
+                  //在android模拟器上无法获取位置
+                  Position position = await Geolocator().getCurrentPosition(
+                      desiredAccuracy: LocationAccuracy.lowest);
+                  final lat = position.latitude;
+                  final lon = position.longitude;
+                  debugPrint("位置:${position}");
+                  SharedUtil.instance
+                      .saveString(Keys.currentPosition, "${lat},${lon}");
+                  debugPrint("value:${globalModel.enableWeatherShow}");
+                  globalModel.logic.getWeatherNow("${lat},${lon}");
+                }, disabled: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text("无法获取定位权限"),
+                          content: Form(
+                            autovalidate: true,
+                            child: TextFormField(
+                              validator: (text){
+                                globalModel.currentPosition = text;
+                              },
+                              decoration: InputDecoration(
+                                hintText: "手动输入当前城市",
+                              ),
+                            ),
+                          ),
+                          actions: <Widget>[
+                            FlatButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(
+                                DemoLocalizations.of(context).cancel,
+                                style: TextStyle(color: Colors.redAccent),
+                              ),
+                            ),
+                            FlatButton(
+                              onPressed: () {
+                                globalModel.logic.getWeatherNow(globalModel.currentPosition, context: context);
+                              },
+                              child: Text(DemoLocalizations.of(context).ok,
+                                  style: TextStyle(color: Colors.greenAccent)),
+                            ),
+                          ],
+                        );
+                      });
+                });
+              } else {
                 globalModel.enableWeatherShow = false;
                 SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, false);
                 globalModel.refresh();
               }
-
             },
           ),
           SwitchListTile(

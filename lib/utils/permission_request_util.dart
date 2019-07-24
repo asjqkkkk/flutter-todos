@@ -50,10 +50,10 @@ class PermissionReqUtil {
         break;
       case PermissionStatus.disabled:
         debugPrint("disabled权限:${reqPermissions}");
-        if (disabled != null) disabled();
-//        if(reqPermissions == PermissionGroup.locationWhenInUse){
-//
-//        }
+        if (disabled != null) {
+          disabled();
+          return;
+        };
         toShow(showDialog, context, reqPermissions, disabledDes,openSetting);
         break;
       case PermissionStatus.restricted:
