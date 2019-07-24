@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by 李晨 on 2019/7/24.
+  Copyright © 2019 The Chromium Authors. All rights reserved.
+*/
+"CFBundleDisplayName" = "一日清单";
+"NSLocationWhenInUseUsageDescription" = "开启天气功能需要获取定位权限";
+"NSPhotoLibraryUsageDescription" = "从本地选取头像需要访问相册";

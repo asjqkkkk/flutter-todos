@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by 李晨 on 2019/7/24.
+  Copyright © 2019 The Chromium Authors. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "One-Day List";
+"NSLocationWhenInUseUsageDescription" = "Turning on weather requires access to location permissions";
+"NSPhotoLibraryUsageDescription" = "Selecting an avatar from the local needs to access the image";
