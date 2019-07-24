@@ -69,14 +69,14 @@ class _PhotoPageState extends State<PhotoPage> {
                   child: GridView.count(
                     crossAxisCount: 2,
                     children: List.generate(photos.length, (index) {
-                      final url = photos[index].urls.small;
+                      final url = photos[index].urls.regular;
                       return InkWell(
                         onTap: () {
                           Navigator.of(context)
                               .push(new CupertinoPageRoute(builder: (ctx) {
                             return ImagePage(
                               imageUrls: List.generate(photos.length, (index) {
-                                return photos[index].urls.regular;
+                                return url;
                               }),
                               initialPageIndex: index,
                               onSelect: (current) {

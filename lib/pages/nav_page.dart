@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,9 +18,6 @@ class NavPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
-
-    final size = MediaQuery.of(context).size;
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
 
     return ListView(
       padding: EdgeInsets.all(0),
@@ -79,6 +78,8 @@ class NavPage extends StatelessWidget {
   }
 
   Widget getNavHeader(GlobalModel model, context) {
+    final size = MediaQuery.of(context).size;
+    final netImageHeight = max(size.width, size.height) / 4;
     if (model.currentNavHeader == NavHeadType.meteorShower) {
       return NavHead();
     } else {
@@ -88,27 +89,33 @@ class NavPage extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
             return ImagePage(
-              imageUrls: [isDailyPic ?NavHeadType.dailyPicUrl : url],
+              imageUrls: [isDailyPic ? NavHeadType.dailyPicUrl : url],
             );
           }));
         },
         child: Hero(
-          tag: "tag_0",
-          child: isDailyPic
-              ? Image.network(NavHeadType.dailyPicUrl)
-              : CachedNetworkImage(
-                  fit: BoxFit.cover,
-                  imageUrl: url,
-                  placeholder: (context, url) => new Container(
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                              Theme.of(context).primaryColor),
-                        ),
-                      ),
-                  errorWidget: (context, url, error) => new Icon(Icons.error),
-                ),
-        ),
+            tag: "tag_0",
+            child: Container(
+              height: netImageHeight,
+              child: isDailyPic
+                  ? Image.network(
+                      NavHeadType.dailyPicUrl,
+                      fit: BoxFit.cover,
+                    )
+                  : CachedNetworkImage(
+                      fit: BoxFit.cover,
+                      imageUrl: url,
+                      placeholder: (context, url) => new Container(
+                            alignment: Alignment.center,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                  Theme.of(context).primaryColor),
+                            ),
+                          ),
+                      errorWidget: (context, url, error) =>
+                          new Icon(Icons.error),
+                    ),
+            )),
       );
     }
     ;

@@ -60,7 +60,7 @@ class _ImagePageState extends State<ImagePage> {
               scrollPhysics: const BouncingScrollPhysics(),
               builder: (BuildContext context, int index) {
                 return PhotoViewGalleryPageOptions(
-                  imageProvider: NetworkImage(widget.imageUrls[index]),
+                  imageProvider: CachedNetworkImageProvider(widget.imageUrls[index]),
                   initialScale: PhotoViewComputedScale.contained,
                   heroTag: "tag_${index}",
                 );
