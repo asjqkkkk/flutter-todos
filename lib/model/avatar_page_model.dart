@@ -12,7 +12,7 @@ class AvatarPageModel extends ChangeNotifier{
   //当前头像的类型
   int currentAvatarType = CurrentAvatarType.defaultAvatar;
   //当前的头像url,比如本地的就是本地路径，网络就是网络地址
-  String currentAvatarUrl = "images/avatar.jpg";
+  String currentAvatarUrl = "images/icon.png";
 
   final cropKey = GlobalKey<CropState>();
 

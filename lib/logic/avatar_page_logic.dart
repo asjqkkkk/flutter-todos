@@ -93,14 +93,14 @@ class AvatarPageLogic {
     final url = _model.currentAvatarUrl;
     switch (avatarType) {
       case CurrentAvatarType.defaultAvatar:
-        return AssetImage("images/avatar.jpg");
+        return AssetImage("images/icon.png");
         break;
       case CurrentAvatarType.local:
         File file = File(url);
         if (file.existsSync()) {
           return FileImage(file);
         } else {
-          return AssetImage("images/avatar.jpg");
+          return AssetImage("images/icon.png");
         }
         break;
       case CurrentAvatarType.net:

@@ -76,7 +76,7 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
                     color: Colors.grey.withOpacity(0.5),
                   )
                 ) : SizedBox(),
-                isDeleting && name != "avatar.jpg"  ? Container(
+                isDeleting && name != "icon.png"  ? Container(
                   alignment: Alignment.center,
                   child: IconButton(
                     padding: EdgeInsets.all(0),

@@ -168,7 +168,7 @@ class MainPageLogic {
   Future getCurrentAvatar() async{
     switch (_model.currentAvatarType) {
       case CurrentAvatarType.defaultAvatar:
-        final path =  await FileUtil.getInstance().copyAssetToFile("images/", "avatar.jpg", "/avatar/", "avatar.jpg");
+        final path =  await FileUtil.getInstance().copyAssetToFile("images/", "icon.png", "/avatar/", "icon.png");
         _model.currentAvatarUrl = path;
         _model.currentAvatarType = CurrentAvatarType.local;
         break;
@@ -178,7 +178,7 @@ class MainPageLogic {
         if(file.existsSync()){
           _model.currentAvatarUrl = file.path;
         } else {
-          _model.currentAvatarUrl = "images/avatar.jpg";
+          _model.currentAvatarUrl = "images/icon.png";
         }
         break;
       case CurrentAvatarType.net:
@@ -192,14 +192,14 @@ class MainPageLogic {
   Widget getAvatarWidget(){
     switch (_model.currentAvatarType) {
       case CurrentAvatarType.defaultAvatar:
-        return Image.asset("images/avatar.jpg",fit: BoxFit.cover,);
+        return Image.asset("images/icon.png",fit: BoxFit.cover,);
         break;
       case CurrentAvatarType.local:
         File file = File(_model.currentAvatarUrl);
         if(file.existsSync()){
           return Image.file(file,fit: BoxFit.fill,);
         } else {
-          return Image.asset("images/avatar.jpg",fit: BoxFit.cover,);
+          return Image.asset("images/icon.png",fit: BoxFit.cover,);
         }
         break;
       case CurrentAvatarType.net:
