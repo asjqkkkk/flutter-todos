@@ -100,6 +100,9 @@ class DemoLocalizations {
   String get bgChangeWithCard => Intl.message('Background follow task icon color', name: 'bgChangeWithCard', desc: '背景跟随任务图标颜色',);
   String get cardChangeWithBg => Intl.message('Task icon color follow background', name: 'cardChangeWithBg', desc: '任务图标颜色跟随背景',);
   String get enableInfiniteScroll => Intl.message('Task card cycle slide', name: 'enableInfiniteScroll', desc: '任务卡片循环滑动',);
+  String get enableWeatherShow => Intl.message('Turn on the weather', name: 'enableWeatherShow', desc: '开启天气',);
+  String get weatherGetWrong => Intl.message('weather acquisition failed', name: 'weatherGetWrong', desc: '天气获取失败',);
+
 
 
   String get aboutApp {
@@ -167,7 +170,7 @@ class DemoLocalizations {
 
   String get welcomeWord{
     return Intl.message(
-      'Hello, ',
+      'Hello! ',
       name: 'welcomeWord',
       desc: '主页的欢迎词',
     );

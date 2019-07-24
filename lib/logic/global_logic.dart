@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/theme_bean.dart';
+import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
@@ -107,6 +109,36 @@ class GlobalLogic{
     if(enableInfiniteScroll == null) return;
     if(enableInfiniteScroll == _model.enableInfiniteScroll) return;
     _model.enableInfiniteScroll = enableInfiniteScroll;
+  }
+
+  Future getCurrentPosition() async{
+    final currentPosition = await SharedUtil.instance.getString(Keys.currentPosition);
+    if(currentPosition == null) return;
+    if(currentPosition == _model.currentPosition) return;
+    _model.currentPosition = currentPosition;
+  }
+
+  Future getEnableWeatherShow() async{
+    final enableWeatherShow = await SharedUtil.instance.getBoolean(Keys.enableWeatherShow);
+    if(enableWeatherShow == null) return;
+    if(enableWeatherShow == _model.enableWeatherShow) return;
+    _model.enableWeatherShow = enableWeatherShow;
+  }
+
+  void getWeatherNow(String position){
+    ApiService.instance.getWeatherNow((WeatherBean weatherBean){
+      debugPrint("请求结果:${weatherBean.toString()}");
+      _model.weatherBean = weatherBean;
+      _model.refresh();
+    }, (WeatherBean weatherBean){
+
+    }, (error){
+
+    }, {
+      "key": "d381a4276ed349daa3bf63646f12d8ae",
+      "location": position,
+      "lang":_model.currentLocale.languageCode
+    }, CancelToken());
   }
 
   bool isDarkNow(){

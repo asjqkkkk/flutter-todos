@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/json/theme_bean.dart';
+import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/utils/theme_util.dart';
@@ -31,6 +32,13 @@ class GlobalModel extends ChangeNotifier {
   //是否开启主页卡片无限循环滚动
   bool enableInfiniteScroll = true;
 
+  //是否开启天气
+  bool enableWeatherShow = false;
+  //当前位置信息(经纬度)
+  String currentPosition = "";
+  //当前天气的json
+  WeatherBean weatherBean;
+
 
   //当前语言
   List<String> currentLanguageCode = ["zh", "CN"];
@@ -59,7 +67,9 @@ class GlobalModel extends ChangeNotifier {
         logic.getCurrentNetPicUrl(),
         logic.getIsBgChangeWithCard(),
         logic.getIsCardChangeWithBg(),
-        logic.getEnableInfiniteScroll()
+        logic.getEnableInfiniteScroll(),
+        logic.getCurrentPosition(),
+        logic.getEnableWeatherShow()
       ]).then((value) {
         currentLocale = Locale(currentLanguageCode[0], currentLanguageCode[1]);
         refresh();
@@ -70,6 +80,7 @@ class GlobalModel extends ChangeNotifier {
   void setMainPageModel(MainPageModel mainPageModel) {
     if (this.mainPageModel == null) {
       this.mainPageModel = mainPageModel;
+      if(enableWeatherShow) logic.getWeatherNow(currentPosition);
     }
   }
 

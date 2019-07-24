@@ -170,6 +170,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "enableWeatherShow": "Turn on the weather",
+  "@enableWeatherShow": {
+    "description": "开启天气",
+    "type": "text",
+    "placeholders": {}
+  },
+  "weatherGetWrong": "weather acquisition failed",
+  "@weatherGetWrong": {
+    "description": "天气获取失败",
+    "type": "text",
+    "placeholders": {}
+  },
   "aboutApp": "About",
   "@aboutApp": {
     "description": "关于",
@@ -507,7 +519,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "welcomeWord": "Hello, ",
+  "welcomeWord": "Hello! ",
   "@welcomeWord": {
     "description": "主页的欢迎词",
     "type": "text",

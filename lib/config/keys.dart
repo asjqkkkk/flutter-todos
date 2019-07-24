@@ -16,6 +16,8 @@ class Keys{
   static final String netAvatarPath = "net_avatar_path";
   static final String currentAvatarType = "current_avatar_type";
   static final String currentNetPicUrl = "current_net_pic_url";
+  static final String currentPosition = "currentPosition";
+  static final String enableWeatherShow = "enable_weather_show";
 
 
 }

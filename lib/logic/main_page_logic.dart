@@ -160,8 +160,6 @@ class MainPageLogic {
           semanticsLabel: 'empty list',
       ),
     );
-
-
   }
 
 
@@ -186,7 +184,6 @@ class MainPageLogic {
         _model.currentAvatarUrl = net;
         break;
     }
-
   }
 
   Widget getAvatarWidget(){

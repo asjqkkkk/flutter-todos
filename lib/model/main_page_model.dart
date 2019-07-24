@@ -21,6 +21,12 @@ class MainPageModel extends ChangeNotifier {
   //当前的头像url,比如本地的就是本地路径，网络就是网络地址
   String currentAvatarUrl = "images/icon.png";
 
+  //是否开启天气
+  bool enableWeatherShow = false;
+
+  //当前位置信息(经纬度)
+  String currentPosition = "";
+
   MainPageModel() {
     logic = MainPageLogic(this);
   }

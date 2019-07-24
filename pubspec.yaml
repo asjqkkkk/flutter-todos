@@ -57,7 +57,7 @@ dev_dependencies:
   #图片选取
   image_picker: ^0.6.0+16
   #权限申请
-  permission_handler: ^3.1.0
+  permission_handler: ^3.2.0
   #路径获取
   path_provider: ^1.1.2
   #图片裁剪
@@ -84,6 +84,7 @@ flutter:
 
   assets:
     - images/
+    - images/weather/
     - local_json/
     - svgs/
 

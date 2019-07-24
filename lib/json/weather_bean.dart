@@ -1,5 +1,8 @@
 class WeatherBean {
 
+  //{"HeWeather6":[{"basic":{"cid":"TR3487004","location":"Akrotiri","parent_city":"Akrotiri","admin_area":"亚克罗提利与德凯利亚","cnty":"英国","lat":"34.60100174","lon":"32.95600128","tz":"+3.00"},"update":{"loc":"2019-07-24 16:57","utc":"2019-07-24 13:57"},"status":"ok","now":{"cloud":"35","cond_code":"100","cond_txt":"晴","fl":"30","hum":"87","pcpn":"0.0","pres":"1005","tmp":"26","vis":"16","wind_deg":"271","wind_dir":"西风","wind_sc":"0","wind_spd":"1"}}]}
+
+  //{"HeWeather6":[{"status":"unknown location"}]}错误时的
 
   List<HeWeather6ListBean> HeWeather6;
 
@@ -21,6 +24,12 @@ class WeatherBean {
 
 class HeWeather6ListBean {
 
+  /**
+   * status : "ok"
+   * basic : {"cid":"TR3487004","location":"Akrotiri","parent_city":"Akrotiri","admin_area":"�ǿ���������¿�����","cnty":"Ӣ��","lat":"34.60100174","lon":"32.95600128","tz":"+3.00"}
+   * now : {"cloud":"35","cond_code":"100","cond_txt":"��","fl":"30","hum":"87","pcpn":"0.0","pres":"1005","tmp":"26","vis":"16","wind_deg":"271","wind_dir":"����","wind_sc":"0","wind_spd":"1"}
+   * update : {"loc":"2019-07-24 16:57","utc":"2019-07-24 13:57"}
+   */
 
   String status;
   BasicBean basic;
@@ -47,6 +56,16 @@ class HeWeather6ListBean {
 
 class BasicBean {
 
+  /**
+   * cid : "TR3487004"
+   * location : "Akrotiri"
+   * parent_city : "Akrotiri"
+   * admin_area : "�ǿ���������¿�����"
+   * cnty : "Ӣ��"
+   * lat : "34.60100174"
+   * lon : "32.95600128"
+   * tz : "+3.00"
+   */
 
   String cid;
   String location;
@@ -81,6 +100,21 @@ class BasicBean {
 
 class NowBean {
 
+  /**
+   * cloud : "35"
+   * cond_code : "100"
+   * cond_txt : "��"
+   * fl : "30"
+   * hum : "87"
+   * pcpn : "0.0"
+   * pres : "1005"
+   * tmp : "26"
+   * vis : "16"
+   * wind_deg : "271"
+   * wind_dir : "����"
+   * wind_sc : "0"
+   * wind_spd : "1"
+   */
 
   String cloud;
   String cond_code;
@@ -126,8 +160,8 @@ class NowBean {
 class UpdateBean {
 
   /**
-   * loc : "2019-03-04 09:55"
-   * utc : "2019-03-04 01:55"
+   * loc : "2019-07-24 16:57"
+   * utc : "2019-07-24 13:57"
    */
 
   String loc;

@@ -49,15 +49,21 @@ class PermissionReqUtil {
         );
         break;
       case PermissionStatus.disabled:
+        debugPrint("disabled权限:${reqPermissions}");
         if (disabled != null) disabled();
+//        if(reqPermissions == PermissionGroup.locationWhenInUse){
+//
+//        }
         toShow(showDialog, context, reqPermissions, disabledDes,openSetting);
         break;
       case PermissionStatus.restricted:
+        debugPrint("restricted权限:${reqPermissions}");
         if (restricted != null) restricted();
         toShow(showDialog, context, reqPermissions, restrictedDes,openSetting,
             showOpenSettingButton: true);
         break;
       case PermissionStatus.unknown:
+        debugPrint("未知权限:${reqPermissions}");
         if (unknown != null) unknown();
         toShow(showDialog, context, reqPermissions, unknownDes,openSetting);
         break;

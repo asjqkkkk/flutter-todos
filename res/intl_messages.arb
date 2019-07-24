@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-23T23:48:57.539426",
+  "@@last_modified": "2019-07-24T22:56:02.424158",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -167,6 +167,18 @@
   "enableInfiniteScroll": "Task card cycle slide",
   "@enableInfiniteScroll": {
     "description": "任务卡片循环滑动",
+    "type": "text",
+    "placeholders": {}
+  },
+  "enableWeatherShow": "Turn on the weather",
+  "@enableWeatherShow": {
+    "description": "开启天气",
+    "type": "text",
+    "placeholders": {}
+  },
+  "weatherGetWrong": "weather acquisition failed",
+  "@weatherGetWrong": {
+    "description": "天气获取失败",
     "type": "text",
     "placeholders": {}
   },
@@ -404,7 +416,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "welcomeWord": "Hello, ",
+  "welcomeWord": "Hello! ",
   "@welcomeWord": {
     "description": "主页的欢迎词",
     "type": "text",

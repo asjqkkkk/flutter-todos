@@ -88,12 +88,10 @@ class ApiService {
       "https://free-api.heweather.com/s6/weather/now",
       (data) {
         WeatherBean weatherBean = WeatherBean.fromMap(data);
-        if (weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].status ==
-            "ok") {
-          success(
-              weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].now);
+        if (weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].status == "ok") {
+          success(weatherBean);
         } else {
-          failed(data);
+          failed(weatherBean);
         }
       },
       params: params,

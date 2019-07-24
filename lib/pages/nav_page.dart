@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/language_page.dart';
 import 'package:todo_list/pages/setting_page.dart';
@@ -26,6 +27,9 @@ class NavPage extends StatelessWidget {
       padding: EdgeInsets.all(0),
       children: <Widget>[
         getNavHeader(globalModel, context),
+        globalModel.enableWeatherShow
+            ? getWeatherNow(globalModel, context)
+            : SizedBox(),
         ListTile(
           title: Text(DemoLocalizations.of(context).doneList),
           leading: Icon(Icons.done_all),
@@ -76,34 +80,6 @@ class NavPage extends StatelessWidget {
             }));
           },
         ),
-        ListTile(
-          title: Text("地理位置"),
-          leading: Icon(Icons.location_on),
-          trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () async {
-            PermissionReqUtil.getInstance().requestPermission(
-                PermissionGroup.locationWhenInUse,
-                context: context,
-                granted: () async{
-                  Position position = await Geolocator()
-                      .getCurrentPosition(desiredAccuracy: LocationAccuracy.lowest);
-                  final lat = position.latitude;
-                  final lon = position.longitude;
-                  ApiService.instance.getWeatherNow((success){
-                    print("获取数据成功:${success}");
-                  }, (failed){
-                    print("获取数据失败:${failed}");
-
-                  }, (error){
-                    print("错误:${error}");
-                  }, {
-                    "key": "d381a4276ed349daa3bf63646f12d8ae",
-                    "location": "${lat},${lon}",
-                    "lang":globalModel.currentLocale.languageCode
-                  }, CancelToken());
-                },);
-          },
-        ),
       ],
     );
   }
@@ -150,5 +126,65 @@ class NavPage extends StatelessWidget {
       );
     }
     ;
+  }
+
+  Widget getWeatherNow(GlobalModel globalModel, BuildContext context) {
+    final color = globalModel.logic.getPrimaryGreyInDark(context);
+    final weatherBean = globalModel.weatherBean;
+    if (weatherBean == null) {
+      return FlatButton(
+        child: Text(DemoLocalizations.of(context).weatherGetWrong),
+        onPressed: () => globalModel.logic.getWeatherNow(globalModel.currentPosition ?? ""),
+      );
+    }
+    final BasicBean basicBean =
+        weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].basic;
+    final NowBean nowBean =
+        weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].now;
+    return Container(
+      margin: EdgeInsets.only(left: 5, top: 2),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            child: Image.asset(
+              "images/weather/${nowBean.cond_code}.png",
+              color: color,
+              width: 60,
+              height: 60,
+            ),
+          ),
+          Container(
+            height: 50,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: Text(
+                    "${basicBean.location}",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: color,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
+                ),
+                Text(
+                  "${nowBean.tmp} ℃   ${nowBean.cond_txt}",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: color,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

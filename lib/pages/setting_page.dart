@@ -2,10 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
+import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
 import 'all_page.dart';
@@ -72,6 +75,44 @@ class SettingPage extends StatelessWidget {
               }
               SharedUtil.instance.saveBoolean(Keys.cardChangeWithBackground, globalModel.isCardChangeWithBg);
               globalModel.refresh();
+            },
+          ),
+          SwitchListTile(
+            title: Text(DemoLocalizations.of(context).enableWeatherShow),
+            secondary: Transform(
+              transform: Matrix4.rotationY(pi),
+              origin: Offset(12, 0.0),
+              child: const Icon(
+                Icons.wb_sunny,
+              ),
+            ),
+            value: globalModel.enableWeatherShow,
+            activeColor: Theme.of(context).primaryColor,
+            onChanged: (value) {
+              debugPrint("value:${value}");
+              if(value){
+                PermissionReqUtil.getInstance().requestPermission(
+                  PermissionGroup.locationWhenInUse,
+                  context: context,
+                  granted: () async{
+                    globalModel.enableWeatherShow = true;
+                    SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, true);
+                    globalModel.refresh();
+                    //在android模拟器上无法获取位置
+                    Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.lowest);
+                    final lat = position.latitude;
+                    final lon = position.longitude;
+                    debugPrint("位置:${position}");
+                    SharedUtil.instance.saveString(Keys.currentPosition, "${lat},${lon}");
+                    debugPrint("value:${globalModel.enableWeatherShow}");
+                    globalModel.logic.getWeatherNow("${lat},${lon}");
+                  },);
+              } else{
+                globalModel.enableWeatherShow = false;
+                SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, false);
+                globalModel.refresh();
+              }
+
             },
           ),
           SwitchListTile(
