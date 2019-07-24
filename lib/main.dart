@@ -45,12 +45,15 @@ class MyApp extends StatelessWidget {
                   return;
                 }
               }
+              if(model.currentLocale == null){
+                model.currentLocale = Locale('zh',"CN");
+              }
             },
         localeListResolutionCallback:
             (List<Locale> locales, Iterable<Locale> supportedLocales) {
               debugPrint("locatassss:${locales}  sups:${supportedLocales}");
             },
-        locale: model.currentLocale,
+        locale: model.currentLocale ,
         theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),
         home: ProviderConfig.getInstance().getMainPage());
   }
