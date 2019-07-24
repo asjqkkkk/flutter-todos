@@ -1,6 +1,5 @@
-
-
 import 'package:todo_list/json/all_beans.dart';
+import 'package:todo_list/json/weather_bean.dart';
 
 import 'api_strategy.dart';
 export 'package:dio/dio.dart';
@@ -53,15 +52,16 @@ class ApiService {
 
   //提交建议
   void postSuggestion(Map<String, String> params, Function success,
-      Function failed, Function error, CancelToken token){
+      Function failed, Function error, CancelToken token) {
     postCommon(params, success, failed, error, "fUser/suggestion", token);
   }
 
   //通用的请求
-  void postCommon(Map<String, String> params, Function success,
-      Function failed, Function error, String url, CancelToken token) {
+  void postCommon(Map<String, String> params, Function success, Function failed,
+      Function error, String url, CancelToken token) {
     ApiStrategy.getInstance().post(
-        url, (data) {
+        url,
+        (data) {
           CommonBean commonBean = CommonBean.fromMap(data);
           if (commonBean.status == 0) {
             success(commonBean);
@@ -72,7 +72,35 @@ class ApiService {
         params: params,
         errorCallBack: (errorMessage) {
           error(errorMessage);
-        },token: token);
+        },
+        token: token);
   }
 
+  //天气获取
+  void getWeatherNow(
+    Function success,
+    Function failed,
+    Function error,
+    Map<String, String> params,
+    CancelToken token,
+  ) {
+    ApiStrategy.getInstance().get(
+      "https://free-api.heweather.com/s6/weather/now",
+      (data) {
+        WeatherBean weatherBean = WeatherBean.fromMap(data);
+        if (weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].status ==
+            "ok") {
+          success(
+              weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].now);
+        } else {
+          failed(data);
+        }
+      },
+      params: params,
+      errorCallBack: (errorMessage) {
+        error(errorMessage);
+      },
+      token: token,
+    );
+  }
 }

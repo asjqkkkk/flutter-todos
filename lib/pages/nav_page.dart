@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
@@ -86,7 +87,20 @@ class NavPage extends StatelessWidget {
                 granted: () async{
                   Position position = await Geolocator()
                       .getCurrentPosition(desiredAccuracy: LocationAccuracy.lowest);
-                  print("position:${position.toString()}");
+                  final lat = position.latitude;
+                  final lon = position.longitude;
+                  ApiService.instance.getWeatherNow((success){
+                    print("获取数据成功:${success}");
+                  }, (failed){
+                    print("获取数据失败:${failed}");
+
+                  }, (error){
+                    print("错误:${error}");
+                  }, {
+                    "key": "d381a4276ed349daa3bf63646f12d8ae",
+                    "location": "${lat},${lon}",
+                    "lang":globalModel.currentLocale.languageCode
+                  }, CancelToken());
                 },);
           },
         ),
