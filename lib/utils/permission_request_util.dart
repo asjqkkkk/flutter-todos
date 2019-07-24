@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 export 'package:permission_handler/permission_handler.dart';
 
 class PermissionReqUtil {
@@ -22,11 +23,11 @@ class PermissionReqUtil {
     VoidCallback disabled,
     VoidCallback restricted,
     VoidCallback unknown,
-    @required String deniedDes,
+    String deniedDes,
     String disabledDes,
     String restrictedDes,
     String unknownDes,
-    @required String openSetting,
+    String openSetting,
   }) async {
     Map<PermissionGroup, PermissionStatus> output =
     await PermissionHandler().requestPermissions([reqPermissions]);
@@ -42,8 +43,8 @@ class PermissionReqUtil {
           showDialog,
           context,
           reqPermissions,
-          deniedDes,
-          openSetting,
+          deniedDes ?? DemoLocalizations.of(context).deniedDes,
+          openSetting ?? DemoLocalizations.of(context).openSystemSetting,
           showOpenSettingButton: true,
         );
         break;
