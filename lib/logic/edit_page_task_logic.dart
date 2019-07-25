@@ -81,12 +81,12 @@ class EditTaskPageLogic {
   }
 
   //选择任务结束时间
-  void pickEndTime() {
+  void pickEndTime(GlobalModel globalModel) {
     DateTime initialDate =_model.startDate ?? DateTime.now();
     initialDate = initialDate.add(Duration(days: 1));
     DateTime firstDate = initialDate;
     DateTime lastDate = initialDate.add(Duration(days: 365));
-    showDP(firstDate, initialDate, lastDate).then(
+    showDP(firstDate, initialDate, lastDate, globalModel.logic.isDarkNow()).then(
       (day) {
         if(day == null) return;
         if (_model.startDate != null) {
@@ -107,11 +107,11 @@ class EditTaskPageLogic {
     );
   }
 
-  void pickStartTime(){
+  void pickStartTime(GlobalModel globalModel){
     DateTime initialDate = DateTime.now();
     DateTime firstDate = initialDate.add(Duration(days: 1));
     DateTime lastDate = initialDate.add(Duration(days: 365));
-    showDP(firstDate, initialDate, lastDate).then(
+    showDP(firstDate, initialDate, lastDate,globalModel.logic.isDarkNow()).then(
           (day) {
             if(day == null) return;
         if (_model.deadLine != null) {
@@ -133,7 +133,7 @@ class EditTaskPageLogic {
   }
 
   Future<DateTime> showDP(
-      DateTime firstDate, DateTime initialDate, DateTime lastDate) {
+      DateTime firstDate, DateTime initialDate, DateTime lastDate, bool isDarkNow) {
     return showDatePicker(
       context: _model.context,
       initialDate: firstDate,
@@ -144,9 +144,11 @@ class EditTaskPageLogic {
         return FittedBox(
           child: Theme(
             child: child,
-            data: ThemeData(
+            data: isDarkNow? ThemeData.dark():  ThemeData(
               primaryColor: color,
               accentColor: color,
+              backgroundColor: Colors.white,
+
               buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.accent),
             ),
           ),
