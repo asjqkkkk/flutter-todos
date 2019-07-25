@@ -5,40 +5,43 @@ import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/edit_task_page_model.dart';
+import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
 
 class EditTaskPage extends StatelessWidget {
   final TaskIconBean taskIconBean;
-  final MainPageModel mainPageModel;
 
   //detailModel如果不为空，表示这个页面是从浏览页面过来的
   final TaskDetailPageModel taskDetailPageModel;
 
   EditTaskPage(
     this.taskIconBean, {
-    this.mainPageModel,
     this.taskDetailPageModel,
   });
 
   @override
   Widget build(BuildContext context) {
     final EditTaskPageModel model = Provider.of<EditTaskPageModel>(context);
+    final GlobalModel globalModel = Provider.of<GlobalModel>(context);
     model.setContext(context);
-    model.setMainPageModel(mainPageModel);
+    model.setMainPageModel(globalModel.mainPageModel);
     model.setTaskDetailPageModel(taskDetailPageModel);
     model.setTaskIcon(taskIconBean);
 
     final iconColor = ColorBean.fromBean(taskIconBean.colorBean);
     final iconData = IconBean.fromBean(taskIconBean.iconBean);
+    final bgColor = globalModel.logic.getBgInDark();
+    final textColor =  globalModel.logic.isDarkNow() ? Color.fromRGBO(130, 130, 130, 1) : Colors.black;
+
 
 //    model.logic.scrollToEndWhenEdit();
 
     return Scaffold(
-      backgroundColor: model.bgColor,
+      backgroundColor: bgColor,
       appBar: AppBar(
         iconTheme: IconThemeData(color: iconColor),
-        backgroundColor: model.bgColor,
+        backgroundColor: bgColor,
         elevation: 0,
         actions: <Widget>[
           IconButton(
@@ -57,6 +60,7 @@ class EditTaskPage extends StatelessWidget {
               //目前ios还存在长按复制奔溃的问题，这里是为了解决这个问题
               data: ThemeData(platform: TargetPlatform.android),
               child: TextFormField(
+                style: TextStyle(color: textColor),
                 textAlign: TextAlign.center,
                 validator: (text) {
                   model.currentTaskName = text;
@@ -65,6 +69,7 @@ class EditTaskPage extends StatelessWidget {
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: model.logic.getHintTitle(),
+                  hintStyle: TextStyle(color: textColor),
                 ),
                 maxLines: 1,
               ),
@@ -76,7 +81,7 @@ class EditTaskPage extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only( left: 50, right: 50),
+              margin: EdgeInsets.only(left: 50, right: 50),
               child: NotificationListener<OverscrollIndicatorNotification>(
                 onNotification: (overScroll) {
                   overScroll.disallowGlow();
@@ -153,7 +158,7 @@ class EditTaskPage extends StatelessWidget {
               child: Container(
                 height: 100,
                 width: MediaQuery.of(context).size.width,
-                color: model.bgColor,
+                color: bgColor,
                 alignment: Alignment.center,
                 child: Column(
                   children: <Widget>[
@@ -167,9 +172,15 @@ class EditTaskPage extends StatelessWidget {
                         controller: model.textEditingController
                           ..addListener(model.logic.editListener),
                         autofocus: model.taskDetails.length > 0 ? false : true,
+                        style: TextStyle(
+                          color: textColor,
+                        ),
                         decoration: InputDecoration(
                             hintText: DemoLocalizations.of(context).addTask,
                             border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: textColor,
+                            ),
                             prefixIcon: Icon(
                               iconData,
                               color: iconColor,
@@ -185,7 +196,7 @@ class EditTaskPage extends StatelessWidget {
                                         : Colors.grey.withOpacity(0.4)),
                                 child: Icon(
                                   Icons.arrow_upward,
-                                  color: model.bgColor,
+                                  color: bgColor,
                                   size: 20,
                                 ),
                               ),

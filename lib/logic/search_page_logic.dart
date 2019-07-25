@@ -59,7 +59,6 @@ class SearchPageLogic{
         builder: (ctx) {
           return ProviderConfig.getInstance().getEditTaskPage(
               taskBean.taskIconBean,
-              mainPageModel: mainPageModel,
               taskBean: taskBean,);
         },
       ),

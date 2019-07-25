@@ -146,7 +146,6 @@ class MainPageLogic {
         builder: (ctx) {
           return ProviderConfig.getInstance().getEditTaskPage(
               taskBean.taskIconBean,
-              mainPageModel: _model,
               taskBean: taskBean);
         },
       ),

@@ -110,7 +110,6 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                                   return ProviderConfig.getInstance()
                                       .getEditTaskPage(
                                     _children[index],
-                                    mainPageModel: globalModel.mainPageModel,
                                   );
                                 },
                               ),

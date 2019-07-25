@@ -36,17 +36,6 @@ class EditTaskPageLogic {
     );
   }
 
-  //当为夜间模式时候，白色背景替换为特定灰色
-  void getBgInDark() async {
-    String theme =
-        await SharedUtil.instance.getString(Keys.currentThemeBean);
-    if(theme == null) return;
-    ThemeBean themeBean = ThemeBean.fromMap(jsonDecode(theme));
-    Color color =
-    themeBean.themeType == MyTheme.darkTheme ? Colors.grey[800] : Colors.white;
-    _model.bgColor = color;
-    if(_model.bgColor != color) _model.refresh();
-  }
 
   //提交一项任务
   void submitOneItem() {
@@ -264,6 +253,7 @@ class EditTaskPageLogic {
       deadLine: _model.deadLine?.toIso8601String(),
       detailList: _model.taskDetails,
       taskIconBean: _model.taskIcon,
+      changeTimes: _model.changeTimes,
       overallProgress: overallProgress,
     );
     if(id != null){
@@ -282,6 +272,7 @@ class EditTaskPageLogic {
       _model.deadLine = DateTime.parse(oldTaskBean.deadLine);
       if(oldTaskBean.startDate != null)
       _model.startDate = DateTime.parse(oldTaskBean.startDate);
+      _model.changeTimes = oldTaskBean.changeTimes ?? 0;
       _model.taskIcon = oldTaskBean.taskIconBean;
       _model.currentTaskName = oldTaskBean.taskName;
     }

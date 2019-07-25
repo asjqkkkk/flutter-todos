@@ -109,7 +109,6 @@ class TaskDetailPageLogic {
         builder: (ctx) {
           return ProviderConfig.getInstance().getEditTaskPage(
             _model.taskBean.taskIconBean,
-            mainPageModel: mainPageModel,
             taskBean: _model.taskBean,
             taskDetailPageModel: _model,
           );

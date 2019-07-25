@@ -10,7 +10,6 @@ class EditTaskPageModel extends ChangeNotifier{
 
   EditTaskPageLogic logic;
   BuildContext context;
-  Color bgColor = Colors.white;
   final TextEditingController textEditingController = TextEditingController();
   final ScrollController scrollController = ScrollController();
 
@@ -26,6 +25,7 @@ class EditTaskPageModel extends ChangeNotifier{
   DateTime startDate;
   TaskIconBean taskIcon;
   String currentTaskName = "";
+  int changeTimes = 0;
 
   //能否添加一项任务
   bool canAddTaskDetail = false;
@@ -41,7 +41,6 @@ class EditTaskPageModel extends ChangeNotifier{
   void setContext(BuildContext context){
     if(this.context == null){
         this.context = context;
-        logic.getBgInDark();
     }
   }
 
