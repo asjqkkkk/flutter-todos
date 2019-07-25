@@ -152,9 +152,27 @@
     "type": "text",
     "placeholders": {}
   },
-  "weatherGetWrong": "天气获取失败",
+  "inputCurrentCity": "手动输入你的城市",
+  "@inputCurrentCity": {
+    "description": "手动输入你的城市",
+    "type": "text",
+    "placeholders": {}
+  },
+  "weatherGetWrong": "天气获取失败,请重新尝试",
   "@weatherGetWrong": {
-    "description": "天气获取失败",
+    "description": "天气获取失败,请重新尝试",
+    "type": "text",
+    "placeholders": {}
+  },
+  "weatherGetting": "天气获取中...",
+  "@weatherGetting": {
+    "description": "天气获取中...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "weatherSuccess": "天气获取成功",
+  "@weatherSuccess": {
+    "description": "天气获取成功...",
     "type": "text",
     "placeholders": {}
   },

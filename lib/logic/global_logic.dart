@@ -8,6 +8,8 @@ import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'dart:convert';
 
+import 'package:todo_list/widgets/net_loading_widget.dart';
+
 class GlobalLogic{
 
   final GlobalModel _model;
@@ -125,18 +127,18 @@ class GlobalLogic{
     _model.enableWeatherShow = enableWeatherShow;
   }
 
-  void getWeatherNow(String position,{BuildContext context}){
+  void getWeatherNow(String position,{BuildContext context, LoadingController controller}){
     ApiService.instance.getWeatherNow((WeatherBean weatherBean){
       debugPrint("请求结果:${weatherBean.toString()}");
       _model.weatherBean = weatherBean;
       _model.enableWeatherShow = true;
       _model.refresh();
-      if(context != null) {
-        Navigator.pop(context);
-      }
-    }, (WeatherBean weatherBean){
+      controller?.setFlag(LoadingFlag.success);
 
+    }, (WeatherBean weatherBean){
+      controller?.setFlag(LoadingFlag.error);
     }, (error){
+      controller?.setFlag(LoadingFlag.error);
 
     }, {
       "key": "d381a4276ed349daa3bf63646f12d8ae",

@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
@@ -10,6 +9,7 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 
 import 'all_page.dart';
 import 'navigator_setting_page.dart';
@@ -92,69 +92,7 @@ class SettingPage extends StatelessWidget {
             ),
             value: globalModel.enableWeatherShow,
             activeColor: Theme.of(context).primaryColor,
-            onChanged: (value) {
-              debugPrint("value:${value}");
-              if (value) {
-                PermissionReqUtil.getInstance().requestPermission(
-                    PermissionGroup.locationWhenInUse,
-                    context: context, granted: () async {
-                  globalModel.enableWeatherShow = true;
-                  SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, true);
-                  globalModel.refresh();
-                  //在android模拟器上无法获取位置
-                  Position position = await Geolocator().getCurrentPosition(
-                      desiredAccuracy: LocationAccuracy.lowest);
-                  final lat = position.latitude;
-                  final lon = position.longitude;
-                  debugPrint("位置:${position}");
-                  SharedUtil.instance
-                      .saveString(Keys.currentPosition, "${lat},${lon}");
-                  debugPrint("value:${globalModel.enableWeatherShow}");
-                  globalModel.logic.getWeatherNow("${lat},${lon}");
-                }, disabled: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: Text("无法获取定位权限"),
-                          content: Form(
-                            autovalidate: true,
-                            child: TextFormField(
-                              validator: (text){
-                                globalModel.currentPosition = text;
-                              },
-                              decoration: InputDecoration(
-                                hintText: "手动输入当前城市",
-                              ),
-                            ),
-                          ),
-                          actions: <Widget>[
-                            FlatButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(
-                                DemoLocalizations.of(context).cancel,
-                                style: TextStyle(color: Colors.redAccent),
-                              ),
-                            ),
-                            FlatButton(
-                              onPressed: () {
-                                globalModel.logic.getWeatherNow(globalModel.currentPosition, context: context);
-                              },
-                              child: Text(DemoLocalizations.of(context).ok,
-                                  style: TextStyle(color: Colors.greenAccent)),
-                            ),
-                          ],
-                        );
-                      });
-                });
-              } else {
-                globalModel.enableWeatherShow = false;
-                SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, false);
-                globalModel.refresh();
-              }
-            },
+            onChanged: (value) => onWeatherOpen(value, context, globalModel),
           ),
           SwitchListTile(
             title: Text(DemoLocalizations.of(context).enableInfiniteScroll),
@@ -210,4 +148,67 @@ class SettingPage extends StatelessWidget {
       ),
     );
   }
+
+  void onWeatherOpen(bool value, BuildContext context, GlobalModel globalModel) {
+    if (value) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(DemoLocalizations.of(context).enableWeatherShow),
+            content: Form(
+              autovalidate: true,
+              child: TextFormField(
+                validator: (text){
+                  globalModel.currentPosition = text;
+                },
+                decoration: InputDecoration(
+                  hintText: DemoLocalizations.of(context).inputCurrentCity,
+                ),
+              ),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  DemoLocalizations.of(context).cancel,
+                  style: TextStyle(color: Colors.redAccent),
+                ),
+              ),
+              FlatButton(
+                onPressed: () {
+                  if(globalModel.currentPosition.isEmpty) return;
+                  CancelToken cancelToken = CancelToken();
+                  showDialog(context: context, builder: (ctx){
+                    return NetLoadingWidget(
+                     onRequest: (){
+                       globalModel.logic.getWeatherNow(globalModel.currentPosition,controller: globalModel.loadingController);
+                     },
+                      cancelToken: cancelToken,
+                      errorText: DemoLocalizations.of(context).weatherGetWrong,
+                      loadingText: DemoLocalizations.of(context).weatherGetting,
+                      successText: DemoLocalizations.of(context).weatherSuccess,
+                      onSuccess: (){
+                       Navigator.of(context).pop();
+                       Navigator.of(context).pop();
+                      },
+                      loadingController: globalModel.loadingController,
+                    );
+                  });
+                },
+                child: Text(DemoLocalizations.of(context).ok,
+                    style: TextStyle(color: Colors.greenAccent)),
+              ),
+            ],
+          );
+        },);
+    } else {
+      globalModel.enableWeatherShow = false;
+      SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, false);
+      globalModel.refresh();
+    }
+  }
+
 }

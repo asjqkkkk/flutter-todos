@@ -101,7 +101,11 @@ class DemoLocalizations {
   String get cardChangeWithBg => Intl.message('Task icon color follow background', name: 'cardChangeWithBg', desc: '任务图标颜色跟随背景',);
   String get enableInfiniteScroll => Intl.message('Task card cycle slide', name: 'enableInfiniteScroll', desc: '任务卡片循环滑动',);
   String get enableWeatherShow => Intl.message('Turn on the weather', name: 'enableWeatherShow', desc: '开启天气',);
-  String get weatherGetWrong => Intl.message('weather acquisition failed', name: 'weatherGetWrong', desc: '天气获取失败',);
+  String get inputCurrentCity => Intl.message('input your city', name: 'inputCurrentCity', desc: '手动输入你的城市',);
+  String get weatherGetWrong => Intl.message('failed to get the weather，please try again', name: 'weatherGetWrong', desc: '天气获取失败,请重新尝试',);
+  String get weatherGetting => Intl.message('the weather is inquiring...', name: 'weatherGetting', desc: '天气获取中...',);
+  String get weatherSuccess => Intl.message('the weather is successful', name: 'weatherSuccess', desc: '天气获取成功',);
+
 
 
 

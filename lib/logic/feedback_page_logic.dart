@@ -57,65 +57,62 @@ class FeedbackPageLogic {
       return;
     }
 
-    _model.loadingController.setFlag(LoadingFlag.loading);
     showDialog(
         context: context,
         builder: (ctx) {
-          return GestureDetector(
-            onTap: (){
-              _model.loadingController.setFlag(LoadingFlag.success);
+          return NetLoadingWidget(
+            onRequest: () async{
+              final account =
+                  await SharedUtil.instance.getString(Keys.account) ?? "default";
+              _model.loadingController.setFlag(LoadingFlag.loading);
+              ApiService.instance.postSuggestion({
+                "account": account,
+                "suggestion": _model.feedbackContent,
+                "connectWay": _model.contactWay ?? "",
+              }, (CommonBean bean) {
+                _model.loadingController.setFlag(LoadingFlag.success);
+              }, (CommonBean bean) {
+                _model.loadingController.setFlag(LoadingFlag.error);
+              }, (error) {
+                _model.loadingController.setFlag(LoadingFlag.error);
+              }, _model.cancelToken);
             },
-            child: NetLoadingWidget(
-              loadingController: _model.loadingController,
-              successWidget: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        DemoLocalizations.of(context).submitSuccess,
+            loadingController: _model.loadingController,
+            successWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Text(
+                      DemoLocalizations.of(context).submitSuccess,
+                      style: TextStyle(fontSize: 30),
+                    ),
+                    SizedBox(height: 10,),
+                    Container(
+                      margin: EdgeInsets.only(left: 10,right: 10),
+                      child: Text(
+                        DemoLocalizations.of(context).thanksForFeedback,
                         style: TextStyle(fontSize: 30),
                       ),
-                      SizedBox(height: 10,),
-                      Container(
-                        margin: EdgeInsets.only(left: 10,right: 10),
-                        child: Text(
-                          DemoLocalizations.of(context).thanksForFeedback,
-                          style: TextStyle(fontSize: 30),
-                        ),
-                      ),
-                    ],
-                  ),
-                  FlatButton(
-                    color: Theme.of(context).primaryColor,
-                    highlightColor: Theme.of(context).primaryColorLight,
-                    colorBrightness: Brightness.dark,
-                    splashColor: Theme.of(context).primaryColorDark,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0)),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      Navigator.of(context).pop();
-                    },
-                    child: Text(DemoLocalizations.of(context).ok),
-                  )
-                ],
-              ),
+                    ),
+                  ],
+                ),
+                FlatButton(
+                  color: Theme.of(context).primaryColor,
+                  highlightColor: Theme.of(context).primaryColorLight,
+                  colorBrightness: Brightness.dark,
+                  splashColor: Theme.of(context).primaryColorDark,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0)),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(DemoLocalizations.of(context).ok),
+                )
+              ],
             ),
           );
-        });
-    final account =
-        await SharedUtil.instance.getString(Keys.account) ?? "default";
-//    ApiService.instance.postSuggestion({
-//      "account": account,
-//      "suggestion": _model.feedbackContent,
-//      "connectWay": _model.contactWay ?? "",
-//    }, (CommonBean bean) {
-//      _model.loadingController.setFlag(LoadingFlag.success);
-//    }, (CommonBean bean) {
-//      _model.loadingController.setFlag(LoadingFlag.error);
-//    }, (error) {
-//      _model.loadingController.setFlag(LoadingFlag.error);
-//    }, _model.cancelToken);
+        },);
   }
 }

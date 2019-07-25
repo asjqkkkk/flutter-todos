@@ -4,6 +4,7 @@ import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/utils/theme_util.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class GlobalModel extends ChangeNotifier {
   GlobalLogic logic;
@@ -38,6 +39,8 @@ class GlobalModel extends ChangeNotifier {
   String currentPosition = "";
   //当前天气的json
   WeatherBean weatherBean;
+  //用于控制天气获取的loading加载框
+  LoadingController loadingController = LoadingController();
 
 
   //当前语言
