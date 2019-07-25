@@ -6,6 +6,8 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 
+import 'navigator_setting_page.dart';
+
 class ImagePage extends StatefulWidget {
   final List<String> imageUrls;
   final int initialPageIndex;
@@ -59,8 +61,9 @@ class _ImagePageState extends State<ImagePage> {
             child: PhotoViewGallery.builder(
               scrollPhysics: const BouncingScrollPhysics(),
               builder: (BuildContext context, int index) {
+                final url = widget.imageUrls[index];
                 return PhotoViewGalleryPageOptions(
-                  imageProvider: CachedNetworkImageProvider(widget.imageUrls[index]),
+                  imageProvider: url == NavHeadType.dailyPicUrl ? Image.network(url) : CachedNetworkImageProvider(url),
                   initialScale: PhotoViewComputedScale.contained,
                   heroTag: "tag_${index}",
                 );

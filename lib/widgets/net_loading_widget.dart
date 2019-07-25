@@ -33,47 +33,56 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      backgroundColor: Colors.black.withOpacity(0.3),
-      body: Container(
-        width: size.width,
-        height: size.height,
-        alignment: Alignment.center,
-        child: Container(
-          width: size.width / 3 * 2,
-          height: size.height / 2,
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30.0),
-            ),
-            child: LoadingWidget(
-              flag: loadingFlag,
-              loadingText: getLoadingText(),
-              successWidget: widget.successWidget ?? Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Column(
+    return GestureDetector(
+      onTap: (){
+        Navigator.pop(context);
+      },
+      child: Scaffold(
+        backgroundColor: Colors.black.withOpacity(0.3),
+        body: Container(
+          width: size.width,
+          height: size.height,
+          alignment: Alignment.center,
+          child: Container(
+            width: size.width / 3 * 2,
+            height: size.height / 3,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: LoadingWidget(
+                flag: loadingFlag,
+                loadingText: getLoadingText(),
+                successWidget: Container(
+                  margin: EdgeInsets.all(10),
+                  child: widget.successWidget ?? Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Text(
-                        widget.successText,
-                        style: TextStyle(fontSize: 30),
+                      Column(
+                        children: <Widget>[
+                          Text(
+                            widget.successText,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 30),
+                          ),
+                        ],
                       ),
+                      FlatButton(
+                        color: Theme.of(context).primaryColor,
+                        highlightColor: Theme.of(context).primaryColorLight,
+                        colorBrightness: Brightness.dark,
+                        splashColor: Theme.of(context).primaryColorDark,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                        onPressed: widget.onSuccess ?? (){},
+                        child: Text(DemoLocalizations.of(context).ok),
+                      )
                     ],
                   ),
-                  FlatButton(
-                    color: Theme.of(context).primaryColor,
-                    highlightColor: Theme.of(context).primaryColorLight,
-                    colorBrightness: Brightness.dark,
-                    splashColor: Theme.of(context).primaryColorDark,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0)),
-                    onPressed: widget.onSuccess ?? (){},
-                    child: Text(DemoLocalizations.of(context).ok),
-                  )
-                ],
+                ),
+                errorCallBack: widget.onRequest ?? (){},
+                errorText: getLoadingText(),
               ),
-              errorCallBack: widget.onRequest ?? (){},
-              errorText: getLoadingText(),
             ),
           ),
         ),
@@ -103,7 +112,7 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
         return widget.loadingText ?? DemoLocalizations.of(context).waitAMoment;
         break;
       case LoadingFlag.error:
-        return widget.emptyText ?? DemoLocalizations.of(context).submitAgain;
+        return widget.errorText ?? DemoLocalizations.of(context).submitAgain;
         break;
       case LoadingFlag.success:
         return widget.successText ?? DemoLocalizations.of(context).submitSuccess;

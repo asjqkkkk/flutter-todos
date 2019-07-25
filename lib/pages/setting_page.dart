@@ -159,6 +159,7 @@ class SettingPage extends StatelessWidget {
             content: Form(
               autovalidate: true,
               child: TextFormField(
+                initialValue: globalModel.currentPosition,
                 validator: (text){
                   globalModel.currentPosition = text;
                 },

@@ -35,13 +35,15 @@ class GlobalModel extends ChangeNotifier {
 
   //是否开启天气
   bool enableWeatherShow = false;
+
   //当前位置信息(经纬度)
   String currentPosition = "";
+
   //当前天气的json
   WeatherBean weatherBean;
+
   //用于控制天气获取的loading加载框
   LoadingController loadingController = LoadingController();
-
 
   //当前语言
   List<String> currentLanguageCode = ["zh", "CN"];
@@ -50,6 +52,7 @@ class GlobalModel extends ChangeNotifier {
 
   //当前导航栏头部背景
   String currentNavHeader = "MeteorShower";
+
   //导航栏头部选择网络图片时的图片地址
   String currentNetPicUrl = "";
 
@@ -71,10 +74,11 @@ class GlobalModel extends ChangeNotifier {
         logic.getIsBgChangeWithCard(),
         logic.getIsCardChangeWithBg(),
         logic.getEnableInfiniteScroll(),
+        logic.getEnableWeatherShow(),
         logic.getCurrentPosition(),
-        logic.getEnableWeatherShow()
       ]).then((value) {
         currentLocale = Locale(currentLanguageCode[0], currentLanguageCode[1]);
+        print("是否开启天气:${enableWeatherShow}   当前位置:${currentPosition}");
         refresh();
       });
     }
@@ -83,7 +87,11 @@ class GlobalModel extends ChangeNotifier {
   void setMainPageModel(MainPageModel mainPageModel) {
     if (this.mainPageModel == null) {
       this.mainPageModel = mainPageModel;
-      if(enableWeatherShow) logic.getWeatherNow(currentPosition);
+
+      //延时0.5秒后再去获取天气
+      Future.delayed(Duration(milliseconds: 500), (){
+        if (enableWeatherShow) logic.getWeatherNow(currentPosition);
+      });
     }
   }
 
