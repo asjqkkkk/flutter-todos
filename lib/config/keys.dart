@@ -18,6 +18,7 @@ class Keys{
   static final String currentNetPicUrl = "current_net_pic_url";
   static final String currentPosition = "currentPosition";
   static final String enableWeatherShow = "enable_weather_show";
+  static final String currentUserName = "current_user_name";
 
 
 }

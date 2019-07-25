@@ -82,11 +82,30 @@ class MainPage extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
                   child: Container(
                     margin: EdgeInsets.only(top: 20, left: 12),
-                    child: Text(
-                      "${DemoLocalizations.of(context).welcomeWord}Old Li.",
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: globalModel.logic.getWhiteInDark()),
+                    child: SingleChildScrollView(
+                      child: Row(
+                        children: <Widget>[
+                          Flexible(
+                            child: InkWell(
+                              onTap: model.currentUserName.isEmpty ? null : model.logic.onUserNameTap,
+                              child: Text(
+                                "${DemoLocalizations.of(context).welcomeWord}${model.currentUserName}",
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    color: globalModel.logic.getWhiteInDark()),
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                          model.currentUserName.isEmpty
+                              ? IconButton(
+                                  icon: Icon(Icons.account_circle, color: globalModel.logic.getWhiteInDark(),),
+                                  onPressed: model.logic.onUserNameTap,
+                                )
+                              : SizedBox()
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -105,12 +124,13 @@ class MainPage extends StatelessWidget {
                 model.tasks.length == 0
                     ? model.logic.getEmptyWidget(globalModel)
                     : Container(
-                        margin: EdgeInsets.only(top: 40,bottom: 40),
+                        margin: EdgeInsets.only(top: 40, bottom: 40),
                         child: CarouselSlider(
                           items: model.logic.getCards(context),
-                          aspectRatio:  16 / 9,
+                          aspectRatio: 16 / 9,
                           height: min(size.width, size.height) - 100,
-                          viewportFraction: size.height >= size.width ? 0.8 : 0.5,
+                          viewportFraction:
+                              size.height >= size.width ? 0.8 : 0.5,
                           initialPage: 0,
                           enableInfiniteScroll: model.tasks.length >= 3 &&
                               globalModel.enableInfiniteScroll,

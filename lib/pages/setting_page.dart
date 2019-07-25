@@ -9,6 +9,7 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/edit_dialog.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
 
 import 'all_page.dart';
@@ -154,55 +155,33 @@ class SettingPage extends StatelessWidget {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(
-            title: Text(DemoLocalizations.of(context).enableWeatherShow),
-            content: Form(
-              autovalidate: true,
-              child: TextFormField(
-                initialValue: globalModel.currentPosition,
-                validator: (text){
-                  globalModel.currentPosition = text;
-                },
-                decoration: InputDecoration(
-                  hintText: DemoLocalizations.of(context).inputCurrentCity,
-                ),
-              ),
-            ),
-            actions: <Widget>[
-              FlatButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text(
-                  DemoLocalizations.of(context).cancel,
-                  style: TextStyle(color: Colors.redAccent),
-                ),
-              ),
-              FlatButton(
-                onPressed: () {
-                  if(globalModel.currentPosition.isEmpty) return;
-                  CancelToken cancelToken = CancelToken();
-                  showDialog(context: context, builder: (ctx){
-                    return NetLoadingWidget(
-                     onRequest: (){
-                       globalModel.logic.getWeatherNow(globalModel.currentPosition,controller: globalModel.loadingController);
-                     },
-                      cancelToken: cancelToken,
-                      errorText: DemoLocalizations.of(context).weatherGetWrong,
-                      loadingText: DemoLocalizations.of(context).weatherGetting,
-                      successText: DemoLocalizations.of(context).weatherSuccess,
-                      onSuccess: (){
-                       Navigator.of(context).pop();
-                       Navigator.of(context).pop();
-                      },
-                      loadingController: globalModel.loadingController,
-                    );
-                  });
-                },
-                child: Text(DemoLocalizations.of(context).ok,
-                    style: TextStyle(color: Colors.greenAccent)),
-              ),
-            ],
+          return EditDialog(
+            title: DemoLocalizations.of(context).enableWeatherShow,
+            hintText: DemoLocalizations.of(context).inputCurrentCity,
+            initialValue: globalModel.currentPosition,
+            onValueChanged: (text){
+              globalModel.currentPosition = text;
+            },
+            sureTextStyle: TextStyle(color: globalModel.logic.getbwInDark()),
+            onSure: (){
+              if(globalModel.currentPosition.isEmpty) return;
+              CancelToken cancelToken = CancelToken();
+              showDialog(context: context, builder: (ctx){
+                return NetLoadingWidget(
+                  onRequest: (){
+                    globalModel.logic.getWeatherNow(globalModel.currentPosition,controller: globalModel.loadingController);
+                  },
+                  cancelToken: cancelToken,
+                  errorText: DemoLocalizations.of(context).weatherGetWrong,
+                  loadingText: DemoLocalizations.of(context).weatherGetting,
+                  successText: DemoLocalizations.of(context).weatherSuccess,
+                  onSuccess: (){
+                    Navigator.of(context).pop();
+                  },
+                  loadingController: globalModel.loadingController,
+                );
+              });
+            },
           );
         },);
     } else {

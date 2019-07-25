@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
@@ -13,6 +14,7 @@ import 'package:todo_list/pages/search_page.dart';
 import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
+import 'package:todo_list/widgets/edit_dialog.dart';
 import 'package:todo_list/widgets/scale_animation_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -70,6 +72,13 @@ class MainPageLogic {
    if (tasks == null) return;
    _model.tasks.clear();
    _model.tasks.addAll(tasks);
+  }
+
+  Future getCurrentUserName() async{
+   final currentUserName = await  SharedUtil.instance.getString(Keys.currentUserName);
+   if (currentUserName == null) return;
+   if (currentUserName == _model.currentUserName) return;
+   _model.currentUserName = currentUserName;
   }
 
   Decoration getBackground(GlobalModel globalModel) {
@@ -217,6 +226,31 @@ class MainPageLogic {
     Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx){
       return ProviderConfig.getInstance().getAvatarPage(mainPageModel: _model);
     }));
+  }
+
+  void onUserNameTap(){
+    final context = _model.context;
+    showDialog(context: context, builder: (ctx){
+      return EditDialog(
+        title: DemoLocalizations.of(context).customUserName,
+        hintText: DemoLocalizations.of(context).inputUserName,
+        onValueChanged: (text){
+          _model.currentUserName = text;
+        },
+        initialValue: _model.currentUserName,
+        onSure: (){
+          if(_model.currentUserName.isEmpty){
+            showDialog(context: context, builder: (ctx){
+              return AlertDialog(content: Text(DemoLocalizations.of(context).userNameCantBeNull),);
+            });
+            return;
+          }
+          SharedUtil.instance.saveString(Keys.currentUserName, _model.currentUserName);
+          _model.refresh();
+        },
+
+      );
+    });
   }
 
   void onSearchTap(){

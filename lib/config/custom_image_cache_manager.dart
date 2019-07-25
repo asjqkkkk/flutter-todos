@@ -6,7 +6,7 @@ import 'package:path/path.dart' as p;
 
 
 
-
+//图片缓存管理类，目前没有用到
 class CustomCacheManager extends BaseCacheManager {
   static const key = "customCache";
 

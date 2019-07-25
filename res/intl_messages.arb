@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-25T11:08:23.468694",
+  "@@last_modified": "2019-07-25T17:55:44.478744",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -437,6 +437,24 @@
   "welcomeWord": "Hello! ",
   "@welcomeWord": {
     "description": "主页的欢迎词",
+    "type": "text",
+    "placeholders": {}
+  },
+  "customUserName": "Setting your username",
+  "@customUserName": {
+    "description": "昵称设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputUserName": "input your username",
+  "@inputUserName": {
+    "description": "输入你的昵称吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userNameCantBeNull": "username can not be empty",
+  "@userNameCantBeNull": {
+    "description": "昵称不能为空哦!",
     "type": "text",
     "placeholders": {}
   },

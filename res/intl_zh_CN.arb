@@ -542,6 +542,24 @@
     "type": "text",
     "placeholders": {}
   },
+  "customUserName": "昵称设置",
+  "@customUserName": {
+    "description": "昵称设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputUserName": "输入你的昵称吧",
+  "@inputUserName": {
+    "description": "输入你的昵称吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userNameCantBeNull": "昵称不能为空哦!",
+  "@userNameCantBeNull": {
+    "description": "昵称不能为空哦!",
+    "type": "text",
+    "placeholders": {}
+  },
   "taskItems": "{taskNumbers,plural, =0{你还没有写过任务清单呢.\n快快开始吧.}=1{下面你的任务清单,\n今天, 你有 1 项任务尚未完成. }many{下面是你的任务清单,\n今天, 你有 {taskNumbers} 份任务尚未完成. }other{下面是你的任务清单,\n今天, 你有 {taskNumbers} 份任务尚未完成. }}",
   "@taskItems": {
     "type": "text",

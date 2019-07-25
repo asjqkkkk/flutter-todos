@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:todo_list/utils/size_util.dart';
 
+//正六边形实现
 class FloatingBorder extends ShapeBorder {
   @override
   // TODO: implement dimensions

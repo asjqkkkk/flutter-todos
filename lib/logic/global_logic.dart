@@ -41,6 +41,12 @@ class GlobalLogic{
     return themeType == MyTheme.darkTheme ? Colors.grey[800] : Theme.of(context).primaryColor;
   }
 
+  //当为夜间模式时候，黑色替换为白色
+  Color getbwInDark(){
+    final themeType = _model.currentThemeBean.themeType;
+    return themeType == MyTheme.darkTheme ? Colors.white : Colors.black;
+  }
+
   Future getCurrentLanguageCode() async{
     final list = await SharedUtil.instance.getStringList(Keys.currentLanguageCode);
     if (list == null) return;

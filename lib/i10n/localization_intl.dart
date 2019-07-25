@@ -180,6 +180,12 @@ class DemoLocalizations {
     );
   }
 
+  String get customUserName => Intl.message('Setting your username', name: 'customUserName', desc: '昵称设置',);
+  String get inputUserName => Intl.message('input your username', name: 'inputUserName', desc: '输入你的昵称吧',);
+  String get userNameCantBeNull => Intl.message('username can not be empty', name: 'userNameCantBeNull', desc: '昵称不能为空哦!',);
+
+
+
   String get pink{
     return Intl.message(
       'pink',
