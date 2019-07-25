@@ -49,6 +49,7 @@ class LoadingWidget extends StatelessWidget {
               ),
               Text(
                 loadingText ?? DemoLocalizations.of(context).loading,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
               )
@@ -72,6 +73,7 @@ class LoadingWidget extends StatelessWidget {
                   onPressed: errorCallBack ?? (){},
                   child: Text(
                     "${errorText??""}" + DemoLocalizations.of(context).reLoading,
+                    textAlign: TextAlign.center,
                     style: TextStyle(fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
                   )),
             ],
@@ -95,6 +97,7 @@ class LoadingWidget extends StatelessWidget {
               ),
               Text(
                 emptyText ?? DemoLocalizations.of(context).loadingEmpty,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: textSize ?? size / 5, color:primaryColor),
               ),
