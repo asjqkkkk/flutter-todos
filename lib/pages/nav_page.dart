@@ -129,7 +129,7 @@ class NavPage extends StatelessWidget {
   }
 
   Widget getWeatherNow(GlobalModel globalModel, BuildContext context) {
-    final color = globalModel.logic.getPrimaryGreyInDark(context);
+    final color = globalModel.logic.isDarkNow() ? Colors.white : Colors.grey;
     final weatherBean = globalModel.weatherBean;
     if (weatherBean == null) {
       return FlatButton(
@@ -142,7 +142,7 @@ class NavPage extends StatelessWidget {
     final NowBean nowBean =
         weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].now;
     return Container(
-      margin: EdgeInsets.only(left: 5, top: 2),
+      margin: EdgeInsets.only(left: 5, top: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
