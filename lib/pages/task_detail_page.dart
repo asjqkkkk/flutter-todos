@@ -11,9 +11,8 @@ import 'package:todo_list/widgets/popmenu_botton.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
 
 class TaskDetailPage extends StatelessWidget {
-  final int index;
 
-  TaskDetailPage(this.index);
+  TaskDetailPage();
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +25,9 @@ class TaskDetailPage extends StatelessWidget {
         ? Theme.of(context).primaryColor
         : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
 
+    final int heroTag = model.heroTag;
+
+
     return WillPopScope(
       onWillPop: () {
         model.logic.exitPage();
@@ -33,7 +35,7 @@ class TaskDetailPage extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Hero(
-            tag: "task_bg${index}",
+            tag: "task_bg${heroTag}",
             child: Container(
                 decoration: BoxDecoration(
               color: globalModel.logic.getBgInDark(),
@@ -56,7 +58,7 @@ class TaskDetailPage extends StatelessWidget {
               backgroundColor: Colors.transparent,
               actions: <Widget>[
                 Hero(
-                    tag: "task_more${index}",
+                    tag: "task_more${heroTag}",
                     child: Material(
                         color: Colors.transparent,
                         child: PopMenuBt(
@@ -76,7 +78,7 @@ class TaskDetailPage extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 50, top: 20, right: 50),
                     child: TaskInfoWidget(
-                      index,
+                      heroTag,
                       taskBean: model.taskBean,
                       isCardChangeWithBg: globalModel.isCardChangeWithBg,
                       isExisting: model.isExiting,

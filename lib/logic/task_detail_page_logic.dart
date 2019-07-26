@@ -37,7 +37,14 @@ class TaskDetailPageLogic {
       //如果一个任务中的所有任务项都完成了,因为主页面都是未完成任务，所以删除主页面的该任务
       if (_model.taskBean.overallProgress >= 1.0) {
         _model.taskBean.finishDate = DateTime.now().toIso8601String();
-        removeTask(mainPageModel);
+        //下面这个延时操作，目的如下，如果一个任务完成了，主页面会把这个任务去除掉
+        //这个时候主页任务卡片的herotag就消失了，因为herotag不一致，会导致hero动画失效
+        Future.delayed(Duration(milliseconds: 800, ), (){
+          debugPrint("删除了");
+          removeTask(mainPageModel);
+          debugPrint("刷新main");
+          mainPageModel.refresh();
+        });
       }
       _model.taskBean.changeTimes++;
       DBProvider.db.updateTask(_model.taskBean).then((value){
@@ -51,17 +58,18 @@ class TaskDetailPageLogic {
         }
         //如果是从"搜索页面"过来
         else if(_model.searchPageModel != null){
+          _model.isExiting = true;
+          _model.refresh();
           mainPageModel.logic.getTasks();
           _model.searchPageModel.logic.onEditingComplete();
           Navigator.of(context).pop();
         }
         else {
-          print("点击退出");
+          debugPrint("退出了");
           _model.isExiting = true;
           _model.refresh();
           Navigator.of(context).pop();
         }
-        mainPageModel.refresh();
       });
       return;
     }

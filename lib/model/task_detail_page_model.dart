@@ -14,8 +14,13 @@ class TaskDetailPageModel extends ChangeNotifier {
   BuildContext context;
   GlobalModel globalModel;
 
-  bool isExiting = false; //是否正在退出中
-  bool isAnimationComplete = false; //进入的动画是否完成
+  int heroTag;
+
+  //是否正在退出中，如果是，任务详情列表就消失，如果不是就展示
+  bool isExiting = false;
+
+  //进入的动画是否完成,完成后左上角的退出按钮就可以显示了，同时任务详情列表也开始展示
+  bool isAnimationComplete = false;
 
   //这个定时器是为了配合hero动画定时的
   Timer timer;
@@ -29,18 +34,25 @@ class TaskDetailPageModel extends ChangeNotifier {
 
   //如果不为空，表示是否从"完成列表"过来的
   DoneTaskPageModel doneTaskPageModel;
+
   //如果不为空，表示是否从"搜索界面"过来的
   SearchPageModel searchPageModel;
 
-  TaskDetailPageModel(TaskBean taskBean,
-      { DoneTaskPageModel doneTaskPageModel, SearchPageModel searchPageModel,}) {
+  TaskDetailPageModel(
+    TaskBean taskBean, {
+    DoneTaskPageModel doneTaskPageModel,
+    SearchPageModel searchPageModel,
+        int heroTag,
+  }) {
     logic = TaskDetailPageLogic(this);
     this.taskBean = taskBean;
+    this.heroTag = heroTag;
     this.doneTaskPageModel = doneTaskPageModel;
     this.searchPageModel = searchPageModel;
     this.progress = taskBean.overallProgress;
     this.progressList.clear();
-    if(doneTaskPageModel != null){
+    //如果是从"完成列表"进来，就不搞hero动画了
+    if (doneTaskPageModel != null) {
       isAnimationComplete = true;
       return;
     }

@@ -41,10 +41,9 @@ class ProviderConfig {
             taskBean,
         doneTaskPageModel : doneTaskPageModel,
         searchPageModel : searchPageModel,
+        heroTag: index,
           ),
-      child: TaskDetailPage(
-        index,
-      ),
+      child: TaskDetailPage(),
     );
   }
 

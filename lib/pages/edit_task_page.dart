@@ -51,7 +51,7 @@ class EditTaskPage extends StatelessWidget {
                 color: iconColor,
               ),
               tooltip: DemoLocalizations.of(context).submit,
-              onPressed: model.logic.onSubmitTap)
+              onPressed: model.logic.onSubmitTap,)
         ],
         title: Container(
           height: 49,
