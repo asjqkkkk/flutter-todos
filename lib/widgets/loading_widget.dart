@@ -9,6 +9,7 @@ class LoadingWidget extends StatelessWidget {
   final String loadingText;
   final String emptyText;
   final String errorText;
+  final String idleText;
   final LoadingFlag flag;
   final VoidCallback errorCallBack;
   final Widget successWidget;
@@ -22,7 +23,7 @@ class LoadingWidget extends StatelessWidget {
       this.flag = LoadingFlag.loading,
       this.errorCallBack,
       this.emptyText,
-      this.errorText, this.size = 100, this.successWidget});
+      this.errorText, this.size = 100, this.successWidget, this.idleText});
 
   @override
   Widget build(BuildContext context) {
@@ -108,12 +109,23 @@ class LoadingWidget extends StatelessWidget {
 
       case LoadingFlag.idle:
         return Center(
-          child: SvgPicture.asset(
-            "svgs/idle.svg",
-            color: progressColor ?? primaryColor,
-            width: size,
-            height: size,
-            semanticsLabel: 'idle',
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SvgPicture.asset(
+                "svgs/idle.svg",
+                color: progressColor ?? primaryColor,
+                width: size,
+                height: size,
+                semanticsLabel: 'idle',
+              ),
+              Text(
+                idleText ?? DemoLocalizations.of(context).loadingIdle,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
+              )
+            ],
           ),
         );
         break;

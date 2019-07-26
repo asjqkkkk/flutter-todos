@@ -87,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading" : MessageLookupByLibrary.simpleMessage("加载中..."),
     "loadingEmpty" : MessageLookupByLibrary.simpleMessage("什么都没有哦"),
     "loadingError" : MessageLookupByLibrary.simpleMessage("加载出错了"),
+    "loadingIdle" : MessageLookupByLibrary.simpleMessage("......"),
     "meteorShower" : MessageLookupByLibrary.simpleMessage("天体流星"),
     "music" : MessageLookupByLibrary.simpleMessage("听歌"),
     "navigatorSetting" : MessageLookupByLibrary.simpleMessage("导航栏设置"),

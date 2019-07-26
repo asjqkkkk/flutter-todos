@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-25T17:55:44.478744",
+  "@@last_modified": "2019-07-26T16:49:38.161457",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -577,6 +577,12 @@
   "loadingEmpty": "nothing at all",
   "@loadingEmpty": {
     "description": "什么都没有哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "loadingIdle": "...",
+  "@loadingIdle": {
+    "description": "......",
     "type": "text",
     "placeholders": {}
   },

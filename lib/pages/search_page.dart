@@ -58,6 +58,7 @@ class SearchPage extends StatelessWidget {
               ? LoadingWidget(
                   flag: model.loadingFlag,
             progressColor: bgColor,
+            textColor: globalModel.logic.getWhiteInDark(),
                 )
               : GridView.count(
                   crossAxisCount: 2,

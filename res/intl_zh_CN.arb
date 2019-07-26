@@ -580,6 +580,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "loadingIdle": "......",
+  "@loadingIdle": {
+    "description": "......",
+    "type": "text",
+    "placeholders": {}
+  },
   "loadingError": "加载出错了",
   "@loadingError": {
     "description": "加载出错了",

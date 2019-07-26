@@ -87,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading" : MessageLookupByLibrary.simpleMessage("loading..."),
     "loadingEmpty" : MessageLookupByLibrary.simpleMessage("nothing at all"),
     "loadingError" : MessageLookupByLibrary.simpleMessage("loading error"),
+    "loadingIdle" : MessageLookupByLibrary.simpleMessage("......"),
     "meteorShower" : MessageLookupByLibrary.simpleMessage("Meteor Shower"),
     "music" : MessageLookupByLibrary.simpleMessage("Music"),
     "navigatorSetting" : MessageLookupByLibrary.simpleMessage("Navigator Setting"),

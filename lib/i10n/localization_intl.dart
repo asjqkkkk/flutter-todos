@@ -294,6 +294,7 @@ class DemoLocalizations {
 
 
   String get loadingEmpty => Intl.message('nothing at all', name: 'loadingEmpty', desc: '什么都没有哦',);
+  String get loadingIdle => Intl.message('...', name: 'loadingIdle', desc: '......',);
   String get loadingError => Intl.message('loading error', name: 'loadingError', desc: '加载出错了',);
   String get loading => Intl.message('loading...', name: 'loading', desc: '加载中...',);
   String get pullUpToLoadMore => Intl.message('pull up load more', name: 'pullUpToLoadMore', desc: '上拉加载更多',);

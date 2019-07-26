@@ -33,6 +33,7 @@ class EditTaskPage extends StatelessWidget {
     final iconData = IconBean.fromBean(taskIconBean.iconBean);
     final bgColor = globalModel.logic.getBgInDark();
     final textColor =  globalModel.logic.isDarkNow() ? Color.fromRGBO(130, 130, 130, 1) : Colors.black;
+    final hintTextColor =  globalModel.logic.isDarkNow() ? Color.fromRGBO(130, 130, 130, 1) : Colors.grey;
 
 
 //    model.logic.scrollToEndWhenEdit();
@@ -69,7 +70,7 @@ class EditTaskPage extends StatelessWidget {
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: model.logic.getHintTitle(),
-                  hintStyle: TextStyle(color: textColor),
+                  hintStyle: TextStyle(color: hintTextColor),
                 ),
                 maxLines: 1,
               ),
@@ -179,7 +180,7 @@ class EditTaskPage extends StatelessWidget {
                             hintText: DemoLocalizations.of(context).addTask,
                             border: InputBorder.none,
                             hintStyle: TextStyle(
-                              color: textColor,
+                              color: hintTextColor,
                             ),
                             prefixIcon: Icon(
                               iconData,

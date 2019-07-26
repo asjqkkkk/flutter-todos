@@ -6,9 +6,7 @@ import 'package:todo_list/items/task_detail_item.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/global_model.dart';
-import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
-import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/popmenu_botton.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
 
@@ -68,19 +66,23 @@ class TaskDetailPage extends StatelessWidget {
                         ))),
               ],
             ),
-            body: Column(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(left: 50, top: 20, right: 50),
-                  child: TaskInfoWidget(
-                    index,
-                    taskBean: model.taskBean,
-                    isCardChangeWithBg: globalModel.isCardChangeWithBg,
-                    isExisting: model.isExiting,
+            //使用NotificationListener可以去掉android上默认Listview的水波纹效果
+            body: NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (overScroll) {
+                overScroll.disallowGlow();
+              },
+              child: ListView(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(left: 50, top: 20, right: 50),
+                    child: TaskInfoWidget(
+                      index,
+                      taskBean: model.taskBean,
+                      isCardChangeWithBg: globalModel.isCardChangeWithBg,
+                      isExisting: model.isExiting,
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Container(
+                  Container(
                     margin: EdgeInsets.only(top: 20),
                     child: !model.isExiting
                         ? NotificationListener<OverscrollIndicatorNotification>(
@@ -88,6 +90,8 @@ class TaskDetailPage extends StatelessWidget {
                               overScroll.disallowGlow();
                             },
                             child: ListView(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
                               children: List.generate(
                                 model?.taskBean?.detailList?.length ?? 0,
                                 (index) {
@@ -129,9 +133,9 @@ class TaskDetailPage extends StatelessWidget {
                               ),
                             ))
                         : SizedBox(),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ],
