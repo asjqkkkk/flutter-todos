@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 
 class EditDialog extends StatelessWidget {
-  final VoidCallback onSure;
+  final VoidCallback onPositive;
+  final bool positiveWithPop;
   final String title;
   final String hintText;
   final String initialValue;
@@ -12,10 +13,14 @@ class EditDialog extends StatelessWidget {
 
   const EditDialog({
     Key key,
-    this.onSure,
+    this.onPositive,
     this.title,
     this.hintText,
-    this.initialValue, this.onValueChanged, this.cancelTextStyle, this.sureTextStyle,
+    this.initialValue,
+    this.onValueChanged,
+    this.cancelTextStyle,
+    this.sureTextStyle,
+    this.positiveWithPop = true,
   }) : super(key: key);
 
   @override
@@ -28,9 +33,8 @@ class EditDialog extends StatelessWidget {
         autovalidate: true,
         child: TextFormField(
           initialValue: initialValue ?? "",
-          validator: (text){
-            if(onValueChanged != null)
-            onValueChanged(text);
+          validator: (text) {
+            if (onValueChanged != null) onValueChanged(text);
           },
           decoration: InputDecoration(
             hintText: hintText ?? "",
@@ -44,17 +48,17 @@ class EditDialog extends StatelessWidget {
           },
           child: Text(
             DemoLocalizations.of(context).cancel,
-            style:cancelTextStyle ?? TextStyle(color: Colors.redAccent),
+            style: cancelTextStyle ?? TextStyle(color: Colors.redAccent),
           ),
         ),
         FlatButton(
-          onPressed: (){
-            if(onSure != null) onSure();
-            Navigator.pop(context);
-
+          onPressed: () {
+            if (onPositive != null) onPositive();
+            if(positiveWithPop) Navigator.of(context).pop();
+            print("确定");
           },
           child: Text(DemoLocalizations.of(context).ok,
-              style:sureTextStyle ?? TextStyle(color: Colors.black)),
+              style: sureTextStyle ?? TextStyle(color: Colors.black)),
         ),
       ],
     );

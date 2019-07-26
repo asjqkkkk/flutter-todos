@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-07-26T16:49:38.161457",
+  "@@last_modified": "2019-07-26T18:12:05.019730",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -431,6 +431,18 @@
   "checkUpdate": "Check Update",
   "@checkUpdate": {
     "description": "检查更新",
+    "type": "text",
+    "placeholders": {}
+  },
+  "update": "update",
+  "@update": {
+    "description": "升级",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newVersionIsComing": "New version is comming!",
+  "@newVersionIsComing": {
+    "description": "新版本来啦!",
     "type": "text",
     "placeholders": {}
   },

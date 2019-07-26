@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+//这个类是我通过文件操作的方式，以及对String做了各种操作，把系统的Icon信息提取出来
+//有一个本地的json文件也是这么生成的，有需要可以直接拿去使用，非常方便
 class IconUtil {
   static IconUtil _instance;
 

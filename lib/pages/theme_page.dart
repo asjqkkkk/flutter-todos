@@ -8,6 +8,8 @@ import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'dart:convert';
 
+import 'package:todo_list/widgets/custom_animated_switcher.dart';
+
 class ThemePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,17 +21,28 @@ class ThemePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(DemoLocalizations.of(context).changeTheme),
         actions: <Widget>[
-          IconButton(
-              icon: model.isDeleting
-                  ? Icon(Icons.check)
-                  : Icon(
-                      Icons.border_color,
-                      size: 18,
-                    ),
-              onPressed: () {
-                model.isDeleting = !model.isDeleting;
-                model.refresh();
-              })
+          CustomAnimatedSwitcher(
+            firstChild: IconButton(
+              icon: Icon(
+                Icons.border_color,
+                size: 18,
+                color: globalModel.logic.getWhiteInDark(),
+              ),
+              onPressed: null,
+            ),
+            secondChild: IconButton(
+              icon: Icon(
+                Icons.check,
+                color: globalModel.logic.getWhiteInDark(),
+              ),
+              onPressed: null,
+            ),
+            hasChanged: model.isDeleting,
+            onTap: () {
+              model.isDeleting = !model.isDeleting;
+              model.refresh();
+            },
+          ),
         ],
       ),
       body: Container(
@@ -113,7 +126,8 @@ class ThemePage extends StatelessWidget {
       onTap: () {
         globalModel.currentThemeBean = themeBean;
         globalModel.refresh();
-        SharedUtil.instance.saveString(Keys.currentThemeBean, jsonEncode(themeBean.toMap()));
+        SharedUtil.instance
+            .saveString(Keys.currentThemeBean, jsonEncode(themeBean.toMap()));
       },
       child: Container(
         height: (size.width - 140) / 3,

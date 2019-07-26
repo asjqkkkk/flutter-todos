@@ -410,6 +410,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "update": "升级",
+  "@update": {
+    "description": "升级",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newVersionIsComing": "新版本来啦!",
+  "@newVersionIsComing": {
+    "description": "新版本来啦!",
+    "type": "text",
+    "placeholders": {}
+  },
   "bgChangeWithCard": "背景跟随任务图标颜色",
   "@bgChangeWithCard": {
     "description": "背景跟随任务图标颜色",

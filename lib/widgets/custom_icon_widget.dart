@@ -116,7 +116,6 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                     width: 35,
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
                       gradient: LinearGradient(
                         colors: [
                           Colors.redAccent,
@@ -129,6 +128,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                       border: currentSelectIndex == 7
                           ? Border.all(color: currentIconColor, width: 4)
                           : null,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                   ),
                 ),

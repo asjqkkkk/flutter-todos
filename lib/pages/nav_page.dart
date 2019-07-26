@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/weather_bean.dart';
@@ -103,13 +102,10 @@ class NavPage extends StatelessWidget {
             child: Container(
               height: netImageHeight,
               child: isDailyPic
-                  ? FadeInImage(
-                image: NetworkImage(NavHeadType.DAILY_PIC_URL),
-                fit: BoxFit.cover,
-                placeholder: CachedNetworkImageProvider(
-                    NavHeadType.DAILY_PIC_URL,cacheManager: CustomCacheManager(),
-                ),
-              )
+                  ? Image.network(
+                      NavHeadType.DAILY_PIC_URL,
+                      fit: BoxFit.cover,
+                    )
                   : CachedNetworkImage(
                       fit: BoxFit.cover,
                       imageUrl: url,

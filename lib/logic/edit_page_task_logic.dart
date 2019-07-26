@@ -40,6 +40,7 @@ class EditTaskPageLogic {
   //提交一项任务
   void submitOneItem() {
     String text = _model.textEditingController.text;
+    if(text.isEmpty) return;
     _model.taskDetails.add(TaskDetailBean(taskDetailName: text));
     _model.textEditingController.clear();
     _model.refresh();

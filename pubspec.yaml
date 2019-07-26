@@ -72,6 +72,11 @@ dev_dependencies:
   pull_to_refresh: ^1.5.0
   #看图片
   photo_view: ^0.3.3
+  #url
+  url_launcher: ^5.1.0
+  #打开文件，android更新下载安装包用
+  open_file: ^2.0.3
+
 
 
 # For information on the generic Dart part of this file, see the

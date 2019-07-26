@@ -428,6 +428,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "update": "update",
+  "@update": {
+    "description": "升级",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newVersionIsComing": "New version is comming!",
+  "@newVersionIsComing": {
+    "description": "新版本来啦!",
+    "type": "text",
+    "placeholders": {}
+  },
   "writeAtLeastOneTaskItem": "Please write at least one task.",
   "@writeAtLeastOneTaskItem": {
     "description": "请至少写下一项任务哦",

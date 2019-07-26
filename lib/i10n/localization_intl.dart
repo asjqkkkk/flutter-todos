@@ -171,6 +171,9 @@ class DemoLocalizations {
       desc: '检查更新',
     );
   }
+  String get update => Intl.message('update', name: 'update', desc: '升级',);
+  String get newVersionIsComing => Intl.message('New version is comming!', name: 'newVersionIsComing', desc: '新版本来啦!',);
+
 
   String get welcomeWord{
     return Intl.message(

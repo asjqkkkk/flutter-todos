@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/icon_setting_page_model.dart';
+import 'package:todo_list/widgets/custom_animated_icon.dart';
+import 'package:todo_list/widgets/custom_animated_switcher.dart';
 
 class IconSettingPage extends StatelessWidget {
   @override
@@ -28,18 +30,18 @@ class IconSettingPage extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  child: GestureDetector(
-                    child: model.isDeleting
-                        ? Icon(
-                            Icons.check,
-                            color: Colors.green,
-                            size: 20,
-                          )
-                        : Icon(
-                            Icons.border_color,
-                            size: 20,
-                          ),
-                    onTap: () {
+                  child: CustomAnimatedSwitcher(
+                    firstChild: Icon(
+                      Icons.border_color,
+                      size: 20,
+                    ),
+                    secondChild: Icon(
+                      Icons.check,
+                      size: 20,
+                      color: Colors.greenAccent,
+                    ),
+                    hasChanged: model.isDeleting,
+                    onTap: (){
                       model.isDeleting = !model.isDeleting;
                       model.refresh();
                     },
@@ -72,8 +74,8 @@ class IconSettingPage extends StatelessWidget {
                               InkWell(
                                   child: Icon(
                                     IconBean.fromBean(taskIcon.iconBean),
-                                    color: ColorBean.fromBean(
-                                        taskIcon.colorBean),
+                                    color:
+                                        ColorBean.fromBean(taskIcon.colorBean),
                                     size: 40,
                                   ),
                                   onTap: () {
@@ -88,7 +90,9 @@ class IconSettingPage extends StatelessWidget {
                                       isEdit: true,
                                     );
                                   }),
-                              SizedBox(height: 2,),
+                              SizedBox(
+                                height: 2,
+                              ),
                               Text(
                                 taskIcon.taskName,
                                 overflow: TextOverflow.ellipsis,
@@ -161,7 +165,9 @@ class IconSettingPage extends StatelessWidget {
                                   size: 30,
                                 ),
                               ),
-                              SizedBox(height: 8,),
+                              SizedBox(
+                                height: 8,
+                              ),
                               Expanded(
                                 child: Text(
                                   icons[index].iconName,

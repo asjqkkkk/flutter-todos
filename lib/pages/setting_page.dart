@@ -154,8 +154,9 @@ class SettingPage extends StatelessWidget {
     if (value) {
       showDialog(
         context: context,
-        builder: (context) {
+        builder: (ctx1) {
           return EditDialog(
+            positiveWithPop: false,
             title: DemoLocalizations.of(context).enableWeatherShow,
             hintText: DemoLocalizations.of(context).inputCurrentCity,
             initialValue: globalModel.currentPosition,
@@ -163,10 +164,12 @@ class SettingPage extends StatelessWidget {
               globalModel.currentPosition = text;
             },
             sureTextStyle: TextStyle(color: globalModel.logic.getbwInDark()),
-            onSure: (){
+            onPositive: (){
               if(globalModel.currentPosition.isEmpty) return;
               CancelToken cancelToken = CancelToken();
-              showDialog(context: context, builder: (ctx){
+              showDialog(context: ctx1, builder: (ctx2){
+                debugPrint("展示");
+
                 return NetLoadingWidget(
                   onRequest: (){
                     globalModel.logic.getWeatherNow(globalModel.currentPosition,controller: globalModel.loadingController);
@@ -176,6 +179,7 @@ class SettingPage extends StatelessWidget {
                   loadingText: DemoLocalizations.of(context).weatherGetting,
                   successText: DemoLocalizations.of(context).weatherSuccess,
                   onSuccess: (){
+                    Navigator.of(context).pop();
                     Navigator.of(context).pop();
                   },
                   loadingController: globalModel.loadingController,

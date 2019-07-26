@@ -252,7 +252,7 @@ class MainPageLogic {
               _model.currentUserName = text;
             },
             initialValue: _model.currentUserName,
-            onSure: () {
+            onPositive: () {
               if (_model.currentUserName.isEmpty) {
                 showDialog(
                     context: context,

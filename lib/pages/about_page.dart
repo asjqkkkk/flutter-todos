@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -7,6 +8,7 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:package_info/package_info.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/webview_page.dart';
+import 'package:todo_list/widgets/update_dialog.dart';
 
 class AboutPage extends StatefulWidget {
   @override
@@ -109,7 +111,16 @@ class _AboutPageState extends State<AboutPage> {
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  Platform.isAndroid ? Container(
+                    child: IconButton(icon: Icon(Icons.cloud_upload,), onPressed: (){
+                      showDialog(context: context, builder: (ctx){
+                        return UpdateDialog(
+
+                        );
+                      });
+                    }),
+                  ) : SizedBox(),
                 ],
               ),
               Expanded(
