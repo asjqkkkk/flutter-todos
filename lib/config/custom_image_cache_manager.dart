@@ -20,7 +20,7 @@ class CustomCacheManager extends BaseCacheManager {
   }
 
   CustomCacheManager._() : super(key,
-      maxAgeCacheObject: Duration(days: 1),
+      maxAgeCacheObject: Duration(hours: 12),
       maxNrOfCacheObjects: 1,
       fileFetcher: _customHttpGetter);
 

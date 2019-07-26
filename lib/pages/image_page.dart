@@ -63,7 +63,7 @@ class _ImagePageState extends State<ImagePage> {
               builder: (BuildContext context, int index) {
                 final url = widget.imageUrls[index];
                 return PhotoViewGalleryPageOptions(
-                  imageProvider: url == NavHeadType.dailyPicUrl ? NetworkImage(url) : CachedNetworkImageProvider(url),
+                  imageProvider: url == NavHeadType.DAILY_PIC_URL ? NetworkImage(url) : CachedNetworkImageProvider(url),
                   initialScale: PhotoViewComputedScale.contained,
                   heroTag: "tag_${index}",
                 );

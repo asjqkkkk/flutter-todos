@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/weather_bean.dart';
@@ -93,7 +94,7 @@ class NavPage extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
             return ImagePage(
-              imageUrls: [isDailyPic ? NavHeadType.dailyPicUrl : url],
+              imageUrls: [isDailyPic ? NavHeadType.DAILY_PIC_URL : url],
             );
           }));
         },
@@ -102,10 +103,13 @@ class NavPage extends StatelessWidget {
             child: Container(
               height: netImageHeight,
               child: isDailyPic
-                  ? Image.network(
-                      NavHeadType.dailyPicUrl,
-                      fit: BoxFit.cover,
-                    )
+                  ? FadeInImage(
+                image: NetworkImage(NavHeadType.DAILY_PIC_URL),
+                fit: BoxFit.cover,
+                placeholder: CachedNetworkImageProvider(
+                    NavHeadType.DAILY_PIC_URL,cacheManager: CustomCacheManager(),
+                ),
+              )
                   : CachedNetworkImage(
                       fit: BoxFit.cover,
                       imageUrl: url,

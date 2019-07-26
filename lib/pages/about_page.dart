@@ -20,7 +20,7 @@ class _AboutPageState extends State<AboutPage> {
     "这个app功能并不多，但是还是蛮漂亮的一个app，套用一句夸张的话——漂亮的不像app(👏👏😳)",
     "\"一日清单\"可以用来帮你记录简单的ToDo-List，但是对于开发者来说，它最大的目的是帮助开发者去了解Flutter、学习Flutter",
     "拉人入坑Flutter,也是我喜闻乐见的一件事",
-    "如果你觉得这个项目不错，不妨去Github上为项目点个赞",
+    "如果你觉得这个项目不错，不妨去Github上为项目点个Star🌟",
     "Github地址:https://github.com/asjqkkkk",
   ];
 
@@ -63,7 +63,7 @@ class _AboutPageState extends State<AboutPage> {
                             width: 70,
                             height: 70,
                             margin: EdgeInsets.all(10),
-                            child: Image.asset("images/icon.png"))),
+                            child: Image.asset("images/icon_1.png",fit: BoxFit.contain,))),
                   ),
                   Container(
                     margin: EdgeInsets.only(left: 50, top: 2),
