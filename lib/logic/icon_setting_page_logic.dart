@@ -21,6 +21,8 @@ class IconSettingPageLogic {
         context: _model.context,
         builder: (ctx) {
           return AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
             elevation: 0.0,
             contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
             title: Text(DemoLocalizations.of(_model.context).customIcon),
@@ -73,6 +75,8 @@ class IconSettingPageLogic {
   void showCanNotAddIcon(){
     showDialog(context: _model.context,builder: (ctx){
       return AlertDialog(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0))),
         content: Text(DemoLocalizations.of(_model.context).canNotAddMoreIcon),
       );
     });
@@ -82,6 +86,8 @@ class IconSettingPageLogic {
     if (index <= 5) {
       showDialog(context: _model.context, builder: (ctx){
         return AlertDialog(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0))),
           content: Text(DemoLocalizations.of(_model.context).canNotEditDefaultIcon),
         );
       });

@@ -95,6 +95,8 @@ class EditTaskPageLogic {
                 context: _model.context,
                 builder: (ctx) {
                   return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     content: Text(DemoLocalizations.of(_model.context).endBeforeStart),
                   );
                 });
@@ -120,6 +122,8 @@ class EditTaskPageLogic {
                 context: _model.context,
                 builder: (ctx) {
                   return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     content: Text(DemoLocalizations.of(_model.context).startAfterEnd),
                   );
                 });
@@ -196,6 +200,8 @@ class EditTaskPageLogic {
     if(_model.taskDetails.length == 0){
       showDialog(context: _model.context,builder: (ctx){
         return AlertDialog(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0))),
           content: Text(DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
         );
       });
@@ -214,6 +220,8 @@ class EditTaskPageLogic {
     if(_model.taskDetails.length == 0){
       showDialog(context: _model.context,builder: (ctx){
         return AlertDialog(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0))),
           content: Text(DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
         );
       });

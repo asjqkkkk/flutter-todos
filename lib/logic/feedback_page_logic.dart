@@ -26,6 +26,8 @@ class FeedbackPageLogic {
         context: context,
         builder: (ctx) {
           return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
             content: Text(description),
           );
         });

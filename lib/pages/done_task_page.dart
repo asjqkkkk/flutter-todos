@@ -233,6 +233,8 @@ class DoneTaskPage extends StatelessWidget {
               );
             })
             : LoadingWidget(
+          progressColor: globalModel.logic.getPrimaryGreyInDark(context),
+          textColor: globalModel.logic.getPrimaryGreyInDark(context),
           flag: model.loadingFlag,
           errorCallBack: () {},
           emptyText: DemoLocalizations

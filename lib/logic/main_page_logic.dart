@@ -67,18 +67,19 @@ class MainPageLogic {
     );
   }
 
-  Future getTasks() async{
-   final tasks = await  DBProvider.db.getTasks();
-   if (tasks == null) return;
-   _model.tasks.clear();
-   _model.tasks.addAll(tasks);
+  Future getTasks() async {
+    final tasks = await DBProvider.db.getTasks();
+    if (tasks == null) return;
+    _model.tasks.clear();
+    _model.tasks.addAll(tasks);
   }
 
-  Future getCurrentUserName() async{
-   final currentUserName = await  SharedUtil.instance.getString(Keys.currentUserName);
-   if (currentUserName == null) return;
-   if (currentUserName == _model.currentUserName) return;
-   _model.currentUserName = currentUserName;
+  Future getCurrentUserName() async {
+    final currentUserName =
+        await SharedUtil.instance.getString(Keys.currentUserName);
+    if (currentUserName == null) return;
+    if (currentUserName == _model.currentUserName) return;
+    _model.currentUserName = currentUserName;
   }
 
   Decoration getBackground(GlobalModel globalModel) {
@@ -134,7 +135,7 @@ class MainPageLogic {
 
   void deleteTask(int id) {
     DBProvider.db.deleteTask(id).then((a) {
-      getTasks().then((value){
+      getTasks().then((value) {
         _model.refresh();
       });
     });
@@ -144,9 +145,8 @@ class MainPageLogic {
     Navigator.of(_model.context).push(
       new CupertinoPageRoute(
         builder: (ctx) {
-          return ProviderConfig.getInstance().getEditTaskPage(
-              taskBean.taskIconBean,
-              taskBean: taskBean);
+          return ProviderConfig.getInstance()
+              .getEditTaskPage(taskBean.taskIconBean, taskBean: taskBean);
         },
       ),
     );
@@ -161,27 +161,27 @@ class MainPageLogic {
       margin: EdgeInsets.only(top: 40),
       alignment: Alignment.center,
       child: SvgPicture.asset(
-          "svgs/empty_list.svg",
-          color: globalModel.logic.getWhiteInDark(),
-          width: theMin,
-          height: theMin,
-          semanticsLabel: 'empty list',
+        "svgs/empty_list.svg",
+        color: globalModel.logic.getWhiteInDark(),
+        width: theMin,
+        height: theMin,
+        semanticsLabel: 'empty list',
       ),
     );
   }
 
-
-  Future getCurrentAvatar() async{
+  Future getCurrentAvatar() async {
     switch (_model.currentAvatarType) {
       case CurrentAvatarType.defaultAvatar:
-        final path =  await FileUtil.getInstance().copyAssetToFile("images/", "icon.png", "/avatar/", "icon.png");
+        final path = await FileUtil.getInstance()
+            .copyAssetToFile("images/", "icon.png", "/avatar/", "icon.png");
         _model.currentAvatarUrl = path;
         _model.currentAvatarType = CurrentAvatarType.local;
         break;
       case CurrentAvatarType.local:
         final path = await SharedUtil().getString(Keys.localAvatarPath) ?? "";
         File file = File(path);
-        if(file.existsSync()){
+        if (file.existsSync()) {
           _model.currentAvatarUrl = file.path;
         } else {
           _model.currentAvatarUrl = "images/icon.png";
@@ -194,69 +194,90 @@ class MainPageLogic {
     }
   }
 
-  Widget getAvatarWidget(){
+  Widget getAvatarWidget() {
     switch (_model.currentAvatarType) {
       case CurrentAvatarType.defaultAvatar:
-        return Image.asset("images/icon.png",fit: BoxFit.cover,);
+        return Image.asset(
+          "images/icon.png",
+          fit: BoxFit.cover,
+        );
         break;
       case CurrentAvatarType.local:
         File file = File(_model.currentAvatarUrl);
-        if(file.existsSync()){
-          return Image.file(file,fit: BoxFit.fill,);
+        if (file.existsSync()) {
+          return Image.file(
+            file,
+            fit: BoxFit.fill,
+          );
         } else {
-          return Image.asset("images/icon.png",fit: BoxFit.cover,);
+          return Image.asset(
+            "images/icon.png",
+            fit: BoxFit.cover,
+          );
         }
         break;
       case CurrentAvatarType.net:
-        return Image.network(_model.currentAvatarUrl,fit: BoxFit.cover,);
+        return Image.network(
+          _model.currentAvatarUrl,
+          fit: BoxFit.cover,
+        );
         break;
     }
   }
-  
-  Future getAvatarType() async{
-    final currentAvatarType = await SharedUtil.instance.getInt(Keys.currentAvatarType );
+
+  Future getAvatarType() async {
+    final currentAvatarType =
+        await SharedUtil.instance.getInt(Keys.currentAvatarType);
     debugPrint("type:${currentAvatarType}");
-    if(currentAvatarType == null) return;
-    if(currentAvatarType == _model.currentAvatarType) return;
+    if (currentAvatarType == null) return;
+    if (currentAvatarType == _model.currentAvatarType) return;
     _model.currentAvatarType = currentAvatarType;
   }
 
   void onAvatarTap() {
-    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx){
+    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
       return ProviderConfig.getInstance().getAvatarPage(mainPageModel: _model);
     }));
   }
 
-  void onUserNameTap(){
+  void onUserNameTap() {
     final context = _model.context;
-    showDialog(context: context, builder: (ctx){
-      return EditDialog(
-        title: DemoLocalizations.of(context).customUserName,
-        hintText: DemoLocalizations.of(context).inputUserName,
-        onValueChanged: (text){
-          _model.currentUserName = text;
-        },
-        initialValue: _model.currentUserName,
-        onSure: (){
-          if(_model.currentUserName.isEmpty){
-            showDialog(context: context, builder: (ctx){
-              return AlertDialog(content: Text(DemoLocalizations.of(context).userNameCantBeNull),);
-            });
-            return;
-          }
-          SharedUtil.instance.saveString(Keys.currentUserName, _model.currentUserName);
-          _model.refresh();
-        },
-
-      );
-    });
+    showDialog(
+        context: context,
+        builder: (ctx) {
+          return EditDialog(
+            title: DemoLocalizations.of(context).customUserName,
+            hintText: DemoLocalizations.of(context).inputUserName,
+            onValueChanged: (text) {
+              _model.currentUserName = text;
+            },
+            initialValue: _model.currentUserName,
+            onSure: () {
+              if (_model.currentUserName.isEmpty) {
+                showDialog(
+                    context: context,
+                    builder: (ctx) {
+                      return AlertDialog(
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0))),
+                        content: Text(
+                            DemoLocalizations.of(context).userNameCantBeNull),
+                      );
+                    });
+                return;
+              }
+              SharedUtil.instance
+                  .saveString(Keys.currentUserName, _model.currentUserName);
+              _model.refresh();
+            },
+          );
+        });
   }
 
-  void onSearchTap(){
-    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx){
+  void onSearchTap() {
+    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
       return ProviderConfig.getInstance().getSearchPage();
     }));
   }
-
 }
-

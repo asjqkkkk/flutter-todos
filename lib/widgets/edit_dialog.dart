@@ -21,6 +21,8 @@ class EditDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))),
       title: Text(title ?? ""),
       content: Form(
         autovalidate: true,

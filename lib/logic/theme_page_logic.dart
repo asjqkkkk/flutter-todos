@@ -31,6 +31,8 @@ class ThemePageLogic {
         context: context,
         builder: (ctx) {
           return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
             elevation: 0.0,
             title: Text(DemoLocalizations.of(context).pickAColor),
             content: SingleChildScrollView(
@@ -84,6 +86,8 @@ class ThemePageLogic {
         context: _model.context,
         builder: (ctx) {
           return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
             content:
                 Text(DemoLocalizations.of(_model.context).canNotAddMoreTheme),
           );

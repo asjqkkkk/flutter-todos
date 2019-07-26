@@ -99,7 +99,7 @@ class LoadingWidget extends StatelessWidget {
                 emptyText ?? DemoLocalizations.of(context).loadingEmpty,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: textSize ?? size / 5, color:primaryColor),
+                    fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
               ),
             ],
           ),

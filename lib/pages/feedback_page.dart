@@ -16,8 +16,8 @@ class FeedbackPage extends StatelessWidget {
     final bool isDarkNow = globalModel.logic.isDarkNow();
     final size = MediaQuery.of(context).size;
     final feedbackFormHeight =
-    (size.height / 2 - 100) > 300.0 ? 300.0 : (size.height / 2 - 100.0);
-    final contactFormHeight = feedbackFormHeight / 3 < 100 ? 100 : feedbackFormHeight / 3;
+    (size.height / 2 - 100) < 300.0 ? 300.0 : (size.height / 2 - 100.0);
+    final contactFormHeight = feedbackFormHeight / 3 < 100.0 ? 100.0 : feedbackFormHeight / 3;
 
     return Scaffold(
       appBar: AppBar(
