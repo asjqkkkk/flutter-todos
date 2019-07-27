@@ -238,7 +238,7 @@ class _AboutPageState extends State<AboutPage> {
                 (UpdateInfoBean updateInfo)  async{
                   final packageInfo = await PackageInfo.fromPlatform();
                   bool needUpdate = UpdateInfoBean.needUpdate(packageInfo.version, updateInfo.appVersion);
-                  if(!needUpdate){
+                  if(needUpdate){
                     Navigator.of(context).pop();
                     showDialog(context: context, builder: (ctx2){
                       return UpdateDialog(

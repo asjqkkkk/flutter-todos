@@ -157,7 +157,7 @@ class EditTaskPage extends StatelessWidget {
               left: 0,
               bottom: 0,
               child: Container(
-                margin: EdgeInsets.only(bottom: 20),
+                padding: EdgeInsets.only(bottom: 20),
                 width: MediaQuery.of(context).size.width,
                 color: bgColor,
                 alignment: Alignment.center,
