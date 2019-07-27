@@ -1,19 +1,23 @@
-os:
-  - linux
-sudo: false
-addons:
-  apt:
-    # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
-    sources:
-      - ubuntu-toolchain-r-test # if we don't specify this, the libstdc++6 we get is the wrong version
-    packages:
-      - libstdc++6
-      - fonts-droid
-before_script:
-  - git clone https://github.com/flutter/flutter.git -b beta
-  - ./flutter/bin/flutter doctor
-script:
-  - ./flutter/bin/flutter test
-cache:
-  directories:
-    - $HOME/.pub-cache
+# jobs 用于执行不同的build stage
+jobs:
+  include:
+    - stage: test
+
+
+- stage: test
+  os: linux
+  language: generic
+  sudo: false
+  addons:
+    apt:
+      sources:
+        - ubuntu-toolchain-r-test
+      packages:
+        # Flutter依赖
+        - libstdc++6
+        - fonts-droid
+  before_script:
+    - git clone https://github.com/flutter/flutter.git -b beta --depth 1
+  script:
+    - "./flutter/bin/flutter upgrade"
+    - "./flutter/bin/flutter test"
