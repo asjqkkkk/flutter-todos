@@ -259,7 +259,7 @@ class EditTaskPageLogic {
       account: account,
       taskType: _model.taskIcon.taskName,
       taskDetailNum: _model.taskDetails.length,
-      createDate: DateTime.now().toIso8601String(),
+      createDate: _model?.createDate?.toIso8601String() ?? DateTime.now().toIso8601String(),
       startDate: _model.startDate?.toIso8601String(),
       deadLine: _model.deadLine?.toIso8601String(),
       detailList: _model.taskDetails,
@@ -283,6 +283,7 @@ class EditTaskPageLogic {
       _model.deadLine = DateTime.parse(oldTaskBean.deadLine);
       if(oldTaskBean.startDate != null)
       _model.startDate = DateTime.parse(oldTaskBean.startDate);
+      _model.createDate = DateTime.parse(oldTaskBean.createDate);
       _model.changeTimes = oldTaskBean.changeTimes ?? 0;
       _model.taskIcon = oldTaskBean.taskIconBean;
       _model.currentTaskName = oldTaskBean.taskName;
