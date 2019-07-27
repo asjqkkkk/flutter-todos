@@ -422,6 +422,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "noUpdate": "已是最新版本",
+  "@noUpdate": {
+    "description": "已是最新版本",
+    "type": "text",
+    "placeholders": {}
+  },
   "bgChangeWithCard": "背景跟随任务图标颜色",
   "@bgChangeWithCard": {
     "description": "背景跟随任务图标颜色",

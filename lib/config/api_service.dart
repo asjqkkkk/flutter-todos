@@ -1,5 +1,4 @@
 import 'package:todo_list/json/all_beans.dart';
-import 'package:todo_list/json/weather_bean.dart';
 
 import 'api_strategy.dart';
 export 'package:dio/dio.dart';
@@ -88,11 +87,33 @@ class ApiService {
       "https://free-api.heweather.com/s6/weather/now",
       (data) {
         WeatherBean weatherBean = WeatherBean.fromMap(data);
-        if (weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].status == "ok") {
+        if (weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].status ==
+            "ok") {
           success(weatherBean);
         } else {
           failed(weatherBean);
         }
+      },
+      params: params,
+      errorCallBack: (errorMessage) {
+        error(errorMessage);
+      },
+      token: token,
+    );
+  }
+
+  //检查更新
+  void checkUpdate(
+    Function success,
+    Function error,
+    Map<String, String> params,
+    CancelToken token,
+  ) {
+    ApiStrategy.getInstance().post(
+      "app/checkUpdate",
+      (data) {
+        UpdateInfoBean updateInfoBean = UpdateInfoBean.fromMap(data);
+        success(updateInfoBean);
       },
       params: params,
       errorCallBack: (errorMessage) {

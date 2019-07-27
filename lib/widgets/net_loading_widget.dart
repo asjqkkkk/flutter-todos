@@ -61,7 +61,7 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
                       Column(
                         children: <Widget>[
                           Text(
-                            widget.successText,
+                            widget.successText ?? "",
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 30),
                           ),

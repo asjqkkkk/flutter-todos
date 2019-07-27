@@ -93,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "navigatorSetting" : MessageLookupByLibrary.simpleMessage("导航栏设置"),
     "netPicture" : MessageLookupByLibrary.simpleMessage("网络图片"),
     "newVersionIsComing" : MessageLookupByLibrary.simpleMessage("新版本来啦!"),
+    "noUpdate" : MessageLookupByLibrary.simpleMessage("已是最新版本"),
     "ok" : MessageLookupByLibrary.simpleMessage("确定"),
     "openSystemSetting" : MessageLookupByLibrary.simpleMessage("打开系统设置"),
     "pickAColor" : MessageLookupByLibrary.simpleMessage("选择一个颜色吧!"),

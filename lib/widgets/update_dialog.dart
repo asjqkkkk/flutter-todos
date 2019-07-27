@@ -15,12 +15,13 @@ class UpdateDialog extends StatefulWidget {
   final String updateUrl;
   final bool isForce;
   final Color backgroundColor;
+  final Color updateInfoColor;
 
   UpdateDialog({
     this.version = "1.0.0",
     this.updateInfo = "",
     this.updateUrl = "",
-    this.isForce = false, this.backgroundColor,
+    this.isForce = false, this.backgroundColor, this.updateInfoColor,
   });
 
   @override
@@ -33,7 +34,7 @@ class UpdateDialogState extends State<UpdateDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final bgColor = Theme
+    final bgColor = widget.backgroundColor ?? Theme
         .of(context)
         .primaryColor;
     final size = MediaQuery
@@ -65,7 +66,7 @@ class UpdateDialogState extends State<UpdateDialog> {
                       DemoLocalizations
                           .of(context)
                           .newVersionIsComing,
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      style: TextStyle(color:widget.updateInfoColor ?? Colors.white, fontSize: 20),
                     ),
                     color: Colors.transparent,
                   )),
@@ -81,7 +82,7 @@ class UpdateDialogState extends State<UpdateDialog> {
                         scrollDirection: Axis.vertical,
                         child: Text(
                           widget.updateInfo ?? "",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: widget.updateInfoColor ?? Colors.white),
                         ),
                       ),
                     ))),

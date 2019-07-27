@@ -440,6 +440,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "noUpdate": "It is the latest version",
+  "@noUpdate": {
+    "description": "已是最新版本",
+    "type": "text",
+    "placeholders": {}
+  },
   "writeAtLeastOneTaskItem": "Please write at least one task.",
   "@writeAtLeastOneTaskItem": {
     "description": "请至少写下一项任务哦",

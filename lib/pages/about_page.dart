@@ -1,13 +1,18 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:package_info/package_info.dart';
+import 'package:todo_list/json/update_info_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/webview_page.dart';
+import 'package:todo_list/widgets/loading_widget.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 import 'package:todo_list/widgets/update_dialog.dart';
 
 class AboutPage extends StatefulWidget {
@@ -65,7 +70,10 @@ class _AboutPageState extends State<AboutPage> {
                             width: 70,
                             height: 70,
                             margin: EdgeInsets.all(10),
-                            child: Image.asset("images/icon_1.png",fit: BoxFit.contain,))),
+                            child: Image.asset(
+                              "images/icon_1.png",
+                              fit: BoxFit.contain,
+                            ))),
                   ),
                   Container(
                     margin: EdgeInsets.only(left: 50, top: 2),
@@ -112,15 +120,16 @@ class _AboutPageState extends State<AboutPage> {
                       ],
                     ),
                   ),
-                  Platform.isAndroid ? Container(
-                    child: IconButton(icon: Icon(Icons.cloud_upload,), onPressed: (){
-                      showDialog(context: context, builder: (ctx){
-                        return UpdateDialog(
-
-                        );
-                      });
-                    }),
-                  ) : SizedBox(),
+                  Platform.isAndroid
+                      ? Container(
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.cloud_upload,
+                            ),
+                            onPressed: () => checkUpdate(globalModel),
+                          ),
+                        )
+                      : SizedBox(),
                 ],
               ),
               Expanded(
@@ -209,5 +218,52 @@ class _AboutPageState extends State<AboutPage> {
       );
     }
     return Text(data);
+  }
+
+  void checkUpdate(GlobalModel globalModel) {
+    final loadingController = globalModel.loadingController;
+
+    showDialog(
+        context: context,
+        builder: (ctx) {
+          CancelToken cancelToken = CancelToken();
+          return NetLoadingWidget(
+            loadingController: loadingController,
+            successText: DemoLocalizations.of(context).noUpdate,
+            onSuccess: (){
+              Navigator.pop(context);
+            },
+            onRequest: () {
+              ApiService.instance.checkUpdate(
+                (UpdateInfoBean updateInfo)  async{
+                  final packageInfo = await PackageInfo.fromPlatform();
+                  bool needUpdate = UpdateInfoBean.needUpdate(packageInfo.version, updateInfo.appVersion);
+                  if(!needUpdate){
+                    Navigator.of(context).pop();
+                    showDialog(context: context, builder: (ctx2){
+                      return UpdateDialog(
+                        version: updateInfo.appVersion,
+                        updateUrl: updateInfo.downloadUrl,
+                        updateInfo: updateInfo.updateInfo,
+                        updateInfoColor: globalModel.logic.getWhiteInDark(),
+                        backgroundColor: globalModel.logic.getPrimaryGreyInDark(context),
+                      );
+                    });
+                  }
+                  loadingController.setFlag(LoadingFlag.success);
+                },
+                (msg) {
+                  loadingController.setFlag(LoadingFlag.error);
+                },
+                {
+                  "language": globalModel.currentLocale.languageCode,
+                  "appId": "001"
+                },
+                cancelToken,
+              );
+            },
+            cancelToken: cancelToken,
+          );
+        });
   }
 }
