@@ -26,6 +26,7 @@ class TaskDetailPage extends StatelessWidget {
         : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
 
     final int heroTag = model.heroTag;
+    final size = MediaQuery.of(context).size;
 
 
     return WillPopScope(
@@ -69,22 +70,19 @@ class TaskDetailPage extends StatelessWidget {
               ],
             ),
             //使用NotificationListener可以去掉android上默认Listview的水波纹效果
-            body: NotificationListener<OverscrollIndicatorNotification>(
-              onNotification: (overScroll) {
-                overScroll.disallowGlow();
-              },
-              child: ListView(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(left: 50, top: 20, right: 50),
-                    child: TaskInfoWidget(
-                      heroTag,
-                      taskBean: model.taskBean,
-                      isCardChangeWithBg: globalModel.isCardChangeWithBg,
-                      isExisting: model.isExiting,
-                    ),
+            body: Column(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(left: 50, top: size.width > size.height ? 0 : 20, right: 50),
+                  child: TaskInfoWidget(
+                    heroTag,
+                    taskBean: model.taskBean,
+                    isCardChangeWithBg: globalModel.isCardChangeWithBg,
+                    isExisting: model.isExiting,
                   ),
-                  Container(
+                ),
+                Expanded(
+                  child: Container(
                     margin: EdgeInsets.only(top: 20),
                     child: !model.isExiting
                         ? NotificationListener<OverscrollIndicatorNotification>(
@@ -92,8 +90,6 @@ class TaskDetailPage extends StatelessWidget {
                               overScroll.disallowGlow();
                             },
                             child: ListView(
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
                               children: List.generate(
                                 model?.taskBean?.detailList?.length ?? 0,
                                 (index) {
@@ -135,9 +131,9 @@ class TaskDetailPage extends StatelessWidget {
                               ),
                             ))
                         : SizedBox(),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ],

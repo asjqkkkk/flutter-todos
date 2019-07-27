@@ -34,6 +34,7 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final maxSize = max(size.width, size.height);
     final globalModel = Provider.of<GlobalModel>(context);
 
     return Scaffold(
@@ -52,148 +53,154 @@ class _AboutPageState extends State<AboutPage> {
         color: globalModel.logic.getBgInDark(),
         child: Container(
           margin: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
+          child: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: (overScroll) {
+              overScroll.disallowGlow();
+            },
+            child: SingleChildScrollView(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    child: Card(
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: Container(
-                            width: 70,
-                            height: 70,
-                            margin: EdgeInsets.all(10),
-                            child: Image.asset(
-                              "images/icon_1.png",
-                              fit: BoxFit.contain,
-                            ))),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 50, top: 2),
-                    height: 90,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            child: Text(
-                              DemoLocalizations.of(context).appName,
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            alignment: Alignment.bottomLeft,
-                            child: FutureBuilder(
-                                future: PackageInfo.fromPlatform(),
-                                builder: (context, snapshot) {
-                                  if (snapshot.hasData) {
-                                    PackageInfo packageInfo = snapshot.data;
-                                    return Text(
-                                      packageInfo.version,
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color:
-                                              Theme.of(context).primaryColor ==
-                                                      Color(0xff212121)
-                                                  ? Colors.white
-                                                  : Color.fromRGBO(
-                                                      141, 141, 141, 1.0)),
-                                    );
-                                  } else
-                                    return Container();
-                                }),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Platform.isAndroid
-                      ? Container(
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.cloud_upload,
-                            ),
-                            onPressed: () => checkUpdate(globalModel),
-                          ),
-                        )
-                      : SizedBox(),
-                ],
-              ),
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(top: 20, bottom: 20),
-                  child: Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Container(
-                      margin: EdgeInsets.only(left: 20, top: 30),
-                      child:
-                          NotificationListener<OverscrollIndicatorNotification>(
-                        onNotification: (overScroll) {
-                          overScroll.disallowGlow();
-                        },
-                        child: ListView(
-                            children:
-                                List.generate(descriptions.length + 1, (index) {
-                          if (index == 0) {
-                            return Container(
-                              margin: EdgeInsets.only(bottom: 20),
-                              child: Text(
-                                DemoLocalizations.of(context)
-                                    .versionDescription,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                            child: Container(
+                                width: 70,
+                                height: 70,
+                                margin: EdgeInsets.all(10),
+                                child: Image.asset(
+                                  "images/icon_1.png",
+                                  fit: BoxFit.contain,
+                                ))),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 50, top: 2),
+                        height: 90,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Expanded(
+                              child: Container(
+                                child: Text(
+                                  DemoLocalizations.of(context).appName,
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
-                            );
-                          } else {
-                            final data = descriptions[index - 1];
-
-                            return Container(
-                              margin: EdgeInsets.only(right: 14),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Container(
-                                    margin: EdgeInsets.only(top: 7),
-                                    width: 7,
-                                    height: 7,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Color.fromRGBO(141, 141, 141, 1.0),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 12,
-                                  ),
-                                  Expanded(child: getDescriptionItem(data)),
-                                ],
+                            ),
+                            Expanded(
+                              child: Container(
+                                alignment: Alignment.bottomLeft,
+                                child: FutureBuilder(
+                                    future: PackageInfo.fromPlatform(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        PackageInfo packageInfo = snapshot.data;
+                                        return Text(
+                                          packageInfo.version,
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color:
+                                                  Theme.of(context).primaryColor ==
+                                                          Color(0xff212121)
+                                                      ? Colors.white
+                                                      : Color.fromRGBO(
+                                                          141, 141, 141, 1.0)),
+                                        );
+                                      } else
+                                        return Container();
+                                    }),
                               ),
-                            );
-                          }
-                        })),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Platform.isAndroid
+                          ? Container(
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.cloud_upload,
+                                ),
+                                onPressed: () => checkUpdate(globalModel),
+                              ),
+                            )
+                          : SizedBox(),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20, bottom: 20),
+                    height: maxSize / 3 * 2,
+                    child: Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Container(
+                        margin: EdgeInsets.only(left: 20, top: 30),
+                        child:
+                            NotificationListener<OverscrollIndicatorNotification>(
+                          onNotification: (overScroll) {
+                            overScroll.disallowGlow();
+                          },
+                          child: ListView(
+                              children:
+                                  List.generate(descriptions.length + 1, (index) {
+                            if (index == 0) {
+                              return Container(
+                                margin: EdgeInsets.only(bottom: 20),
+                                child: Text(
+                                  DemoLocalizations.of(context)
+                                      .versionDescription,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              );
+                            } else {
+                              final data = descriptions[index - 1];
+
+                              return Container(
+                                margin: EdgeInsets.only(right: 14),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      margin: EdgeInsets.only(top: 7),
+                                      width: 7,
+                                      height: 7,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color.fromRGBO(141, 141, 141, 1.0),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 12,
+                                    ),
+                                    Expanded(child: getDescriptionItem(data)),
+                                  ],
+                                ),
+                              );
+                            }
+                          })),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              )
-            ],
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),
