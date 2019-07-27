@@ -7,4 +7,7 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 
 [![GitHub license](https://img.shields.io/github/license/asjqkkkk/todo-list-app)](https://github.com/asjqkkkk/todo-list-app/blob/master/LICENSE)
 
+[![Build Status](https://www.travis-ci.org/asjqkkkk/todo-list-app.svg?branch=master)](https://www.travis-ci.org/asjqkkkk/todo-list-app)  
+
+
 # Waiting...
