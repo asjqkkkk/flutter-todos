@@ -135,9 +135,10 @@ class GlobalLogic{
 
   void getWeatherNow(String position,{BuildContext context, LoadingController controller}){
     ApiService.instance.getWeatherNow((WeatherBean weatherBean){
-      debugPrint("请求结果:${weatherBean.toString()}");
       _model.weatherBean = weatherBean;
       _model.enableWeatherShow = true;
+      SharedUtil.instance.saveString(Keys.currentPosition, position);
+      SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, true);
       _model.refresh();
       controller?.setFlag(LoadingFlag.success);
 

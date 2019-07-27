@@ -78,7 +78,6 @@ class GlobalModel extends ChangeNotifier {
         logic.getCurrentPosition(),
       ]).then((value) {
         currentLocale = Locale(currentLanguageCode[0], currentLanguageCode[1]);
-        print("是否开启天气:${enableWeatherShow}   当前位置:${currentPosition}");
         refresh();
       });
     }
@@ -88,8 +87,8 @@ class GlobalModel extends ChangeNotifier {
     if (this.mainPageModel == null) {
       this.mainPageModel = mainPageModel;
 
-      //延时0.5秒后再去获取天气
-      Future.delayed(Duration(milliseconds: 500), (){
+      //延时1秒后再去获取天气
+      Future.delayed(Duration(seconds: 1), (){
         if (enableWeatherShow) logic.getWeatherNow(currentPosition);
       });
     }

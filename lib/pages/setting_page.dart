@@ -168,7 +168,6 @@ class SettingPage extends StatelessWidget {
               if(globalModel.currentPosition.isEmpty) return;
               CancelToken cancelToken = CancelToken();
               showDialog(context: ctx1, builder: (ctx2){
-                debugPrint("展示");
 
                 return NetLoadingWidget(
                   onRequest: (){
