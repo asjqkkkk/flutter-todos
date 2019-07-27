@@ -61,9 +61,9 @@ dev_dependencies:
   #路径获取
   path_provider: ^1.1.2
   #图片裁剪
-  image_crop: ^0.2.1
+  image_crop: ^0.3.0
   #svg----这个控件真是饱受挫折呀！
-  flutter_svg: ^0.12.4+2
+  flutter_svg: ^0.13.1
   #获取package信息
   package_info: ^0.4.0+5
   #网页
@@ -71,7 +71,7 @@ dev_dependencies:
   #上拉加载
   pull_to_refresh: ^1.5.0
   #看图片
-  photo_view: ^0.3.3
+  photo_view: ^0.4.2
   #url,可以用来打开应用商店
   url_launcher: ^5.1.0
   #打开文件，android更新下载安装包用
