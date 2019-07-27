@@ -34,7 +34,6 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final maxSize = max(size.width, size.height);
     final globalModel = Provider.of<GlobalModel>(context);
 
     return Scaffold(
@@ -57,104 +56,103 @@ class _AboutPageState extends State<AboutPage> {
             onNotification: (overScroll) {
               overScroll.disallowGlow();
             },
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
-                        child: Card(
-                            elevation: 5,
-                            shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20))),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      child: Card(
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          child: Container(
+                              width: 70,
+                              height: 70,
+                              margin: EdgeInsets.all(10),
+                              child: Image.asset(
+                                "images/icon_1.png",
+                                fit: BoxFit.contain,
+                              ))),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 50, top: 2),
+                      height: 90,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Expanded(
                             child: Container(
-                                width: 70,
-                                height: 70,
-                                margin: EdgeInsets.all(10),
-                                child: Image.asset(
-                                  "images/icon_1.png",
-                                  fit: BoxFit.contain,
-                                ))),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 50, top: 2),
-                        height: 90,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Expanded(
-                              child: Container(
-                                child: Text(
-                                  DemoLocalizations.of(context).appName,
-                                  style: TextStyle(
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              child: Text(
+                                DemoLocalizations.of(context).appName,
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.bottomLeft,
-                                child: FutureBuilder(
-                                    future: PackageInfo.fromPlatform(),
-                                    builder: (context, snapshot) {
-                                      if (snapshot.hasData) {
-                                        PackageInfo packageInfo = snapshot.data;
-                                        return Text(
-                                          packageInfo.version,
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color:
-                                                  Theme.of(context).primaryColor ==
-                                                          Color(0xff212121)
-                                                      ? Colors.white
-                                                      : Color.fromRGBO(
-                                                          141, 141, 141, 1.0)),
-                                        );
-                                      } else
-                                        return Container();
-                                    }),
-                              ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              alignment: Alignment.bottomLeft,
+                              child: FutureBuilder(
+                                  future: PackageInfo.fromPlatform(),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      PackageInfo packageInfo = snapshot.data;
+                                      return Text(
+                                        packageInfo.version,
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Theme.of(context)
+                                                        .primaryColor ==
+                                                    Color(0xff212121)
+                                                ? Colors.white
+                                                : Color.fromRGBO(
+                                                    141, 141, 141, 1.0)),
+                                      );
+                                    } else
+                                      return Container();
+                                  }),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      Platform.isAndroid
-                          ? Container(
-                              child: IconButton(
-                                icon: Icon(
-                                  Icons.cloud_upload,
-                                ),
-                                onPressed: () => checkUpdate(globalModel),
+                    ),
+                    Platform.isAndroid
+                        ? Container(
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.cloud_upload,
                               ),
-                            )
-                          : SizedBox(),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 20),
-                    height: maxSize / 3 * 2,
+                              onPressed: () => checkUpdate(globalModel),
+                            ),
+                          )
+                        : SizedBox(),
+                  ],
+                ),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.only(top: 20, bottom: 0),
                     child: Card(
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Container(
                         margin: EdgeInsets.only(left: 20, top: 30),
-                        child:
-                            NotificationListener<OverscrollIndicatorNotification>(
+                        child: NotificationListener<
+                            OverscrollIndicatorNotification>(
                           onNotification: (overScroll) {
                             overScroll.disallowGlow();
                           },
                           child: ListView(
-                              children:
-                                  List.generate(descriptions.length + 1, (index) {
+                              children: List.generate(descriptions.length + 1,
+                                  (index) {
                             if (index == 0) {
                               return Container(
                                 margin: EdgeInsets.only(bottom: 20),
@@ -182,7 +180,8 @@ class _AboutPageState extends State<AboutPage> {
                                       height: 7,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: Color.fromRGBO(141, 141, 141, 1.0),
+                                        color:
+                                            Color.fromRGBO(141, 141, 141, 1.0),
                                       ),
                                     ),
                                     SizedBox(
@@ -197,9 +196,9 @@ class _AboutPageState extends State<AboutPage> {
                         ),
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ),
@@ -237,25 +236,29 @@ class _AboutPageState extends State<AboutPage> {
           return NetLoadingWidget(
             loadingController: loadingController,
             successText: DemoLocalizations.of(context).noUpdate,
-            onSuccess: (){
+            onSuccess: () {
               Navigator.pop(context);
             },
             onRequest: () {
               ApiService.instance.checkUpdate(
-                (UpdateInfoBean updateInfo)  async{
+                (UpdateInfoBean updateInfo) async {
                   final packageInfo = await PackageInfo.fromPlatform();
-                  bool needUpdate = UpdateInfoBean.needUpdate(packageInfo.version, updateInfo.appVersion);
-                  if(needUpdate){
+                  bool needUpdate = UpdateInfoBean.needUpdate(
+                      packageInfo.version, updateInfo.appVersion);
+                  if (needUpdate) {
                     Navigator.of(context).pop();
-                    showDialog(context: context, builder: (ctx2){
-                      return UpdateDialog(
-                        version: updateInfo.appVersion,
-                        updateUrl: updateInfo.downloadUrl,
-                        updateInfo: updateInfo.updateInfo,
-                        updateInfoColor: globalModel.logic.getWhiteInDark(),
-                        backgroundColor: globalModel.logic.getPrimaryGreyInDark(context),
-                      );
-                    });
+                    showDialog(
+                        context: context,
+                        builder: (ctx2) {
+                          return UpdateDialog(
+                            version: updateInfo.appVersion,
+                            updateUrl: updateInfo.downloadUrl,
+                            updateInfo: updateInfo.updateInfo,
+                            updateInfoColor: globalModel.logic.getWhiteInDark(),
+                            backgroundColor:
+                                globalModel.logic.getPrimaryGreyInDark(context),
+                          );
+                        });
                   }
                   loadingController.setFlag(LoadingFlag.success);
                 },
