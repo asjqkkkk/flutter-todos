@@ -6,19 +6,19 @@ import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/utils/icon_utils.dart';
 
 void main() {
-  test("\n测试获取类中变量\n", () {
-    File file = new File(
-        "/Users/lichen/flutter/packages/flutter/lib/src/material/icons.dart");
-    expect(true, file.existsSync());
-    final text = file.readAsStringSync();
-    final listOne = text.split("static const IconData ");
-    List<String> names = [];
-    for (var o in listOne) {
-      final theNames = o.split(" = IconData(");
-      names.add("\"${theNames[0]}\"");
-    }
-    print("结果：\n:${names}");
-  });
+//  test("\n测试获取类中变量\n", () {
+//    File file = new File(
+//        "/Users/lichen/flutter/packages/flutter/lib/src/material/icons.dart");
+//    expect(true, file.existsSync());
+//    final text = file.readAsStringSync();
+//    final listOne = text.split("static const IconData ");
+//    List<String> names = [];
+//    for (var o in listOne) {
+//      final theNames = o.split(" = IconData(");
+//      names.add("\"${theNames[0]}\"");
+//    }
+//    print("结果：\n:${names}");
+//  });
 
 
   Map<String, dynamic> toMap(IconData icon, String name) {
