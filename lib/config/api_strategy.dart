@@ -4,8 +4,6 @@ export 'package:dio/dio.dart';
 class ApiStrategy {
   static ApiStrategy _instance;
 
-  //云服务器：http://111.230.251.115/oldchen/
-  //本地：http://192.168.1.103:8080/
   static final String baseUrl = "http://111.230.251.115/oldchen/";
   static const int connectTimeOut = 10 * 1000; //连接超时时间为10秒
   static const int receiveTimeOut = 15 * 1000; //响应超时时间为15秒

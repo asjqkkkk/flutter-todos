@@ -125,6 +125,7 @@ class _PhotoPageState extends State<PhotoPage> {
                 )
               : LoadingWidget(
                   errorText: loadingErrorText,
+                  flag: loadingFlag,
                   errorCallBack: () {
                     getPhotos();
                   },
@@ -178,6 +179,7 @@ class _PhotoPageState extends State<PhotoPage> {
         refresh();
       },
       error: (error) {
+        debugPrint("错误:${error}");
         loadingFlag = LoadingFlag.error;
         _refreshController?.footerMode?.value = LoadStatus.failed;
         refresh();
