@@ -1,23 +1,47 @@
-# jobs 用于执行不同的build stage
-jobs:
-  include:
-    - stage: test
+#初始化android sdk
+os: linux
+
+language: android
+
+licenses:
+  - android-sdk-preview-license-.+
+  - android-sdk-license-.+
+  - google-gdk-license-.+
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-28.0.3
+    - android-28 # match your targetVersion
+
+jdk: oraclejdk8
+
+sudo: false
+
+addons:
+  apt:
+    # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++6
+      - fonts-droid
+
+#初始化flutter
+cache:
+  directories:
+    - "$HOME/.pub-cache"
 
 
-- stage: test
-  os: linux
-  language: generic
-  sudo: false
-  addons:
-    apt:
-      sources:
-        - ubuntu-toolchain-r-test
-      packages:
-        # Flutter依赖
-        - libstdc++6
-        - fonts-droid
-  before_script:
-    - git clone https://github.com/flutter/flutter.git -b beta --depth 1
-  script:
-    - "./flutter/bin/flutter upgrade"
-    - "./flutter/bin/flutter test"
+install:
+  - git clone https://github.com/flutter/flutter.git -b stable --depth 1
+  - export PATH=./flutter/bin:$PATH
+  - flutter doctor
+
+
+#运行测试
+script:
+  - flutter packages get
+  - flutter analyze --no-pub --no-current-package lib/ test/
+  - flutter test --no-pub test/
