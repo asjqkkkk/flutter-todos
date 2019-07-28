@@ -8,8 +8,6 @@ import 'package:todo_list/utils/theme_util.dart';
 import 'i10n/localization_intl.dart';
 
 void main() {
-//  SystemChrome.setPreferredOrientations(
-//      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(
     ProviderConfig.getInstance().getGlobal(MyApp()),
   );
@@ -36,22 +34,25 @@ class MyApp extends StatelessWidget {
         localeResolutionCallback:
             (Locale locale, Iterable<Locale> supportedLocales) {
               debugPrint("locale:${locale}   sups:${supportedLocales}" );
-              if(model.currentLocale == locale) return;
+              if(model.currentLocale == locale) return model.currentLocale;
               for (var supportedLocale in supportedLocales) {
                 if(supportedLocale == locale){
                   model.currentLocale = locale;
                   model.currentLanguageCode = [locale.languageCode, locale.countryCode];
                   locale.countryCode == "CN" ? model.currentLanguage = "中文" : model.currentLanguage ="English";
-                  return;
+                  return model.currentLocale;
                 }
               }
               if(model.currentLocale == null){
                 model.currentLocale = Locale('zh',"CN");
+                return model.currentLocale;
               }
+              return model.currentLocale;
             },
         localeListResolutionCallback:
             (List<Locale> locales, Iterable<Locale> supportedLocales) {
               debugPrint("locatassss:${locales}  sups:${supportedLocales}");
+              return model.currentLocale;
             },
         locale: model.currentLocale ,
         theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),

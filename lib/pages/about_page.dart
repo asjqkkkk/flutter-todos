@@ -75,7 +75,7 @@ class _AboutPageState extends State<AboutPage> {
                               height: 70,
                               margin: EdgeInsets.all(10),
                               child: Image.asset(
-                                "images/icon_1.png",
+                                "images/icon_2.png",
                                 fit: BoxFit.contain,
                               ))),
                     ),

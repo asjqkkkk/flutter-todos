@@ -113,7 +113,7 @@ class LoadingWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SvgPicture.asset(
-                "svgs/idle.svg",
+                "svgs/loading_idle.svg",
                 color: progressColor ?? primaryColor,
                 width: size,
                 height: size,
