@@ -1,6 +1,8 @@
 ![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/003.png)
 
 
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/002.png)
+
 Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/README.md)|[English](https://github.com/asjqkkkk/todo-list-app/blob/master/README_EN.md)
 
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/asjqkkkk/todo-list-app)
@@ -21,25 +23,18 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 
 ### 丰富的主题选择
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/002.png)
 
-app中，可以在主题切换界面选择各种主题颜色进行切换，app自带六个默认主题，这些都是我经过多次尝试所调选出来的颜色搭配。
+app中，可以在主题切换界面选择各种主题颜色进行切换，app自带六个默认主题，这些都是我经过多次尝试所调选出来的颜色搭配。同时你也可以选择自定义主题颜色。
 
 ![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/005.png)
-
-同时你也可以选择自定义主题颜色
-
 ![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/006.png)
 
 
 ### 丰富的任务图标
 
-在app中，每项任务都会带有一个图标，而app提供了所有 Flutter 自带的 **Material design** 风格的图标
+在app中，每项任务都会带有一个图标，而app提供了所有 Flutter 自带的 **Material design** 风格的图标，这些图标，你可以进行任意颜色的自定义
 
 ![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/007.png)
-
-这些图标，你可以进行任意颜色的自定义
-
 ![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/008.png)
 
 
@@ -47,12 +42,9 @@ app中，可以在主题切换界面选择各种主题颜色进行切换，app�
 
 在app中，有多项其他的操作是你可以进行自定义的
 
-比如说主页测滑栏的头部展示内容
+比如说主页测滑栏的头部展示内容，当然，还有一些其他的操作，就由你去自行体验了
 
 ![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/009.png)
-
-当然，还有一些其他的操作，就由你去自行体验了
-
 ![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/010.png)
 
 

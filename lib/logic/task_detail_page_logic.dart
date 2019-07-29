@@ -16,7 +16,7 @@ class TaskDetailPageLogic {
     for (int i = 0; i < length; i++) {
       overallProgress += _model.taskBean.detailList[i].itemProgress / length;
     }
-    _model.taskBean.overallProgress = overallProgress;
+    _model.taskBean.overallProgress = overallProgress> 0.999 ? 1.0 : overallProgress;
     return overallProgress;
   }
 

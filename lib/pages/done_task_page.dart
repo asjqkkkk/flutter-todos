@@ -190,7 +190,7 @@ class DoneTaskPage extends StatelessWidget {
                                   "${DemoLocalizations
                                       .of(context)
                                       .spendTime}:${model.logic.getDiffTimeText(
-                                      task.finishDate, task.createDate)}",
+                                      task.createDate, task.finishDate)}",
                                   maxLines: 3,
                                   style: TextStyle(
                                     fontSize: textSize,

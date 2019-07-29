@@ -36,29 +36,32 @@ class EditTaskPageLogic {
     );
   }
 
-
   //提交一项任务
   void submitOneItem() {
     String text = _model.textEditingController.text;
-    if(text.isEmpty) return;
+    if (text.isEmpty) return;
     _model.taskDetails.add(TaskDetailBean(taskDetailName: text));
-    _model.textEditingController.clear();
+
     _model.refresh();
     final scroller = _model.scrollController;
-    Future.delayed(Duration(milliseconds: 100), (){
-      scroller?.animateTo(scroller?.position?.maxScrollExtent, duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine);
+    Future.delayed(Duration(milliseconds: 100), () {
+      _model.textEditingController.clear();
+      scroller?.animateTo(scroller?.position?.maxScrollExtent,
+          duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine);
     });
   }
 
   //监测软键盘
-  void scrollToEndWhenEdit(){
+  void scrollToEndWhenEdit() {
     //检测软键盘是否弹出
-    if(MediaQuery.of(_model.context).viewInsets.bottom > 100){
+    if (MediaQuery.of(_model.context).viewInsets.bottom > 100) {
       debugPrint("软键盘弹出}");
       final scroller = _model.scrollController;
-      debugPrint("当前:${scroller?.position?.pixels??100}  全:${scroller?.position?.maxScrollExtent??100}");
-      scroller?.animateTo(scroller?.position?.maxScrollExtent, duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine);
-    } else{
+      debugPrint(
+          "当前:${scroller?.position?.pixels ?? 100}  全:${scroller?.position?.maxScrollExtent ?? 100}");
+      scroller?.animateTo(scroller?.position?.maxScrollExtent,
+          duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine);
+    } else {
       debugPrint("软键盘收起");
     }
   }
@@ -83,13 +86,14 @@ class EditTaskPageLogic {
 
   //选择任务结束时间
   void pickEndTime(GlobalModel globalModel) {
-    DateTime initialDate =_model.startDate ?? DateTime.now();
+    DateTime initialDate = _model.startDate ?? DateTime.now();
     initialDate = initialDate.add(Duration(days: 1));
     DateTime firstDate = initialDate;
     DateTime lastDate = initialDate.add(Duration(days: 365));
-    showDP(firstDate, initialDate, lastDate, globalModel.logic.isDarkNow()).then(
+    showDP(firstDate, initialDate, lastDate, globalModel.logic.isDarkNow())
+        .then(
       (day) {
-        if(day == null) return;
+        if (day == null) return;
         if (_model.startDate != null) {
           if (day.isBefore(_model.startDate)) {
             showDialog(
@@ -98,7 +102,8 @@ class EditTaskPageLogic {
                   return AlertDialog(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                    content: Text(DemoLocalizations.of(_model.context).endBeforeStart),
+                    content: Text(
+                        DemoLocalizations.of(_model.context).endBeforeStart),
                   );
                 });
             return;
@@ -110,13 +115,14 @@ class EditTaskPageLogic {
     );
   }
 
-  void pickStartTime(GlobalModel globalModel){
+  void pickStartTime(GlobalModel globalModel) {
     DateTime initialDate = DateTime.now();
     DateTime firstDate = initialDate.add(Duration(days: 1));
     DateTime lastDate = initialDate.add(Duration(days: 365));
-    showDP(firstDate, initialDate, lastDate,globalModel.logic.isDarkNow()).then(
-          (day) {
-            if(day == null) return;
+    showDP(firstDate, initialDate, lastDate, globalModel.logic.isDarkNow())
+        .then(
+      (day) {
+        if (day == null) return;
         if (_model.deadLine != null) {
           if (day.isAfter(_model.deadLine)) {
             showDialog(
@@ -125,7 +131,8 @@ class EditTaskPageLogic {
                   return AlertDialog(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                    content: Text(DemoLocalizations.of(_model.context).startAfterEnd),
+                    content: Text(
+                        DemoLocalizations.of(_model.context).startAfterEnd),
                   );
                 });
             return;
@@ -137,8 +144,8 @@ class EditTaskPageLogic {
     );
   }
 
-  Future<DateTime> showDP(
-      DateTime firstDate, DateTime initialDate, DateTime lastDate, bool isDarkNow) {
+  Future<DateTime> showDP(DateTime firstDate, DateTime initialDate,
+      DateTime lastDate, bool isDarkNow) {
     return showDatePicker(
       context: _model.context,
       initialDate: firstDate,
@@ -149,13 +156,15 @@ class EditTaskPageLogic {
         return FittedBox(
           child: Theme(
             child: child,
-            data: isDarkNow? ThemeData.dark():  ThemeData(
-              primaryColor: color,
-              accentColor: color,
-              backgroundColor: Colors.white,
-
-              buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.accent),
-            ),
+            data: isDarkNow
+                ? ThemeData.dark()
+                : ThemeData(
+                    primaryColor: color,
+                    accentColor: color,
+                    backgroundColor: Colors.white,
+                    buttonTheme:
+                        ButtonThemeData(textTheme: ButtonTextTheme.accent),
+                  ),
           ),
         );
       },
@@ -181,31 +190,34 @@ class EditTaskPageLogic {
   }
 
   //将DateTime转换为String
-  String transformDateToString(DateTime date){
+  String transformDateToString(DateTime date) {
     return date.toIso8601String();
   }
 
   //将String转换为DateTime
-  DateTime transformStringToDate(String date){
+  DateTime transformStringToDate(String date) {
     return DateTime.parse(date);
   }
 
   //右上角的提交按钮
-  void onSubmitTap(){
+  void onSubmitTap() {
     bool isEdit = isEditOldTask();
     isEdit ? submitOldTask() : submitNewTask();
   }
 
   //创建新的任务
-  void submitNewTask() async{
-    if(_model.taskDetails.length == 0){
-      showDialog(context: _model.context,builder: (ctx){
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          content: Text(DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
-        );
-      });
+  void submitNewTask() async {
+    if (_model.taskDetails.length == 0) {
+      showDialog(
+          context: _model.context,
+          builder: (ctx) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              content: Text(
+                  DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
+            );
+          });
       return;
     }
 
@@ -217,23 +229,27 @@ class EditTaskPageLogic {
   }
 
   //修改旧的任务
-  void submitOldTask() async{
-    if(_model.taskDetails.length == 0){
-      showDialog(context: _model.context,builder: (ctx){
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          content: Text(DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
-        );
-      });
+  void submitOldTask() async {
+    if (_model.taskDetails.length == 0) {
+      showDialog(
+          context: _model.context,
+          builder: (ctx) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              content: Text(
+                  DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
+            );
+          });
       return;
     }
-    TaskBean taskBean = await transformDataToBean(id: _model.oldTaskBean.id,overallProgress: _getOverallProgress());
+    TaskBean taskBean = await transformDataToBean(
+        id: _model.oldTaskBean.id, overallProgress: _getOverallProgress());
     taskBean.changeTimes++;
     DBProvider.db.updateTask(taskBean);
     await _model.mainPageModel.logic.getTasks();
     _model.mainPageModel.refresh();
-    if(_model.taskDetailPageModel != null){
+    if (_model.taskDetailPageModel != null) {
       _model.taskDetailPageModel.isExiting = true;
       _model.taskDetailPageModel.refresh();
       debugPrint("刷新");
@@ -242,74 +258,81 @@ class EditTaskPageLogic {
   }
 
   //获取当前任务总进度
-  double _getOverallProgress(){
+  double _getOverallProgress() {
     int length = _model.taskDetails.length;
     double overallProgress = 0.0;
-    for(int i = 0; i < length;i++){
+    for (int i = 0; i < length; i++) {
       overallProgress += _model.taskDetails[i].itemProgress / length;
     }
     return overallProgress;
   }
 
-  Future<TaskBean> transformDataToBean({int id, double overallProgress = 0.0}) async {
-    final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
-    final taskName = _model.currentTaskName.isEmpty ? _model.taskIcon.taskName : _model.currentTaskName;
+  Future<TaskBean> transformDataToBean(
+      {int id, double overallProgress = 0.0}) async {
+    final account =
+        await SharedUtil.instance.getString(Keys.account) ?? "default";
+    final taskName = _model.currentTaskName.isEmpty
+        ? _model.taskIcon.taskName
+        : _model.currentTaskName;
+    final createDate = _model?.createDate?.toIso8601String() ??
+        DateTime.now().toIso8601String();
     TaskBean taskBean = TaskBean(
       taskName: taskName,
       account: account,
       taskType: _model.taskIcon.taskName,
       taskDetailNum: _model.taskDetails.length,
-      createDate: _model?.createDate?.toIso8601String() ?? DateTime.now().toIso8601String(),
+      createDate: createDate,
       startDate: _model.startDate?.toIso8601String(),
       deadLine: _model.deadLine?.toIso8601String(),
       detailList: _model.taskDetails,
       taskIconBean: _model.taskIcon,
       changeTimes: _model.changeTimes,
       overallProgress: overallProgress,
+      finishDate: _model?.finishDate?.toIso8601String() ?? ""
     );
-    if(id != null){
+    if (id != null) {
       taskBean.id = id;
     }
     return taskBean;
   }
 
-  
   //用旧任务数据初始化所有数据
-  void initialDataFromOld(TaskBean oldTaskBean){
-    if(oldTaskBean != null){
+  void initialDataFromOld(TaskBean oldTaskBean) {
+    if (oldTaskBean != null) {
       _model.taskDetails.clear();
       _model.taskDetails.addAll(oldTaskBean.detailList);
-      if(oldTaskBean.deadLine != null)
-      _model.deadLine = DateTime.parse(oldTaskBean.deadLine);
-      if(oldTaskBean.startDate != null)
-      _model.startDate = DateTime.parse(oldTaskBean.startDate);
+      if (oldTaskBean.deadLine != null)
+        _model.deadLine = DateTime.parse(oldTaskBean.deadLine);
+      if (oldTaskBean.startDate != null)
+        _model.startDate = DateTime.parse(oldTaskBean.startDate);
       _model.createDate = DateTime.parse(oldTaskBean.createDate);
+      if(oldTaskBean.finishDate.isNotEmpty)
+      _model.finishDate = DateTime.parse(oldTaskBean.finishDate);
       _model.changeTimes = oldTaskBean.changeTimes ?? 0;
       _model.taskIcon = oldTaskBean.taskIconBean;
       _model.currentTaskName = oldTaskBean.taskName;
     }
   }
-  
 
   //表示当前是属于创建新的任务还是修改旧的任务
-  bool isEditOldTask(){
+  bool isEditOldTask() {
     return _model.oldTaskBean != null;
   }
 
-  String getHintTitle(){
+  String getHintTitle() {
     bool isEdit = isEditOldTask();
     final context = _model.context;
-    String defaultTitle = "${DemoLocalizations.of(context).defaultTitle}:${_model.taskIcon.taskName}";
+    String defaultTitle =
+        "${DemoLocalizations.of(context).defaultTitle}:${_model.taskIcon.taskName}";
     String oldTaskTitle = "${_model?.oldTaskBean?.taskName}";
     return isEdit ? oldTaskTitle : defaultTitle;
   }
 
   //将当前item置于顶层
-  void moveToTop(int index, List list){
+  void moveToTop(int index, List list) {
     final item = list[index];
     list.removeAt(index);
     list.insert(0, item);
     _model.refresh();
   }
-
 }

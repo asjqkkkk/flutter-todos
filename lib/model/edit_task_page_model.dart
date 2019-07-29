@@ -26,7 +26,9 @@ class EditTaskPageModel extends ChangeNotifier{
   
   //创建日期
   DateTime createDate;
-  
+  //结束日期
+  DateTime finishDate;
+
   TaskIconBean taskIcon;
   String currentTaskName = "";
   int changeTimes = 0;
