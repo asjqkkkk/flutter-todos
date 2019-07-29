@@ -13,6 +13,8 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 
 # Introduction
 
+[Source of inspiration](https://dribbble.com/shots/3812962-iPhone-X-Todo-Concept)
+
 
 > “One Day list ”
 is a small, simple and beautiful app，
