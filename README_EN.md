@@ -151,7 +151,7 @@ The project directory structure is as follows:
 
 Let me explain the other directories besides **lib**:
 
-目录 | 说明
+directory | explain
 ---|---
 images | For storing various pictures
 local_json | I encapsulate the Icon information of Flutter into a Json file and store it in this directory
