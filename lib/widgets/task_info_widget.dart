@@ -107,19 +107,21 @@ class TaskInfoWidget extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                      flex: 2,
+                    flex: 3,
+                    child: Container(
+                      alignment: Alignment.bottomRight,
                       child: taskBean.overallProgress >= 1.0 && !isExisting
-                          ? Container(
-                        alignment: Alignment.bottomRight,
-                              child: Hero(
-                                tag: "task_complete${index}",
-                                child: Icon(
-                                  Icons.check_circle,
-                                  size: 20,
-                                  color: Colors.greenAccent,
-                                ),
-                              ))
-                          : SizedBox())
+                          ? Hero(
+                              tag: "task_complete${index}",
+                              child: Icon(
+                                Icons.check_circle,
+                                size: 24,
+                                color: Colors.greenAccent,
+                              ),
+                            )
+                          : getStatusWidget(context),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -171,5 +173,67 @@ class TaskInfoWidget extends StatelessWidget {
     );
   }
 
-  Widget getStatusWidget() {}
+  Widget getStatusWidget(BuildContext context) {
+    final startDate = taskBean.startDate ?? "";
+    final deadLine = taskBean.deadLine ?? "";
+    final now = DateTime.now();
+    if (startDate.isNotEmpty && deadLine.isNotEmpty) {
+      final begin = DateTime.parse(startDate);
+      final end = DateTime.parse(deadLine);
+      ///如果当前时间小于设置的开始时间
+      if (now.isBefore(begin)) {
+        return getBeginIcon(begin, now, context);
+      }
+      ///如果当前时间在设置的起止时间内
+      if (now.isAfter(begin) && now.isBefore(end)) {
+        return getEndIcon(end, now, context);
+      }
+    } else if(startDate.isNotEmpty){
+      final begin = DateTime.parse(startDate);
+      if (now.isBefore(begin)) {
+        return getBeginIcon(begin, now, context);
+      }
+    } else if(deadLine.isNotEmpty){
+      final end = DateTime.parse(deadLine);
+      if (now.isBefore(end)) {
+        return getEndIcon(end, now, context);
+      }
+    }
+    return SizedBox();
+  }
+
+  Widget getEndIcon(DateTime end, DateTime now, BuildContext context) {
+    int days = end.difference(now).inDays;
+    int hours = end.difference(now).inHours;
+    bool showHour = days == 0;
+    return Row(
+      children: <Widget>[
+        Hero(tag: "time_icon${index}", child: Icon(Icons.timelapse)),
+        Hero(
+            tag: "time_text${index}",
+            child: Material(
+              child: Text(showHour
+                  ? DemoLocalizations.of(context).hours(hours)
+                  : DemoLocalizations.of(context).days(days)),
+            )),
+      ],
+    );
+  }
+
+  Widget getBeginIcon(DateTime begin, DateTime now, BuildContext context) {
+    int days = begin.difference(now).inDays;
+    int hours = begin.difference(now).inHours;
+    bool showHour = days == 0;
+    return Row(
+      children: <Widget>[
+        Hero(tag: "time_icon${index}", child: Icon(Icons.timer)),
+        Hero(
+            tag: "time_text${index}",
+            child: Material(
+                child: Text(showHour
+                    ? DemoLocalizations.of(context).hours(hours)
+                    : DemoLocalizations.of(context).days(days)))),
+      ],
+    );
+  }
 }
