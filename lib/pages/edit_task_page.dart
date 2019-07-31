@@ -157,7 +157,7 @@ class EditTaskPage extends StatelessWidget {
               left: 0,
               bottom: 0,
               child: Container(
-                padding: EdgeInsets.only(bottom: 20),
+                padding: EdgeInsets.only(bottom: 10),
                 width: MediaQuery.of(context).size.width,
                 color: bgColor,
                 alignment: Alignment.center,
@@ -204,31 +204,31 @@ class EditTaskPage extends StatelessWidget {
                             )),
                       ),
                     ),
-//                    Container(
-//                      height: 40,
-//                      margin: EdgeInsets.only(left: 10, right: 10),
-//                      child: Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          model.logic.getIconText(
-//                            icon: Icon(
-//                              Icons.timer,
-//                              color: iconColor,
-//                            ),
-//                            text: model.logic.getStartTimeText(),
-//                            onTap:() => model.logic.pickStartTime(globalModel),
-//                          ),
-//                          model.logic.getIconText(
-//                            icon: Icon(
-//                              Icons.timelapse,
-//                              color: iconColor,
-//                            ),
-//                            text: model.logic.getEndTimeText(),
-//                            onTap:() => model.logic.pickEndTime(globalModel),
-//                          ),
-//                        ],
-//                      ),
-//                    ),
+                    Container(
+                      height: 40,
+                      margin: EdgeInsets.only(left: 10, right: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          model.logic.getIconText(
+                            icon: Icon(
+                              Icons.timer,
+                              color: iconColor,
+                            ),
+                            text: model.logic.getStartTimeText(),
+                            onTap:() => model.logic.pickStartTime(globalModel),
+                          ),
+                          model.logic.getIconText(
+                            icon: Icon(
+                              Icons.timelapse,
+                              color: iconColor,
+                            ),
+                            text: model.logic.getEndTimeText(),
+                            onTap:() => model.logic.pickEndTime(globalModel),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

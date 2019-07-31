@@ -153,8 +153,7 @@ class EditTaskPageLogic {
       lastDate: lastDate,
       builder: (BuildContext context, Widget child) {
         final color = ColorBean.fromBean(_model.taskIcon.colorBean);
-        return FittedBox(
-          child: Theme(
+        return Theme(
             child: child,
             data: isDarkNow
                 ? ThemeData.dark()
@@ -165,8 +164,7 @@ class EditTaskPageLogic {
                     buttonTheme:
                         ButtonThemeData(textTheme: ButtonTextTheme.accent),
                   ),
-          ),
-        );
+          );
       },
     );
   }

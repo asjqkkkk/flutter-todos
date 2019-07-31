@@ -106,20 +106,20 @@ class TaskInfoWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  taskBean.overallProgress >= 1.0 && !isExisting
-                      ? Expanded(
-                          flex: 2,
-                          child: Container(
-                              width: 25,
-                              height: 25,
+                  Expanded(
+                      flex: 2,
+                      child: taskBean.overallProgress >= 1.0 && !isExisting
+                          ? Container(
+                        alignment: Alignment.bottomRight,
                               child: Hero(
                                 tag: "task_complete${index}",
                                 child: Icon(
                                   Icons.check_circle,
+                                  size: 20,
                                   color: Colors.greenAccent,
                                 ),
-                              )))
-                      : SizedBox()
+                              ))
+                          : SizedBox())
                 ],
               ),
             ),
@@ -170,4 +170,6 @@ class TaskInfoWidget extends StatelessWidget {
       ],
     );
   }
+
+  Widget getStatusWidget() {}
 }

@@ -35,11 +35,17 @@ class DoneTaskPageLogic {
 
   //将时间做转换
   String getTimeText(String date) {
+    if(date.isEmpty){
+      date = DateTime.now().toIso8601String();
+    }
     DateTime time = DateTime.parse(date);
     return "${time.year}-${time.month}-${time.day}";
   }
 
   String getDiffTimeText(String dateStart, String dateEnd) {
+    if(dateEnd.isEmpty){
+      dateEnd = DateTime.now().toIso8601String();
+    }
     DateTime timeStart = DateTime.parse(dateStart);
     DateTime timeEnd = DateTime.parse(dateEnd);
     Duration diff = timeStart.difference(timeEnd);

@@ -1,7 +1,7 @@
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/003.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/003.png)
 
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/002.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/002.png)
 
 Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/README.md)|[English](https://github.com/asjqkkkk/todo-list-app/blob/master/README_EN.md)
 
@@ -12,8 +12,6 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 
 
 # 介绍
-
-[灵感来源](https://dribbble.com/shots/3812962-iPhone-X-Todo-Concept)
 
 
 > “一日清单”是一个小巧、简洁而又漂亮的app，它可以帮你随手记录日常的各项计划,如果你恰好有写任务计划的习惯，那么它一定非常适合你。
@@ -28,16 +26,16 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 
 app中，可以在主题切换界面选择各种主题颜色进行切换，app自带六个默认主题，这些都是我经过多次尝试所调选出来的颜色搭配。同时你也可以选择自定义主题颜色。
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/005.png)
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/006.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/005.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/006.png)
 
 
 ### 丰富的任务图标
 
 在app中，每项任务都会带有一个图标，而app提供了所有 Flutter 自带的 **Material design** 风格的图标，这些图标，你可以进行任意颜色的自定义
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/007.png)
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/008.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/007.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/008.png)
 
 
 ### 多样的自定义组合
@@ -46,15 +44,15 @@ app中，可以在主题切换界面选择各种主题颜色进行切换，app�
 
 比如说主页测滑栏的头部展示内容，当然，还有一些其他的操作，就由你去自行体验了
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/009.png)
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/010.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/009.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/010.png)
 
 
 ### 完成列表
 
 当你完成了一项任务后，这个任务就会从主页转移到完成列表页面，在这里你可以看到任务的一些额外信息
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/011.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/011.png)
 
 那么，对于使用者的介绍就到这里结束
 
@@ -105,7 +103,7 @@ app中，可以在主题切换界面选择各种主题颜色进行切换，app�
 
 项目使用的状态管理框架是 <code>Provider</code> ,而整个项目的架构如下
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/012.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/012.png)
 
 - View 层用于展示布局，基本上就是各种被 **ChangeNotifierProvider** 包裹的 **StatelessWidget** 页面
 - Model层用于处理数据，是继承了 **ChangeNotifier** 的各种Model类
@@ -148,7 +146,7 @@ svgs | 存放svg格式的图片
 
 然后是 **lib** 目录
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/013.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/013.png)
 
 
 
@@ -179,7 +177,7 @@ widgets | 封装好的各种Widget
 
 Android 下载地址：
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/014.png)
+![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/014.png)
 
 Ios 下载地址：
   目前尚未购买一年99$的ios开发者账号，所以暂时没有。
@@ -198,4 +196,3 @@ Ios 下载地址：
 
 
 如果你觉得这个app不错，或者这个项目有帮助到你，不妨给这个项目一个Star吧。项目后面也会持续保持更新和维护！
-
