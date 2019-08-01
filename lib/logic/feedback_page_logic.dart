@@ -69,7 +69,7 @@ class FeedbackPageLogic {
               ApiService.instance.postSuggestion({
                 "account": account,
                 "suggestion": _model.feedbackContent,
-                "connectWay": _model.contactWay ?? "",
+                "connectWay": "${(_model.contactWay ?? "") + "${_model.currentSelectSvg}"}",
               }, (CommonBean bean) {
                 _model.loadingController.setFlag(LoadingFlag.success);
               }, (CommonBean bean) {

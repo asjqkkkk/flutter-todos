@@ -104,10 +104,10 @@ class ApiService {
 
   //检查更新
   void checkUpdate(
-    Function success,
+  {Function success,
     Function error,
     Map<String, String> params,
-    CancelToken token,
+    CancelToken token,}
   ) {
     ApiStrategy.getInstance().post(
       "app/checkUpdate",

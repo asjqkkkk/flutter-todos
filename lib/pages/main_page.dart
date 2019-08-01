@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
     final model = Provider.of<MainPageModel>(context);
     final globalModel = Provider.of<GlobalModel>(context);
     final size = MediaQuery.of(context).size;
-    model.setContext(context);
+    model.setContext(context,globalModel: globalModel);
     globalModel.setMainPageModel(model);
     return Container(
       decoration: model.logic.getBackground(globalModel),

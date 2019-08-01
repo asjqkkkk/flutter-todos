@@ -21,20 +21,17 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  List<String> descriptions = [
-    "当前版本：1.0.0",
-    "后续也许还会增加一个网络版的，到时候可能会有登陆操作，那就涉及一个账号系统了，想想还要写后端，头发君坐立难安~",
-    "这个app功能并不多，但是还是蛮漂亮的一个app，套用一句夸张的话——漂亮的不像app(👏👏😳)",
-    "\"一日清单\"可以用来帮你记录简单的ToDo-List，但是对于开发者来说，它最大的目的是帮助开发者去了解Flutter、学习Flutter",
-    "拉人入坑Flutter,也是我喜闻乐见的一件事",
-    "如果你觉得这个项目不错，不妨去Github上为项目点个Star🌟",
-    "Github地址:https://github.com/asjqkkkk",
-  ];
+  List<String> descriptions = [];
+
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final globalModel = Provider.of<GlobalModel>(context);
+    if(descriptions.isEmpty){
+      descriptions.add(DemoLocalizations.of(context).version101);
+      descriptions.add(DemoLocalizations.of(context).version100);
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -144,7 +141,7 @@ class _AboutPageState extends State<AboutPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Container(
-                        margin: EdgeInsets.only(left: 20, top: 30),
+                        margin: EdgeInsets.only(left: 20, top: 30,right: 20),
                         child: NotificationListener<
                             OverscrollIndicatorNotification>(
                           onNotification: (overScroll) {
@@ -156,13 +153,32 @@ class _AboutPageState extends State<AboutPage> {
                             if (index == 0) {
                               return Container(
                                 margin: EdgeInsets.only(bottom: 20),
-                                child: Text(
-                                  DemoLocalizations.of(context)
-                                      .versionDescription,
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                      DemoLocalizations.of(context)
+                                          .versionDescription,
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    InkWell(
+                                      child: Text(
+                                        "✨${DemoLocalizations.of(context).projectLink}✨",
+                                        style: TextStyle(color: Colors.blue),
+                                      ),
+                                      onTap: () {
+                                        Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+                                          return WebViewPage(
+                                            "https://github.com/asjqkkkk/todo-list-app",
+                                            title: DemoLocalizations.of(context).myGithub,
+                                          );
+                                        }));
+                                      },
+                                    )
+                                  ],
                                 ),
                               );
                             } else {
@@ -187,7 +203,7 @@ class _AboutPageState extends State<AboutPage> {
                                     SizedBox(
                                       width: 12,
                                     ),
-                                    Expanded(child: getDescriptionItem(data)),
+                                    Expanded(child: Text(data)),
                                   ],
                                 ),
                               );
@@ -206,25 +222,6 @@ class _AboutPageState extends State<AboutPage> {
     );
   }
 
-  Widget getDescriptionItem(String data) {
-    if (data.contains("http")) {
-      return InkWell(
-        onTap: () {
-          Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
-            return WebViewPage(
-              data.replaceAll("Github地址:", ""),
-              title: "作者的github",
-            );
-          }));
-        },
-        child: Text(
-          data,
-          style: TextStyle(color: Colors.blueAccent),
-        ),
-      );
-    }
-    return Text(data);
-  }
 
   void checkUpdate(GlobalModel globalModel) {
     final loadingController = globalModel.loadingController;
@@ -241,7 +238,7 @@ class _AboutPageState extends State<AboutPage> {
             },
             onRequest: () {
               ApiService.instance.checkUpdate(
-                (UpdateInfoBean updateInfo) async {
+                success: (UpdateInfoBean updateInfo) async {
                   final packageInfo = await PackageInfo.fromPlatform();
                   bool needUpdate = UpdateInfoBean.needUpdate(
                       packageInfo.version, updateInfo.appVersion);
@@ -262,14 +259,14 @@ class _AboutPageState extends State<AboutPage> {
                   }
                   loadingController.setFlag(LoadingFlag.success);
                 },
-                (msg) {
+                error: (msg) {
                   loadingController.setFlag(LoadingFlag.error);
                 },
-                {
+                params: {
                   "language": globalModel.currentLocale.languageCode,
                   "appId": "001"
                 },
-                cancelToken,
+                token: cancelToken,
               );
             },
             cancelToken: cancelToken,

@@ -107,7 +107,7 @@ class TaskInfoWidget extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 4,
                     child: Container(
                       alignment: Alignment.bottomRight,
                       child: taskBean.overallProgress >= 1.0 && !isExisting
@@ -119,7 +119,7 @@ class TaskInfoWidget extends StatelessWidget {
                                 color: Colors.greenAccent,
                               ),
                             )
-                          : getStatusWidget(context),
+                          : getStatusWidget(context, taskColor),
                     ),
                   )
                 ],
@@ -173,66 +173,94 @@ class TaskInfoWidget extends StatelessWidget {
     );
   }
 
-  Widget getStatusWidget(BuildContext context) {
+  Widget getStatusWidget(BuildContext context, Color taskColor) {
     final startDate = taskBean.startDate ?? "";
     final deadLine = taskBean.deadLine ?? "";
     final now = DateTime.now();
     if (startDate.isNotEmpty && deadLine.isNotEmpty) {
       final begin = DateTime.parse(startDate);
       final end = DateTime.parse(deadLine);
+
       ///如果当前时间小于设置的开始时间
       if (now.isBefore(begin)) {
-        return getBeginIcon(begin, now, context);
+        return getBeginIcon(begin, now, context, taskColor);
       }
+
       ///如果当前时间在设置的起止时间内
       if (now.isAfter(begin) && now.isBefore(end)) {
-        return getEndIcon(end, now, context);
+        return getEndIcon(end, now, context, taskColor);
       }
-    } else if(startDate.isNotEmpty){
+    } else if (startDate.isNotEmpty) {
       final begin = DateTime.parse(startDate);
       if (now.isBefore(begin)) {
-        return getBeginIcon(begin, now, context);
+        return getBeginIcon(begin, now, context, taskColor);
       }
-    } else if(deadLine.isNotEmpty){
+    } else if (deadLine.isNotEmpty) {
       final end = DateTime.parse(deadLine);
       if (now.isBefore(end)) {
-        return getEndIcon(end, now, context);
+        return getEndIcon(end, now, context, taskColor);
       }
     }
     return SizedBox();
   }
 
-  Widget getEndIcon(DateTime end, DateTime now, BuildContext context) {
+  Widget getEndIcon(
+      DateTime end, DateTime now, BuildContext context, Color taskColor) {
     int days = end.difference(now).inDays;
     int hours = end.difference(now).inHours;
     bool showHour = days == 0;
     return Row(
       children: <Widget>[
-        Hero(tag: "time_icon${index}", child: Icon(Icons.timelapse)),
         Hero(
-            tag: "time_text${index}",
-            child: Material(
-              child: Text(showHour
-                  ? DemoLocalizations.of(context).hours(hours)
-                  : DemoLocalizations.of(context).days(days)),
+            tag: "time_icon${index}",
+            child: Icon(
+              Icons.timelapse,
+              color: taskColor,
             )),
+        Expanded(
+          child: Hero(
+              tag: "time_text${index}",
+              child: Material(
+                color: Colors.transparent,
+                child: Text(
+                  showHour
+                      ? DemoLocalizations.of(context).hours(hours)
+                      : DemoLocalizations.of(context).days(days),
+                  style: TextStyle(color: taskColor,),
+                ),
+              )),
+        ),
       ],
     );
   }
 
-  Widget getBeginIcon(DateTime begin, DateTime now, BuildContext context) {
+  Widget getBeginIcon(
+      DateTime begin, DateTime now, BuildContext context, Color taskColor) {
     int days = begin.difference(now).inDays;
     int hours = begin.difference(now).inHours;
     bool showHour = days == 0;
     return Row(
       children: <Widget>[
-        Hero(tag: "time_icon${index}", child: Icon(Icons.timer)),
         Hero(
-            tag: "time_text${index}",
-            child: Material(
-                child: Text(showHour
-                    ? DemoLocalizations.of(context).hours(hours)
-                    : DemoLocalizations.of(context).days(days)))),
+            tag: "time_icon${index}",
+            child: Icon(
+              Icons.timer,
+              color: taskColor,
+            )),
+        Expanded(
+          child: Hero(
+              tag: "time_text${index}",
+              child: Material(
+                  color: Colors.transparent,
+                  child: Text(
+                    showHour
+                        ? DemoLocalizations.of(context).hours(hours)
+                        : DemoLocalizations.of(context).days(days),
+                    style: TextStyle(
+                      color: taskColor,
+                    ),
+                  ))),
+        ),
       ],
     );
   }

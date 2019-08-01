@@ -118,6 +118,8 @@ class DemoLocalizations {
   }
 
   String get versionDescription => Intl.message('Version Description', name: 'versionDescription', desc: '版本描述',);
+  String get projectLink => Intl.message('Project Link', name: 'projectLink', desc: '项目地址',);
+  String get myGithub => Intl.message('Author\'s Github'  , name: 'myGithub', desc: '作者的github',);
 
 
   String get iconSetting => Intl.message('Icon Setting', name: 'iconSetting', desc: '图标设置',);
@@ -304,6 +306,17 @@ class DemoLocalizations {
   String get pullUpToLoadMore => Intl.message('pull up load more', name: 'pullUpToLoadMore', desc: '上拉加载更多',);
   String get pullDownToRefresh => Intl.message('pull down to refresh', name: 'pullDownToRefresh', desc: '下拉刷新',);
   String get reLoading => Intl.message('click to reload', name: 'reLoading', desc: '点击重新加载',);
+
+
+  String get version100 => Intl.message('Version:1.0.0 \n\n'
+      'The Version 1.0.0 released!\n\n', name: 'version100', desc: '版本:1.0.0 \n\n'
+      '版本 1.0.0 发布啦!',);
+
+  String get version101 => Intl.message('Version:1.0.1 \n\n'
+      '1.Fixed: done list show error \n\n'
+      '2.Add: Edit page can add start-date and deadline\n\n', name: 'version101', desc: '版本:1.0.1 \n\n'
+      '1.修复完成列表界面的显示bug\n\n'
+      '2.新增编辑任务可以添加起止时间，用作提醒\n\n',);
 
 
 

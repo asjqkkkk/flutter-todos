@@ -73,7 +73,7 @@ class LoadingWidget extends StatelessWidget {
               FlatButton(
                   onPressed: errorCallBack ?? (){},
                   child: Text(
-                    "${errorText??""}" + DemoLocalizations.of(context).reLoading,
+                    "${errorText??""}".isEmpty?DemoLocalizations.of(context).reLoading:errorText,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
                   )),

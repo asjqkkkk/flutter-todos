@@ -3,6 +3,8 @@ import 'package:todo_list/database/database.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/json/task_bean.dart';
 
+import 'global_model.dart';
+
 class MainPageModel extends ChangeNotifier {
   MainPageLogic logic;
   BuildContext context;
@@ -34,9 +36,10 @@ class MainPageModel extends ChangeNotifier {
     logic = MainPageLogic(this);
   }
 
-  void setContext(BuildContext context) {
+  void setContext(BuildContext context, {GlobalModel globalModel}) {
     if (this.context == null) {
       this.context = context;
+      logic.checkUpdate(globalModel);
       logic.getAvatarType().then((value) {
         Future.wait(
           [

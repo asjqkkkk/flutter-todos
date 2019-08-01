@@ -3,20 +3,23 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/json/update_info_bean.dart';
 import 'package:todo_list/model/all_model.dart';
-import 'package:todo_list/pages/search_page.dart';
 import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/edit_dialog.dart';
-import 'package:todo_list/widgets/scale_animation_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:todo_list/widgets/update_dialog.dart';
+import 'package:package_info/package_info.dart';
+
 
 class MainPageLogic {
   final MainPageModel _model;
@@ -279,5 +282,40 @@ class MainPageLogic {
     Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
       return ProviderConfig.getInstance().getSearchPage();
     }));
+  }
+
+  void checkUpdate(GlobalModel globalModel){
+    if(Platform.isIOS) return;
+    final context = _model.context;
+    CancelToken cancelToken = CancelToken();
+    ApiService.instance.checkUpdate(
+      success: (UpdateInfoBean updateInfo) async {
+        final packageInfo = await PackageInfo.fromPlatform();
+        bool needUpdate = UpdateInfoBean.needUpdate(
+            packageInfo.version, updateInfo.appVersion);
+        if (needUpdate) {
+          showDialog(
+              context: context,
+              builder: (ctx2) {
+                return UpdateDialog(
+                  version: updateInfo.appVersion,
+                  updateUrl: updateInfo.downloadUrl,
+                  updateInfo: updateInfo.updateInfo,
+                  updateInfoColor: globalModel.logic.getWhiteInDark(),
+                  backgroundColor:
+                  globalModel.logic.getPrimaryGreyInDark(context),
+                );
+              });
+        }
+      },
+      error: (msg) {
+
+      },
+      params: {
+        "language": globalModel.currentLocale.languageCode,
+        "appId": "001"
+      },
+      token: cancelToken,
+    );
   }
 }

@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/utils/file_util.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:open_file/open_file.dart';
 
@@ -74,7 +75,7 @@ class UpdateDialogState extends State<UpdateDialog> {
             Expanded(
                 flex: 5,
                 child: Container(
-                    margin: EdgeInsets.all(5),
+                    margin: EdgeInsets.all(10),
                     alignment: Alignment.center,
                     child: Material(
                       color: Colors.transparent,
@@ -91,7 +92,7 @@ class UpdateDialogState extends State<UpdateDialog> {
               child: Container(
                 child: LinearProgressIndicator(
                   valueColor:
-                  new AlwaysStoppedAnimation<Color>(Colors.orange),
+                  new AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColorLight),
                   backgroundColor: Colors.grey[300],
                   value: _downloadProgress / 100, //精确模式，进度20%
                 ),
@@ -160,19 +161,18 @@ class UpdateDialogState extends State<UpdateDialog> {
   }
 
   void _androidUpdate() async {
-    String path = (await getExternalStorageDirectory()).path;
-    debugPrint("获取的目录:${path}");
+    final apkPath = await FileUtil.getInstance().getSavePath("/Download/");
     ApiStrategy
         .getInstance()
         .client
-        .download(widget.updateUrl, path + "/Download/" + "release.apk",
+        .download(widget.updateUrl, apkPath + "todo-list.apk",
         cancelToken: token, onReceiveProgress: (int count, int total) {
           setState(() {
             _downloadProgress = ((count / total) * 100).toInt();
             if (_downloadProgress == 100) {
-              debugPrint("读取的目录:${path}");
+              debugPrint("读取的目录:${apkPath}");
               try {
-                OpenFile.open(path + "/Download/" + "release.apk");
+                OpenFile.open(apkPath + "todo-list.apk");
               } catch (e) {}
               Navigator.of(context).pop();
             }

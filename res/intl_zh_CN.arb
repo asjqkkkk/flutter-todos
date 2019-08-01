@@ -188,6 +188,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "projectLink": "项目地址",
+  "@projectLink": {
+    "description": "项目地址",
+    "type": "text",
+    "placeholders": {}
+  },
+  "myGithub": "作者的github",
+  "@myGithub": {
+    "description": "作者的github",
+    "type": "text",
+    "placeholders": {}
+  },
   "iconSetting": "图标设置",
   "@iconSetting": {
     "description": "图标设置",
@@ -633,6 +645,17 @@
    "description": "点击重新加载",
    "type": "text",
    "placeholders": {}
- }
-
+ },
+  "version100": "版本:1.0.0 \n\n版本 1.0.0 发布啦!",
+  "@version100": {
+    "description": "版本:1.0.0 \n\n版本 1.0.0 发布啦!",
+    "type": "text",
+    "placeholders": {}
+  },
+  "version101": "版本:1.0.1 \n\n1.修复完成列表界面的显示bug\n\n2.新增编辑任务可以添加起止时间，用作提醒\n\n",
+  "@version101": {
+    "description": "版本:1.0.1 \n\n1.修复完成列表界面的显示bug\n\n2.新增编辑任务可以添加起止时间，用作提醒\n\n",
+    "type": "text",
+    "placeholders": {}
+  }
 }
