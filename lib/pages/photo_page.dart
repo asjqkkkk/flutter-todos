@@ -38,7 +38,7 @@ class _PhotoPageState extends State<PhotoPage> {
         title: Text(DemoLocalizations.of(context).netPicture),
       ),
       body: Container(
-          child: loadingFlag == LoadingFlag.success || photos.length > 0
+          child: loadingFlag == LoadingFlag.success || photos.isNotEmpty
               ? SmartRefresher(
                   controller: _refreshController,
                   enablePullDown: false,
@@ -70,14 +70,13 @@ class _PhotoPageState extends State<PhotoPage> {
                     crossAxisCount: 2,
                     children: List.generate(photos.length, (index) {
                       final url = photos[index].urls.regular;
+                      final urls = photos.map((photoBean) => photoBean.urls.small).toList();
                       return InkWell(
                         onTap: () {
                           Navigator.of(context)
                               .push(new CupertinoPageRoute(builder: (ctx) {
                             return ImagePage(
-                              imageUrls: List.generate(photos.length, (index) {
-                                return url;
-                              }),
+                              imageUrls: urls,
                               initialPageIndex: index,
                               onSelect: (current) {
                                 final currentUrl = photos[current].urls.small;
