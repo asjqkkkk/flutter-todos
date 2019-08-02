@@ -13,6 +13,7 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 
 # 介绍
 
+[灵感来源](https://dribbble.com/shots/3812962-iPhone-X-Todo-Concept)
 
 > “一日清单”是一个小巧、简洁而又漂亮的app，它可以帮你随手记录日常的各项计划,如果你恰好有写任务计划的习惯，那么它一定非常适合你。
 
