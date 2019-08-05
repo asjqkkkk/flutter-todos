@@ -20,15 +20,15 @@ class WeatherWidget extends StatefulWidget {
 
 class _WeatherWidgetState extends State<WeatherWidget> {
 
-  LoadingFlag loadingFlag = LoadingFlag.error;
-  WeatherBean weatherBean;
+  LoadingFlag loadingFlag = LoadingFlag.loading;
   CancelToken cancelToken;
 
   @override
   void initState() {
     cancelToken = CancelToken();
-    getWeatherNow(widget.globalModel.currentPosition,
-        widget.globalModel.currentLocale.languageCode);
+    if(widget.globalModel.weatherBean == null){
+      getWeatherNow(widget.globalModel);
+    }
     super.initState();
   }
 
@@ -42,7 +42,8 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   Widget build(BuildContext context) {
     final globalModel = widget.globalModel;
     final color = globalModel.logic.isDarkNow() ? Colors.white : Colors.grey;
-    if (weatherBean == null) {
+    final WeatherBean weatherBean = globalModel.weatherBean;
+    if (globalModel.weatherBean == null) {
       return Padding(
         padding: EdgeInsets.all(10),
         child: LoadingWidget(
@@ -52,8 +53,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
             setState(() {
               loadingFlag = LoadingFlag.loading;
             });
-            getWeatherNow(globalModel.currentPosition ?? "",
-                globalModel.currentLocale.languageCode);
+            getWeatherNow(globalModel);
           },
         ),
       );
@@ -110,9 +110,11 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   }
 
 
-  void getWeatherNow(String position, String languageCode) {
+  void getWeatherNow(GlobalModel globalModel) {
+    final position = globalModel.currentPosition;
+    final languageCode = globalModel.currentLocale.languageCode;
     ApiService.instance.getWeatherNow((WeatherBean weatherBean) {
-      this.weatherBean = weatherBean;
+      globalModel.weatherBean = weatherBean;
       SharedUtil.instance.saveString(Keys.currentPosition, position);
       SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, true);
       setState(() {
