@@ -309,14 +309,14 @@ class DemoLocalizations {
 
 
   String get version100 => Intl.message('Version:1.0.0 \n\n'
-      'The Version 1.0.0 released!\n\n', name: 'version100', desc: '版本:1.0.0 \n\n'
+      'The Version 1.0.0 released!\n', name: 'version100', desc: '版本:1.0.0 \n\n'
       '版本 1.0.0 发布啦!',);
 
   String get version101 => Intl.message('Version:1.0.1 \n\n'
-      '1.Fixed: done list show error \n\n'
-      '2.Add: Edit page can add start-date and deadline\n\n', name: 'version101', desc: '版本:1.0.1 \n\n'
-      '1.修复完成列表界面的显示bug\n\n'
-      '2.新增编辑任务可以添加起止时间，用作提醒\n\n',);
+      '1.Fixed: done list show error \n'
+      '2.Add: Edit page can add start-date and deadline\n', name: 'version101', desc: '版本:1.0.1 \n\n'
+      '1.修复完成列表界面的显示bug\n'
+      '2.新增编辑任务可以添加起止时间，用作提醒\n',);
 
 
 

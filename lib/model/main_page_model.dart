@@ -29,7 +29,7 @@ class MainPageModel extends ChangeNotifier {
   //是否开启天气
   bool enableWeatherShow = false;
 
-  //当前位置信息(经纬度)
+  //当前位置信息
   String currentPosition = "";
 
   MainPageModel() {

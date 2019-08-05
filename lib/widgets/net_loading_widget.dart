@@ -90,6 +90,8 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
     );
   }
 
+
+
   @override
   void initState() {
     super.initState();
@@ -130,9 +132,11 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
 //这里面的state没有去执行dispose，不知道会不会内存泄漏
 class LoadingController {
   _NetLoadingWidgetState _state;
+  LoadingFlag _flag = LoadingFlag.loading;
 
   void setFlag(LoadingFlag loadingFlag) {
     _state?.loadingFlag = loadingFlag;
+    _flag = loadingFlag;
     if (_state?.mounted ?? false) {
       _state?.setState(() {});
     }
@@ -148,4 +152,8 @@ class LoadingController {
     }
     print("设置了:${this._state}");
   }
+
+  LoadingFlag get flag => _flag;
+
+
 }

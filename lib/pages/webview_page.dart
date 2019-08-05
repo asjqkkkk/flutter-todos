@@ -17,62 +17,69 @@ class WebViewPage extends StatefulWidget {
 
 class _WebViewPageState extends State<WebViewPage> {
   FlutterWebviewPlugin flutterWebviewPlugin;
-  bool isError = false;
-
+  LoadingFlag loadingFlag = LoadingFlag.loading;
 
   @override
   void initState() {
     super.initState();
     flutterWebviewPlugin = new FlutterWebviewPlugin();
-
   }
-
 
   @override
   void dispose() {
     super.dispose();
     flutterWebviewPlugin.dispose();
-
   }
 
   @override
   Widget build(BuildContext context) {
-    flutterWebviewPlugin.onProgressChanged.listen((value){
-      if (value==1) {
+    flutterWebviewPlugin.onProgressChanged.listen((value) {
+      if (value == 1) {
+        setState(() {
+          loadingFlag = LoadingFlag.success;
+        });
         flutterWebviewPlugin.show();
       }
     });
-    flutterWebviewPlugin.onHttpError.listen((error){
+    flutterWebviewPlugin.onHttpError.listen((error) {
       setState(() {
-        isError = true;
+        loadingFlag = LoadingFlag.error;
       });
     });
     return WillPopScope(
-      onWillPop: (){
-        flutterWebviewPlugin.close().then((a){
+      onWillPop: () {
+        flutterWebviewPlugin.close().then((a) {
           Navigator.of(context).pop();
         });
       },
       child: Scaffold(
-        appBar: AppBar(title: Text(widget.title??widget.url, overflow: TextOverflow.ellipsis,),
-          leading: IconButton(icon: Platform.isIOS?Icon(Icons.arrow_back_ios):Icon(Icons.arrow_back), onPressed: (){
-            flutterWebviewPlugin.close().then((a){
-              Navigator.of(context).pop();
-            });
-          }),
+        appBar: AppBar(
+          title: Text(
+            widget.title ?? widget.url,
+            overflow: TextOverflow.ellipsis,
+          ),
+          leading: IconButton(
+              icon: Platform.isIOS
+                  ? Icon(Icons.arrow_back_ios)
+                  : Icon(Icons.arrow_back),
+              onPressed: () {
+                flutterWebviewPlugin.close().then((a) {
+                  Navigator.of(context).pop();
+                });
+              }),
         ),
         body: WebviewScaffold(
           url: widget.url,
           hidden: true,
           initialChild: Center(
             child: Container(
-            alignment: Alignment.center,
-            child: LoadingWidget(
-              flag: isError ? LoadingFlag.error : LoadingFlag.loading,
-              errorCallBack: (){
-                flutterWebviewPlugin.reload();
-              },
-            ),
+              alignment: Alignment.center,
+              child: LoadingWidget(
+                flag: loadingFlag,
+                errorCallBack: () {
+                  flutterWebviewPlugin.reload();
+                },
+              ),
             ),
           ),
         ),

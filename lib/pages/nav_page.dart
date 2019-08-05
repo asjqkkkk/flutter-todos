@@ -9,8 +9,10 @@ import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/language_page.dart';
 import 'package:todo_list/pages/setting_page.dart';
+import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:todo_list/widgets/weather_widget.dart';
 
 import 'image_page.dart';
 import 'navigator_setting_page.dart';
@@ -25,7 +27,7 @@ class NavPage extends StatelessWidget {
       children: <Widget>[
         getNavHeader(globalModel, context),
         globalModel.enableWeatherShow
-            ? getWeatherNow(globalModel, context)
+            ? WeatherWidget(globalModel: globalModel,)
             : SizedBox(),
         ListTile(
           title: Text(DemoLocalizations.of(context).doneList),
@@ -123,65 +125,5 @@ class NavPage extends StatelessWidget {
       );
     }
     ;
-  }
-
-  Widget getWeatherNow(GlobalModel globalModel, BuildContext context) {
-    final color = globalModel.logic.isDarkNow() ? Colors.white : Colors.grey;
-    final weatherBean = globalModel.weatherBean;
-    if (weatherBean == null) {
-      return FlatButton(
-        child: Text(DemoLocalizations.of(context).weatherGetWrong),
-        onPressed: () => globalModel.logic.getWeatherNow(globalModel.currentPosition ?? ""),
-      );
-    }
-    final BasicBean basicBean =
-        weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].basic;
-    final NowBean nowBean =
-        weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].now;
-    return Container(
-      margin: EdgeInsets.only(left: 5, top: 5),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            child: Image.asset(
-              "images/weather/${nowBean.cond_code}.png",
-              color: color,
-              width: 60,
-              height: 60,
-            ),
-          ),
-          Container(
-            height: 50,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  child: Text(
-                    "${basicBean.location}",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: color,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                  ),
-                ),
-                Text(
-                  "${nowBean.tmp} ℃   ${nowBean.cond_txt}",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: color,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
   }
 }

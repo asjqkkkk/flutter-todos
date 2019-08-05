@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-01T15:29:51.772803",
+  "@@last_modified": "2019-08-05T14:24:11.101848",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -646,15 +646,15 @@
     "type": "text",
     "placeholders": {}
   },
-  "version100": "Version:1.0.0 \n\nThe Version 1.0.0 released!\n\n",
+  "version100": "Version:1.0.0 \n\nThe Version 1.0.0 released!\n",
   "@version100": {
     "description": "版本:1.0.0 \n\n版本 1.0.0 发布啦!",
     "type": "text",
     "placeholders": {}
   },
-  "version101": "Version:1.0.1 \n\n1.Fixed: done list show error \n\n2.Add: Edit page can add start-date and deadline\n\n",
+  "version101": "Version:1.0.1 \n\n1.Fixed: done list show error \n2.Add: Edit page can add start-date and deadline\n",
   "@version101": {
-    "description": "版本:1.0.1 \n\n1.修复完成列表界面的显示bug\n\n2.新增编辑任务可以添加起止时间，用作提醒\n\n",
+    "description": "版本:1.0.1 \n\n1.修复完成列表界面的显示bug\n2.新增编辑任务可以添加起止时间，用作提醒\n",
     "type": "text",
     "placeholders": {}
   }

@@ -42,7 +42,7 @@ class GlobalModel extends ChangeNotifier {
   //当前天气的json
   WeatherBean weatherBean;
 
-  //用于控制天气获取的loading加载框
+  //设置页面，用于控制天气获取的loading加载框
   LoadingController loadingController = LoadingController();
 
   //当前语言
@@ -86,11 +86,6 @@ class GlobalModel extends ChangeNotifier {
   void setMainPageModel(MainPageModel mainPageModel) {
     if (this.mainPageModel == null) {
       this.mainPageModel = mainPageModel;
-
-      //延时1秒后再去获取天气
-      Future.delayed(Duration(seconds: 1), (){
-        if (enableWeatherShow) logic.getWeatherNow(currentPosition);
-      });
     }
   }
 
