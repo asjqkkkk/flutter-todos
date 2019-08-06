@@ -69,6 +69,9 @@ class IconSettingPageLogic {
         await IconListUtil.getInstance().getIconWithCache(_model.context);
     _model.taskIcons.clear();
     _model.taskIcons.addAll(list);
+    if(list.length == 6){
+      _model.isDeleting = false;
+    }
     _model.refresh();
   }
 

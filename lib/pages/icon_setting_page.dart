@@ -9,8 +9,7 @@ import 'package:todo_list/widgets/custom_animated_switcher.dart';
 class IconSettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<IconSettingPageModel>(context);
-    model.setContext(context);
+    final model = Provider.of<IconSettingPageModel>(context)..setContext(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -30,7 +29,7 @@ class IconSettingPage extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  child: CustomAnimatedSwitcher(
+                  child: model.taskIcons.length > 6 ? CustomAnimatedSwitcher(
                     firstChild: Icon(
                       Icons.border_color,
                       size: 20,
@@ -45,7 +44,7 @@ class IconSettingPage extends StatelessWidget {
                       model.isDeleting = !model.isDeleting;
                       model.refresh();
                     },
-                  ),
+                  ) : SizedBox(),
                   margin: EdgeInsets.only(top: 20, right: 25),
                   alignment: Alignment.centerRight,
                 ),

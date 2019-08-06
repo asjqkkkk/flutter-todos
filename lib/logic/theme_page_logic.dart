@@ -18,6 +18,9 @@ class ThemePageLogic {
         await ThemeUtil.getInstance().getThemeListWithCache(_model.context);
     _model.themes.clear();
     _model.themes.addAll(list);
+    if(list.length == 7){
+      _model.isDeleting = false;
+    }
     _model.refresh();
   }
 
