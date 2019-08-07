@@ -126,6 +126,9 @@ class _PhotoPageState extends State<PhotoPage> {
                   errorText: loadingErrorText,
                   flag: loadingFlag,
                   errorCallBack: () {
+                    setState(() {
+                      loadingFlag = LoadingFlag.loading;
+                    });
                     getPhotos();
                   },
                 )),
