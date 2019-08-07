@@ -1,9 +1,9 @@
-![image](https://user-images.githubusercontent.com/30992818/62599278-65d31300-b91e-11e9-96e2-f8a26eadeea2.png)
+![image](https://user-images.githubusercontent.com/30992818/62599565-25c06000-b91f-11e9-8b5c-63efecdeeef6.png)
 
 
-![image](https://user-images.githubusercontent.com/30992818/62598769-01fc1a80-b91d-11e9-94e8-80c0c3726293.png)
+![image](https://user-images.githubusercontent.com/30992818/62599497-f9a4df00-b91e-11e9-8ad3-5d62cda83bca.png)
 
-Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/README.md)|[English](https://github.com/asjqkkkk/todo-list-app/blob/master/README_EN.md)
+Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/README_ZH.md)|[English](https://github.com/asjqkkkk/todo-list-app/blob/master/README.md)
 
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/asjqkkkk/todo-list-app)
 [![GitHub license](https://img.shields.io/github/license/asjqkkkk/todo-list-app)](https://github.com/asjqkkkk/todo-list-app/blob/master/LICENSE)
@@ -11,113 +11,125 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 
 
 
-# 介绍
+# Introduction
 
-[灵感来源](https://dribbble.com/shots/3812962-iPhone-X-Todo-Concept)
-
-> “一日清单”是一个小巧、简洁而又漂亮的app，它可以帮你随手记录日常的各项计划,如果你恰好有写任务计划的习惯，那么它一定非常适合你。
-
-下面，针对使用者和开发者，我将来分别介绍一次
-
-## 面向使用者的介绍
+[Source of inspiration](https://dribbble.com/shots/3812962-iPhone-X-Todo-Concept)
 
 
-### 丰富的主题选择
+> “One Day list ”
+is a small, simple and beautiful app，
+It can help you keep track of your daily plans.
+If you happen to have the habit of writing a mission plan, then it must be perfect for you.
+
+For users and developers, I will introduce them separately
+
+## Introduction to the user
 
 
-app中，可以在主题切换界面选择各种主题颜色进行切换，app自带六个默认主题，这些都是我经过多次尝试所调选出来的颜色搭配。同时你也可以选择自定义主题颜色。
-
-![image](https://user-images.githubusercontent.com/30992818/62598772-0294b100-b91d-11e9-9630-9315147e6452.png)
-![image](https://user-images.githubusercontent.com/30992818/62598773-0294b100-b91d-11e9-981d-71957c6d2c50.png)
+### Colorful Themes
 
 
-### 丰富的任务图标
+In the app, you can switch between the theme colors in the theme switching interface.The app comes with six default themes, which are the color combinations I've chosen over many attempts. You can also choose a custom theme color.
 
-在app中，每项任务都会带有一个图标，而app提供了所有 Flutter 自带的 **Material design** 风格的图标，这些图标，你可以进行任意颜色的自定义
-
-![image](https://user-images.githubusercontent.com/30992818/62598774-032d4780-b91d-11e9-8dca-32c826c4ab9d.png)
-![image](https://user-images.githubusercontent.com/30992818/62598775-032d4780-b91d-11e9-976f-4b6aaf55e60e.png)
+![image](https://user-images.githubusercontent.com/30992818/62599499-fa3d7580-b91e-11e9-8e7a-868add28d67f.png)
+![image](https://user-images.githubusercontent.com/30992818/62599500-fa3d7580-b91e-11e9-926d-d2e76c6e2e85.png)
 
 
-### 多样的自定义组合
-
-在app中，有多项其他的操作是你可以进行自定义的
-
-比如说主页测滑栏的头部展示内容，当然，还有一些其他的操作，就由你去自行体验了
-
-![image](https://user-images.githubusercontent.com/30992818/62598778-03c5de00-b91d-11e9-84aa-697d94f313a9.png)
-![image](https://user-images.githubusercontent.com/30992818/62598780-045e7480-b91d-11e9-91c9-1887f41e13d5.png)
+### Colorful Task Icons
 
 
-### 完成列表
+In the app, each task comes with an icon, and the app provides all the **Material Design** style icons that Flutter comes with. You can customize with any color.
 
-当你完成了一项任务后，这个任务就会从主页转移到完成列表页面，在这里你可以看到任务的一些额外信息
-
-![image](https://user-images.githubusercontent.com/30992818/62598781-04f70b00-b91d-11e9-8f6f-868a886f3d21.png)
-
-那么，对于使用者的介绍就到这里结束
-
-下面就是为广大开发者们介绍的时间了！
+![image](https://user-images.githubusercontent.com/30992818/62599503-fad60c00-b91e-11e9-8984-27fd78382707.png)
+![image](https://user-images.githubusercontent.com/30992818/62599505-fad60c00-b91e-11e9-9656-4469eeba64b6.png)
 
 
-## 面向开发者的介绍
-
-> 如果你对于Flutter有着浓厚的兴趣而又迟迟没有行动，那么就不要犹豫了，快点上车吧！这个项目对于新手司机再适合不过了。
-
-各位开发者们请扶好你们的秀发，下面就我来带领各位参观参观这个项目的内部构造
+### Diverse Custom Combinations
 
 
-### 第三方库
+In the app, there are a number of other operations that you can customize.
 
-项目中使用了一些非常优秀的第三方库，也特别感谢这些开发者们，让我的发量保持健康
+For example, the head of the homepage slide bar displays content, of course, there are some other operations that you will experience on your own.
 
-下面就是这些控件的信息
+![image](https://user-images.githubusercontent.com/30992818/62599506-fb6ea280-b91e-11e9-8396-86058b239f12.png)
+![image](https://user-images.githubusercontent.com/30992818/62599509-fc073900-b91e-11e9-9535-9482e3e3dac4.png)
 
 
-控件 | 说明
+### Done List
+
+
+When you have completed a task, the task will be moved from the home page to the done list page, where you can see some additional information about the task.
+
+![image](https://user-images.githubusercontent.com/30992818/62599510-fc9fcf80-b91e-11e9-8479-8bd559a4ccb4.png)
+
+
+Then, the introduction to the user ends here.
+
+The following is the time for the majority of developers!
+
+## Introduction to the Developer
+
+> If you have a strong interest in Flutter and have been slow to act, then don't hesitate, hurry up! This project is perfect for getting started with Flutter.
+
+
+Let me introduce you to the internal structure of this project.
+
+
+### Packages
+
+
+Some very good packages are used in the project, and I am especially grateful to these developers for keeping my hair healthy.
+
+
+Below are the information about these packages.
+
+
+package | explain
 ---|---
-[dio](https://pub.flutter-io.cn/packages/dio) | 网络请求
-[shared_preferences](https://pub.flutter-io.cn/packages/shared_preferences) | 本地存储
-[provider](https://pub.flutter-io.cn/packages/provider) | 状态管理
-[test](https://pub.flutter-io.cn/packages/test) | 单元测试
-[carousel_slider](https://pub.flutter-io.cn/packages/carousel_slider) | 滑动控件
-[circle_list](https://pub.flutter-io.cn/packages/circle_list) | 环形列表
-[intl](https://pub.flutter-io.cn/packages/intl) | intl语言包
-[sqflite](https://pub.flutter-io.cn/packages/sqflite) | 本地数据库
-[flutter_colorpicker](https://pub.flutter-io.cn/packages/flutter_colorpicker) | 取色框
-[cached_network_image](https://pub.flutter-io.cn/packages/cached_network_image) | 图片缓存
-[image_picker](https://pub.flutter-io.cn/packages/image_picker) | 图片选取
-[permission_handler](https://pub.flutter-io.cn/packages/permission_handler) | 权限申请
-[path_provider](https://pub.flutter-io.cn/packages/path_provider) | 路径获取
-[image_crop](https://pub.flutter-io.cn/packages/image_crop) | 图片裁剪
-[flutter_svg](https://pub.flutter-io.cn/packages/flutter_svg) | svg解析
-[package_info](https://pub.flutter-io.cn/packages/package_info) | 获取package信息
-[flutter_webview_plugin](https://pub.flutter-io.cn/packages/flutter_webview_plugin) | 网页
-[pull_to_refresh](https://pub.flutter-io.cn/packages/pull_to_refresh) | 上拉加载
-[photo_view](https://pub.flutter-io.cn/packages/photo_view) | 图片展示
-[url_launcher](https://pub.flutter-io.cn/packages/url_launcher) | 可以用来打开应用商店
-[open_file](https://pub.flutter-io.cn/packages/open_file) | 打开文件，android更新下载安装包用
+[dio](https://pub.flutter-io.cn/packages/dio) | network request
+[shared_preferences](https://pub.flutter-io.cn/packages/shared_preferences) | local storage
+[provider](https://pub.flutter-io.cn/packages/provider) | state management
+[test](https://pub.flutter-io.cn/packages/test) | unit test
+[carousel_slider](https://pub.flutter-io.cn/packages/carousel_slider) | slide control
+[circle_list](https://pub.flutter-io.cn/packages/circle_list) | circle list
+[intl](https://pub.flutter-io.cn/packages/intl) | change language 
+[sqflite](https://pub.flutter-io.cn/packages/sqflite) | sqlite database
+[flutter_colorpicker](https://pub.flutter-io.cn/packages/flutter_colorpicker) | color picker
+[cached_network_image](https://pub.flutter-io.cn/packages/cached_network_image) | image cache
+[image_picker](https://pub.flutter-io.cn/packages/image_picker) | image picker
+[permission_handler](https://pub.flutter-io.cn/packages/permission_handler) | request for permissions
+[path_provider](https://pub.flutter-io.cn/packages/path_provider) | get path
+[image_crop](https://pub.flutter-io.cn/packages/image_crop) | image crop
+[flutter_svg](https://pub.flutter-io.cn/packages/flutter_svg) | svg pictures
+[package_info](https://pub.flutter-io.cn/packages/package_info) | get package info
+[flutter_webview_plugin](https://pub.flutter-io.cn/packages/flutter_webview_plugin) | webview
+[pull_to_refresh](https://pub.flutter-io.cn/packages/pull_to_refresh) | pull to refresh data
+[photo_view](https://pub.flutter-io.cn/packages/photo_view) | show the picture
+[url_launcher](https://pub.flutter-io.cn/packages/url_launcher) | open app store
+[open_file](https://pub.flutter-io.cn/packages/open_file) | open apk file
 
 
 
-### 项目架构
+### Project Structure
 
-项目使用的状态管理框架是 <code>Provider</code> ,而整个项目的架构如下
+The state management framework used by the project is <code>Provider</code> , and the architecture of the entire project is as follows
 
-![image](https://user-images.githubusercontent.com/30992818/62598782-04f70b00-b91d-11e9-9b57-c9da7bb4b5bc.png)
+![image](https://user-images.githubusercontent.com/30992818/62599801-c4e55780-b91f-11e9-8acd-5173bc5f6f38.png)
 
-- View 层用于展示布局，基本上就是各种被 **ChangeNotifierProvider** 包裹的 **StatelessWidget** 页面
-- Model层用于处理数据，是继承了 **ChangeNotifier** 的各种Model类
-- Logic 层不会保存任何数据，只进行逻辑操作
+- The View layer is used to display layouts and is a variety of **StatelessWidget** pages wrapped by **ChangeNotifierProvider**
+- The Model layer is used to process data and is a variety of Model classes that inherit **ChangeNotifier**
+- The Logic layer does not save any data, only logical operations
 
 
-看起来是不是和 Android 中的 **MVP** 模式很像呢？其实都差不多的，只是名字略有不同罢了，你也可以就把上面的模式当作是 MVP 模式。
 
-Flutter 可以说是特别适合这种架构模式的，因为视图跟随数据而变化，你基本上不用去关心View，只要去对数据进行操作就好了。
+Does it look like the **MVP** pattern in Android? In fact, they are all similar, but the names are slightly different. You can also think of the above mode as the MVP mode.
 
-### 目录结构
 
-项目目录结构如下：
+Flutter is particularly well suited for this architectural model, because the view changes with the data, you basically don't have to care about the View, just go and operate on the data.
+
+### Directory Structure
+
+The project directory structure is as follows:
 
 ```
 ├── android
@@ -136,64 +148,65 @@ Flutter 可以说是特别适合这种架构模式的，因为视图跟随数据
 
 ```
 
-先说明一下除了 **lib** 外的其他目录：
 
-目录 | 说明
+Let me explain the other directories besides **lib**:
+
+directory | explain
 ---|---
-images | 用于存放各种图片
-local_json | 我将Flutter的Icon信息封装成了Json文件存放在这个目录中
-res | 存放“国际化”插件生成的语言文件
-svgs | 存放svg格式的图片
+images | For storing various pictures
+local_json | I encapsulate the Icon information of Flutter into a Json file and store it in this directory
+res | Store the language files generated by the "intl" plugin
+svgs | Store images in svg format
 
-然后是 **lib** 目录
-
-![image](https://user-images.githubusercontent.com/30992818/62598783-058fa180-b91d-11e9-8e8c-713aa82c341d.png)
+Then the lib directory
 
 
+![image](https://user-images.githubusercontent.com/30992818/62599609-41c40180-b91f-11e9-81a2-dd297c8c56aa.png)
 
-目录 | 说明
+
+
+directory | explain
 ---|---
-config | 存放各种配置类，比如Dio请求封装类等
-database | 存放数据库操作相关类
-i10n | 存放国际化相关操作的类
-items | 存放部分List列表的Item类
-json | 各种网络请求、数据库等相关的json文件
-logic | 上面提到的，Locig层的目录
-model | Model层的目录
-pages | 存放各个页面，是View层的目录
-utils | 封装好的各️工具类，比如文件操作等
-widgets | 封装好的各种Widget
+config | Store various configuration classes, such as Dio request encapsulation class, etc.
+database | Store database operation related classes
+i10n | Class for storing internationalized related operations
+items | Item class that stores part of the List list
+json | Various network requests, databases, etc. related json files
+logic | Locig layer directory
+model | Model layer directory
+pages | Store each page, which is the directory of the View layer
+utils | Packaged tools, such as file operations
+widgets | custom widgets
 
 
 # ToDo
 
-- 登录功能，账号系统
-- 云端存储数据
+- Login function, account system
+- Cloud storage data
 
 
 
-# 附录
+# Appendix
 
-## app下载
+## app download
 
-Android 下载地址：
+Android download link：
 
-![image](https://user-images.githubusercontent.com/30992818/62599044-c150d100-b91d-11e9-8e63-e9c67dd32995.png)
+![image](https://user-images.githubusercontent.com/30992818/62599610-425c9800-b91f-11e9-8a7d-8c7d6483b524.png)
 
-Ios 下载地址：
-  目前尚未购买一年99$的ios开发者账号，所以暂时没有。
+Ios download link：
+
+  I haven't purchased an iOS developer account for 99$ a year
   
-  
-    注意：目前项目运行环境是flutter 1.7.8 hotfix的版本，改版本相对以往而言多了一些破坏性修复，
-    如果你的flutter版本比当前版本低，项目中依赖的某些第三方库将无法运行，到时候请降低他们的版本
+    Note: The current project running environment is the version of flutter 1.7.8 hotfix. The modified version has more destructive fixes than before.
+    If your version of flutter is lower than the current version, some third-party libraries that are dependent on the project will not run. Please lower their version at that time.
     
-    下面是在1.5.4版本下需要修改的第三方库
+    The following is a third-party library that needs to be modified under version 1.5.4.
     
     -   flutter_svg: ^0.12.4+2
     -   image_crop: ^0.2.1
     -   photo_view: ^0.3.3
 
 
+If you think this app is good, or if this project helps you, give this project a Star. The project will continue to be updated and maintained afterwards.！
 
-
-如果你觉得这个app不错，或者这个项目有帮助到你，不妨给这个项目一个Star吧。项目后面也会持续保持更新和维护！
