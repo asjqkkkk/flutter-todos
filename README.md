@@ -1,7 +1,7 @@
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/003.png)
+![image](https://user-images.githubusercontent.com/30992818/62599278-65d31300-b91e-11e9-96e2-f8a26eadeea2.png)
 
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/002.png)
+![image](https://user-images.githubusercontent.com/30992818/62598769-01fc1a80-b91d-11e9-94e8-80c0c3726293.png)
 
 Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/README.md)|[English](https://github.com/asjqkkkk/todo-list-app/blob/master/README_EN.md)
 
@@ -27,16 +27,16 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 
 app中，可以在主题切换界面选择各种主题颜色进行切换，app自带六个默认主题，这些都是我经过多次尝试所调选出来的颜色搭配。同时你也可以选择自定义主题颜色。
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/005.png)
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/006.png)
+![image](https://user-images.githubusercontent.com/30992818/62598772-0294b100-b91d-11e9-9630-9315147e6452.png)
+![image](https://user-images.githubusercontent.com/30992818/62598773-0294b100-b91d-11e9-981d-71957c6d2c50.png)
 
 
 ### 丰富的任务图标
 
 在app中，每项任务都会带有一个图标，而app提供了所有 Flutter 自带的 **Material design** 风格的图标，这些图标，你可以进行任意颜色的自定义
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/007.png)
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/008.png)
+![image](https://user-images.githubusercontent.com/30992818/62598774-032d4780-b91d-11e9-8dca-32c826c4ab9d.png)
+![image](https://user-images.githubusercontent.com/30992818/62598775-032d4780-b91d-11e9-976f-4b6aaf55e60e.png)
 
 
 ### 多样的自定义组合
@@ -45,15 +45,15 @@ app中，可以在主题切换界面选择各种主题颜色进行切换，app�
 
 比如说主页测滑栏的头部展示内容，当然，还有一些其他的操作，就由你去自行体验了
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/009.png)
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/010.png)
+![image](https://user-images.githubusercontent.com/30992818/62598778-03c5de00-b91d-11e9-84aa-697d94f313a9.png)
+![image](https://user-images.githubusercontent.com/30992818/62598780-045e7480-b91d-11e9-91c9-1887f41e13d5.png)
 
 
 ### 完成列表
 
 当你完成了一项任务后，这个任务就会从主页转移到完成列表页面，在这里你可以看到任务的一些额外信息
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/011.png)
+![image](https://user-images.githubusercontent.com/30992818/62598781-04f70b00-b91d-11e9-8f6f-868a886f3d21.png)
 
 那么，对于使用者的介绍就到这里结束
 
@@ -104,7 +104,7 @@ app中，可以在主题切换界面选择各种主题颜色进行切换，app�
 
 项目使用的状态管理框架是 <code>Provider</code> ,而整个项目的架构如下
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/012.png)
+![image](https://user-images.githubusercontent.com/30992818/62598782-04f70b00-b91d-11e9-9b57-c9da7bb4b5bc.png)
 
 - View 层用于展示布局，基本上就是各种被 **ChangeNotifierProvider** 包裹的 **StatelessWidget** 页面
 - Model层用于处理数据，是继承了 **ChangeNotifier** 的各种Model类
@@ -147,7 +147,7 @@ svgs | 存放svg格式的图片
 
 然后是 **lib** 目录
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/013.png)
+![image](https://user-images.githubusercontent.com/30992818/62598783-058fa180-b91d-11e9-8e8c-713aa82c341d.png)
 
 
 
@@ -178,7 +178,7 @@ widgets | 封装好的各种Widget
 
 Android 下载地址：
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/zh/014.png)
+![image](https://user-images.githubusercontent.com/30992818/62599044-c150d100-b91d-11e9-8e63-e9c67dd32995.png)
 
 Ios 下载地址：
   目前尚未购买一年99$的ios开发者账号，所以暂时没有。

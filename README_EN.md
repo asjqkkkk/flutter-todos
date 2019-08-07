@@ -1,7 +1,7 @@
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/en/003.png)
+![image](https://user-images.githubusercontent.com/30992818/62599565-25c06000-b91f-11e9-8b5c-63efecdeeef6.png)
 
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/en/002.png)
+![image](https://user-images.githubusercontent.com/30992818/62599497-f9a4df00-b91e-11e9-8ad3-5d62cda83bca.png)
 
 Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/README.md)|[English](https://github.com/asjqkkkk/todo-list-app/blob/master/README_EN.md)
 
@@ -31,8 +31,8 @@ For users and developers, I will introduce them separately
 
 In the app, you can switch between the theme colors in the theme switching interface.The app comes with six default themes, which are the color combinations I've chosen over many attempts. You can also choose a custom theme color.
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/en/004.png)
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/en/005.png)
+![image](https://user-images.githubusercontent.com/30992818/62599499-fa3d7580-b91e-11e9-8e7a-868add28d67f.png)
+![image](https://user-images.githubusercontent.com/30992818/62599500-fa3d7580-b91e-11e9-926d-d2e76c6e2e85.png)
 
 
 ### Colorful Task Icons
@@ -40,8 +40,8 @@ In the app, you can switch between the theme colors in the theme switching inter
 
 In the app, each task comes with an icon, and the app provides all the **Material Design** style icons that Flutter comes with. You can customize with any color.
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/en/006.png)
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/en/007.png)
+![image](https://user-images.githubusercontent.com/30992818/62599503-fad60c00-b91e-11e9-8984-27fd78382707.png)
+![image](https://user-images.githubusercontent.com/30992818/62599505-fad60c00-b91e-11e9-9656-4469eeba64b6.png)
 
 
 ### Diverse Custom Combinations
@@ -51,8 +51,8 @@ In the app, there are a number of other operations that you can customize.
 
 For example, the head of the homepage slide bar displays content, of course, there are some other operations that you will experience on your own.
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/en/008.png)
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/en/009.png)
+![image](https://user-images.githubusercontent.com/30992818/62599506-fb6ea280-b91e-11e9-8396-86058b239f12.png)
+![image](https://user-images.githubusercontent.com/30992818/62599509-fc073900-b91e-11e9-9535-9482e3e3dac4.png)
 
 
 ### Done List
@@ -60,7 +60,7 @@ For example, the head of the homepage slide bar displays content, of course, the
 
 When you have completed a task, the task will be moved from the home page to the done list page, where you can see some additional information about the task.
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/en/010.png)
+![image](https://user-images.githubusercontent.com/30992818/62599510-fc9fcf80-b91e-11e9-8479-8bd559a4ccb4.png)
 
 
 Then, the introduction to the user ends here.
@@ -114,7 +114,7 @@ package | explain
 
 The state management framework used by the project is <code>Provider</code> , and the architecture of the entire project is as follows
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/012.png)
+![image](https://user-images.githubusercontent.com/30992818/62599801-c4e55780-b91f-11e9-8acd-5173bc5f6f38.png)
 
 - The View layer is used to display layouts and is a variety of **StatelessWidget** pages wrapped by **ChangeNotifierProvider**
 - The Model layer is used to process data and is a variety of Model classes that inherit **ChangeNotifier**
@@ -161,7 +161,7 @@ svgs | Store images in svg format
 Then the lib directory
 
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/013.png)
+![image](https://user-images.githubusercontent.com/30992818/62599609-41c40180-b91f-11e9-81a2-dd297c8c56aa.png)
 
 
 
@@ -192,7 +192,7 @@ widgets | custom widgets
 
 Android download link：
 
-![image](https://blog-pic-1256696029.cos.ap-guangzhou.myqcloud.com/todo_list/014.png)
+![image](https://user-images.githubusercontent.com/30992818/62599610-425c9800-b91f-11e9-8a7d-8c7d6483b524.png)
 
 Ios download link：
 
