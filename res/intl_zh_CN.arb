@@ -12,7 +12,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "searchIcon": "Try searching for icon name",
+  "searchIcon": "搜索图标名字",
   "@searchIcon": {
     "description": "搜索图标名字",
     "type": "text",
