@@ -1,7 +1,7 @@
 ![image](https://user-images.githubusercontent.com/30992818/62599565-25c06000-b91f-11e9-8b5c-63efecdeeef6.png)
 
 
-![image](https://user-images.githubusercontent.com/30992818/62599497-f9a4df00-b91e-11e9-8ad3-5d62cda83bca.png)
+![image](https://user-images.githubusercontent.com/30992818/62850471-84b61880-bd15-11e9-80d7-e2ed87aee4fe.png)
 
 Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/README_ZH.md)|[English](https://github.com/asjqkkkk/todo-list-app/blob/master/README.md)
 
@@ -181,8 +181,12 @@ widgets | custom widgets
 
 # ToDo
 
-- Login function, account system
-- Cloud storage data
+- [x] Icon search function
+- [ ] Custom task details page font size
+- [ ] Feedback display wall
+- [ ] Geek news
+- [ ] Whether to show the opening animation
+
 
 
 

@@ -1,9 +1,9 @@
 ![image](https://user-images.githubusercontent.com/30992818/62599278-65d31300-b91e-11e9-96e2-f8a26eadeea2.png)
 
 
-![image](https://user-images.githubusercontent.com/30992818/62598769-01fc1a80-b91d-11e9-94e8-80c0c3726293.png)
+![image](https://user-images.githubusercontent.com/30992818/62850471-84b61880-bd15-11e9-80d7-e2ed87aee4fe.png)
 
-Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/README.md)|[English](https://github.com/asjqkkkk/todo-list-app/blob/master/README_EN.md)
+Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/README_ZH.md)|[English](https://github.com/asjqkkkk/todo-list-app/blob/master/README.md)
 
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/asjqkkkk/todo-list-app)
 [![GitHub license](https://img.shields.io/github/license/asjqkkkk/todo-list-app)](https://github.com/asjqkkkk/todo-list-app/blob/master/LICENSE)
@@ -164,13 +164,13 @@ pages | 存放各个页面，是View层的目录
 utils | 封装好的各️工具类，比如文件操作等
 widgets | 封装好的各种Widget
 
-
 # ToDo
 
-- 登录功能，账号系统
-- 云端存储数据
-
-
+- [x] 图标搜索功能
+- [ ] 自定义任务详情页字体大小
+- [ ] 意见反馈展示墙
+- [ ] 行业相关新闻浏览界面
+- [ ] 是否展示开场动画
 
 # 附录
 

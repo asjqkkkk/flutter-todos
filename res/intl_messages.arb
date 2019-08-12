@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-12T10:51:59.888141",
+  "@@last_modified": "2019-08-12T15:45:07.106339",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -661,6 +661,12 @@
   "version101": "Version:1.0.1 \n\n1.Fixed: done list show error \n2.Add: Edit page can add start-date and deadline\n",
   "@version101": {
     "description": "版本:1.0.1 \n\n1.修复完成列表界面的显示bug\n2.新增编辑任务可以添加起止时间，用作提醒\n",
+    "type": "text",
+    "placeholders": {}
+  },
+  "version102": "Version:1.0.2 \n\n1.Fixed: some bugs \n2.Add: IconSetting Page can search icons now \n",
+  "@version102": {
+    "description": "版本:1.0.2 \n\n1.修复一些小bug \n2.图标设置界面可以搜索图标了 \n",
     "type": "text",
     "placeholders": {}
   }

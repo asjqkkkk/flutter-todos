@@ -319,6 +319,11 @@ class DemoLocalizations {
       '1.修复完成列表界面的显示bug\n'
       '2.新增编辑任务可以添加起止时间，用作提醒\n',);
 
+  String get version102 => Intl.message('Version:1.0.2 \n\n'
+      '1.Fixed: some bugs \n'
+      '2.Add: IconSetting Page can search icons now \n', name: 'version102', desc: '版本:1.0.2 \n\n'
+      '1.修复一些小bug \n'
+      '2.图标设置界面可以搜索图标了 \n',);
 
 
 }

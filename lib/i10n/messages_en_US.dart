@@ -130,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "userNameCantBeNull" : MessageLookupByLibrary.simpleMessage("username can not be empty"),
     "version100" : MessageLookupByLibrary.simpleMessage("Version:1.0.0 \n\nThe Version 1.0.0 released!\n"),
     "version101" : MessageLookupByLibrary.simpleMessage("Version:1.0.1 \n\n1.Fixed: done list show error \n2.Add: Edit page can add start-date and deadline\n"),
+    "version102" : MessageLookupByLibrary.simpleMessage("Version:1.0.2 \n\n1.Fixed: some bugs \n2.Add: IconSetting Page can search icons now \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("Version Description"),
     "waitAMoment" : MessageLookupByLibrary.simpleMessage("please wait for a moment..."),
     "weatherGetWrong" : MessageLookupByLibrary.simpleMessage("failed to get the weather，please try again"),

@@ -32,6 +32,7 @@ class UpdateDialog extends StatefulWidget {
 class UpdateDialogState extends State<UpdateDialog> {
   int _downloadProgress = 0;
   CancelToken token;
+  bool isUpdating = false;
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +95,7 @@ class UpdateDialogState extends State<UpdateDialog> {
                   valueColor:
                   new AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColorLight),
                   backgroundColor: Colors.grey[300],
-                  value: _downloadProgress / 100, //精确模式，进度20%
+                  value: _downloadProgress / 100,
                 ),
               ),
               flex: 1,
@@ -137,6 +138,8 @@ class UpdateDialogState extends State<UpdateDialog> {
                       flex: 1,
                       child: FlatButton(
                           onPressed: () async {
+                            if(isUpdating) return;
+                            isUpdating = true;
                             if (Platform.isAndroid) {
                               _androidUpdate();
                             } else if (Platform.isIOS) {
