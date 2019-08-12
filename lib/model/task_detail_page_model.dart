@@ -26,8 +26,6 @@ class TaskDetailPageModel extends ChangeNotifier {
   Timer timer;
   TaskBean taskBean;
 
-  //每一项任务的进度list
-  List<double> progressList = [];
 
   //这个progress用于判断进度是否改变，当被改变后退出的时候就更新数据库
   double progress;
@@ -50,7 +48,6 @@ class TaskDetailPageModel extends ChangeNotifier {
     this.doneTaskPageModel = doneTaskPageModel;
     this.searchPageModel = searchPageModel;
     this.progress = taskBean.overallProgress;
-    this.progressList.clear();
     //如果是从"完成列表"进来，就不搞hero动画了
     if (doneTaskPageModel != null) {
       isAnimationComplete = true;
