@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
+import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/icon_setting_page_model.dart';
 import 'package:todo_list/widgets/custom_animated_icon.dart';
 import 'package:todo_list/widgets/custom_animated_switcher.dart';
@@ -9,11 +10,19 @@ import 'package:todo_list/widgets/custom_animated_switcher.dart';
 class IconSettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<IconSettingPageModel>(context)..setContext(context);
+    final model = Provider.of<IconSettingPageModel>(context)
+      ..setContext(context);
+    final globalModel = Provider.of<GlobalModel>(context);
 
     return Scaffold(
-      appBar: AppBar(
+      appBar: model.isSearching ? model.logic.getSearchBar(globalModel) : AppBar(
         title: Text(DemoLocalizations.of(context).iconSetting),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.search), onPressed: () {
+            model.isSearching = true;
+            model.refresh();
+          })
+        ],
       ),
       body: Container(
           child: Column(
@@ -29,22 +38,24 @@ class IconSettingPage extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  child: model.taskIcons.length > 6 ? CustomAnimatedSwitcher(
-                    firstChild: Icon(
-                      Icons.border_color,
-                      size: 20,
-                    ),
-                    secondChild: Icon(
-                      Icons.check,
-                      size: 20,
-                      color: Colors.greenAccent,
-                    ),
-                    hasChanged: model.isDeleting,
-                    onTap: (){
-                      model.isDeleting = !model.isDeleting;
-                      model.refresh();
-                    },
-                  ) : SizedBox(),
+                  child: model.taskIcons.length > 6
+                      ? CustomAnimatedSwitcher(
+                          firstChild: Icon(
+                            Icons.border_color,
+                            size: 20,
+                          ),
+                          secondChild: Icon(
+                            Icons.check,
+                            size: 20,
+                            color: Colors.greenAccent,
+                          ),
+                          hasChanged: model.isDeleting,
+                          onTap: () {
+                            model.isDeleting = !model.isDeleting;
+                            model.refresh();
+                          },
+                        )
+                      : SizedBox(),
                   margin: EdgeInsets.only(top: 20, right: 25),
                   alignment: Alignment.centerRight,
                 ),
@@ -132,54 +143,7 @@ class IconSettingPage extends StatelessWidget {
           Expanded(
             child: Container(
               alignment: Alignment.center,
-              child: FutureBuilder(
-                  future: IconBean.loadAsset(),
-                  builder: (context, snapshot) {
-                    if (!snapshot.hasData) {
-                      return Container(
-                        width: 100,
-                        height: 100,
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                              Theme.of(context).primaryColor),
-                        ),
-                      );
-                    }
-                    List<IconBean> icons = snapshot.data;
-                    return GridView.count(
-                      crossAxisCount: 5,
-                      childAspectRatio: 0.8,
-                      padding: EdgeInsets.all(2),
-                      children: List.generate(icons.length, (index) {
-                        final icon = icons[index];
-                        return Container(
-                          margin: EdgeInsets.all(4),
-                          child: Column(
-                            children: <Widget>[
-                              IconButton(
-                                onPressed: () => model.logic.onIconPress(icon),
-                                icon: Icon(
-                                  IconBean.fromBean(icon),
-                                  size: 30,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              Expanded(
-                                child: Text(
-                                  icons[index].iconName,
-                                  style: TextStyle(fontSize: 10),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      }),
-                    );
-                  }),
+              child: model.logic.getIconsWidget()
             ),
           )
         ],

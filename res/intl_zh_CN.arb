@@ -12,6 +12,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "searchIcon": "Try searching for icon name",
+  "@searchIcon": {
+    "description": "搜索图标名字",
+    "type": "text",
+    "placeholders": {}
+  },
   "doneList": "完成列表",
   "@doneList": {
     "description": "完成列表",

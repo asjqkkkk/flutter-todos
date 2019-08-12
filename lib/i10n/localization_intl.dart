@@ -22,6 +22,7 @@ class DemoLocalizations {
     return Intl.message("One Day List",name: "appName",desc: "app的名字");
   }
   String get tryToSearch => Intl.message('Try searching for the title or content', name: 'tryToSearch', desc: '试试搜一下标题、内容吧',);
+  String get searchIcon => Intl.message('Try searching for icon name', name: 'searchIcon', desc: '搜索图标名字',);
 
 
   String get doneList => Intl.message('Done List', name: 'doneList', desc: '完成列表',);

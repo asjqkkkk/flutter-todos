@@ -110,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "repeat" : MessageLookupByLibrary.simpleMessage("repeat"),
     "restrictedDes" : MessageLookupByLibrary.simpleMessage("Permission is restricted"),
     "save" : MessageLookupByLibrary.simpleMessage("save"),
+    "searchIcon" : MessageLookupByLibrary.simpleMessage("Try searching for icon name"),
     "setIconName" : MessageLookupByLibrary.simpleMessage("icon name"),
     "spendTime" : MessageLookupByLibrary.simpleMessage("Spend Time"),
     "sports" : MessageLookupByLibrary.simpleMessage("Sports"),

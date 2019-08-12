@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-05T14:24:11.101848",
+  "@@last_modified": "2019-08-12T10:51:59.888141",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -9,6 +9,12 @@
   "tryToSearch": "Try searching for the title or content",
   "@tryToSearch": {
     "description": "试试搜一下标题、内容吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "searchIcon": "Try searching for icon name",
+  "@searchIcon": {
+    "description": "搜索图标名字",
     "type": "text",
     "placeholders": {}
   },

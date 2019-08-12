@@ -10,9 +10,16 @@ class IconSettingPageModel extends ChangeNotifier {
   BuildContext context;
 
   List<TaskIconBean> taskIcons = [];
+  List<IconBean> showIcons = [];
+  List<IconBean> searchIcons = [];
+  TextEditingController textEditingController = TextEditingController();
+  FocusNode focusNode = FocusNode();
+
+
   Color currentPickerColor = Colors.black;
   String currentIconName = "";
   bool isDeleting = false;
+  bool isSearching = false;
 
   IconSettingPageModel() {
     logic = IconSettingPageLogic(this);
@@ -21,12 +28,19 @@ class IconSettingPageModel extends ChangeNotifier {
   void setContext(BuildContext context) {
     if (this.context == null) {
       this.context = context;
-      logic.getTaskList();
+      Future.wait([
+        logic.getTaskIconList(),
+        logic.getIconList(),
+      ]).then((value) {
+        refresh();
+      });
     }
   }
 
   @override
   void dispose() {
+    textEditingController?.dispose();
+    focusNode?.dispose();
     super.dispose();
     debugPrint("IconSettingPageModel销毁了");
   }

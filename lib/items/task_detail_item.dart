@@ -33,8 +33,8 @@ class _TaskDetailItemState extends State<TaskDetailItem>
   AnimationController _controller;
   Animation _animation;
 
-  //这个定时器是因为hero动画大概时间是1秒，等动画结束后再执行列表划出动画
-  //不过如果任务详情页是从"完成列表"页面过来的，就没又hero动画了，自然不需要这个timer
+  ///这个定时器是因为hero动画大概时间是1秒，等动画结束后再执行列表划出动画
+  ///不过如果任务详情页是从"完成列表"页面过来的，就没有hero动画了，自然不需要这个timer
   Timer timer;
 
   @override

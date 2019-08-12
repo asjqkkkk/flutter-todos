@@ -23,11 +23,6 @@ class AvatarPageModel extends ChangeNotifier{
   void setContext(BuildContext context){
     if(this.context == null){
         this.context = context;
-//        Future.wait([
-//
-//        ]).then((value) {
-//          refresh();
-//        });
     }
   }
 
