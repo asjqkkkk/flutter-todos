@@ -68,6 +68,7 @@ class FeedbackPage extends StatelessWidget {
                     maxLines: null,
                     validator: (text) {
                       model.feedbackContent = text;
+                      return null;
                     },
                     style: TextStyle(color: isDarkNow ? Colors.grey : Colors.black),
                     decoration: InputDecoration(
@@ -101,6 +102,7 @@ class FeedbackPage extends StatelessWidget {
                     maxLines: null,
                     validator: (text) {
                       model.contactWay = text;
+                      return null;
                     },
                     style: TextStyle(color: isDarkNow ? Colors.grey : Colors.black),
                     decoration: InputDecoration(

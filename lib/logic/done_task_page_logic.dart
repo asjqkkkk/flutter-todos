@@ -48,13 +48,13 @@ class DoneTaskPageLogic {
     }
     DateTime timeStart = DateTime.parse(dateStart);
     DateTime timeEnd = DateTime.parse(dateEnd);
-    Duration diff = timeStart.difference(timeEnd);
+    Duration diff = timeEnd.difference(timeStart);
     final context = _model.context;
 
     debugPrint("差别:${timeStart}   end:${timeEnd}");
 
     return diff.inDays == 0
-        ? "${DemoLocalizations.of(context).hours(diff.inHours)}"
-        : "${DemoLocalizations.of(context).days(diff.inDays)}";
+        ? "${DemoLocalizations.of(context).hours(diff.inHours.abs())}"
+        : "${DemoLocalizations.of(context).days(diff.inDays.abs())}";
   }
 }

@@ -57,7 +57,11 @@ class FeedbackPageLogic {
       showWrongDialog(context, DemoLocalizations.of(context).feedbackNeedEmoji);
       return;
     }
-
+    bool canSubmitSuggest = await canSubmit();
+    if(!canSubmitSuggest){
+      showWrongDialog(context, DemoLocalizations.of(context).feedbackFrequently);
+      return;
+    }
     showDialog(
         context: context,
         builder: (ctx) {
@@ -69,7 +73,7 @@ class FeedbackPageLogic {
               ApiService.instance.postSuggestion({
                 "account": account,
                 "suggestion": _model.feedbackContent,
-                "connectWay": "${(_model.contactWay ?? "") + "${_model.currentSelectSvg}"}",
+                "connectWay": "${(_model.contactWay ?? "") + "/${_model.currentSelectSvg}"}",
               }, (CommonBean bean) {
                 _model.loadingController.setFlag(LoadingFlag.success);
               }, (CommonBean bean) {
@@ -116,4 +120,25 @@ class FeedbackPageLogic {
           );
         },);
   }
+
+
+  ///通过判断本机时间，8小时内只能提交一次建议，为了之后的意见展示墙出现过多内容
+  Future<bool> canSubmit() async{
+    String lastTime = await SharedUtil.instance.getString(Keys.lastSuggestTime) ?? "";
+    if(lastTime.isEmpty){
+      SharedUtil.instance.saveString(Keys.lastSuggestTime, DateTime.now().toIso8601String());
+      return true;
+    } else {
+      DateTime now = DateTime.now();
+      DateTime lastSuggestTime = DateTime.parse(lastTime);
+      Duration diff = now.difference(lastSuggestTime);
+      if(diff.inHours.abs() < 8){
+        return false;
+      } else {
+        SharedUtil.instance.saveString(Keys.lastSuggestTime, now.toIso8601String());
+        return true;
+      }
+    }
+  }
+
 }

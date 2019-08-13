@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-12T15:45:07.106339",
+  "@@last_modified": "2019-08-13T11:20:09.708786",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -107,6 +107,12 @@
   "feedbackNeedEmoji": "please choose an emoji ",
   "@feedbackNeedEmoji": {
     "description": "选个评价表情吧",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackFrequently": "Can only be submitted once in 8 hours. ",
+  "@feedbackFrequently": {
+    "description": "8小时内只能提交一次哦",
     "type": "text",
     "placeholders": {}
   },

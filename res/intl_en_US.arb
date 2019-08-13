@@ -110,6 +110,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "feedbackFrequently": "Can only be submitted once in 8 hours. ",
+  "@feedbackFrequently": {
+    "description": "8小时内只能提交一次哦",
+    "type": "text",
+    "placeholders": {}
+  },
   "writeYourFeedback": "write your feedback ",
   "@writeYourFeedback": {
     "description": "写下你的意见或是建议吧",

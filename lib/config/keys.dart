@@ -19,6 +19,7 @@ class Keys{
   static final String currentPosition = "currentPosition";
   static final String enableWeatherShow = "enable_weather_show";
   static final String currentUserName = "current_user_name";
+  static final String lastSuggestTime = "last_suggest_time";
 
 
 }

@@ -73,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "endBeforeStart" : MessageLookupByLibrary.simpleMessage("The end date need be bigger than the start date."),
     "feedback" : MessageLookupByLibrary.simpleMessage("Feedback"),
     "feedbackCantBeNull" : MessageLookupByLibrary.simpleMessage("feedback cannot be empty"),
+    "feedbackFrequently" : MessageLookupByLibrary.simpleMessage("Can only be submitted once in 8 hours. "),
     "feedbackIsTooLittle" : MessageLookupByLibrary.simpleMessage("feedback is too little, add a little more"),
     "feedbackNeedEmoji" : MessageLookupByLibrary.simpleMessage("please choose an emoji "),
     "game" : MessageLookupByLibrary.simpleMessage("Game"),

@@ -76,6 +76,7 @@ class DemoLocalizations {
   String get feedbackCantBeNull => Intl.message('feedback cannot be empty', name: 'feedbackCantBeNull', desc: '意见反馈内容不能为空哦',);
   String get feedbackIsTooLittle => Intl.message('feedback is too little, add a little more', name: 'feedbackIsTooLittle', desc: '意见反馈内容太少了，再加点儿吧',);
   String get feedbackNeedEmoji => Intl.message('please choose an emoji ', name: 'feedbackNeedEmoji', desc: '选个评价表情吧',);
+  String get feedbackFrequently => Intl.message('Can only be submitted once in 8 hours. ', name: 'feedbackFrequently', desc: '8小时内只能提交一次哦',);
   String get writeYourFeedback => Intl.message('write your feedback ', name: 'writeYourFeedback', desc: '写下你的意见或是建议吧',);
   String get writeYourContactInfo => Intl.message('whether to leave your contact information', name: 'writeYourContactInfo', desc: '是否留下你的联系方式',);
   String get waitAMoment => Intl.message('please wait for a moment...', name: 'waitAMoment', desc: '请稍后...',);
