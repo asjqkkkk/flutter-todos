@@ -104,4 +104,11 @@ class ProviderConfig {
        child: FeedbackPage(),
      );
    }
+
+   ChangeNotifierProvider<FeedbackWallPageModel> getFeedbackWallPage(){
+      return ChangeNotifierProvider<FeedbackWallPageModel>(
+        builder:(context) => FeedbackWallPageModel(),
+        child: FeedbackWallPage(),
+      );
+    }
 }

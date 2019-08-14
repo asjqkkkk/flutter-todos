@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "feedbackFrequently" : MessageLookupByLibrary.simpleMessage("8小时内只能提交一次哦"),
     "feedbackIsTooLittle" : MessageLookupByLibrary.simpleMessage("意见反馈内容太少了，再加点儿吧"),
     "feedbackNeedEmoji" : MessageLookupByLibrary.simpleMessage("选个评价表情吧 "),
+    "feedbackWall" : MessageLookupByLibrary.simpleMessage("反馈墙"),
     "game" : MessageLookupByLibrary.simpleMessage("打游戏"),
     "green" : MessageLookupByLibrary.simpleMessage("青青草原"),
     "history" : MessageLookupByLibrary.simpleMessage("历史"),

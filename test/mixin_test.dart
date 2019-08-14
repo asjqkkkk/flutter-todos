@@ -40,6 +40,9 @@ class PersonThree with Walker, Pilot{
 
 void main(){
   test(("测试mixin机制:\n"), (){
+
+    print(DateTime.now().millisecondsSinceEpoch);
+
     PersonOne personOne = PersonOne()..todo();
     PersonTwo personTwo = PersonTwo()..todo();
     PersonThree personThree = PersonThree()..todo();

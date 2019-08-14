@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-13T11:20:09.708786",
+  "@@last_modified": "2019-08-14T17:07:38.446220",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -89,6 +89,12 @@
   "feedback": "Feedback",
   "@feedback": {
     "description": "意见反馈",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackWall": "Feedback Wall",
+  "@feedbackWall": {
+    "description": "反馈墙",
     "type": "text",
     "placeholders": {}
   },

@@ -60,12 +60,12 @@ class NavPage extends StatelessWidget {
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations.of(context).feedback),
-          leading: Icon(Icons.comment),
+          title: Text(DemoLocalizations.of(context).feedbackWall),
+          leading: Icon(Icons.subtitles),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
             Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
-              return ProviderConfig.getInstance().getFeedbackPage();
+              return ProviderConfig.getInstance().getFeedbackWallPage();
             }));
           },
         ),

@@ -111,7 +111,6 @@ class FeedbackPageLogic {
                       borderRadius: BorderRadius.circular(20.0)),
                   onPressed: () {
                     Navigator.of(context).pop();
-                    Navigator.of(context).pop();
                   },
                   child: Text(DemoLocalizations.of(context).ok),
                 )

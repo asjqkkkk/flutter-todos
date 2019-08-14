@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "feedbackFrequently" : MessageLookupByLibrary.simpleMessage("Can only be submitted once in 8 hours. "),
     "feedbackIsTooLittle" : MessageLookupByLibrary.simpleMessage("feedback is too little, add a little more"),
     "feedbackNeedEmoji" : MessageLookupByLibrary.simpleMessage("please choose an emoji "),
+    "feedbackWall" : MessageLookupByLibrary.simpleMessage("Feedback Wall"),
     "game" : MessageLookupByLibrary.simpleMessage("Game"),
     "green" : MessageLookupByLibrary.simpleMessage("green"),
     "history" : MessageLookupByLibrary.simpleMessage("history"),

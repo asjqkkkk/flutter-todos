@@ -92,6 +92,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "feedbackWall": "反馈墙",
+  "@feedbackWall": {
+    "description": "反馈墙",
+    "type": "text",
+    "placeholders": {}
+  },
   "feedbackCantBeNull": "意见反馈内容不能为空哦",
   "@feedbackCantBeNull": {
     "description": "意见反馈内容不能为空哦",

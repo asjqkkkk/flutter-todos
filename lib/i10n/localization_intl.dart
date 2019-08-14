@@ -73,6 +73,7 @@ class DemoLocalizations {
   }
 
   String get feedback => Intl.message('Feedback', name: 'feedback', desc: '意见反馈',);
+  String get feedbackWall => Intl.message('Feedback Wall', name: 'feedbackWall', desc: '反馈墙',);
   String get feedbackCantBeNull => Intl.message('feedback cannot be empty', name: 'feedbackCantBeNull', desc: '意见反馈内容不能为空哦',);
   String get feedbackIsTooLittle => Intl.message('feedback is too little, add a little more', name: 'feedbackIsTooLittle', desc: '意见反馈内容太少了，再加点儿吧',);
   String get feedbackNeedEmoji => Intl.message('please choose an emoji ', name: 'feedbackNeedEmoji', desc: '选个评价表情吧',);
