@@ -252,7 +252,7 @@ class _AboutPageState extends State<AboutPage> {
                             version: updateInfo.appVersion,
                             updateUrl: updateInfo.downloadUrl,
                             updateInfo: updateInfo.updateInfo,
-                            updateInfoColor: globalModel.logic.getWhiteInDark(),
+                            updateInfoColor: globalModel.logic.getBgInDark(),
                             backgroundColor:
                                 globalModel.logic.getPrimaryGreyInDark(context),
                           );
