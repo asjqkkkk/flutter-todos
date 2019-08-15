@@ -65,7 +65,7 @@ class FeedbackPageLogic {
 
     ///防止过多提交
     bool canSubmitSuggest = await canSubmit();
-    if(!canSubmitSuggest){
+    if(canSubmitSuggest){
       showWrongDialog(context, DemoLocalizations.of(context).feedbackFrequently);
       return;
     }

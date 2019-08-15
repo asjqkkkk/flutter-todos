@@ -12,9 +12,10 @@ class ImagePage extends StatefulWidget {
   final List<String> imageUrls;
   final int initialPageIndex;
   final Function onSelect;
+  final int tagIndex;
 
   const ImagePage(
-      {Key key, @required this.imageUrls, this.initialPageIndex, this.onSelect})
+      {Key key, @required this.imageUrls, this.initialPageIndex, this.onSelect, this.tagIndex})
       : super(key: key);
 
   @override
@@ -65,7 +66,7 @@ class _ImagePageState extends State<ImagePage> {
                 return PhotoViewGalleryPageOptions(
                   imageProvider: url == NavHeadType.DAILY_PIC_URL ? NetworkImage(url) : CachedNetworkImageProvider(url),
                   initialScale: PhotoViewComputedScale.contained,
-                  heroTag: "tag_${index}",
+                  heroTag: "tag_${widget.tagIndex ?? index}",
                 );
               },
               itemCount: widget.imageUrls.length,

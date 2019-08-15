@@ -57,7 +57,7 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
                     final mainPageModel = avatarPageModel.mainPageModel;
                     mainPageModel.currentAvatarUrl = url;
                     mainPageModel.currentAvatarType = CurrentAvatarType.local;
-                    await SharedUtil.instance.saveString(Keys.localAvatarPath, name);
+                    await SharedUtil.instance.saveString(Keys.localAvatarPath, url);
                     await SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
                     mainPageModel.refresh();
                     Navigator.of(context).popUntil((route) => route.isFirst);

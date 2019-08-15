@@ -328,6 +328,15 @@ class DemoLocalizations {
       '1.修复一些小bug \n'
       '2.图标设置界面可以搜索图标了 \n',);
 
+  String get version103 => Intl.message('Version:1.0.3 \n\n'
+      '1.Fixed: The text color of the upgrade frame is wrong.(dark mode) \n'
+      '2.Fixed: Done List complete time is negative. \n'
+      '3.Add: Suggestion display wall. \n', name: 'version103', desc: '版本:1.0.3 \n\n'
+      '1.修复：升级弹框的文字颜色错误(夜间模式下) \n'
+      '2.修复：完成列表显示的的完成用时为负数 \n'
+      '3.新增：留言展示墙！ \n',
+  );
+
 
 }
 

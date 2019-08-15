@@ -5,7 +5,6 @@ import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/items/feedback_item.dart';
-import 'package:todo_list/model/feedback_page_model.dart';
 import 'package:todo_list/model/feedback_wall_page_model.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 
@@ -56,6 +55,7 @@ class FeedbackWallPage extends StatelessWidget {
               submitTime: bean.time,
               suggestion: bean.suggestion,
               emoji: emoji,
+              index: index,
             );
           },
           itemCount: model.suggestionList.length,

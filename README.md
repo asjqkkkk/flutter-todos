@@ -183,7 +183,7 @@ widgets | custom widgets
 
 - [x] Icon search function
 - [ ] Custom task details page font size
-- [ ] Feedback display wall
+- [x] Feedback display wall
 - [ ] Geek news
 - [ ] Whether to show the opening animation
 

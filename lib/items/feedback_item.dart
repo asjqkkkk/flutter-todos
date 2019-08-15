@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:todo_list/pages/image_page.dart';
 
 class FeedbackItem extends StatelessWidget {
   final String userName;
@@ -8,13 +9,14 @@ class FeedbackItem extends StatelessWidget {
   final String submitTime;
   final String suggestion;
   final String emoji;
+  final int index;
 
   const FeedbackItem({
     Key key,
     this.userName,
     this.avatarUrl,
     this.submitTime,
-    this.suggestion, this.emoji,
+    this.suggestion, this.emoji, this.index,
   }) : super(key: key);
 
   @override
@@ -33,19 +35,32 @@ class FeedbackItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    width: 50,
-                    height: 50,
-                    margin: EdgeInsets.only(left: 12),
-                    child: ClipRRect(
-                      child: avatarUrl == null ? Image.asset(
-                        "images/icon.png",
-                      ) : CachedNetworkImage(
-                        imageUrl: avatarUrl,
-                        errorWidget:  (context, url, error) => Icon(Icons.error, color: Colors.redAccent,),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).push(new MaterialPageRoute(builder: (ctx){
+                        return ImagePage(
+                          imageUrls: [avatarUrl],
+                          tagIndex: index,
+                        );
+                      }));
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      margin: EdgeInsets.only(left: 12),
+                      child: Hero(
+                        tag: "tag_$index",
+                        child: ClipRRect(
+                          child: avatarUrl == null ? Image.asset(
+                            "images/icon.png",
+                          ) : CachedNetworkImage(
+                            imageUrl: avatarUrl,
+                            errorWidget:  (context, url, error) => Icon(Icons.error, color: Colors.redAccent,),
 
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(25)),
+                        ),
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(25)),
                     ),
                   ),
                   SizedBox(

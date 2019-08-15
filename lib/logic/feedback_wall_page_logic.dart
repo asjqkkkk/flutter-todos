@@ -17,6 +17,9 @@ class FeedbackWallPageLogic{
         _model.suggestionList.addAll(suggestionBean.suggestions);
         ///反转列表，按照时间最新的排在最前面
         _model.suggestionList.reversed;
+        if(_model.suggestionList.isEmpty){
+          _model.loadingFlag = LoadingFlag.empty;
+        }
         _model.refresh();
       }, error: (msg){
         _model.loadingFlag = LoadingFlag.error;

@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-15T09:52:44.984710",
+  "@@last_modified": "2019-08-15T11:55:35.623662",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -685,6 +685,12 @@
   "version102": "Version:1.0.2 \n\n1.Fixed: some bugs \n2.Add: IconSetting Page can search icons now \n",
   "@version102": {
     "description": "版本:1.0.2 \n\n1.修复一些小bug \n2.图标设置界面可以搜索图标了 \n",
+    "type": "text",
+    "placeholders": {}
+  },
+  "version103": "Version:1.0.3 \n\n1.Fixed: The text color of the upgrade frame is wrong.(dark mode) \n2.Fixed: Done List complete time is negative. \n3.Add: Suggestion display wall. \n",
+  "@version103": {
+    "description": "版本:1.0.3 \n\n1.修复：升级弹框的文字颜色错误(夜间模式下) \n2.修复：完成列表显示的的完成用时为负数 \n3.新增：留言展示墙！ \n",
     "type": "text",
     "placeholders": {}
   }
