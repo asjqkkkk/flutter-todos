@@ -84,6 +84,7 @@ class DemoLocalizations {
   String get submitSuccess => Intl.message('submit success!', name: 'submitSuccess', desc: '提交成功！',);
   String get thanksForFeedback => Intl.message('Thanks for your feedback', name: 'thanksForFeedback', desc: '感谢你的反馈',);
   String get submitAgain => Intl.message('submit again', name: 'submitAgain', desc: '重新提交',);
+  String get noName => Intl.message('anonymous', name: 'noName', desc: '无名氏',);
 
   String get appSetting {
     return Intl.message(

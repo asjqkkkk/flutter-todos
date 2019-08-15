@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/feedback_page_model.dart';
+import 'package:todo_list/model/feedback_wall_page_model.dart';
 import 'package:todo_list/model/global_model.dart';
 
 class FeedbackPage extends StatelessWidget {
 
+  final FeedbackWallPageModel feedbackWallPageModel;
+
+
+  FeedbackPage(this.feedbackWallPageModel);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,7 @@ class FeedbackPage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.check),
-            onPressed: () => model.logic.onFeedbackSubmit(),
+            onPressed: () => model.logic.onFeedbackSubmit(feedbackWallPageModel),
           )
         ],
       ),

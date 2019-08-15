@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/widgets/custom_animated_switcher.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class FeedbackItem extends StatelessWidget {
   final String userName;
   final String avatarUrl;
   final String submitTime;
   final String suggestion;
+  final String emoji;
 
   const FeedbackItem({
     Key key,
     this.userName,
     this.avatarUrl,
     this.submitTime,
-    this.suggestion,
+    this.suggestion, this.emoji,
   }) : super(key: key);
 
   @override
@@ -87,19 +88,12 @@ class FeedbackItem extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(right: 12),
-                    child: CustomAnimatedSwitcher(
-                      firstChild: Icon(
-                        Icons.favorite_border,
-                        size: 28,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      secondChild: Icon(
-                        Icons.favorite,
-                        size: 28,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
+                    margin: EdgeInsets.only(right: 20),
+                    child: SvgPicture.asset(
+                      "svgs/mood_$emoji.svg",
+                      width: 25,
+                      height: 25,
+                    )
                   ),
                 ],
               )

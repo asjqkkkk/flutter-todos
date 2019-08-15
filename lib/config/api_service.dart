@@ -13,7 +13,7 @@ class ApiService {
   static final int FAILED = 1;
 
   ApiService._internal() {
-    //初始化
+    ///初始化
   }
 
   static ApiService _getInstance() {
@@ -23,7 +23,7 @@ class ApiService {
     return _instance;
   }
 
-  //获取图片
+  ///获取图片
   void getPhotos({
     Function success,
     Function failed,
@@ -49,13 +49,46 @@ class ApiService {
     );
   }
 
-  //提交建议
-  void postSuggestion(Map<String, String> params, Function success,
-      Function failed, Function error, CancelToken token) {
-    postCommon(params, success, failed, error, "fUser/suggestion", token);
+  ///提交建议(新增头像上传)
+  void postSuggestionWithAvatar(
+      {FormData params,
+      Function success,
+      Function failed,
+      Function error,
+      CancelToken token}) {
+    ApiStrategy.getInstance().postUpload(
+        "fUser/oneDaySuggestion", (data) {
+      CommonBean commonBean = CommonBean.fromMap(data);
+      if (commonBean.status == 0) {
+        success(commonBean);
+      } else {
+        failed(commonBean);
+      }
+    }, (count, total) {},
+        formData: params, errorCallBack: (errorMessage) {
+      error(errorMessage);
+    });
   }
 
-  //通用的请求
+  ///获取建议列表
+  void getSuggestions({
+    Function success,
+    Function error,
+    CancelToken token,
+  }) {
+    ApiStrategy.getInstance().get(
+      "fUser/getSuggestion",
+          (data) {
+            success(data);
+      },
+      errorCallBack: (errorMessage) {
+        error(errorMessage);
+      },
+      token: token,
+    );
+  }
+
+  ///通用的请求
   void postCommon(Map<String, String> params, Function success, Function failed,
       Function error, String url, CancelToken token) {
     ApiStrategy.getInstance().post(
@@ -75,14 +108,14 @@ class ApiService {
         token: token);
   }
 
-  //天气获取
-  void getWeatherNow(
+  ///天气获取
+  void getWeatherNow({
     Function success,
     Function failed,
     Function error,
     Map<String, String> params,
     CancelToken token,
-  ) {
+  }) {
     ApiStrategy.getInstance().get(
       "https://free-api.heweather.com/s6/weather/now",
       (data) {
@@ -102,13 +135,13 @@ class ApiService {
     );
   }
 
-  //检查更新
-  void checkUpdate(
-  {Function success,
+  ///检查更新
+  void checkUpdate({
+    Function success,
     Function error,
     Map<String, String> params,
-    CancelToken token,}
-  ) {
+    CancelToken token,
+  }) {
     ApiStrategy.getInstance().post(
       "app/checkUpdate",
       (data) {

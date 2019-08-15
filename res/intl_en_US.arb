@@ -158,6 +158,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "noName": "anonymous",
+  "@noName": {
+    "description": "无名氏",
+    "type": "text",
+    "placeholders": {}
+  },
   "appSetting": "Setting",
   "@appSetting": {
     "description": "app设置",

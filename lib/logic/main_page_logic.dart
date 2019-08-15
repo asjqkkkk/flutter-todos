@@ -175,19 +175,25 @@ class MainPageLogic {
 
   Future getCurrentAvatar() async {
     switch (_model.currentAvatarType) {
+      ///头像为默认头像的时候，将asset转换为file，方便imageCrop与之后的suggestion直接用到file
       case CurrentAvatarType.defaultAvatar:
         final path = await FileUtil.getInstance()
             .copyAssetToFile("images/", "icon.png", "/avatar/", "icon.png");
         _model.currentAvatarUrl = path;
         _model.currentAvatarType = CurrentAvatarType.local;
+        SharedUtil().saveString(Keys.localAvatarPath, path);
         break;
       case CurrentAvatarType.local:
         final path = await SharedUtil().getString(Keys.localAvatarPath) ?? "";
         File file = File(path);
         if (file.existsSync()) {
           _model.currentAvatarUrl = file.path;
+
         } else {
-          _model.currentAvatarUrl = "images/icon.png";
+          final avatarPath = await FileUtil.getInstance()
+              .copyAssetToFile("images/", "icon.png", "/avatar/", "icon.png");
+          SharedUtil().saveString(Keys.localAvatarPath, avatarPath);
+          _model.currentAvatarUrl = avatarPath;
         }
         break;
       case CurrentAvatarType.net:
@@ -207,17 +213,10 @@ class MainPageLogic {
         break;
       case CurrentAvatarType.local:
         File file = File(_model.currentAvatarUrl);
-        if (file.existsSync()) {
-          return Image.file(
-            file,
-            fit: BoxFit.fill,
-          );
-        } else {
-          return Image.asset(
-            "images/icon.png",
-            fit: BoxFit.cover,
-          );
-        }
+        return Image.file(
+          file,
+          fit: BoxFit.fill,
+        );
         break;
       case CurrentAvatarType.net:
         return Image.network(

@@ -1,8 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
-import 'package:todo_list/json/common_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
@@ -41,9 +42,11 @@ class FeedbackPageLogic {
     );
   }
 
-  void onFeedbackSubmit() async {
+  void onFeedbackSubmit(FeedbackWallPageModel feedbackWallPageModel) async {
     final context = _model.context;
     final size = MediaQuery.of(context).size;
+
+    ///限制建议内容不能为空，长度不能小于10
     if (_model.feedbackContent.isEmpty) {
       showWrongDialog(
           context, DemoLocalizations.of(context).feedbackCantBeNull);
@@ -53,34 +56,59 @@ class FeedbackPageLogic {
           context, DemoLocalizations.of(context).feedbackIsTooLittle);
       return;
     }
+
+    ///限制：需要选择评价表情
     if (_model.currentSelectSvg == -99) {
       showWrongDialog(context, DemoLocalizations.of(context).feedbackNeedEmoji);
       return;
     }
+
+    ///防止过多提交
     bool canSubmitSuggest = await canSubmit();
     if(!canSubmitSuggest){
       showWrongDialog(context, DemoLocalizations.of(context).feedbackFrequently);
       return;
     }
+
+    final userName = await SharedUtil.instance.getString(Keys.currentUserName) ?? DemoLocalizations.of(context).noName;
+    final suggestion = _model.feedbackContent;
+    final avatarPath = await SharedUtil.instance.getString(Keys.localAvatarPath) ?? "";
+    String fileName = avatarPath
+        .substring(avatarPath.lastIndexOf("/") + 1, avatarPath.length)
+        .replaceAll(" ", "");
+    String transFormName = Uri.encodeFull(fileName).replaceAll("%", "");
+    ///由于写后端的时候忘记添加表情的字段，现在把它放这里面
+    final connectWay = "${(_model.contactWay ?? "") + "<emoji>${_model.currentSelectSvg + 1}<emoji>"}";
+    final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
+
     showDialog(
         context: context,
         builder: (ctx) {
           return NetLoadingWidget(
-            onRequest: () async{
-              final account =
-                  await SharedUtil.instance.getString(Keys.account) ?? "default";
+            onRequest: (){
               _model.loadingController.setFlag(LoadingFlag.loading);
-              ApiService.instance.postSuggestion({
-                "account": account,
-                "suggestion": _model.feedbackContent,
-                "connectWay": "${(_model.contactWay ?? "") + "/${_model.currentSelectSvg}"}",
-              }, (CommonBean bean) {
-                _model.loadingController.setFlag(LoadingFlag.success);
-              }, (CommonBean bean) {
-                _model.loadingController.setFlag(LoadingFlag.error);
-              }, (error) {
-                _model.loadingController.setFlag(LoadingFlag.error);
-              }, _model.cancelToken);
+              ApiService.instance.postSuggestionWithAvatar(
+                params: FormData.from({
+                  "avatar": new UploadFileInfo(new File(avatarPath), transFormName),
+                  "account": account,
+                  "suggestion": suggestion,
+                  "connectWay": connectWay,
+                  "userName": userName,
+                  "userName": userName,
+                }),
+                success: (bean){
+                  SharedUtil.instance.saveString(Keys.lastSuggestTime, DateTime.now().toIso8601String());
+                  _model.loadingController.setFlag(LoadingFlag.success);
+                  feedbackWallPageModel.logic.getSuggestions();
+                },
+                failed: (bean){
+                  _model.loadingController.setFlag(LoadingFlag.error);
+                },
+                error: (msg){
+                  _model.loadingController.setFlag(LoadingFlag.error);
+                },
+                token: _model.cancelToken,
+              );
             },
             loadingController: _model.loadingController,
             successWidget: Column(
@@ -111,6 +139,7 @@ class FeedbackPageLogic {
                       borderRadius: BorderRadius.circular(20.0)),
                   onPressed: () {
                     Navigator.of(context).pop();
+                    Navigator.of(context).pop();
                   },
                   child: Text(DemoLocalizations.of(context).ok),
                 )
@@ -125,7 +154,6 @@ class FeedbackPageLogic {
   Future<bool> canSubmit() async{
     String lastTime = await SharedUtil.instance.getString(Keys.lastSuggestTime) ?? "";
     if(lastTime.isEmpty){
-      SharedUtil.instance.saveString(Keys.lastSuggestTime, DateTime.now().toIso8601String());
       return true;
     } else {
       DateTime now = DateTime.now();

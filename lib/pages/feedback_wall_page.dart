@@ -1,12 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/items/feedback_item.dart';
+import 'package:todo_list/model/feedback_page_model.dart';
 import 'package:todo_list/model/feedback_wall_page_model.dart';
+import 'package:todo_list/widgets/loading_widget.dart';
 
 class FeedbackWallPage extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<FeedbackWallPageModel>(context)
@@ -20,17 +25,40 @@ class FeedbackWallPage extends StatelessWidget {
               icon: Icon(Icons.add),
               onPressed: () {
                 Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
-                  return ProviderConfig.getInstance().getFeedbackPage();
+                  return ProviderConfig.getInstance().getFeedbackPage(model);
                 }));
               })
         ],
       ),
       body: Container(
-        child: ListView.builder(
-          itemBuilder: (ctx, index) {
-            return FeedbackItem();
+        child: model.suggestionList.isEmpty ? LoadingWidget(
+          flag: model.loadingFlag,
+          errorCallBack: (){
+            model.loadingFlag = LoadingFlag.loading;
+            model.refresh();
+            model.logic.getSuggestions();
           },
-          itemCount: 10,
+        ) : ListView.builder(
+          itemBuilder: (ctx, index) {
+            final bean = model.suggestionList[index];
+            final connect_way = bean.connect_way;
+            final splitData = connect_way.split("<emoji>");
+            String emoji = "4";
+            for (var o in splitData) {
+              if(o.isNotEmpty){
+                emoji = o;
+                break;
+              }
+            }
+            return FeedbackItem(
+              userName: bean.userName,
+              avatarUrl: ApiStrategy.baseUrl + bean.avatarUrl,
+              submitTime: bean.time,
+              suggestion: bean.suggestion,
+              emoji: emoji,
+            );
+          },
+          itemCount: model.suggestionList.length,
         ),
       ),
     );

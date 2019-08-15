@@ -96,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "navigatorSetting" : MessageLookupByLibrary.simpleMessage("Navigator Setting"),
     "netPicture" : MessageLookupByLibrary.simpleMessage("Network Picture"),
     "newVersionIsComing" : MessageLookupByLibrary.simpleMessage("New version is comming!"),
+    "noName" : MessageLookupByLibrary.simpleMessage("anonymous"),
     "noUpdate" : MessageLookupByLibrary.simpleMessage("It is the latest version"),
     "ok" : MessageLookupByLibrary.simpleMessage("ok"),
     "openSystemSetting" : MessageLookupByLibrary.simpleMessage("Open System Setting"),

@@ -112,25 +112,25 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   void getWeatherNow(GlobalModel globalModel) {
     final position = globalModel.currentPosition;
     final languageCode = globalModel.currentLocale.languageCode;
-    ApiService.instance.getWeatherNow((WeatherBean weatherBean) {
+    ApiService.instance.getWeatherNow( success : (WeatherBean weatherBean) {
       globalModel.weatherBean = weatherBean;
       SharedUtil.instance.saveString(Keys.currentPosition, position);
       SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, true);
       setState(() {
         loadingFlag = LoadingFlag.success;
       });
-    }, (WeatherBean weatherBean) {
+    },failed: (WeatherBean weatherBean) {
       setState(() {
         loadingFlag = LoadingFlag.error;
       });
-    }, (error) {
+    },error: (error) {
       setState(() {
         loadingFlag = LoadingFlag.error;
       });
-    }, {
+    },params: {
       "key": "d381a4276ed349daa3bf63646f12d8ae",
       "location": position,
       "lang": languageCode
-    }, CancelToken());
+    },token: CancelToken());
   }
 }

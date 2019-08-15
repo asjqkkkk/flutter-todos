@@ -98,10 +98,10 @@ class ProviderConfig {
     );
   }
 
-  ChangeNotifierProvider<FeedbackPageModel> getFeedbackPage(){
+  ChangeNotifierProvider<FeedbackPageModel> getFeedbackPage(FeedbackWallPageModel feedbackWallPageModel){
      return ChangeNotifierProvider<FeedbackPageModel>(
        builder:(context) => FeedbackPageModel(),
-       child: FeedbackPage(),
+       child: FeedbackPage(feedbackWallPageModel),
      );
    }
 

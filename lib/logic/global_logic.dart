@@ -134,7 +134,7 @@ class GlobalLogic{
   }
 
   void getWeatherNow(String position,{BuildContext context, LoadingController controller}){
-    ApiService.instance.getWeatherNow((WeatherBean weatherBean){
+    ApiService.instance.getWeatherNow(success : (WeatherBean weatherBean){
       _model.weatherBean = weatherBean;
       _model.enableWeatherShow = true;
       SharedUtil.instance.saveString(Keys.currentPosition, position);
@@ -142,16 +142,16 @@ class GlobalLogic{
       _model.refresh();
       controller?.setFlag(LoadingFlag.success);
 
-    }, (WeatherBean weatherBean){
+    },failed : (WeatherBean weatherBean){
       controller?.setFlag(LoadingFlag.error);
-    }, (error){
+    }, error : (error){
       controller?.setFlag(LoadingFlag.error);
 
-    }, {
+    }, params : {
       "key": "d381a4276ed349daa3bf63646f12d8ae",
       "location": position,
       "lang":_model.currentLocale.languageCode
-    }, CancelToken());
+    }, token: CancelToken());
   }
 
   bool isDarkNow(){
