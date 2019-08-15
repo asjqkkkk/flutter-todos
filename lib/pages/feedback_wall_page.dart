@@ -51,7 +51,7 @@ class FeedbackWallPage extends StatelessWidget {
             }
             return FeedbackItem(
               userName: bean.userName,
-              avatarUrl: ApiStrategy.baseUrl + bean.avatarUrl,
+              avatarUrl: ApiStrategy.baseUrl + bean.avatarUrl ?? "files/default/2019/7/1564207029288.jpg",
               submitTime: bean.time,
               suggestion: bean.suggestion,
               emoji: emoji,
