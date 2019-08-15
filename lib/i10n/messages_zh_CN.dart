@@ -134,7 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version100" : MessageLookupByLibrary.simpleMessage("版本:1.0.0 \n\n版本 1.0.0 发布啦!"),
     "version101" : MessageLookupByLibrary.simpleMessage("版本:1.0.1 \n\n1.修复完成列表界面的显示bug\n2.新增编辑任务可以添加起止时间，用作提醒\n"),
     "version102" : MessageLookupByLibrary.simpleMessage("版本:1.0.2 \n\n1.修复一些小bug \n2.图标设置界面可以搜索图标了 \n"),
-    "version103" : MessageLookupByLibrary.simpleMessage("版本:1.0.3 \n\n1.修复：升级弹框的文字颜色错误(夜间模式下) \n2.修复：升级弹框的文字颜色错误(夜间模式下) \n3.新增：留言展示墙！ \n"),
+    "version103" : MessageLookupByLibrary.simpleMessage("版本:1.0.3 \n\n1.修复：升级弹框的文字颜色错误(夜间模式下) \n2.修复：完成列表显示的的完成用时为负数 \n3.新增：留言展示墙！ \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("版本描述"),
     "waitAMoment" : MessageLookupByLibrary.simpleMessage("请稍后..."),
     "weatherGetWrong" : MessageLookupByLibrary.simpleMessage("天气获取失败,请重新尝试"),

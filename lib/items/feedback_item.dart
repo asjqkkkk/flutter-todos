@@ -40,7 +40,7 @@ class FeedbackItem extends StatelessWidget {
                       Navigator.of(context).push(new MaterialPageRoute(builder: (ctx){
                         return ImagePage(
                           imageUrls: [avatarUrl],
-                          tagIndex: index,
+                          heroTag: "avatar_$index",
                         );
                       }));
                     },
@@ -49,7 +49,7 @@ class FeedbackItem extends StatelessWidget {
                       height: 50,
                       margin: EdgeInsets.only(left: 12),
                       child: Hero(
-                        tag: "tag_$index",
+                        tag: "avatar_$index",
                         child: ClipRRect(
                           child: avatarUrl == null ? Image.asset(
                             "images/icon.png",
