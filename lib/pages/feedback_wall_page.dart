@@ -46,7 +46,6 @@ class FeedbackWallPage extends StatelessWidget {
             for (var o in splitData) {
               if(o.isNotEmpty){
                 emoji = o;
-                break;
               }
             }
             return FeedbackItem(
