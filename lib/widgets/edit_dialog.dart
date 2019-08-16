@@ -31,13 +31,17 @@ class EditDialog extends StatelessWidget {
       title: Text(title ?? ""),
       content: Form(
         autovalidate: true,
-        child: TextFormField(
-          initialValue: initialValue ?? "",
-          validator: (text) {
-            if (onValueChanged != null) onValueChanged(text);
-          },
-          decoration: InputDecoration(
-            hintText: hintText ?? "",
+        child: Theme(
+          data: ThemeData(platform: TargetPlatform.android),
+          child: TextFormField(
+            initialValue: initialValue ?? "",
+            validator: (text) {
+              if (onValueChanged != null) onValueChanged(text);
+              return null;
+            },
+            decoration: InputDecoration(
+              hintText: hintText ?? "",
+            ),
           ),
         ),
       ),

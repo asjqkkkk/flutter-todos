@@ -24,6 +24,11 @@ If you happen to have the habit of writing a mission plan, then it must be perfe
 
 For users and developers, I will introduce them separately
 
+Before we start, you can take a look at the demo:
+
+
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/63140875-f80da200-c015-11e9-8b14-60d6725620f1.gif"/>
+
 ## Introduction to the user
 
 
@@ -32,8 +37,8 @@ For users and developers, I will introduce them separately
 
 In the app, you can switch between the theme colors in the theme switching interface.The app comes with six default themes, which are the color combinations I've chosen over many attempts. You can also choose a custom theme color.
 
-![image](https://user-images.githubusercontent.com/30992818/62599499-fa3d7580-b91e-11e9-8e7a-868add28d67f.png)
-![image](https://user-images.githubusercontent.com/30992818/62599500-fa3d7580-b91e-11e9-926d-d2e76c6e2e85.png)
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599499-fa3d7580-b91e-11e9-8e7a-868add28d67f.png"/>
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599500-fa3d7580-b91e-11e9-926d-d2e76c6e2e85.png"/>
 
 
 ### Colorful Task Icons
@@ -41,8 +46,8 @@ In the app, you can switch between the theme colors in the theme switching inter
 
 In the app, each task comes with an icon, and the app provides all the **Material Design** style icons that Flutter comes with. You can customize with any color.
 
-![image](https://user-images.githubusercontent.com/30992818/62599503-fad60c00-b91e-11e9-8984-27fd78382707.png)
-![image](https://user-images.githubusercontent.com/30992818/62599505-fad60c00-b91e-11e9-9656-4469eeba64b6.png)
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599503-fad60c00-b91e-11e9-8984-27fd78382707.png"/>
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599505-fad60c00-b91e-11e9-9656-4469eeba64b6.png"/>
 
 
 ### Diverse Custom Combinations
@@ -52,8 +57,9 @@ In the app, there are a number of other operations that you can customize.
 
 For example, the head of the homepage slide bar displays content, of course, there are some other operations that you will experience on your own.
 
-![image](https://user-images.githubusercontent.com/30992818/62599506-fb6ea280-b91e-11e9-8396-86058b239f12.png)
-![image](https://user-images.githubusercontent.com/30992818/62599509-fc073900-b91e-11e9-9535-9482e3e3dac4.png)
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599506-fb6ea280-b91e-11e9-8396-86058b239f12.png"/>
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599509-fc073900-b91e-11e9-9535-9482e3e3dac4.png"/>
+
 
 
 ### Done List
@@ -61,8 +67,7 @@ For example, the head of the homepage slide bar displays content, of course, the
 
 When you have completed a task, the task will be moved from the home page to the done list page, where you can see some additional information about the task.
 
-![image](https://user-images.githubusercontent.com/30992818/62599510-fc9fcf80-b91e-11e9-8479-8bd559a4ccb4.png)
-
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599510-fc9fcf80-b91e-11e9-8479-8bd559a4ccb4.png"/>
 
 Then, the introduction to the user ends here.
 

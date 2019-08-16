@@ -8,7 +8,8 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/asjqkkkk/todo-list-app)
 [![GitHub license](https://img.shields.io/github/license/asjqkkkk/todo-list-app)](https://github.com/asjqkkkk/todo-list-app/blob/master/LICENSE)
 [![Codemagic build status](https://api.codemagic.io/apps/5d3c43723764bf796ed724d4/5d3c43723764bf796ed724d3/status_badge.svg)](https://codemagic.io/apps/5d3c43723764bf796ed724d4/5d3c43723764bf796ed724d3/latest_build)
-[![image](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.3/todo-list.apk)
+[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.3/todo-list.apk)
+
 
 
 # 介绍
@@ -18,6 +19,12 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 > “一日清单”是一个小巧、简洁而又漂亮的app，它可以帮你随手记录日常的各项计划,如果你恰好有写任务计划的习惯，那么它一定非常适合你。
 
 下面，针对使用者和开发者，我将来分别介绍一次
+
+开始之前，可以先看一下demo效果
+
+
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/63140284-05c22800-c014-11e9-9aa1-e256b856920a.gif"/>
+
 
 ## 面向使用者的介绍
 
@@ -35,9 +42,8 @@ app中，可以在主题切换界面选择各种主题颜色进行切换，app�
 
 在app中，每项任务都会带有一个图标，而app提供了所有 Flutter 自带的 **Material design** 风格的图标，这些图标，你可以进行任意颜色的自定义
 
-![image](https://user-images.githubusercontent.com/30992818/62598774-032d4780-b91d-11e9-8dca-32c826c4ab9d.png)
-![image](https://user-images.githubusercontent.com/30992818/62598775-032d4780-b91d-11e9-976f-4b6aaf55e60e.png)
-
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598774-032d4780-b91d-11e9-8dca-32c826c4ab9d.png"/>
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598775-032d4780-b91d-11e9-976f-4b6aaf55e60e.png"/>
 
 ### 多样的自定义组合
 
@@ -45,15 +51,14 @@ app中，可以在主题切换界面选择各种主题颜色进行切换，app�
 
 比如说主页测滑栏的头部展示内容，当然，还有一些其他的操作，就由你去自行体验了
 
-![image](https://user-images.githubusercontent.com/30992818/62598778-03c5de00-b91d-11e9-84aa-697d94f313a9.png)
-![image](https://user-images.githubusercontent.com/30992818/62598780-045e7480-b91d-11e9-91c9-1887f41e13d5.png)
-
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598778-03c5de00-b91d-11e9-84aa-697d94f313a9.png"/>
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598780-045e7480-b91d-11e9-91c9-1887f41e13d5.png"/>
 
 ### 完成列表
 
 当你完成了一项任务后，这个任务就会从主页转移到完成列表页面，在这里你可以看到任务的一些额外信息
 
-![image](https://user-images.githubusercontent.com/30992818/62598781-04f70b00-b91d-11e9-8f6f-868a886f3d21.png)
+<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598781-04f70b00-b91d-11e9-8f6f-868a886f3d21.png"/>
 
 那么，对于使用者的介绍就到这里结束
 
@@ -164,13 +169,16 @@ pages | 存放各个页面，是View层的目录
 utils | 封装好的各️工具类，比如文件操作等
 widgets | 封装好的各种Widget
 
+
 # ToDo
 
 - [x] 图标搜索功能
 - [ ] 自定义任务详情页字体大小
-- [x] 意见反馈展示墙
+- [ ] 意见反馈展示墙
 - [ ] 行业相关新闻浏览界面
 - [ ] 是否展示开场动画
+
+
 
 # 附录
 
