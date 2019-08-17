@@ -11,8 +11,6 @@ import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 
 class SearchPage extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
@@ -37,11 +35,14 @@ class SearchPage extends StatelessWidget {
             hintText: DemoLocalizations.of(context).tryToSearch,
             hintStyle: new TextStyle(color: bgColor),
             suffixIcon: IconButton(
-                icon: Icon(
-                  Icons.clear,
-                  color: bgColor,
-                ),
-                onPressed:() => model.textEditingController?.clear(),),
+              icon: Icon(
+                Icons.clear,
+                color: bgColor,
+              ),
+              onPressed: () => Future.delayed(Duration(milliseconds: 100), () {
+                model.textEditingController?.clear();
+              }),
+            ),
             border: InputBorder.none,
             focusedBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: bgColor, width: 1),
@@ -54,27 +55,34 @@ class SearchPage extends StatelessWidget {
         ),
       ),
       body: Container(
+        margin: EdgeInsets.only(left: 50,right: 50),
           child: model.loadingFlag != LoadingFlag.success
-              ? LoadingWidget(
-                  flag: model.loadingFlag,
-            progressColor: bgColor,
-            textColor: globalModel.logic.getWhiteInDark(),
-                )
-              : GridView.count(
-                  crossAxisCount: 2,
-                  children: List.generate(model.searchTasks.length, (index) {
-                    final task = model.searchTasks[index];
-                    return GestureDetector(
-                      onTap:() => model.logic.onTaskTap(index, task),
-                      child: TaskItem(
-                        task.id,
-                        task,
-                        onDelete: () => model.logic.onDelete(globalModel, task),
-                        onEdit: () => model.logic.onEdit(task, globalModel.mainPageModel),
-                      ),
-                    );
-                  }),
-                )),
+              ? Center(
+            child: SingleChildScrollView(
+              child: LoadingWidget(
+                flag: model.loadingFlag,
+                progressColor: bgColor,
+                textColor: globalModel.logic.getWhiteInDark(),
+              ),
+            ),
+          )
+              : SingleChildScrollView(
+            child: Wrap(
+              children: List.generate(model.searchTasks.length, (index) {
+                final task = model.searchTasks[index];
+                return GestureDetector(
+                  onTap: () => model.logic.onTaskTap(index, task),
+                  child: TaskItem(
+                    task.id,
+                    task,
+                    onDelete: () => model.logic.onDelete(globalModel, task),
+                    onEdit: () =>
+                        model.logic.onEdit(task, globalModel.mainPageModel),
+                  ),
+                );
+              }),
+            ),
+          ),),
     );
   }
 }

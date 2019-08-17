@@ -86,7 +86,6 @@ class TaskInfoWidget extends StatelessWidget {
         Column(
           children: <Widget>[
             Container(
-              height: 50,
               child: Row(
                 children: <Widget>[
                   Expanded(

@@ -85,7 +85,7 @@ class DoneTaskPage extends StatelessWidget {
                                 width: itemHeight,
                                 child: Text(
                                   task.taskName,
-                                  maxLines: 3,
+                                  maxLines: 1,
                                   style: TextStyle(
                                     fontSize: textSize + 8,
                                     fontWeight: FontWeight.bold,
