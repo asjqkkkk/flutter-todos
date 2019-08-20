@@ -25,6 +25,7 @@ class DemoLocalizations {
   String get searchIcon => Intl.message('Try searching for icon name', name: 'searchIcon', desc: '搜索图标名字',);
 
 
+  String get myAccount => Intl.message('My Account', name: 'myAccount', desc: '我的账号',);
   String get doneList => Intl.message('Done List', name: 'doneList', desc: '完成列表',);
   String get toFinishTask => Intl.message('Try to complete a task!', name: 'toFinishTask', desc: '努力去完成一项任务吧!',);
   String get taskNum => Intl.message('Task Number', name: 'taskNum', desc: '任务数',);
@@ -252,23 +253,26 @@ class DemoLocalizations {
     );
   }
 
-  String get editTask{
-    return Intl.message(
-      'Edit',
-      name: 'editTask',
-      desc: '编辑任务',
-    );
-  }
+  String get login => Intl.message('Login', name: 'login', desc: '登录',);
+  String get email => Intl.message('EMAIL', name: 'email', desc: '邮箱',);
+  String get password => Intl.message('PASSWORD', name: 'password', desc: '密码',);
+  String get inputEmail => Intl.message('Enter email', name: 'inputEmail', desc: '输入邮箱',);
+  String get inputPassword => Intl.message('Enter password', name: 'inputPassword', desc: '输入密码',);
+  String get forget => Intl.message('Forget', name: 'forget', desc: '忘记',);
+  String get logIn => Intl.message('Log In', name: 'logIn', desc: '登 录',);
+  String get haveNoAccount => Intl.message('Don\'t have an Account?Sign Up', name: 'haveNoAccount', desc: '没有账号?注册一个',);
+  String get register => Intl.message('Register', name: 'register', desc: '注册',);
+  String get emailCantBeEmpty => Intl.message('email cannot be empty', name: 'emailCantBeEmpty', desc: '邮箱不能为空',);
+  String get emailIncorrectFormat => Intl.message('email format is incorrect', name: 'emailIncorrectFormat', desc: '邮箱格式不正确',);
+  String get passwordCantBeEmpty => Intl.message('password cannot be empty', name: 'passwordCantBeEmpty', desc: '密码不能为空',);
+  String get passwordTooShort => Intl.message('password length cannot be less than 8 digits', name: 'passwordTooShort', desc: '密码长度不能小于8位',);
+  String get passwordTooLong => Intl.message('password length cannot be greater than 20 digits', name: 'passwordTooLong', desc: '密码长度不能大于20位',);
 
-  String get deleteTask{
-    return Intl.message(
-      'Delete',
-      name: 'deleteTask',
-      desc: '删除任务',
-    );
-  }
 
 
+
+  String get editTask{return Intl.message('Edit', name: 'editTask', desc: '编辑任务',);}
+  String get deleteTask{return Intl.message('Delete', name: 'deleteTask', desc: '删除任务',);}
   String get submit => Intl.message('Submit', name: 'submit', desc: '提交任务',);
   String get addTask => Intl.message('add a task', name: 'addTask', desc: '添加任务',);
   String get deadline => Intl.message('deadline', name: 'deadline', desc: '截止日期',);

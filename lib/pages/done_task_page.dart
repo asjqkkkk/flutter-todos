@@ -53,7 +53,7 @@ class DoneTaskPage extends StatelessWidget {
       body: Container(
         color: globalModel.logic.getBgInDark(),
         alignment: Alignment.center,
-        child: model.doneTasks.length > 0
+        child: model.doneTasks.isNotEmpty
             ? ListView.builder(
             itemCount: model.doneTasks.length,
             itemBuilder: (ctx, index) {

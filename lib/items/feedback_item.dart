@@ -44,12 +44,12 @@ class FeedbackItem extends StatelessWidget {
                         );
                       }));
                     },
-                    child: Container(
-                      width: 50,
-                      height: 50,
-                      margin: EdgeInsets.only(left: 12),
-                      child: Hero(
-                        tag: "avatar_$index",
+                    child: Hero(
+                      tag: "avatar_$index",
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        margin: EdgeInsets.only(left: 12),
                         child: ClipRRect(
                           child: avatarUrl == null ? Image.asset(
                             "images/icon.png",

@@ -30,6 +30,16 @@ class NavPage extends StatelessWidget {
             ? WeatherWidget(globalModel: globalModel,)
             : SizedBox(),
         ListTile(
+          title: Text(DemoLocalizations.of(context).myAccount),
+          leading: Icon(Icons.account_circle),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          onTap: () {
+            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+              return ProviderConfig.getInstance().getLoginPage();
+            }));
+          },
+        ),
+        ListTile(
           title: Text(DemoLocalizations.of(context).doneList),
           leading: Icon(Icons.done_all),
           trailing: Icon(Icons.keyboard_arrow_right),

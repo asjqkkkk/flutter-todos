@@ -111,4 +111,12 @@ class ProviderConfig {
         child: FeedbackWallPage(),
       );
     }
+
+
+    ChangeNotifierProvider<LoginPageModel> getLoginPage(){
+       return ChangeNotifierProvider<LoginPageModel>(
+         builder:(context) => LoginPageModel(),
+         child: LoginPage(),
+       );
+     }
 }

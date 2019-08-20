@@ -9,3 +9,4 @@ export 'done_task_page_model.dart';
 export 'search_page_model.dart';
 export 'feedback_page_model.dart';
 export 'feedback_wall_page_model.dart';
+export 'login_page_model.dart';

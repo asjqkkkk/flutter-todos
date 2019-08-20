@@ -136,10 +136,12 @@ class IconSettingPageLogic {
       );
     }
 
-    if(_model.isSearching && searchIcons.isEmpty && _model.textEditingController.text.isNotEmpty){
+    if (_model.isSearching &&
+        searchIcons.isEmpty &&
+        _model.textEditingController.text.isNotEmpty) {
       return Center(
         child: LoadingWidget(
-        flag: LoadingFlag.empty,
+          flag: LoadingFlag.empty,
         ),
       );
     }
@@ -182,9 +184,7 @@ class IconSettingPageLogic {
     );
   }
 
-
-  AppBar getSearchBar(GlobalModel globalModel){
-
+  AppBar getSearchBar(GlobalModel globalModel) {
     final textColor = globalModel.logic.getWhiteInDark();
 
     return AppBar(
@@ -193,10 +193,11 @@ class IconSettingPageLogic {
         autofocus: true,
         focusNode: _model.focusNode,
         style: TextStyle(color: textColor),
-        controller: _model.textEditingController..addListener((){
-          final text = _model.textEditingController.text;
-          onSearchTextChange(text);
-        }),
+        controller: _model.textEditingController
+          ..addListener(() {
+            final text = _model.textEditingController.text;
+            onSearchTextChange(text);
+          }),
         onEditingComplete: () => _model.focusNode.unfocus(),
         decoration: new InputDecoration(
           hintText: DemoLocalizations.of(_model.context).searchIcon,
@@ -206,7 +207,11 @@ class IconSettingPageLogic {
               Icons.clear,
               color: textColor,
             ),
-            onPressed:() => _model.textEditingController?.clear(),),
+            onPressed: () => Future.delayed(
+              Duration(milliseconds: 100),
+              () => _model.textEditingController?.clear(),
+            ),
+          ),
           border: InputBorder.none,
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white, width: 1),
@@ -216,17 +221,18 @@ class IconSettingPageLogic {
     );
   }
 
-  void onSearchTextChange(String text){
-    if(text == null) return;
+  void onSearchTextChange(String text) {
+    if (text == null) return;
     _model.searchIcons.clear();
-    if(text.isEmpty) {
+    if (text.isEmpty) {
       _model.refresh();
       return;
-    };
+    }
+    ;
     for (var i = 0; i < _model.showIcons.length; ++i) {
       final icon = _model.showIcons[i];
       final iconName = icon.iconName;
-      if(iconName.contains(text)){
+      if (iconName.contains(text)) {
         _model.searchIcons.add(icon);
       }
     }

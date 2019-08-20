@@ -102,7 +102,6 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                       children: List.generate(_children.length, (index) {
                         return IconButton(
                           onPressed: () {
-                            debugPrint("点击：${_children[index].taskName}");
                             doExit(context, _controller);
                             Navigator.of(context).push(
                               new CupertinoPageRoute(

@@ -18,6 +18,96 @@
     "type": "text",
     "placeholders": {}
   },
+  "myAccount": "我的账号",
+  "@myAccount": {
+    "description": "我的账号",
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "登录",
+  "@login": {
+    "description": "登录",
+    "type": "text",
+    "placeholders": {}
+  },
+  "email": "邮箱",
+  "@email": {
+    "description": "邮箱",
+    "type": "text",
+    "placeholders": {}
+  },
+  "password": "密码",
+  "@password": {
+    "description": "密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputEmail": "输入邮箱",
+  "@inputEmail": {
+    "description": "输入邮箱",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputPassword": "输入密码",
+  "@inputPassword": {
+    "description": "输入密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "forget": "忘记",
+  "@forget": {
+    "description": "忘记",
+    "type": "text",
+    "placeholders": {}
+  },
+  "logIn": "登 录",
+  "@logIn": {
+    "description": "登 录",
+    "type": "text",
+    "placeholders": {}
+  },
+  "haveNoAccount": "没有账号?注册一个",
+  "@haveNoAccount": {
+    "description": "没有账号?注册一个",
+    "type": "text",
+    "placeholders": {}
+  },
+  "register": "注册",
+  "@register": {
+    "description": "注册",
+    "type": "text",
+    "placeholders": {}
+  },
+  "emailCantBeEmpty": "邮箱不能为空",
+  "@emailCantBeEmpty": {
+    "description": "邮箱不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "emailIncorrectFormat": "邮箱格式不正确",
+  "@emailIncorrectFormat": {
+    "description": "邮箱格式不正确",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordCantBeEmpty": "密码不能为空",
+  "@passwordCantBeEmpty": {
+    "description": "密码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordTooShort": "密码长度不能小于8位",
+  "@passwordTooShort": {
+    "description": "密码长度不能小于8位",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordTooLong": "密码长度不能大于20位",
+  "@passwordTooLong": {
+    "description": "密码长度不能大于20位",
+    "type": "text",
+    "placeholders": {}
+  },
   "doneList": "完成列表",
   "@doneList": {
     "description": "完成列表",

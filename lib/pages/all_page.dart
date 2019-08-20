@@ -15,3 +15,4 @@ export 'done_task_page.dart';
 export 'search_page.dart';
 export 'feedback_page.dart';
 export 'feedback_wall_page.dart';
+export 'login_page.dart';

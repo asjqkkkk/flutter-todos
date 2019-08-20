@@ -188,8 +188,9 @@ widgets | custom widgets
 # ToDo
 
 - [x] Icon search function
-- [ ] Custom task details page font size
 - [x] Feedback display wall
+- [ ] Email account login
+- [ ] Custom task details page font size
 - [ ] Geek news
 - [ ] Whether to show the opening animation
 
@@ -215,6 +216,7 @@ Ios download link：
     
     -   flutter_svg: ^0.12.4+2
     -   image_crop: ^0.2.1
+    -   flare_flutter: ^1.5.4
     -   photo_view: ^0.3.3
 
 

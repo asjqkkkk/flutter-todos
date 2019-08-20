@@ -9,3 +9,4 @@ export 'done_task_page_logic.dart';
 export 'search_page_logic.dart';
 export 'feedback_page_logic.dart';
 export 'feedback_wall_page_logic.dart';
+export 'login_page_logic.dart';

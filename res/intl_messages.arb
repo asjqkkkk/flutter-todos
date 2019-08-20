@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-15T13:58:10.727181",
+  "@@last_modified": "2019-08-20T16:08:12.733251",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -15,6 +15,12 @@
   "searchIcon": "Try searching for icon name",
   "@searchIcon": {
     "description": "搜索图标名字",
+    "type": "text",
+    "placeholders": {}
+  },
+  "myAccount": "My Account",
+  "@myAccount": {
+    "description": "我的账号",
     "type": "text",
     "placeholders": {}
   },
@@ -551,6 +557,90 @@
   "blueGray": "blue-gray",
   "@blueGray": {
     "description": "主题颜色",
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "Login",
+  "@login": {
+    "description": "登录",
+    "type": "text",
+    "placeholders": {}
+  },
+  "email": "EMAIL",
+  "@email": {
+    "description": "邮箱",
+    "type": "text",
+    "placeholders": {}
+  },
+  "password": "PASSWORD",
+  "@password": {
+    "description": "密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputEmail": "Enter email",
+  "@inputEmail": {
+    "description": "输入邮箱",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputPassword": "Enter password",
+  "@inputPassword": {
+    "description": "输入密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "forget": "Forget",
+  "@forget": {
+    "description": "忘记",
+    "type": "text",
+    "placeholders": {}
+  },
+  "logIn": "Log In",
+  "@logIn": {
+    "description": "登 录",
+    "type": "text",
+    "placeholders": {}
+  },
+  "haveNoAccount": "Don't have an Account?Sign Up",
+  "@haveNoAccount": {
+    "description": "没有账号?注册一个",
+    "type": "text",
+    "placeholders": {}
+  },
+  "register": "Register",
+  "@register": {
+    "description": "注册",
+    "type": "text",
+    "placeholders": {}
+  },
+  "emailCantBeEmpty": "email cannot be empty",
+  "@emailCantBeEmpty": {
+    "description": "邮箱不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "emailIncorrectFormat": "email format is incorrect",
+  "@emailIncorrectFormat": {
+    "description": "邮箱格式不正确",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordCantBeEmpty": "password cannot be empty",
+  "@passwordCantBeEmpty": {
+    "description": "密码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordTooShort": "password length cannot be less than 8 digits",
+  "@passwordTooShort": {
+    "description": "密码长度不能小于8位",
+    "type": "text",
+    "placeholders": {}
+  },
+  "passwordTooLong": "password length cannot be greater than 20 digits",
+  "@passwordTooLong": {
+    "description": "密码长度不能大于20位",
     "type": "text",
     "placeholders": {}
   },

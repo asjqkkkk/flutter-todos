@@ -34,11 +34,11 @@ class TaskDetailPageLogic {
     final mainPageModel = _model.globalModel.mainPageModel;
     bool needUpdate = needUpdateDatabase();
     if (needUpdate && !isDeleting) {
-      //如果一个任务中的所有任务项都完成了,因为主页面都是未完成任务，所以删除主页面的该任务
+      ///如果一个任务中的所有任务项都完成了,因为主页面都是未完成任务，所以删除主页面的该任务
       if (_model.taskBean.overallProgress >= 1.0) {
         _model.taskBean.finishDate = DateTime.now().toIso8601String();
-        //下面这个延时操作，目的如下，如果一个任务完成了，主页面会把这个任务去除掉
-        //这个时候主页任务卡片的herotag就消失了，因为herotag不一致，会导致hero动画失效
+        ///下面这个延时操作，目的如下，如果一个任务完成了，主页面会把这个任务去除掉
+        ///这个时候主页任务卡片的herotag就消失了，因为herotag不一致，会导致hero动画失效
         Future.delayed(Duration(milliseconds: 800, ), (){
           debugPrint("删除了");
           removeTask(mainPageModel);
@@ -48,7 +48,7 @@ class TaskDetailPageLogic {
       }
       _model.taskBean.changeTimes++;
       DBProvider.db.updateTask(_model.taskBean).then((value){
-        //如果是从"完成列表"过来
+        ///如果是从"完成列表"过来
         if (_model.doneTaskPageModel != null) {
           mainPageModel.logic.getTasks();
           _model.doneTaskPageModel.logic.getDoneTasks().then((value) {
@@ -56,7 +56,7 @@ class TaskDetailPageLogic {
             Navigator.of(context).pop();
           });
         }
-        //如果是从"搜索页面"过来
+        ///如果是从"搜索页面"过来
         else if(_model.searchPageModel != null){
           _model.isExiting = true;
           _model.refresh();
