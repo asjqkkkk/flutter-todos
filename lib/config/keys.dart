@@ -4,6 +4,7 @@ class Keys{
   static final String currentNavHeader = "current_nav_header";
   static final String appName = "app_name";
   static final String account = "account";
+  static final String password = "password";
   static final String currentThemeType = "current_theme_type";
   static final String backgroundGradient = "background_gradient";
   static final String backgroundChangeWithCard = "background_change_with_card";

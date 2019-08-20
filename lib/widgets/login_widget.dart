@@ -88,7 +88,7 @@ class LoginWidget extends StatelessWidget {
                 BottomToTopWidget(
                   index: 2,
                   child: Container(
-                    height: 70,
+                    height: 60,
                     width: size.width - 80,
                     child: FlatButton(
                       color: primaryColor,
@@ -115,7 +115,7 @@ class LoginWidget extends StatelessWidget {
                 BottomToTopWidget(
                   index: 2,
                   child: Container(
-                    height: 70,
+                    height: 60,
                     width: size.width - 80,
                     child: FlatButton(
                       color: primaryColor.withOpacity(0.3),

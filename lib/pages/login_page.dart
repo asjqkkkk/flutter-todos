@@ -53,7 +53,6 @@ class LoginPage extends StatelessWidget {
               fit: BoxFit.cover,
               callback: (animation) {
                 if (animation == "move") {
-                  model.canShowBackdrop = true;
                   model.currentAnimation = "rotate";
                   model.refresh();
                 } else if (animation == "move_out") {
@@ -70,7 +69,7 @@ class LoginPage extends StatelessWidget {
 //                    color: bgColor.withOpacity(0.1),
 //                  ))
 //              : Container(),
-            model.canShowBackdrop ? LoginWidget(loginPageModel: model,) : Container(),
+            model.showLoginWidget ? LoginWidget(loginPageModel: model,) : Container(),
           ],
         ),
       ),

@@ -9,6 +9,7 @@ import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/language_page.dart';
 import 'package:todo_list/pages/setting_page.dart';
+import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -33,10 +34,16 @@ class NavPage extends StatelessWidget {
           title: Text(DemoLocalizations.of(context).myAccount),
           leading: Icon(Icons.account_circle),
           trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () {
-            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
-              return ProviderConfig.getInstance().getLoginPage();
-            }));
+          onTap: () async{
+            final account = await SharedUtil.instance.getString(Keys.account);
+            if(account == "default"){
+              Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+                return ProviderConfig.getInstance().getLoginPage();
+              }));
+            } else {
+
+            }
+
           },
         ),
         ListTile(

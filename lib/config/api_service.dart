@@ -155,4 +155,23 @@ class ApiService {
       token: token,
     );
   }
+
+  ///登录
+  void login({Map<String, String> params, Function success, Function failed,
+    Function error,}) {
+    ApiStrategy.getInstance().post(
+        "fUser/login",
+            (data) {
+          LoginBean login_bean = LoginBean.fromMap(data);
+          if (login_bean.status == 0) {
+            success(login_bean);
+          } else {
+            failed(login_bean);
+          }
+        },
+        params: params,
+        errorCallBack: (errorMessage) {
+          error(errorMessage);
+        });
+  }
 }

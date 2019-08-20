@@ -28,19 +28,19 @@ class SharedUtil{
       await prefs.setString(key, value);
       return;
     }
-    String account = await prefs.getString(Keys.account) ?? "default";
+    String account = prefs.getString(Keys.account) ?? "default";
     await prefs.setString(key + account, value);
   }
 
   Future saveInt (String key, int value) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String account = await prefs.getString(Keys.account) ?? "default";
+    String account = prefs.getString(Keys.account) ?? "default";
     await prefs.setInt(key + account, value);
   }
 
   Future saveDouble (String key, double value) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String account = await prefs.getString(Keys.account) ?? "default";
+    String account = prefs.getString(Keys.account) ?? "default";
     await prefs.setDouble(key + account, value);
   }
 

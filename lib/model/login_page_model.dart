@@ -8,13 +8,14 @@ class LoginPageModel extends ChangeNotifier{
 
 
   String currentAnimation = "move";
-  bool canShowBackdrop = false;
+  bool showLoginWidget = true;
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   bool isEmailOk = false;
   bool isPasswordOk = false;
+  bool isLoginNow = false;
 
   LoginPageModel(){
     logic = LoginPageLogic(this);

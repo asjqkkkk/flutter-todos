@@ -78,6 +78,8 @@ dev_dependencies:
   open_file: ^2.0.3
   #flare动画
   flare_flutter: ^1.5.5
+  #加密
+  encrypt: ^3.2.0
 
 
 
