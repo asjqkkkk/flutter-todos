@@ -7,6 +7,7 @@ class LoginBean{
   int status;
   String token;
   String username;
+  String avatarUrl;
 
   static LoginBean fromMap(Map<String, dynamic> map) {
     LoginBean login_bean = new LoginBean();
@@ -14,6 +15,7 @@ class LoginBean{
     login_bean.status = map['status'];
     login_bean.token = map['token'];
     login_bean.username = map['username'];
+    login_bean.avatarUrl = map['avatarUrl'];
     return login_bean;
   }
 

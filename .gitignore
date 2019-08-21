@@ -16,3 +16,4 @@ build/
 android/gradlew
 android/gradlew.bat
 
+.dart_tool/

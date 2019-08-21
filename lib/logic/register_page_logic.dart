@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
+import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/all_model.dart';
@@ -101,27 +102,7 @@ class RegisterPageLogic{
     showDialog(context: context, builder: (ctx){
       return NetLoadingWidget();
     });
-    
-    ApiService.instance.postVerifyCheck(
-      params: {
-        "account": model.email,
-        "identifyCode": model.verifyCode
-      },
-      success: (CommonBean bean){
-        _registerEmail(model, context);
-      },
-      failed: (CommonBean bean){
-        Navigator.of(context).pop();
-        _showTextDialog(bean.description, context);
-      },
-      error: (msg){
-        Navigator.of(context).pop();
-        _showTextDialog(msg, context);
-      },
-      token: model.cancelToken,
-    );
-    
-    
+    _registerEmail(model, context);
   }
 
   void _registerEmail(RegisterPageModel model, BuildContext context) {
@@ -132,12 +113,17 @@ class RegisterPageLogic{
         "password": encryptPassword,
         "accountType": "0",
         "username": model.userName,
+        "identifyCode": model.verifyCode,
       },
       success: (RegisterBean bean){
         SharedUtil.instance.saveString(Keys.account, model.email).then((value){
           SharedUtil.instance.saveString(Keys.password, encryptPassword);
           SharedUtil.instance.saveString(Keys.currentUserName, model.userName);
           SharedUtil.instance.saveString(Keys.token, bean.token);
+          if(bean.avatarUrl != null){
+            SharedUtil.instance.saveString(Keys.netAvatarPath, ApiStrategy.baseUrl + bean.avatarUrl);
+            SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.net);
+          }
         }).then((v){
           Navigator.of(context).pushAndRemoveUntil(
               new MaterialPageRoute(

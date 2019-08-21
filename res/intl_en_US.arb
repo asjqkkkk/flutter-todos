@@ -222,6 +222,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "checkYourEmailOrPassword": "please check your email account or password",
+  "@checkYourEmailOrPassword": {
+    "description": "请检查你的邮箱或者密码",
+    "type": "text",
+    "placeholders": {}
+  },
   "checkYourUserName": "please check your username",
   "@checkYourUserName": {
     "description": "请检查你的用户名",

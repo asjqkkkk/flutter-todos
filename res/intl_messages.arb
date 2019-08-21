@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-21T18:45:34.105784",
+  "@@last_modified": "2019-08-21T20:41:27.954947",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -755,6 +755,12 @@
   "checkYourEmail": "please check your email account",
   "@checkYourEmail": {
     "description": "请检查你的邮箱账号",
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkYourEmailOrPassword": "please check your email account or password",
+  "@checkYourEmailOrPassword": {
+    "description": "请检查你的邮箱或者密码",
     "type": "text",
     "placeholders": {}
   },

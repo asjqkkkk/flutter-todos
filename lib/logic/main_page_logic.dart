@@ -175,6 +175,7 @@ class MainPageLogic {
     );
   }
 
+  ///无论是网络头像还是asset头像，最后将转换为本地文件头像
   Future getCurrentAvatar() async {
     switch (_model.currentAvatarType) {
       ///头像为默认头像的时候，将asset转换为file，方便imageCrop与之后的suggestion直接用到file
@@ -184,13 +185,13 @@ class MainPageLogic {
         _model.currentAvatarUrl = path;
         _model.currentAvatarType = CurrentAvatarType.local;
         SharedUtil().saveString(Keys.localAvatarPath, path);
+        SharedUtil().saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
         break;
       case CurrentAvatarType.local:
         final path = await SharedUtil().getString(Keys.localAvatarPath) ?? "";
         File file = File(path);
         if (file.existsSync()) {
           _model.currentAvatarUrl = file.path;
-
         } else {
           final avatarPath = await FileUtil.getInstance()
               .copyAssetToFile("images/", "icon.png", "/avatar/", "icon.png");
@@ -200,10 +201,22 @@ class MainPageLogic {
         break;
       case CurrentAvatarType.net:
         final net = await SharedUtil().getString(Keys.netAvatarPath);
-        _model.currentAvatarUrl = net;
+        FileUtil.getInstance().downloadFile(
+          url: net,
+          filePath: "/avatar/",
+          fileName: net.split('/').last ?? "avatar.png",
+          onComplete: (path){
+            _model.currentAvatarUrl = path;
+            _model.currentAvatarType = CurrentAvatarType.local;
+            SharedUtil().saveString(Keys.localAvatarPath, path);
+            SharedUtil().saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
+          }
+        );
         break;
     }
   }
+
+
 
   Widget getAvatarWidget() {
     switch (_model.currentAvatarType) {
@@ -221,9 +234,8 @@ class MainPageLogic {
         );
         break;
       case CurrentAvatarType.net:
-        return Image.network(
-          _model.currentAvatarUrl,
-          fit: BoxFit.cover,
+        return CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation(Theme.of(_model.context).primaryColor),
         );
         break;
     }

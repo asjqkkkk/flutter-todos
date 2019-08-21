@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "changedTimes" : MessageLookupByLibrary.simpleMessage("Changed Times"),
     "checkUpdate" : MessageLookupByLibrary.simpleMessage("Check Update"),
     "checkYourEmail" : MessageLookupByLibrary.simpleMessage("please check your email account"),
+    "checkYourEmailOrPassword" : MessageLookupByLibrary.simpleMessage("please check your email account or password"),
     "checkYourUserName" : MessageLookupByLibrary.simpleMessage("please check your username"),
     "coffee" : MessageLookupByLibrary.simpleMessage("coffee"),
     "completeDate" : MessageLookupByLibrary.simpleMessage("Finish Date"),

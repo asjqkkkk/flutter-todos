@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "changedTimes" : MessageLookupByLibrary.simpleMessage("修改次数"),
     "checkUpdate" : MessageLookupByLibrary.simpleMessage("检查更新"),
     "checkYourEmail" : MessageLookupByLibrary.simpleMessage("请检查你的邮箱账号"),
+    "checkYourEmailOrPassword" : MessageLookupByLibrary.simpleMessage("请检查你的邮箱或者密码"),
     "checkYourUserName" : MessageLookupByLibrary.simpleMessage("请检查你的用户名"),
     "coffee" : MessageLookupByLibrary.simpleMessage("想入啡啡"),
     "completeDate" : MessageLookupByLibrary.simpleMessage("完成日期"),

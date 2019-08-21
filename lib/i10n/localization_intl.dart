@@ -286,6 +286,7 @@ class DemoLocalizations {
   String get reSetPassword => Intl.message('please set your password again', name: 'reSetPassword', desc: '再次确认你的密码',);
   String get confirmPassword => Intl.message('confirm password', name: 'confirmPassword', desc: '确认密码',);
   String get checkYourEmail => Intl.message('please check your email account', name: 'checkYourEmail', desc: '请检查你的邮箱账号',);
+  String get checkYourEmailOrPassword => Intl.message('please check your email account or password', name: 'checkYourEmailOrPassword', desc: '请检查你的邮箱或者密码',);
   String get checkYourUserName => Intl.message('please check your username', name: 'checkYourUserName', desc: '请检查你的用户名',);
   String get usernameCantBeEmpty => Intl.message('username cannot be empty', name: 'usernameCantBeEmpty', desc: '用户名不能为空',);
   String get wrongParams => Intl.message('please check your input content', name: 'wrongParams', desc: '请检查你的输入内容',);

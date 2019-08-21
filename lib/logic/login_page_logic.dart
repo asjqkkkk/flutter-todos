@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:todo_list/config/api_service.dart';
+import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/login_bean.dart';
@@ -54,7 +55,7 @@ class LoginPageLogic {
   void onLogin() {
     final context = _model.context;
     if (!_model.isEmailOk || !_model.isPasswordOk) {
-      _showDialog("请检查你的邮箱或者密码", context);
+      _showDialog(DemoLocalizations.of(context).checkYourEmailOrPassword, context);
       return;
     }
     showDialog(context: _model.context, builder: (ctx){
@@ -102,6 +103,10 @@ class LoginPageLogic {
           SharedUtil.instance.saveString(Keys.password, encryptPassword);
           SharedUtil.instance.saveString(Keys.currentUserName, loginBean.username);
           SharedUtil.instance.saveString(Keys.token, loginBean.token);
+          if(loginBean.avatarUrl != null){
+            SharedUtil.instance.saveString(Keys.netAvatarPath, ApiStrategy.baseUrl + loginBean.avatarUrl);
+            SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.net);
+          }
         }).then((v){
           Navigator.of(context).pushAndRemoveUntil(
               new MaterialPageRoute(
