@@ -17,21 +17,28 @@ class ThemeUtil {
 
   ThemeUtil._internal();
 
-  ThemeData getTheme(ThemeBean themeBean,) {
-    return _getThemeData(ColorBean.fromBean(themeBean.colorBean), themeBean.themeType);
+  ThemeData getTheme(
+    ThemeBean themeBean,
+  ) {
+    return _getThemeData(
+        ColorBean.fromBean(themeBean.colorBean), themeBean.themeType);
   }
 
   ThemeData _getThemeData(Color color, String themeType) {
-    if(themeType == MyTheme.darkTheme){
+    if (themeType == MyTheme.darkTheme) {
       return ThemeData(
-          brightness: Brightness.dark,
-          appBarTheme: getAppBarTheme(Colors.grey));
+        brightness: Brightness.dark,
+        appBarTheme: getAppBarTheme(Colors.grey[800], Colors.grey),
+        scaffoldBackgroundColor: Colors.grey[800],
+      );
     }
     return ThemeData(
-        primaryColor: color,
-        primaryColorDark: getDarkColor(color),
-        primaryColorLight: getLightColor(color),
-        appBarTheme: getAppBarTheme(Colors.white));
+      primaryColor: color,
+      primaryColorDark: getDarkColor(color),
+      primaryColorLight: getLightColor(color),
+      appBarTheme: getAppBarTheme(Colors.white, color),
+      scaffoldBackgroundColor: Colors.white,
+    );
   }
 
   Color getDarkColor(Color color) {
@@ -51,10 +58,15 @@ class ThemeUtil {
     return Color.fromRGBO(red, green, blue, 1);
   }
 
-  AppBarTheme getAppBarTheme(Color color) {
+  AppBarTheme getAppBarTheme(Color bgColor, Color iconColor) {
     return AppBarTheme(
-        iconTheme: IconThemeData(color: color),
-        textTheme: TextTheme(title: TextStyle(color: color, fontSize: 20)));
+      iconTheme: IconThemeData(color: iconColor),
+      color: bgColor,
+      elevation: 0.0,
+      textTheme: TextTheme(
+        title: TextStyle(color: iconColor, fontSize: 20),
+      ),
+    );
   }
 
   List<ThemeBean> defaultThemeBeans(BuildContext context) => [
@@ -95,9 +107,7 @@ class ThemeUtil {
         ),
       ];
 
-
-
-  Future<List<ThemeBean>> getThemeListWithCache(BuildContext context) async{
+  Future<List<ThemeBean>> getThemeListWithCache(BuildContext context) async {
     List<String> strings = await SharedUtil.instance.readList(Keys.themeBeans);
     List<ThemeBean> list = [];
     for (var o in strings) {

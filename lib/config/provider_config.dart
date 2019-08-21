@@ -17,6 +17,7 @@ class ProviderConfig {
 
   ProviderConfig._internal();
 
+  ///全局provider
   ChangeNotifierProvider<GlobalModel> getGlobal(Widget child) {
     return ChangeNotifierProvider<GlobalModel>(
       builder: (context) => GlobalModel(),
@@ -24,6 +25,7 @@ class ProviderConfig {
     );
   }
 
+  ///主页provider
   ChangeNotifierProvider<MainPageModel> getMainPage() {
     return ChangeNotifierProvider<MainPageModel>(
       builder: (context) => MainPageModel(),
@@ -31,6 +33,7 @@ class ProviderConfig {
     );
   }
 
+  ///任务详情页provider
   ChangeNotifierProvider<TaskDetailPageModel> getTaskDetailPage(
     int index,
     TaskBean taskBean, {DoneTaskPageModel doneTaskPageModel,
@@ -47,6 +50,7 @@ class ProviderConfig {
     );
   }
 
+  ///任务编辑页provider
   ChangeNotifierProvider<EditTaskPageModel> getEditTaskPage(
       TaskIconBean taskIcon,
       {TaskDetailPageModel taskDetailPageModel,
@@ -60,6 +64,7 @@ class ProviderConfig {
     );
   }
 
+  ///图标设置页provider
   ChangeNotifierProvider<IconSettingPageModel> getIconSettingPage() {
     return ChangeNotifierProvider<IconSettingPageModel>(
       builder: (context) => IconSettingPageModel(),
@@ -67,6 +72,7 @@ class ProviderConfig {
     );
   }
 
+  ///主题设置页provider
   ChangeNotifierProvider<ThemePageModel> getThemePage() {
     return ChangeNotifierProvider<ThemePageModel>(
       builder: (context) => ThemePageModel(),
@@ -74,6 +80,7 @@ class ProviderConfig {
     );
   }
 
+  ///头像裁剪页provider
   ChangeNotifierProvider<AvatarPageModel> getAvatarPage(
       {MainPageModel mainPageModel}) {
     return ChangeNotifierProvider<AvatarPageModel>(
@@ -84,6 +91,7 @@ class ProviderConfig {
     );
   }
 
+  ///完成列表页provider
   ChangeNotifierProvider<DoneTaskPageModel> getDoneTaskPage() {
     return ChangeNotifierProvider<DoneTaskPageModel>(
       builder: (context) => DoneTaskPageModel(),
@@ -91,6 +99,7 @@ class ProviderConfig {
     );
   }
 
+  ///搜索任务页provider
   ChangeNotifierProvider<SearchPageModel> getSearchPage() {
     return ChangeNotifierProvider<SearchPageModel>(
       builder: (context) => SearchPageModel(),
@@ -98,6 +107,7 @@ class ProviderConfig {
     );
   }
 
+  ///意见反馈页provider
   ChangeNotifierProvider<FeedbackPageModel> getFeedbackPage(FeedbackWallPageModel feedbackWallPageModel){
      return ChangeNotifierProvider<FeedbackPageModel>(
        builder:(context) => FeedbackPageModel(),
@@ -105,6 +115,7 @@ class ProviderConfig {
      );
    }
 
+   ///意见反馈墙页provider
    ChangeNotifierProvider<FeedbackWallPageModel> getFeedbackWallPage(){
       return ChangeNotifierProvider<FeedbackWallPageModel>(
         builder:(context) => FeedbackWallPageModel(),
@@ -113,10 +124,19 @@ class ProviderConfig {
     }
 
 
+    ///登录页provider
     ChangeNotifierProvider<LoginPageModel> getLoginPage(){
        return ChangeNotifierProvider<LoginPageModel>(
          builder:(context) => LoginPageModel(),
          child: LoginPage(),
        );
      }
+
+
+     ChangeNotifierProvider<RegisterPageModel> getRegisterPage(){
+        return ChangeNotifierProvider<RegisterPageModel>(
+          builder:(context) => RegisterPageModel(),
+          child: RegisterPage(),
+        );
+      }
 }

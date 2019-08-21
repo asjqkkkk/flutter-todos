@@ -8,6 +8,7 @@ import 'package:todo_list/model/avatar_page_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class AvatarHistoryPage extends StatefulWidget {
 
@@ -144,14 +145,7 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
 
   void _showLoadingDialog(BuildContext context) {
     showDialog(context: context, builder: (ctx){
-      return AlertDialog(
-        shape: RoundedRectangleBorder(
-            borderRadius:
-            BorderRadius.all(Radius.circular(20.0))),
-        content: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
-        ),
-      );
+      return NetLoadingWidget();
     });
   }
 

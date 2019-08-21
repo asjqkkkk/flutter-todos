@@ -12,6 +12,7 @@ import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class AvatarPageLogic {
   final AvatarPageModel _model;
@@ -134,14 +135,7 @@ class AvatarPageLogic {
 
   void _showLoadingDialog(BuildContext context) {
     showDialog(context: context, builder: (ctx){
-      return AlertDialog(
-        shape: RoundedRectangleBorder(
-            borderRadius:
-            BorderRadius.all(Radius.circular(20.0))),
-        content: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
-        ),
-      );
+      return NetLoadingWidget();
     });
   }
 

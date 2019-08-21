@@ -6,6 +6,7 @@ import 'package:todo_list/model/all_model.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/utils/my_encrypt_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class LoginPageLogic {
   final LoginPageModel _model;
@@ -51,11 +52,13 @@ class LoginPageLogic {
 
   void onLogin() {
     final context = _model.context;
-
     if (!_model.isEmailOk || !_model.isPasswordOk) {
       _showDialog("请检查你的邮箱或者密码", context);
       return;
     }
+    showDialog(context: _model.context, builder: (ctx){
+      return NetLoadingWidget();
+    });
     _onLoginRequest(context);
   }
 
@@ -82,7 +85,6 @@ class LoginPageLogic {
 
     final account = _model.emailController.text;
     final password = _model.passwordController.text;
-
     final encryptPassword = EncryptUtil.instance.encrypt(password);
 
     ApiService.instance.login(
@@ -106,9 +108,11 @@ class LoginPageLogic {
 
       },
       failed: (LoginBean loginBean) {
+        Navigator.of(context).pop();
         _showDialog(loginBean.description, context);
       },
       error: (msg) {
+        Navigator.of(context).pop();
         _showDialog(msg, context);
       },
     );

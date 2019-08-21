@@ -14,16 +14,6 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<LoginPageModel>(context)..setContext(context);
-    final globalModel = Provider.of<GlobalModel>(context);
-    final textColor = globalModel.logic.getWhiteInDark();
-
-    bool isDartNow =
-        globalModel.currentThemeBean.themeType == MyTheme.darkTheme;
-    final iconColor = isDartNow
-        ? ColorBean.fromBean(globalModel.currentThemeBean.colorBean)
-        : Theme.of(context).primaryColor;
-    final bgColor = globalModel.logic.getBgInDark();
-    final size = MediaQuery.of(context).size;
 
     return WillPopScope(
       onWillPop: () async{
@@ -31,13 +21,9 @@ class LoginPage extends StatelessWidget {
         return null;
       },
       child: Scaffold(
-        backgroundColor: bgColor,
         appBar: AppBar(
-          backgroundColor: bgColor,
-          iconTheme: IconThemeData(color: iconColor),
           title: Text(
             DemoLocalizations.of(context).login,
-            style: TextStyle(color: iconColor),
           ),
           elevation: 0.0,
           leading: IconButton(

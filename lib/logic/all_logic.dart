@@ -10,3 +10,4 @@ export 'search_page_logic.dart';
 export 'feedback_page_logic.dart';
 export 'feedback_wall_page_logic.dart';
 export 'login_page_logic.dart';
+export 'register_page_logic.dart';
