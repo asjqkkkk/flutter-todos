@@ -45,7 +45,7 @@ class LoginWidget extends StatelessWidget {
                             Icons.email,
                           ),
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.clear),
+                            icon: Icon(Icons.cancel),
                             onPressed: () => Future.delayed(
                               Duration(milliseconds: 100),
                               () => loginPageModel.emailController?.clear(),
@@ -67,17 +67,25 @@ class LoginWidget extends StatelessWidget {
                       keyboardType: TextInputType.text,
                       textDirection: TextDirection.ltr,
                       decoration: InputDecoration(
-                          hintText: DemoLocalizations.of(context).inputPassword,
-                          labelText: DemoLocalizations.of(context).password,
-                          labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                          prefixIcon: Icon(
-                            Icons.lock,
+                        hintText: DemoLocalizations.of(context).inputPassword,
+                        labelText: DemoLocalizations.of(context).password,
+                        labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                        prefixIcon: Icon(
+                          Icons.lock,
+                        ),
+                        suffixIcon: FlatButton(
+                          highlightColor: primaryColorLight,
+                          colorBrightness: Brightness.dark,
+                          splashColor: Colors.grey,
+                          onPressed: loginPageModel.logic.onForget,
+                          child: Text(
+                            DemoLocalizations.of(context).forget,
+                            style: TextStyle(color: Colors.black),
+                            textAlign: TextAlign.center,
                           ),
-                          suffixIcon: FlatButton(
-                            onPressed: loginPageModel.logic.onForget,
-                            child: Text(DemoLocalizations.of(context).forget),
-                          )),
-                        obscureText: true,
+                        ),
+                      ),
+                      obscureText: true,
                     ),
                   ),
                   index: 1,

@@ -94,6 +94,7 @@ class LoginPageLogic {
         SharedUtil.instance.saveString(Keys.account, account).then((value){
           SharedUtil.instance.saveString(Keys.password, encryptPassword);
           SharedUtil.instance.saveString(Keys.currentUserName, loginBean.username);
+          SharedUtil.instance.saveString(Keys.token, loginBean.token);
         }).then((v){
           Navigator.of(context).pushAndRemoveUntil(
               new MaterialPageRoute(

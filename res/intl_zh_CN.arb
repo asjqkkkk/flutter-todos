@@ -760,6 +760,18 @@
    "type": "text",
    "placeholders": {}
  },
+  "requestError": "请求错误",
+  "@requestError": {
+    "description": "请求错误",
+    "type": "text",
+    "placeholders": {}
+  },
+  "requestFailed": "请求失败",
+  "@requestFailed": {
+    "description": "请求失败",
+    "type": "text",
+    "placeholders": {}
+  },
   "version100": "版本:1.0.0 \n\n版本 1.0.0 发布啦!",
   "@version100": {
     "description": "版本:1.0.0 \n\n版本 1.0.0 发布啦!",

@@ -126,6 +126,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "register" : MessageLookupByLibrary.simpleMessage("Register"),
     "remindMe" : MessageLookupByLibrary.simpleMessage("remind me"),
     "repeat" : MessageLookupByLibrary.simpleMessage("repeat"),
+    "requestError" : MessageLookupByLibrary.simpleMessage("request error"),
+    "requestFailed" : MessageLookupByLibrary.simpleMessage("request failed"),
     "restrictedDes" : MessageLookupByLibrary.simpleMessage("Permission is restricted"),
     "save" : MessageLookupByLibrary.simpleMessage("save"),
     "searchIcon" : MessageLookupByLibrary.simpleMessage("Try searching for icon name"),

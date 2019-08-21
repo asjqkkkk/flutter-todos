@@ -60,15 +60,6 @@ class LoginPage extends StatelessWidget {
                 }
               },
             ),
-//          model.canShowBackdrop
-//              ? BackdropFilter(
-//                  filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-//                  child: Container(
-//                    width: size.width,
-//                    height: size.height,
-//                    color: bgColor.withOpacity(0.1),
-//                  ))
-//              : Container(),
             model.showLoginWidget ? LoginWidget(loginPageModel: model,) : Container(),
           ],
         ),

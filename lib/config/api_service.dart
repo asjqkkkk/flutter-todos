@@ -57,17 +57,20 @@ class ApiService {
       Function error,
       CancelToken token}) {
     ApiStrategy.getInstance().postUpload(
-        "fUser/oneDaySuggestion", (data) {
-      CommonBean commonBean = CommonBean.fromMap(data);
-      if (commonBean.status == 0) {
-        success(commonBean);
-      } else {
-        failed(commonBean);
-      }
-    }, (count, total) {},
-        formData: params, errorCallBack: (errorMessage) {
-      error(errorMessage);
-    });
+        "fUser/oneDaySuggestion",
+        (data) {
+          CommonBean commonBean = CommonBean.fromMap(data);
+          if (commonBean.status == 0) {
+            success(commonBean);
+          } else {
+            failed(commonBean);
+          }
+        },
+        (count, total) {},
+        formData: params,
+        errorCallBack: (errorMessage) {
+          error(errorMessage);
+        });
   }
 
   ///获取建议列表
@@ -78,8 +81,8 @@ class ApiService {
   }) {
     ApiStrategy.getInstance().get(
       "fUser/getSuggestion",
-          (data) {
-            success(data);
+      (data) {
+        success(data);
       },
       errorCallBack: (errorMessage) {
         error(errorMessage);
@@ -89,8 +92,13 @@ class ApiService {
   }
 
   ///通用的请求
-  void postCommon(Map<String, String> params, Function success, Function failed,
-      Function error, String url, CancelToken token) {
+  void postCommon(
+      {Map<String, String> params,
+      Function success,
+      Function failed,
+      Function error,
+      String url,
+      CancelToken token}) {
     ApiStrategy.getInstance().post(
         url,
         (data) {
@@ -157,11 +165,15 @@ class ApiService {
   }
 
   ///登录
-  void login({Map<String, String> params, Function success, Function failed,
-    Function error,}) {
+  void login({
+    Map<String, String> params,
+    Function success,
+    Function failed,
+    Function error,
+  }) {
     ApiStrategy.getInstance().post(
         "fUser/login",
-            (data) {
+        (data) {
           LoginBean login_bean = LoginBean.fromMap(data);
           if (login_bean.status == 0) {
             success(login_bean);
@@ -170,6 +182,47 @@ class ApiService {
           }
         },
         params: params,
+        errorCallBack: (errorMessage) {
+          error(errorMessage);
+        });
+  }
+
+  ///修改用户名
+  void changeUserName(
+      {Map<String, String> params,
+      Function success,
+      Function failed,
+      Function error,
+      CancelToken token}) {
+    postCommon(
+      params: params,
+      success: success,
+      failed: failed,
+      error: error,
+      url: "fUser/updateUserName",
+      token: token,
+    );
+  }
+
+  ///上传头像
+  void uploadAvatar(
+      {FormData params,
+        Function success,
+        Function failed,
+        Function error,
+        CancelToken token}) {
+    ApiStrategy.getInstance().postUpload(
+        "fUser/uploadAvatar",
+            (data) {
+              UploadAvatarBean bean = UploadAvatarBean.fromMap(data);
+          if (bean.status == 0) {
+            success(bean);
+          } else {
+            failed(bean);
+          }
+        },
+            (count, total) {},
+        formData: params,
         errorCallBack: (errorMessage) {
           error(errorMessage);
         });

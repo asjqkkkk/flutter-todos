@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/json/upload_avatar_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:image_crop/image_crop.dart';
 import 'package:todo_list/pages/avatar_history_page.dart';
@@ -79,13 +81,83 @@ class AvatarPageLogic {
     String name = '${DateTime.now().millisecondsSinceEpoch}.jpg';
     File newFile = file.copySync(newPath + name);
     if (newFile.existsSync()) {
-      await SharedUtil.instance.saveString(Keys.localAvatarPath,newFile.path);
-      await SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
-      _model.mainPageModel.currentAvatarType = CurrentAvatarType.local;
-      _model.mainPageModel.currentAvatarUrl = newFile.path;
-      _model.mainPageModel.refresh();
-      Navigator.of(_model.context).pop();
+      final account = await SharedUtil.instance.getString(Keys.account);
+      if(account == "default" || account == null){
+        await _saveImageData(newFile.path);
+      } else{
+        final token = await SharedUtil.instance.getString(Keys.token);
+        final path = newFile.path;
+        String fileName = path
+            .substring(path.lastIndexOf("/") + 1, path.length)
+            .replaceAll(" ", "");
+        String transFormName = Uri.encodeFull(fileName).replaceAll("%", "");
+
+        uploadAvatar(account,token, path, transFormName);
+      }
     }
+  }
+
+  Future _saveImageData(String filePath) async {
+    await SharedUtil.instance.saveString(Keys.localAvatarPath,filePath);
+    await SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
+    _model.mainPageModel.currentAvatarType = CurrentAvatarType.local;
+    _model.mainPageModel.currentAvatarUrl = filePath;
+    _model.mainPageModel.refresh();
+    Navigator.of(_model.context).pop();
+  }
+
+  void uploadAvatar(String account, String token, String filePath, String fileName) async{
+    final context = _model.context;
+    CancelToken cancelToken = CancelToken();
+    _showLoadingDialog(context);
+    ApiService.instance.uploadAvatar(
+      params: FormData.from({
+        "avatar": new UploadFileInfo(new File(filePath), fileName),
+        "account": account,
+        "token": token
+      }),
+      success: (UploadAvatarBean bean){
+        Navigator.pop(context);
+        _saveImageData(filePath);
+      },
+      failed: (UploadAvatarBean bean){
+        Navigator.pop(context);
+        _showTextDialog(bean.description);
+      },
+      error: (msg){
+        Navigator.pop(context);
+        _showTextDialog(msg);
+      },
+      token: cancelToken,
+    );
+  }
+
+  void _showLoadingDialog(BuildContext context) {
+    showDialog(context: context, builder: (ctx){
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+            borderRadius:
+            BorderRadius.all(Radius.circular(20.0))),
+        content: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
+        ),
+      );
+    });
+  }
+
+  void _showTextDialog(String text){
+    final context = _model.context;
+    showDialog(
+        context: context,
+        builder: (ctx) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius:
+                BorderRadius.all(Radius.circular(20.0))),
+            content: Text(
+                text),
+          );
+        });
   }
 
   ImageProvider getAvatarProvider() {

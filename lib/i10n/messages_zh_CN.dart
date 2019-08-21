@@ -126,6 +126,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "register" : MessageLookupByLibrary.simpleMessage("注册"),
     "remindMe" : MessageLookupByLibrary.simpleMessage("提醒我"),
     "repeat" : MessageLookupByLibrary.simpleMessage("重复"),
+    "requestError" : MessageLookupByLibrary.simpleMessage("请求错误"),
+    "requestFailed" : MessageLookupByLibrary.simpleMessage("请求失败"),
     "restrictedDes" : MessageLookupByLibrary.simpleMessage("权限被限制"),
     "save" : MessageLookupByLibrary.simpleMessage("保存"),
     "searchIcon" : MessageLookupByLibrary.simpleMessage("搜索图标名字"),

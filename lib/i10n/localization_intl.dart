@@ -314,7 +314,12 @@ class DemoLocalizations {
   String get pullUpToLoadMore => Intl.message('pull up load more', name: 'pullUpToLoadMore', desc: '上拉加载更多',);
   String get pullDownToRefresh => Intl.message('pull down to refresh', name: 'pullDownToRefresh', desc: '下拉刷新',);
   String get reLoading => Intl.message('click to reload', name: 'reLoading', desc: '点击重新加载',);
+  String get requestError => Intl.message('request error', name: 'requestError', desc: '请求错误',);
+  String get requestFailed => Intl.message('request failed', name: 'requestFailed', desc: '请求失败',);
 
+
+
+  ///以下是版本更新相关
 
   String get version100 => Intl.message('Version:1.0.0 \n\n'
       'The Version 1.0.0 released!\n', name: 'version100', desc: '版本:1.0.0 \n\n'

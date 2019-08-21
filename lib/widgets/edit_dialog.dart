@@ -57,9 +57,8 @@ class EditDialog extends StatelessWidget {
         ),
         FlatButton(
           onPressed: () {
-            if (onPositive != null) onPositive();
+            onPositive?.call();
             if(positiveWithPop) Navigator.of(context).pop();
-            print("确定");
           },
           child: Text(DemoLocalizations.of(context).ok,
               style: sureTextStyle ?? TextStyle(color: Colors.black)),

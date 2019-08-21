@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-20T16:08:12.733251",
+  "@@last_modified": "2019-08-21T11:04:16.413516",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -757,6 +757,18 @@
   "reLoading": "click to reload",
   "@reLoading": {
     "description": "点击重新加载",
+    "type": "text",
+    "placeholders": {}
+  },
+  "requestError": "request error",
+  "@requestError": {
+    "description": "请求错误",
+    "type": "text",
+    "placeholders": {}
+  },
+  "requestFailed": "request failed",
+  "@requestFailed": {
+    "description": "请求失败",
     "type": "text",
     "placeholders": {}
   },

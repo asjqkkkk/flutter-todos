@@ -9,6 +9,7 @@ import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/items/task_item.dart';
 import 'package:todo_list/json/color_bean.dart';
+import 'package:todo_list/json/common_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/json/update_info_bean.dart';
 import 'package:todo_list/model/all_model.dart';
@@ -17,6 +18,7 @@ import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/edit_dialog.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 import 'package:todo_list/widgets/update_dialog.dart';
 import 'package:package_info/package_info.dart';
 
@@ -250,32 +252,88 @@ class MainPageLogic {
           return EditDialog(
             title: DemoLocalizations.of(context).customUserName,
             hintText: DemoLocalizations.of(context).inputUserName,
+            positiveWithPop: false,
             onValueChanged: (text) {
-              _model.currentUserName = text;
+              _model.currentEditingUserName = text;
             },
             initialValue: _model.currentUserName,
-            onPositive: () {
-              if (_model.currentUserName.isEmpty) {
-                showDialog(
-                    context: context,
-                    builder: (ctx) {
-                      return AlertDialog(
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0))),
-                        content: Text(
-                            DemoLocalizations.of(context).userNameCantBeNull),
-                      );
-                    });
+            onPositive: () async{
+              if (_model.currentEditingUserName.isEmpty) {
+                _showTextDialog(DemoLocalizations.of(context).userNameCantBeNull);
                 return;
               }
-              SharedUtil.instance
-                  .saveString(Keys.currentUserName, _model.currentUserName);
-              _model.refresh();
+              final account = await SharedUtil.instance.getString(Keys.account);
+              if(account == "default" || account == null){
+                _model.currentUserName = _model.currentEditingUserName;
+                SharedUtil.instance.saveString(Keys.currentUserName, _model.currentUserName);
+                Navigator.of(context).pop();
+                _model.refresh();
+              } else{
+                _changeUserName(account, _model.currentEditingUserName);
+              }
             },
           );
         });
   }
+
+  void _showTextDialog(String text){
+    final context = _model.context;
+    showDialog(
+        context: context,
+        builder: (ctx) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius:
+                BorderRadius.all(Radius.circular(20.0))),
+            content: Text(
+                text),
+          );
+        });
+  }
+
+  void _changeUserName(String account, String userName) async{
+    final context = _model.context;
+    final token = await SharedUtil.instance.getString(Keys.token);
+    CancelToken cancelToken = CancelToken();
+    _showLoadingDialog(context);
+    ApiService.instance.changeUserName(
+      success: (bean) async {
+        _model.currentUserName = _model.currentEditingUserName;
+        SharedUtil.instance.saveString(Keys.currentUserName, _model.currentUserName);
+        Navigator.of(context).pop();
+        _model.refresh();
+        Navigator.pop(context);
+      },
+      error: (msg) {
+        Navigator.of(context).pop();
+        _showTextDialog(msg);
+      },
+      failed: (CommonBean commonBean){
+        Navigator.of(context).pop();
+        _showTextDialog(commonBean.description);
+      },
+      params: {
+        "account": account,
+        "token": token,
+        "userName": userName
+      },
+      token: cancelToken,
+    );
+  }
+
+  void _showLoadingDialog(BuildContext context) {
+    showDialog(context: context, builder: (ctx){
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+            borderRadius:
+            BorderRadius.all(Radius.circular(20.0))),
+        content: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
+        ),
+      );
+    });
+  }
+
 
   void onSearchTap() {
     Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {

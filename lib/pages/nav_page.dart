@@ -36,7 +36,7 @@ class NavPage extends StatelessWidget {
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () async{
             final account = await SharedUtil.instance.getString(Keys.account);
-            if(account == "default"){
+            if(account == "default" || account == null){
               Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
                 return ProviderConfig.getInstance().getLoginPage();
               }));
