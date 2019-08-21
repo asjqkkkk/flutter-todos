@@ -294,7 +294,6 @@ class MainPageLogic {
   void _changeUserName(String account, String userName) async{
     final context = _model.context;
     final token = await SharedUtil.instance.getString(Keys.token);
-    CancelToken cancelToken = CancelToken();
     _showLoadingDialog(context);
     ApiService.instance.changeUserName(
       success: (bean) async {
@@ -317,7 +316,7 @@ class MainPageLogic {
         "token": token,
         "userName": userName
       },
-      token: cancelToken,
+      token: _model.cancelToken,
     );
   }
 

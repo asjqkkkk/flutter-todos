@@ -24,6 +24,13 @@ class AvatarHistoryPage extends StatefulWidget {
 class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
   List<String> avatarPaths = [];
   bool isDeleting = false;
+  CancelToken cancelToken = CancelToken();
+
+  @override
+  void dispose() {
+    cancelToken?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +126,6 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
   }
 
   void uploadAvatar(String account, String token, String filePath, String fileName, BuildContext context) async{
-    CancelToken cancelToken = CancelToken();
     _showLoadingDialog(context);
     ApiService.instance.uploadAvatar(
       params: FormData.from({

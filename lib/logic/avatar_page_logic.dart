@@ -109,7 +109,6 @@ class AvatarPageLogic {
 
   void uploadAvatar(String account, String token, String filePath, String fileName) async{
     final context = _model.context;
-    CancelToken cancelToken = CancelToken();
     _showLoadingDialog(context);
     ApiService.instance.uploadAvatar(
       params: FormData.from({
@@ -129,7 +128,7 @@ class AvatarPageLogic {
         Navigator.pop(context);
         _showTextDialog(msg);
       },
-      token: cancelToken,
+      token: _model.cancelToken,
     );
   }
 

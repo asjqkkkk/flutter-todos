@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-21T11:04:16.413516",
+  "@@last_modified": "2019-08-21T18:45:34.105784",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -644,6 +644,138 @@
     "type": "text",
     "placeholders": {}
   },
+  "signUp": "Sign Up",
+  "@signUp": {
+    "description": "注册",
+    "type": "text",
+    "placeholders": {}
+  },
+  "setUserName": "please set your username",
+  "@setUserName": {
+    "description": "请设置你的用户名",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userNameContainEmpty": "username cannot contain spaces",
+  "@userNameContainEmpty": {
+    "description": "用户名不能包含空格",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verifyCodeCantBeEmpty": "verify code cannot be empty",
+  "@verifyCodeCantBeEmpty": {
+    "description": "验证码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verifyCodeContainEmpty": "verify code cannot contain spaces",
+  "@verifyCodeContainEmpty": {
+    "description": "验证码不能包含空格",
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmPasswordCantBeEmpty": "confirm password cannot be empty",
+  "@confirmPasswordCantBeEmpty": {
+    "description": "确认密码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmPasswordContainEmpty": "confirm password cannot contain spaces",
+  "@confirmPasswordContainEmpty": {
+    "description": "确认密码不能包含空格",
+    "type": "text",
+    "placeholders": {}
+  },
+  "twoPasswordsNotSame": "two passwords are not same",
+  "@twoPasswordsNotSame": {
+    "description": "两次密码输入不一致",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userName": "username",
+  "@userName": {
+    "description": "用户名",
+    "type": "text",
+    "placeholders": {}
+  },
+  "emailAccount": "email account",
+  "@emailAccount": {
+    "description": "邮箱账号",
+    "type": "text",
+    "placeholders": {}
+  },
+  "setEmailAccount": "please sett your email account",
+  "@setEmailAccount": {
+    "description": "请设置你的邮箱账号",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verifyCode": "verify code",
+  "@verifyCode": {
+    "description": "验证码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputVerifyCode": "please input the verify code you obtained",
+  "@inputVerifyCode": {
+    "description": "请输入你获取的验证码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "getVerifyCode": "Get Verify Code",
+  "@getVerifyCode": {
+    "description": "获取验证码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "setPassword": "please set your password",
+  "@setPassword": {
+    "description": "请设置你的密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "thePassword": "password",
+  "@thePassword": {
+    "description": "密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "reSetPassword": "please set your password again",
+  "@reSetPassword": {
+    "description": "再次确认你的密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmPassword": "confirm password",
+  "@confirmPassword": {
+    "description": "确认密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkYourEmail": "please check your email account",
+  "@checkYourEmail": {
+    "description": "请检查你的邮箱账号",
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkYourUserName": "please check your username",
+  "@checkYourUserName": {
+    "description": "请检查你的用户名",
+    "type": "text",
+    "placeholders": {}
+  },
+  "usernameCantBeEmpty": "username cannot be empty",
+  "@usernameCantBeEmpty": {
+    "description": "用户名不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "wrongParams": "please check your input content",
+  "@wrongParams": {
+    "description": "请检查你的输入内容",
+    "type": "text",
+    "placeholders": {}
+  },
   "editTask": "Edit",
   "@editTask": {
     "description": "编辑任务",
@@ -739,6 +871,12 @@
   "loading": "loading...",
   "@loading": {
     "description": "加载中...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "waiting": "waiting...",
+  "@waiting": {
+    "description": "请稍后...",
     "type": "text",
     "placeholders": {}
   },

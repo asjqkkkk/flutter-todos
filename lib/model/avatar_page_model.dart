@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_crop/image_crop.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/model/main_page_model.dart';
 
@@ -8,6 +9,7 @@ class AvatarPageModel extends ChangeNotifier{
   AvatarPageLogic logic;
   BuildContext context;
   MainPageModel mainPageModel;
+  CancelToken cancelToken = CancelToken();
 
   //当前头像的类型
   int currentAvatarType = CurrentAvatarType.defaultAvatar;
@@ -20,6 +22,7 @@ class AvatarPageModel extends ChangeNotifier{
     logic = AvatarPageLogic(this);
   }
 
+
   void setContext(BuildContext context){
     if(this.context == null){
         this.context = context;
@@ -29,6 +32,7 @@ class AvatarPageModel extends ChangeNotifier{
   @override
   void dispose(){
     cropKey?.currentState?.dispose();
+    cancelToken?.cancel();
     super.dispose();
     debugPrint("AvatarPageModel销毁了");
   }

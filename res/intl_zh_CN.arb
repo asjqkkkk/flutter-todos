@@ -108,6 +108,138 @@
     "type": "text",
     "placeholders": {}
   },
+  "signUp": "注册",
+  "@signUp": {
+    "description": "注册",
+    "type": "text",
+    "placeholders": {}
+  },
+  "setUserName": "请设置你的用户名",
+  "@setUserName": {
+    "description": "请设置你的用户名",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userNameContainEmpty": "用户名不能包含空格",
+  "@userNameContainEmpty": {
+    "description": "用户名不能包含空格",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verifyCodeCantBeEmpty": "验证码不能为空",
+  "@verifyCodeCantBeEmpty": {
+    "description": "验证码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verifyCodeContainEmpty": "验证码不能包含空格",
+  "@verifyCodeContainEmpty": {
+    "description": "验证码不能包含空格",
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmPasswordCantBeEmpty": "确认密码不能为空",
+  "@confirmPasswordCantBeEmpty": {
+    "description": "确认密码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmPasswordContainEmpty": "确认密码不能包含空格",
+  "@confirmPasswordContainEmpty": {
+    "description": "确认密码不能包含空格",
+    "type": "text",
+    "placeholders": {}
+  },
+  "twoPasswordsNotSame": "两次密码输入不一致",
+  "@twoPasswordsNotSame": {
+    "description": "两次密码输入不一致",
+    "type": "text",
+    "placeholders": {}
+  },
+  "userName": "用户名",
+  "@userName": {
+    "description": "用户名",
+    "type": "text",
+    "placeholders": {}
+  },
+  "emailAccount": "邮箱账号",
+  "@emailAccount": {
+    "description": "邮箱账号",
+    "type": "text",
+    "placeholders": {}
+  },
+  "setEmailAccount": "请设置你的邮箱账号",
+  "@setEmailAccount": {
+    "description": "请设置你的邮箱账号",
+    "type": "text",
+    "placeholders": {}
+  },
+  "verifyCode": "验证码",
+  "@verifyCode": {
+    "description": "验证码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputVerifyCode": "请输入你获取的验证码",
+  "@inputVerifyCode": {
+    "description": "请输入你获取的验证码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "getVerifyCode": "获取验证码",
+  "@getVerifyCode": {
+    "description": "获取验证码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "setPassword": "请设置你的密码",
+  "@setPassword": {
+    "description": "请设置你的密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "thePassword": "密码",
+  "@thePassword": {
+    "description": "密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "reSetPassword": "再次确认你的密码",
+  "@reSetPassword": {
+    "description": "再次确认你的密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmPassword": "确认密码",
+  "@confirmPassword": {
+    "description": "确认密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkYourEmail": "请检查你的邮箱账号",
+  "@checkYourEmail": {
+    "description": "请检查你的邮箱账号",
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkYourUserName": "请检查你的用户名",
+  "@checkYourUserName": {
+    "description": "请检查你的用户名",
+    "type": "text",
+    "placeholders": {}
+  },
+  "usernameCantBeEmpty": "用户名不能为空",
+  "@usernameCantBeEmpty": {
+    "description": "用户名不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "wrongParams": "请检查你的输入内容",
+  "@wrongParams": {
+    "description": "请检查你的输入内容",
+    "type": "text",
+    "placeholders": {}
+  },
   "doneList": "完成列表",
   "@doneList": {
     "description": "完成列表",
@@ -739,6 +871,12 @@
   "loading": "加载中...",
   "@loading": {
     "description": "加载中...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "waiting": "请稍后...",
+  "@waiting": {
+    "description": "请稍后...",
     "type": "text",
     "placeholders": {}
   },

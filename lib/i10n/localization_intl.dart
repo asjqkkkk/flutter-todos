@@ -267,6 +267,30 @@ class DemoLocalizations {
   String get passwordCantBeEmpty => Intl.message('password cannot be empty', name: 'passwordCantBeEmpty', desc: '密码不能为空',);
   String get passwordTooShort => Intl.message('password length cannot be less than 8 digits', name: 'passwordTooShort', desc: '密码长度不能小于8位',);
   String get passwordTooLong => Intl.message('password length cannot be greater than 20 digits', name: 'passwordTooLong', desc: '密码长度不能大于20位',);
+  String get signUp => Intl.message('Sign Up', name: 'signUp', desc: '注册',);
+  String get setUserName => Intl.message('please set your username', name: 'setUserName', desc: '请设置你的用户名',);
+  String get userNameContainEmpty => Intl.message('username cannot contain spaces', name: 'userNameContainEmpty', desc: '用户名不能包含空格',);
+  String get verifyCodeCantBeEmpty => Intl.message('verify code cannot be empty', name: 'verifyCodeCantBeEmpty', desc: '验证码不能为空',);
+  String get verifyCodeContainEmpty => Intl.message('verify code cannot contain spaces', name: 'verifyCodeContainEmpty', desc: '验证码不能包含空格',);
+  String get confirmPasswordCantBeEmpty => Intl.message('confirm password cannot be empty', name: 'confirmPasswordCantBeEmpty', desc: '确认密码不能为空',);
+  String get confirmPasswordContainEmpty => Intl.message('confirm password cannot contain spaces', name: 'confirmPasswordContainEmpty', desc: '确认密码不能包含空格',);
+  String get twoPasswordsNotSame => Intl.message('two passwords are not same', name: 'twoPasswordsNotSame', desc: '两次密码输入不一致',);
+  String get userName => Intl.message('username', name: 'userName', desc: '用户名',);
+  String get emailAccount => Intl.message('email account', name: 'emailAccount', desc: '邮箱账号',);
+  String get setEmailAccount => Intl.message('please sett your email account', name: 'setEmailAccount', desc: '请设置你的邮箱账号',);
+  String get verifyCode => Intl.message('verify code', name: 'verifyCode', desc: '验证码',);
+  String get inputVerifyCode => Intl.message('please input the verify code you obtained', name: 'inputVerifyCode', desc: '请输入你获取的验证码',);
+  String get getVerifyCode => Intl.message('Get Verify Code', name: 'getVerifyCode', desc: '获取验证码',);
+  String get setPassword => Intl.message('please set your password', name: 'setPassword', desc: '请设置你的密码',);
+  String get thePassword => Intl.message('password', name: 'thePassword', desc: '密码',);
+  String get reSetPassword => Intl.message('please set your password again', name: 'reSetPassword', desc: '再次确认你的密码',);
+  String get confirmPassword => Intl.message('confirm password', name: 'confirmPassword', desc: '确认密码',);
+  String get checkYourEmail => Intl.message('please check your email account', name: 'checkYourEmail', desc: '请检查你的邮箱账号',);
+  String get checkYourUserName => Intl.message('please check your username', name: 'checkYourUserName', desc: '请检查你的用户名',);
+  String get usernameCantBeEmpty => Intl.message('username cannot be empty', name: 'usernameCantBeEmpty', desc: '用户名不能为空',);
+  String get wrongParams => Intl.message('please check your input content', name: 'wrongParams', desc: '请检查你的输入内容',);
+
+
 
 
 
@@ -311,6 +335,7 @@ class DemoLocalizations {
   String get loadingIdle => Intl.message('...', name: 'loadingIdle', desc: '......',);
   String get loadingError => Intl.message('loading error', name: 'loadingError', desc: '加载出错了',);
   String get loading => Intl.message('loading...', name: 'loading', desc: '加载中...',);
+  String get waiting => Intl.message('waiting...', name: 'waiting', desc: '请稍后...',);
   String get pullUpToLoadMore => Intl.message('pull up load more', name: 'pullUpToLoadMore', desc: '上拉加载更多',);
   String get pullDownToRefresh => Intl.message('pull down to refresh', name: 'pullDownToRefresh', desc: '下拉刷新',);
   String get reLoading => Intl.message('click to reload', name: 'reLoading', desc: '点击重新加载',);

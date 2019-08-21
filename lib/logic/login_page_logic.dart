@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
@@ -64,7 +65,11 @@ class LoginPageLogic {
 
   void onForget() {}
 
-  void onRegister() {}
+  void onRegister() {
+    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
+        return ProviderConfig.getInstance().getRegisterPage();
+    }));
+  }
 
   void _showDialog(String text, BuildContext context) {
     showDialog(
@@ -115,6 +120,7 @@ class LoginPageLogic {
         Navigator.of(context).pop();
         _showDialog(msg, context);
       },
+      token: _model.cancelToken,
     );
   }
 }

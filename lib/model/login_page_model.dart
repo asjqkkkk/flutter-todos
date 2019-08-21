@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/logic/all_logic.dart';
 
 class LoginPageModel extends ChangeNotifier{
@@ -17,6 +18,8 @@ class LoginPageModel extends ChangeNotifier{
   bool isPasswordOk = false;
   bool isLoginNow = false;
 
+  CancelToken cancelToken = CancelToken();
+
   LoginPageModel(){
     logic = LoginPageLogic(this);
   }
@@ -31,6 +34,7 @@ class LoginPageModel extends ChangeNotifier{
   void dispose(){
     emailController.dispose();
     passwordController.dispose();
+    cancelToken?.cancel();
     super.dispose();
     debugPrint("RegisterPageModel销毁了");
   }

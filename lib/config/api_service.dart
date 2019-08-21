@@ -1,4 +1,5 @@
 import 'package:todo_list/json/all_beans.dart';
+export 'package:todo_list/json/all_beans.dart';
 
 import 'api_strategy.dart';
 export 'package:dio/dio.dart';
@@ -170,6 +171,7 @@ class ApiService {
     Function success,
     Function failed,
     Function error,
+    CancelToken token,
   }) {
     ApiStrategy.getInstance().post(
         "fUser/login",
@@ -184,7 +186,7 @@ class ApiService {
         params: params,
         errorCallBack: (errorMessage) {
           error(errorMessage);
-        });
+        },token: token);
   }
 
   ///修改用户名
@@ -207,24 +209,81 @@ class ApiService {
   ///上传头像
   void uploadAvatar(
       {FormData params,
-        Function success,
-        Function failed,
-        Function error,
-        CancelToken token}) {
+      Function success,
+      Function failed,
+      Function error,
+      CancelToken token}) {
     ApiStrategy.getInstance().postUpload(
         "fUser/uploadAvatar",
-            (data) {
-              UploadAvatarBean bean = UploadAvatarBean.fromMap(data);
+        (data) {
+          UploadAvatarBean bean = UploadAvatarBean.fromMap(data);
           if (bean.status == 0) {
             success(bean);
           } else {
             failed(bean);
           }
         },
-            (count, total) {},
+        (count, total) {},
         formData: params,
         errorCallBack: (errorMessage) {
           error(errorMessage);
         });
+  }
+
+  ///邮箱验证码获取请求
+  void getVerifyCode({
+    Map<String, String> params,
+    Function success,
+    Function failed,
+    Function error,
+    CancelToken token,
+  }) {
+    postCommon(
+      params: params,
+      success: success,
+      failed: failed,
+      error: error,
+      url: "fUser/identifyCodeSend",
+      token: token,
+    );
+  }
+
+  //邮箱验证码校验请求
+  void postVerifyCheck({Map<String, String> params, Function success,
+    Function failed, Function error, CancelToken token}) {
+    postCommon(
+      params: params,
+      success: success,
+      failed: failed,
+      error: error,
+      url:     "fUser/identifyCodeCheck"
+      ,
+      token: token,
+    );
+  }
+
+  ///邮箱注册
+  void postRegister(
+      {Map<String, String> params,
+      Function success,
+      Function failed,
+      Function error,
+      CancelToken token}) {
+    ApiStrategy.getInstance().post(
+      "fUser/register",
+      (data) {
+        RegisterBean registerBean = RegisterBean.fromMap(data);
+        if (registerBean.status == 0) {
+          success(registerBean);
+        } else {
+          failed(registerBean);
+        }
+      },
+      params: params,
+      errorCallBack: (errorMessage) {
+        error(errorMessage);
+      },
+      token: token,
+    );
   }
 }
