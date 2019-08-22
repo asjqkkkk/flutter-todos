@@ -174,15 +174,21 @@
     "type": "text",
     "placeholders": {}
   },
+  "inputEmailAccount": "请输入你的邮箱账号",
+  "@inputEmailAccount": {
+    "description": "请输入你的邮箱账号",
+    "type": "text",
+    "placeholders": {}
+  },
   "verifyCode": "验证码",
   "@verifyCode": {
     "description": "验证码",
     "type": "text",
     "placeholders": {}
   },
-  "inputVerifyCode": "请输入你获取的验证码",
+  "inputVerifyCode": "输入验证码",
   "@inputVerifyCode": {
-    "description": "请输入你获取的验证码",
+    "description": "输入验证码",
     "type": "text",
     "placeholders": {}
   },
@@ -243,6 +249,78 @@
   "wrongParams": "请检查你的输入内容",
   "@wrongParams": {
     "description": "请检查你的输入内容",
+    "type": "text",
+    "placeholders": {}
+  },
+  "setNewPassword": "请设置你的新密码",
+  "@setNewPassword": {
+    "description": "请设置你的新密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "forgetPassword": "忘记密码",
+  "@forgetPassword": {
+    "description": "忘记密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetPassword": "修改密码",
+  "@resetPassword": {
+    "description": "修改密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newPassword": "新密码",
+  "@newPassword": {
+    "description": "新密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "oldPassword": "原密码",
+  "@oldPassword": {
+    "description": "原密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputOldPassword": "请输入你的原密码",
+  "@inputOldPassword": {
+    "description": "请输入你的原密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "oldPasswordCantBeEmpty": "原密码不能为空",
+  "@oldPasswordCantBeEmpty": {
+    "description": "原密码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newPasswordCantBeEmpty": "新密码不能为空",
+  "@newPasswordCantBeEmpty": {
+    "description": "新密码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetPasswordSuccess": "密码修改成功",
+  "@resetPasswordSuccess": {
+    "description": "密码修改成功",
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetPasswordFailed": "密码修改失败",
+  "@resetPasswordFailed": {
+    "description": "密码修改失败",
+    "type": "text",
+    "placeholders": {}
+  },
+  "logout": "退出登录",
+  "@logout": {
+    "description": "退出登录",
+    "type": "text",
+    "placeholders": {}
+  },
+  "skip": "跳过",
+  "@skip": {
+    "description": "跳过",
     "type": "text",
     "placeholders": {}
   },

@@ -256,8 +256,7 @@ class ApiService {
       success: success,
       failed: failed,
       error: error,
-      url:     "fUser/identifyCodeCheck"
-      ,
+      url: "fUser/identifyCodeCheck",
       token: token,
     );
   }
@@ -283,6 +282,32 @@ class ApiService {
       errorCallBack: (errorMessage) {
         error(errorMessage);
       },
+      token: token,
+    );
+  }
+
+  ///重设密码
+  void postResetPassword({Map<String, String> params, Function success,
+    Function failed, Function error, CancelToken token,}){
+    postCommon(
+      params: params,
+      success: success,
+      failed: failed,
+      error: error,
+      url: "fUser/resetPassword",
+      token: token,
+    );
+  }
+
+  ///忘记密码
+  void postForgetPassword({Map<String, String> params, Function success,
+    Function failed, Function error, CancelToken token}){
+    postCommon(
+      params: params,
+      success: success,
+      failed: failed,
+      error: error,
+      url: "fUser/forgetPassword",
       token: token,
     );
   }

@@ -32,7 +32,7 @@ class TaskDetailPage extends StatelessWidget {
     return WillPopScope(
       onWillPop: () {
         model.logic.exitPage();
-        return null;
+        return Future.value(false);
       },
       child: Stack(
         children: <Widget>[

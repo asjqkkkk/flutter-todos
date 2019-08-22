@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/logic/all_logic.dart';
-export 'package:provider/provider.dart';
 
 class RegisterPageModel extends ChangeNotifier{
 

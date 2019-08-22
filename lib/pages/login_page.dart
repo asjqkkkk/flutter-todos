@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
             DemoLocalizations.of(context).login,
           ),
           elevation: 0.0,
-          leading: IconButton(
+            leading: model.isFirst ? Container() : IconButton(
               icon:
                   Icon(Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios),
               onPressed: model.logic.onExit,),

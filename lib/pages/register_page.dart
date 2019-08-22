@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/register_page_model.dart';
 import 'package:todo_list/widgets/verify_code_widget.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatelessWidget {
   @override
@@ -17,11 +19,12 @@ class RegisterPage extends StatelessWidget {
         ],
       ),
       body: Container(
-        child: Theme(
-          data: ThemeData(
-              platform: TargetPlatform.android, primaryColor: primaryColor),
-          child: Form(
-            autovalidate: true,
+        margin: EdgeInsets.only(left: 20,right: 20),
+        child: Form(
+          autovalidate: true,
+          child: Theme(
+            data: ThemeData(
+                platform: TargetPlatform.android, primaryColor: primaryColor),
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
@@ -33,9 +36,9 @@ class RegisterPage extends StatelessWidget {
                     maxLength: 20,
                     textCapitalization: TextCapitalization.words,
                     decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
                       filled: true,
-                      icon: Icon(Icons.person_outline),
+                      fillColor: Colors.transparent,
+                      prefixIcon: Icon(Icons.person_outline),
                       hintText: DemoLocalizations.of(context).setUserName,
                       labelText: DemoLocalizations.of(context).userName,
                     ),
@@ -44,44 +47,34 @@ class RegisterPage extends StatelessWidget {
                   TextFormField(
                     validator: (text) => model.logic.validatorEmail(text),
                     decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
                       filled: true,
-                      icon: Icon(Icons.email),
+                      prefixIcon: Icon(Icons.email),
+                      fillColor: Colors.transparent,
                       hintText: DemoLocalizations.of(context).setEmailAccount,
                       labelText: DemoLocalizations.of(context).emailAccount,
                     ),
                     keyboardType: TextInputType.emailAddress,
-                    // TextInputFormatters are applied in sequen
                   ),
-                  const SizedBox(height: 24.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Flexible(
-                        child: TextFormField(
-                          validator: (verifyCode) =>
-                              model.logic.validatorVerifyCode(verifyCode),
-                          maxLength: 6,
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                            border: UnderlineInputBorder(),
-                            filled: true,
-                            icon: Icon(Icons.message),
-                            hintText:
-                                DemoLocalizations.of(context).inputVerifyCode,
-                            labelText: DemoLocalizations.of(context).verifyCode,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child: VerifyCodeWidget(
-                          account: model.email,
-                          isEmailOk: model.isEmailOk,
-                          isUserNameOk: model.isUserNameOk,
-                        ),
+                  const SizedBox(height: 48.0),
+                  TextFormField(
+                    validator: (verifyCode) =>
+                        model.logic.validatorVerifyCode(verifyCode),
+                    maxLength: 6,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      filled: true,
+                        fillColor: Colors.transparent,
+                        prefixIcon: Icon(Icons.message),
+                      hintText:
+                          DemoLocalizations.of(context).inputVerifyCode,
+                      labelText: DemoLocalizations.of(context).verifyCode,
+                      suffixIcon: VerifyCodeWidget(
+                        account: model.email,
+                        isEmailOk: model.isEmailOk,
+                        isUserNameOk: model.isUserNameOk,
                       )
-                    ],
+                    ),
+
                   ),
                   SizedBox(height: 24.0),
                   TextFormField(
@@ -89,9 +82,9 @@ class RegisterPage extends StatelessWidget {
                     validator: (password) =>
                         model.logic.validatePassword(password),
                     decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
                       filled: true,
-                      icon: Icon(Icons.lock_outline),
+                      fillColor: Colors.transparent,
+                      prefixIcon: Icon(Icons.lock_outline),
                       hintText: DemoLocalizations.of(context).setPassword,
                       labelText: DemoLocalizations.of(context).thePassword,
                     ),
@@ -103,9 +96,9 @@ class RegisterPage extends StatelessWidget {
                     validator: (rePassword) =>
                         model.logic.validateRePassword(rePassword),
                     decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
                       filled: true,
-                      icon: Icon(Icons.lock),
+                      prefixIcon: Icon(Icons.lock),
+                      fillColor: Colors.transparent,
                       hintText: DemoLocalizations.of(context).reSetPassword,
                       labelText: DemoLocalizations.of(context).confirmPassword,
                     ),

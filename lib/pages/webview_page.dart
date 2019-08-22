@@ -51,6 +51,7 @@ class _WebViewPageState extends State<WebViewPage> {
         flutterWebviewPlugin.close().then((a) {
           Navigator.of(context).pop();
         });
+        return Future.value(false);
       },
       child: Scaffold(
         appBar: AppBar(

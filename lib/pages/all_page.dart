@@ -17,3 +17,5 @@ export 'feedback_page.dart';
 export 'feedback_wall_page.dart';
 export 'login_page.dart';
 export 'register_page.dart';
+export 'reset_password_page.dart';
+export 'account_page.dart';

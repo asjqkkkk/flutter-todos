@@ -36,16 +36,17 @@ class ProviderConfig {
   ///任务详情页provider
   ChangeNotifierProvider<TaskDetailPageModel> getTaskDetailPage(
     int index,
-    TaskBean taskBean, {DoneTaskPageModel doneTaskPageModel,
-        SearchPageModel searchPageModel,
+    TaskBean taskBean, {
+    DoneTaskPageModel doneTaskPageModel,
+    SearchPageModel searchPageModel,
   }) {
     return ChangeNotifierProvider<TaskDetailPageModel>(
       builder: (context) => TaskDetailPageModel(
-            taskBean,
-        doneTaskPageModel : doneTaskPageModel,
-        searchPageModel : searchPageModel,
+        taskBean,
+        doneTaskPageModel: doneTaskPageModel,
+        searchPageModel: searchPageModel,
         heroTag: index,
-          ),
+      ),
       child: TaskDetailPage(),
     );
   }
@@ -108,35 +109,44 @@ class ProviderConfig {
   }
 
   ///意见反馈页provider
-  ChangeNotifierProvider<FeedbackPageModel> getFeedbackPage(FeedbackWallPageModel feedbackWallPageModel){
-     return ChangeNotifierProvider<FeedbackPageModel>(
-       builder:(context) => FeedbackPageModel(),
-       child: FeedbackPage(feedbackWallPageModel),
+  ChangeNotifierProvider<FeedbackPageModel> getFeedbackPage(
+      FeedbackWallPageModel feedbackWallPageModel) {
+    return ChangeNotifierProvider<FeedbackPageModel>(
+      builder: (context) => FeedbackPageModel(),
+      child: FeedbackPage(feedbackWallPageModel),
+    );
+  }
+
+  ///意见反馈墙页provider
+  ChangeNotifierProvider<FeedbackWallPageModel> getFeedbackWallPage() {
+    return ChangeNotifierProvider<FeedbackWallPageModel>(
+      builder: (context) => FeedbackWallPageModel(),
+      child: FeedbackWallPage(),
+    );
+  }
+
+  ///登录页provider
+  ChangeNotifierProvider<LoginPageModel> getLoginPage({bool isFirst = false}) {
+    return ChangeNotifierProvider<LoginPageModel>(
+      builder: (context) => LoginPageModel(isFirst: isFirst),
+      child: LoginPage(),
+    );
+  }
+
+  ///注册页provider
+  ChangeNotifierProvider<RegisterPageModel> getRegisterPage() {
+    return ChangeNotifierProvider<RegisterPageModel>(
+      builder: (context) => RegisterPageModel(),
+      child: RegisterPage(),
+    );
+  }
+
+  ///重设密码页provider,可以设重设密码，也可以设是记密码
+  ChangeNotifierProvider<ResetPasswordPageModel> getResetPasswordPage({bool isReset = true}){
+     return ChangeNotifierProvider<ResetPasswordPageModel>(
+       builder:(context) => ResetPasswordPageModel(isReset),
+       child: ResetPasswordPage(),
      );
    }
 
-   ///意见反馈墙页provider
-   ChangeNotifierProvider<FeedbackWallPageModel> getFeedbackWallPage(){
-      return ChangeNotifierProvider<FeedbackWallPageModel>(
-        builder:(context) => FeedbackWallPageModel(),
-        child: FeedbackWallPage(),
-      );
-    }
-
-
-    ///登录页provider
-    ChangeNotifierProvider<LoginPageModel> getLoginPage(){
-       return ChangeNotifierProvider<LoginPageModel>(
-         builder:(context) => LoginPageModel(),
-         child: LoginPage(),
-       );
-     }
-
-
-     ChangeNotifierProvider<RegisterPageModel> getRegisterPage(){
-        return ChangeNotifierProvider<RegisterPageModel>(
-          builder:(context) => RegisterPageModel(),
-          child: RegisterPage(),
-        );
-      }
 }

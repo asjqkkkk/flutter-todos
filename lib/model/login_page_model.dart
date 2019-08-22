@@ -18,10 +18,14 @@ class LoginPageModel extends ChangeNotifier{
   bool isPasswordOk = false;
   bool isLoginNow = false;
 
+  ///表示登录页面是不是第一个页面
+  bool isFirst;
+
   CancelToken cancelToken = CancelToken();
 
-  LoginPageModel(){
+  LoginPageModel({bool isFirst = false}){
     logic = LoginPageLogic(this);
+    this.isFirst = isFirst;
   }
 
   void setContext(BuildContext context){

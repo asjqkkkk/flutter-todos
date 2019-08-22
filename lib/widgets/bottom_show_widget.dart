@@ -57,6 +57,7 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
     return WillPopScope(
       onWillPop: () {
         doExit(context, _controller);
+        return Future.value(false);
       },
       child: GestureDetector(
         onTap: () {

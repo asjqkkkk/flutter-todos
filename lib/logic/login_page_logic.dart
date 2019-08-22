@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/config/provider_config.dart';
+import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/login_bean.dart';
 import 'package:todo_list/model/all_model.dart';
@@ -64,13 +65,25 @@ class LoginPageLogic {
     _onLoginRequest(context);
   }
 
-  void onForget() {}
+  void onForget() {
+    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
+      return ProviderConfig.getInstance().getResetPasswordPage(isReset: false);
+    }));
+  }
 
   void onRegister() {
     Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
         return ProviderConfig.getInstance().getRegisterPage();
     }));
   }
+
+  void onSkip(){
+    Navigator.of(_model.context).pushAndRemoveUntil(
+        new MaterialPageRoute(builder: (context) {
+            return ProviderConfig.getInstance().getMainPage();
+        }), (router) => router == null);
+  }
+
 
   void _showDialog(String text, BuildContext context) {
     showDialog(
@@ -107,6 +120,7 @@ class LoginPageLogic {
             SharedUtil.instance.saveString(Keys.netAvatarPath, ApiStrategy.baseUrl + loginBean.avatarUrl);
             SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.net);
           }
+          DBProvider.db.updateAccount(account);
         }).then((v){
           Navigator.of(context).pushAndRemoveUntil(
               new MaterialPageRoute(

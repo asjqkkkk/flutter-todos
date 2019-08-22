@@ -277,9 +277,10 @@ class DemoLocalizations {
   String get twoPasswordsNotSame => Intl.message('two passwords are not same', name: 'twoPasswordsNotSame', desc: '两次密码输入不一致',);
   String get userName => Intl.message('username', name: 'userName', desc: '用户名',);
   String get emailAccount => Intl.message('email account', name: 'emailAccount', desc: '邮箱账号',);
-  String get setEmailAccount => Intl.message('please sett your email account', name: 'setEmailAccount', desc: '请设置你的邮箱账号',);
+  String get setEmailAccount => Intl.message('please set your email account', name: 'setEmailAccount', desc: '请设置你的邮箱账号',);
+  String get inputEmailAccount => Intl.message('please input your email account', name: 'inputEmailAccount', desc: '请输入你的邮箱账号',);
   String get verifyCode => Intl.message('verify code', name: 'verifyCode', desc: '验证码',);
-  String get inputVerifyCode => Intl.message('please input the verify code you obtained', name: 'inputVerifyCode', desc: '请输入你获取的验证码',);
+  String get inputVerifyCode => Intl.message('please input the verify code you obtained', name: 'inputVerifyCode', desc: '输入验证码',);
   String get getVerifyCode => Intl.message('Get Verify Code', name: 'getVerifyCode', desc: '获取验证码',);
   String get setPassword => Intl.message('please set your password', name: 'setPassword', desc: '请设置你的密码',);
   String get thePassword => Intl.message('password', name: 'thePassword', desc: '密码',);
@@ -290,6 +291,19 @@ class DemoLocalizations {
   String get checkYourUserName => Intl.message('please check your username', name: 'checkYourUserName', desc: '请检查你的用户名',);
   String get usernameCantBeEmpty => Intl.message('username cannot be empty', name: 'usernameCantBeEmpty', desc: '用户名不能为空',);
   String get wrongParams => Intl.message('please check your input content', name: 'wrongParams', desc: '请检查你的输入内容',);
+  String get setNewPassword => Intl.message('please set your new password', name: 'setNewPassword', desc: '请设置你的新密码',);
+  String get forgetPassword => Intl.message('Forget Password', name: 'forgetPassword', desc: '忘记密码',);
+  String get resetPassword => Intl.message('Reset Password', name: 'resetPassword', desc: '修改密码',);
+  String get newPassword => Intl.message('new password', name: 'newPassword', desc: '新密码',);
+  String get oldPassword => Intl.message('old password', name: 'oldPassword', desc: '原密码',);
+  String get inputOldPassword => Intl.message('please input your old password', name: 'inputOldPassword', desc: '请输入你的原密码',);
+  String get oldPasswordCantBeEmpty => Intl.message('old password cannot be empty', name: 'oldPasswordCantBeEmpty', desc: '原密码不能为空',);
+  String get newPasswordCantBeEmpty => Intl.message('new password cannot be empty', name: 'newPasswordCantBeEmpty', desc: '新密码不能为空',);
+  String get resetPasswordSuccess => Intl.message('Password reset complete', name: 'resetPasswordSuccess', desc: '密码修改成功',);
+  String get resetPasswordFailed => Intl.message('Password reset failed', name: 'resetPasswordFailed', desc: '密码修改失败',);
+  String get logout => Intl.message('Logout', name: 'logout', desc: '退出登录',);
+  String get skip => Intl.message('skip', name: 'skip', desc: '跳过',);
+
 
 
 

@@ -1,18 +1,23 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/common_bean.dart';
+import 'package:todo_list/model/global_model.dart';
 
 class VerifyCodeWidget extends StatefulWidget {
   final String account;
   final bool isUserNameOk;
   final bool isEmailOk;
 
-  const VerifyCodeWidget(
-      {Key key, this.account, this.isUserNameOk, this.isEmailOk})
-      : super(key: key);
+  const VerifyCodeWidget({
+    Key key,
+    this.account,
+    this.isUserNameOk = true,
+    this.isEmailOk = true,
+  }) : super(key: key);
 
   @override
   _VerifyCodeWidgetState createState() => _VerifyCodeWidgetState();
@@ -39,6 +44,8 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final globalModel = Provider.of<GlobalModel>(context);
+
     if (verifyTextShow == null) {
       verifyTextShow = DemoLocalizations.of(context).getVerifyCode;
     }
@@ -61,12 +68,16 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget> {
           isGettingCode = true;
         });
         ApiService.instance.getVerifyCode(
-          params: {"account": widget.account, "why": "emailRegister"},
+          params: {
+            "account": widget.account,
+            "why": "emailRegister",
+            "language": globalModel.currentLanguageCode[0]
+          },
           success: (CommonBean bean) {
             _timer?.cancel();
             int count = 30;
             Timer countdownTimer =
-            new Timer.periodic(new Duration(seconds: 1), (Timer timer) {
+                new Timer.periodic(new Duration(seconds: 1), (Timer timer) {
               if (count > 0) {
                 verifyTextShow = "${count} s";
                 codeColor = Colors.grey;

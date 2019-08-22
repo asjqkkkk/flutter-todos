@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="360px" height="713px" viewBox="0 0 360 713" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>bg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FBE6E6" offset="0%"></stop>
+            <stop stop-color="#FDEEEE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#87AAAB" offset="0%"></stop>
+            <stop stop-color="#CCFEFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#8FE3EB" offset="0%"></stop>
+            <stop stop-color="#D7F5F8" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#C5B1FF" offset="0%"></stop>
+            <stop stop-color="#EAE3FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#E4B7A0" offset="0%"></stop>
+            <stop stop-color="#FFEFE7" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#97D7B2" offset="0%"></stop>
+            <stop stop-color="#CFFCE2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Pixel-3" transform="translate(0.000000, -2.000000)">
+            <g id="bg" transform="translate(182.000000, 361.000000) rotate(90.000000) translate(-182.000000, -361.000000) translate(-178.500000, 158.500000)">
+                <polygon id="三角形" fill="url(#linearGradient-1)" points="181.986124 204.5 362.5 404 0.5 404.5"></polygon>
+                <polygon id="三角形" fill="url(#linearGradient-2)" transform="translate(539.500000, 105.500000) rotate(180.000000) translate(-539.500000, -105.500000) " points="539.986124 5.5 720.5 205 358.5 205.5"></polygon>
+                <polygon id="三角形" fill="url(#linearGradient-3)" transform="translate(270.500000, 202.500000) rotate(180.000000) translate(-270.500000, -202.500000) " points="178 3.5971226e-13 363 202.5 178 405"></polygon>
+                <polygon id="三角形" fill="url(#linearGradient-4)" points="363 4 544 204 363 404"></polygon>
+                <polygon id="三角形" fill="url(#linearGradient-5)" transform="translate(182.000000, 204.500000) rotate(90.000000) translate(-182.000000, -204.500000) " points="-18 24 382 385 -18 385"></polygon>
+                <polygon id="三角形" fill="url(#linearGradient-6)" transform="translate(538.500000, 204.500000) rotate(270.000000) translate(-538.500000, -204.500000) " points="338.5 28.5 738.5 380.5 338.5 380.5"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

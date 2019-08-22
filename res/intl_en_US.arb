@@ -168,9 +168,15 @@
     "type": "text",
     "placeholders": {}
   },
-  "setEmailAccount": "please sett your email account",
+  "setEmailAccount": "please set your email account",
   "@setEmailAccount": {
     "description": "请设置你的邮箱账号",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputEmailAccount": "please input your email account",
+  "@inputEmailAccount": {
+    "description": "请输入你的邮箱账号",
     "type": "text",
     "placeholders": {}
   },
@@ -243,6 +249,78 @@
   "wrongParams": "please check your input content",
   "@wrongParams": {
     "description": "请检查你的输入内容",
+    "type": "text",
+    "placeholders": {}
+  },
+  "setNewPassword": "please set your new password",
+  "@setNewPassword": {
+    "description": "请设置你的新密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "forgetPassword": "Forget Password",
+  "@forgetPassword": {
+    "description": "忘记密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetPassword": "Reset Password",
+  "@resetPassword": {
+    "description": "修改密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newPassword": "new password",
+  "@newPassword": {
+    "description": "新密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "oldPassword": "old password",
+  "@oldPassword": {
+    "description": "原密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inputOldPassword": "please input your old password",
+  "@inputOldPassword": {
+    "description": "请输入你的原密码",
+    "type": "text",
+    "placeholders": {}
+  },
+  "oldPasswordCantBeEmpty": "old password cannot be empty",
+  "@oldPasswordCantBeEmpty": {
+    "description": "原密码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "newPasswordCantBeEmpty": "new password cannot be empty",
+  "@newPasswordCantBeEmpty": {
+    "description": "新密码不能为空",
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetPasswordSuccess": "Password reset complete",
+  "@resetPasswordSuccess": {
+    "description": "密码修改成功",
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetPasswordFailed": "Password reset failed",
+  "@resetPasswordFailed": {
+    "description": "密码修改失败",
+    "type": "text",
+    "placeholders": {}
+  },
+  "logout": "Logout",
+  "@logout": {
+    "description": "退出登录",
+    "type": "text",
+    "placeholders": {}
+  },
+  "skip": "skip",
+  "@skip": {
+    "description": "跳过",
     "type": "text",
     "placeholders": {}
   },

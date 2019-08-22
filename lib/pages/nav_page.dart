@@ -15,6 +15,7 @@ import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/weather_widget.dart';
 
+import 'account_page.dart';
 import 'image_page.dart';
 import 'navigator_setting_page.dart';
 
@@ -41,7 +42,9 @@ class NavPage extends StatelessWidget {
                 return ProviderConfig.getInstance().getLoginPage();
               }));
             } else {
-
+              Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+                return AccountPage();
+              }));
             }
 
           },

@@ -145,6 +145,21 @@ class LoginWidget extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
+                loginPageModel.isFirst ? BottomToTopWidget(
+                    child: FlatButton(
+                      color: primaryColor,
+                      highlightColor: primaryColorLight,
+                      colorBrightness: Brightness.dark,
+                      splashColor: Colors.grey,
+                      child: Text(DemoLocalizations.of(context).skip),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
+                      onPressed: loginPageModel.logic.onSkip,
+                    ),
+                    index: 3) : Container(),
               ],
             ),
           ),

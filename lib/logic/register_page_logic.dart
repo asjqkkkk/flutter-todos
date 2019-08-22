@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/config/provider_config.dart';
+import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/my_encrypt_util.dart';
@@ -124,6 +125,7 @@ class RegisterPageLogic{
             SharedUtil.instance.saveString(Keys.netAvatarPath, ApiStrategy.baseUrl + bean.avatarUrl);
             SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.net);
           }
+          DBProvider.db.updateAccount(model.email);
         }).then((v){
           Navigator.of(context).pushAndRemoveUntil(
               new MaterialPageRoute(

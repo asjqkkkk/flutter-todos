@@ -53,24 +53,41 @@ class DBProvider {
         }
       },
     );
-    //注意，上面创建表的时候最后一行不能带逗号
+    ///注意，上面创建表的时候最后一行不能带逗号
   }
 
-  //创建一项任务
+  ///创建一项任务
   Future createTask(TaskBean task) async {
     final db = await database;
     task.id = await db.insert("TodoList", task.toMap());
   }
 
-  //查询所有任务,isDone为true表示查询已经完成的任务,否则表示未完成
-  Future<List<TaskBean>> getTasks({bool isDone = false}) async {
+  ///根据完成进度查询所有任务
+  ///
+  ///isDone为true表示查询已经完成的任务,否则表示未完成
+  Future<List<TaskBean>> getTasks({bool isDone = false, String account}) async {
     final db = await database;
-    final account =
+    final theAccount =
         await SharedUtil.instance.getString(Keys.account) ?? "default";
     var list = await db.query("TodoList",
         where: "account = ?" +
             (isDone ? " AND overallProgress >= ?" : " AND overallProgress < ?"),
-        whereArgs: [account, "1.0"]);
+        whereArgs: [account ?? theAccount, "1.0"]);
+    List<TaskBean> beans = [];
+    beans.clear();
+    beans.addAll(TaskBean.fromMapList(list));
+    return beans;
+  }
+
+
+  ///查询所有任务
+  Future<List<TaskBean>> getAllTasks({String account}) async {
+    final db = await database;
+    final theAccount =
+        await SharedUtil.instance.getString(Keys.account) ?? "default";
+    var list = await db.query("TodoList",
+        where: "account = ?" ,
+        whereArgs: [account ?? theAccount]);
     List<TaskBean> beans = [];
     beans.clear();
     beans.addAll(TaskBean.fromMapList(list));
@@ -81,16 +98,41 @@ class DBProvider {
     final db = await database;
     int id = await db.update("TodoList", taskBean.toMap(),
         where: "id = ?", whereArgs: [taskBean.id]);
-    print("更新数据库");
   }
 
   Future deleteTask(int id) async {
     final db = await database;
     db.delete("TodoList", where: "id = ?", whereArgs: [id]);
-    print("删除");
   }
 
-  //通过加上百分号，进行模糊查询
+  Future updateTasks(List<TaskBean> taskBeans) async{
+    final db = await database;
+    final batch = db.batch();
+    for (var task in taskBeans) {
+      batch.update("TodoList", task.toMap(),
+          where: "id = ?", whereArgs: [task.id]);
+    }
+    final results = await batch.commit();
+    print("批量更新结果:${results}");
+  }
+
+
+  ///批量更新账号
+  Future updateAccount(String account) async{
+
+    final tasks = await getAllTasks(account: "default");
+    List<TaskBean> newTasks = [];
+    for (var task in tasks) {
+      if(task.account == "default"){
+        task.account = account;
+        newTasks.add(task);
+      }
+    }
+    print("更新结果:${newTasks}   原来:${tasks}");
+    updateTasks(newTasks);
+  }
+
+  ///通过加上百分号，进行模糊查询
   Future<List<TaskBean>> queryTask(String query) async {
     final db = await database;
     final account =
