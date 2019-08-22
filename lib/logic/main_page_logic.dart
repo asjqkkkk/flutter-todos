@@ -210,6 +210,7 @@ class MainPageLogic {
             _model.currentAvatarType = CurrentAvatarType.local;
             SharedUtil().saveString(Keys.localAvatarPath, path);
             SharedUtil().saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
+            _model.refresh();
           }
         );
         break;
@@ -234,8 +235,12 @@ class MainPageLogic {
         );
         break;
       case CurrentAvatarType.net:
-        return CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation(Theme.of(_model.context).primaryColor),
+        return Container(
+          height: 60,
+          width: 60,
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation(Theme.of(_model.context).primaryColorLight),
+          ),
         );
         break;
     }
