@@ -14,41 +14,54 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<LoginPageModel>(context)..setContext(context);
+    final globalModel = Provider.of<GlobalModel>(context);
+    final bgColor = globalModel.logic.getBgInDark();
 
-    return WillPopScope(
-      onWillPop: () async{
-        model.logic.onExit();
-        return null;
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            DemoLocalizations.of(context).login,
+    bool isDartNow =
+        globalModel.currentThemeBean.themeType == MyTheme.darkTheme;
+    final iconColor = isDartNow
+        ? ColorBean.fromBean(globalModel.currentThemeBean.colorBean)
+        : Theme.of(context).primaryColor;
+
+    return Scaffold(
+      backgroundColor: bgColor,
+      appBar: AppBar(
+        backgroundColor: bgColor,
+        title: Text(
+          DemoLocalizations.of(context).login,
+          style: TextStyle(color: iconColor),
+        ),
+        elevation: 0.0,
+        leading: model.isFirst
+            ? Container()
+            : IconButton(
+                icon: Icon(Platform.isAndroid
+                    ? Icons.arrow_back
+                    : Icons.arrow_back_ios, color: iconColor,),
+                onPressed: model.logic.onExit,
+              ),
+      ),
+      body: Stack(
+        children: <Widget>[
+          FlareActor(
+            "flrs/login_bg.flr",
+            animation: model.currentAnimation,
+            fit: BoxFit.cover,
+            callback: (animation) {
+              if (animation == "move") {
+                model.currentAnimation = "rotate";
+                model.refresh();
+              } else if (animation == "move_out") {
+                Navigator.of(context).pop();
+              }
+            },
           ),
-          elevation: 0.0,
-            leading: model.isFirst ? Container() : IconButton(
-              icon:
-                  Icon(Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios),
-              onPressed: model.logic.onExit,),
-        ),
-        body: Stack(
-          children: <Widget>[
-            FlareActor(
-              "flrs/login_bg.flr",
-              animation: model.currentAnimation,
-              fit: BoxFit.cover,
-              callback: (animation) {
-                if (animation == "move") {
-                  model.currentAnimation = "rotate";
-                  model.refresh();
-                } else if (animation == "move_out") {
-                  Navigator.of(context).pop();
-                }
-              },
-            ),
-            model.showLoginWidget ? LoginWidget(loginPageModel: model,) : Container(),
-          ],
-        ),
+          model.showLoginWidget
+              ? LoginWidget(
+                  loginPageModel: model,
+                )
+              : Container(),
+        ],
       ),
     );
   }

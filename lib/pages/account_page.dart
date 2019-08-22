@@ -104,7 +104,10 @@ class _AccountPageState extends State<AccountPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)),
                       onPressed: () {
-                        SharedUtil.instance.saveString(Keys.account, "default");
+                        SharedUtil.instance.saveString(Keys.account, "default").then((v){
+                          SharedUtil.instance.saveBoolean(Keys.hasLogged, false);
+                        });
+
                         Navigator.of(context).pushAndRemoveUntil(
                             new MaterialPageRoute(builder: (context) {
                           return ProviderConfig.getInstance()

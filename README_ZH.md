@@ -8,7 +8,7 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/asjqkkkk/todo-list-app)
 [![GitHub license](https://img.shields.io/github/license/asjqkkkk/todo-list-app)](https://github.com/asjqkkkk/todo-list-app/blob/master/LICENSE)
 [![Codemagic build status](https://api.codemagic.io/apps/5d3c43723764bf796ed724d4/5d3c43723764bf796ed724d3/status_badge.svg)](https://codemagic.io/apps/5d3c43723764bf796ed724d4/5d3c43723764bf796ed724d3/latest_build)
-[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.3/todo-list.apk)
+[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.4/todo-list.apk)
 
 
 
@@ -102,6 +102,8 @@ app中，可以在主题切换界面选择各种主题颜色进行切换，app�
 [photo_view](https://pub.flutter-io.cn/packages/photo_view) | 图片展示
 [url_launcher](https://pub.flutter-io.cn/packages/url_launcher) | 可以用来打开应用商店
 [open_file](https://pub.flutter-io.cn/packages/open_file) | 打开文件，android更新下载安装包用
+[flare_flutter](https://pub.flutter-io.cn/packages/flare_flutter) | flare动画
+[encrypt](https://pub.flutter-io.cn/packages/encrypt) | 加密密码
 
 
 

@@ -78,6 +78,7 @@ class LoginPageLogic {
   }
 
   void onSkip(){
+    SharedUtil.instance.saveBoolean(Keys.hasLogged, true);
     Navigator.of(_model.context).pushAndRemoveUntil(
         new MaterialPageRoute(builder: (context) {
             return ProviderConfig.getInstance().getMainPage();
@@ -116,18 +117,20 @@ class LoginPageLogic {
           SharedUtil.instance.saveString(Keys.password, encryptPassword);
           SharedUtil.instance.saveString(Keys.currentUserName, loginBean.username);
           SharedUtil.instance.saveString(Keys.token, loginBean.token);
+          SharedUtil.instance.saveBoolean(Keys.hasLogged, true);
           if(loginBean.avatarUrl != null){
             SharedUtil.instance.saveString(Keys.netAvatarPath, ApiStrategy.baseUrl + loginBean.avatarUrl);
             SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.net);
           }
-          DBProvider.db.updateAccount(account);
         }).then((v){
-          Navigator.of(context).pushAndRemoveUntil(
-              new MaterialPageRoute(
-                  builder: (context){
-                    return ProviderConfig.getInstance().getMainPage();
-                  }),
-                  (router) => router == null);
+          DBProvider.db.updateAccount(account).then((v){
+            Navigator.of(context).pushAndRemoveUntil(
+                new MaterialPageRoute(
+                    builder: (context){
+                      return ProviderConfig.getInstance().getMainPage();
+                    }),
+                    (router) => router == null);
+          });
         });
 
       },

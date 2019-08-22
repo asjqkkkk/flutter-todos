@@ -20,42 +20,55 @@ class MyApp extends StatelessWidget {
     final model = Provider.of<GlobalModel>(context)..setContext(context);
 
     return MaterialApp(
-        title: model.appName,
-        localizationsDelegates: [
-          // ... app-specific localization delegate[s] here
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          DemoLocalizationsDelegate()
-        ],
-        supportedLocales: [
-          const Locale('en', 'US'), // 美国英语
-          const Locale('zh', 'CN'), // 中文简体
-        ],
-        localeResolutionCallback:
-            (Locale locale, Iterable<Locale> supportedLocales) {
-              debugPrint("locale:${locale}   sups:${supportedLocales}" );
-              if(model.currentLocale == locale) return model.currentLocale;
-              for (var supportedLocale in supportedLocales) {
-                if(supportedLocale == locale){
-                  model.currentLocale = locale;
-                  model.currentLanguageCode = [locale.languageCode, locale.countryCode];
-                  locale.countryCode == "CN" ? model.currentLanguage = "中文" : model.currentLanguage ="English";
-                  return model.currentLocale;
-                }
-              }
-              if(model.currentLocale == null){
-                model.currentLocale = Locale('zh',"CN");
-                return model.currentLocale;
-              }
-              return model.currentLocale;
-            },
-        localeListResolutionCallback:
-            (List<Locale> locales, Iterable<Locale> supportedLocales) {
-              debugPrint("locatassss:${locales}  sups:${supportedLocales}");
-              return model.currentLocale;
-            },
-        locale: model.currentLocale ,
-        theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),
-        home: ProviderConfig.getInstance().getMainPage());
+      title: model.appName,
+      localizationsDelegates: [
+        // ... app-specific localization delegate[s] here
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        DemoLocalizationsDelegate()
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'), // 美国英语
+        const Locale('zh', 'CN'), // 中文简体
+      ],
+      localeResolutionCallback:
+          (Locale locale, Iterable<Locale> supportedLocales) {
+        debugPrint("locale:${locale}   sups:${supportedLocales}");
+        if (model.currentLocale == locale) return model.currentLocale;
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale == locale) {
+            model.currentLocale = locale;
+            model.currentLanguageCode = [
+              locale.languageCode,
+              locale.countryCode
+            ];
+            locale.countryCode == "CN"
+                ? model.currentLanguage = "中文"
+                : model.currentLanguage = "English";
+            return model.currentLocale;
+          }
+        }
+        if (model.currentLocale == null) {
+          model.currentLocale = Locale('zh', "CN");
+          return model.currentLocale;
+        }
+        return model.currentLocale;
+      },
+      localeListResolutionCallback:
+          (List<Locale> locales, Iterable<Locale> supportedLocales) {
+        debugPrint("locatassss:${locales}  sups:${supportedLocales}");
+        return model.currentLocale;
+      },
+      locale: model.currentLocale,
+      theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),
+      home: getHomePage(model.goToLogin),
+    );
   }
+
+  Widget getHomePage(bool goToLogin){
+    if(goToLogin == null) return Container();
+    return goToLogin ? ProviderConfig.getInstance().getLoginPage(isFirst: true)
+        : ProviderConfig.getInstance().getMainPage();
+  }
+
 }

@@ -133,6 +133,12 @@ class GlobalLogic{
     _model.enableWeatherShow = enableWeatherShow;
   }
 
+  ///用于判断是否进入登录页面
+  Future getLoginState() async{
+    final hasLogged = await SharedUtil.instance.getBoolean(Keys.hasLogged);
+    _model.goToLogin = !hasLogged;
+  }
+
   void getWeatherNow(String position,{BuildContext context, LoadingController controller}){
     ApiService.instance.getWeatherNow(success : (WeatherBean weatherBean){
       _model.weatherBean = weatherBean;

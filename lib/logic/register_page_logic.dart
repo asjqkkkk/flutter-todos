@@ -121,18 +121,20 @@ class RegisterPageLogic{
           SharedUtil.instance.saveString(Keys.password, encryptPassword);
           SharedUtil.instance.saveString(Keys.currentUserName, model.userName);
           SharedUtil.instance.saveString(Keys.token, bean.token);
+          SharedUtil.instance.saveBoolean(Keys.hasLogged, true);
           if(bean.avatarUrl != null){
             SharedUtil.instance.saveString(Keys.netAvatarPath, ApiStrategy.baseUrl + bean.avatarUrl);
             SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.net);
           }
-          DBProvider.db.updateAccount(model.email);
         }).then((v){
-          Navigator.of(context).pushAndRemoveUntil(
-              new MaterialPageRoute(
-                  builder: (context){
-                    return ProviderConfig.getInstance().getMainPage();
-                  }),
-                  (router) => router == null);
+          DBProvider.db.updateAccount(model.email).then((v){
+            Navigator.of(context).pushAndRemoveUntil(
+                new MaterialPageRoute(
+                    builder: (context){
+                      return ProviderConfig.getInstance().getMainPage();
+                    }),
+                    (router) => router == null);
+          });
         });
       },
       failed: (RegisterBean bean){

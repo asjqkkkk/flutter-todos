@@ -36,8 +36,7 @@ class ThemeUtil {
       primaryColor: color,
       primaryColorDark: getDarkColor(color),
       primaryColorLight: getLightColor(color),
-      appBarTheme: getAppBarTheme(Colors.white, color),
-      scaffoldBackgroundColor: Colors.white,
+      appBarTheme: getAppBarTheme(color, Colors.white),
     );
   }
 
