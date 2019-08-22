@@ -386,6 +386,15 @@ class DemoLocalizations {
       '3.新增：留言展示墙！ \n',
   );
 
+  String get version104 => Intl.message('Version:1.0.4 \n\n'
+      '1.Fixed: Search page overflow bugs, other small bugs \n'
+      '2.Add: Account System.🎉 Celebrating github Star’s number over 500！ \n\n'
+      'Todo: Sync task list information to the cloud \n', name: 'version104', desc: '版本:1.0.4 \n\n'
+      '1.修复：搜索页面的控件溢出bug、其他各种小bug \n'
+      '2.新增：账号系统!🎉庆祝github Star数过500！ \n\n'
+      'Todo:任务列表信息同步至云端功能,麻麻再也不用担心我换手机啦\n',
+  );
+
 
 }
 

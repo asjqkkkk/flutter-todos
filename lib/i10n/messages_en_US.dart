@@ -187,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version101" : MessageLookupByLibrary.simpleMessage("Version:1.0.1 \n\n1.Fixed: done list show error \n2.Add: Edit page can add start-date and deadline\n"),
     "version102" : MessageLookupByLibrary.simpleMessage("Version:1.0.2 \n\n1.Fixed: some bugs \n2.Add: IconSetting Page can search icons now \n"),
     "version103" : MessageLookupByLibrary.simpleMessage("Version:1.0.3 \n\n1.Fixed: The text color of the upgrade frame is wrong.(dark mode) \n2.Fixed: Done List complete time is negative. \n3.Add: Suggestion display wall. \n"),
+    "version104" : MessageLookupByLibrary.simpleMessage("Version:1.0.4 \n\n1.Fixed: Search page overflow bugs, other small bugs \n2.Add: Account System.🎉 Celebrating github Star’s number over 500！ \n\nTodo: Sync task list information to the cloud \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("Version Description"),
     "waitAMoment" : MessageLookupByLibrary.simpleMessage("please wait for a moment..."),
     "waiting" : MessageLookupByLibrary.simpleMessage("waiting..."),

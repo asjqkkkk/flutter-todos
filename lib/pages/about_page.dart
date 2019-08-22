@@ -29,6 +29,7 @@ class _AboutPageState extends State<AboutPage> {
     final size = MediaQuery.of(context).size;
     final globalModel = Provider.of<GlobalModel>(context);
     if(descriptions.isEmpty){
+      descriptions.add(DemoLocalizations.of(context).version104);
       descriptions.add(DemoLocalizations.of(context).version103);
       descriptions.add(DemoLocalizations.of(context).version102);
       descriptions.add(DemoLocalizations.of(context).version101);

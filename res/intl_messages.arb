@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-22T15:32:31.503841",
+  "@@last_modified": "2019-08-22T20:33:13.713986",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -1015,6 +1015,12 @@
   "version103": "Version:1.0.3 \n\n1.Fixed: The text color of the upgrade frame is wrong.(dark mode) \n2.Fixed: Done List complete time is negative. \n3.Add: Suggestion display wall. \n",
   "@version103": {
     "description": "版本:1.0.3 \n\n1.修复：升级弹框的文字颜色错误(夜间模式下) \n2.修复：完成列表显示的的完成用时为负数 \n3.新增：留言展示墙！ \n",
+    "type": "text",
+    "placeholders": {}
+  },
+  "version104": "Version:1.0.4 \n\n1.Fixed: Search page overflow bugs, other small bugs \n2.Add: Account System.🎉 Celebrating github Star’s number over 500！ \n\nTodo: Sync task list information to the cloud \n",
+  "@version104": {
+    "description": "版本:1.0.4 \n\n1.修复：搜索页面的控件溢出bug、其他各种小bug \n2.新增：账号系统!🎉庆祝github Star数过500！ \n\nTodo:任务列表信息同步至云端功能,麻麻再也不用担心我换手机啦\n",
     "type": "text",
     "placeholders": {}
   }
