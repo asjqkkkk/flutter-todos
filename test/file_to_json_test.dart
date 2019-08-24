@@ -34,22 +34,22 @@ void main() {
 
   test("测试icondata转换", (){
     final list = IconUtil.getInstance().icons;
-    print("icons:\n${list.toString()}");
+//    print("icons:\n${list.toString()}");
 
 
     List<Map<String, dynamic>> jsons = List.generate(list.length, (index){
       return toMap(list[index], IconUtil.getInstance().iconNames[index]);
     });
-    print("数据:\n${jsons}");
+//    print("数据:\n${jsons}");
   });
 
 
   test("本地json转换测试", (){
-    final data = IconBean.loadAsset();
-    print("data:${data}");
-    data.then((list){
-      print("list:${list}");
-    });
+//    final data = IconBean.loadAsset();
+//    print("data:${data}");
+//    data.then((list){
+//      print("list:${list}");
+//    });
   });
 
 }
