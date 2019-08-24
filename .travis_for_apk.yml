@@ -1,0 +1,65 @@
+os: linux
+
+language: android
+
+licenses:
+- android-sdk-preview-license-.+
+- android-sdk-license-.+
+- google-gdk-license-.+
+
+android:
+  components:
+  - tools
+  - platform-tools
+  - build-tools-28.0.3
+  - android-28
+  - android-27
+
+jdk: oraclejdk8
+
+sudo: false
+
+addons:
+  apt:
+    # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - libstdc++6
+    - fonts-droid
+
+cache:
+  directories:
+  - "$HOME/.pub-cache"
+
+env:
+- BUILD_TIME=$(date +'%Y%m%d%H%M%S') APK_PATH="${TRAVIS_TAG}_${BUILD_TIME}_todo.apk"
+
+install:
+- git clone https://github.com/flutter/flutter.git -b stable --depth 1
+- export PATH=./flutter/bin:$PATH
+- flutter doctor
+- flutter --version
+
+script:
+- mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
+- flutter packages get
+- flutter test
+#- "echo Build time: $BUILD_TIME"
+#- "echo Apk name: $APK_PATH"
+#- flutter build apk --target-platform android-arm --split-per-abi
+#- mv build/app/outputs/apk/release/app-armeabi-v7a-release.apk $APK_PATH
+
+#before_deploy:
+#
+#
+#deploy:
+#  provider: releases
+#  api_key:
+#    secure: iBQdQZC/4tOmRvq7nL4ZQHs30HZsuws5NT5soq5MUfkqsWd0pqNF+0gPG4xe1rTOwfQ8aaDAgSRL6f1ZrmE/oX5DGbBRBaewJwuJcGUTMhX8fR621UP7Jed9d/08OOeiGzkd+ub8HAu19herEIZ5ofLZu+1mWZZWAooMIMkM1p8E2pVbvDkEKMRKva1U4ytffoDv+WMCO8kOVWWbfB9ko4mxegFULx/izEkAbNA+yMq95BVtIoWo/RH13fZgsJTSA8k3HaJnYwOot+LssMtbmHDZjmX3YkRygLlBNh0BpmgpoRL6BmxVf1uCBryW4MD/dzQZuQmQ1IrJ8N92Rx7YCccquxAAYih+LpnGzZXYmDjvMz5Pyz1i1u0v5o+auPAsGL2C/fS+t8lBuc9abZpkfkGGaS5mlBT6IPT4bYylFAYqRZX045Z1MlzL1mECdhocB7mewWMZ2QSor4bF11X5b+8D/OUOhmSkW82O7AKx1s1VBxlKmPPOPy5RAH3hYLTChsyOHdfgmCDZ2amCM67W73vrXW3BeKPJ0Hf2auQOQzPrDYyrL9CH5Cr2ab21uAt9U7izH3s9frvtDGPRetUsDEeZGgR7GvAVSDLMm5s79bHSWzatTHnA8qHMv7AOjPGtkOhUCy7jcwokQEdwYiOGlvD6KcNhQkVkO9Q3fAHctWk
+#  file: $APK_PATH
+#  skip_cleanup: true
+#  on:
+#    repo: asjqkkkk/flutter-todos
+#    branch: travis_test
+#    tags: true
