@@ -89,6 +89,7 @@ class TaskDetailPage extends StatelessWidget {
                         ? NotificationListener<OverscrollIndicatorNotification>(
                             onNotification: (overScroll) {
                               overScroll.disallowGlow();
+                              return true;
                             },
                             child: ListView(
                               children: List.generate(

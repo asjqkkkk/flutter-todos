@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-22T20:33:13.713986",
+  "@@last_modified": "2019-08-25T10:33:46.045551",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -917,6 +917,24 @@
   "endBeforeStart": "The end date need be bigger than the start date.",
   "@endBeforeStart": {
     "description": "结束日期要比开始日期大才行哦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "notSynced": "Not synced ",
+  "@notSynced": {
+    "description": "未同步 ",
+    "type": "text",
+    "placeholders": {}
+  },
+  "clickToSyn": "Click to sync",
+  "@clickToSyn": {
+    "description": "点击同步",
+    "type": "text",
+    "placeholders": {}
+  },
+  "synchronizing": "Synchronizing...",
+  "@synchronizing": {
+    "description": "同步中...",
     "type": "text",
     "placeholders": {}
   },

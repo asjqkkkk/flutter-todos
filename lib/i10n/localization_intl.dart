@@ -320,6 +320,9 @@ class DemoLocalizations {
   String get repeat => Intl.message('repeat', name: 'repeat', desc: '重复',);
   String get startAfterEnd => Intl.message('The start date need be smaller than the end date.', name: 'startAfterEnd', desc: '开始日期要比结束日期小才行哦',);
   String get endBeforeStart => Intl.message('The end date need be bigger than the start date.', name: 'endBeforeStart', desc: '结束日期要比开始日期大才行哦',);
+  String get notSynced => Intl.message('Not synced ', name: 'notSynced', desc: '未同步 ',);
+  String get clickToSyn => Intl.message('Click to sync', name: 'clickToSyn', desc: '点击同步',);
+  String get synchronizing => Intl.message('Synchronizing...', name: 'synchronizing', desc: '同步中...',);
 
 
   String taskItems(int taskNumbers){

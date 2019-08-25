@@ -84,7 +84,20 @@ class TaskInfoWidget extends StatelessWidget {
           height: space,
         ),
         Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            needUpdateToCloud(taskBean) ? Hero(
+              tag: "task_syn${index}",
+              child: Material(
+                color: Colors.transparent,
+                child: Text(
+                  "(${DemoLocalizations.of(context).notSynced})",
+                  style: TextStyle(
+                      fontSize: 12,),
+                ),
+              ),
+            ) : Container(),
             Container(
               child: Row(
                 children: <Widget>[
@@ -262,5 +275,22 @@ class TaskInfoWidget extends StatelessWidget {
         ),
       ],
     );
+  }
+
+
+  ///是否需要在云端更新
+  bool needUpdateToCloud(TaskBean taskBean){
+    final uniqueId = taskBean.uniqueId;
+    final account = taskBean.account;
+    if(account == 'default') return false;
+    if(uniqueId == null){
+      taskBean.needUpdateToCloud = 'true';
+      return true;
+    }
+    if(taskBean.needUpdateToCloud == null){
+      taskBean.needUpdateToCloud = 'true';
+      return true;
+    }
+    return taskBean.needUpdateToCloud == 'true';
   }
 }

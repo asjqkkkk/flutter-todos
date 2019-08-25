@@ -24,7 +24,7 @@ class DBProvider {
     String path = join(dataBasePath, "todo.db");
     return await openDatabase(
       path,
-      version: 2,
+      version: 3,
       onOpen: (db) {},
       onCreate: (Database db, int version) async {
         print("当前版本:${version}");
@@ -35,6 +35,8 @@ class DBProvider {
             "taskType TEXT,"
             "taskStatus INTEGER,"
             "taskDetailNum INTEGER,"
+            "uniqueId TEXT,"
+            "needUpdateToCloud TEXT,"
             "overallProgress TEXT,"
             "changeTimes INTEGER,"
             "createDate TEXT,"
@@ -48,8 +50,12 @@ class DBProvider {
       onUpgrade: (Database db, int oldVersion, int newVersion) async{
         print("新版本:${newVersion}");
         print("旧版本:${oldVersion}");
-        if(oldVersion <= 2){
+        if(oldVersion < 2){
          await db.execute("ALTER TABLE TodoList ADD COLUMN changeTimes INTEGER DEFAULT 0");
+        }
+        if(oldVersion < 3){
+          await db.execute("ALTER TABLE TodoList ADD COLUMN uniqueId TEXT");
+          await db.execute("ALTER TABLE TodoList ADD COLUMN needUpdateToCloud TEXT");
         }
       },
     );

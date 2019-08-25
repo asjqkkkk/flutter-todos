@@ -896,6 +896,24 @@
     "type": "text",
     "placeholders": {}
   },
+  "notSynced": "未同步 ",
+  "@notSynced": {
+    "description": "未同步 ",
+    "type": "text",
+    "placeholders": {}
+  },
+  "clickToSyn": "点击同步",
+  "@clickToSyn": {
+    "description": "点击同步",
+    "type": "text",
+    "placeholders": {}
+  },
+  "synchronizing": "同步中...",
+  "@synchronizing": {
+    "description": "同步中...",
+    "type": "text",
+    "placeholders": {}
+  },
   "welcomeWord": "你好呀! ",
   "@welcomeWord": {
     "description": "主页的欢迎词",

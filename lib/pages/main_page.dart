@@ -7,7 +7,9 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
+import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:todo_list/widgets/menu_icon.dart';
+import 'package:todo_list/widgets/synchronize_widget.dart';
 import 'all_page.dart';
 
 class MainPage extends StatelessWidget {
@@ -60,19 +62,36 @@ class MainPage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.fromLTRB(62, 8, 50, 0),
-                  child: InkWell(
-                    onTap: model.logic.onAvatarTap,
-                    child: Hero(
-                      tag: 'avatar',
-                      child: Container(
-                        width: 60,
-                        height: 60,
-                        child: ClipRRect(
-                          child: model.logic.getAvatarWidget(),
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          alignment: Alignment.centerLeft,
+                          child: InkWell(
+                            onTap: model.logic.onAvatarTap,
+                            child: Hero(
+                              tag: 'avatar',
+                              child: Container(
+                                width: 60,
+                                height: 60,
+                                child: ClipRRect(
+                                  child: model.logic.getAvatarWidget(),
+                                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          alignment: Alignment.centerRight,
+                          child: SynchronizeWidget(),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(

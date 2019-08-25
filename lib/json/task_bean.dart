@@ -12,6 +12,12 @@ class TaskBean {
   int taskDetailNum = 0;
   double overallProgress;
 
+  ///存放在云端后拿到的云数据库Id,若[cloudId]为空，表示尚未上传到云端
+  String uniqueId;
+
+  ///是否需要在云端更新,true or false
+  String needUpdateToCloud;
+
   //任务修改次数
   int changeTimes;
 
@@ -37,6 +43,8 @@ class TaskBean {
       this.taskStatus = TaskStatus.todo,
       this.taskDetailNum,
       this.overallProgress = 0.0,
+      this.uniqueId,
+      this.needUpdateToCloud = 'true',
       this.changeTimes = 0,
       this.createDate = "",
       this.finishDate = "",
@@ -54,6 +62,8 @@ class TaskBean {
     taskBean.taskDetailNum = map['taskDetailNum'];
     taskBean.taskStatus = map['taskStatus'];
     taskBean.account = map['account'];
+    taskBean.uniqueId = map['uniqueId'];
+    taskBean.needUpdateToCloud = map['needUpdateToCloud'];
     taskBean.changeTimes = map['changeTimes'] ?? 0;
     taskBean.overallProgress = double.parse(map['overallProgress']);
     taskBean.createDate = map['createDate'];
@@ -92,6 +102,8 @@ class TaskBean {
       'overallProgress': (overallProgress >= 1.0 ? 1.0 : overallProgress).toString(),
       'createDate': createDate,
       'account': account,
+      'uniqueId': uniqueId,
+      'needUpdateToCloud': needUpdateToCloud,
       'changeTimes': changeTimes ?? 0,
       'finishDate': finishDate,
       'startDate': startDate,
@@ -104,11 +116,11 @@ class TaskBean {
     //把list转换为string的时候不要直接使用tostring，要用jsonEncode
   }
 
-
   @override
   String toString() {
-    return 'TaskBean{id: $id, taskName: $taskName, taskType: $taskType, account: $account, taskStatus: $taskStatus, taskDetailNum: $taskDetailNum, overallProgress: $overallProgress, createDate: $createDate, finishDate: $finishDate, startDate: $startDate, deadLine: $deadLine, taskIconBean: $taskIconBean, detailList: $detailList}';
+    return 'TaskBean{id: $id, taskName: $taskName, taskType: $taskType, account: $account, taskStatus: $taskStatus, taskDetailNum: $taskDetailNum, overallProgress: $overallProgress, uniqueId: $uniqueId, needUpdateToCloud: $needUpdateToCloud, changeTimes: $changeTimes, createDate: $createDate, finishDate: $finishDate, startDate: $startDate, deadLine: $deadLine, taskIconBean: $taskIconBean, detailList: $detailList}';
   }
+
 
 }
 
