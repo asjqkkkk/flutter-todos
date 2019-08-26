@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-25T10:33:46.045551",
+  "@@last_modified": "2019-08-26T16:23:12.738549",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -935,6 +935,18 @@
   "synchronizing": "Synchronizing...",
   "@synchronizing": {
     "description": "同步中...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cloudSynchronizing": "Synchronizing from server...",
+  "@cloudSynchronizing": {
+    "description": "获取云端数据...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "synchronizeFailed": "Synchronize failed",
+  "@synchronizeFailed": {
+    "description": "同步失败",
     "type": "text",
     "placeholders": {}
   },

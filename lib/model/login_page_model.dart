@@ -40,7 +40,7 @@ class LoginPageModel extends ChangeNotifier{
     passwordController.dispose();
     cancelToken?.cancel();
     super.dispose();
-    debugPrint("RegisterPageModel销毁了");
+    debugPrint("LoginPageModel销毁了");
   }
 
   void refresh(){

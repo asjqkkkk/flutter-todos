@@ -51,7 +51,6 @@ class DoneTaskPageLogic {
     Duration diff = timeEnd.difference(timeStart);
     final context = _model.context;
 
-    debugPrint("差别:${timeStart}   end:${timeEnd}");
 
     return diff.inDays == 0
         ? "${DemoLocalizations.of(context).hours(diff.inHours.abs())}"

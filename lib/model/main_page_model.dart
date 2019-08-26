@@ -40,6 +40,8 @@ class MainPageModel extends ChangeNotifier {
   CancelToken cancelToken = CancelToken();
 
 
+  ///用于在mainPage销毁后将GlobalModel中的mainPageModel销毁
+  GlobalModel _globalModel;
 
   MainPageModel() {
     logic = MainPageLogic(this);
@@ -49,6 +51,7 @@ class MainPageModel extends ChangeNotifier {
     if (this.context == null) {
       this.context = context;
       logic.checkUpdate(globalModel);
+      this._globalModel = globalModel;
       logic.getAvatarType().then((value) {
         Future.wait(
           [
@@ -67,7 +70,8 @@ class MainPageModel extends ChangeNotifier {
   void dispose() {
     super.dispose();
     scaffoldKey?.currentState?.dispose();
-    cancelToken?.cancel();
+    if(!cancelToken.isCancelled) cancelToken.cancel();
+    _globalModel.mainPageModel = null;
     debugPrint("MainPageModel销毁了");
   }
 

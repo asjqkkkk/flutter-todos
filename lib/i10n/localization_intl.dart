@@ -323,6 +323,8 @@ class DemoLocalizations {
   String get notSynced => Intl.message('Not synced ', name: 'notSynced', desc: '未同步 ',);
   String get clickToSyn => Intl.message('Click to sync', name: 'clickToSyn', desc: '点击同步',);
   String get synchronizing => Intl.message('Synchronizing...', name: 'synchronizing', desc: '同步中...',);
+  String get cloudSynchronizing => Intl.message('Synchronizing from server...', name: 'cloudSynchronizing', desc: '获取云端数据...',);
+  String get synchronizeFailed => Intl.message('Synchronize failed', name: 'synchronizeFailed', desc: '同步失败',);
 
 
   String taskItems(int taskNumbers){

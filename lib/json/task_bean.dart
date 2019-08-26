@@ -63,8 +63,38 @@ class TaskBean {
     taskBean.taskStatus = map['taskStatus'];
     taskBean.account = map['account'];
     taskBean.uniqueId = map['uniqueId'];
-    taskBean.needUpdateToCloud = map['needUpdateToCloud'];
+    taskBean.needUpdateToCloud = map['needUpdateToCloud'] ?? 'false';
     taskBean.changeTimes = map['changeTimes'] ?? 0;
+    taskBean.overallProgress = double.parse(map['overallProgress']);
+    taskBean.createDate = map['createDate'];
+    taskBean.finishDate = map['finishDate'];
+    taskBean.startDate = map['startDate'];
+    taskBean.deadLine = map['deadLine'];
+    if(map['taskIconBean'] is String){
+      var taskIconBean = jsonDecode(map['taskIconBean']);
+      taskBean.taskIconBean = TaskIconBean.fromMap(taskIconBean);
+    } else {
+      taskBean.taskIconBean = TaskIconBean.fromMap(map['taskIconBean']);
+    }
+    if (map['detailList'] is String) {
+      var detailList = jsonDecode(map['detailList']);
+      taskBean.detailList = TaskDetailBean.fromMapList(detailList);
+    } else {
+      taskBean.detailList = TaskDetailBean.fromMapList(map['detailList']);
+    }
+    return taskBean;
+  }
+
+  static TaskBean fromNetMap(Map<String, dynamic> map) {
+    TaskBean taskBean = new TaskBean();
+    taskBean.taskName = map['taskName'];
+    taskBean.taskType = map['taskType'];
+    taskBean.taskDetailNum = int.parse(map['taskDetailNum'] ?? '0');
+    taskBean.taskStatus = int.parse(map['taskStatus'] ?? '0');
+    taskBean.account = map['account'];
+    taskBean.uniqueId = map['uniqueId'];
+    taskBean.needUpdateToCloud = map['needUpdateToCloud'] ?? 'false';
+    taskBean.changeTimes = int.parse(map['changeTimes'] ?? '0');
     taskBean.overallProgress = double.parse(map['overallProgress']);
     taskBean.createDate = map['createDate'];
     taskBean.finishDate = map['finishDate'];
@@ -89,6 +119,14 @@ class TaskBean {
     List<TaskBean> list = new List(mapList.length);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
+    }
+    return list;
+  }
+
+  static List<TaskBean> fromNetMapList(dynamic mapList) {
+    List<TaskBean> list = new List(mapList.length);
+    for (int i = 0; i < mapList.length; i++) {
+      list[i] = fromNetMap(mapList[i]);
     }
     return list;
   }
@@ -121,6 +159,22 @@ class TaskBean {
     return 'TaskBean{id: $id, taskName: $taskName, taskType: $taskType, account: $account, taskStatus: $taskStatus, taskDetailNum: $taskDetailNum, overallProgress: $overallProgress, uniqueId: $uniqueId, needUpdateToCloud: $needUpdateToCloud, changeTimes: $changeTimes, createDate: $createDate, finishDate: $finishDate, startDate: $startDate, deadLine: $deadLine, taskIconBean: $taskIconBean, detailList: $detailList}';
   }
 
+  ///是否需要在云端更新
+  bool getNeedUpdateToCloud(TaskBean taskBean){
+    final uniqueId = taskBean.uniqueId;
+    final account = taskBean.account;
+    if(account == 'default') return false;
+    if(uniqueId == null){
+      taskBean.needUpdateToCloud = 'true';
+      return true;
+    }
+    if(taskBean.needUpdateToCloud == null){
+      taskBean.needUpdateToCloud = 'true';
+      return true;
+    }
+    return taskBean.needUpdateToCloud == 'true';
+  }
+
 
 }
 
@@ -134,7 +188,7 @@ class TaskDetailBean {
   static TaskDetailBean fromMap(Map<String, dynamic> map) {
     TaskDetailBean taskDetailBean = new TaskDetailBean();
     taskDetailBean.taskDetailName = map['taskDetailName'];
-    taskDetailBean.itemProgress = double.parse(map['itemProgress']);
+    taskDetailBean.itemProgress = map['itemProgress'] is double ? map['itemProgress'] : double.parse(map['itemProgress']);
     return taskDetailBean;
   }
 

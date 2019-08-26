@@ -5,3 +5,5 @@ export 'weather_bean.dart';
 export 'login_bean.dart';
 export 'upload_avatar_bean.dart';
 export 'register_bean.dart';
+export 'upload_task_bean.dart';
+export 'cloud_task_bean.dart';

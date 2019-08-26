@@ -88,7 +88,7 @@ class MainPage extends StatelessWidget {
                         flex: 1,
                         child: Container(
                           alignment: Alignment.centerRight,
-                          child: SynchronizeWidget(),
+                          child: SynchronizeWidget(mainPageModel: model,),
                         ),
                       ),
                     ],

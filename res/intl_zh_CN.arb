@@ -914,6 +914,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "cloudSynchronizing": "获取云端数据...",
+  "@cloudSynchronizing": {
+    "description": "获取云端数据...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "synchronizeFailed": "同步失败",
+  "@synchronizeFailed": {
+    "description": "同步失败",
+    "type": "text",
+    "placeholders": {}
+  },
   "welcomeWord": "你好呀! ",
   "@welcomeWord": {
     "description": "主页的欢迎词",

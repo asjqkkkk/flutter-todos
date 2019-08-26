@@ -111,6 +111,7 @@ class DBProvider {
     db.delete("TodoList", where: "id = ?", whereArgs: [id]);
   }
 
+  ///批量更新任务
   Future updateTasks(List<TaskBean> taskBeans) async{
     final db = await database;
     final batch = db.batch();
@@ -120,6 +121,27 @@ class DBProvider {
     }
     final results = await batch.commit();
     print("批量更新结果:${results}");
+  }
+
+  ///批量创建任务
+  Future createTasks(List<TaskBean> taskBeans) async{
+    final db = await database;
+    final batch = db.batch();
+    for (var task in taskBeans) {
+      batch.insert("TodoList", task.toMap());
+    }
+    final results = await batch.commit();
+    print("批量插入结果:${results}");
+  }
+
+  ///根据[uniqueId]查询一项任务
+  Future<List<TaskBean>> getTaskByUniqueId(String uniqueId) async{
+    final db = await database;
+    var tasks = await db.query("TodoList",
+        where: "uniqueId = ?" ,
+        whereArgs: [uniqueId]);
+    if(tasks.isEmpty) return null;
+    return TaskBean.fromMapList(tasks);
   }
 
 
@@ -161,37 +183,5 @@ class DBProvider {
     return beans;
   }
 
-//
-//  Future getDiary(int id) async {
-//    final db = await database;
-//    var res = await db.query("Diary", where: "id = ?", whereArgs: [id]);
-//    return res.isNotEmpty ? Diary.fromMap(res.first) : null;
-//  }
-//
-//  Future<List<Diary>> getAllDiary(String account) async {
-//    final db = await database;
-//    var res = await db.query("Diary", where: "account = ?", whereArgs: [account]);
-//    List<Diary> list =
-//    res.isNotEmpty ? res.map((c) => Diary.fromMap(c)).toList() : [];
-//    return list;
-//  }
-//
-//  Future<List<Diary>> searchDiary(String search, String account) async{
-//    final db = await database;
-//    var res = await db.rawQuery("SELECT * FROM Diary WHERE account = ? AND (diary_content LIKE ? OR location LIKE ? OR weather LIKE ? OR diary_title LIKE ?)",
-//        [account, "%$search%","%$search%","%$search%","%$search%"]);
-//    List<Diary> list = res.isNotEmpty ? res.map((c) => Diary.fromMap(c)).toList() : [];
-//    return list;
-//  }
-//
-//  Future deleteDiary(int id) async {
-//    final db = await database;
-//    return db.delete("Diary", where: "id = ?", whereArgs: [id]);
-//  }
-//
-//  Future deleteAll() async {
-//    final db = await database;
-//    db.rawDelete("Delete * from Diary");
-//  }
 
 }

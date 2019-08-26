@@ -57,7 +57,7 @@ class IconBean {
 
   static IconBean fromMap(Map<String, dynamic> map) {
     IconBean bean = new IconBean();
-    bean.codePoint = int.parse(map['codePoint']);
+    bean.codePoint = map['codePoint'] is int ? map['codePoint'] : int.parse(map['codePoint']);
     bean.fontFamily = map['fontFamily'];
     bean.fontPackage = map['fontPackage'];
     bean.iconName = map['iconName'];

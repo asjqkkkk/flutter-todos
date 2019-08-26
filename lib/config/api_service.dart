@@ -311,4 +311,47 @@ class ApiService {
       token: token,
     );
   }
+
+  ///上传一个Task
+  void postCreateTask({Map<String, String> params, Function success,
+    Function failed, Function error, CancelToken token}){
+    ApiStrategy.getInstance().post(
+      "oneDayTask/createTask",
+          (data) {
+        UploadTaskBean bean = UploadTaskBean.fromMap(data);
+        if (bean.status == 0) {
+          success(bean);
+        } else {
+          failed(bean);
+        }
+      },
+      params: params,
+      errorCallBack: (errorMessage) {
+        error("上传出错：${errorMessage}");
+
+      },
+      token: token,
+    );
+  }
+
+  ///获取所有task
+  void getTasks({Map<String, String> params, Function success,
+    Function failed, Function error, CancelToken token}){
+    ApiStrategy.getInstance().post(
+      "oneDayTask/getTasks",
+          (data) {
+            CloudTaskBean bean = CloudTaskBean.fromMap(data);
+        if (bean.status == 0) {
+          success(bean);
+        } else {
+          failed(bean);
+        }
+      },
+      params: params,
+      errorCallBack: (errorMessage) {
+        error("获取出错：${errorMessage}");
+      },
+      token: token,
+    );
+  }
 }

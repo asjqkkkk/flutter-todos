@@ -13,10 +13,10 @@ class ColorBean {
 
   static ColorBean fromMap(Map<String, dynamic> map) {
     ColorBean bean = new ColorBean();
-    bean.red = int.parse(map['red']);
-    bean.green = int.parse(map['green']);
-    bean.blue = int.parse(map['blue']);
-    bean.opacity = double.parse(map['opacity']);
+    bean.red = map['red'] is int ? map['red'] : int.parse(map['red']);
+    bean.green =map['green'] is int ? map['green'] : int.parse(map['green']);
+    bean.blue = map['blue'] is int ? map['blue'] : int.parse(map['blue']);
+    bean.opacity = map['opacity'] is double ? map['opacity'] :double.parse(map['opacity']);
     return bean;
   }
 
