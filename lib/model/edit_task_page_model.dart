@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
@@ -15,6 +16,8 @@ class EditTaskPageModel extends ChangeNotifier{
 
   MainPageModel mainPageModel;
   TaskDetailPageModel taskDetailPageModel;
+
+  CancelToken cancelToken = CancelToken();
 
 
   //任务清单
@@ -56,6 +59,7 @@ class EditTaskPageModel extends ChangeNotifier{
     textEditingController?.removeListener(logic.editListener);
     textEditingController?.dispose();
     scrollController?.dispose();
+    if(!cancelToken.isCancelled) cancelToken.cancel();
     debugPrint("EditTaskPageModel销毁了");
   }
 

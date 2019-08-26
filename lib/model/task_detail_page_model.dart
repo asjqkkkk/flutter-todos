@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/model/done_task_page_model.dart';
@@ -25,6 +26,8 @@ class TaskDetailPageModel extends ChangeNotifier {
   //这个定时器是为了配合hero动画定时的
   Timer timer;
   TaskBean taskBean;
+
+  CancelToken cancelToken = CancelToken();
 
 
   //这个progress用于判断进度是否改变，当被改变后退出的时候就更新数据库
@@ -74,6 +77,7 @@ class TaskDetailPageModel extends ChangeNotifier {
   @override
   void dispose() {
     timer?.cancel();
+    if(!cancelToken.isCancelled) cancelToken.cancel();
     debugPrint("TaskDetailPageModel销毁了");
     super.dispose();
   }

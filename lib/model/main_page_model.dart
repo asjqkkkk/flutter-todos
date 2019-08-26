@@ -37,6 +37,9 @@ class MainPageModel extends ChangeNotifier {
   ///当前位置信息
   String currentPosition = "";
 
+  ///是否需要与云端同步信息
+  bool needSyn = true;
+
   CancelToken cancelToken = CancelToken();
 
 

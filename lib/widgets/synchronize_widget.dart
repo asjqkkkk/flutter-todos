@@ -76,7 +76,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
       case SynFlag.hasNotSynced:
         return Container(
           width: 60,
-          height: 60,
+          height: 80,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,7 +99,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
       case SynFlag.synchronizing:
         return Container(
           width: 60,
-          height: 60,
+          height: 80,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -120,7 +120,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
       case SynFlag.cloudSynchronizing:
         return Container(
           width: 60,
-          height: 60,
+          height: 80,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -140,7 +140,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
       case SynFlag.failSynced:
         return Container(
           width: 60,
-          height: 60,
+          height: 80,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -160,7 +160,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         );
         break;
       case SynFlag.noNeedSynced:
-        return Container(width: 60,height: 60,);
+        return Container(width: 60,height: 80,);
         break;
       default:
     }
@@ -171,23 +171,6 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
   void uploadTask(TaskBean taskBean, String token) async{
     if(synFlag == SynFlag.failSynced) return;
     ApiService.instance.postCreateTask(
-      params: {
-        'taskName':taskBean.taskName,
-        'taskType':taskBean.taskType,
-        'account':taskBean.account,
-        'taskStatus':'${taskBean.taskStatus}',
-        'taskDetailNum':'${taskBean.taskDetailNum}',
-        'overallProgress':'${taskBean.overallProgress}',
-        'changeTimes':'${taskBean.changeTimes}',
-        'finishDate':taskBean.finishDate,
-        'startDate':taskBean.startDate,
-        'deadLine':taskBean.deadLine,
-        'taskIconBean':jsonEncode(taskBean.taskIconBean.toMap()),
-        'detailList':jsonEncode(List.generate(taskBean.detailList.length, (index) {
-          return taskBean.detailList[index].toMap();
-        })),
-        'token':token,
-      },
       success: (UploadTaskBean bean){
         syncedList.add(bean.uniqueId);
         taskBean.uniqueId = bean.uniqueId;
@@ -200,19 +183,15 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
               ///将本地数据同步至云端后，从云端获取数据同步到本地(场景:手机A和手机B都在使用app)
               getCloudTasks(account, token);
             });
-
           });
         }
-        setState(() {
-        });
-
+        setState(() {});
       },
       failed: (UploadTaskBean bean){
         print("失败：${bean.toString()}");
         setState(() {
           synFlag = SynFlag.failSynced;
         });
-
       },
       error: (msg){
         print("错误：${msg}");
@@ -220,7 +199,8 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
           synFlag = SynFlag.failSynced;
         });
       },
-      token: cancelToken,
+      token: token,
+      cancelToken: cancelToken,
     );
   }
 
@@ -288,6 +268,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         await DBProvider.db.updateTasks(needUpdateTasks);
         await DBProvider.db.createTasks(needCreateTasks);
         widget.mainPageModel.logic.getTasks().then((v){
+          widget.mainPageModel.needSyn = false;
           widget.mainPageModel.refresh();
         });
         setState(() {

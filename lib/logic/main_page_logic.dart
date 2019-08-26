@@ -386,5 +386,60 @@ class MainPageLogic {
     );
   }
 
+  ///在云端更新一个任务
+  void postUpdateTask(TaskBean taskBean) async{
+    final account = await SharedUtil.instance.getString(Keys.account);
+    if(account == 'default') return;
+    final token = await SharedUtil.instance.getString(Keys.token);
+    ApiService.instance.postUpdateTask(
+      success: (CommonBean bean){
+        taskBean.needUpdateToCloud = 'false';
+        DBProvider.db.updateTask(taskBean);
+      },
+      failed: (CommonBean bean){
+        taskBean.needUpdateToCloud = 'true';
+        _model.needSyn = true;
+        _model.refresh();
+        DBProvider.db.updateTask(taskBean);
+      },
+      error: (msg){
+        taskBean.needUpdateToCloud = 'true';
+        _model.refresh();
+        DBProvider.db.updateTask(taskBean);
+      },
+      taskBean: taskBean,
+      token: token,
+      cancelToken: _model.cancelToken,
+    );
+  }
+
+  ///在云端创建一个任务
+  void postCreateTask(TaskBean taskBean) async{
+    showDialog(context: _model.context, builder: (ctx){
+      return NetLoadingWidget();
+    });
+    final token = await SharedUtil.instance.getString(Keys.token);
+    ApiService.instance.postCreateTask(
+      success: (UploadTaskBean bean){
+        taskBean.needUpdateToCloud = 'false';
+        DBProvider.db.updateTask(taskBean);
+      },
+      failed: (UploadTaskBean bean){
+        taskBean.needUpdateToCloud = 'true';
+        _model.needSyn = true;
+        _model.refresh();
+        DBProvider.db.updateTask(taskBean);
+      },
+      error: (msg){
+        taskBean.needUpdateToCloud = 'true';
+        _model.needSyn = true;
+        _model.refresh();
+        DBProvider.db.updateTask(taskBean);
+      },
+      taskBean: taskBean,
+      token: token,
+      cancelToken: _model.cancelToken,
+    );
+  }
 
 }

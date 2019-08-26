@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:todo_list/json/all_beans.dart';
+import 'package:todo_list/json/task_bean.dart';
 export 'package:todo_list/json/all_beans.dart';
 
 import 'api_strategy.dart';
@@ -313,8 +316,8 @@ class ApiService {
   }
 
   ///上传一个Task
-  void postCreateTask({Map<String, String> params, Function success,
-    Function failed, Function error, CancelToken token}){
+  void postCreateTask({String token, Function success,
+    Function failed, Function error, CancelToken cancelToken, TaskBean taskBean}){
     ApiStrategy.getInstance().post(
       "oneDayTask/createTask",
           (data) {
@@ -325,12 +328,28 @@ class ApiService {
           failed(bean);
         }
       },
-      params: params,
+      params: {
+        'taskName':taskBean.taskName,
+        'taskType':taskBean.taskType,
+        'account':taskBean.account,
+        'taskStatus':'${taskBean.taskStatus}',
+        'taskDetailNum':'${taskBean.taskDetailNum}',
+        'overallProgress':'${taskBean.overallProgress}',
+        'changeTimes':'${taskBean.changeTimes}',
+        'finishDate':taskBean.finishDate,
+        'startDate':taskBean.startDate,
+        'deadLine':taskBean.deadLine,
+        'taskIconBean':jsonEncode(taskBean.taskIconBean.toMap()),
+        'detailList':jsonEncode(List.generate(taskBean.detailList.length, (index) {
+          return taskBean.detailList[index].toMap();
+        })),
+        'token':token,
+      },
       errorCallBack: (errorMessage) {
         error("上传出错：${errorMessage}");
 
       },
-      token: token,
+      token: cancelToken,
     );
   }
 
@@ -351,6 +370,49 @@ class ApiService {
       errorCallBack: (errorMessage) {
         error("获取出错：${errorMessage}");
       },
+      token: token,
+    );
+  }
+
+  ///更新一个task
+  void postUpdateTask({String token, Function success,
+    Function failed, Function error, CancelToken cancelToken, TaskBean taskBean}){
+    postCommon(
+      params: {
+        'taskName':taskBean.taskName,
+        'taskType':taskBean.taskType,
+        'account':taskBean.account,
+        'taskStatus':'${taskBean.taskStatus}',
+        'taskDetailNum':'${taskBean.taskDetailNum}',
+        'overallProgress':'${taskBean.overallProgress}',
+        'changeTimes':'${taskBean.changeTimes}',
+        'finishDate':taskBean.finishDate,
+        'startDate':taskBean.startDate,
+        'uniqueId':taskBean.uniqueId,
+        'deadLine':taskBean.deadLine,
+        'taskIconBean':jsonEncode(taskBean.taskIconBean.toMap()),
+        'detailList':jsonEncode(List.generate(taskBean.detailList.length, (index) {
+          return taskBean.detailList[index].toMap();
+        })),
+        'token':token,
+      },
+      success: success,
+      failed: failed,
+      error: error,
+      url: "oneDayTask/updateTask",
+      token: cancelToken,
+    );
+  }
+
+  ///删除一个task
+  void postDeleteTask({Map<String, String> params, Function success,
+    Function failed, Function error, CancelToken token}){
+    postCommon(
+      params: params,
+      success: success,
+      failed: failed,
+      error: error,
+      url: "oneDayTask/deleteTask",
       token: token,
     );
   }

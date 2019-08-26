@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
@@ -9,6 +10,7 @@ import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
+import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class EditTaskPageLogic {
   final EditTaskPageModel _model;
@@ -218,12 +220,31 @@ class EditTaskPageLogic {
           });
       return;
     }
-
     TaskBean taskBean = await transformDataToBean();
+    if(taskBean.account == 'default'){
+      await exitWithSubmitNewTask(taskBean);
+    } else {
+      postCreateTask(taskBean);
+    }
+  }
+
+  Future exitWithSubmitNewTask(TaskBean taskBean,{bool needCancelDialog = false}) async {
     await DBProvider.db.createTask(taskBean);
     await _model.mainPageModel.logic.getTasks();
-    _model.refresh();
+    _model.mainPageModel.refresh();
     Navigator.of(_model.context).pop();
+    if(needCancelDialog) Navigator.of(_model.context).pop();
+  }
+
+  Future exitWhenSubmitOldTask(TaskBean taskBean) async {
+    DBProvider.db.updateTask(taskBean);
+    await _model.mainPageModel.logic.getTasks();
+    _model.mainPageModel.refresh();
+    if (_model.taskDetailPageModel != null) {
+      _model.taskDetailPageModel.isExiting = true;
+      _model.taskDetailPageModel.refresh();
+    }
+    Navigator.of(_model.context).popUntil((route) => route.isFirst);
   }
 
   //修改旧的任务
@@ -244,15 +265,66 @@ class EditTaskPageLogic {
     TaskBean taskBean = await transformDataToBean(
         id: _model.oldTaskBean.id, overallProgress: _getOverallProgress());
     taskBean.changeTimes++;
-    DBProvider.db.updateTask(taskBean);
-    await _model.mainPageModel.logic.getTasks();
-    _model.mainPageModel.refresh();
-    if (_model.taskDetailPageModel != null) {
-      _model.taskDetailPageModel.isExiting = true;
-      _model.taskDetailPageModel.refresh();
-      debugPrint("刷新");
+    if(taskBean.account == 'default'){
+      await exitWhenSubmitOldTask(taskBean);
+    } else {
+      taskBean.uniqueId == null ? postCreateTask(taskBean, isSubmitOldTask: true) : postUpdateTask(taskBean);
     }
-    Navigator.of(_model.context).popUntil((route) => route.isFirst);
+  }
+
+  ///在云端创建一个任务
+  void postCreateTask(TaskBean taskBean,{bool isSubmitOldTask = false}) async{
+    showDialog(context: _model.context, builder: (ctx){
+      return NetLoadingWidget();
+    });
+    final token = await SharedUtil.instance.getString(Keys.token);
+    ApiService.instance.postCreateTask(
+      success: (UploadTaskBean bean){
+        taskBean.uniqueId = bean.uniqueId;
+        taskBean.needUpdateToCloud = 'false';
+        isSubmitOldTask ? exitWhenSubmitOldTask(taskBean) : exitWithSubmitNewTask(taskBean, needCancelDialog: true);
+      },
+      failed: (UploadTaskBean bean){
+        taskBean.needUpdateToCloud = 'true';
+        _model.mainPageModel.needSyn = true;
+        isSubmitOldTask ? exitWhenSubmitOldTask(taskBean) : exitWithSubmitNewTask(taskBean, needCancelDialog: true);
+      },
+      error: (msg){
+        taskBean.needUpdateToCloud = 'true';
+        _model.mainPageModel.needSyn = true;
+        isSubmitOldTask ? exitWhenSubmitOldTask(taskBean) : exitWithSubmitNewTask(taskBean, needCancelDialog: true);
+      },
+      taskBean: taskBean,
+      token: token,
+      cancelToken: _model.cancelToken,
+    );
+  }
+
+  ///在云端更新一个任务
+  void postUpdateTask(TaskBean taskBean, ) async{
+    showDialog(context: _model.context, builder: (ctx){
+      return NetLoadingWidget();
+    });
+    final token = await SharedUtil.instance.getString(Keys.token);
+    ApiService.instance.postUpdateTask(
+      success: (CommonBean bean){
+        taskBean.needUpdateToCloud = 'false';
+        exitWhenSubmitOldTask(taskBean);
+      },
+      failed: (CommonBean bean){
+        taskBean.needUpdateToCloud = 'true';
+        _model.mainPageModel.needSyn = true;
+        exitWhenSubmitOldTask(taskBean);
+      },
+      error: (msg){
+        taskBean.needUpdateToCloud = 'true';
+        _model.mainPageModel.needSyn = true;
+        exitWhenSubmitOldTask(taskBean);
+      },
+      taskBean: taskBean,
+      token: token,
+      cancelToken: _model.cancelToken,
+    );
   }
 
   //获取当前任务总进度

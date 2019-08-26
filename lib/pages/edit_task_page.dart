@@ -6,7 +6,6 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/edit_task_page_model.dart';
 import 'package:todo_list/model/global_model.dart';
-import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
 
 class EditTaskPage extends StatelessWidget {
