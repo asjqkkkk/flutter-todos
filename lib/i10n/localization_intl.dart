@@ -356,6 +356,7 @@ class DemoLocalizations {
   String get loadingError => Intl.message('loading error', name: 'loadingError', desc: '加载出错了',);
   String get loading => Intl.message('loading...', name: 'loading', desc: '加载中...',);
   String get waiting => Intl.message('waiting...', name: 'waiting', desc: '请稍后...',);
+  String get timeOut => Intl.message('timeout error', name: 'timeOut', desc: '超时错误',);
   String get pullUpToLoadMore => Intl.message('pull up load more', name: 'pullUpToLoadMore', desc: '上拉加载更多',);
   String get pullDownToRefresh => Intl.message('pull down to refresh', name: 'pullDownToRefresh', desc: '下拉刷新',);
   String get reLoading => Intl.message('click to reload', name: 'reLoading', desc: '点击重新加载',);

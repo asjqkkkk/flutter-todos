@@ -175,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "taskNum" : MessageLookupByLibrary.simpleMessage("Task Number"),
     "thanksForFeedback" : MessageLookupByLibrary.simpleMessage("Thanks for your feedback"),
     "thePassword" : MessageLookupByLibrary.simpleMessage("password"),
+    "timeOut" : MessageLookupByLibrary.simpleMessage("timeout error"),
     "toFinishTask" : MessageLookupByLibrary.simpleMessage("Try to complete a task!"),
     "travel" : MessageLookupByLibrary.simpleMessage("Travel"),
     "tryToSearch" : MessageLookupByLibrary.simpleMessage("Try searching for the title or content"),

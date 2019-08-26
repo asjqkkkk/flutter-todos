@@ -22,7 +22,9 @@ class UpdateDialog extends StatefulWidget {
     this.version = "1.0.0",
     this.updateInfo = "",
     this.updateUrl = "",
-    this.isForce = false, this.backgroundColor, this.updateInfoColor,
+    this.isForce = false,
+    this.backgroundColor,
+    this.updateInfoColor,
   });
 
   @override
@@ -32,26 +34,21 @@ class UpdateDialog extends StatefulWidget {
 class UpdateDialogState extends State<UpdateDialog> {
   int _downloadProgress = 0;
   CancelToken token;
-  bool isUpdating = false;
+  UploadingFlag uploadingFlag = UploadingFlag.idle;
 
   @override
   Widget build(BuildContext context) {
-    final bgColor = widget.backgroundColor ?? Theme
-        .of(context)
-        .primaryColor;
-    final size = MediaQuery
-        .of(context)
-        .size;
+    final bgColor = widget.backgroundColor ?? Theme.of(context).primaryColor;
+    final size = MediaQuery.of(context).size;
     final isVertical = size.height > size.width;
     final marginLeft = isVertical ? size.width / 8 : size.width / 4;
     final marginTop = isVertical ? size.height / 4 : size.height / 8;
 
-
     return WillPopScope(
       onWillPop: () async => false,
       child: Container(
-        margin: EdgeInsets.fromLTRB(
-            marginLeft, marginTop, marginLeft, marginTop),
+        margin:
+            EdgeInsets.fromLTRB(marginLeft, marginTop, marginLeft, marginTop),
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(10),
@@ -65,10 +62,10 @@ class UpdateDialogState extends State<UpdateDialog> {
                   margin: EdgeInsets.fromLTRB(5, 30, 5, 5),
                   child: Material(
                     child: Text(
-                      DemoLocalizations
-                          .of(context)
-                          .newVersionIsComing,
-                      style: TextStyle(color:widget.updateInfoColor ?? Colors.white, fontSize: 20),
+                      DemoLocalizations.of(context).newVersionIsComing,
+                      style: TextStyle(
+                          color: widget.updateInfoColor ?? Colors.white,
+                          fontSize: 20),
                     ),
                     color: Colors.transparent,
                   )),
@@ -84,23 +81,12 @@ class UpdateDialogState extends State<UpdateDialog> {
                         scrollDirection: Axis.vertical,
                         child: Text(
                           widget.updateInfo ?? "",
-                          style: TextStyle(color: widget.updateInfoColor ?? Colors.white),
+                          style: TextStyle(
+                              color: widget.updateInfoColor ?? Colors.white),
                         ),
                       ),
                     ))),
-            _downloadProgress != 0
-                ? Expanded(
-              child: Container(
-                child: LinearProgressIndicator(
-                  valueColor:
-                  new AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColorLight),
-                  backgroundColor: Colors.grey[300],
-                  value: _downloadProgress / 100,
-                ),
-              ),
-              flex: 1,
-            )
-                : SizedBox(),
+            getLoadingWidget(),
             Expanded(
               flex: 2,
               child: Container(
@@ -109,37 +95,38 @@ class UpdateDialogState extends State<UpdateDialog> {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10)),
-                  color: Colors.white,
+                  color: widget.updateInfoColor ?? Colors.white,
                 ),
                 child: Row(
                   children: <Widget>[
                     !widget.isForce
                         ? Expanded(
-                      flex: 1,
-                      child: FlatButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text(
-                            DemoLocalizations
-                                .of(context)
-                                .cancel,
-                            style: TextStyle(color: Colors.grey, fontSize: 16),
-                          )),
-                    )
+                            flex: 1,
+                            child: FlatButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text(
+                                  DemoLocalizations.of(context).cancel,
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 16),
+                                )),
+                          )
                         : SizedBox(),
                     !widget.isForce
                         ? Container(
-                      width: 1,
-                      color: Colors.grey[100],
-                    )
+                            width: 1,
+                            color: Colors.grey[100],
+                          )
                         : SizedBox(),
                     Expanded(
                       flex: 1,
                       child: FlatButton(
                           onPressed: () async {
-                            if(isUpdating) return;
-                            isUpdating = true;
+                            if (uploadingFlag == UploadingFlag.uploading)
+                              return;
+                            uploadingFlag = UploadingFlag.uploading;
+                            if (mounted) setState(() {});
                             if (Platform.isAndroid) {
                               _androidUpdate();
                             } else if (Platform.isIOS) {
@@ -147,9 +134,7 @@ class UpdateDialogState extends State<UpdateDialog> {
                             }
                           },
                           child: Text(
-                            DemoLocalizations
-                                .of(context)
-                                .update,
+                            DemoLocalizations.of(context).update,
                             style: TextStyle(color: Colors.black, fontSize: 16),
                           )),
                     ),
@@ -165,14 +150,19 @@ class UpdateDialogState extends State<UpdateDialog> {
 
   void _androidUpdate() async {
     final apkPath = await FileUtil.getInstance().getSavePath("/Download/");
-    ApiStrategy
-        .getInstance()
-        .client
-        .download(widget.updateUrl, apkPath + "todo-list.apk",
-        cancelToken: token, onReceiveProgress: (int count, int total) {
+    try {
+      await ApiStrategy.getInstance().client.download(
+          widget.updateUrl, apkPath + "todo-list.apk", cancelToken: token,
+          onReceiveProgress: (int count, int total) {
+        if (mounted) {
           setState(() {
             _downloadProgress = ((count / total) * 100).toInt();
             if (_downloadProgress == 100) {
+              if (mounted) {
+                setState(() {
+                  uploadingFlag = UploadingFlag.uploaded;
+                });
+              }
               debugPrint("读取的目录:${apkPath}");
               try {
                 OpenFile.open(apkPath + "todo-list.apk");
@@ -180,24 +170,101 @@ class UpdateDialogState extends State<UpdateDialog> {
               Navigator.of(context).pop();
             }
           });
+        }
+      });
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          uploadingFlag = UploadingFlag.uploadingFailed;
         });
+      }
+    }
+  }
+
+  Widget getLoadingWidget() {
+    if (_downloadProgress != 0 && uploadingFlag == UploadingFlag.uploading) {
+      return Expanded(
+        child: Container(
+          child: LinearProgressIndicator(
+            valueColor:
+                AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
+            backgroundColor: Colors.grey[300],
+            value: _downloadProgress / 100,
+          ),
+        ),
+        flex: 1,
+      );
+    }
+    if (uploadingFlag == UploadingFlag.uploading && _downloadProgress == 0) {
+      return Container(
+        alignment: Alignment.center,
+        height: 40,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(widget.updateInfoColor ?? Colors.white),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Material(
+              child: Text(
+                DemoLocalizations.of(context).waiting,
+                style: TextStyle(color: widget.updateInfoColor ?? Colors.white),
+              ),
+              color: Colors.transparent,
+            )
+          ],
+        ),
+      );
+    }
+    if (uploadingFlag == UploadingFlag.uploadingFailed) {
+      return Container(
+          alignment: Alignment.center,
+          height: 40,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.clear,
+                color: Colors.redAccent,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Material(
+                child: Text(
+                  DemoLocalizations.of(context).timeOut,
+                  style:
+                      TextStyle(color: widget.updateInfoColor ?? Colors.white),
+                ),
+                color: Colors.transparent,
+              )
+            ],
+          ));
+    }
+    return Container();
   }
 
   void _iosUpdate() {
     launch(widget.updateUrl);
   }
 
-
   @override
   void initState() {
-    super.initState();
     token = new CancelToken();
+    super.initState();
   }
 
   @override
   void dispose() {
+    if (!token.isCancelled) token?.cancel();
     super.dispose();
-    token?.cancel();
     debugPrint("升级销毁");
   }
 }
+
+enum UploadingFlag { uploading, idle, uploaded, uploadingFailed }

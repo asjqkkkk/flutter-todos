@@ -994,6 +994,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "timeOut": "超时错误",
+  "@timeOut": {
+    "description": "超时错误",
+    "type": "text",
+    "placeholders": {}
+  },
   "pullUpToLoadMore": "上拉加载更多",
   "@pullUpToLoadMore": {
     "description": "上拉加载更多",

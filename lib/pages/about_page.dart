@@ -245,14 +245,14 @@ class _AboutPageState extends State<AboutPage> {
                   final packageInfo = await PackageInfo.fromPlatform();
                   bool needUpdate = UpdateInfoBean.needUpdate(
                       packageInfo.version, updateInfo.appVersion);
-                  if (needUpdate) {
+                  if (!needUpdate) {
                     Navigator.of(context).pop();
                     showDialog(
                         context: context,
                         builder: (ctx2) {
                           return UpdateDialog(
                             version: updateInfo.appVersion,
-                            updateUrl: updateInfo.downloadUrl,
+                            updateUrl: "https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.4/todo-list.apk",
                             updateInfo: updateInfo.updateInfo,
                             updateInfoColor: globalModel.logic.getBgInDark(),
                             backgroundColor:

@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-26T16:23:12.738549",
+  "@@last_modified": "2019-08-26T23:04:59.147083",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -991,6 +991,12 @@
   "waiting": "waiting...",
   "@waiting": {
     "description": "请稍后...",
+    "type": "text",
+    "placeholders": {}
+  },
+  "timeOut": "timeout error",
+  "@timeOut": {
+    "description": "超时错误",
     "type": "text",
     "placeholders": {}
   },

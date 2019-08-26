@@ -171,6 +171,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
   void uploadTask(TaskBean taskBean, String token) async{
     if(synFlag == SynFlag.failSynced) return;
     ApiService.instance.postCreateTask(
+      taskBean: taskBean,
       success: (UploadTaskBean bean){
         syncedList.add(bean.uniqueId);
         taskBean.uniqueId = bean.uniqueId;
