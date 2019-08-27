@@ -463,6 +463,7 @@ class MainPageLogic {
     ApiService.instance.postCreateTask(
       success: (UploadTaskBean bean){
         taskBean.needUpdateToCloud = 'false';
+        taskBean.uniqueId = bean.uniqueId;
         DBProvider.db.updateTask(taskBean);
       },
       failed: (UploadTaskBean bean){

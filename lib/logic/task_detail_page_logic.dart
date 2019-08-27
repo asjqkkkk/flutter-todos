@@ -56,6 +56,9 @@ class TaskDetailPageLogic {
       }
       _model.taskBean.changeTimes++;
       DBProvider.db.updateTask(_model.taskBean).then((value) {
+        _model.taskBean.uniqueId == null
+            ? mainPageModel.logic.postCreateTask(_model.taskBean)
+            : mainPageModel.logic.postUpdateTask(_model.taskBean);
         ///如果是从"完成列表"过来
         if (_model.doneTaskPageModel != null) {
           mainPageModel.logic.getTasks();
@@ -79,9 +82,6 @@ class TaskDetailPageLogic {
           Navigator.of(context).pop();
         }
       });
-      _model.taskBean.uniqueId == null
-          ? mainPageModel.logic.postCreateTask(_model.taskBean)
-          : mainPageModel.logic.postUpdateTask(_model.taskBean);
       return;
     }
     _model.isExiting = true;
