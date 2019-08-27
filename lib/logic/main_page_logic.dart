@@ -37,7 +37,7 @@ class MainPageLogic {
           taskBean.id,
           taskBean,
           onEdit: () => _model.logic.editTask(taskBean),
-          onDelete: () => _model.logic.deleteTask(taskBean.id),
+          onDelete: () => _model.logic.deleteTask(taskBean),
         ),
         onTap: () {
           _model.currentTapIndex = index;
@@ -139,8 +139,44 @@ class MainPageLogic {
     return ColorBean.fromBean(_model.tasks[index].taskIconBean.colorBean);
   }
 
-  void deleteTask(int id) {
-    DBProvider.db.deleteTask(id).then((a) {
+  void deleteTask(TaskBean taskBean) async{
+    final account = await SharedUtil.instance.getString(Keys.account) ?? 'default';
+    if(account == "defalut"){
+      _deleteDataBaseTask(taskBean);
+    } else {
+      if(taskBean.uniqueId == null){
+        _deleteDataBaseTask(taskBean);
+      } else {
+        final token = await SharedUtil.instance.getString(Keys.token);
+        showDialog(context: _model.context, builder: (ctx){
+          return NetLoadingWidget();
+        });
+        ApiService.instance.postDeleteTask(
+          success: (CommonBean bean) {
+            Navigator.of(_model.context).pop();
+            _deleteDataBaseTask(taskBean);
+          },
+          failed: (CommonBean bean) {
+            Navigator.of(_model.context).pop();
+            _showTextDialog(bean.description);
+          },
+          error: (msg) {
+            Navigator.of(_model.context).pop();
+            _showTextDialog(msg);
+          },
+          params: {
+            "token": token,
+            "account": account,
+            "uniqueId": taskBean.uniqueId,
+          },
+          token: _model.cancelToken,
+        );
+      }
+    }
+  }
+
+  void _deleteDataBaseTask(TaskBean taskBean) {
+    DBProvider.db.deleteTask(taskBean.id).then((a) {
       getTasks().then((value) {
         _model.refresh();
       });
