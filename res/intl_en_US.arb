@@ -1001,6 +1001,7 @@
     "type": "text",
     "placeholders": {}
   },
+
   "pullUpToLoadMore": "pull up load more",
   "@pullUpToLoadMore": {
     "description": "上拉加载更多",

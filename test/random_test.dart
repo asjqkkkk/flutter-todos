@@ -8,8 +8,6 @@ void main(){
       final param = Random().nextInt(3);
       print("${param}");
     }
-
-
     print(DateTime.now().toIso8601String());
   });
 }
