@@ -401,6 +401,14 @@ class DemoLocalizations {
       'Todo:任务列表信息同步至云端功能,麻麻再也不用担心我换手机啦\n',
   );
 
+  String get version105 => Intl.message('Version:1.0.5 \n\n'
+      '1.Fixed: Fix the bug that the homepage returns to log in and then returns to the homepage to create a task that cannot be refreshed \n'
+      '2.Optimization: upgrade popup display timeout error \n'
+      '3.Add: 🎉 Sync tasks to the cloud! Ma Ma no longer have to worry about changing my phone! 🎉 \n', name: 'version105', desc: '版本:1.0.5 \n\n'
+      '1.修复：从主页进入登录页登录后再进入主页后，创建task不能刷新的bug \n'
+      '2.优化：升级弹窗显示timeout报错 \n'
+      '3.新增：🎉任务同步至云端功能！麻麻再也不用担心我换手机啦！🎉 ',
+  );
 
 }
 

@@ -1060,5 +1060,11 @@
    "description": "版本:1.0.4 \n\n1.修复：搜索页面的控件溢出bug、其他各种小bug \n2.新增：账号系统!🎉庆祝github Star数过500！ \n\nTodo:任务列表信息同步至云端功能,麻麻再也不用担心我换手机啦\n",
    "type": "text",
    "placeholders": {}
- }
+  },
+  "version105": "Version:1.0.5 \n\n1.Fixed: Fix the bug that the homepage returns to log in and then returns to the homepage to create a task that cannot be refreshed \n2.Optimization: upgrade popup display timeout error \n3.Add: 🎉 Sync tasks to the cloud! Ma Ma no longer have to worry about changing my phone! 🎉 \n",
+  "@version105": {
+    "description": "版本:1.0.5 \n\n1.修复：修复从主页进入登录页登录后再进入主页后，创建task不能刷新的bug \n2.优化：升级弹窗显示timeout报错 \n3.新增：🎉任务同步至云端功能！麻麻再也不用担心我换手机啦！🎉 ",
+    "type": "text",
+    "placeholders": {}
+  }
 }

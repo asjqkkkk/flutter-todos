@@ -404,6 +404,7 @@ class MainPageLogic {
       },
       error: (msg){
         taskBean.needUpdateToCloud = 'true';
+        _model.needSyn = true;
         _model.refresh();
         DBProvider.db.updateTask(taskBean);
       },
