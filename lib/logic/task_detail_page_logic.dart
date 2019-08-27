@@ -117,7 +117,12 @@ class TaskDetailPageLogic {
       },
       failed: (CommonBean bean) {
         Navigator.of(_model.context).pop();
-        _showTextDialog(bean.description, _model.context);
+        if(bean.description.contains("任务不存在")){
+          deleteAndExit(mainPageModel);
+        } else {
+          _showTextDialog(bean.description, _model.context);
+        }
+
       },
       error: (msg) {
         Navigator.of(_model.context).pop();

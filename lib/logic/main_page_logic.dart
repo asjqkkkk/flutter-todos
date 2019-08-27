@@ -158,7 +158,11 @@ class MainPageLogic {
           },
           failed: (CommonBean bean) {
             Navigator.of(_model.context).pop();
-            _showTextDialog(bean.description);
+            if(bean.description.contains("任务不存在")){
+              _deleteDataBaseTask(taskBean);
+            } else {
+              _showTextDialog(bean.description);
+            }
           },
           error: (msg) {
             Navigator.of(_model.context).pop();

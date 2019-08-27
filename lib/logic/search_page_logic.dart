@@ -91,7 +91,11 @@ class SearchPageLogic{
           },
           failed: (CommonBean bean) {
             Navigator.of(_model.context).pop();
-            _showTextDialog(bean.description);
+            if(bean.description.contains("任务不存在")){
+              doDelete(taskBean, globalModel);
+            } else {
+              _showTextDialog(bean.description);
+            }
           },
           error: (msg) {
             Navigator.of(_model.context).pop();
