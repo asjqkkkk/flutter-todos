@@ -176,17 +176,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         syncedList.add(bean.uniqueId);
         taskBean.uniqueId = bean.uniqueId;
         taskBean.needUpdateToCloud = 'false';
-        if(syncedList.length == needSyncedLength){
-          DBProvider.db.updateTasks(needSynTasks).then((v){
-            setState(() {
-              this.synFlag = SynFlag.cloudSynchronizing;
-              print("更新完成");
-              ///将本地数据同步至云端后，从云端获取数据同步到本地(场景:手机A和手机B都在使用app)
-              getCloudTasks(account, token);
-            });
-          });
-        }
-        setState(() {});
+        updateLocalTasks(token);
       },
       failed: (UploadTaskBean bean){
         print("失败：${bean.toString()}");
@@ -203,6 +193,46 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
       token: token,
       cancelToken: cancelToken,
     );
+  }
+
+
+  ///在云端更新一个任务
+  void postUpdateTask(TaskBean taskBean,String token ) async{
+
+    final token = await SharedUtil.instance.getString(Keys.token);
+    ApiService.instance.postUpdateTask(
+      success: (CommonBean bean){
+        syncedList.add(taskBean.uniqueId);
+        taskBean.needUpdateToCloud = 'false';
+        updateLocalTasks(token);
+      },
+      failed: (CommonBean bean){
+        taskBean.needUpdateToCloud = 'true';
+        widget.mainPageModel.needSyn = true;
+        widget.mainPageModel.refresh();
+      },
+      error: (msg){
+        taskBean.needUpdateToCloud = 'true';
+        widget.mainPageModel.needSyn = true;
+        widget.mainPageModel.refresh();
+      },
+      taskBean: taskBean,
+      token: token,
+      cancelToken: cancelToken,
+    );
+  }
+
+  void updateLocalTasks(String token) {
+    if(syncedList.length == needSyncedLength){
+      DBProvider.db.updateTasks(needSynTasks).then((v){
+        setState(() {
+          this.synFlag = SynFlag.cloudSynchronizing;
+          print("更新完成");
+          ///将本地数据同步至云端后，从云端获取数据同步到本地(场景:手机A和手机B都在使用app)
+          getCloudTasks(account, token);
+        });
+      });
+    }
   }
 
 
@@ -239,7 +269,11 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
     });
     final token = await SharedUtil.instance.getString(Keys.token);
     for (var task in needSynTasks) {
-      uploadTask(task, token);
+      if(task.uniqueId == null) {
+        uploadTask(task, token);
+      } else {
+        postUpdateTask(task, token);
+      }
     }
   }
 
@@ -263,7 +297,8 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
           if(localTask == null){
             needCreateTasks.add(task);
           } else {
-            needUpdateTasks.add(localTask[0]);
+            task.id = localTask[0].id;
+            needUpdateTasks.add(task);
           }
         }
         await DBProvider.db.updateTasks(needUpdateTasks);
