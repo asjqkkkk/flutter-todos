@@ -204,7 +204,7 @@ widgets | custom widgets
 
 Android download link：
 
-![image](https://user-images.githubusercontent.com/30992818/62599610-425c9800-b91f-11e9-8a7d-8c7d6483b524.png)
+![app](https://user-images.githubusercontent.com/30992818/63785102-5f82f600-c922-11e9-9bd7-2f79784fca71.png)
 
 Ios download link：
 

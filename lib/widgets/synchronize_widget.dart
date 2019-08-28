@@ -350,11 +350,15 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
           SharedUtil.instance.saveString(Keys.token, loginBean.token);
           SharedUtil.instance.saveBoolean(Keys.hasLogged, true);
           if(loginBean.avatarUrl != null){
-            SharedUtil.instance.saveString(Keys.netAvatarPath, ApiStrategy.baseUrl + loginBean.avatarUrl);
-            SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.net);
-            widget.mainPageModel.currentAvatarUrl = ApiStrategy.baseUrl + loginBean.avatarUrl;
-            widget.mainPageModel.currentAvatarType = CurrentAvatarType.net;
-            widget.mainPageModel.logic.getCurrentAvatar();
+            String cloudAvatarFileName = loginBean.avatarUrl.split("/").last;
+            String localAvatarFileName = widget.mainPageModel.currentAvatarUrl.split("/").last;
+            if(cloudAvatarFileName != localAvatarFileName){
+              SharedUtil.instance.saveString(Keys.netAvatarPath, ApiStrategy.baseUrl + loginBean.avatarUrl);
+              SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.net);
+              widget.mainPageModel.currentAvatarUrl = ApiStrategy.baseUrl + loginBean.avatarUrl;
+              widget.mainPageModel.currentAvatarType = CurrentAvatarType.net;
+              widget.mainPageModel.logic.getCurrentAvatar();
+            }
           }
           widget.mainPageModel.currentUserName = loginBean.username;
           ///检测是否需要进行本地与云端的数据同步
@@ -388,7 +392,6 @@ enum SynFlag{
 
   ///同步云端数据到本地中
   cloudSynchronizing,
-
 
   ///同步失败
   failSynced,

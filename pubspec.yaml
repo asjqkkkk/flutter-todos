@@ -74,10 +74,6 @@ dev_dependencies:
   encrypt: ^3.2.0
 
 
-
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
 

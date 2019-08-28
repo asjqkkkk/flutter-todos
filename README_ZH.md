@@ -189,7 +189,7 @@ widgets | 封装好的各种Widget
 
 Android 下载地址：
 
-![image](https://user-images.githubusercontent.com/30992818/62599044-c150d100-b91d-11e9-8e63-e9c67dd32995.png)
+![app](https://user-images.githubusercontent.com/30992818/63785102-5f82f600-c922-11e9-9bd7-2f79784fca71.png)
 
 Ios 下载地址：
   目前尚未购买一年99$的ios开发者账号，所以暂时没有。
