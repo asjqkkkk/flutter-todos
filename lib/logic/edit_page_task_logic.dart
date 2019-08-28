@@ -349,6 +349,9 @@ class EditTaskPageLogic {
     TaskBean taskBean = TaskBean(
       taskName: taskName,
       account: account,
+      taskStatus: _model.oldTaskBean?.taskStatus ?? TaskStatus.todo,
+      needUpdateToCloud: _model.oldTaskBean?.needUpdateToCloud ?? 'false',
+      uniqueId: _model.uniqueId ?? null,
       taskType: _model.taskIcon.taskName,
       taskDetailNum: _model.taskDetails.length,
       createDate: createDate,
@@ -358,7 +361,7 @@ class EditTaskPageLogic {
       taskIconBean: _model.taskIcon,
       changeTimes: _model.changeTimes,
       overallProgress: overallProgress,
-      finishDate: _model?.finishDate?.toIso8601String() ?? ""
+      finishDate: _model?.finishDate?.toIso8601String() ?? "",
     );
     if (id != null) {
       taskBean.id = id;

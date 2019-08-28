@@ -35,6 +35,7 @@ class EditTaskPageModel extends ChangeNotifier{
   TaskIconBean taskIcon;
   String currentTaskName = "";
   int changeTimes = 0;
+  String uniqueId;
 
   //能否添加一项任务
   bool canAddTaskDetail = false;
@@ -44,6 +45,7 @@ class EditTaskPageModel extends ChangeNotifier{
 
   EditTaskPageModel({this.oldTaskBean}){
     logic = EditTaskPageLogic(this);
+    this.uniqueId = oldTaskBean?.uniqueId;
     logic.initialDataFromOld(oldTaskBean);
   }
 
