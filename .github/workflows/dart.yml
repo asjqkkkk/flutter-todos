@@ -6,23 +6,23 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
-    
+
     container:
-      image:  google/dart:latest
-    
+      image: google/dart:latest
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Install dependencies
-      run: pub get
-    - name: Run tests
-      run: pub run test
-      
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: pub get
+      - name: Run tests
+        run: pub run test
+
   build:
     runs-on: ubuntu-latest
-    
-     steps:
-    - uses: actions/checkout@v1
-    - name: Install dependencies
-      run: pub get
-    - name: Build apk
-      run: flutter build apk --target-platform android-arm --split-per-abi
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: pub get
+      - name: Build apk
+        run: flutter build apk --target-platform android-arm --split-per-abi
