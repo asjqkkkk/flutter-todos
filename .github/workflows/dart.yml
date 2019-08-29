@@ -1,28 +1,30 @@
-name: Dart CI
+name: Flutter CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - dev
+      - master
 
 jobs:
   test:
-
-    runs-on: ubuntu-latest
-
-    container:
-      image: google/dart:latest
-
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - uses: actions/checkout@v1
-      - name: Install dependencies
-        run: pub get
-      - name: Run tests
-        run: pub run test
-
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-      - name: Install dependencies
-        run: pub get
-      - name: Build apk
-        run: flutter build apk --target-platform android-arm --split-per-abi
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.7.8+hotfix.4'
+          channel: 'stable'
+      - run: flutter packages get
+      - run: flutter test
+      - run: flutter build apk --target-platform android-arm --split-per-abi
+      - run: ls
+      - run: mv build/app/outputs/apk/release/app-armeabi-v7a-release.apk build/app-armeabi-v7a-release.apk
+#      - run: curl -F "key=file" -F "filename=@build/app-armeabi-v7a-release.apk" -D '{"account":"app","year":"2019","month":"3"}' http://111.230.251.115/oldchen/file/upload
