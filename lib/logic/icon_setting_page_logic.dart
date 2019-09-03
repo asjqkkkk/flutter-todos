@@ -42,7 +42,7 @@ class IconSettingPageLogic {
                   final data = jsonEncode(taskIconBean.toMap());
                   if (isEdit) {
                     //如果不是新增而是编辑
-                    SharedUtil.instance.readAndExchangeList(
+                    await SharedUtil.instance.readAndExchangeList(
                         Keys.taskIconBeans, data, index - 6);
                   } else {
                     //如果是新增
@@ -50,9 +50,9 @@ class IconSettingPageLogic {
                         .readAndSaveList(Keys.taskIconBeans, data);
                     if (!canAddMore) {
                       showCanNotAddIcon();
+                      return;
                     }
                   }
-
                   getTaskIconList();
                 },
                 pickerColor: colorBean == null
@@ -66,7 +66,7 @@ class IconSettingPageLogic {
                 },
                 iconName: name ?? iconBean.iconName,
               ));
-        });
+        },);
   }
 
   Future getTaskIconList() async {
@@ -77,6 +77,7 @@ class IconSettingPageLogic {
     if (list.length == 6) {
       _model.isDeleting = false;
     }
+    _model.refresh();
   }
 
   Future getIconList() async {
