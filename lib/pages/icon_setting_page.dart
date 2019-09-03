@@ -89,8 +89,7 @@ class IconSettingPage extends StatelessWidget {
                                     size: 40,
                                   ),
                                   onTap: () {
-                                    model.logic.tapDefaultIcon(index);
-                                    if (index <= 5) return;
+
                                     model.logic.onIconPress(
                                       model.taskIcons[index].iconBean,
                                       colorBean:
@@ -118,8 +117,7 @@ class IconSettingPage extends StatelessWidget {
                         child: AbsorbPointer(
                           absorbing: model.isDeleting ? false : true,
                           child: Opacity(
-                            opacity:
-                                (index > 5 && model.isDeleting) ? 1.0 : 0.0,
+                            opacity: model.isDeleting ? 1.0 : 0.0,
                             child: GestureDetector(
                               onTap: () => model.logic.removeIcon(index),
                               child: Icon(

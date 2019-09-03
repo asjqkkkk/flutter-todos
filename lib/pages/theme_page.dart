@@ -100,7 +100,7 @@ class ThemePage extends StatelessWidget {
                     child: AbsorbPointer(
                       absorbing: model.isDeleting ? false : true,
                       child: Opacity(
-                        opacity: (index > 6 && model.isDeleting) ? 1.0 : 0.0,
+                        opacity: model.isDeleting ? 1.0 : 0.0,
                         child: IconButton(
                           icon: Icon(
                             Icons.cancel,

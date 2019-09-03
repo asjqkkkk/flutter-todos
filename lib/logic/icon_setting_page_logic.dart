@@ -43,7 +43,7 @@ class IconSettingPageLogic {
                   if (isEdit) {
                     //如果不是新增而是编辑
                     await SharedUtil.instance.readAndExchangeList(
-                        Keys.taskIconBeans, data, index - 6);
+                        Keys.taskIconBeans, data, index);
                   } else {
                     //如果是新增
                     final canAddMore = await SharedUtil.instance
@@ -98,25 +98,25 @@ class IconSettingPageLogic {
           );
         });
   }
-
-  void tapDefaultIcon(int index) {
-    if (index <= 5) {
-      showDialog(
-          context: _model.context,
-          builder: (ctx) {
-            return AlertDialog(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
-              content: Text(
-                  DemoLocalizations.of(_model.context).canNotEditDefaultIcon),
-            );
-          });
-    }
-    ;
-  }
+//
+//  void tapDefaultIcon(int index) {
+//    if (index <= 5) {
+//      showDialog(
+//          context: _model.context,
+//          builder: (ctx) {
+//            return AlertDialog(
+//              shape: RoundedRectangleBorder(
+//                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+//              content: Text(
+//                  DemoLocalizations.of(_model.context).canNotEditDefaultIcon),
+//            );
+//          });
+//    }
+//    ;
+//  }
 
   void removeIcon(int index) {
-    SharedUtil.instance.readAndRemoveList(Keys.taskIconBeans, index - 6);
+    SharedUtil.instance.readAndRemoveList(Keys.taskIconBeans, index);
     getTaskIconList().then((value) {
       _model.refresh();
     });

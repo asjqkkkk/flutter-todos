@@ -49,6 +49,7 @@ class IconListUtil{
 
 
   Future<List<TaskIconBean>> getIconWithCache(BuildContext context) async{
+
     List<String> strings =
         await SharedUtil.instance.readList(Keys.taskIconBeans);
     List<TaskIconBean> list = [];
@@ -57,7 +58,17 @@ class IconListUtil{
       TaskIconBean taskIconBean = TaskIconBean.fromMap(data);
       list.add(taskIconBean);
     }
-    final defaultList = getDefaultTaskIcons(context);
+    final hasSaveDefaultIcons = await SharedUtil.instance.getBoolean(Keys.hasSavedDefaultIcons) ?? false;
+    List<TaskIconBean>  defaultList = [];
+    if(!hasSaveDefaultIcons){
+      defaultList = getDefaultTaskIcons(context);
+      await SharedUtil.instance.saveBoolean(Keys.hasSavedDefaultIcons, true);
+      List<String> defaultIcons = [];
+      for (var defaultIcon in defaultList) {
+        defaultIcons.add(jsonEncode(defaultIcon.toMap()));
+      }
+      await SharedUtil.instance.saveStringList(Keys.taskIconBeans, defaultIcons+ strings);
+    }
     return List.from(defaultList + list);
   }
 }

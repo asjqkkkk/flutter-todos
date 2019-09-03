@@ -9,8 +9,13 @@ class IconSettingPageModel extends ChangeNotifier {
   IconSettingPageLogic logic;
   BuildContext context;
 
+  ///当前已经选择出来的icon图标
   List<TaskIconBean> taskIcons = [];
+
+  ///展示在分割线下部分的所有icon图标
   List<IconBean> showIcons = [];
+
+  ///搜索出来的所有icon图标
   List<IconBean> searchIcons = [];
   TextEditingController textEditingController = TextEditingController();
   FocusNode focusNode = FocusNode();

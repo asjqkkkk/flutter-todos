@@ -23,6 +23,7 @@ class Keys{
   static final String lastSuggestTime = "last_suggest_time";
   static final String token = "token";
   static final String hasLogged = "has_logged";
+  static final String hasSavedDefaultIcons = "has_saved_default_icons";
 
 
 }
