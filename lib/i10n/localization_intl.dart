@@ -411,6 +411,15 @@ class DemoLocalizations {
       '3.新增：🎉任务同步至云端功能！麻麻再也不用担心我换手机啦！🎉 ',
   );
 
+  String get version106 => Intl.message('Version:1.0.6 \n\n'
+      '1.Fixed: a lot of bugs due to the online account system. \n'
+      '2.Optimization: now you can edit all icons when the icons\'s number is bigger than six  \n'
+      '3.Add: You can set the network image as the background on the account page. \n', name: 'version106', desc: '版本:1.0.6 \n\n'
+      '1.修复：大量因为上线账号系统,而新增的bug \n'
+      '2.优化：当自定义图标数量不低于6个的时候，你可以任意编辑图标啦 \n'
+      '3.新增：你可以在账号页面设置网络图片作为背景啦',
+  );
+
 }
 
 //Locale代理类

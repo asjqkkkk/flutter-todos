@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-09-03T14:51:51.289433",
+  "@@last_modified": "2019-09-03T16:05:18.840394",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -1069,6 +1069,12 @@
   "version105": "Version:1.0.5 \n\n1.Fixed: Fix the bug that the homepage returns to log in and then returns to the homepage to create a task that cannot be refreshed \n2.Optimization: upgrade popup display timeout error \n3.Add: 🎉 Sync tasks to the cloud! Ma Ma no longer have to worry about changing my phone! 🎉 \n",
   "@version105": {
     "description": "版本:1.0.5 \n\n1.修复：从主页进入登录页登录后再进入主页后，创建task不能刷新的bug \n2.优化：升级弹窗显示timeout报错 \n3.新增：🎉任务同步至云端功能！麻麻再也不用担心我换手机啦！🎉 ",
+    "type": "text",
+    "placeholders": {}
+  },
+  "version106": "Version:1.0.6 \n\n1.Fixed: a lot of bugs due to the online account system. \n2.Optimization: now you can edit all icons when the icons's number is bigger than six  \n3.Add: You can set the network image as the background on the account page. \n",
+  "@version106": {
+    "description": "版本:1.0.6 \n\n1.修复：大量因为上线账号系统,而新增的bug \n2.优化：当自定义图标数量不低于6个的时候，你可以任意编辑图标啦 \n3.新增：你可以在账号页面设置网络图片作为背景啦",
     "type": "text",
     "placeholders": {}
   }

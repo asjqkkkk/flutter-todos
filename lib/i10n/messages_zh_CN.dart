@@ -195,6 +195,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version103" : MessageLookupByLibrary.simpleMessage("版本:1.0.3 \n\n1.修复：升级弹框的文字颜色错误(夜间模式下) \n2.修复：完成列表显示的的完成用时为负数 \n3.新增：留言展示墙！ \n"),
     "version104" : MessageLookupByLibrary.simpleMessage("版本:1.0.4 \n\n1.修复：搜索页面的控件溢出bug、其他各种小bug \n2.新增：账号系统!🎉庆祝github Star数过500！ \n\nTodo:任务列表信息同步至云端功能,麻麻再也不用担心我换手机啦\n"),
     "version105" : MessageLookupByLibrary.simpleMessage("版本:1.0.5 \n\n1.修复：从主页进入登录页登录后再进入主页后，创建task不能刷新的bug \n2.优化：升级弹窗显示timeout报错 \n3.新增：🎉任务同步至云端功能！麻麻再也不用担心我换手机啦！🎉 \n"),
+    "version106" : MessageLookupByLibrary.simpleMessage("版本:1.0.6 \n\n1.修复：大量因为上线账号系统,而新增的bug \n2.优化：当自定义图标数量不低于6个的时候，你可以任意编辑图标啦 \n3.新增：你可以在账号页面设置网络图片作为背景啦 \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("版本描述"),
     "waitAMoment" : MessageLookupByLibrary.simpleMessage("请稍后..."),
     "waiting" : MessageLookupByLibrary.simpleMessage("请稍后..."),
