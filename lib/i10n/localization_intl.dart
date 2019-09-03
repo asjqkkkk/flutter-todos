@@ -132,6 +132,7 @@ class DemoLocalizations {
   String get meteorShower => Intl.message('Meteor Shower', name: 'meteorShower', desc: '天体流星',);
   String get dailyPic => Intl.message('Daily wallpaper', name: 'dailyPic', desc: '每日壁纸',);
   String get netPicture => Intl.message('Network Picture', name: 'netPicture', desc: '网络图片',);
+  String get accountBackgroundSetting => Intl.message('Background setting', name: 'accountBackgroundSetting', desc: '背景设置',);
   String get picture => Intl.message('Picture', name: 'picture', desc: '图片',);
 
   String get currentIcons => Intl.message('Current Icons', name: 'currentIcons', desc: '当前图标',);

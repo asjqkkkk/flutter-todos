@@ -2,9 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/all_types.dart';
+import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
-import 'package:todo_list/pages/photo_page.dart';
+import 'package:todo_list/model/net_pictures_page_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 
@@ -43,9 +45,7 @@ class NavSettingPage extends StatelessWidget {
               subtitle: globalModel.currentNetPicUrl == "" ? null : GestureDetector(
                 onTap: (){
                   Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
-                    return PhotoPage(
-                      selectValue: NavHeadType.netPicture,
-                    );
+                    return ProviderConfig.getInstance().getNetPicturesPage(useType: NetPicturesUseType.navigatorHeader);
                   }));
                 },
                 child: CachedNetworkImage(
@@ -68,9 +68,7 @@ class NavSettingPage extends StatelessWidget {
 
     if(context != null && globalModel.currentNetPicUrl == ""){
       Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
-          return PhotoPage(
-            selectValue: value,
-          );
+        return ProviderConfig.getInstance().getNetPicturesPage(useType: value);
       }));
       return;
     }
@@ -83,13 +81,3 @@ class NavSettingPage extends StatelessWidget {
   }
 }
 
-class NavHeadType{
-  static const String meteorShower = "MeteorShower";
-  static const String dailyPic = "DailyPic";
-  static const String netPicture = "NetPicture";
-
-
-  static const String DAILY_PIC_URL =  "https://api.dujin.org/bing/1366.php";
-
-
-}

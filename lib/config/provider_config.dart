@@ -149,4 +149,19 @@ class ProviderConfig {
      );
    }
 
+   ///网络图片页provider，用于设置账号页面的背景，或者侧滑栏的头部
+   ChangeNotifierProvider<NetPicturesPageModel> getNetPicturesPage({@required String useType,AccountPageModel accountPageModel}){
+      return ChangeNotifierProvider<NetPicturesPageModel>(
+        builder:(context) => NetPicturesPageModel(useType: useType,accountPageModel: accountPageModel),
+        child: NetPicturesPage(),
+      );
+    }
+
+    ///账号页面的provider
+    ChangeNotifierProvider<AccountPageModel> getAccountPage(){
+       return ChangeNotifierProvider<AccountPageModel>(
+         builder:(context) => AccountPageModel(),
+         child: AccountPage(),
+       );
+     }
 }

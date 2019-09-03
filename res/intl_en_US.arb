@@ -584,6 +584,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "accountBackgroundSetting": "Background setting",
+  "@accountBackgroundSetting": {
+    "description": "背景设置",
+    "type": "text",
+    "placeholders": {}
+  },
   "picture": "Picture",
   "@picture": {
     "description": "图片",

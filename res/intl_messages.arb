@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-08-27T10:24:33.602219",
+  "@@last_modified": "2019-09-03T14:51:51.289433",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -281,6 +281,12 @@
   "netPicture": "Network Picture",
   "@netPicture": {
     "description": "网络图片",
+    "type": "text",
+    "placeholders": {}
+  },
+  "accountBackgroundSetting": "Background setting",
+  "@accountBackgroundSetting": {
+    "description": "背景设置",
     "type": "text",
     "placeholders": {}
   },

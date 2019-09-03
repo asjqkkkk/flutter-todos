@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
@@ -51,7 +52,7 @@ class GlobalModel extends ChangeNotifier {
   Locale currentLocale;
 
   ///当前导航栏头部背景
-  String currentNavHeader = "MeteorShower";
+  String currentNavHeader = NavHeadType.meteorShower;
 
   ///导航栏头部选择网络图片时的图片地址
   String currentNetPicUrl = "";

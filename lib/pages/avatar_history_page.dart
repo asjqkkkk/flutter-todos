@@ -8,14 +8,16 @@ import 'package:todo_list/model/avatar_page_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/custom_animated_switcher.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class AvatarHistoryPage extends StatefulWidget {
-
   final String currentAvatarUrl;
   final AvatarPageModel avatarPageModel;
 
-  const AvatarHistoryPage({Key key,@required this.currentAvatarUrl, this.avatarPageModel}) : super(key: key);
+  const AvatarHistoryPage(
+      {Key key, @required this.currentAvatarUrl, this.avatarPageModel})
+      : super(key: key);
 
   @override
   _AvatarHistoryPageState createState() => _AvatarHistoryPageState();
@@ -38,12 +40,22 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
       appBar: AppBar(
         title: Text(DemoLocalizations.of(context).avatarHistory),
         actions: <Widget>[
-          IconButton(
-              icon: isDeleting ? Icon(Icons.check) : Icon(Icons.border_color),
-              onPressed: () {
-                isDeleting = !isDeleting;
-                setState(() {});
-              }),
+       avatarPaths.isNotEmpty ? CustomAnimatedSwitcher(
+            firstChild: Icon(
+              Icons.border_color,
+              size: 20,
+            ),
+            secondChild: Icon(
+              Icons.check,
+              size: 20,
+              color: Colors.greenAccent,
+            ),
+            hasChanged: isDeleting,
+            onTap: () {
+              isDeleting = !isDeleting;
+              setState(() {});
+            },
+          ) : SizedBox(),
         ],
       ),
       body: Container(
@@ -55,7 +67,6 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
           mainAxisSpacing: 20,
           padding: EdgeInsets.all(10),
           children: List.generate(avatarPaths.length, (index) {
-
             final path = avatarPaths[index];
             final name = path.split("/").last;
 
@@ -63,16 +74,20 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
               children: <Widget>[
                 InkWell(
                   onTap: () async {
-                    final account = await SharedUtil.instance.getString(Keys.account);
-                    if(account == "default" || account == null){
+                    final account =
+                        await SharedUtil.instance.getString(Keys.account);
+                    if (account == "default" || account == null) {
                       await onAvatarSelect(path, context);
-                    } else{
-                      final token = await SharedUtil.instance.getString(Keys.token);
+                    } else {
+                      final token =
+                          await SharedUtil.instance.getString(Keys.token);
                       String fileName = path
                           .substring(path.lastIndexOf("/") + 1, path.length)
                           .replaceAll(" ", "");
-                      String transFormName = Uri.encodeFull(fileName).replaceAll("%", "");
-                      uploadAvatar(account,token, path, transFormName, context);
+                      String transFormName =
+                          Uri.encodeFull(fileName).replaceAll("%", "");
+                      uploadAvatar(
+                          account, token, path, transFormName, context);
                     }
                   },
                   child: ClipRRect(
@@ -83,29 +98,32 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
                     ),
                   ),
                 ),
-               isDeleting ? ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  child: Container(
-                    color: Colors.grey.withOpacity(0.5),
-                  )
-                ) : SizedBox(),
-                isDeleting && name != "icon.png"  ? Container(
-                  alignment: Alignment.center,
-                  child: IconButton(
-                    padding: EdgeInsets.all(0),
-                    iconSize: 80,
-                    icon: Icon(
-                      Icons.delete,
-                      color: Colors.redAccent,
-                    ),
-                    onPressed: () {
-                      File file = File(avatarPaths[index]);
-                      file.delete().then((value){
-                        getAvatarFiles();
-                      });
-                    },
-                  ),
-                ) : SizedBox(),
+                isDeleting
+                    ? ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        child: Container(
+                          color: Colors.grey.withOpacity(0.5),
+                        ))
+                    : SizedBox(),
+                isDeleting && name != "icon.png"
+                    ? Container(
+                        alignment: Alignment.center,
+                        child: IconButton(
+                          padding: EdgeInsets.all(0),
+                          iconSize: 80,
+                          icon: Icon(
+                            Icons.delete,
+                            color: Colors.redAccent,
+                          ),
+                          onPressed: () {
+                            File file = File(avatarPaths[index]);
+                            file.delete().then((value) {
+                              getAvatarFiles();
+                            });
+                          },
+                        ),
+                      )
+                    : SizedBox(),
               ],
             );
           }),
@@ -120,12 +138,14 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
     mainPageModel.currentAvatarUrl = url;
     mainPageModel.currentAvatarType = CurrentAvatarType.local;
     await SharedUtil.instance.saveString(Keys.localAvatarPath, url);
-    await SharedUtil.instance.saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
+    await SharedUtil.instance
+        .saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
     mainPageModel.refresh();
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
 
-  void uploadAvatar(String account, String token, String filePath, String fileName, BuildContext context) async{
+  void uploadAvatar(String account, String token, String filePath,
+      String fileName, BuildContext context) async {
     _showLoadingDialog(context);
     ApiService.instance.uploadAvatar(
       params: FormData.from({
@@ -133,15 +153,15 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
         "account": account,
         "token": token
       }),
-      success: (UploadAvatarBean bean){
+      success: (UploadAvatarBean bean) {
         Navigator.pop(context);
         onAvatarSelect(filePath, context);
       },
-      failed: (UploadAvatarBean bean){
+      failed: (UploadAvatarBean bean) {
         Navigator.pop(context);
         _showTextDialog(bean.description, context);
       },
-      error: (msg){
+      error: (msg) {
         Navigator.pop(context);
         _showTextDialog(msg, context);
       },
@@ -150,21 +170,21 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
   }
 
   void _showLoadingDialog(BuildContext context) {
-    showDialog(context: context, builder: (ctx){
-      return NetLoadingWidget();
-    });
+    showDialog(
+        context: context,
+        builder: (ctx) {
+          return NetLoadingWidget();
+        });
   }
 
-  void _showTextDialog(String text, BuildContext context){
+  void _showTextDialog(String text, BuildContext context) {
     showDialog(
         context: context,
         builder: (ctx) {
           return AlertDialog(
             shape: RoundedRectangleBorder(
-                borderRadius:
-                BorderRadius.all(Radius.circular(20.0))),
-            content: Text(
-                text),
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            content: Text(text),
           );
         });
   }

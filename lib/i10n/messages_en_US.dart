@@ -3,22 +3,21 @@
 // messages from the main program should be duplicated here with the same
 // function name.
 
-// ignore_for_file: unnecessary_brace_in_string_interps
+// Ignore issues from commonly used lints in this file.
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
+// ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
+// ignore_for_file:unused_import, file_names
 
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
 
-// ignore: unnecessary_new
 final messages = new MessageLookup();
 
-// ignore: unused_element
-final _keepAnalysisHappy = Intl.defaultLocale;
-
-// ignore: non_constant_identifier_names
-typedef MessageIfAbsent(String message_str, List args);
+typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  get localeName => 'en_US';
+  String get localeName => 'en_US';
 
   static m0(days) => "${Intl.plural(days, zero: 'Too Fast', one: '1 day', many: '${days} days', other: '${days} days')}";
 
@@ -31,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "aboutApp" : MessageLookupByLibrary.simpleMessage("About"),
+    "accountBackgroundSetting" : MessageLookupByLibrary.simpleMessage("Background setting"),
     "addTask" : MessageLookupByLibrary.simpleMessage("add a task"),
     "appName" : MessageLookupByLibrary.simpleMessage("One Day List"),
     "appSetting" : MessageLookupByLibrary.simpleMessage("Setting"),

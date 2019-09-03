@@ -12,3 +12,5 @@ export 'feedback_wall_page_logic.dart';
 export 'login_page_logic.dart';
 export 'register_page_logic.dart';
 export 'reset_password_page_logic.dart';
+export 'net_pictures_page_logic.dart';
+export 'account_page_logic.dart';

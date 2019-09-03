@@ -1,23 +1,20 @@
 import 'dart:math';
-
+import 'account_page.dart';
+import 'image_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
-import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/pages/language_page.dart';
 import 'package:todo_list/pages/setting_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
-import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/weather_widget.dart';
 
-import 'account_page.dart';
-import 'image_page.dart';
-import 'navigator_setting_page.dart';
 
 class NavPage extends StatelessWidget {
   @override
@@ -43,7 +40,7 @@ class NavPage extends StatelessWidget {
               }));
             } else {
               Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
-                return AccountPage();
+                return ProviderConfig.getInstance().getAccountPage();
               }));
             }
 

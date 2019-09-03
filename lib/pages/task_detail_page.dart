@@ -12,8 +12,6 @@ import 'package:todo_list/widgets/task_info_widget.dart';
 
 class TaskDetailPage extends StatelessWidget {
 
-  TaskDetailPage();
-
   @override
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);

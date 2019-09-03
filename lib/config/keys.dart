@@ -24,6 +24,8 @@ class Keys{
   static final String token = "token";
   static final String hasLogged = "has_logged";
   static final String hasSavedDefaultIcons = "has_saved_default_icons";
+  static final String currentAccountBackground = "current_account_background";
+  static final String currentAccountBackgroundType = "current_account_background_type";
 
 
 }

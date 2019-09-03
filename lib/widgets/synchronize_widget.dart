@@ -76,8 +76,8 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
       case SynFlag.hasNotSynced:
         return Container(
           width: 60,
-          height: 80,
-          child: Column(
+          height: 60,
+          child: needSyncedLength == 0 ? Container() : Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -99,7 +99,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
       case SynFlag.synchronizing:
         return Container(
           width: 60,
-          height: 80,
+          height: 60,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -120,7 +120,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
       case SynFlag.cloudSynchronizing:
         return Container(
           width: 60,
-          height: 80,
+          height: 60,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -140,7 +140,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
       case SynFlag.failSynced:
         return Container(
           width: 60,
-          height: 80,
+          height: 60,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -160,7 +160,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         );
         break;
       case SynFlag.noNeedSynced:
-        return Container(width: 60,height: 80,);
+        return Container(width: 60,height: 60,);
         break;
       default:
     }

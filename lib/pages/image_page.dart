@@ -1,12 +1,9 @@
-import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
-
-import 'navigator_setting_page.dart';
 
 class ImagePage extends StatefulWidget {
   final List<String> imageUrls;
@@ -15,7 +12,11 @@ class ImagePage extends StatefulWidget {
   final String heroTag;
 
   const ImagePage(
-      {Key key, @required this.imageUrls, this.initialPageIndex, this.onSelect, this.heroTag})
+      {Key key,
+      @required this.imageUrls,
+      this.initialPageIndex,
+      this.onSelect,
+      this.heroTag})
       : super(key: key);
 
   @override
@@ -64,7 +65,9 @@ class _ImagePageState extends State<ImagePage> {
               builder: (BuildContext context, int index) {
                 final url = widget.imageUrls[index];
                 return PhotoViewGalleryPageOptions(
-                  imageProvider: url == NavHeadType.DAILY_PIC_URL ? NetworkImage(url) : CachedNetworkImageProvider(url),
+                  imageProvider: url == NavHeadType.DAILY_PIC_URL
+                      ? NetworkImage(url)
+                      : CachedNetworkImageProvider(url),
                   initialScale: PhotoViewComputedScale.contained,
                   heroTag: widget.heroTag ?? "tag_${index}",
                 );

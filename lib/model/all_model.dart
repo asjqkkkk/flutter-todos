@@ -12,3 +12,5 @@ export 'feedback_wall_page_model.dart';
 export 'login_page_model.dart';
 export 'register_page_model.dart';
 export 'reset_password_page_model.dart';
+export 'net_pictures_page_model.dart';
+export 'account_page_model.dart';

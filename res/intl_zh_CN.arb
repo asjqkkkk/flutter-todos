@@ -560,6 +560,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "accountBackgroundSetting": "背景设置",
+  "@accountBackgroundSetting": {
+    "description": "背景设置",
+    "type": "text",
+    "placeholders": {}
+  },
   "picture": "图片",
   "@picture": {
     "description": "图片",

@@ -190,7 +190,7 @@ widgets | custom widgets
 
 - [x] Icon search function
 - [x] Feedback display wall
-- [ ] Email account login
+- [x] Email account login
 - [ ] Custom task details page font size
 - [ ] Geek news
 - [ ] Whether to show the opening animation
