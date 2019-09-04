@@ -72,12 +72,16 @@ class FileUtil {
       Function onComplete}) async {
     final path = await FileUtil.getInstance().getSavePath(filePath);
     String name = fileName ?? url.split("/").last;
-    ApiStrategy.getInstance().client.download(url, path + name,
-        onReceiveProgress: (int count, int total) {
-      final downloadProgress = ((count / total) * 100).toInt();
-      if (downloadProgress == 100) {
-        if(onComplete != null) onComplete(path + name);
-      }
-    });
+    ApiStrategy.getInstance().client.download(
+      url,
+      path + name,
+      onReceiveProgress: (int count, int total) {
+        final downloadProgress = ((count / total) * 100).toInt();
+        if (downloadProgress == 100) {
+          if (onComplete != null) onComplete(path + name);
+        }
+      },
+      options: Options(connectTimeout: 15 * 1000, receiveTimeout: 360 * 1000),
+    );
   }
 }

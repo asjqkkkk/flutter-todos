@@ -171,7 +171,7 @@ class UpdateDialogState extends State<UpdateDialog> {
             }
           });
         }
-      },options: Options(connectTimeout: 15*1000,receiveTimeout: 360*1000));
+      },options: Options(connectTimeout: 15*1000,receiveTimeout: 360*1000),);
     } catch (e) {
       if (mounted) {
         setState(() {

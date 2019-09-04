@@ -252,7 +252,7 @@ class MainPageLogic {
             SharedUtil().saveString(Keys.localAvatarPath, path);
             SharedUtil().saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
             _model.refresh();
-          }
+          },
         );
         break;
     }
