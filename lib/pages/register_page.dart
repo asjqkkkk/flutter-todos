@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
-import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/register_page_model.dart';
 import 'package:todo_list/widgets/verify_code_widget.dart';
 import 'package:provider/provider.dart';

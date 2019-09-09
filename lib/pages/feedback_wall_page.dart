@@ -40,8 +40,8 @@ class FeedbackWallPage extends StatelessWidget {
         ) : ListView.builder(
           itemBuilder: (ctx, index) {
             final bean = model.suggestionList[index];
-            final connect_way = bean.connect_way;
-            final splitData = connect_way.split("<emoji>");
+            final connectWay = bean.connectWay;
+            final splitData = connectWay.split("<emoji>");
             String emoji = "4";
             for (var o in splitData) {
               if(o.isNotEmpty){

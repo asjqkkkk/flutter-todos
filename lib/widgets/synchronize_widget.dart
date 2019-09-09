@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/api_strategy.dart';
@@ -91,7 +89,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
                 ),
               ),
               Text(DemoLocalizations.of(context).clickToSyn,style: TextStyle(color: Colors.white),),
-              Text("(0 / ${needSyncedLength})",style: TextStyle(color: Colors.white, fontSize: 12),),
+              Text("(0 / $needSyncedLength)",style: TextStyle(color: Colors.white, fontSize: 12),),
             ],
           ),
         );
@@ -112,7 +110,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
                 ),
               ),
               Text(DemoLocalizations.of(context).synchronizing,style: TextStyle(color: Colors.white),),
-              Text("(${needSynTasks.length} / ${needSyncedLength})",style: TextStyle(color: Colors.white, fontSize: 12),),
+              Text("(${needSynTasks.length} / $needSyncedLength)",style: TextStyle(color: Colors.white, fontSize: 12),),
             ],
           ),
         );
@@ -185,7 +183,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         });
       },
       error: (msg){
-        print("错误：${msg}");
+        print("错误：$msg");
         setState(() {
           synFlag = SynFlag.failSynced;
         });
@@ -337,8 +335,8 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
     final password = await SharedUtil.instance.getString(Keys.password);
     ApiService.instance.login(
       params: {
-        "account": "${account}",
-        "password": "${password}"
+        "account": "$account",
+        "password": "$password"
       },
       success: (LoginBean loginBean) {
         loginSucceed = true;

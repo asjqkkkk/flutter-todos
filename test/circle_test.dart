@@ -27,10 +27,10 @@ void main(){
 
 
     double angle = getAngle(sqrt(2), sqrt(2), 2);
-    print("角度:${angle}");
+    print("角度:$angle");
 
     double distance = getDistance(Offset(0, sqrt(2)), Offset(sqrt(2), 0));
-    print("长度:${distance}");
+    print("长度:$distance");
 
 
 
@@ -43,7 +43,7 @@ void main(){
     final b = 40 / 20;
     final c = 44 / 20;
 
-    print("a:${a}  b:${b}  c:${c.toInt()}");
+    print("a:$a  b:$b  c:${c.toInt()}");
 
   });
 }

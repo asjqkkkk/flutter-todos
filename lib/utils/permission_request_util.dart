@@ -49,21 +49,21 @@ class PermissionReqUtil {
         );
         break;
       case PermissionStatus.disabled:
-        debugPrint("disabled权限:${reqPermissions}");
+        debugPrint("disabled权限:$reqPermissions");
         if (disabled != null) {
           disabled();
           return;
-        };
+        }
         toShow(showDialog, context, reqPermissions, disabledDes,openSetting);
         break;
       case PermissionStatus.restricted:
-        debugPrint("restricted权限:${reqPermissions}");
+        debugPrint("restricted权限:$reqPermissions");
         if (restricted != null) restricted();
         toShow(showDialog, context, reqPermissions, restrictedDes,openSetting,
             showOpenSettingButton: true);
         break;
       case PermissionStatus.unknown:
-        debugPrint("未知权限:${reqPermissions}");
+        debugPrint("未知权限:$reqPermissions");
         if (unknown != null) unknown();
         toShow(showDialog, context, reqPermissions, unknownDes,openSetting);
         break;
@@ -78,7 +78,7 @@ class PermissionReqUtil {
         throw FlutterError("\n\nshowOpenSettingButton为true的时候context不能为空\n");
       toShowDialog(
         context,
-        "${reqPermissions}",
+        "$reqPermissions",
         description,
         openSetting,
         showOpenSettingButton: showOpenSettingButton,
@@ -93,7 +93,7 @@ class PermissionReqUtil {
         context: context,
         builder: (ctx) {
           return AlertDialog(
-            title: Text("${permissionName} ${description}"),
+            title: Text("$permissionName $description"),
             actions: <Widget>[
               showOpenSettingButton
                   ? FlatButton(

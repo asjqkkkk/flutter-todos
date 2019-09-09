@@ -130,6 +130,7 @@ class LoadingWidget extends StatelessWidget {
         );
         break;
     }
+    return Container();
   }
 }
 

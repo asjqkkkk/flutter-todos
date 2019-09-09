@@ -172,5 +172,6 @@ class AvatarPageLogic {
         return NetworkImage(url);
         break;
     }
+    return AssetImage("images/icon.png");
   }
 }

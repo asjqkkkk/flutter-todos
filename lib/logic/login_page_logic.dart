@@ -109,8 +109,8 @@ class LoginPageLogic {
 
     ApiService.instance.login(
       params: {
-        "account": "${account}",
-        "password": "${encryptPassword}"
+        "account": "$account",
+        "password": "$encryptPassword"
       },
       success: (LoginBean loginBean) {
         SharedUtil.instance.saveString(Keys.account, account).then((value){

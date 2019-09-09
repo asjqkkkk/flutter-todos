@@ -3,8 +3,6 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 import 'dart:io';
 
-import 'package:todo_list/widgets/scale_animation_widget.dart';
-
 class WebViewPage extends StatefulWidget {
   final String url;
   final String title;

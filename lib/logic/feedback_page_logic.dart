@@ -44,7 +44,6 @@ class FeedbackPageLogic {
 
   void onFeedbackSubmit(FeedbackWallPageModel feedbackWallPageModel) async {
     final context = _model.context;
-    final size = MediaQuery.of(context).size;
 
     ///限制建议内容不能为空，长度不能小于10
     if (_model.feedbackContent.isEmpty) {

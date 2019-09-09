@@ -91,7 +91,6 @@ class MainPageLogic {
   Decoration getBackground(GlobalModel globalModel) {
     bool isBgGradient = globalModel.isBgGradient;
     bool isBgChangeWithCard = globalModel.isBgChangeWithCard;
-    final context = _model.context;
     return BoxDecoration(
       gradient: isBgGradient
           ? LinearGradient(
@@ -285,12 +284,15 @@ class MainPageLogic {
         );
         break;
     }
+    return Image.asset(
+          "images/icon.png",
+          fit: BoxFit.cover,
+        );
   }
 
   Future getAvatarType() async {
     final currentAvatarType =
         await SharedUtil.instance.getInt(Keys.currentAvatarType);
-    debugPrint("type:${currentAvatarType}");
     if (currentAvatarType == null) return;
     if (currentAvatarType == _model.currentAvatarType) return;
     _model.currentAvatarType = currentAvatarType;

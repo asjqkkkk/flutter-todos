@@ -85,6 +85,7 @@ class EditTaskPage extends StatelessWidget {
               child: NotificationListener<OverscrollIndicatorNotification>(
                 onNotification: (overScroll) {
                   overScroll.disallowGlow();
+                  return true;
                 },
                 child: ListView.builder(
                   padding: EdgeInsets.only(bottom: 100),

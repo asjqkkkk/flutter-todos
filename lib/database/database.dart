@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:io';
-
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:todo_list/json/task_bean.dart';
@@ -27,7 +25,7 @@ class DBProvider {
       version: 3,
       onOpen: (db) {},
       onCreate: (Database db, int version) async {
-        print("当前版本:${version}");
+        print("当前版本:$version");
         await db.execute("CREATE TABLE TodoList ("
             "id INTEGER PRIMARY KEY AUTOINCREMENT,"
             "account TEXT,"
@@ -48,8 +46,8 @@ class DBProvider {
             ")");
       },
       onUpgrade: (Database db, int oldVersion, int newVersion) async{
-        print("新版本:${newVersion}");
-        print("旧版本:${oldVersion}");
+        print("新版本:$newVersion");
+        print("旧版本:$oldVersion");
         if(oldVersion < 2){
          await db.execute("ALTER TABLE TodoList ADD COLUMN changeTimes INTEGER DEFAULT 0");
         }
@@ -102,7 +100,7 @@ class DBProvider {
 
   Future updateTask(TaskBean taskBean) async {
     final db = await database;
-    int id = await db.update("TodoList", taskBean.toMap(),
+    await db.update("TodoList", taskBean.toMap(),
         where: "id = ?", whereArgs: [taskBean.id]);
   }
 
@@ -120,7 +118,7 @@ class DBProvider {
           where: "id = ?", whereArgs: [task.id]);
     }
     final results = await batch.commit();
-    print("批量更新结果:${results}");
+    print("批量更新结果:$results");
   }
 
   ///批量创建任务
@@ -131,7 +129,7 @@ class DBProvider {
       batch.insert("TodoList", task.toMap());
     }
     final results = await batch.commit();
-    print("批量插入结果:${results}");
+    print("批量插入结果:$results");
   }
 
   ///根据[uniqueId]查询一项任务
@@ -156,7 +154,7 @@ class DBProvider {
         newTasks.add(task);
       }
     }
-    print("更新结果:${newTasks}   原来:${tasks}");
+    print("更新结果:$newTasks   原来:$tasks");
     updateTasks(newTasks);
   }
 

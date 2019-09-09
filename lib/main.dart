@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       ],
       localeResolutionCallback:
           (Locale locale, Iterable<Locale> supportedLocales) {
-        debugPrint("locale:${locale}   sups:${supportedLocales}");
+        debugPrint("locale:$locale   sups:$supportedLocales");
         if (model.currentLocale == locale) return model.currentLocale;
         for (var supportedLocale in supportedLocales) {
           if (supportedLocale == locale) {
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
       },
       localeListResolutionCallback:
           (List<Locale> locales, Iterable<Locale> supportedLocales) {
-        debugPrint("locatassss:${locales}  sups:${supportedLocales}");
+        debugPrint("locatassss:$locales  sups:$supportedLocales");
         return model.currentLocale;
       },
       locale: model.currentLocale,

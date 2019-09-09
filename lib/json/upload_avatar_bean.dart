@@ -1,6 +1,6 @@
 class UploadAvatarBean {
 
-  /**
+  /*
    * description : "头像上传成功"
    * filePath : "files/772565130@qq.com/2019/7/avatar.jpg"
    * status : 0
@@ -11,11 +11,11 @@ class UploadAvatarBean {
   int status;
 
   static UploadAvatarBean fromMap(Map<String, dynamic> map) {
-    UploadAvatarBean upload_avatar_bean = new UploadAvatarBean();
-    upload_avatar_bean.description = map['description'];
-    upload_avatar_bean.filePath = map['filePath'];
-    upload_avatar_bean.status = map['status'];
-    return upload_avatar_bean;
+    UploadAvatarBean uploadAvatarBean = new UploadAvatarBean();
+    uploadAvatarBean.description = map['description'];
+    uploadAvatarBean.filePath = map['filePath'];
+    uploadAvatarBean.status = map['status'];
+    return uploadAvatarBean;
   }
 
   static List<UploadAvatarBean> fromMapList(dynamic mapList) {

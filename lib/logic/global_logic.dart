@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
-import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/model/all_model.dart';

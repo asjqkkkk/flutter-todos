@@ -10,13 +10,13 @@ class LoginBean{
   String avatarUrl;
 
   static LoginBean fromMap(Map<String, dynamic> map) {
-    LoginBean login_bean = new LoginBean();
-    login_bean.description = map['description'];
-    login_bean.status = map['status'];
-    login_bean.token = map['token'];
-    login_bean.username = map['username'];
-    login_bean.avatarUrl = map['avatarUrl'];
-    return login_bean;
+    LoginBean loginBean = new LoginBean();
+    loginBean.description = map['description'];
+    loginBean.status = map['status'];
+    loginBean.token = map['token'];
+    loginBean.username = map['username'];
+    loginBean.avatarUrl = map['avatarUrl'];
+    return loginBean;
   }
 
   static List<LoginBean> fromMapList(dynamic mapList) {

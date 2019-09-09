@@ -6,7 +6,6 @@ import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/model/done_task_page_model.dart';
 import 'package:todo_list/model/search_page_model.dart';
-import 'package:todo_list/utils/shared_util.dart';
 
 import 'global_model.dart';
 

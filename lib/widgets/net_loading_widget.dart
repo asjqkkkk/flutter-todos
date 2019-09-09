@@ -101,6 +101,10 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
     }
   }
 
+  void refresh(){
+    if(mounted) setState(() {});
+  }
+
 
   @override
   void dispose() {
@@ -126,6 +130,7 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
         return widget.idleText ?? "";
         break;
     }
+  return "";
   }
 }
 
@@ -137,9 +142,7 @@ class LoadingController {
   void setFlag(LoadingFlag loadingFlag) {
     _state?.loadingFlag = loadingFlag;
     _flag = loadingFlag;
-    if (_state?.mounted ?? false) {
-      _state?.setState(() {});
-    }
+    _state?.refresh();
     print("设置:${_state?.loadingFlag}");
   }
 

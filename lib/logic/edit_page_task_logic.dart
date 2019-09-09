@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/database/database.dart';
@@ -9,7 +7,6 @@ import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
-import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class EditTaskPageLogic {

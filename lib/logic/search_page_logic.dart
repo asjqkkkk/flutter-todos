@@ -1,8 +1,5 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
@@ -34,7 +31,7 @@ class SearchPageLogic{
           _model.loadingFlag = LoadingFlag.success;
         }
         _model.refresh();
-        print("搜索完成:${queryText}  ${list}");
+        print("搜索完成:$queryText  $list");
       });
     }
   }

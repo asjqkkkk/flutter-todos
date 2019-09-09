@@ -13,8 +13,8 @@ class ApiService {
   static ApiService get instance => _getInstance();
   static ApiService _instance;
 
-  static final int SUCCEED = 0;
-  static final int FAILED = 1;
+  static final int requestSucceed = 0;
+  static final int requestFailed = 1;
 
   ApiService._internal() {
     ///初始化
@@ -64,7 +64,7 @@ class ApiService {
         "fUser/oneDaySuggestion",
         (data) {
           CommonBean commonBean = CommonBean.fromMap(data);
-          if (commonBean.status == 0) {
+          if (commonBean.status == requestSucceed) {
             success(commonBean);
           } else {
             failed(commonBean);
@@ -107,7 +107,7 @@ class ApiService {
         url,
         (data) {
           CommonBean commonBean = CommonBean.fromMap(data);
-          if (commonBean.status == 0) {
+          if (commonBean.status == requestSucceed) {
             success(commonBean);
           } else {
             failed(commonBean);
@@ -132,7 +132,7 @@ class ApiService {
       "https://free-api.heweather.com/s6/weather/now",
       (data) {
         WeatherBean weatherBean = WeatherBean.fromMap(data);
-        if (weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].status ==
+        if (weatherBean.heWeather6[weatherBean.heWeather6.length - 1].status ==
             "ok") {
           success(weatherBean);
         } else {
@@ -179,11 +179,11 @@ class ApiService {
     ApiStrategy.getInstance().post(
         "fUser/login",
         (data) {
-          LoginBean login_bean = LoginBean.fromMap(data);
-          if (login_bean.status == 0) {
-            success(login_bean);
+          LoginBean loginBean = LoginBean.fromMap(data);
+          if (loginBean.status == requestSucceed) {
+            success(loginBean);
           } else {
-            failed(login_bean);
+            failed(loginBean);
           }
         },
         params: params,
@@ -220,7 +220,7 @@ class ApiService {
         "fUser/uploadAvatar",
         (data) {
           UploadAvatarBean bean = UploadAvatarBean.fromMap(data);
-          if (bean.status == 0) {
+          if (bean.status == requestSucceed) {
             success(bean);
           } else {
             failed(bean);
@@ -275,7 +275,7 @@ class ApiService {
       "fUser/register",
       (data) {
         RegisterBean registerBean = RegisterBean.fromMap(data);
-        if (registerBean.status == 0) {
+        if (registerBean.status == requestSucceed) {
           success(registerBean);
         } else {
           failed(registerBean);
@@ -322,7 +322,7 @@ class ApiService {
       "oneDayTask/createTask",
           (data) {
         UploadTaskBean bean = UploadTaskBean.fromMap(data);
-        if (bean.status == 0) {
+        if (bean.status == requestSucceed) {
           success(bean);
         } else {
           failed(bean);
@@ -346,7 +346,7 @@ class ApiService {
         'token':token,
       },
       errorCallBack: (errorMessage) {
-        error("上传出错：${errorMessage}");
+        error("上传出错：$errorMessage");
 
       },
       token: cancelToken,
@@ -360,7 +360,7 @@ class ApiService {
       "oneDayTask/getTasks",
           (data) {
             CloudTaskBean bean = CloudTaskBean.fromMap(data);
-        if (bean.status == 0) {
+        if (bean.status == requestSucceed) {
           success(bean);
         } else {
           failed(bean);
@@ -368,7 +368,7 @@ class ApiService {
       },
       params: params,
       errorCallBack: (errorMessage) {
-        error("获取出错：${errorMessage}");
+        error("获取出错：$errorMessage");
       },
       token: token,
     );

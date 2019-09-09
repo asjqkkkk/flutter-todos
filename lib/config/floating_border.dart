@@ -6,12 +6,10 @@ import 'package:todo_list/utils/size_util.dart';
 //正六边形实现
 class FloatingBorder extends ShapeBorder {
   @override
-  // TODO: implement dimensions
   EdgeInsetsGeometry get dimensions => EdgeInsets.only();
 
   @override
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getInnerPath
     return getOuterPath(rect, textDirection: textDirection);
   }
 
@@ -34,12 +32,10 @@ class FloatingBorder extends ShapeBorder {
 
   @override
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
-    // TODO: implement paint
   }
 
   @override
   ShapeBorder scale(double t) {
-    // TODO: implement scale
     return null;
   }
 

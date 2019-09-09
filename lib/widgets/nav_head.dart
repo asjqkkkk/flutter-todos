@@ -35,7 +35,6 @@ class _NavHeadState extends State<NavHead> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final double statusBarHeight = MediaQuery.of(context).padding.top;
-    final size = MediaQuery.of(context).size;
     final double navHeaderHeight = statusBarHeight + 160;
     final double circleOneRadius = navHeaderHeight / 4;
     final double circleTwoRadius = navHeaderHeight / 8;

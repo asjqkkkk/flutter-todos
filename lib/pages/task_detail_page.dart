@@ -35,7 +35,7 @@ class TaskDetailPage extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Hero(
-            tag: "task_bg${heroTag}",
+            tag: "task_bg$heroTag",
             child: Container(
                 decoration: BoxDecoration(
               color: globalModel.logic.getBgInDark(),
@@ -58,7 +58,7 @@ class TaskDetailPage extends StatelessWidget {
               backgroundColor: Colors.transparent,
               actions: <Widget>[
                 Hero(
-                    tag: "task_more${heroTag}",
+                    tag: "task_more$heroTag",
                     child: Material(
                         color: Colors.transparent,
                         child: PopMenuBt(

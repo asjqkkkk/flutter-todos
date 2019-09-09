@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:test/test.dart';
-import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/utils/icon_utils.dart';
 
 void main() {
@@ -26,7 +23,7 @@ void main() {
       '\"codePoint\"': "\"${icon.codePoint}\"",
       '\"fontFamily\"': "\"${icon.fontFamily}\"",
       '\"fontPackage\"': "\"${icon.fontPackage}\"",
-      '\"iconName\"': "\"${name}\"",
+      '\"iconName\"': "\"$name\"",
       '\"matchTextDirection\"': "\"${icon.matchTextDirection}\""
     };
     //把list转换为string的时候不要直接使用tostring，要用jsonEncode
@@ -40,7 +37,7 @@ void main() {
     List<Map<String, dynamic>> jsons = List.generate(list.length, (index){
       return toMap(list[index], IconUtil.getInstance().iconNames[index]);
     });
-//    print("数据:\n${jsons}");
+   print("数据:\n$jsons");
   });
 
 

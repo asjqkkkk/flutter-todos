@@ -40,7 +40,7 @@ class NetPicturesPageLogic{
         _model.refresh();
       },
       error: (error) {
-        debugPrint("错误:${error}");
+        debugPrint("错误:$error");
         _model.loadingFlag = LoadingFlag.error;
         _model.refreshController?.footerMode?.value = LoadStatus.failed;
         _model.refresh();
@@ -48,8 +48,8 @@ class NetPicturesPageLogic{
       params: {
         "client_id":
         "7b77014ee1e5b9a2518420aa190db74fd82f81cd2cc5c6e03ced781b8205b80e",
-        "page": "${page}",
-        "per_page": "${perPage}"
+        "page": "$page",
+        "per_page": "$perPage"
       },
       token: cancelToken,
     );
@@ -58,7 +58,7 @@ class NetPicturesPageLogic{
 
   void loadMorePhoto() {
     getPhotos(
-      page: (_model.photos.length / 20).toInt() + 1,
+      page: _model.photos.length ~/ 20 + 1,
       cancelToken: _model.cancelToken,
     );
   }

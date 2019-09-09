@@ -13,7 +13,6 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
     final primaryColorLight = Theme.of(context).primaryColorLight;
-    final primaryColorDark = Theme.of(context).primaryColorDark;
     final size = MediaQuery.of(context).size;
 
     final model = Provider.of<AccountPageModel>(context)..setContext(context);
