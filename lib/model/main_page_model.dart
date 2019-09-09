@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
-import 'package:todo_list/database/database.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/json/task_bean.dart';
-import 'package:todo_list/widgets/net_loading_widget.dart';
 
 import 'global_model.dart';
 

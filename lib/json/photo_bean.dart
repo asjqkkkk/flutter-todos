@@ -1,6 +1,6 @@
 class PhotoBean {
 
-  /**
+  /*
    * id : "aH8tRjQG4XM"
    * created_at : "2019-07-18T06:20:04-04:00"
    * updated_at : "2019-07-18T06:55:09-04:00"
@@ -16,11 +16,11 @@ class PhotoBean {
    */
 
   String id;
-  String created_at;
-  String updated_at;
+  String createdAt;
+  String updatedAt;
   String color;
   bool sponsored;
-  bool liked_by_user;
+  bool likedByUser;
   int width;
   int height;
   int likes;
@@ -29,20 +29,20 @@ class PhotoBean {
   UserBean user;
 
   static PhotoBean fromMap(Map<String, dynamic> map) {
-    PhotoBean photo_bean = new PhotoBean();
-    photo_bean.id = map['id'];
-    photo_bean.created_at = map['created_at'];
-    photo_bean.updated_at = map['updated_at'];
-    photo_bean.color = map['color'];
-    photo_bean.sponsored = map['sponsored'];
-    photo_bean.liked_by_user = map['liked_by_user'];
-    photo_bean.width = map['width'];
-    photo_bean.height = map['height'];
-    photo_bean.likes = map['likes'];
-    photo_bean.links = LinksBean.fromMap(map['links']);
-    photo_bean.urls = UrlsBean.fromMap(map['urls']);
-    photo_bean.user = UserBean.fromMap(map['user']);
-    return photo_bean;
+    PhotoBean photoBean = new PhotoBean();
+    photoBean.id = map['id'];
+    photoBean.createdAt = map['created_at'];
+    photoBean.updatedAt = map['updated_at'];
+    photoBean.color = map['color'];
+    photoBean.sponsored = map['sponsored'];
+    photoBean.likedByUser = map['liked_by_user'];
+    photoBean.width = map['width'];
+    photoBean.height = map['height'];
+    photoBean.likes = map['likes'];
+    photoBean.links = LinksBean.fromMap(map['links']);
+    photoBean.urls = UrlsBean.fromMap(map['urls']);
+    photoBean.user = UserBean.fromMap(map['user']);
+    return photoBean;
   }
 
   static List<PhotoBean> fromMapList(dynamic mapList) {
@@ -57,7 +57,7 @@ class PhotoBean {
 
 class LinksBean {
 
-  /**
+  /*
    * self : "https://api.unsplash.com/users/rotaalternativa"
    * html : "https://unsplash.com/@rotaalternativa"
    * photos : "https://api.unsplash.com/users/rotaalternativa/photos"
@@ -98,7 +98,7 @@ class LinksBean {
 
 class UrlsBean {
 
-  /**
+  /*
    * raw : "https://images.unsplash.com/photo-1563445192071-fb5b2fa4ad62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjgxNjY3fQ"
    * full : "https://images.unsplash.com/photo-1563445192071-fb5b2fa4ad62?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjgxNjY3fQ"
    * regular : "https://images.unsplash.com/photo-1563445192071-fb5b2fa4ad62?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjgxNjY3fQ"
@@ -133,7 +133,7 @@ class UrlsBean {
 
 class UserBean {
 
-  /**
+  /*
    * id : "hHQGJB9ZejE"
    * updated_at : "2019-07-18T07:57:50-04:00"
    * username : "rotaalternativa"
@@ -152,38 +152,38 @@ class UserBean {
    */
 
   String id;
-  String updated_at;
+  String updatedAt;
   String username;
   String name;
-  String first_name;
-  String last_name;
-  String portfolio_url;
+  String firstName;
+  String lastName;
+  String portfolioUrl;
   String bio;
-  String instagram_username;
-  bool accepted_tos;
-  int total_collections;
-  int total_likes;
-  int total_photos;
+  String instagramUsername;
+  bool acceptedTos;
+  int totalCollections;
+  int totalLikes;
+  int totalPhotos;
   LinksBean links;
-  Profile_imageBean profile_image;
+  ProfileImageBean profileImage;
 
   static UserBean fromMap(Map<String, dynamic> map) {
     UserBean userBean = new UserBean();
     userBean.id = map['id'];
-    userBean.updated_at = map['updated_at'];
+    userBean.updatedAt = map['updated_at'];
     userBean.username = map['username'];
     userBean.name = map['name'];
-    userBean.first_name = map['first_name'];
-    userBean.last_name = map['last_name'];
-    userBean.portfolio_url = map['portfolio_url'];
+    userBean.firstName = map['first_name'];
+    userBean.lastName = map['last_name'];
+    userBean.portfolioUrl = map['portfolio_url'];
     userBean.bio = map['bio'];
-    userBean.instagram_username = map['instagram_username'];
-    userBean.accepted_tos = map['accepted_tos'];
-    userBean.total_collections = map['total_collections'];
-    userBean.total_likes = map['total_likes'];
-    userBean.total_photos = map['total_photos'];
+    userBean.instagramUsername = map['instagram_username'];
+    userBean.acceptedTos = map['accepted_tos'];
+    userBean.totalCollections = map['total_collections'];
+    userBean.totalLikes = map['total_likes'];
+    userBean.totalPhotos = map['total_photos'];
     userBean.links = LinksBean.fromMap(map['links']);
-    userBean.profile_image = Profile_imageBean.fromMap(map['profile_image']);
+    userBean.profileImage = ProfileImageBean.fromMap(map['profile_image']);
     return userBean;
   }
 
@@ -196,9 +196,9 @@ class UserBean {
   }
 }
 
-class Profile_imageBean {
+class ProfileImageBean {
 
-  /**
+  /*
    * small : "https://images.unsplash.com/profile-1550700203074-81551f41d6fe?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32"
    * medium : "https://images.unsplash.com/profile-1550700203074-81551f41d6fe?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64"
    * large : "https://images.unsplash.com/profile-1550700203074-81551f41d6fe?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128"
@@ -208,16 +208,16 @@ class Profile_imageBean {
   String medium;
   String large;
 
-  static Profile_imageBean fromMap(Map<String, dynamic> map) {
-    Profile_imageBean profile_imageBean = new Profile_imageBean();
-    profile_imageBean.small = map['small'];
-    profile_imageBean.medium = map['medium'];
-    profile_imageBean.large = map['large'];
-    return profile_imageBean;
+  static ProfileImageBean fromMap(Map<String, dynamic> map) {
+    ProfileImageBean profileImageBean = new ProfileImageBean();
+    profileImageBean.small = map['small'];
+    profileImageBean.medium = map['medium'];
+    profileImageBean.large = map['large'];
+    return profileImageBean;
   }
 
-  static List<Profile_imageBean> fromMapList(dynamic mapList) {
-    List<Profile_imageBean> list = new List(mapList.length);
+  static List<ProfileImageBean> fromMapList(dynamic mapList) {
+    List<ProfileImageBean> list = new List(mapList.length);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

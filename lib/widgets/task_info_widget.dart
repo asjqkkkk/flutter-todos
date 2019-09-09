@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
-import 'package:todo_list/model/task_detail_page_model.dart';
-import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/popmenu_botton.dart';
 
 class TaskInfoWidget extends StatelessWidget {
@@ -42,7 +40,7 @@ class TaskInfoWidget extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 margin: EdgeInsets.only(top: 16),
                 child: Hero(
-                  tag: "task_icon${index}",
+                  tag: "task_icon$index",
                   child: Container(
                       width: 42,
                       height: 42,
@@ -68,7 +66,7 @@ class TaskInfoWidget extends StatelessWidget {
                     child: space == 20
                         ? SizedBox()
                         : Hero(
-                            tag: "task_more${index}",
+                            tag: "task_more$index",
                             child: Material(
                                 color: Colors.transparent,
                                 child: PopMenuBt(
@@ -88,7 +86,7 @@ class TaskInfoWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             taskBean.getNeedUpdateToCloud(taskBean) ? Hero(
-              tag: "task_syn${index}",
+              tag: "task_syn$index",
               child: Material(
                 color: Colors.transparent,
                 child: Text(
@@ -106,7 +104,7 @@ class TaskInfoWidget extends StatelessWidget {
                     child: Container(
                       alignment: Alignment.bottomLeft,
                       child: Hero(
-                        tag: "task_title${index}",
+                        tag: "task_title$index",
                         child: Material(
                           color: Colors.transparent,
                           child: Text(
@@ -124,7 +122,7 @@ class TaskInfoWidget extends StatelessWidget {
                       alignment: Alignment.bottomRight,
                       child: taskBean.overallProgress >= 1.0 && !isExisting
                           ? Hero(
-                              tag: "task_complete${index}",
+                              tag: "task_complete$index",
                               child: Icon(
                                 Icons.check_circle,
                                 size: 24,
@@ -141,7 +139,7 @@ class TaskInfoWidget extends StatelessWidget {
               margin: EdgeInsets.only(top: 5),
               alignment: Alignment.bottomLeft,
               child: Hero(
-                tag: "task_items${index}",
+                tag: "task_items$index",
                 child: Material(
                   color: Colors.transparent,
                   child: Text(
@@ -154,7 +152,7 @@ class TaskInfoWidget extends StatelessWidget {
             Container(
               alignment: Alignment.centerRight,
               child: Hero(
-                tag: "task_progress${index}",
+                tag: "task_progress$index",
                 child: Material(
                     color: Colors.transparent,
                     child: Text(
@@ -165,7 +163,7 @@ class TaskInfoWidget extends StatelessWidget {
               ),
             ),
             Hero(
-              tag: "task_progressbar${index}",
+              tag: "task_progressbar$index",
               child: Container(
                 height: 10,
                 margin: EdgeInsets.only(top: 12, bottom: 10),
@@ -224,14 +222,14 @@ class TaskInfoWidget extends StatelessWidget {
     return Row(
       children: <Widget>[
         Hero(
-            tag: "time_icon${index}",
+            tag: "time_icon$index",
             child: Icon(
               Icons.timelapse,
               color: taskColor,
             )),
         Expanded(
           child: Hero(
-              tag: "time_text${index}",
+              tag: "time_text$index",
               child: Material(
                 color: Colors.transparent,
                 child: Text(
@@ -254,14 +252,14 @@ class TaskInfoWidget extends StatelessWidget {
     return Row(
       children: <Widget>[
         Hero(
-            tag: "time_icon${index}",
+            tag: "time_icon$index",
             child: Icon(
               Icons.timer,
               color: taskColor,
             )),
         Expanded(
           child: Hero(
-              tag: "time_text${index}",
+              tag: "time_text$index",
               child: Material(
                   color: Colors.transparent,
                   child: Text(

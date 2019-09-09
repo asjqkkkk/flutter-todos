@@ -58,9 +58,9 @@ class _WeatherWidgetState extends State<WeatherWidget> {
       );
     }
     final BasicBean basicBean =
-        weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].basic;
+        weatherBean.heWeather6[weatherBean.heWeather6.length - 1].basic;
     final NowBean nowBean =
-        weatherBean.HeWeather6[weatherBean.HeWeather6.length - 1].now;
+        weatherBean.heWeather6[weatherBean.heWeather6.length - 1].now;
     return Container(
       margin: EdgeInsets.only(left: 5, top: 5),
       child: Row(
@@ -68,7 +68,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
         children: <Widget>[
           Container(
             child: Image.asset(
-              "images/weather/${nowBean.cond_code}.png",
+              "images/weather/${nowBean.condCode}.png",
               color: color,
               width: 60,
               height: 60,
@@ -92,7 +92,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                   ),
                 ),
                 Text(
-                  "${nowBean.tmp} ℃   ${nowBean.cond_txt}",
+                  "${nowBean.tmp} ℃   ${nowBean.condTxt}",
                   style: TextStyle(
                     fontSize: 16,
                     color: color,

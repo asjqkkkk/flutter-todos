@@ -7,7 +7,7 @@ class DemoLocalizations {
   static Future<DemoLocalizations> load(Locale locale) {
     final String name = locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
     final String localeName = Intl.canonicalizedLocale(name);
-    print("name是：${localeName}");
+    print("name是：$localeName");
     return initializeMessages(localeName).then((b) {
       Intl.defaultLocale = localeName;
       return new DemoLocalizations();

@@ -10,7 +10,7 @@ void main(){
 
     var filename = url.split("/").last;
 
-    print("名字:${filename}");
+    print("名字:$filename");
   });
 
 }

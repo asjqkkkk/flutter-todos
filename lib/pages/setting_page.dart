@@ -7,7 +7,6 @@ import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
-import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/edit_dialog.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';

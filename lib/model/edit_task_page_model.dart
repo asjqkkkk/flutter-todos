@@ -5,7 +5,6 @@ import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
-import 'package:todo_list/utils/theme_util.dart';
 
 class EditTaskPageModel extends ChangeNotifier{
 

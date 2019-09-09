@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/login_page_model.dart';
-import 'package:todo_list/utils/theme_util.dart';
 
 import 'bottom_to_top_widget.dart';
 

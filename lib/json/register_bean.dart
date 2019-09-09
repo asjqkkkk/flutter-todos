@@ -7,12 +7,12 @@ class RegisterBean{
   int status;
 
   static RegisterBean fromMap(Map<String, dynamic> map) {
-    RegisterBean diary_base = new RegisterBean();
-    diary_base.description = map['description'];
-    diary_base.token = map['token'];
-    diary_base.avatarUrl = map['avatarUrl'];
-    diary_base.status = map['status'];
-    return diary_base;
+    RegisterBean diaryBase = new RegisterBean();
+    diaryBase.description = map['description'];
+    diaryBase.token = map['token'];
+    diaryBase.avatarUrl = map['avatarUrl'];
+    diaryBase.status = map['status'];
+    return diaryBase;
   }
 
   static List<RegisterBean> fromMapList(dynamic mapList) {

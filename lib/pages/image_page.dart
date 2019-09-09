@@ -69,7 +69,7 @@ class _ImagePageState extends State<ImagePage> {
                       ? NetworkImage(url)
                       : CachedNetworkImageProvider(url),
                   initialScale: PhotoViewComputedScale.contained,
-                  heroTag: widget.heroTag ?? "tag_${index}",
+                  heroTag: widget.heroTag ?? "tag_$index",
                 );
               },
               itemCount: widget.imageUrls.length,

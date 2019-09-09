@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:circle_list/circle_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

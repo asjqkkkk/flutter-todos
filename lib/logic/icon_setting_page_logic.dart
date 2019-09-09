@@ -1,13 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/icon_list_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
-import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/custom_icon_widget.dart';
 
 class IconSettingPageLogic {
@@ -42,7 +40,7 @@ class IconSettingPageLogic {
                   final data = jsonEncode(taskIconBean.toMap());
                   if (isEdit) {
                     //如果不是新增而是编辑
-                    await SharedUtil.instance.readAndExchangeList(
+                   SharedUtil.instance.readAndExchangeList(
                         Keys.taskIconBeans, data, index);
                   } else {
                     //如果是新增
@@ -229,7 +227,7 @@ class IconSettingPageLogic {
       _model.refresh();
       return;
     }
-    ;
+    
     for (var i = 0; i < _model.showIcons.length; ++i) {
       final icon = _model.showIcons[i];
       final iconName = icon.iconName;

@@ -1,6 +1,6 @@
 class UpdateInfoBean {
 
-  /**
+  /*
    * appVersion : "1.0.0"
    * appName : "无"
    * updateInfo : "无"
@@ -15,13 +15,13 @@ class UpdateInfoBean {
   String appId;
 
   static UpdateInfoBean fromMap(Map<String, dynamic> map) {
-    UpdateInfoBean update_info_bean = new UpdateInfoBean();
-    update_info_bean.appVersion = map['appVersion'];
-    update_info_bean.appName = map['appName'];
-    update_info_bean.updateInfo = map['updateInfo'];
-    update_info_bean.downloadUrl = map['downloadUrl'];
-    update_info_bean.appId = map['appId'];
-    return update_info_bean;
+    UpdateInfoBean updateInfoBean = new UpdateInfoBean();
+    updateInfoBean.appVersion = map['appVersion'];
+    updateInfoBean.appName = map['appName'];
+    updateInfoBean.updateInfo = map['updateInfo'];
+    updateInfoBean.downloadUrl = map['downloadUrl'];
+    updateInfoBean.appId = map['appId'];
+    return updateInfoBean;
   }
 
   static List<UpdateInfoBean> fromMapList(dynamic mapList) {

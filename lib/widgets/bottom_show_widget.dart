@@ -7,8 +7,6 @@ import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:circle_list/circle_list.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:todo_list/pages/edit_task_page.dart';
-import 'package:todo_list/utils/theme_util.dart';
 
 class BottomShowWidget extends StatefulWidget {
   final VoidCallback onExit;
@@ -48,7 +46,6 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final maxSize = max(size.height, size.width);
     final minSize = min(size.height, size.width);
     final circleSize = minSize;
     final Offset circleOrigin = Offset((size.width - circleSize) / 2, 0);

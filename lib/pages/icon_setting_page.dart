@@ -4,7 +4,6 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/icon_setting_page_model.dart';
-import 'package:todo_list/widgets/custom_animated_icon.dart';
 import 'package:todo_list/widgets/custom_animated_switcher.dart';
 
 class IconSettingPage extends StatelessWidget {

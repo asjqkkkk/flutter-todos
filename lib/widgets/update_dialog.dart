@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/utils/file_util.dart';
@@ -163,7 +161,7 @@ class UpdateDialogState extends State<UpdateDialog> {
                   uploadingFlag = UploadingFlag.uploaded;
                 });
               }
-              debugPrint("读取的目录:${apkPath}");
+              debugPrint("读取的目录:$apkPath");
               try {
                 OpenFile.open(apkPath + "todo-list.apk");
               } catch (e) {}

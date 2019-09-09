@@ -4,12 +4,12 @@ class WeatherBean {
 
   //{"HeWeather6":[{"status":"unknown location"}]}错误时的
 
-  List<HeWeather6ListBean> HeWeather6;
+  List<HeWeather6ListBean> heWeather6;
 
   static WeatherBean fromMap(Map<String, dynamic> map) {
-    WeatherBean weather_bean = new WeatherBean();
-    weather_bean.HeWeather6 = HeWeather6ListBean.fromMapList(map['HeWeather6']);
-    return weather_bean;
+    WeatherBean weatherBean = new WeatherBean();
+    weatherBean.heWeather6 = HeWeather6ListBean.fromMapList(map['HeWeather6']);
+    return weatherBean;
   }
 
   static List<WeatherBean> fromMapList(dynamic mapList) {
@@ -24,7 +24,7 @@ class WeatherBean {
 
 class HeWeather6ListBean {
 
-  /**
+  /*
    * status : "ok"
    * basic : {"cid":"TR3487004","location":"Akrotiri","parent_city":"Akrotiri","admin_area":"�ǿ���������¿�����","cnty":"Ӣ��","lat":"34.60100174","lon":"32.95600128","tz":"+3.00"}
    * now : {"cloud":"35","cond_code":"100","cond_txt":"��","fl":"30","hum":"87","pcpn":"0.0","pres":"1005","tmp":"26","vis":"16","wind_deg":"271","wind_dir":"����","wind_sc":"0","wind_spd":"1"}
@@ -56,7 +56,7 @@ class HeWeather6ListBean {
 
 class BasicBean {
 
-  /**
+  /*
    * cid : "TR3487004"
    * location : "Akrotiri"
    * parent_city : "Akrotiri"
@@ -69,8 +69,8 @@ class BasicBean {
 
   String cid;
   String location;
-  String parent_city;
-  String admin_area;
+  String parentCity;
+  String adminArea;
   String cnty;
   String lat;
   String lon;
@@ -80,8 +80,8 @@ class BasicBean {
     BasicBean basicBean = new BasicBean();
     basicBean.cid = map['cid'];
     basicBean.location = map['location'];
-    basicBean.parent_city = map['parent_city'];
-    basicBean.admin_area = map['admin_area'];
+    basicBean.parentCity = map['parent_city'];
+    basicBean.adminArea = map['admin_area'];
     basicBean.cnty = map['cnty'];
     basicBean.lat = map['lat'];
     basicBean.lon = map['lon'];
@@ -100,7 +100,7 @@ class BasicBean {
 
 class NowBean {
 
-  /**
+  /*
    * cloud : "35"
    * cond_code : "100"
    * cond_txt : "��"
@@ -117,34 +117,34 @@ class NowBean {
    */
 
   String cloud;
-  String cond_code;
-  String cond_txt;
+  String condCode;
+  String condTxt;
   String fl;
   String hum;
   String pcpn;
   String pres;
   String tmp;
   String vis;
-  String wind_deg;
-  String wind_dir;
-  String wind_sc;
-  String wind_spd;
+  String windDeg;
+  String windDir;
+  String windSc;
+  String windSpd;
 
   static NowBean fromMap(Map<String, dynamic> map) {
     NowBean nowBean = new NowBean();
     nowBean.cloud = map['cloud'];
-    nowBean.cond_code = map['cond_code'];
-    nowBean.cond_txt = map['cond_txt'];
+    nowBean.condCode = map['cond_code'];
+    nowBean.condTxt = map['cond_txt'];
     nowBean.fl = map['fl'];
     nowBean.hum = map['hum'];
     nowBean.pcpn = map['pcpn'];
     nowBean.pres = map['pres'];
     nowBean.tmp = map['tmp'];
     nowBean.vis = map['vis'];
-    nowBean.wind_deg = map['wind_deg'];
-    nowBean.wind_dir = map['wind_dir'];
-    nowBean.wind_sc = map['wind_sc'];
-    nowBean.wind_spd = map['wind_spd'];
+    nowBean.windDeg = map['wind_deg'];
+    nowBean.windDir = map['wind_dir'];
+    nowBean.windSc = map['wind_sc'];
+    nowBean.windSpd = map['wind_spd'];
     return nowBean;
   }
 
@@ -159,7 +159,7 @@ class NowBean {
 
 class UpdateBean {
 
-  /**
+  /*
    * loc : "2019-07-24 16:57"
    * utc : "2019-07-24 13:57"
    */

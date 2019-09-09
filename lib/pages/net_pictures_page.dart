@@ -6,10 +6,8 @@ import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/net_pictures_page_model.dart';
-import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'image_page.dart';
 
 class NetPicturesPage extends StatelessWidget {
   @override
@@ -49,7 +47,7 @@ class NetPicturesPage extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.all(Radius.circular(20)),
                             child: Hero(
-                              tag: "tag_${index}",
+                              tag: "tag_$index",
                               child: CachedNetworkImage(
                                 imageUrl: url,
                                 fit: BoxFit.cover,

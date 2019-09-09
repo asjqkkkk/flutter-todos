@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/items/task_item.dart';
-import 'package:todo_list/json/color_bean.dart';
-import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/search_page_model.dart';
-import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 
 class SearchPage extends StatelessWidget {
@@ -17,7 +13,6 @@ class SearchPage extends StatelessWidget {
     final model = Provider.of<SearchPageModel>(context)..setContext(context);
     final primaryColor = globalModel.logic.getPrimaryInDark(context);
     final bgColor = globalModel.logic.getWhiteInDark();
-    final whiteInDark = globalModel.logic.getWhiteInDark();
 
     return Scaffold(
       backgroundColor: primaryColor,

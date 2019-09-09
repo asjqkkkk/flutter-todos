@@ -1,6 +1,6 @@
 class UploadTaskBean {
 
-  /**
+  /*
    * description : "任务创建成功"
    * uniqueId : "772565130@qq.com1566790167339"
    * status : 0
@@ -11,11 +11,11 @@ class UploadTaskBean {
   int status;
 
   static UploadTaskBean fromMap(Map<String, dynamic> map) {
-    UploadTaskBean upload_task_bean = new UploadTaskBean();
-    upload_task_bean.description = map['description'];
-    upload_task_bean.uniqueId = map['uniqueId'];
-    upload_task_bean.status = map['status'];
-    return upload_task_bean;
+    UploadTaskBean uploadTaskBean = new UploadTaskBean();
+    uploadTaskBean.description = map['description'];
+    uploadTaskBean.uniqueId = map['uniqueId'];
+    uploadTaskBean.status = map['status'];
+    return uploadTaskBean;
   }
 
   static List<UploadTaskBean> fromMapList(dynamic mapList) {

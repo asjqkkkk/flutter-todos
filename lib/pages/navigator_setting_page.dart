@@ -6,7 +6,6 @@ import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
-import 'package:todo_list/model/net_pictures_page_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 

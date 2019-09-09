@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/json/task_bean.dart';
@@ -16,10 +14,6 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final double width = size.width;
-    final double height = size.height;
-    final minSize = min(width, height);
     final globalModel = Provider.of<GlobalModel>(context);
 
     final widget = TaskInfoWidget(
@@ -36,7 +30,7 @@ class TaskItem extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Hero(
-            tag: "task_bg${index}",
+            tag: "task_bg$index",
             child: Container(
               decoration: BoxDecoration(
                 color: globalModel.logic.getBgInDark(),

@@ -1,6 +1,4 @@
 import 'dart:io';
-import 'dart:math';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +24,6 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     final globalModel = Provider.of<GlobalModel>(context);
     if(descriptions.isEmpty){
       descriptions.add(DemoLocalizations.of(context).version106);
@@ -57,6 +54,7 @@ class _AboutPageState extends State<AboutPage> {
           child: NotificationListener<OverscrollIndicatorNotification>(
             onNotification: (overScroll) {
               overScroll.disallowGlow();
+              return true;
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -151,6 +149,7 @@ class _AboutPageState extends State<AboutPage> {
                             OverscrollIndicatorNotification>(
                           onNotification: (overScroll) {
                             overScroll.disallowGlow();
+                            return true;
                           },
                           child: ListView(
                               children: List.generate(descriptions.length + 1,

@@ -5,7 +5,7 @@ on:
     branches:
       - dev
       - master
-      - action_test
+#      - action_test
 
 jobs:
   test:
@@ -29,10 +29,10 @@ jobs:
       - run: flutter build apk --target-platform android-arm --split-per-abi
       - run: ls
       - run: mv build/app/outputs/apk/release/app-armeabi-v7a-release.apk build/app-armeabi-v7a-release.apk
-      - uses: skx/github-action-publish-binaries@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
-        with:
-          args: 'build/app-armeabi-v7a-release.apk'
+#      - uses: skx/github-action-publish-binaries@master
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+#        with:
+#          args: 'build/app-armeabi-v7a-release.apk'
 
 #      - run: curl -F "key=file" -F "filename=@build/app-armeabi-v7a-release.apk" -D '{"account":"app","year":"2019","month":"3"}' http://111.230.251.115/oldchen/file/upload

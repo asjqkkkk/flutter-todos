@@ -79,7 +79,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget> {
             Timer countdownTimer =
                 new Timer.periodic(new Duration(seconds: 1), (Timer timer) {
               if (count > 0) {
-                verifyTextShow = "${count} s";
+                verifyTextShow = "$count s";
                 codeColor = Colors.grey;
                 setState(() {});
                 count--;
