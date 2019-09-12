@@ -55,10 +55,13 @@ class TaskDetailPageLogic {
         });
       }
       _model.taskBean.changeTimes++;
-      DBProvider.db.updateTask(_model.taskBean).then((value) {
-        _model.taskBean.uniqueId == null
-            ? mainPageModel.logic.postCreateTask(_model.taskBean)
-            : mainPageModel.logic.postUpdateTask(_model.taskBean);
+      DBProvider.db.updateTask(_model.taskBean).then((value) async{
+        final account = await SharedUtil.instance.getString(Keys.account) ?? 'default';
+        if(account != 'default'){
+          _model.taskBean.uniqueId == null
+              ? mainPageModel.logic.postCreateTask(_model.taskBean)
+              : mainPageModel.logic.postUpdateTask(_model.taskBean);
+        }
         ///如果是从"完成列表"过来
         if (_model.doneTaskPageModel != null) {
           mainPageModel.logic.getTasks();
