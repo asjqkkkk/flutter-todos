@@ -18,9 +18,9 @@ class NetPicturesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(model.useType == NetPicturesUseType.accountBackground
-            ? DemoLocalizations.of(context).accountBackgroundSetting
-            : DemoLocalizations.of(context).netPicture),
+        title: Text(model.useType == NetPicturesUseType.navigatorHeader
+            ? DemoLocalizations.of(context).netPicture
+            : DemoLocalizations.of(context).accountBackgroundSetting),
       ),
       body: Container(
           child: model.loadingFlag == LoadingFlag.success ||
@@ -38,7 +38,7 @@ class NetPicturesPage extends StatelessWidget {
                     children: List.generate(model.photos.length, (index) {
                       final url = model.photos[index].urls.regular;
                       final urls = model.photos
-                          .map((photoBean) => photoBean.urls.small)
+                          .map((photoBean) => photoBean.urls.regular)
                           .toList();
                       return InkWell(
                         onTap: () => model.logic.onPictureTap(urls, index, globalModel),

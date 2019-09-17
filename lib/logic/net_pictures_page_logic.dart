@@ -92,20 +92,33 @@ class NetPicturesPageLogic{
         initialPageIndex: index,
         onSelect: (current) {
           final currentUrl =
-          _model.photos[current].urls.small;
+          _model.photos[current].urls.regular;
+
           if(_model.useType == NetPicturesUseType.accountBackground){
+
             SharedUtil.instance.saveString(Keys.currentAccountBackground, currentUrl);
             SharedUtil.instance.saveString(Keys.currentAccountBackgroundType, AccountBGType.netPicture);
             final accountPageModel = _model.accountPageModel;
             accountPageModel.backgroundUrl = currentUrl;
             accountPageModel.backgroundType = AccountBGType.netPicture;
             accountPageModel.refresh();
-          } else {
+
+          } else if(_model.useType == NetPicturesUseType.navigatorHeader){
+
             SharedUtil.instance.saveString(Keys.currentNetPicUrl, currentUrl);
             SharedUtil.instance.saveString(Keys.currentNavHeader, _model.useType);
             globalModel.currentNetPicUrl = currentUrl;
             globalModel.currentNavHeader = _model.useType;
             globalModel.refresh();
+
+          } else {
+
+            SharedUtil.instance.saveString(Keys.currentMainPageBackgroundUrl, currentUrl);
+            SharedUtil.instance.saveBoolean(Keys.enableNetPicBgInMainPage, true);
+            globalModel.currentMainPageBgUrl = currentUrl;
+            globalModel.enableNetPicBgInMainPage = true;
+            globalModel.refresh();
+
           }
           Navigator.of(_model.context).pop();
         },

@@ -482,6 +482,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "enableNetPicBgInMainPage": "开启主页网络图片背景",
+  "@enableNetPicBgInMainPage": {
+    "description": "开启主页网络图片背景",
+    "type": "text",
+    "placeholders": {}
+  },
   "inputCurrentCity": "手动输入你的城市",
   "@inputCurrentCity": {
     "description": "手动输入你的城市",
@@ -1075,6 +1081,12 @@
   "version106": "版本:1.0.6 \n\n1.修复：大量因为上线账号系统,而新增的bug \n2.优化：当自定义图标数量不低于6个的时候，你可以任意编辑图标啦 \n3.新增：你可以在账号页面设置网络图片作为背景啦 \n",
   "@version106": {
     "description": "版本:1.0.6 \n\n1.修复：大量因为上线账号系统,而新增的bug \n2.优化：当自定义图标数量不低于6个的时候，你可以任意编辑图标啦 \n3.新增：你可以在账号页面设置网络图片作为背景啦",
+    "type": "text",
+    "placeholders": {}
+  },
+  "version107": "版本:1.0.7 \n\n1.修复：已经发现的一些bug\n2.新增：现在可以将主页的背景更换为网络图片啦，非常漂亮哦！ \n",
+  "@version107": {
+    "description": "版本:1.0.7 \n\n1.修复：已经发现的一些bug\n2.新增：现在可以将主页的背景更换为网络图片啦，非常漂亮哦！ \n",
     "type": "text",
     "placeholders": {}
   }

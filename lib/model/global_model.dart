@@ -32,10 +32,16 @@ class GlobalModel extends ChangeNotifier {
   bool isCardChangeWithBg = false;
 
   ///是否开启主页卡片无限循环滚动
-  bool enableInfiniteScroll = true;
+  bool enableInfiniteScroll = false;
 
   ///是否开启天气
   bool enableWeatherShow = false;
+
+  ///是否开启主页背景为网络图片
+  bool enableNetPicBgInMainPage = false;
+
+  ///当前主页网络背景图片地址
+  String currentMainPageBgUrl = "";
 
   ///当前位置信息(经纬度)
   String currentPosition = "";
@@ -80,6 +86,8 @@ class GlobalModel extends ChangeNotifier {
         logic.getEnableInfiniteScroll(),
         logic.getEnableWeatherShow(),
         logic.getLoginState(),
+        logic.getCurrentMainPageBgUrl(),
+        logic.getEnableNetPicBgInMainPage(),
         logic.getCurrentPosition(),
       ]).then((value) {
         currentLocale = Locale(currentLanguageCode[0], currentLanguageCode[1]);

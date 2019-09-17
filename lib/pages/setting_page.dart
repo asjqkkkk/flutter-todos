@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
@@ -83,16 +84,21 @@ class SettingPage extends StatelessWidget {
           ),
           SwitchListTile(
             title: Text(DemoLocalizations.of(context).enableWeatherShow),
-            secondary: Transform(
-              transform: Matrix4.rotationY(pi),
-              origin: Offset(12, 0.0),
-              child: const Icon(
-                Icons.wb_sunny,
-              ),
+            secondary: const Icon(
+              Icons.wb_sunny,
             ),
             value: globalModel.enableWeatherShow,
             activeColor: Theme.of(context).primaryColor,
             onChanged: (value) => onWeatherOpen(value, context, globalModel),
+          ),
+          SwitchListTile(
+            title: Text(DemoLocalizations.of(context).enableNetPicBgInMainPage),
+            secondary: const Icon(
+              Icons.image,
+            ),
+            value: globalModel.enableNetPicBgInMainPage,
+            activeColor: Theme.of(context).primaryColor,
+            onChanged: (value) => onNetPicBgSelect(value, context, globalModel),
           ),
           SwitchListTile(
             title: Text(DemoLocalizations.of(context).enableInfiniteScroll),
@@ -189,6 +195,20 @@ class SettingPage extends StatelessWidget {
     } else {
       globalModel.enableWeatherShow = false;
       SharedUtil.instance.saveBoolean(Keys.enableWeatherShow, false);
+      globalModel.refresh();
+    }
+  }
+
+  void onNetPicBgSelect(bool value, BuildContext context, GlobalModel globalModel){
+    if(value){
+      Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+        return ProviderConfig.getInstance().getNetPicturesPage(
+          useType: NetPicturesUseType.mainPageBackground,
+        );
+      }));
+    } else {
+      globalModel.enableNetPicBgInMainPage = false;
+      SharedUtil.instance.saveBoolean(Keys.enableNetPicBgInMainPage, false);
       globalModel.refresh();
     }
   }

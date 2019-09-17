@@ -28,6 +28,7 @@ class NetPicturesPageModel extends ChangeNotifier{
   String useType;
 
 
+  ///[accountPageModel]是从'我的账号'页面进入时传过来的值
   AccountPageModel accountPageModel;
 
   NetPicturesPageModel({String useType, AccountPageModel accountPageModel}){

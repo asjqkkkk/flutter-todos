@@ -46,6 +46,7 @@ class GlobalLogic{
     return themeType == MyTheme.darkTheme ? Colors.white : Colors.black;
   }
 
+  ///获取当前的语言code
   Future getCurrentLanguageCode() async{
     final list = await SharedUtil.instance.getStringList(Keys.currentLanguageCode);
     if (list == null) return;
@@ -53,6 +54,7 @@ class GlobalLogic{
     _model.currentLanguageCode = list;
   }
 
+  ///获取当前的语言
   Future getCurrentLanguage() async{
     final currentLanguage = await SharedUtil.instance.getString(Keys.currentLanguage);
     if (currentLanguage == null) return;
@@ -60,6 +62,7 @@ class GlobalLogic{
     _model.currentLanguage = currentLanguage;
   }
 
+  ///获取当前的主题数据
   Future getCurrentTheme() async{
     final theme = await SharedUtil.instance.getString(Keys.currentThemeBean);
     if(theme == null) return;
@@ -68,6 +71,7 @@ class GlobalLogic{
     _model.currentThemeBean = themeBean;
   }
 
+  ///获取app的名字
   Future getAppName() async{
     final appName = await SharedUtil.instance.getString(Keys.appName);
     if(appName == null) return;
@@ -76,6 +80,7 @@ class GlobalLogic{
   }
 
 
+  ///是否开启背景渐变
   Future getIsBgGradient()async{
     final isBgGradient = await SharedUtil.instance.getBoolean(Keys.backgroundGradient);
     if(isBgGradient == null) return;
@@ -83,6 +88,7 @@ class GlobalLogic{
     _model.isBgGradient = isBgGradient;
   }
 
+  ///获取导航栏的类型
   Future getCurrentNavHeader()async{
     final currentNavHeader = await SharedUtil.instance.getString(Keys.currentNavHeader);
     if(currentNavHeader == null) return;
@@ -90,6 +96,7 @@ class GlobalLogic{
     _model.currentNavHeader = currentNavHeader;
   }
 
+  ///获取当前导航栏头部选择网络图片时的图片地址
   Future getCurrentNetPicUrl()async{
     final currentNetPicUrl = await SharedUtil.instance.getString(Keys.currentNetPicUrl);
     if(currentNetPicUrl == null) return;
@@ -97,27 +104,25 @@ class GlobalLogic{
     _model.currentNetPicUrl = currentNetPicUrl;
   }
 
+  ///是否开启主页背景跟随任务卡片颜色
   Future getIsBgChangeWithCard() async {
     final isBgChangeWithCard = await SharedUtil.instance.getBoolean(Keys.backgroundChangeWithCard);
-    if(isBgChangeWithCard == null) return;
-    if(isBgChangeWithCard == _model.isBgChangeWithCard) return;
     _model.isBgChangeWithCard = isBgChangeWithCard;
   }
 
+  ///是否开启任务卡片颜色跟随背景
   Future getIsCardChangeWithBg() async {
     final isCardChangeWithBg = await SharedUtil.instance.getBoolean(Keys.cardChangeWithBackground);
-    if(isCardChangeWithBg == null) return;
-    if(isCardChangeWithBg == _model.isCardChangeWithBg) return;
     _model.isCardChangeWithBg = isCardChangeWithBg;
   }
 
+  ///是否开启主页的卡片左右无限循环
   Future getEnableInfiniteScroll() async{
     final enableInfiniteScroll = await SharedUtil.instance.getBoolean(Keys.enableInfiniteScroll);
-    if(enableInfiniteScroll == null) return;
-    if(enableInfiniteScroll == _model.enableInfiniteScroll) return;
     _model.enableInfiniteScroll = enableInfiniteScroll;
   }
 
+  ///获取当前的位置,拿到天气
   Future getCurrentPosition() async{
     final currentPosition = await SharedUtil.instance.getString(Keys.currentPosition);
     if(currentPosition == null) return;
@@ -125,10 +130,9 @@ class GlobalLogic{
     _model.currentPosition = currentPosition;
   }
 
+  ///是否开启天气
   Future getEnableWeatherShow() async{
     final enableWeatherShow = await SharedUtil.instance.getBoolean(Keys.enableWeatherShow);
-    if(enableWeatherShow == null) return;
-    if(enableWeatherShow == _model.enableWeatherShow) return;
     _model.enableWeatherShow = enableWeatherShow;
   }
 
@@ -136,6 +140,20 @@ class GlobalLogic{
   Future getLoginState() async{
     final hasLogged = await SharedUtil.instance.getBoolean(Keys.hasLogged);
     _model.goToLogin = !hasLogged;
+  }
+
+  ///是否开启主页背景为网络图片
+  Future getEnableNetPicBgInMainPage() async{
+    final enableNetPicBgInMainPage = await SharedUtil.instance.getBoolean(Keys.enableNetPicBgInMainPage);
+    _model.enableNetPicBgInMainPage = enableNetPicBgInMainPage;
+  }
+
+  ///获取当前主页背景图片的url
+  Future getCurrentMainPageBgUrl() async{
+    final currentMainPageBgUrl = await SharedUtil.instance.getString(Keys.currentMainPageBackgroundUrl);
+    if(currentMainPageBgUrl == null) return;
+    if(currentMainPageBgUrl == _model.currentMainPageBgUrl) return;
+    _model.currentMainPageBgUrl = currentMainPageBgUrl;
   }
 
   void getWeatherNow(String position,{BuildContext context, LoadingController controller}){

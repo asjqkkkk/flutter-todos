@@ -96,7 +96,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         break;
       case SynFlag.synchronizing:
         return Container(
-          width: 60,
+          width: 200,
           height: 60,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +117,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         break;
       case SynFlag.cloudSynchronizing:
         return Container(
-          width: 60,
+          width: 100,
           height: 60,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

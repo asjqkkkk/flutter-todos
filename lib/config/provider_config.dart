@@ -142,26 +142,29 @@ class ProviderConfig {
   }
 
   ///重设密码页provider,可以设重设密码，也可以设是记密码
-  ChangeNotifierProvider<ResetPasswordPageModel> getResetPasswordPage({bool isReset = true}){
-     return ChangeNotifierProvider<ResetPasswordPageModel>(
-       builder:(context) => ResetPasswordPageModel(isReset),
-       child: ResetPasswordPage(),
-     );
-   }
+  ChangeNotifierProvider<ResetPasswordPageModel> getResetPasswordPage(
+      {bool isReset = true}) {
+    return ChangeNotifierProvider<ResetPasswordPageModel>(
+      builder: (context) => ResetPasswordPageModel(isReset),
+      child: ResetPasswordPage(),
+    );
+  }
 
-   ///网络图片页provider，用于设置账号页面的背景，或者侧滑栏的头部
-   ChangeNotifierProvider<NetPicturesPageModel> getNetPicturesPage({@required String useType,AccountPageModel accountPageModel}){
-      return ChangeNotifierProvider<NetPicturesPageModel>(
-        builder:(context) => NetPicturesPageModel(useType: useType,accountPageModel: accountPageModel),
-        child: NetPicturesPage(),
-      );
-    }
+  ///网络图片页provider，用于设置账号页面的背景，或者侧滑栏的头部,或者主页背景
+  ChangeNotifierProvider<NetPicturesPageModel> getNetPicturesPage(
+      {@required String useType, AccountPageModel accountPageModel}) {
+    return ChangeNotifierProvider<NetPicturesPageModel>(
+      builder: (context) => NetPicturesPageModel(
+          useType: useType, accountPageModel: accountPageModel),
+      child: NetPicturesPage(),
+    );
+  }
 
-    ///账号页面的provider
-    ChangeNotifierProvider<AccountPageModel> getAccountPage(){
-       return ChangeNotifierProvider<AccountPageModel>(
-         builder:(context) => AccountPageModel(),
-         child: AccountPage(),
-       );
-     }
+  ///账号页面的provider
+  ChangeNotifierProvider<AccountPageModel> getAccountPage() {
+    return ChangeNotifierProvider<AccountPageModel>(
+      builder: (context) => AccountPageModel(),
+      child: AccountPage(),
+    );
+  }
 }

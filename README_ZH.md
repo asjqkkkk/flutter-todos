@@ -8,7 +8,14 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/asjqkkkk/todo-list-app)
 [![GitHub license](https://img.shields.io/github/license/asjqkkkk/todo-list-app)](https://github.com/asjqkkkk/todo-list-app/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/asjqkkkk/flutter-todos.svg?branch=master)](https://travis-ci.org/asjqkkkk/flutter-todos)
-[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.6/todo-list.apk)
+[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.7/todo-list.apk)
+
+
+
+| <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004647-aebfb380-d92f-11e9-8294-f6ab9b939388.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004648-aebfb380-d92f-11e9-9f1f-de47ec0cb649.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004649-aebfb380-d92f-11e9-9264-5ca13dd4a9b5.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004650-af584a00-d92f-11e9-8bd3-79490a987eb0.png"/> |
+|---|---|---|---|
+|<img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004636-acf5f000-d92f-11e9-855c-bce2a7dff182.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004640-ad8e8680-d92f-11e9-9111-5720178a864e.png"/> |   <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004641-ad8e8680-d92f-11e9-8acb-9fd444336a47.png"/>  | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004642-ad8e8680-d92f-11e9-8072-398d9b996090.png"/> |
+|<img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004644-ae271d00-d92f-11e9-875f-411467fe6811.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004645-ae271d00-d92f-11e9-8b82-b9b7e5854b47.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65004646-ae271d00-d92f-11e9-8424-4149a15d274b.png"/> |
 
 
 
@@ -23,7 +30,8 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 开始之前，可以先看一下demo效果
 
 
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/63140284-05c22800-c014-11e9-9aa1-e256b856920a.gif"/>
+<img width="200" alt="018"
+src="https://user-images.githubusercontent.com/30992818/63140284-05c22800-c014-11e9-9aa1-e256b856920a.gif"/>
 
 
 ## 面向使用者的介绍
@@ -34,16 +42,22 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 
 app中，可以在主题切换界面选择各种主题颜色进行切换，app自带六个默认主题，这些都是我经过多次尝试所调选出来的颜色搭配。同时你也可以选择自定义主题颜色。
 
-![image](https://user-images.githubusercontent.com/30992818/62598772-0294b100-b91d-11e9-9630-9315147e6452.png)
-![image](https://user-images.githubusercontent.com/30992818/62598773-0294b100-b91d-11e9-981d-71957c6d2c50.png)
+
+主题切换 | 主题自定义
+---|---
+<img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65004636-acf5f000-d92f-11e9-855c-bce2a7dff182.png"> | <img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65004640-ad8e8680-d92f-11e9-9111-5720178a864e.png">
+
 
 
 ### 丰富的任务图标
 
 在app中，每项任务都会带有一个图标，而app提供了所有 Flutter 自带的 **Material design** 风格的图标，这些图标，你可以进行任意颜色的自定义
 
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598774-032d4780-b91d-11e9-8dca-32c826c4ab9d.png"/>
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598775-032d4780-b91d-11e9-976f-4b6aaf55e60e.png"/>
+
+新增图标 | 自定义图标
+---|---
+<img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65004641-ad8e8680-d92f-11e9-8acb-9fd444336a47.png"> | <img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65004642-ad8e8680-d92f-11e9-8072-398d9b996090.png">
+
 
 ### 多样的自定义组合
 
@@ -51,14 +65,17 @@ app中，可以在主题切换界面选择各种主题颜色进行切换，app�
 
 比如说主页测滑栏的头部展示内容，当然，还有一些其他的操作，就由你去自行体验了
 
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598778-03c5de00-b91d-11e9-84aa-697d94f313a9.png"/>
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598780-045e7480-b91d-11e9-91c9-1887f41e13d5.png"/>
+
+导航栏设置 | 所有设置 | 主页背景
+---|---|---
+<img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65004644-ae271d00-d92f-11e9-875f-411467fe6811.png"> | <img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65004645-ae271d00-d92f-11e9-8b82-b9b7e5854b47.png"> | <img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65004647-aebfb380-d92f-11e9-8294-f6ab9b939388.png">
+
 
 ### 完成列表
 
 当你完成了一项任务后，这个任务就会从主页转移到完成列表页面，在这里你可以看到任务的一些额外信息
 
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62598781-04f70b00-b91d-11e9-8f6f-868a886f3d21.png"/>
+<img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65004646-ae271d00-d92f-11e9-8424-4149a15d274b.png">
 
 那么，对于使用者的介绍就到这里结束
 
@@ -177,6 +194,7 @@ widgets | 封装好的各种Widget
 - [x] 图标搜索功能
 - [x] 意见反馈展示墙
 - [x] 邮箱账号登录
+- [x] 主页背景可为网络图片
 - [ ] 自定义任务详情页字体大小
 - [ ] 行业相关新闻浏览界面
 - [ ] 是否展示开场动画
@@ -189,7 +207,9 @@ widgets | 封装好的各种Widget
 
 Android 下载地址：
 
-![app](https://user-images.githubusercontent.com/30992818/63785102-5f82f600-c922-11e9-9bd7-2f79784fca71.png)
+
+<img width="250" height="250" src="https://user-images.githubusercontent.com/30992818/63785102-5f82f600-c922-11e9-9bd7-2f79784fca71.png"/>
+
 
 Ios 下载地址：
   目前尚未购买一年99$的ios开发者账号，所以暂时没有。

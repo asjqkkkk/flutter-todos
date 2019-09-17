@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 #打包命令：flutter build apk --target-platform android-arm --split-per-abi
 
-version: 1.0.6+1
+version: 1.0.7+1
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

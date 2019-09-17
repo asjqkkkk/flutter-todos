@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/config/provider_config.dart';
@@ -22,7 +23,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
 import 'package:todo_list/widgets/update_dialog.dart';
 import 'package:package_info/package_info.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 
 class MainPageLogic {
   final MainPageModel _model;
@@ -91,15 +92,23 @@ class MainPageLogic {
   Decoration getBackground(GlobalModel globalModel) {
     bool isBgGradient = globalModel.isBgGradient;
     bool isBgChangeWithCard = globalModel.isBgChangeWithCard;
-    return BoxDecoration(
-      gradient: isBgGradient
-          ? LinearGradient(
-              colors: _getGradientColors(isBgChangeWithCard),
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter)
-          : null,
-      color: _getBgColor(isBgGradient, isBgChangeWithCard),
-    );
+    bool enableBg = globalModel.enableNetPicBgInMainPage;
+    return enableBg
+        ? BoxDecoration(
+            image: DecorationImage(
+            image: CachedNetworkImageProvider(
+                globalModel.currentMainPageBgUrl),
+            fit: BoxFit.cover,
+          ))
+        : BoxDecoration(
+            gradient: isBgGradient
+                ? LinearGradient(
+                    colors: _getGradientColors(isBgChangeWithCard),
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter)
+                : null,
+            color: _getBgColor(isBgGradient, isBgChangeWithCard),
+          );
   }
 
   List<Color> _getGradientColors(bool isBgChangeWithCard) {
@@ -138,18 +147,21 @@ class MainPageLogic {
     return ColorBean.fromBean(_model.tasks[index].taskIconBean.colorBean);
   }
 
-  void deleteTask(TaskBean taskBean) async{
-    final account = await SharedUtil.instance.getString(Keys.account) ?? 'default';
-    if(account == "defalut"){
+  void deleteTask(TaskBean taskBean) async {
+    final account =
+        await SharedUtil.instance.getString(Keys.account) ?? 'default';
+    if (account == "defalut") {
       _deleteDataBaseTask(taskBean);
     } else {
-      if(taskBean.uniqueId == null){
+      if (taskBean.uniqueId == null) {
         _deleteDataBaseTask(taskBean);
       } else {
         final token = await SharedUtil.instance.getString(Keys.token);
-        showDialog(context: _model.context, builder: (ctx){
-          return NetLoadingWidget();
-        });
+        showDialog(
+            context: _model.context,
+            builder: (ctx) {
+              return NetLoadingWidget();
+            });
         ApiService.instance.postDeleteTask(
           success: (CommonBean bean) {
             Navigator.of(_model.context).pop();
@@ -157,7 +169,7 @@ class MainPageLogic {
           },
           failed: (CommonBean bean) {
             Navigator.of(_model.context).pop();
-            if(bean.description.contains("任务不存在")){
+            if (bean.description.contains("任务不存在")) {
               _deleteDataBaseTask(taskBean);
             } else {
               _showTextDialog(bean.description);
@@ -218,6 +230,7 @@ class MainPageLogic {
   ///无论是网络头像还是asset头像，最后将转换为本地文件头像
   Future getCurrentAvatar() async {
     switch (_model.currentAvatarType) {
+
       ///头像为默认头像的时候，将asset转换为file，方便imageCrop与之后的suggestion直接用到file
       case CurrentAvatarType.defaultAvatar:
         final path = await FileUtil.getInstance()
@@ -245,19 +258,18 @@ class MainPageLogic {
           url: net,
           filePath: "/avatar/",
           fileName: net.split('/').last ?? "avatar.png",
-          onComplete: (path){
+          onComplete: (path) {
             _model.currentAvatarUrl = path;
             _model.currentAvatarType = CurrentAvatarType.local;
             SharedUtil().saveString(Keys.localAvatarPath, path);
-            SharedUtil().saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
+            SharedUtil()
+                .saveInt(Keys.currentAvatarType, CurrentAvatarType.local);
             _model.refresh();
           },
         );
         break;
     }
   }
-
-
 
   Widget getAvatarWidget() {
     switch (_model.currentAvatarType) {
@@ -279,15 +291,16 @@ class MainPageLogic {
           height: 60,
           width: 60,
           child: CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation(Theme.of(_model.context).primaryColorLight),
+            valueColor: AlwaysStoppedAnimation(
+                Theme.of(_model.context).primaryColorLight),
           ),
         );
         break;
     }
     return Image.asset(
-          "images/icon.png",
-          fit: BoxFit.cover,
-        );
+      "images/icon.png",
+      fit: BoxFit.cover,
+    );
   }
 
   Future getAvatarType() async {
@@ -317,18 +330,20 @@ class MainPageLogic {
               _model.currentEditingUserName = text;
             },
             initialValue: _model.currentUserName,
-            onPositive: () async{
+            onPositive: () async {
               if (_model.currentEditingUserName.isEmpty) {
-                _showTextDialog(DemoLocalizations.of(context).userNameCantBeNull);
+                _showTextDialog(
+                    DemoLocalizations.of(context).userNameCantBeNull);
                 return;
               }
               final account = await SharedUtil.instance.getString(Keys.account);
-              if(account == "default" || account == null){
+              if (account == "default" || account == null) {
                 _model.currentUserName = _model.currentEditingUserName;
-                SharedUtil.instance.saveString(Keys.currentUserName, _model.currentUserName);
+                SharedUtil.instance
+                    .saveString(Keys.currentUserName, _model.currentUserName);
                 Navigator.of(context).pop();
                 _model.refresh();
-              } else{
+              } else {
                 _changeUserName(account, _model.currentEditingUserName);
               }
             },
@@ -336,29 +351,28 @@ class MainPageLogic {
         });
   }
 
-  void _showTextDialog(String text){
+  void _showTextDialog(String text) {
     final context = _model.context;
     showDialog(
         context: context,
         builder: (ctx) {
           return AlertDialog(
             shape: RoundedRectangleBorder(
-                borderRadius:
-                BorderRadius.all(Radius.circular(20.0))),
-            content: Text(
-                text),
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            content: Text(text),
           );
         });
   }
 
-  void _changeUserName(String account, String userName) async{
+  void _changeUserName(String account, String userName) async {
     final context = _model.context;
     final token = await SharedUtil.instance.getString(Keys.token);
     _showLoadingDialog(context);
     ApiService.instance.changeUserName(
       success: (bean) async {
         _model.currentUserName = _model.currentEditingUserName;
-        SharedUtil.instance.saveString(Keys.currentUserName, _model.currentUserName);
+        SharedUtil.instance
+            .saveString(Keys.currentUserName, _model.currentUserName);
         Navigator.of(context).pop();
         _model.refresh();
         Navigator.pop(context);
@@ -367,25 +381,22 @@ class MainPageLogic {
         Navigator.of(context).pop();
         _showTextDialog(msg);
       },
-      failed: (CommonBean commonBean){
+      failed: (CommonBean commonBean) {
         Navigator.of(context).pop();
         _showTextDialog(commonBean.description);
       },
-      params: {
-        "account": account,
-        "token": token,
-        "userName": userName
-      },
+      params: {"account": account, "token": token, "userName": userName},
       token: _model.cancelToken,
     );
   }
 
   void _showLoadingDialog(BuildContext context) {
-    showDialog(context: context, builder: (ctx){
-      return NetLoadingWidget();
-    });
+    showDialog(
+        context: context,
+        builder: (ctx) {
+          return NetLoadingWidget();
+        });
   }
-
 
   void onSearchTap() {
     Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
@@ -393,8 +404,8 @@ class MainPageLogic {
     }));
   }
 
-  void checkUpdate(GlobalModel globalModel){
-    if(Platform.isIOS) return;
+  void checkUpdate(GlobalModel globalModel) {
+    if (Platform.isIOS) return;
     final context = _model.context;
     CancelToken cancelToken = CancelToken();
     ApiService.instance.checkUpdate(
@@ -412,14 +423,12 @@ class MainPageLogic {
                   updateInfo: updateInfo.updateInfo,
                   updateInfoColor: globalModel.logic.getBgInDark(),
                   backgroundColor:
-                  globalModel.logic.getPrimaryGreyInDark(context),
+                      globalModel.logic.getPrimaryGreyInDark(context),
                 );
               });
         }
       },
-      error: (msg) {
-
-      },
+      error: (msg) {},
       params: {
         "language": globalModel.currentLocale.languageCode,
         "appId": "001"
@@ -429,22 +438,22 @@ class MainPageLogic {
   }
 
   ///在云端更新一个任务
-  void postUpdateTask(TaskBean taskBean) async{
+  void postUpdateTask(TaskBean taskBean) async {
     final account = await SharedUtil.instance.getString(Keys.account);
-    if(account == 'default') return;
+    if (account == 'default') return;
     final token = await SharedUtil.instance.getString(Keys.token);
     ApiService.instance.postUpdateTask(
-      success: (CommonBean bean){
+      success: (CommonBean bean) {
         taskBean.needUpdateToCloud = 'false';
         DBProvider.db.updateTask(taskBean);
       },
-      failed: (CommonBean bean){
+      failed: (CommonBean bean) {
         taskBean.needUpdateToCloud = 'true';
         _model.needSyn = true;
         _model.refresh();
         DBProvider.db.updateTask(taskBean);
       },
-      error: (msg){
+      error: (msg) {
         taskBean.needUpdateToCloud = 'true';
         _model.needSyn = true;
         _model.refresh();
@@ -457,24 +466,26 @@ class MainPageLogic {
   }
 
   ///在云端创建一个任务
-  void postCreateTask(TaskBean taskBean) async{
-    showDialog(context: _model.context, builder: (ctx){
-      return NetLoadingWidget();
-    });
+  void postCreateTask(TaskBean taskBean) async {
+    showDialog(
+        context: _model.context,
+        builder: (ctx) {
+          return NetLoadingWidget();
+        });
     final token = await SharedUtil.instance.getString(Keys.token);
     ApiService.instance.postCreateTask(
-      success: (UploadTaskBean bean){
+      success: (UploadTaskBean bean) {
         taskBean.needUpdateToCloud = 'false';
         taskBean.uniqueId = bean.uniqueId;
         DBProvider.db.updateTask(taskBean);
       },
-      failed: (UploadTaskBean bean){
+      failed: (UploadTaskBean bean) {
         taskBean.needUpdateToCloud = 'true';
         _model.needSyn = true;
         _model.refresh();
         DBProvider.db.updateTask(taskBean);
       },
-      error: (msg){
+      error: (msg) {
         taskBean.needUpdateToCloud = 'true';
         _model.needSyn = true;
         _model.refresh();
@@ -486,4 +497,11 @@ class MainPageLogic {
     );
   }
 
+  void onBackGroundTap(GlobalModel globalModel){
+    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
+      return ProviderConfig.getInstance().getNetPicturesPage(
+        useType: NetPicturesUseType.mainPageBackground,
+      );
+    }));
+  }
 }

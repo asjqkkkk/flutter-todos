@@ -106,6 +106,7 @@ class DemoLocalizations {
   String get cardChangeWithBg => Intl.message('Task icon color follow background', name: 'cardChangeWithBg', desc: '任务图标颜色跟随背景',);
   String get enableInfiniteScroll => Intl.message('Task card cycle slide', name: 'enableInfiniteScroll', desc: '任务卡片循环滑动',);
   String get enableWeatherShow => Intl.message('Turn on the weather', name: 'enableWeatherShow', desc: '开启天气',);
+  String get enableNetPicBgInMainPage => Intl.message('Turn on the net-picture background', name: 'enableNetPicBgInMainPage', desc: '开启主页网络图片背景',);
   String get inputCurrentCity => Intl.message('input your city', name: 'inputCurrentCity', desc: '手动输入你的城市',);
   String get weatherGetWrong => Intl.message('failed to get the weather，please try again', name: 'weatherGetWrong', desc: '天气获取失败,请重新尝试',);
   String get weatherGetting => Intl.message('the weather is inquiring...', name: 'weatherGetting', desc: '天气获取中...',);
@@ -418,6 +419,13 @@ class DemoLocalizations {
       '1.修复：大量因为上线账号系统,而新增的bug \n'
       '2.优化：当自定义图标数量不低于6个的时候，你可以任意编辑图标啦 \n'
       '3.新增：你可以在账号页面设置网络图片作为背景啦',
+  );
+
+  String get version107 => Intl.message('Version:1.0.7 \n\n'
+      '1.Fixed: some bugs had been discovered! \n'
+      '2.Add: Now you can change your background to network image in main page!It will be very beautiful! \n', name: 'version107', desc: '版本:1.0.7 \n\n'
+      '1.修复：已经发现的一些bug\n'
+      '2.新增：现在可以将主页的背景更换为网络图片啦，非常漂亮哦！ \n',
   );
 
 }

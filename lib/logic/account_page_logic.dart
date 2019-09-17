@@ -80,7 +80,7 @@ class AccountPageLogic{
   }
 
   void onBackgroundTap(){
-    Navigator.of(_model.context).push(new MaterialPageRoute(builder: (ctx) {
+    Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
       return ProviderConfig.getInstance().getNetPicturesPage(
         useType: NetPicturesUseType.accountBackground,
         accountPageModel: _model,

@@ -8,7 +8,13 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/asjqkkkk/todo-list-app)
 [![GitHub license](https://img.shields.io/github/license/asjqkkkk/todo-list-app)](https://github.com/asjqkkkk/todo-list-app/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/asjqkkkk/flutter-todos.svg?branch=master)](https://travis-ci.org/asjqkkkk/flutter-todos)
-[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.6/todo-list.apk)
+[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.7/todo-list.apk)
+
+
+| <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006496-c7cb6300-d935-11e9-839b-0f84c8c1b20b.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006498-c863f980-d935-11e9-88c2-bc2308248da9.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006501-c9952680-d935-11e9-8bc7-0f94031a9942.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006492-c732cc80-d935-11e9-89c3-7e75df55c3d4.png"/> |
+|---|---|---|---|
+|<img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006481-c437dc00-d935-11e9-89c5-ca82ecfad87f.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006482-c4d07280-d935-11e9-9ae5-b84eea52febb.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006484-c4d07280-d935-11e9-90a7-bfa99d2394d9.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006486-c5690900-d935-11e9-9ec9-e53fa5a57d7c.png"/>  |
+| <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006487-c5690900-d935-11e9-9459-d10928aa8440.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006488-c6019f80-d935-11e9-8751-745a22443b73.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006489-c69a3600-d935-11e9-8d3b-ac226d54b7f9.png"/> |   |
 
 
 
@@ -27,7 +33,7 @@ For users and developers, I will introduce them separately
 Before we start, you can take a look at the demo:
 
 
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/63140875-f80da200-c015-11e9-8b14-60d6725620f1.gif"/>
+<img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/63140875-f80da200-c015-11e9-8b14-60d6725620f1.gif"/>
 
 ## Introduction to the user
 
@@ -37,8 +43,9 @@ Before we start, you can take a look at the demo:
 
 In the app, you can switch between the theme colors in the theme switching interface.The app comes with six default themes, which are the color combinations I've chosen over many attempts. You can also choose a custom theme color.
 
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599499-fa3d7580-b91e-11e9-8e7a-868add28d67f.png"/>
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599500-fa3d7580-b91e-11e9-926d-d2e76c6e2e85.png"/>
+Change Theme | Custom Theme
+---|---
+<img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65006481-c437dc00-d935-11e9-89c5-ca82ecfad87f.png"> | <img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65006482-c4d07280-d935-11e9-9ae5-b84eea52febb.png">
 
 
 ### Colorful Task Icons
@@ -46,8 +53,10 @@ In the app, you can switch between the theme colors in the theme switching inter
 
 In the app, each task comes with an icon, and the app provides all the **Material Design** style icons that Flutter comes with. You can customize with any color.
 
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599503-fad60c00-b91e-11e9-8984-27fd78382707.png"/>
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599505-fad60c00-b91e-11e9-9656-4469eeba64b6.png"/>
+Icon Setting | Custom Icon
+---|---
+<img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65006484-c4d07280-d935-11e9-90a7-bfa99d2394d9.png"> | <img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65006486-c5690900-d935-11e9-9ec9-e53fa5a57d7c.png">
+
 
 
 ### Diverse Custom Combinations
@@ -57,8 +66,10 @@ In the app, there are a number of other operations that you can customize.
 
 For example, the head of the homepage slide bar displays content, of course, there are some other operations that you will experience on your own.
 
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599506-fb6ea280-b91e-11e9-8396-86058b239f12.png"/>
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599509-fc073900-b91e-11e9-9535-9482e3e3dac4.png"/>
+Navigator Setting | Settings | MainPage background
+---|---|---
+<img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65006487-c5690900-d935-11e9-9459-d10928aa8440.png"> | <img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65006488-c6019f80-d935-11e9-8751-745a22443b73.png"> | <img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65006496-c7cb6300-d935-11e9-839b-0f84c8c1b20b.png">
+
 
 
 
@@ -67,7 +78,7 @@ For example, the head of the homepage slide bar displays content, of course, the
 
 When you have completed a task, the task will be moved from the home page to the done list page, where you can see some additional information about the task.
 
-<img width="250" height="500" src="https://user-images.githubusercontent.com/30992818/62599510-fc9fcf80-b91e-11e9-8479-8bd559a4ccb4.png"/>
+<img width="200" alt="018" src="https://user-images.githubusercontent.com/30992818/65006489-c69a3600-d935-11e9-8d3b-ac226d54b7f9.png">
 
 Then, the introduction to the user ends here.
 
@@ -204,7 +215,9 @@ widgets | custom widgets
 
 Android download link：
 
-![app](https://user-images.githubusercontent.com/30992818/63785102-5f82f600-c922-11e9-9bd7-2f79784fca71.png)
+
+
+<img width="250" height="250" src="https://user-images.githubusercontent.com/30992818/63785102-5f82f600-c922-11e9-9bd7-2f79784fca71.png"/>
 
 Ios download link：
 
