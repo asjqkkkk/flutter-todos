@@ -7,7 +7,7 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/upload_avatar_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:image_crop/image_crop.dart';
-import 'package:todo_list/pages/avatar_history_page.dart';
+import 'package:todo_list/pages/main/avatar_history_page.dart';
 import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';

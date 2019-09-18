@@ -7,6 +7,8 @@ export 'package:todo_list/json/all_beans.dart';
 import 'api_strategy.dart';
 export 'package:dio/dio.dart';
 
+
+///这里存放所有的网络请求接口
 class ApiService {
   factory ApiService() => _getInstance();
 

@@ -5,7 +5,7 @@ import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:todo_list/pages/image_page.dart';
+import 'package:todo_list/pages/main/background/image_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
 

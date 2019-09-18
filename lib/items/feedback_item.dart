@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:todo_list/pages/image_page.dart';
+import 'package:todo_list/pages/main/background/image_page.dart';
 
 class FeedbackItem extends StatelessWidget {
   final String userName;

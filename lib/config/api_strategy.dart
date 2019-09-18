@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 export 'package:dio/dio.dart';
 
+
+///Dio的封装类
 class ApiStrategy {
   static ApiStrategy _instance;
 

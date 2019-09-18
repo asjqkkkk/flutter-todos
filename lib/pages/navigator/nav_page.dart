@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'image_page.dart';
+import '../main/background/image_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -7,8 +7,8 @@ import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
-import 'package:todo_list/pages/language_page.dart';
-import 'package:todo_list/pages/setting_page.dart';
+import 'package:todo_list/pages/navigator/language_page.dart';
+import 'package:todo_list/pages/navigator/settings/setting_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';

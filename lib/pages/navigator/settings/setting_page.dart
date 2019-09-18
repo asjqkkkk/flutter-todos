@@ -12,7 +12,7 @@ import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/edit_dialog.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
 
-import 'all_page.dart';
+import '../../all_page.dart';
 import 'navigator_setting_page.dart';
 
 class SettingPage extends StatelessWidget {

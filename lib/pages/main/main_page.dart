@@ -5,10 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
+import 'package:todo_list/pages/navigator/nav_page.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
 import 'package:todo_list/widgets/menu_icon.dart';
 import 'package:todo_list/widgets/synchronize_widget.dart';
-import 'all_page.dart';
 
 class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
