@@ -208,7 +208,7 @@ widgets | 封装好的各种Widget
 Android 下载地址：
 
 
-<img width="250" height="250" src="https://user-images.githubusercontent.com/30992818/63785102-5f82f600-c922-11e9-9bd7-2f79784fca71.png"/>
+<img width="250" height="250" src="https://user-images.githubusercontent.com/30992818/65225126-225fed00-daf7-11e9-9eb7-cd21e6b1cc95.png"/>
 
 
 Ios 下载地址：
