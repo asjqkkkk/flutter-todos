@@ -40,22 +40,27 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
       appBar: AppBar(
         title: Text(DemoLocalizations.of(context).avatarHistory),
         actions: <Widget>[
-       avatarPaths.isNotEmpty ? CustomAnimatedSwitcher(
-            firstChild: Icon(
-              Icons.border_color,
-              size: 20,
-            ),
-            secondChild: Icon(
-              Icons.check,
-              size: 20,
-              color: Colors.greenAccent,
-            ),
-            hasChanged: isDeleting,
-            onTap: () {
-              isDeleting = !isDeleting;
-              setState(() {});
-            },
-          ) : SizedBox(),
+          Container(
+            margin: EdgeInsets.only(right: 20),
+            child: avatarPaths.isNotEmpty
+                ? CustomAnimatedSwitcher(
+                    firstChild: Icon(
+                      Icons.border_color,
+                      size: 20,
+                    ),
+                    secondChild: Icon(
+                      Icons.check,
+                      size: 20,
+                      color: Colors.greenAccent,
+                    ),
+                    hasChanged: isDeleting,
+                    onTap: () {
+                      isDeleting = !isDeleting;
+                      setState(() {});
+                    },
+                  )
+                : SizedBox(),
+          ),
         ],
       ),
       body: Container(

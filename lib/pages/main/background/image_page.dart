@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:todo_list/config/all_types.dart';
+import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 
 class ImagePage extends StatefulWidget {
@@ -50,7 +51,13 @@ class _ImagePageState extends State<ImagePage> {
                     Icons.check,
                     color: Colors.white,
                   ),
-                  onPressed: () {
+                  onPressed: () async{
+                    final urls = await SharedUtil.instance.getStringList(Keys.allHistoryNetPictureUrls) ?? [];
+                    final url = widget.imageUrls[currentPage];
+                    if(!urls.contains(url)){
+                      urls.add(url);
+                      SharedUtil.instance.saveStringList(Keys.allHistoryNetPictureUrls, urls);
+                    }
                     Navigator.pop(context);
                     widget.onSelect(currentPage);
                   },

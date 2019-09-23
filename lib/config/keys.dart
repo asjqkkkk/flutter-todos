@@ -28,6 +28,7 @@ class Keys{
   static final String currentAccountBackground = "current_account_background";
   static final String currentAccountBackgroundType = "current_account_background_type";
   static final String currentMainPageBackgroundUrl = "current_main_page_background_url";
+  static final String allHistoryNetPictureUrls = "all_history_net_picture_urls";
 
 
 }

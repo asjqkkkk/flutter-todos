@@ -21,6 +21,12 @@ class NetPicturesPage extends StatelessWidget {
         title: Text(model.useType == NetPicturesUseType.navigatorHeader
             ? DemoLocalizations.of(context).netPicture
             : DemoLocalizations.of(context).accountBackgroundSetting),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.history),
+            onPressed: model.logic.onHistoryTap,
+          )
+        ],
       ),
       body: Container(
           child: model.loadingFlag == LoadingFlag.success ||
@@ -31,7 +37,8 @@ class NetPicturesPage extends StatelessWidget {
                   enablePullUp: true,
                   onLoading: model.logic.loadMorePhoto,
                   footer: CustomFooter(
-                    builder: (BuildContext context, LoadStatus mode) => model.logic.getRefreshFooter(context, mode),
+                    builder: (BuildContext context, LoadStatus mode) =>
+                        model.logic.getRefreshFooter(context, mode),
                   ),
                   child: GridView.count(
                     crossAxisCount: 2,
@@ -41,7 +48,8 @@ class NetPicturesPage extends StatelessWidget {
                           .map((photoBean) => photoBean.urls.regular)
                           .toList();
                       return InkWell(
-                        onTap: () => model.logic.onPictureTap(urls, index, globalModel),
+                        onTap: () =>
+                            model.logic.onPictureTap(urls, index, globalModel),
                         child: Container(
                           margin: EdgeInsets.all(10),
                           child: ClipRRect(
