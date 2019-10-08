@@ -120,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "myAccount" : MessageLookupByLibrary.simpleMessage("我的账号"),
     "myGithub" : MessageLookupByLibrary.simpleMessage("作者的github"),
     "navigatorSetting" : MessageLookupByLibrary.simpleMessage("导航栏设置"),
+    "netPicHistory" : MessageLookupByLibrary.simpleMessage("历史图片"),
     "netPicture" : MessageLookupByLibrary.simpleMessage("网络图片"),
     "newPassword" : MessageLookupByLibrary.simpleMessage("新密码"),
     "newPasswordCantBeEmpty" : MessageLookupByLibrary.simpleMessage("新密码不能为空"),

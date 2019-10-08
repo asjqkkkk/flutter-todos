@@ -164,6 +164,7 @@ class DemoLocalizations {
   String get avatar => Intl.message('avatar', name: 'avatar', desc: '头像',);
   String get save => Intl.message('save', name: 'save', desc: '保存',);
   String get history => Intl.message('history', name: 'history', desc: '历史',);
+  String get netPicHistory => Intl.message('Net picture history', name: 'netPicHistory', desc: '历史图片',);
 
 
   String get deniedDes => Intl.message('Permission denied', name: 'deniedDes', desc: '权限被拒绝',);

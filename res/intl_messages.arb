@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-09-16T17:17:07.143162",
+  "@@last_modified": "2019-09-24T09:53:54.813663",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -449,6 +449,12 @@
   "history": "history",
   "@history": {
     "description": "历史",
+    "type": "text",
+    "placeholders": {}
+  },
+  "netPicHistory": "Net picture history",
+  "@netPicHistory": {
+    "description": "历史图片",
     "type": "text",
     "placeholders": {}
   },

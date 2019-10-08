@@ -728,6 +728,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "netPicHistory": "历史图片",
+  "@netPicHistory": {
+    "description": "历史图片",
+    "type": "text",
+    "placeholders": {}
+  },
   "deniedDes": "权限被拒绝",
   "@deniedDes": {
     "description": "权限被拒绝",

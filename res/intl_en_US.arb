@@ -746,6 +746,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "netPicHistory": "Net picture history",
+  "@netPicHistory": {
+    "description": "历史图片",
+    "type": "text",
+    "placeholders": {}
+  },
   "deniedDes": "Permission denied",
   "@deniedDes": {
     "description": "权限被拒绝",

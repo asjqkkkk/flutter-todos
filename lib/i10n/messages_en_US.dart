@@ -120,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "myAccount" : MessageLookupByLibrary.simpleMessage("My Account"),
     "myGithub" : MessageLookupByLibrary.simpleMessage("Author\'s Github"),
     "navigatorSetting" : MessageLookupByLibrary.simpleMessage("Navigator Setting"),
+    "netPicHistory" : MessageLookupByLibrary.simpleMessage("Net picture history"),
     "netPicture" : MessageLookupByLibrary.simpleMessage("Network Picture"),
     "newPassword" : MessageLookupByLibrary.simpleMessage("new password"),
     "newPasswordCantBeEmpty" : MessageLookupByLibrary.simpleMessage("new password cannot be empty"),
