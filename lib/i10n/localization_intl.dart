@@ -429,6 +429,13 @@ class DemoLocalizations {
       '2.新增：现在可以将主页的背景更换为网络图片啦，非常漂亮哦！ \n',
   );
 
+  String get version108 => Intl.message('Version:1.0.8 \n\n'
+      '1.Fixed: Now the validator of TextFormField will appear after you click the button \n'
+      '2.Add: Now the network picture you have set will be shown in history page \n', name: 'version108', desc: '版本:1.0.8 \n\n'
+      '1.修复：输入框的验证提示将会在点击按钮后显示n'
+      '2.新增：你使用过的网络背景图片现在可以在历史记录中找到了 \n',
+  );
+
 }
 
 //Locale代理类

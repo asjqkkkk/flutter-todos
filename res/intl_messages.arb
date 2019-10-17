@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-09-24T09:53:54.813663",
+  "@@last_modified": "2019-10-17T14:22:57.260002",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -1093,6 +1093,12 @@
   "version107": "Version:1.0.7 \n\n1.Fixed: some bugs had been discovered! \n2.Add: Now you can change your background to network image in main page!It will be very beautiful! \n",
   "@version107": {
     "description": "版本:1.0.7 \n\n1.修复：已经发现的一些bug\n2.新增：现在可以将主页的背景更换为网络图片啦，非常漂亮哦！ \n",
+    "type": "text",
+    "placeholders": {}
+  },
+  "version108": "Version:1.0.8 \n\n1.Fixed: Now the validator of TextFormField will appear after you click the button \n2.Add: Now the network picture you have set will be shown in history page \n",
+  "@version108": {
+    "description": "版本:1.0.8 \n\n1.修复：输入框的验证提示将会在点击按钮后显示n2.新增：你使用过的网络背景图片现在可以在历史记录中找到了 \n",
     "type": "text",
     "placeholders": {}
   }

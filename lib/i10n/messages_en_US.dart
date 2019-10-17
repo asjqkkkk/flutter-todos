@@ -199,6 +199,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version105" : MessageLookupByLibrary.simpleMessage("Version:1.0.5 \n\n1.Fixed: Fix the bug that the homepage returns to log in and then returns to the homepage to create a task that cannot be refreshed \n2.Optimization: upgrade popup display timeout error \n3.Add: 🎉 Sync tasks to the cloud! Ma Ma no longer have to worry about changing my phone! 🎉 \n"),
     "version106" : MessageLookupByLibrary.simpleMessage("Version:1.0.6 \n\n1.Fixed: a lot of bugs due to the online account system. \n2.Optimization: now you can edit all icons when the icons\'s number is bigger than six  \n3.Add: You can set the network image as the background on the account page. \n"),
     "version107" : MessageLookupByLibrary.simpleMessage("Version:1.0.7 \n\n1.Fixed: some bugs had been discovered! \n2.Add: Now you can change your background to network image in main page!It will be very beautiful! \n"),
+    "version108" : MessageLookupByLibrary.simpleMessage("Version:1.0.8 \n\n1.Fixed: Now the validator of TextFormField will appear after you click the button \n2.Add: Now the network picture you have set will be shown in history page \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("Version Description"),
     "waitAMoment" : MessageLookupByLibrary.simpleMessage("please wait for a moment..."),
     "waiting" : MessageLookupByLibrary.simpleMessage("waiting..."),
