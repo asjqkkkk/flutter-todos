@@ -21,6 +21,8 @@ class RegisterPageModel extends ChangeNotifier{
 
 
   CancelToken cancelToken = CancelToken();
+  final formKey = GlobalKey<FormState>();
+
 
 
   RegisterPageModel(){
@@ -36,6 +38,7 @@ class RegisterPageModel extends ChangeNotifier{
   @override
   void dispose(){
     cancelToken?.cancel();
+    formKey?.currentState?.dispose();
     super.dispose();
     debugPrint("RegisterPageModel销毁了");
   }

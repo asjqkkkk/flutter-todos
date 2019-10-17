@@ -26,7 +26,7 @@ class ResetPasswordPage extends StatelessWidget {
       body: Container(
         margin: EdgeInsets.only(left: 20, right: 20),
         child: Form(
-          autovalidate: true,
+          key: model.formKey,
           child: Theme(
             data: ThemeData(
                 platform: TargetPlatform.android, primaryColor: primaryColor),

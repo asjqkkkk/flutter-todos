@@ -26,6 +26,8 @@ class ResetPasswordPageModel extends ChangeNotifier {
 
   CancelToken cancelToken = CancelToken();
   LoadingController loadingController = LoadingController();
+  final formKey = GlobalKey<FormState>();
+
 
   ResetPasswordPageModel(bool isReset) {
     logic = ResetPasswordPageLogic(this);
@@ -41,6 +43,7 @@ class ResetPasswordPageModel extends ChangeNotifier {
   @override
   void dispose() {
     cancelToken?.cancel();
+    formKey?.currentState?.dispose();
     super.dispose();
     debugPrint("ResetPasswordPageModel销毁了");
   }

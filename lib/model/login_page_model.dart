@@ -21,6 +21,8 @@ class LoginPageModel extends ChangeNotifier{
   ///表示登录页面是不是第一个页面
   bool isFirst;
 
+  final formKey = GlobalKey<FormState>();
+
   CancelToken cancelToken = CancelToken();
 
   LoginPageModel({bool isFirst = false}){
@@ -39,6 +41,7 @@ class LoginPageModel extends ChangeNotifier{
     emailController.dispose();
     passwordController.dispose();
     cancelToken?.cancel();
+    formKey?.currentState?.dispose();
     super.dispose();
     debugPrint("LoginPageModel销毁了");
   }

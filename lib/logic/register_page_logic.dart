@@ -96,6 +96,7 @@ class RegisterPageLogic{
   void onSubmit(){
     final model = _model;
     final context = _model.context;
+    _model.formKey.currentState.validate();
     if(!model.isUserNameOk || !model.isEmailOk || !model.isVerifyCodeOk || !model.isPasswordOk || !model.isRePasswordOk){
       _showTextDialog(DemoLocalizations.of(context).wrongParams, context);
       return;

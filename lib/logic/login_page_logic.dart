@@ -55,6 +55,7 @@ class LoginPageLogic {
 
   void onLogin() {
     final context = _model.context;
+    _model.formKey.currentState.validate();
     if (!_model.isEmailOk || !_model.isPasswordOk) {
       _showDialog(DemoLocalizations.of(context).checkYourEmailOrPassword, context);
       return;

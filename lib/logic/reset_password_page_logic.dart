@@ -93,7 +93,7 @@ class ResetPasswordPageLogic {
   void onSubmit() {
     final model = _model;
     final context = _model.context;
-
+    _model.formKey.currentState.validate();
     ///如果是重新设置密码
     if (model.isReset) {
       if (!model.isOldPasswordOk ||

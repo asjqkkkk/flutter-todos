@@ -19,7 +19,7 @@ class LoginWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(left: 40, right: 40),
       child: Form(
-        autovalidate: true,
+        key: loginPageModel.formKey,
         child: Center(
           child: SingleChildScrollView(
             child: Column(

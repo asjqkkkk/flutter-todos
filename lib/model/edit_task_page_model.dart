@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
@@ -61,6 +62,7 @@ class EditTaskPageModel extends ChangeNotifier{
     textEditingController?.dispose();
     scrollController?.dispose();
     if(!cancelToken.isCancelled) cancelToken.cancel();
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
     debugPrint("EditTaskPageModel销毁了");
   }
 
