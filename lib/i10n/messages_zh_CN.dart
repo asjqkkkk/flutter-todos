@@ -199,7 +199,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version105" : MessageLookupByLibrary.simpleMessage("版本:1.0.5 \n\n1.修复：从主页进入登录页登录后再进入主页后，创建task不能刷新的bug \n2.优化：升级弹窗显示timeout报错 \n3.新增：🎉任务同步至云端功能！麻麻再也不用担心我换手机啦！🎉 \n"),
     "version106" : MessageLookupByLibrary.simpleMessage("版本:1.0.6 \n\n1.修复：大量因为上线账号系统,而新增的bug \n2.优化：当自定义图标数量不低于6个的时候，你可以任意编辑图标啦 \n3.新增：你可以在账号页面设置网络图片作为背景啦 \n"),
     "version107" : MessageLookupByLibrary.simpleMessage("版本:1.0.7 \n\n1.修复：已经发现的一些bug\n2.新增：现在可以将主页的背景更换为网络图片啦，非常漂亮哦！ \n"),
-    "version108" : MessageLookupByLibrary.simpleMessage("版本:1.0.8 \n\n1.修复：输入框的验证提示将会在点击按钮后显示n2.新增：你使用过的网络背景图片现在可以在历史记录中找到了 \n"),
+    "version108" : MessageLookupByLibrary.simpleMessage("版本:1.0.8 \n\n1.修复：输入框的验证提示将会在点击按钮后显示\n2.新增：你使用过的网络背景图片现在可以在历史记录中找到了 \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("版本描述"),
     "waitAMoment" : MessageLookupByLibrary.simpleMessage("请稍后..."),
     "waiting" : MessageLookupByLibrary.simpleMessage("请稍后..."),
