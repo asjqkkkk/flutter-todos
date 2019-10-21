@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
@@ -7,9 +6,7 @@ import 'package:todo_list/model/feedback_wall_page_model.dart';
 import 'package:todo_list/model/global_model.dart';
 
 class FeedbackPage extends StatelessWidget {
-
   final FeedbackWallPageModel feedbackWallPageModel;
-
 
   FeedbackPage(this.feedbackWallPageModel);
 
@@ -21,8 +18,9 @@ class FeedbackPage extends StatelessWidget {
     final bool isDarkNow = globalModel.logic.isDarkNow();
     final size = MediaQuery.of(context).size;
     final feedbackFormHeight =
-    (size.height / 2 - 100) < 300.0 ? 300.0 : (size.height / 2 - 100.0);
-    final contactFormHeight = feedbackFormHeight / 3 < 100.0 ? 100.0 : feedbackFormHeight / 3;
+        (size.height / 2 - 100) < 300.0 ? 300.0 : (size.height / 2 - 100.0);
+    final contactFormHeight =
+        feedbackFormHeight / 3 < 100.0 ? 100.0 : feedbackFormHeight / 3;
 
     return Scaffold(
       appBar: AppBar(
@@ -30,7 +28,8 @@ class FeedbackPage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.check),
-            onPressed: () => model.logic.onFeedbackSubmit(feedbackWallPageModel),
+            onPressed: () =>
+                model.logic.onFeedbackSubmit(feedbackWallPageModel),
           )
         ],
       ),
@@ -75,7 +74,9 @@ class FeedbackPage extends StatelessWidget {
                       model.feedbackContent = text;
                       return null;
                     },
-                    style: TextStyle(color: isDarkNow ? Colors.grey : Colors.black),
+                    style: TextStyle(
+                        color: isDarkNow ? Colors.grey : Colors.black,
+                        textBaseline: TextBaseline.alphabetic),
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
                         border: InputBorder.none,
@@ -109,7 +110,8 @@ class FeedbackPage extends StatelessWidget {
                       model.contactWay = text;
                       return null;
                     },
-                    style: TextStyle(color: isDarkNow ? Colors.grey : Colors.black),
+                    style: TextStyle(
+                        color: isDarkNow ? Colors.grey : Colors.black),
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       prefixIcon: Icon(
@@ -129,6 +131,4 @@ class FeedbackPage extends StatelessWidget {
       ),
     );
   }
-
-
 }

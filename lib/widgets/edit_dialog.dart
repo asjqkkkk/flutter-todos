@@ -34,6 +34,7 @@ class EditDialog extends StatelessWidget {
         child: Theme(
           data: ThemeData(platform: TargetPlatform.android),
           child: TextFormField(
+            style: TextStyle(textBaseline: TextBaseline.alphabetic),
             initialValue: initialValue ?? "",
             validator: (text) {
               if (onValueChanged != null) onValueChanged(text);

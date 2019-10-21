@@ -60,7 +60,7 @@ class EditTaskPage extends StatelessWidget {
               //目前ios还存在长按复制奔溃的问题，这里是为了解决这个问题
               data: ThemeData(platform: TargetPlatform.android),
               child: TextFormField(
-                style: TextStyle(color: textColor),
+                style: TextStyle(color: textColor,textBaseline: TextBaseline.alphabetic),
                 textAlign: TextAlign.center,
                 validator: (text) {
                   model.currentTaskName = text;
@@ -175,6 +175,7 @@ class EditTaskPage extends StatelessWidget {
                         autofocus: model.taskDetails.length > 0 ? false : true,
                         style: TextStyle(
                           color: textColor,
+                            textBaseline: TextBaseline.alphabetic
                         ),
                         decoration: InputDecoration(
                             hintText: DemoLocalizations.of(context).addTask,

@@ -49,6 +49,7 @@ class ResetPasswordPage extends StatelessWidget {
                                 DemoLocalizations.of(context).emailAccount,
                           ),
                           keyboardType: TextInputType.emailAddress,
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
                         ),
                   model.isReset ? Container() : const SizedBox(height: 24.0),
                   model.isReset
@@ -58,6 +59,7 @@ class ResetPasswordPage extends StatelessWidget {
                               model.logic.validatorVerifyCode(verifyCode),
                           maxLength: 6,
                           keyboardType: TextInputType.number,
+                          style: TextStyle(textBaseline: TextBaseline.alphabetic),
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.transparent,
@@ -74,6 +76,7 @@ class ResetPasswordPage extends StatelessWidget {
                   model.isReset ? const SizedBox(height: 24.0) : Container(),
                   model.isReset
                       ? TextFormField(
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
                           maxLength: 20,
                           validator: (password) =>
                               model.logic.validateOldPassword(password),
@@ -102,6 +105,7 @@ class ResetPasswordPage extends StatelessWidget {
                       labelText: DemoLocalizations.of(context).newPassword,
                     ),
                     obscureText: true,
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
                   ),
                   const SizedBox(height: 24.0),
                   TextFormField(
@@ -116,6 +120,7 @@ class ResetPasswordPage extends StatelessWidget {
                       labelText: DemoLocalizations.of(context).confirmPassword,
                     ),
                     obscureText: true,
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
                   ),
                   const SizedBox(height: 24.0),
                 ],

@@ -36,6 +36,7 @@ class LoginWidget extends StatelessWidget {
                       keyboardType: TextInputType.text,
                       controller: loginPageModel.emailController,
                       textDirection: TextDirection.ltr,
+                      style: TextStyle(textBaseline: TextBaseline.alphabetic),
                       decoration: InputDecoration(
                           hintText: DemoLocalizations.of(context).inputEmail,
                           labelText: DemoLocalizations.of(context).email,
@@ -65,6 +66,7 @@ class LoginWidget extends StatelessWidget {
                       controller: loginPageModel.passwordController,
                       keyboardType: TextInputType.text,
                       textDirection: TextDirection.ltr,
+                      style: TextStyle(textBaseline: TextBaseline.alphabetic),
                       decoration: InputDecoration(
                         hintText: DemoLocalizations.of(context).inputPassword,
                         labelText: DemoLocalizations.of(context).password,
@@ -72,6 +74,7 @@ class LoginWidget extends StatelessWidget {
                         prefixIcon: Icon(
                           Icons.lock,
                         ),
+
                         suffixIcon: FlatButton(
                           highlightColor: primaryColorLight,
                           colorBrightness: Brightness.dark,

@@ -64,6 +64,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                     widget.onTextChange(text);
                     return null;
                   },
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
                   decoration: InputDecoration(
                     hintText: DemoLocalizations.of(context).setIconName,
                     prefixIcon: Icon(

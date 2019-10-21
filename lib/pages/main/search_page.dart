@@ -21,6 +21,7 @@ class SearchPage extends StatelessWidget {
         title: TextField(
           style: TextStyle(
             color: bgColor,
+              textBaseline: TextBaseline.alphabetic
           ),
           textInputAction: TextInputAction.search,
           autofocus: true,

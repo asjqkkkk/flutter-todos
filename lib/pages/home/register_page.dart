@@ -41,6 +41,8 @@ class RegisterPage extends StatelessWidget {
                       hintText: DemoLocalizations.of(context).setUserName,
                       labelText: DemoLocalizations.of(context).userName,
                     ),
+                    style: TextStyle(
+                    textBaseline: TextBaseline.alphabetic),
                   ),
                   SizedBox(height: 24.0),
                   TextFormField(
@@ -52,6 +54,7 @@ class RegisterPage extends StatelessWidget {
                       hintText: DemoLocalizations.of(context).setEmailAccount,
                       labelText: DemoLocalizations.of(context).emailAccount,
                     ),
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: 48.0),
@@ -73,7 +76,7 @@ class RegisterPage extends StatelessWidget {
                         isUserNameOk: model.isUserNameOk,
                       )
                     ),
-
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
                   ),
                   SizedBox(height: 24.0),
                   TextFormField(
@@ -88,12 +91,14 @@ class RegisterPage extends StatelessWidget {
                       labelText: DemoLocalizations.of(context).thePassword,
                     ),
                     obscureText: true,
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
                   ),
                   const SizedBox(height: 24.0),
                   TextFormField(
                     maxLength: 20,
                     validator: (rePassword) =>
                         model.logic.validateRePassword(rePassword),
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
                     decoration: InputDecoration(
                       filled: true,
                       prefixIcon: Icon(Icons.lock),

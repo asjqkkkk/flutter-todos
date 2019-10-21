@@ -191,7 +191,7 @@ class IconSettingPageLogic {
         textInputAction: TextInputAction.search,
         autofocus: true,
         focusNode: _model.focusNode,
-        style: TextStyle(color: textColor),
+        style: TextStyle(color: textColor,textBaseline: TextBaseline.alphabetic),
         controller: _model.textEditingController
           ..addListener(() {
             final text = _model.textEditingController.text;
