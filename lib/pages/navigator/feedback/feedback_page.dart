@@ -64,27 +64,23 @@ class FeedbackPage extends StatelessWidget {
               ),
               child: Form(
                 autovalidate: true,
-                child: Theme(
-                  //使用下面这个data是因为目前ios上有长按复制奔溃的问题，下面这样可以解决这个问题
-                  data: ThemeData(platform: TargetPlatform.android),
-                  child: TextFormField(
-                    expands: true,
-                    maxLines: null,
-                    validator: (text) {
-                      model.feedbackContent = text;
-                      return null;
-                    },
-                    style: TextStyle(
-                        color: isDarkNow ? Colors.grey : Colors.black,
-                        textBaseline: TextBaseline.alphabetic),
-                    decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(10),
-                        border: InputBorder.none,
-                        hintText:
-                            DemoLocalizations.of(context).writeYourFeedback,
-                        hintStyle: TextStyle(color: Colors.grey)),
-                    maxLength: 2000,
-                  ),
+                child: TextFormField(
+                  expands: true,
+                  maxLines: null,
+                  validator: (text) {
+                    model.feedbackContent = text;
+                    return null;
+                  },
+                  style: TextStyle(
+                      color: isDarkNow ? Colors.grey : Colors.black,
+                      textBaseline: TextBaseline.alphabetic),
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(10),
+                      border: InputBorder.none,
+                      hintText:
+                          DemoLocalizations.of(context).writeYourFeedback,
+                      hintStyle: TextStyle(color: Colors.grey)),
+                  maxLength: 2000,
                 ),
               ),
             ),
@@ -101,27 +97,24 @@ class FeedbackPage extends StatelessWidget {
               ),
               child: Form(
                 autovalidate: true,
-                child: Theme(
-                  data: ThemeData(platform: TargetPlatform.android),
-                  child: TextFormField(
-                    expands: true,
-                    maxLines: null,
-                    validator: (text) {
-                      model.contactWay = text;
-                      return null;
-                    },
-                    style: TextStyle(
-                        color: isDarkNow ? Colors.grey : Colors.black),
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      prefixIcon: Icon(
-                        Icons.contact_mail,
-                        color: primaryColor,
-                      ),
-                      hintText:
-                          DemoLocalizations.of(context).writeYourContactInfo,
-                      hintStyle: TextStyle(color: Colors.grey),
+                child: TextFormField(
+                  expands: true,
+                  maxLines: null,
+                  validator: (text) {
+                    model.contactWay = text;
+                    return null;
+                  },
+                  style: TextStyle(
+                      color: isDarkNow ? Colors.grey : Colors.black),
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    prefixIcon: Icon(
+                      Icons.contact_mail,
+                      color: primaryColor,
                     ),
+                    hintText:
+                        DemoLocalizations.of(context).writeYourContactInfo,
+                    hintStyle: TextStyle(color: Colors.grey),
                   ),
                 ),
               ),

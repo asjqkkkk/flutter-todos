@@ -26,69 +26,59 @@ class LoginWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 BottomToTopWidget(
-                  child: Theme(
-                    data: ThemeData(
-                        platform: TargetPlatform.android,
-                        primaryColor: primaryColor),
-                    child: TextFormField(
-                      validator: (email) =>
-                          loginPageModel.logic.validatorEmail(email),
-                      keyboardType: TextInputType.text,
-                      controller: loginPageModel.emailController,
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(textBaseline: TextBaseline.alphabetic),
-                      decoration: InputDecoration(
-                          hintText: DemoLocalizations.of(context).inputEmail,
-                          labelText: DemoLocalizations.of(context).email,
-                          labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                          prefixIcon: Icon(
-                            Icons.email,
+                  child: TextFormField(
+                    validator: (email) =>
+                        loginPageModel.logic.validatorEmail(email),
+                    keyboardType: TextInputType.text,
+                    controller: loginPageModel.emailController,
+                    textDirection: TextDirection.ltr,
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                    decoration: InputDecoration(
+                        hintText: DemoLocalizations.of(context).inputEmail,
+                        labelText: DemoLocalizations.of(context).email,
+                        labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                        prefixIcon: Icon(
+                          Icons.email,
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.cancel),
+                          onPressed: () => Future.delayed(
+                            Duration(milliseconds: 100),
+                            () => loginPageModel.emailController?.clear(),
                           ),
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.cancel),
-                            onPressed: () => Future.delayed(
-                              Duration(milliseconds: 100),
-                              () => loginPageModel.emailController?.clear(),
-                            ),
-                          )),
-                    ),
+                        )),
                   ),
                   index: 0,
                 ),
                 BottomToTopWidget(
-                  child: Theme(
-                    data: ThemeData(
-                        platform: TargetPlatform.android,
-                        primaryColor: primaryColor),
-                    child: TextFormField(
-                      validator: (password) =>
-                          loginPageModel.logic.validatePassword(password),
-                      controller: loginPageModel.passwordController,
-                      keyboardType: TextInputType.text,
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(textBaseline: TextBaseline.alphabetic),
-                      decoration: InputDecoration(
-                        hintText: DemoLocalizations.of(context).inputPassword,
-                        labelText: DemoLocalizations.of(context).password,
-                        labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                        prefixIcon: Icon(
-                          Icons.lock,
-                        ),
+                  child: TextFormField(
+                    validator: (password) =>
+                        loginPageModel.logic.validatePassword(password),
+                    controller: loginPageModel.passwordController,
+                    keyboardType: TextInputType.text,
+                    textDirection: TextDirection.ltr,
+                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                    decoration: InputDecoration(
+                      hintText: DemoLocalizations.of(context).inputPassword,
+                      labelText: DemoLocalizations.of(context).password,
+                      labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                      prefixIcon: Icon(
+                        Icons.lock,
+                      ),
 
-                        suffixIcon: FlatButton(
-                          highlightColor: primaryColorLight,
-                          colorBrightness: Brightness.dark,
-                          splashColor: Colors.grey,
-                          onPressed: loginPageModel.logic.onForget,
-                          child: Text(
-                            DemoLocalizations.of(context).forget,
-                            style: TextStyle(color: Colors.black),
-                            textAlign: TextAlign.center,
-                          ),
+                      suffixIcon: FlatButton(
+                        highlightColor: primaryColorLight,
+                        colorBrightness: Brightness.dark,
+                        splashColor: Colors.grey,
+                        onPressed: loginPageModel.logic.onForget,
+                        child: Text(
+                          DemoLocalizations.of(context).forget,
+                          style: TextStyle(color: Colors.black),
+                          textAlign: TextAlign.center,
                         ),
                       ),
-                      obscureText: true,
                     ),
+                    obscureText: true,
                   ),
                   index: 1,
                 ),

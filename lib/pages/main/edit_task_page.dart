@@ -56,23 +56,19 @@ class EditTaskPage extends StatelessWidget {
           height: 49,
           child: Form(
             autovalidate: true,
-            child: Theme(
-              //目前ios还存在长按复制奔溃的问题，这里是为了解决这个问题
-              data: ThemeData(platform: TargetPlatform.android),
-              child: TextFormField(
-                style: TextStyle(color: textColor,textBaseline: TextBaseline.alphabetic),
-                textAlign: TextAlign.center,
-                validator: (text) {
-                  model.currentTaskName = text;
-                  return null;
-                },
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: model.logic.getHintTitle(),
-                  hintStyle: TextStyle(color: hintTextColor),
-                ),
-                maxLines: 1,
+            child: TextFormField(
+              style: TextStyle(color: textColor,textBaseline: TextBaseline.alphabetic),
+              textAlign: TextAlign.center,
+              validator: (text) {
+                model.currentTaskName = text;
+                return null;
+              },
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: model.logic.getHintTitle(),
+                hintStyle: TextStyle(color: hintTextColor),
               ),
+              maxLines: 1,
             ),
           ),
         ),
@@ -167,43 +163,40 @@ class EditTaskPage extends StatelessWidget {
                       height: 1,
                       color: Colors.grey.withOpacity(0.5),
                     ),
-                    Theme(
-                      data: ThemeData(platform: TargetPlatform.android),
-                      child: TextField(
-                        controller: model.textEditingController
-                          ..addListener(model.logic.editListener),
-                        autofocus: model.taskDetails.length > 0 ? false : true,
-                        style: TextStyle(
-                          color: textColor,
-                            textBaseline: TextBaseline.alphabetic
-                        ),
-                        decoration: InputDecoration(
-                            hintText: DemoLocalizations.of(context).addTask,
-                            border: InputBorder.none,
-                            hintStyle: TextStyle(
-                              color: hintTextColor,
-                            ),
-                            prefixIcon: Icon(
-                              iconData,
-                              color: iconColor,
-                            ),
-                            suffixIcon: GestureDetector(
-                              onTap: model.logic.submitOneItem,
-                              child: Container(
-                                margin: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: model.canAddTaskDetail
-                                        ? iconColor
-                                        : Colors.grey.withOpacity(0.4)),
-                                child: Icon(
-                                  Icons.arrow_upward,
-                                  color: bgColor,
-                                  size: 20,
-                                ),
-                              ),
-                            )),
+                    TextField(
+                      controller: model.textEditingController
+                        ..addListener(model.logic.editListener),
+                      autofocus: model.taskDetails.length > 0 ? false : true,
+                      style: TextStyle(
+                        color: textColor,
+                          textBaseline: TextBaseline.alphabetic
                       ),
+                      decoration: InputDecoration(
+                          hintText: DemoLocalizations.of(context).addTask,
+                          border: InputBorder.none,
+                          hintStyle: TextStyle(
+                            color: hintTextColor,
+                          ),
+                          prefixIcon: Icon(
+                            iconData,
+                            color: iconColor,
+                          ),
+                          suffixIcon: GestureDetector(
+                            onTap: model.logic.submitOneItem,
+                            child: Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: model.canAddTaskDetail
+                                      ? iconColor
+                                      : Colors.grey.withOpacity(0.4)),
+                              child: Icon(
+                                Icons.arrow_upward,
+                                color: bgColor,
+                                size: 20,
+                              ),
+                            ),
+                          )),
                     ),
                     Container(
                       height: 40,

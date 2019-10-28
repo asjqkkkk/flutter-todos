@@ -21,96 +21,92 @@ class RegisterPage extends StatelessWidget {
         margin: EdgeInsets.only(left: 20,right: 20),
         child: Form(
           key: model.formKey,
-          child: Theme(
-            data: ThemeData(
-                platform: TargetPlatform.android, primaryColor: primaryColor),
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(height: 24.0),
-                  TextFormField(
-                    validator: (text) => model.logic.validatorUserName(text),
-                    maxLength: 20,
-                    textCapitalization: TextCapitalization.words,
-                    decoration: InputDecoration(
-                      filled: true,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                const SizedBox(height: 24.0),
+                TextFormField(
+                  validator: (text) => model.logic.validatorUserName(text),
+                  maxLength: 20,
+                  textCapitalization: TextCapitalization.words,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.transparent,
+                    prefixIcon: Icon(Icons.person_outline),
+                    hintText: DemoLocalizations.of(context).setUserName,
+                    labelText: DemoLocalizations.of(context).userName,
+                  ),
+                  style: TextStyle(
+                  textBaseline: TextBaseline.alphabetic),
+                ),
+                SizedBox(height: 24.0),
+                TextFormField(
+                  validator: (text) => model.logic.validatorEmail(text),
+                  decoration: InputDecoration(
+                    filled: true,
+                    prefixIcon: Icon(Icons.email),
+                    fillColor: Colors.transparent,
+                    hintText: DemoLocalizations.of(context).setEmailAccount,
+                    labelText: DemoLocalizations.of(context).emailAccount,
+                  ),
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: 48.0),
+                TextFormField(
+                  validator: (verifyCode) =>
+                      model.logic.validatorVerifyCode(verifyCode),
+                  maxLength: 6,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    filled: true,
                       fillColor: Colors.transparent,
-                      prefixIcon: Icon(Icons.person_outline),
-                      hintText: DemoLocalizations.of(context).setUserName,
-                      labelText: DemoLocalizations.of(context).userName,
-                    ),
-                    style: TextStyle(
-                    textBaseline: TextBaseline.alphabetic),
+                      prefixIcon: Icon(Icons.message),
+                    hintText:
+                        DemoLocalizations.of(context).inputVerifyCode,
+                    labelText: DemoLocalizations.of(context).verifyCode,
+                    suffixIcon: VerifyCodeWidget(
+                      account: model.email,
+                      isEmailOk: model.isEmailOk,
+                      isUserNameOk: model.isUserNameOk,
+                    )
                   ),
-                  SizedBox(height: 24.0),
-                  TextFormField(
-                    validator: (text) => model.logic.validatorEmail(text),
-                    decoration: InputDecoration(
-                      filled: true,
-                      prefixIcon: Icon(Icons.email),
-                      fillColor: Colors.transparent,
-                      hintText: DemoLocalizations.of(context).setEmailAccount,
-                      labelText: DemoLocalizations.of(context).emailAccount,
-                    ),
-                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
-                    keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                ),
+                SizedBox(height: 24.0),
+                TextFormField(
+                  maxLength: 20,
+                  validator: (password) =>
+                      model.logic.validatePassword(password),
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.transparent,
+                    prefixIcon: Icon(Icons.lock_outline),
+                    hintText: DemoLocalizations.of(context).setPassword,
+                    labelText: DemoLocalizations.of(context).thePassword,
                   ),
-                  const SizedBox(height: 48.0),
-                  TextFormField(
-                    validator: (verifyCode) =>
-                        model.logic.validatorVerifyCode(verifyCode),
-                    maxLength: 6,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      filled: true,
-                        fillColor: Colors.transparent,
-                        prefixIcon: Icon(Icons.message),
-                      hintText:
-                          DemoLocalizations.of(context).inputVerifyCode,
-                      labelText: DemoLocalizations.of(context).verifyCode,
-                      suffixIcon: VerifyCodeWidget(
-                        account: model.email,
-                        isEmailOk: model.isEmailOk,
-                        isUserNameOk: model.isUserNameOk,
-                      )
-                    ),
-                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                  obscureText: true,
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                ),
+                const SizedBox(height: 24.0),
+                TextFormField(
+                  maxLength: 20,
+                  validator: (rePassword) =>
+                      model.logic.validateRePassword(rePassword),
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                  decoration: InputDecoration(
+                    filled: true,
+                    prefixIcon: Icon(Icons.lock),
+                    fillColor: Colors.transparent,
+                    hintText: DemoLocalizations.of(context).reSetPassword,
+                    labelText: DemoLocalizations.of(context).confirmPassword,
                   ),
-                  SizedBox(height: 24.0),
-                  TextFormField(
-                    maxLength: 20,
-                    validator: (password) =>
-                        model.logic.validatePassword(password),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.transparent,
-                      prefixIcon: Icon(Icons.lock_outline),
-                      hintText: DemoLocalizations.of(context).setPassword,
-                      labelText: DemoLocalizations.of(context).thePassword,
-                    ),
-                    obscureText: true,
-                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
-                  ),
-                  const SizedBox(height: 24.0),
-                  TextFormField(
-                    maxLength: 20,
-                    validator: (rePassword) =>
-                        model.logic.validateRePassword(rePassword),
-                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
-                    decoration: InputDecoration(
-                      filled: true,
-                      prefixIcon: Icon(Icons.lock),
-                      fillColor: Colors.transparent,
-                      hintText: DemoLocalizations.of(context).reSetPassword,
-                      labelText: DemoLocalizations.of(context).confirmPassword,
-                    ),
-                    obscureText: true,
-                  ),
-                  const SizedBox(height: 24.0),
-                ],
-              ),
+                  obscureText: true,
+                ),
+                const SizedBox(height: 24.0),
+              ],
             ),
           ),
         ),

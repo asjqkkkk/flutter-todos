@@ -27,104 +27,100 @@ class ResetPasswordPage extends StatelessWidget {
         margin: EdgeInsets.only(left: 20, right: 20),
         child: Form(
           key: model.formKey,
-          child: Theme(
-            data: ThemeData(
-                platform: TargetPlatform.android, primaryColor: primaryColor),
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  model.isReset ? Container() : SizedBox(height: 24.0),
-                  model.isReset
-                      ? Container()
-                      : TextFormField(
-                          validator: (text) => model.logic.validatorEmail(text),
-                          decoration: InputDecoration(
-                            filled: true,
-                            prefixIcon: Icon(Icons.email),
-                            fillColor: Colors.transparent,
-                            hintText: DemoLocalizations.of(context).inputEmail,
-                            labelText:
-                                DemoLocalizations.of(context).emailAccount,
-                          ),
-                          keyboardType: TextInputType.emailAddress,
-                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                model.isReset ? Container() : SizedBox(height: 24.0),
+                model.isReset
+                    ? Container()
+                    : TextFormField(
+                        validator: (text) => model.logic.validatorEmail(text),
+                        decoration: InputDecoration(
+                          filled: true,
+                          prefixIcon: Icon(Icons.email),
+                          fillColor: Colors.transparent,
+                          hintText: DemoLocalizations.of(context).inputEmail,
+                          labelText:
+                              DemoLocalizations.of(context).emailAccount,
                         ),
-                  model.isReset ? Container() : const SizedBox(height: 24.0),
-                  model.isReset
-                      ? Container()
-                      : TextFormField(
-                          validator: (verifyCode) =>
-                              model.logic.validatorVerifyCode(verifyCode),
-                          maxLength: 6,
-                          keyboardType: TextInputType.number,
-                          style: TextStyle(textBaseline: TextBaseline.alphabetic),
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.transparent,
-                              prefixIcon: Icon(Icons.message),
-                              hintText:
-                                  DemoLocalizations.of(context).inputVerifyCode,
-                              labelText:
-                                  DemoLocalizations.of(context).verifyCode,
-                              suffixIcon: VerifyCodeWidget(
-                                account: model.emailAccount,
-                                isEmailOk: model.isEmailOk,
-                              )),
-                        ),
-                  model.isReset ? const SizedBox(height: 24.0) : Container(),
-                  model.isReset
-                      ? TextFormField(
-                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
-                          maxLength: 20,
-                          validator: (password) =>
-                              model.logic.validateOldPassword(password),
-                          decoration: InputDecoration(
+                        keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                      ),
+                model.isReset ? Container() : const SizedBox(height: 24.0),
+                model.isReset
+                    ? Container()
+                    : TextFormField(
+                        validator: (verifyCode) =>
+                            model.logic.validatorVerifyCode(verifyCode),
+                        maxLength: 6,
+                        keyboardType: TextInputType.number,
+                        style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                        decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.transparent,
-                            prefixIcon: Icon(Icons.lock_open),
+                            prefixIcon: Icon(Icons.message),
                             hintText:
-                                DemoLocalizations.of(context).inputOldPassword,
+                                DemoLocalizations.of(context).inputVerifyCode,
                             labelText:
-                                DemoLocalizations.of(context).oldPassword,
-                          ),
-                          obscureText: true,
-                        )
-                      : Container(),
-                  SizedBox(height: 24.0),
-                  TextFormField(
-                    maxLength: 20,
-                    validator: (password) =>
-                        model.logic.validateNewPassword(password),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.transparent,
-                      prefixIcon: Icon(Icons.lock_outline),
-                      hintText: DemoLocalizations.of(context).setNewPassword,
-                      labelText: DemoLocalizations.of(context).newPassword,
-                    ),
-                    obscureText: true,
-                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                                DemoLocalizations.of(context).verifyCode,
+                            suffixIcon: VerifyCodeWidget(
+                              account: model.emailAccount,
+                              isEmailOk: model.isEmailOk,
+                            )),
+                      ),
+                model.isReset ? const SizedBox(height: 24.0) : Container(),
+                model.isReset
+                    ? TextFormField(
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                        maxLength: 20,
+                        validator: (password) =>
+                            model.logic.validateOldPassword(password),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.transparent,
+                          prefixIcon: Icon(Icons.lock_open),
+                          hintText:
+                              DemoLocalizations.of(context).inputOldPassword,
+                          labelText:
+                              DemoLocalizations.of(context).oldPassword,
+                        ),
+                        obscureText: true,
+                      )
+                    : Container(),
+                SizedBox(height: 24.0),
+                TextFormField(
+                  maxLength: 20,
+                  validator: (password) =>
+                      model.logic.validateNewPassword(password),
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.transparent,
+                    prefixIcon: Icon(Icons.lock_outline),
+                    hintText: DemoLocalizations.of(context).setNewPassword,
+                    labelText: DemoLocalizations.of(context).newPassword,
                   ),
-                  const SizedBox(height: 24.0),
-                  TextFormField(
-                    maxLength: 20,
-                    validator: (rePassword) =>
-                        model.logic.validateRePassword(rePassword),
-                    decoration: InputDecoration(
-                      filled: true,
-                      prefixIcon: Icon(Icons.lock),
-                      fillColor: Colors.transparent,
-                      hintText: DemoLocalizations.of(context).reSetPassword,
-                      labelText: DemoLocalizations.of(context).confirmPassword,
-                    ),
-                    obscureText: true,
-                    style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                  obscureText: true,
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                ),
+                const SizedBox(height: 24.0),
+                TextFormField(
+                  maxLength: 20,
+                  validator: (rePassword) =>
+                      model.logic.validateRePassword(rePassword),
+                  decoration: InputDecoration(
+                    filled: true,
+                    prefixIcon: Icon(Icons.lock),
+                    fillColor: Colors.transparent,
+                    hintText: DemoLocalizations.of(context).reSetPassword,
+                    labelText: DemoLocalizations.of(context).confirmPassword,
                   ),
-                  const SizedBox(height: 24.0),
-                ],
-              ),
+                  obscureText: true,
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                ),
+                const SizedBox(height: 24.0),
+              ],
             ),
           ),
         ),
