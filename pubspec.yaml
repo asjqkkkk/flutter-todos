@@ -72,6 +72,8 @@ dev_dependencies:
   flare_flutter: ^1.5.5
   #加密
   encrypt: ^3.2.0
+  #列表动画
+  flutter_staggered_animations: ^0.1.2
 
 
 # The following section is specific to Flutter.

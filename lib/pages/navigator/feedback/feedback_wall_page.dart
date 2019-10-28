@@ -1,12 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list/config/api_strategy.dart';
+import 'package:todo_list/items/feedback_item.dart';
+import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
-import 'package:provider/provider.dart';
-import 'package:todo_list/items/feedback_item.dart';
 import 'package:todo_list/model/feedback_wall_page_model.dart';
-import 'package:todo_list/widgets/loading_widget.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+
 
 class FeedbackWallPage extends StatelessWidget {
 
@@ -37,28 +39,39 @@ class FeedbackWallPage extends StatelessWidget {
             model.refresh();
             model.logic.getSuggestions();
           },
-        ) : ListView.builder(
-          itemBuilder: (ctx, index) {
-            final bean = model.suggestionList[index];
-            final connectWay = bean.connectWay;
-            final splitData = connectWay.split("<emoji>");
-            String emoji = "4";
-            for (var o in splitData) {
-              if(o.isNotEmpty){
-                emoji = o;
+        ) : AnimationLimiter(
+          child: ListView.builder(
+            itemBuilder: (ctx, index) {
+              final bean = model.suggestionList[index];
+              final connectWay = bean.connectWay;
+              final splitData = connectWay.split("<emoji>");
+              String emoji = "4";
+              for (var o in splitData) {
+                if(o.isNotEmpty){
+                  emoji = o;
+                }
               }
-            }
-            return FeedbackItem(
-              userName: bean.userName,
-              avatarUrl: ApiStrategy.baseUrl + bean.avatarUrl ?? "files/default/2019/7/1564207029288.jpg",
-              submitTime: bean.time,
-              suggestion: bean.suggestion,
-              emoji: emoji,
-              index: index,
-            );
-          },
-          itemCount: model.suggestionList.length,
-        ),
+              return AnimationConfiguration.staggeredList(
+                position: index,
+                duration: const Duration(milliseconds: 375),
+                child: SlideAnimation(
+                  verticalOffset: 50.0,
+                  child: FadeInAnimation(
+                    child: FeedbackItem(
+                      userName: bean.userName,
+                      avatarUrl: ApiStrategy.baseUrl + bean.avatarUrl ?? "files/default/2019/7/1564207029288.jpg",
+                      submitTime: bean.time,
+                      suggestion: bean.suggestion,
+                      emoji: emoji,
+                      index: index,
+                    ),
+                  ),
+                ),
+              );
+            },
+            itemCount: model.suggestionList.length,
+          ),
+        )
       ),
     );
   }
