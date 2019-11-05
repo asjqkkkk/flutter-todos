@@ -126,6 +126,7 @@ package | explain
 [open_file](https://pub.flutter-io.cn/packages/open_file) | open apk file
 [flare_flutter](https://pub.flutter-io.cn/packages/flare_flutter) | flare animation
 [encrypt](https://pub.flutter-io.cn/packages/encrypt) | encrypt password
+[flutter_staggered_animations](https://pub.flutter-io.cn/packages/flutter_staggered_animations) | listview animation
 
 
 ### Project Structure
@@ -224,7 +225,7 @@ Ios download link：
 
   I haven't purchased an iOS developer account for 99$ a year
   
-    Note: The current project running environment is the version of flutter 1.7.8 hotfix. The modified version has more destructive fixes than before.
+    Note: The current project running environment is the version of flutter 1.9.7. The modified version has more destructive fixes than before.
     If your version of flutter is lower than the current version, some third-party libraries that are dependent on the project will not run. Please lower their version at that time.
     
     The following is a third-party library that needs to be modified under version 1.5.4.
