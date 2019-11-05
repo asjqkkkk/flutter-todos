@@ -476,6 +476,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "splashAnimation": "开启首页动画",
+  "@splashAnimation": {
+    "description": "开启首页动画",
+    "type": "text",
+    "placeholders": {}
+  },
   "enableWeatherShow": "开启天气",
   "@enableWeatherShow": {
     "description": "开启天气",

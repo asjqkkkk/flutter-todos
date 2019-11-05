@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-10-17T14:42:18.806162",
+  "@@last_modified": "2019-11-05T14:59:19.601157",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -179,6 +179,12 @@
   "backgroundGradient": "Background Gradient",
   "@backgroundGradient": {
     "description": "app设置",
+    "type": "text",
+    "placeholders": {}
+  },
+  "splashAnimation": "Turn on splash animation",
+  "@splashAnimation": {
+    "description": "开启首页动画",
     "type": "text",
     "placeholders": {}
   },

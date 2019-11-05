@@ -83,6 +83,20 @@ class SettingPage extends StatelessWidget {
             },
           ),
           SwitchListTile(
+            title: Text(DemoLocalizations.of(context).splashAnimation),
+            secondary: const Icon(
+              Icons.subscriptions,
+            ),
+            value: globalModel.enableSplashAnimation,
+            activeColor: Theme.of(context).primaryColor,
+            onChanged: (value) {
+              globalModel.enableSplashAnimation = value;
+              SharedUtil.instance.saveBoolean(
+                  Keys.enableSplashAnimation, globalModel.enableSplashAnimation);
+              globalModel.refresh();
+            },
+          ),
+          SwitchListTile(
             title: Text(DemoLocalizations.of(context).enableWeatherShow),
             secondary: const Icon(
               Icons.wb_sunny,

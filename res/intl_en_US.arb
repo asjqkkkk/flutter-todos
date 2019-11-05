@@ -476,6 +476,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "splashAnimation": "Turn on splash animation",
+  "@splashAnimation": {
+    "description": "开启首页动画",
+    "type": "text",
+    "placeholders": {}
+  },
   "bgChangeWithCard": "Background follow task icon color",
   "@bgChangeWithCard": {
     "description": "背景跟随任务图标颜色",

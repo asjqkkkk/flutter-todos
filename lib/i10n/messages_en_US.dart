@@ -165,6 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "signUp" : MessageLookupByLibrary.simpleMessage("Sign Up"),
     "skip" : MessageLookupByLibrary.simpleMessage("skip"),
     "spendTime" : MessageLookupByLibrary.simpleMessage("Spend Time"),
+    "splashAnimation" : MessageLookupByLibrary.simpleMessage("Turn on splash animation"),
     "sports" : MessageLookupByLibrary.simpleMessage("Sports"),
     "startAfterEnd" : MessageLookupByLibrary.simpleMessage("The start date need be smaller than the end date."),
     "startDate" : MessageLookupByLibrary.simpleMessage("start date"),

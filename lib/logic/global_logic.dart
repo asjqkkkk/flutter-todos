@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/json/theme_bean.dart';
@@ -5,7 +6,7 @@ import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
-import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:todo_list/widgets/net_loading_widget.dart';
 
@@ -120,6 +121,13 @@ class GlobalLogic{
   Future getEnableInfiniteScroll() async{
     final enableInfiniteScroll = await SharedUtil.instance.getBoolean(Keys.enableInfiniteScroll);
     _model.enableInfiniteScroll = enableInfiniteScroll;
+  }
+
+  ///是否开启首页动画
+  Future getEnableSplashAnimation() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String account =  prefs.getString(Keys.account) ?? "default";
+    _model.enableSplashAnimation = prefs.getBool(Keys.enableSplashAnimation + account)??true;
   }
 
   ///获取当前的位置,拿到天气

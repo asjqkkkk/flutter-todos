@@ -165,6 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "signUp" : MessageLookupByLibrary.simpleMessage("注册"),
     "skip" : MessageLookupByLibrary.simpleMessage("跳过"),
     "spendTime" : MessageLookupByLibrary.simpleMessage("用时"),
+    "splashAnimation" : MessageLookupByLibrary.simpleMessage("开启首页动画"),
     "sports" : MessageLookupByLibrary.simpleMessage("运动"),
     "startAfterEnd" : MessageLookupByLibrary.simpleMessage("开始日期要比结束日期小才行哦"),
     "startDate" : MessageLookupByLibrary.simpleMessage("开始日期"),

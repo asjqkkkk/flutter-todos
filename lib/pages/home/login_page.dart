@@ -1,3 +1,5 @@
+import 'dart:ui';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:provider/provider.dart';
@@ -5,8 +7,6 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/login_page_model.dart';
-import 'dart:ui';
-import 'dart:io';
 import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/login_widget.dart';
 

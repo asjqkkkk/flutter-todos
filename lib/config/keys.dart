@@ -13,6 +13,7 @@ class Keys{
   static final String themeBeans = "theme_beans";
   static final String currentThemeBean = "current_theme_bean";
   static final String enableInfiniteScroll = "enable_infinite_scroll";
+  static final String enableSplashAnimation = "enable_splash_animation";
   static final String localAvatarPath = "local_avatar_path";
   static final String netAvatarPath = "net_avatar_path";
   static final String currentAvatarType = "current_avatar_type";

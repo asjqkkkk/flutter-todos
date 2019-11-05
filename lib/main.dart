@@ -3,6 +3,7 @@ import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/pages/home/splash_page.dart';
 import 'package:todo_list/utils/theme_util.dart';
 
 import 'i10n/localization_intl.dart';
@@ -62,12 +63,13 @@ class MyApp extends StatelessWidget {
       },
       locale: model.currentLocale,
       theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),
-      home: getHomePage(model.goToLogin),
+      home: getHomePage(model.goToLogin, model.enableSplashAnimation),
     );
   }
 
-  Widget getHomePage(bool goToLogin){
+  Widget getHomePage(bool goToLogin, bool enableSplashAnimation){
     if(goToLogin == null) return Container();
+    if(enableSplashAnimation) return new SplashPage();
     return goToLogin ? ProviderConfig.getInstance().getLoginPage(isFirst: true)
         : ProviderConfig.getInstance().getMainPage();
   }

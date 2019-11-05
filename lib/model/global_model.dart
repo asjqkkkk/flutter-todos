@@ -25,11 +25,16 @@ class GlobalModel extends ChangeNotifier {
   ///是否开启主页背景渐变
   bool isBgGradient = false;
 
+
+
   ///是否开启主页背景颜色跟随卡片图标颜色
   bool isBgChangeWithCard = false;
 
   ///是否开启卡片图标颜色跟随主页背景
   bool isCardChangeWithBg = false;
+
+  ///是否开启首页动画
+  bool enableSplashAnimation = true;
 
   ///是否开启主页卡片无限循环滚动
   bool enableInfiniteScroll = false;
@@ -84,6 +89,7 @@ class GlobalModel extends ChangeNotifier {
         logic.getIsBgChangeWithCard(),
         logic.getIsCardChangeWithBg(),
         logic.getEnableInfiniteScroll(),
+        logic.getEnableSplashAnimation(),
         logic.getEnableWeatherShow(),
         logic.getLoginState(),
         logic.getCurrentMainPageBgUrl(),
