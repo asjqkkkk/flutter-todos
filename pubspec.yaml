@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 #打包命令：flutter build apk --target-platform android-arm --split-per-abi
 
-version: 1.0.8+1
+version: 1.0.9+1
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -37,7 +37,7 @@ dev_dependencies:
   #滑动控件
   carousel_slider: ^1.3.0
   #环形列表
-  circle_list: ^0.1.3
+  circle_list: ^1.0.1
 #  #intl语言包
 #  intl: ^0.16.0
   #本地数据库

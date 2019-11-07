@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-11-05T14:59:19.601157",
+  "@@last_modified": "2019-11-07T15:54:07.878138",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -1105,6 +1105,12 @@
   "version108": "Version:1.0.8 \n\n1.Fixed: Now the validator of TextFormField will appear after you click the button \n2.Add: Now the network picture you have set will be shown in history page \n",
   "@version108": {
     "description": "版本:1.0.8 \n\n1.修复：输入框的验证提示将会在点击按钮后显示\n2.新增：你使用过的网络背景图片现在可以在历史记录中找到了 \n",
+    "type": "text",
+    "placeholders": {}
+  },
+  "version109": "Version:1.0.9 \n\n1.Fixed:Input box cursor is not aligned with text \n2.Optimization:The sliding event of the task disc is no longer limited to the task icon, but is triggered on the entire disc \n3.Add: ✨Splash Animation!✨ \n",
+  "@version109": {
+    "description": "版本:1.0.9 \n\n1.修复：输入框光标与文字不对齐的问题 \n2.优化：任务圆盘的滑动事件不再局限于任务图标，而是在整个圆盘上触发 \n3.新增：✨开场动画！✨ \n",
     "type": "text",
     "placeholders": {}
   }

@@ -201,6 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version106" : MessageLookupByLibrary.simpleMessage("Version:1.0.6 \n\n1.Fixed: a lot of bugs due to the online account system. \n2.Optimization: now you can edit all icons when the icons\'s number is bigger than six  \n3.Add: You can set the network image as the background on the account page. \n"),
     "version107" : MessageLookupByLibrary.simpleMessage("Version:1.0.7 \n\n1.Fixed: some bugs had been discovered! \n2.Add: Now you can change your background to network image in main page!It will be very beautiful! \n"),
     "version108" : MessageLookupByLibrary.simpleMessage("Version:1.0.8 \n\n1.Fixed: Now the validator of TextFormField will appear after you click the button \n2.Add: Now the network picture you have set will be shown in history page \n"),
+    "version109" : MessageLookupByLibrary.simpleMessage("Version:1.0.9 \n\n1.Fixed:Input box cursor is not aligned with text \n2.Optimization:The sliding event of the task disc is no longer limited to the task icon, but is triggered on the entire disc \n3.Add: ✨Splash Animation!✨ \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("Version Description"),
     "waitAMoment" : MessageLookupByLibrary.simpleMessage("please wait for a moment..."),
     "waiting" : MessageLookupByLibrary.simpleMessage("waiting..."),

@@ -201,6 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version106" : MessageLookupByLibrary.simpleMessage("版本:1.0.6 \n\n1.修复：大量因为上线账号系统,而新增的bug \n2.优化：当自定义图标数量不低于6个的时候，你可以任意编辑图标啦 \n3.新增：你可以在账号页面设置网络图片作为背景啦 \n"),
     "version107" : MessageLookupByLibrary.simpleMessage("版本:1.0.7 \n\n1.修复：已经发现的一些bug\n2.新增：现在可以将主页的背景更换为网络图片啦，非常漂亮哦！ \n"),
     "version108" : MessageLookupByLibrary.simpleMessage("版本:1.0.8 \n\n1.修复：输入框的验证提示将会在点击按钮后显示\n2.新增：你使用过的网络背景图片现在可以在历史记录中找到了 \n"),
+    "version109" : MessageLookupByLibrary.simpleMessage("版本:1.0.9 \n\n1.修复：输入框光标与文字不对齐的问题 \n2.优化：任务圆盘的滑动事件不再局限于任务图标，而是在整个圆盘上触发 \n3.新增：✨开场动画！✨ \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("版本描述"),
     "waitAMoment" : MessageLookupByLibrary.simpleMessage("请稍后..."),
     "waiting" : MessageLookupByLibrary.simpleMessage("请稍后..."),

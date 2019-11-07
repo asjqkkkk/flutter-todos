@@ -206,7 +206,7 @@ widgets | custom widgets
 - [x] MainPage's background now supports network picture
 - [ ] Custom task details page font size
 - [ ] Geek news
-- [ ] Whether to show the opening animation
+- [x] Whether to show the opening animation
 
 
 

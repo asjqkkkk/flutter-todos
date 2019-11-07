@@ -437,6 +437,16 @@ class DemoLocalizations {
       '2.新增：你使用过的网络背景图片现在可以在历史记录中找到了 \n',
   );
 
+  String get version109 => Intl.message('Version:1.0.9 \n\n'
+      '1.Fixed:Input box cursor is not aligned with text \n'
+      '2.Optimization:The sliding event of the task disc is no longer limited to the task icon, but is triggered on the entire disc \n'
+      '3.Add: ✨Splash Animation!✨ \n',
+    name: 'version109', desc: '版本:1.0.9 \n\n'
+      '1.修复：输入框光标与文字不对齐的问题 \n'
+      '2.优化：任务圆盘的滑动事件不再局限于任务图标，而是在整个圆盘上触发 \n'
+      '3.新增：✨开场动画！✨ \n',
+  );
+
 }
 
 //Locale代理类
