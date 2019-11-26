@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/all_types.dart';
@@ -22,6 +24,15 @@ class NetPicturesPageLogic {
     ApiService.instance.getPhotos(
       success: (beans) {
         List<PhotoBean> datas = beans;
+        if(_model.hasCache){
+          _model.hasCache = false;
+          _model.photos.clear();
+          _model.loadingFlag = LoadingFlag.success;
+          _model.photos.addAll(datas);
+          _model.refreshController.loadComplete();
+          _model.refresh();
+          return;
+        }
         if (datas.length == 0) {
           _model.loadingFlag = LoadingFlag.empty;
           _model.refreshController.footerMode.value = LoadStatus.noMore;
@@ -50,7 +61,19 @@ class NetPicturesPageLogic {
         "per_page": "$perPage"
       },
       token: cancelToken,
+      startPage: page
     );
+  }
+
+  void getCachePhotos() async{
+    final data = await SharedUtil.instance.getString(Keys.backgroundChangeWithCard);
+    if(data == null) return;
+    List<PhotoBean> beans = PhotoBean.fromMapList(jsonDecode(data));
+    _model.loadingFlag = LoadingFlag.success;
+    _model.hasCache = true;
+    _model.photos.addAll(beans);
+    _model.refreshController.loadComplete();
+    _model.refresh();
   }
 
   void loadMorePhoto() {

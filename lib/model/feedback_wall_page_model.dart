@@ -14,6 +14,8 @@ class FeedbackWallPageModel extends ChangeNotifier{
   List<SuggestionsListBean> suggestionList = [];
   LoadingFlag loadingFlag = LoadingFlag.loading;
 
+  bool hasCache = false;
+
   FeedbackWallPageModel(){
     logic = FeedbackWallPageLogic(this);
   }
@@ -21,6 +23,7 @@ class FeedbackWallPageModel extends ChangeNotifier{
   void setContext(BuildContext context){
     if(this.context == null){
         this.context = context;
+        logic.getCacheSuggestions();
         logic.getSuggestions();
     }
   }

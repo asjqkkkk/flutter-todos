@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/json/suggestion_bean.dart';
 import 'package:todo_list/model/all_model.dart';
+import 'package:todo_list/utils/shared_util.dart';
 
 class FeedbackWallPageLogic{
 
@@ -12,6 +15,7 @@ class FeedbackWallPageLogic{
   void getSuggestions(){
     ApiService.instance.getSuggestions(
       success: (data){
+        SharedUtil.instance.saveString(Keys.feedbackWallCacheList, jsonEncode(data));
         SuggestionBean suggestionBean = SuggestionBean.fromMap(data);
         _model.suggestionList.clear();
         _model.suggestionList.addAll(suggestionBean.suggestions);
@@ -22,11 +26,25 @@ class FeedbackWallPageLogic{
         }
         _model.refresh();
       }, error: (msg){
-        _model.loadingFlag = LoadingFlag.error;
-        _model.refresh();
+        if(_model.hasCache == true){
+          _model.loadingFlag = LoadingFlag.error;
+          _model.refresh();
+        }
     },
       token: _model.cancelToken,
     );
+  }
+
+  void getCacheSuggestions() async{
+    final data = await SharedUtil.instance.getString(Keys.feedbackWallCacheList);
+    if(data == null) return;
+    SuggestionBean suggestionBean = SuggestionBean.fromMap(jsonDecode(data));
+    _model.suggestionList.clear();
+    _model.suggestionList.addAll(suggestionBean.suggestions);
+    _model.hasCache = true;
+    _model.suggestionList = _model.suggestionList.reversed.toList();
+    _model.refresh();
+    print("获取到的缓存数据:$data");
   }
 
 }

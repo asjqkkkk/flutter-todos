@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:todo_list/json/all_beans.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/utils/shared_util.dart';
 export 'package:todo_list/json/all_beans.dart';
 
 import 'api_strategy.dart';
@@ -36,6 +37,7 @@ class ApiService {
     Function error,
     Map<String, String> params,
     CancelToken token,
+    int startPage,
   }) {
     ApiStrategy.getInstance().get(
       "https://api.unsplash.com/photos/",
@@ -43,6 +45,9 @@ class ApiService {
         if (data.toString().contains("errors")) {
           failed(data);
         } else {
+          if(startPage == 1){
+            SharedUtil.instance.saveString(Keys.backgroundChangeWithCard, jsonEncode(data));
+          }
           List<PhotoBean> beans = PhotoBean.fromMapList(data);
           success(beans);
         }

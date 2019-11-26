@@ -21,6 +21,9 @@ class NetPicturesPageModel extends ChangeNotifier{
   RefreshController refreshController = RefreshController(initialRefresh: true);
   CancelToken cancelToken = CancelToken();
 
+  //是否有图片列表的数据缓存
+  bool hasCache = false;
+
   ///用于判断是否被销毁，防止与dio搭配使用报错
   bool isDisposed = false;
 
@@ -40,6 +43,7 @@ class NetPicturesPageModel extends ChangeNotifier{
   void setContext(BuildContext context){
     if(this.context == null){
         this.context = context;
+        logic.getCachePhotos();
         logic.getPhotos(cancelToken: cancelToken);
     }
   }
