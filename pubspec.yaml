@@ -69,7 +69,7 @@ dev_dependencies:
   #打开文件，android更新下载安装包用
   open_file: ^2.0.3
   #flare动画
-  flare_flutter: ^1.5.5
+  flare_flutter: ^1.5.4
   #加密
   encrypt: ^3.2.0
   #列表动画

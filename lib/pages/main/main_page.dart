@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
     model.setContext(context,globalModel: globalModel);
     globalModel.setMainPageModel(model);
     return GestureDetector(
-      onTap:  () => model.logic.onBackGroundTap(globalModel),
+      onLongPress:  () => model.logic.onBackGroundTap(globalModel),
       child: Container(
         decoration: model.logic.getBackground(globalModel),
         child: Scaffold(
