@@ -872,9 +872,27 @@
     "type": "text",
     "placeholders": {}
   },
+  "setBackground": "设置背景",
+  "@setBackground": {
+    "description": "设置背景:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "textColor": "文字颜色",
+  "@textColor": {
+    "description": "文字颜色:",
+    "type": "text",
+    "placeholders": {}
+  },
   "background": "背景",
   "@background": {
     "description": "背景:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "clearBackground": "清除背景",
+  "@clearBackground": {
+    "description": "清除背景:",
     "type": "text",
     "placeholders": {}
   },
@@ -884,13 +902,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "editTask": "编辑",
+  "editTask": "编辑任务",
   "@editTask": {
     "description": "编辑任务",
     "type": "text",
     "placeholders": {}
   },
-  "deleteTask": "删除",
+  "deleteTask": "删除任务",
   "@deleteTask": {
     "description": "删除任务",
     "type": "text",

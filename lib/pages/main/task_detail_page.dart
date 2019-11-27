@@ -18,10 +18,13 @@ class TaskDetailPage extends StatelessWidget {
     final mainPageModel = globalModel.mainPageModel;
     final model = Provider.of<TaskDetailPageModel>(context)
       ..setContext(context,globalModel);
+
     globalModel.setTaskDetailPageModel(model);
     final taskColor = globalModel.isCardChangeWithBg
         ? Theme.of(context).primaryColor
         : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
+
+    final textColor = model.logic.getTextColor(context);
 
     final int heroTag = model.heroTag;
     final size = MediaQuery.of(context).size;
@@ -120,6 +123,7 @@ class TaskDetailPage extends StatelessWidget {
                                       itemProgress: taskDetailBean.itemProgress,
                                       itemName: taskDetailBean.taskDetailName,
                                       iconColor: taskColor,
+                                      textColor: textColor,
                                       onProgressChanged: (progress) {
                                         model.logic.refreshProgress(
                                             taskDetailBean,

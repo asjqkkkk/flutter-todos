@@ -866,7 +866,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "doDelete": "doDelete",
+  "doDelete": "Do you want to delete the task",
   "@doDelete": {
     "description": "是否要删除任务:",
     "type": "text",
@@ -878,19 +878,37 @@
     "type": "text",
     "placeholders": {}
   },
-  "fontSize": "fontSize",
+  "setBackground": "Set Background",
+  "@setBackground": {
+    "description": "设置背景:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "clearBackground": "Clear Background",
+  "@clearBackground": {
+    "description": "清除背景:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "textColor": "Text Color",
+  "@textColor": {
+    "description": "文字颜色:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fontSize": "Font Size",
   "@fontSize": {
     "description": "字体大小:",
     "type": "text",
     "placeholders": {}
   },
-  "editTask": "Edit",
+  "editTask": "Edit Task",
   "@editTask": {
     "description": "编辑任务",
     "type": "text",
     "placeholders": {}
   },
-  "deleteTask": "Delete",
+  "deleteTask": "Delete Task",
   "@deleteTask": {
     "description": "删除任务",
     "type": "text",

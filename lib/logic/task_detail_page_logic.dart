@@ -4,6 +4,7 @@ import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
@@ -31,6 +32,13 @@ class TaskDetailPageLogic {
     _getOverallProgress();
     model.refresh();
     _model.refresh();
+  }
+
+  Color getTextColor(BuildContext context){
+    final taskBean = _model.taskBean;
+    final textColor = taskBean.textColor;
+    if(textColor != null) return ColorBean.fromBean(textColor);
+    return DefaultTextStyle.of(context).style.color;
   }
 
   //页面退出需要执行的逻辑,isDeleting表示这个页面是否执行了删除当前任务的操作

@@ -310,7 +310,10 @@ class DemoLocalizations {
   String get delete => Intl.message('delete', name: 'delete', desc: '删除',);
   String get doDelete => Intl.message('doDelete', name: 'doDelete', desc: '是否要删除任务:',);
   String get background => Intl.message('background', name: 'background', desc: '背景:',);
-  String get fontSize => Intl.message('fontSize', name: 'fontSize', desc: '字体大小:',);
+  String get setBackground => Intl.message('Set Background', name: 'setBackground', desc: '设置背景:',);
+  String get clearBackground => Intl.message('Clear Background', name: 'clearBackground', desc: '清除背景:',);
+  String get textColor => Intl.message('Text Color', name: 'textColor', desc: '文字颜色:',);
+  String get fontSize => Intl.message('Font Size', name: 'fontSize', desc: '字体大小:',);
 
 
 
@@ -318,8 +321,8 @@ class DemoLocalizations {
 
 
 
-  String get editTask{return Intl.message('Edit', name: 'editTask', desc: '编辑任务',);}
-  String get deleteTask{return Intl.message('Delete', name: 'deleteTask', desc: '删除任务',);}
+  String get editTask{return Intl.message('Edit Task', name: 'editTask', desc: '编辑任务',);}
+  String get deleteTask{return Intl.message('Delete Task', name: 'deleteTask', desc: '删除任务',);}
   String get submit => Intl.message('Submit', name: 'submit', desc: '提交任务',);
   String get addTask => Intl.message('add a task', name: 'addTask', desc: '添加任务',);
   String get deadline => Intl.message('deadline', name: 'deadline', desc: '截止日期',);

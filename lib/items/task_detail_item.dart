@@ -9,6 +9,7 @@ class TaskDetailItem extends StatefulWidget {
   final String itemName;
   final int index;
   final Color iconColor;
+  final Color textColor;
   final bool showAnimation;
 
   TaskDetailItem({
@@ -17,8 +18,8 @@ class TaskDetailItem extends StatefulWidget {
     @required this.itemName,
     this.index = 0,
     this.onProgressChanged,
-    this.iconColor,
-    this.showAnimation = true,
+    @required this.iconColor,
+    this.showAnimation = true, this.textColor,
   });
 
   @override
@@ -120,7 +121,7 @@ class _TaskDetailItemState extends State<TaskDetailItem>
                           margin: EdgeInsets.only(
                             left: 5,
                           ),
-                          child: Text("${widget.itemName}")),
+                          child: Text("${widget.itemName}", style: TextStyle(color: widget.textColor),)),
                     )),
                 Expanded(
                     flex: 1,
@@ -128,7 +129,7 @@ class _TaskDetailItemState extends State<TaskDetailItem>
                         ? SizedBox()
                         : Text(
                             "${(currentProgress * 100).toInt()}%",
-                            style: TextStyle(fontSize: 8),
+                            style: TextStyle(fontSize: 8,color: widget.textColor,),
                           )),
                 Expanded(
                     flex: 1,
@@ -181,7 +182,7 @@ class _TaskDetailItemState extends State<TaskDetailItem>
           flex: 2,
           child: Text(
             "${(currentProgress * 100).toInt()}%",
-            style: TextStyle(fontSize: 8),
+            style: TextStyle(fontSize: 8,color: widget.textColor,),
           ),
         ),
       ],

@@ -25,9 +25,10 @@ class TaskInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final taskColor = isCardChangeWithBg
+    final iconColor = isCardChangeWithBg
         ? Theme.of(context).primaryColor
         : ColorBean.fromBean(taskBean.taskIconBean.colorBean);
+    final textColor = getTextColor(context);
     final taskIconData = IconBean.fromBean(taskBean.taskIconBean.iconBean);
 
     return Column(
@@ -46,12 +47,12 @@ class TaskInfoWidget extends StatelessWidget {
                       height: 42,
                       decoration: BoxDecoration(
                           border: Border.all(
-                            color: taskColor,
+                            color: iconColor,
                           ),
                           shape: BoxShape.circle),
                       child: Icon(
                         taskIconData,
-                        color: taskColor,
+                        color: iconColor,
                       )),
                 ),
               ),
@@ -70,7 +71,7 @@ class TaskInfoWidget extends StatelessWidget {
                             child: Material(
                                 color: Colors.transparent,
                                 child: PopMenuBt(
-                                  iconColor: taskColor,
+                                  iconColor: iconColor,
                                   onDelete: onDelete,
                                   onEdit: onEdit,
                                   taskBean: taskBean,
@@ -93,6 +94,7 @@ class TaskInfoWidget extends StatelessWidget {
                 child: Text(
                   "(${DemoLocalizations.of(context).notSynced})",
                   style: TextStyle(
+                    color: textColor,
                       fontSize: 12,),
                 ),
               ),
@@ -111,6 +113,7 @@ class TaskInfoWidget extends StatelessWidget {
                           child: Text(
                             "${taskBean.taskName} ",
                             style: TextStyle(
+                              color: textColor,
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -130,7 +133,7 @@ class TaskInfoWidget extends StatelessWidget {
                                 color: Colors.greenAccent,
                               ),
                             )
-                          : getStatusWidget(context, taskColor),
+                          : getStatusWidget(context, iconColor),
                     ),
                   )
                 ],
@@ -145,7 +148,7 @@ class TaskInfoWidget extends StatelessWidget {
                   color: Colors.transparent,
                   child: Text(
                     "${DemoLocalizations.of(context).itemNumber(taskBean.taskDetailNum)}",
-                    style: TextStyle(fontSize: 10),
+                    style: TextStyle(fontSize: 10,color: textColor),
                   ),
                 ),
               ),
@@ -159,7 +162,7 @@ class TaskInfoWidget extends StatelessWidget {
                     child: Text(
                       "${(taskBean.overallProgress * 100).toInt()}%",
                       style:
-                          TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 10, fontWeight: FontWeight.bold,color: textColor),
                     )),
               ),
             ),
@@ -171,7 +174,7 @@ class TaskInfoWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                   child: LinearProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation(taskColor),
+                    valueColor: AlwaysStoppedAnimation(iconColor),
                     value: taskBean.overallProgress,
                     backgroundColor: Color.fromRGBO(224, 224, 224, 1),
                   ),
@@ -243,6 +246,12 @@ class TaskInfoWidget extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Color getTextColor(BuildContext context){
+    final textColor = taskBean.textColor;
+    if(textColor != null) return ColorBean.fromBean(textColor);
+    return DefaultTextStyle.of(context).style.color;
   }
 
   Widget getBeginIcon(

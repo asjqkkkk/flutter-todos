@@ -162,8 +162,7 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
         break;
       case NetPicturesUseType.taskCardBackground:
         widget.taskBean?.backgroundUrl = currentUrl;
-        final id = widget.taskBean.id;
-        SharedUtil.instance.saveString(Keys.cardBackgroundUrl + id.toString(), currentUrl);
+        DBProvider.db.updateTask(widget.taskBean);
         final searchModel = globalModel.searchPageModel;
         searchModel?.refresh();
         final taskDetailPageModel = globalModel.taskDetailPageModel;
