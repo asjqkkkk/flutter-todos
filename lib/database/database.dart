@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:todo_list/json/task_bean.dart';
@@ -22,7 +23,7 @@ class DBProvider {
     String path = join(dataBasePath, "todo.db");
     return await openDatabase(
       path,
-      version: 3,
+      version: 4,
       onOpen: (db) {},
       onCreate: (Database db, int version) async {
         print("当前版本:$version");
@@ -42,7 +43,9 @@ class DBProvider {
             "startDate TEXT,"
             "deadLine TEXT,"
             "detailList TEXT,"
-            "taskIconBean TEXT"
+            "taskIconBean TEXT,"
+            "textColor TEXT,"
+            "backgroundUrl TEXT"
             ")");
       },
       onUpgrade: (Database db, int oldVersion, int newVersion) async{
@@ -54,6 +57,10 @@ class DBProvider {
         if(oldVersion < 3){
           await db.execute("ALTER TABLE TodoList ADD COLUMN uniqueId TEXT");
           await db.execute("ALTER TABLE TodoList ADD COLUMN needUpdateToCloud TEXT");
+        }
+        if(oldVersion < 4){
+          await db.execute("ALTER TABLE TodoList ADD COLUMN textColor TEXT");
+          await db.execute("ALTER TABLE TodoList ADD COLUMN backgroundUrl TEXT");
         }
       },
     );
@@ -99,9 +106,11 @@ class DBProvider {
   }
 
   Future updateTask(TaskBean taskBean) async {
+    if(taskBean == null) return;
     final db = await database;
     await db.update("TodoList", taskBean.toMap(),
         where: "id = ?", whereArgs: [taskBean.id]);
+    debugPrint("升级当前task:${taskBean.toMap()}");
   }
 
   Future deleteTask(int id) async {

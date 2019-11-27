@@ -38,7 +38,23 @@ class MainPageLogic {
           taskBean.id,
           taskBean,
           onEdit: () => _model.logic.editTask(taskBean),
-          onDelete: () => _model.logic.deleteTask(taskBean),
+          onDelete: () => showDialog(
+            context: _model.context,
+            builder: (ctx) {
+              return AlertDialog(
+                title: Text("${DemoLocalizations.of(_model.context).doDelete}${taskBean.taskName}"),
+                actions: <Widget>[
+                  FlatButton(onPressed: (){
+                    Navigator.of(context).pop();
+                    _model.logic.deleteTask(taskBean);
+
+                  }, child: Text("删除",style: TextStyle(color: Colors.redAccent),)),
+                  FlatButton(onPressed: (){
+                    Navigator.of(context).pop();
+                  }, child: Text("取消",style: TextStyle(color: Colors.green),)),
+                ],
+              );
+            }),
         ),
         onTap: () {
           _model.currentTapIndex = index;

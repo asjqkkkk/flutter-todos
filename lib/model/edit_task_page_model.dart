@@ -20,16 +20,16 @@ class EditTaskPageModel extends ChangeNotifier{
   CancelToken cancelToken = CancelToken();
 
 
-  //任务清单
+  ///任务清单
   List<TaskDetailBean> taskDetails = [];
-  //截止日期
+  ///截止日期
   DateTime deadLine;
-  //开始日期
+  ///开始日期
   DateTime startDate;
   
-  //创建日期
+  ///创建日期
   DateTime createDate;
-  //结束日期
+  ///结束日期
   DateTime finishDate;
 
   TaskIconBean taskIcon;
@@ -37,10 +37,10 @@ class EditTaskPageModel extends ChangeNotifier{
   int changeTimes = 0;
   String uniqueId;
 
-  //能否添加一项任务
+  ///能否添加一项任务
   bool canAddTaskDetail = false;
 
-  //当这个值不为空的时候，表示不是新增一个task，而是编辑已存在的task
+  ///当这个值不为空的时候，表示不是新增一个task，而是编辑已存在的task
   TaskBean oldTaskBean;
 
   EditTaskPageModel({this.oldTaskBean}){

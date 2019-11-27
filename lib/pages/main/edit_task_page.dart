@@ -166,7 +166,7 @@ class EditTaskPage extends StatelessWidget {
                     TextField(
                       controller: model.textEditingController
                         ..addListener(model.logic.editListener),
-                      autofocus: model.taskDetails.length > 0 ? false : true,
+                      autofocus: model.taskDetails.isEmpty,
                       style: TextStyle(
                         color: textColor,
                           textBaseline: TextBaseline.alphabetic

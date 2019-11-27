@@ -61,9 +61,10 @@ class TaskDetailPageModel extends ChangeNotifier {
     });
   }
 
-  void setContext(BuildContext context) async {
+  void setContext(BuildContext context, GlobalModel globalModel) async {
     if (this.context == null) {
       this.context = context;
+      this.globalModel = globalModel;
     }
   }
 
@@ -77,8 +78,10 @@ class TaskDetailPageModel extends ChangeNotifier {
   void dispose() {
     timer?.cancel();
     if(!cancelToken.isCancelled) cancelToken.cancel();
-    debugPrint("TaskDetailPageModel销毁了");
     super.dispose();
+    globalModel?.taskDetailPageModel = null;
+    debugPrint("TaskDetailPageModel销毁了");
+
   }
 
   void refresh() {

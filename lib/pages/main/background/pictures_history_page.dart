@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/all_types.dart';
+import 'package:todo_list/database/database.dart';
+import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/account_page_model.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
@@ -10,8 +12,9 @@ import 'package:todo_list/widgets/custom_animated_switcher.dart';
 class PicturesHistoryPage extends StatefulWidget {
   final String useType;
   final AccountPageModel accountPageModel;
+  final TaskBean taskBean;
 
-  const PicturesHistoryPage({Key key, @required this.useType, this.accountPageModel, })
+  const PicturesHistoryPage({Key key, @required this.useType, this.accountPageModel, this.taskBean, })
       : super(key: key);
 
   @override
@@ -140,28 +143,42 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
   void onPictureTap(List<String> urls, int index, GlobalModel globalModel) {
     String currentUrl = urls[index];
 
-    if (widget.useType == NetPicturesUseType.accountBackground) {
-      SharedUtil.instance.saveString(Keys.currentAccountBackground, currentUrl);
-      SharedUtil.instance.saveString(Keys.currentAccountBackgroundType, AccountBGType.netPicture);
-      final accountPageModel = widget.accountPageModel;
-      accountPageModel.backgroundUrl = currentUrl;
-      accountPageModel.backgroundType = AccountBGType.netPicture;
-      accountPageModel.refresh();
-    } else if (widget.useType == NetPicturesUseType.navigatorHeader) {
+    switch(widget.useType){
+      case NetPicturesUseType.accountBackground:
+        SharedUtil.instance.saveString(Keys.currentAccountBackground, currentUrl);
+        SharedUtil.instance.saveString(Keys.currentAccountBackgroundType, AccountBGType.netPicture);
+        final accountPageModel = widget.accountPageModel;
+        accountPageModel.backgroundUrl = currentUrl;
+        accountPageModel.backgroundType = AccountBGType.netPicture;
+        accountPageModel.refresh();
+        break;
+      case NetPicturesUseType.navigatorHeader:
+        SharedUtil.instance.saveString(Keys.currentAccountBackground, currentUrl);
+        SharedUtil.instance.saveString(Keys.currentAccountBackgroundType, AccountBGType.netPicture);
+        final accountPageModel = widget.accountPageModel;
+        accountPageModel.backgroundUrl = currentUrl;
+        accountPageModel.backgroundType = AccountBGType.netPicture;
+        accountPageModel.refresh();
+        break;
+      case NetPicturesUseType.taskCardBackground:
+        widget.taskBean?.backgroundUrl = currentUrl;
+        final id = widget.taskBean.id;
+        SharedUtil.instance.saveString(Keys.cardBackgroundUrl + id.toString(), currentUrl);
+        final searchModel = globalModel.searchPageModel;
+        searchModel?.refresh();
+        final taskDetailPageModel = globalModel.taskDetailPageModel;
+        taskDetailPageModel?.refresh();
+        final mainPageModel = globalModel.mainPageModel;
+        mainPageModel?.refresh();
+        break;
+      default :
+        SharedUtil.instance.saveString(Keys.currentMainPageBackgroundUrl, currentUrl);
+        SharedUtil.instance.saveBoolean(Keys.enableNetPicBgInMainPage, true);
+        globalModel.currentMainPageBgUrl = currentUrl;
+        globalModel.enableNetPicBgInMainPage = true;
+        globalModel.refresh();
+        break;
 
-      SharedUtil.instance.saveString(Keys.currentNetPicUrl, currentUrl);
-      SharedUtil.instance.saveString(Keys.currentNavHeader, widget.useType);
-      globalModel.currentNetPicUrl = currentUrl;
-      globalModel.currentNavHeader = widget.useType;
-      globalModel.refresh();
-
-    } else {
-
-      SharedUtil.instance.saveString(Keys.currentMainPageBackgroundUrl, currentUrl);
-      SharedUtil.instance.saveBoolean(Keys.enableNetPicBgInMainPage, true);
-      globalModel.currentMainPageBgUrl = currentUrl;
-      globalModel.enableNetPicBgInMainPage = true;
-      globalModel.refresh();
     }
     Navigator.of(context).pop();
     Navigator.of(context).pop();

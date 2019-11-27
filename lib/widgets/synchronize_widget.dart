@@ -296,6 +296,8 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
             needCreateTasks.add(task);
           } else {
             task.id = localTask[0].id;
+            task.backgroundUrl = localTask[0].backgroundUrl;
+            task.textColor = localTask[0].textColor;
             needUpdateTasks.add(task);
           }
         }

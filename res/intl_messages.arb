@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-11-07T15:54:07.878138",
+  "@@last_modified": "2019-11-27T11:14:41.887191",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -881,6 +881,30 @@
   "skip": "skip",
   "@skip": {
     "description": "跳过",
+    "type": "text",
+    "placeholders": {}
+  },
+  "delete": "delete",
+  "@delete": {
+    "description": "删除",
+    "type": "text",
+    "placeholders": {}
+  },
+  "doDelete": "doDelete",
+  "@doDelete": {
+    "description": "是否要删除任务:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "background": "background",
+  "@background": {
+    "description": "背景:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fontSize": "fontSize",
+  "@fontSize": {
+    "description": "字体大小:",
     "type": "text",
     "placeholders": {}
   },

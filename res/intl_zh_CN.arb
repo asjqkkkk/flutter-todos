@@ -860,6 +860,30 @@
     "type": "text",
     "placeholders": {}
   },
+  "delete": "删除",
+  "@delete": {
+    "description": "删除",
+    "type": "text",
+    "placeholders": {}
+  },
+  "doDelete": "是否要删除任务",
+  "@doDelete": {
+    "description": "是否要删除任务:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "background": "背景",
+  "@background": {
+    "description": "背景:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fontSize": "字体大小",
+  "@fontSize": {
+    "description": "字体大小:",
+    "type": "text",
+    "placeholders": {}
+  },
   "editTask": "编辑",
   "@editTask": {
     "description": "编辑任务",

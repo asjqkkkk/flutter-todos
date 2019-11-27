@@ -46,7 +46,7 @@ class ApiService {
           failed(data);
         } else {
           if(startPage == 1){
-            SharedUtil.instance.saveString(Keys.backgroundChangeWithCard, jsonEncode(data));
+            SharedUtil.instance.saveString(Keys.imageCacheList, jsonEncode(data));
           }
           List<PhotoBean> beans = PhotoBean.fromMapList(data);
           success(beans);

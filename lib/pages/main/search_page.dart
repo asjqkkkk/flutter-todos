@@ -10,9 +10,10 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
-    final model = Provider.of<SearchPageModel>(context)..setContext(context);
+    final model = Provider.of<SearchPageModel>(context)..setContext(context,globalModel);
     final primaryColor = globalModel.logic.getPrimaryInDark(context);
     final bgColor = globalModel.logic.getWhiteInDark();
+    globalModel.setSearchPageModel(model);
 
     return Scaffold(
       backgroundColor: primaryColor,
@@ -72,8 +73,7 @@ class SearchPage extends StatelessWidget {
                     task.id,
                     task,
                     onDelete: () => model.logic.onDelete(globalModel, task),
-                    onEdit: () =>
-                        model.logic.onEdit(task, globalModel.mainPageModel),
+                    onEdit: () => model.logic.onEdit(task, globalModel.mainPageModel),
                   ),
                 );
               }),

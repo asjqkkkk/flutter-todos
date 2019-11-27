@@ -3,6 +3,7 @@ import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
+import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
@@ -10,7 +11,10 @@ import 'package:todo_list/widgets/net_loading_widget.dart';
 class GlobalModel extends ChangeNotifier {
   GlobalLogic logic;
   BuildContext context;
+  ///GlobalModel可以用来统一管理所有的model，这里只管理了一部分
   MainPageModel mainPageModel;
+  SearchPageModel searchPageModel;
+  TaskDetailPageModel taskDetailPageModel;
 
   ///app的名字
   String appName = "一日";
@@ -105,6 +109,18 @@ class GlobalModel extends ChangeNotifier {
   void setMainPageModel(MainPageModel mainPageModel) {
     if (this.mainPageModel == null) {
       this.mainPageModel = mainPageModel;
+    }
+  }
+
+  void setSearchPageModel(SearchPageModel searchPageModel){
+    if (this.searchPageModel == null){
+      this.searchPageModel = searchPageModel;
+    }
+  }
+
+  void setTaskDetailPageModel(TaskDetailPageModel taskDetailPageModel){
+    if(this.taskDetailPageModel == null){
+      this.taskDetailPageModel = taskDetailPageModel;
     }
   }
 

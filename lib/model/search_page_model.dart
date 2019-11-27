@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/logic/search_page_logic.dart';
+import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 
 class SearchPageModel extends ChangeNotifier{
 
   BuildContext context;
   SearchPageLogic logic;
+  GlobalModel _globalModel;
 
   List<TaskBean> searchTasks = [];
   final TextEditingController textEditingController = TextEditingController();
@@ -23,10 +25,10 @@ class SearchPageModel extends ChangeNotifier{
     logic = SearchPageLogic(this);
   }
 
-  void setContext(BuildContext context){
+  void setContext(BuildContext context, GlobalModel globalModel){
     if(this.context == null){
       this.context = context;
-
+      this._globalModel = _globalModel;
     }
   }
 
@@ -36,6 +38,7 @@ class SearchPageModel extends ChangeNotifier{
     textEditingController?.dispose();
     if(!cancelToken.isCancelled) cancelToken.cancel();
     super.dispose();
+    _globalModel.searchPageModel = null;
     debugPrint("SearchPageModel销毁了");
   }
 

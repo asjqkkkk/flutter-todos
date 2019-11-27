@@ -37,16 +37,16 @@ class EditTaskPageLogic {
 
   //提交一项任务
   void submitOneItem() {
-    String text = _model.textEditingController.text;
+    final controller = _model.textEditingController;
+    String text = controller.text;
     if (text.isEmpty) return;
     _model.taskDetails.add(TaskDetailBean(taskDetailName: text));
-
+//    WidgetsBinding.instance.addPostFrameCallback( (_) => controller.clear());
     _model.refresh();
     final scroller = _model.scrollController;
-    Future.delayed(Duration(milliseconds: 100), () {
-      _model.textEditingController.clear();
-      scroller?.animateTo(scroller?.position?.maxScrollExtent,
-          duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine);
+    scroller?.animateTo(scroller?.position?.maxScrollExtent,
+        duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine)?.then((a){
+      controller.text = "";
     });
   }
 
@@ -68,10 +68,10 @@ class EditTaskPageLogic {
   //监听文字，提交按钮是否可以点击
   void editListener() {
     final text = _model.textEditingController.text;
-    if (text.isEmpty && _model.canAddTaskDetail == true) {
+    if (text.isEmpty && _model.canAddTaskDetail) {
       _model.canAddTaskDetail = false;
       _model.refresh();
-    } else if (text.isNotEmpty && _model.canAddTaskDetail == false) {
+    } else if (text.isNotEmpty && !_model.canAddTaskDetail) {
       _model.canAddTaskDetail = true;
       _model.refresh();
     }

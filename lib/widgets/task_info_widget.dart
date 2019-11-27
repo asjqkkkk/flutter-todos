@@ -73,6 +73,7 @@ class TaskInfoWidget extends StatelessWidget {
                                   iconColor: taskColor,
                                   onDelete: onDelete,
                                   onEdit: onEdit,
+                                  taskBean: taskBean,
                                 )))),
               ),
             )

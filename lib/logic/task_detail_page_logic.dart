@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
@@ -55,13 +56,15 @@ class TaskDetailPageLogic {
         });
       }
       _model.taskBean.changeTimes++;
-      DBProvider.db.updateTask(_model.taskBean).then((value) async{
-        final account = await SharedUtil.instance.getString(Keys.account) ?? 'default';
-        if(account != 'default'){
+      DBProvider.db.updateTask(_model.taskBean).then((value) async {
+        final account =
+            await SharedUtil.instance.getString(Keys.account) ?? 'default';
+        if (account != 'default') {
           _model.taskBean.uniqueId == null
               ? mainPageModel.logic.postCreateTask(_model.taskBean)
               : mainPageModel.logic.postUpdateTask(_model.taskBean);
         }
+
         ///如果是从"完成列表"过来
         if (_model.doneTaskPageModel != null) {
           mainPageModel.logic.getTasks();
@@ -70,7 +73,6 @@ class TaskDetailPageLogic {
             Navigator.of(context).pop();
           });
         }
-
         ///如果是从"搜索页面"过来
         else if (_model.searchPageModel != null) {
           _model.isExiting = true;
@@ -89,7 +91,19 @@ class TaskDetailPageLogic {
     }
     _model.isExiting = true;
     _model.refresh();
+    if(isDeleting){
+      Future.delayed(
+          Duration(
+            milliseconds: 800,
+          ), () {
+        debugPrint("删除了");
+        removeTask(mainPageModel);
+        debugPrint("刷新main");
+        mainPageModel.refresh();
+      });
+    }
     Navigator.of(context).pop();
+
   }
 
   bool needUpdateDatabase() {
@@ -99,11 +113,27 @@ class TaskDetailPageLogic {
   void deleteTask(MainPageModel mainPageModel) async {
     final account =
         await SharedUtil.instance.getString(Keys.account) ?? 'default';
-    if (account == 'default') {
-      deleteAndExit(mainPageModel);
-    } else {
-      deleteCloudTask(mainPageModel, account);
-    }
+    showDialog(
+        context: _model.context,
+        builder: (ctx) {
+          return AlertDialog(
+            title: Text("${DemoLocalizations.of(_model.context).doDelete}${_model.taskBean.taskName}"),
+            actions: <Widget>[
+              FlatButton(onPressed: (){
+                Navigator.of(_model.context).pop();
+                if (account == 'default') {
+                  deleteAndExit(mainPageModel);
+                } else {
+                  deleteCloudTask(mainPageModel, account);
+                }
+              }, child: Text("删除",style: TextStyle(color: Colors.redAccent),)),
+              FlatButton(onPressed: (){
+                Navigator.of(_model.context).pop();
+              }, child: Text("取消",style: TextStyle(color: Colors.green),)),
+            ],
+          );
+        });
+
   }
 
   void deleteCloudTask(MainPageModel mainPageModel, String account) async {
@@ -120,12 +150,11 @@ class TaskDetailPageLogic {
       },
       failed: (CommonBean bean) {
         Navigator.of(_model.context).pop();
-        if(bean.description.contains("任务不存在")){
+        if (bean.description.contains("任务不存在")) {
           deleteAndExit(mainPageModel);
         } else {
           _showTextDialog(bean.description, _model.context);
         }
-
       },
       error: (msg) {
         Navigator.of(_model.context).pop();
@@ -141,9 +170,9 @@ class TaskDetailPageLogic {
   }
 
   void deleteAndExit(MainPageModel mainPageModel) {
-    removeTask(mainPageModel);
+//    removeTask(mainPageModel);
     DBProvider.db.deleteTask(_model.taskBean.id);
-    _model.refresh();
+//    _model.refresh();
     //如果是从“完成列表”过来
     final doneTaskPageModel = _model.doneTaskPageModel;
     if (doneTaskPageModel != null) {
@@ -164,7 +193,7 @@ class TaskDetailPageLogic {
       var task = mainPageModel.tasks[i];
       if (task.id == _model.taskBean.id) {
         mainPageModel.tasks.removeAt(i);
-        return;
+        break;
       }
     }
   }
@@ -182,6 +211,7 @@ class TaskDetailPageLogic {
       ),
     );
   }
+
 
   void _showTextDialog(String text, BuildContext context) {
     showDialog(

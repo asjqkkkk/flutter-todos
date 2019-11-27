@@ -23,6 +23,9 @@ class NetPicturesUseType{
 
   ///用作主页的背景
   static const String mainPageBackground = "main_page_background";
+
+  ///用作任务卡片的背景
+  static const String taskCardBackground = "task_card_background";
 }
 
 ///"我的账号"页面背景类型

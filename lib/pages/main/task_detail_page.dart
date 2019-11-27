@@ -2,30 +2,30 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_list/items/task_detail_item.dart';
 import 'package:todo_list/json/task_bean.dart';
-import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/global_model.dart';
-import 'package:todo_list/model/task_detail_page_model.dart';
+import 'package:todo_list/json/task_icon_bean.dart';
+import 'package:todo_list/items/task_detail_item.dart';
 import 'package:todo_list/widgets/popmenu_botton.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
+import 'package:todo_list/model/task_detail_page_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class TaskDetailPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
     final mainPageModel = globalModel.mainPageModel;
     final model = Provider.of<TaskDetailPageModel>(context)
-      ..setContext(context)
-      ..setGlobalModel(globalModel);
+      ..setContext(context,globalModel);
+    globalModel.setTaskDetailPageModel(model);
     final taskColor = globalModel.isCardChangeWithBg
         ? Theme.of(context).primaryColor
         : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
 
     final int heroTag = model.heroTag;
     final size = MediaQuery.of(context).size;
-
+    final bgUrl = model.taskBean.backgroundUrl;
 
     return WillPopScope(
       onWillPop: () {
@@ -40,6 +40,10 @@ class TaskDetailPage extends StatelessWidget {
                 decoration: BoxDecoration(
               color: globalModel.logic.getBgInDark(),
               borderRadius: BorderRadius.circular(15.0),
+                  image: bgUrl == null ? null : DecorationImage(
+                    image: CachedNetworkImageProvider(bgUrl),
+                    fit: BoxFit.cover,
+                  ),
             )),
           ),
           Scaffold(
@@ -63,6 +67,7 @@ class TaskDetailPage extends StatelessWidget {
                         color: Colors.transparent,
                         child: PopMenuBt(
                           iconColor: taskColor,
+                          taskBean: model.taskBean,
                           onDelete: () => model.logic.deleteTask(mainPageModel),
                           onEdit: () => model.logic.editTask(mainPageModel),
                         ))),
@@ -72,7 +77,10 @@ class TaskDetailPage extends StatelessWidget {
             body: Column(
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(left: 50, top: size.width > size.height ? 0 : 20, right: 50),
+                  margin: EdgeInsets.only(
+                      left: 50,
+                      top: size.width > size.height ? 0 : 20,
+                      right: 50),
                   child: TaskInfoWidget(
                     heroTag,
                     taskBean: model.taskBean,
@@ -107,7 +115,8 @@ class TaskDetailPage extends StatelessWidget {
                                         right: 50),
                                     child: TaskDetailItem(
                                       index: index,
-                                      showAnimation: model.doneTaskPageModel == null,
+                                      showAnimation:
+                                          model.doneTaskPageModel == null,
                                       itemProgress: taskDetailBean.itemProgress,
                                       itemName: taskDetailBean.taskDetailName,
                                       iconColor: taskColor,

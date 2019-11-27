@@ -152,10 +152,15 @@ class ProviderConfig {
 
   ///网络图片页provider，用于设置账号页面的背景，或者侧滑栏的头部,或者主页背景
   ChangeNotifierProvider<NetPicturesPageModel> getNetPicturesPage(
-      {@required String useType, AccountPageModel accountPageModel}) {
+      {@required String useType,
+      AccountPageModel accountPageModel,
+      TaskBean taskBean}) {
     return ChangeNotifierProvider<NetPicturesPageModel>(
       builder: (context) => NetPicturesPageModel(
-          useType: useType, accountPageModel: accountPageModel),
+        useType: useType,
+        accountPageModel: accountPageModel,
+        taskBean: taskBean,
+      ),
       child: NetPicturesPage(),
     );
   }

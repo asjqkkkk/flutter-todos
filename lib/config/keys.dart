@@ -32,6 +32,7 @@ class Keys{
   static final String allHistoryNetPictureUrls = "all_history_net_picture_urls";
   static final String feedbackWallCacheList = "feedback_wall_cache_list";
   static final String imageCacheList = "imageCacheList";
+  static final String cardBackgroundUrl = "card_background_url";
 
 
 }

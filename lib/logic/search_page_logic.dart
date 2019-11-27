@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
@@ -47,7 +48,22 @@ class SearchPageLogic{
   }
 
   void onDelete(GlobalModel globalModel, TaskBean task) {
-    deleteTask(task, globalModel);
+    showDialog(
+        context: _model.context,
+        builder: (ctx) {
+          return AlertDialog(
+            title: Text("${DemoLocalizations.of(_model.context).doDelete}${task.taskName}"),
+            actions: <Widget>[
+              FlatButton(onPressed: (){
+                Navigator.of(_model.context).pop();
+                deleteTask(task, globalModel);
+              }, child: Text("删除",style: TextStyle(color: Colors.redAccent),)),
+              FlatButton(onPressed: (){
+                Navigator.of(_model.context).pop();
+              }, child: Text("取消",style: TextStyle(color: Colors.green),)),
+            ],
+          );
+        });
   }
 
   void doDelete(TaskBean task, GlobalModel globalModel) {
@@ -68,6 +84,7 @@ class SearchPageLogic{
       ),
     );
   }
+
 
   void deleteTask(TaskBean taskBean, GlobalModel globalModel) async{
     final account = await SharedUtil.instance.getString(Keys.account) ?? 'default';

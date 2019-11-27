@@ -12,6 +12,8 @@ class ColorBean {
       Color.fromRGBO(bean.red, bean.green, bean.blue, bean.opacity);
 
   static ColorBean fromMap(Map<String, dynamic> map) {
+    if(map == null) return null;
+    if(map.isEmpty) return null;
     ColorBean bean = new ColorBean();
     bean.red = map['red'] is int ? map['red'] : int.parse(map['red']);
     bean.green =map['green'] is int ? map['green'] : int.parse(map['green']);

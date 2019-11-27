@@ -307,6 +307,10 @@ class DemoLocalizations {
   String get resetPasswordFailed => Intl.message('Password reset failed', name: 'resetPasswordFailed', desc: '密码修改失败',);
   String get logout => Intl.message('Logout', name: 'logout', desc: '退出登录',);
   String get skip => Intl.message('skip', name: 'skip', desc: '跳过',);
+  String get delete => Intl.message('delete', name: 'delete', desc: '删除',);
+  String get doDelete => Intl.message('doDelete', name: 'doDelete', desc: '是否要删除任务:',);
+  String get background => Intl.message('background', name: 'background', desc: '背景:',);
+  String get fontSize => Intl.message('fontSize', name: 'fontSize', desc: '字体大小:',);
 
 
 

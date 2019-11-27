@@ -18,24 +18,32 @@ class TaskBean {
   ///是否需要在云端更新,true or false
   String needUpdateToCloud;
 
-  //任务修改次数
+  ///任务修改次数
   int changeTimes;
 
-  //创建任务的时间
+  ///创建任务的时间
   String createDate;
 
-  //任务完成的时间
+  ///任务完成的时间
   String finishDate;
 
-  //用户设置的任务开始时间
+  ///用户设置的任务开始时间
   String startDate;
 
-  //用户设置的任务结束时间
+  ///用户设置的任务结束时间
   String deadLine;
 
-  //当前任务的图标信息
+  ///当前任务的图标信息
   TaskIconBean taskIconBean;
   List<TaskDetailBean> detailList = [];
+
+
+  ///以下内容，只存储在本地数据库内。
+
+  ///当前字体颜色
+  ColorBean textColor;
+  ///当前卡片背景图片地址
+  String backgroundUrl;
 
   TaskBean(
       {this.taskName = "",
@@ -52,7 +60,10 @@ class TaskBean {
       this.startDate = "",
       this.deadLine = "",
       this.taskIconBean,
-      this.detailList});
+      this.detailList,
+      this.textColor,
+      this.backgroundUrl,
+      });
 
   static TaskBean fromMap(Map<String, dynamic> map) {
     TaskBean taskBean = new TaskBean();
@@ -82,6 +93,13 @@ class TaskBean {
     } else {
       taskBean.detailList = TaskDetailBean.fromMapList(map['detailList']);
     }
+    if (map['textColor'] is String){
+      var textColor = jsonDecode(map['textColor']);
+      taskBean.textColor = ColorBean.fromMap(textColor);
+    } else {
+      taskBean.textColor = ColorBean.fromMap(map['textColor']);
+    }
+    taskBean.backgroundUrl = map['backgroundUrl'];
     return taskBean;
   }
 
@@ -147,6 +165,8 @@ class TaskBean {
       'startDate': startDate,
       'deadLine': deadLine,
       'taskIconBean': jsonEncode(taskIconBean.toMap()),
+      'textColor': jsonEncode(textColor?.toMap()),
+      'backgroundUrl': backgroundUrl,
       'detailList': jsonEncode(List.generate(detailList.length, (index) {
         return detailList[index].toMap();
       }))
@@ -154,9 +174,10 @@ class TaskBean {
     //把list转换为string的时候不要直接使用tostring，要用jsonEncode
   }
 
+
   @override
   String toString() {
-    return 'TaskBean{id: $id, taskName: $taskName, taskType: $taskType, account: $account, taskStatus: $taskStatus, taskDetailNum: $taskDetailNum, overallProgress: $overallProgress, uniqueId: $uniqueId, needUpdateToCloud: $needUpdateToCloud, changeTimes: $changeTimes, createDate: $createDate, finishDate: $finishDate, startDate: $startDate, deadLine: $deadLine, taskIconBean: $taskIconBean, detailList: $detailList}';
+    return 'TaskBean{id: $id, taskName: $taskName, taskType: $taskType, account: $account, taskStatus: $taskStatus, taskDetailNum: $taskDetailNum, overallProgress: $overallProgress, uniqueId: $uniqueId, needUpdateToCloud: $needUpdateToCloud, changeTimes: $changeTimes, createDate: $createDate, finishDate: $finishDate, startDate: $startDate, deadLine: $deadLine, taskIconBean: $taskIconBean, detailList: $detailList, textColor: $textColor, backgroundUrl: $backgroundUrl}';
   }
 
   ///是否需要在云端更新
