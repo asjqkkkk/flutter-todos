@@ -46,6 +46,8 @@ class UpdateInfoBean {
       if(newNum > oldNum){
         needUpdate = true;
         return needUpdate;
+      } else if(oldNum > newNum){
+        return false;
       }
     }
     return needUpdate;
