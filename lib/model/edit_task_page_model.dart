@@ -36,6 +36,8 @@ class EditTaskPageModel extends ChangeNotifier{
   String currentTaskName = "";
   int changeTimes = 0;
   String uniqueId;
+  ColorBean textColorBean;
+  String backgroundUrl;
 
   ///能否添加一项任务
   bool canAddTaskDetail = false;

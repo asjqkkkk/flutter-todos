@@ -177,9 +177,12 @@ class EditTaskPage extends StatelessWidget {
                           hintStyle: TextStyle(
                             color: hintTextColor,
                           ),
-                          prefixIcon: Icon(
-                            iconData,
-                            color: iconColor,
+                          prefixIcon: GestureDetector(
+                            onTap:() => model.logic.onIconPress(model.taskIcon.iconBean,model.taskIcon.colorBean),
+                            child: Icon(
+                              iconData,
+                              color: iconColor,
+                            ),
                           ),
                           suffixIcon: GestureDetector(
                             onTap: model.logic.submitOneItem,

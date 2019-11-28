@@ -6,8 +6,10 @@ import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/color_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
+import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/custom_icon_widget.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class TaskDetailPageLogic {
@@ -38,7 +40,7 @@ class TaskDetailPageLogic {
     final taskBean = _model.taskBean;
     final textColor = taskBean.textColor;
     if(textColor != null) return ColorBean.fromBean(textColor);
-    return DefaultTextStyle.of(context).style.color;
+    return DefaultTextStyle.of(context).style.backgroundColor;
   }
 
   //页面退出需要执行的逻辑,isDeleting表示这个页面是否执行了删除当前任务的操作
@@ -232,4 +234,5 @@ class TaskDetailPageLogic {
           );
         });
   }
+
 }

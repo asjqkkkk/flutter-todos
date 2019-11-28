@@ -8,7 +8,6 @@ import 'package:todo_list/database/database.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:todo_list/widgets/text_color_picker.dart';
 
 class PopMenuBt extends StatelessWidget {
@@ -51,7 +50,7 @@ class PopMenuBt extends StatelessWidget {
             refreshTaskCard(globalModel);
             break;
           case "textColor":
-            _showColorPicker(context,globalModel);
+            _showColorPicker(context,globalModel,ColorBean.fromBean(taskBean.taskIconBean.colorBean));
             break;
         }
       },
@@ -108,18 +107,26 @@ class PopMenuBt extends StatelessWidget {
   void refreshTaskCard(GlobalModel globalModel) {
      DBProvider.db.updateTask(taskBean);
     final searchModel = globalModel.searchPageModel;
-    searchModel?.refresh();
     final taskDetailPageModel = globalModel.taskDetailPageModel;
     taskDetailPageModel?.refresh();
     final mainPageModel = globalModel.mainPageModel;
-    mainPageModel?.refresh();
+     if(searchModel != null){
+       searchModel.refresh();
+       mainPageModel?.logic?.getTasks()?.then((v){
+         mainPageModel?.refresh();
+         return;
+       });
+     } else {
+       mainPageModel?.refresh();
+     }
   }
 
-  void _showColorPicker(BuildContext context, GlobalModel globalModel) {
+  void _showColorPicker(BuildContext context, GlobalModel globalModel, Color initialColor) {
     showDialog(
         context: context,
         builder: (ctx) {
           return TextColorPicker(
+            initialColor: initialColor,
             onColorChanged: (Color color) {
               final colorBean = ColorBean.fromColor(color);
               taskBean.textColor = colorBean;

@@ -7,6 +7,7 @@ import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/custom_icon_widget.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class EditTaskPageLogic {
@@ -358,6 +359,8 @@ class EditTaskPageLogic {
       taskIconBean: _model.taskIcon,
       changeTimes: _model.changeTimes,
       overallProgress: overallProgress,
+      backgroundUrl: _model.backgroundUrl,
+      textColor: _model.textColorBean,
       finishDate: _model?.finishDate?.toIso8601String() ?? "",
     );
     if (id != null) {
@@ -381,10 +384,12 @@ class EditTaskPageLogic {
       _model.changeTimes = oldTaskBean.changeTimes ?? 0;
       _model.taskIcon = oldTaskBean.taskIconBean;
       _model.currentTaskName = oldTaskBean.taskName;
+      _model.backgroundUrl = oldTaskBean.backgroundUrl;
+      _model.textColorBean = oldTaskBean.textColor;
     }
   }
 
-  //表示当前是属于创建新的任务还是修改旧的任务
+  ///表示当前是属于创建新的任务还是修改旧的任务
   bool isEditOldTask() {
     return _model.oldTaskBean != null;
   }
@@ -398,11 +403,42 @@ class EditTaskPageLogic {
     return isEdit ? oldTaskTitle : defaultTitle;
   }
 
-  //将当前item置于顶层
+  ///将当前item置于顶层
   void moveToTop(int index, List list) {
     final item = list[index];
     list.removeAt(index);
     list.insert(0, item);
     _model.refresh();
+  }
+
+  ///编辑任务图标
+  void onIconPress(IconBean iconBean,
+      ColorBean colorBean) {
+    showDialog(
+      barrierDismissible: false,
+      context: _model.context,
+      builder: (ctx) {
+        return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            elevation: 0.0,
+            contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+            title: Text(DemoLocalizations.of(_model.context).customIcon),
+            content: CustomIconWidget(
+              iconData: IconBean.fromBean(iconBean),
+              onApplyTap: (Color color) async {
+                _model.taskIcon.colorBean = ColorBean.fromColor(color);
+                _model.refresh();
+              },
+              pickerColor: ColorBean.fromBean(colorBean),
+              onTextChange: (text) {
+                final name = text.isEmpty
+                    ? DemoLocalizations.of(_model.context).defaultIconName
+                    : text;
+                _model.taskIcon.iconBean.iconName = name;
+              },
+              iconName: iconBean.iconName,
+            ));
+      },);
   }
 }

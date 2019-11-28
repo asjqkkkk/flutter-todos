@@ -11,9 +11,9 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
     final model = Provider.of<SearchPageModel>(context)..setContext(context,globalModel);
+    globalModel.setSearchPageModel(model);
     final primaryColor = globalModel.logic.getPrimaryInDark(context);
     final bgColor = globalModel.logic.getWhiteInDark();
-    globalModel.setSearchPageModel(model);
 
     return Scaffold(
       backgroundColor: primaryColor,
@@ -52,7 +52,6 @@ class SearchPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(left: 50,right: 50),
           child: model.loadingFlag != LoadingFlag.success
               ? Center(
             child: SingleChildScrollView(
@@ -63,22 +62,24 @@ class SearchPage extends StatelessWidget {
               ),
             ),
           )
-              : SingleChildScrollView(
-            child: Wrap(
-              children: List.generate(model.searchTasks.length, (index) {
-                final task = model.searchTasks[index];
-                return GestureDetector(
-                  onTap: () => model.logic.onTaskTap(index, task),
-                  child: TaskItem(
-                    task.id,
-                    task,
-                    onDelete: () => model.logic.onDelete(globalModel, task),
-                    onEdit: () => model.logic.onEdit(task, globalModel.mainPageModel),
-                  ),
-                );
-              }),
-            ),
-          ),),
+              : GridView.count(
+            crossAxisCount: 2,
+                children: List.generate(model.searchTasks.length, (index) {
+                  final task = model.searchTasks[index];
+                  return GestureDetector(
+                    onTap: () => model.logic.onTaskTap(index, task),
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: TaskItem(
+                        task.id,
+                        task,
+                        onDelete: () => model.logic.onDelete(globalModel, task),
+                        onEdit: () => model.logic.onEdit(task, globalModel.mainPageModel),
+                      ),
+                    ),
+                  );
+                }),
+              ),),
     );
   }
 }

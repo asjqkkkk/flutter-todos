@@ -28,7 +28,8 @@ class SearchPageModel extends ChangeNotifier{
   void setContext(BuildContext context, GlobalModel globalModel){
     if(this.context == null){
       this.context = context;
-      this._globalModel = _globalModel;
+      this._globalModel = globalModel;
+      debugPrint("设置global");
     }
   }
 

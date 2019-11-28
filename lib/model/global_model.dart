@@ -109,18 +109,21 @@ class GlobalModel extends ChangeNotifier {
   void setMainPageModel(MainPageModel mainPageModel) {
     if (this.mainPageModel == null) {
       this.mainPageModel = mainPageModel;
+      debugPrint("设置mainPageModel");
     }
   }
 
   void setSearchPageModel(SearchPageModel searchPageModel){
     if (this.searchPageModel == null){
       this.searchPageModel = searchPageModel;
+      debugPrint("设置searchPageModel");
     }
   }
 
   void setTaskDetailPageModel(TaskDetailPageModel taskDetailPageModel){
     if(this.taskDetailPageModel == null){
       this.taskDetailPageModel = taskDetailPageModel;
+      debugPrint("设置taskDetailPageModel");
     }
   }
 

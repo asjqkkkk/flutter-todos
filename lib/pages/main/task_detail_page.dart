@@ -25,6 +25,7 @@ class TaskDetailPage extends StatelessWidget {
         : ColorBean.fromBean(model.taskBean.taskIconBean.colorBean);
 
     final textColor = model.logic.getTextColor(context);
+    debugPrint("color:${textColor}");
 
     final int heroTag = model.heroTag;
     final size = MediaQuery.of(context).size;
