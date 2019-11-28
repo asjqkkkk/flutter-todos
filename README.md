@@ -8,7 +8,7 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/asjqkkkk/todo-list-app)
 [![GitHub license](https://img.shields.io/github/license/asjqkkkk/todo-list-app)](https://github.com/asjqkkkk/todo-list-app/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/asjqkkkk/flutter-todos.svg?branch=master)](https://travis-ci.org/asjqkkkk/flutter-todos)
-[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.9/todo-list.apk)
+[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/v1.1.0/todo-list.apk)
 
 
 | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006496-c7cb6300-d935-11e9-839b-0f84c8c1b20b.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006498-c863f980-d935-11e9-88c2-bc2308248da9.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006501-c9952680-d935-11e9-8bc7-0f94031a9942.png"/> | <img width="150" alt="018" src="https://user-images.githubusercontent.com/30992818/65006492-c732cc80-d935-11e9-89c3-7e75df55c3d4.png"/> |
@@ -225,7 +225,7 @@ Ios download link：
 
   I haven't purchased an iOS developer account for 99$ a year
   
-    Note: The current project running environment is the version of flutter 1.9.7. The modified version has more destructive fixes than before.
+    Note: The current project running environment is the version of flutter v1.9.1+hotfix.6. The modified version has more destructive fixes than before.
     If your version of flutter is lower than the current version, some third-party libraries that are dependent on the project will not run. Please lower their version at that time.
     
     The following is a third-party library that needs to be modified under version 1.5.4.

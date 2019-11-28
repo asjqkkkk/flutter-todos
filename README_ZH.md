@@ -8,7 +8,7 @@ Language:[简体中文](https://github.com/asjqkkkk/todo-list-app/blob/master/RE
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/asjqkkkk/todo-list-app)
 [![GitHub license](https://img.shields.io/github/license/asjqkkkk/todo-list-app)](https://github.com/asjqkkkk/todo-list-app/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/asjqkkkk/flutter-todos.svg?branch=master)](https://travis-ci.org/asjqkkkk/flutter-todos)
-[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/1.0.9/todo-list.apk)
+[![apkdownload](https://img.shields.io/badge/download-apk-brightgreen)](https://github.com/asjqkkkk/flutter-todos/releases/download/v1.1.0/todo-list.apk)
 
 
 
@@ -216,7 +216,7 @@ Ios 下载地址：
   目前尚未购买一年99$的ios开发者账号，所以暂时没有。
   
   
-    注意：目前项目运行环境是flutter 1.9.7，改版本相对以往而言多了一些破坏性修复，
+    注意：目前项目运行环境是flutter v1.9.1+hotfix.6，改版本相对以往而言多了一些破坏性修复，
     如果你的flutter版本比当前版本低，项目中依赖的某些第三方库将无法运行，到时候请降低他们的版本
     
     下面是在1.5.4版本下需要修改的第三方库
