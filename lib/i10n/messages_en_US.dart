@@ -209,6 +209,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version107" : MessageLookupByLibrary.simpleMessage("Version:1.0.7 \n\n1.Fixed: some bugs had been discovered! \n2.Add: Now you can change your background to network image in main page!It will be very beautiful! \n"),
     "version108" : MessageLookupByLibrary.simpleMessage("Version:1.0.8 \n\n1.Fixed: Now the validator of TextFormField will appear after you click the button \n2.Add: Now the network picture you have set will be shown in history page \n"),
     "version109" : MessageLookupByLibrary.simpleMessage("Version:1.0.9 \n\n1.Fixed:Input box cursor is not aligned with text \n2.Optimization:The sliding event of the task disc is no longer limited to the task icon, but is triggered on the entire disc \n3.Add: ✨Splash Animation!✨ \n"),
+    "version110" : MessageLookupByLibrary.simpleMessage("Version:1.1.0 \n\n1.Fixed: Cannot enter text after clicking \"Submit button\" in task editing interface\n2.Optimization: the download process can be processed in the background; some pages have added network caches;\n3.New: 🚀Comprehensive, custom actions on task cards! 🚀\n4.Operation: Long press the homepage to enter the background setting interface; task editing interface can edit icons; \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("Version Description"),
     "waitAMoment" : MessageLookupByLibrary.simpleMessage("please wait for a moment..."),
     "waiting" : MessageLookupByLibrary.simpleMessage("waiting..."),

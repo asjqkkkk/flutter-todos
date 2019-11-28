@@ -454,6 +454,18 @@ class DemoLocalizations {
       '3.新增：✨开场动画！✨ \n',
   );
 
+  String get version110 => Intl.message('Version:1.1.0 \n\n'
+      '1.Fixed: Cannot enter text after clicking "Submit button" in task editing interface\n'
+      '2.Optimization: the download process can be processed in the background; some pages have added network caches;\n'
+      '3.New: 🚀Comprehensive, custom actions on task cards! 🚀\n'
+      '4.Operation: Long press the homepage to enter the background setting interface; task editing interface can edit icons; \n',
+    name: 'version110', desc: '版本:1.1.0 \n\n'
+        '1.修复：任务编辑界面,点击"提交按钮"后无法输入文字 \n'
+        '2.优化：下载过程可以在后台处理了;部分页面新增网络缓存; \n'
+        '3.新增：🚀全面的、对任务卡片的自定义操作！🚀 \n'
+        '4.操作：主页长按可进入背景设置界面;任务编辑界面可以进行图标编辑; \n',
+  );
+
 }
 
 //Locale代理类

@@ -13,7 +13,7 @@ class SplashPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: FlareActor(
-          model.currentLanguage == "中文" ? "flrs/todo_splash_zh.flr" :"flrs/todo_splash_en.flr",
+          "todo_splash.flr",
           animation: "run",
           fit: BoxFit.cover,
           callback: (animation) {
