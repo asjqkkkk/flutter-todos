@@ -26,7 +26,6 @@ class PhotoBean {
   int likes;
   LinksBean links;
   UrlsBean urls;
-  UserBean user;
 
   static PhotoBean fromMap(Map<String, dynamic> map) {
     PhotoBean photoBean = new PhotoBean();
@@ -41,8 +40,23 @@ class PhotoBean {
     photoBean.likes = map['likes'];
     photoBean.links = LinksBean.fromMap(map['links']);
     photoBean.urls = UrlsBean.fromMap(map['urls']);
-    photoBean.user = UserBean.fromMap(map['user']);
     return photoBean;
+  }
+
+   Map<String, dynamic> tpMap(){
+    return {
+      'id':id,
+      'created_at':createdAt,
+      'updated_at':updatedAt,
+      'color':color,
+      'sponsored':sponsored,
+      'liked_by_user':likedByUser,
+      'width':width,
+      'height':height,
+      'likes':likes,
+      'links':links.toMap(),
+      'urls':urls.toMap()
+    };
   }
 
   static List<PhotoBean> fromMapList(dynamic mapList) {
@@ -94,6 +108,18 @@ class LinksBean {
     }
     return list;
   }
+
+  Map<String, dynamic> toMap(){
+    return {
+      'self':self,
+      'html':html,
+      'photos':photos,
+      'likes':likes,
+      'portfolio':portfolio,
+      'following':following,
+      'followers':followers
+    };
+  }
 }
 
 class UrlsBean {
@@ -128,6 +154,17 @@ class UrlsBean {
       list[i] = fromMap(mapList[i]);
     }
     return list;
+  }
+
+
+  Map<String, dynamic> toMap(){
+    return {
+      'raw':raw,
+      'full':full,
+      'regular':regular,
+      'small':small,
+      'thumb':thumb
+    };
   }
 }
 

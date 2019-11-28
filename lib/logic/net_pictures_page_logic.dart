@@ -19,17 +19,22 @@ class NetPicturesPageLogic {
 
   void getPhotos({
     int page = 1,
-    int perPage = 20,
+    int perPage = 30,
     CancelToken cancelToken,
   }) {
     ApiService.instance.getPhotos(
-        success: (beans) {
+        success: (beans,data) {
           List<PhotoBean> datas = beans;
+
           if (_model.hasCache) {
             _model.hasCache = false;
             _model.photos.clear();
             _model.loadingFlag = LoadingFlag.success;
             _model.photos.addAll(datas);
+            final dataList = List.generate(_model.photos.length, (index){
+              return _model.photos[index].tpMap();
+            });
+            SharedUtil.instance.saveString(Keys.imageCacheList, jsonEncode(dataList));
             _model.refreshController.loadComplete();
             _model.refresh();
             return;
@@ -40,6 +45,10 @@ class NetPicturesPageLogic {
           } else {
             _model.loadingFlag = LoadingFlag.success;
             _model.photos.addAll(datas);
+            final dataList = List.generate(_model.photos.length, (index){
+              return _model.photos[index].tpMap();
+            });
+            SharedUtil.instance.saveString(Keys.imageCacheList, jsonEncode(dataList));
             _model.refreshController.loadComplete();
           }
           _model.refresh();
@@ -65,7 +74,7 @@ class NetPicturesPageLogic {
         startPage: page);
   }
 
-  void getCachePhotos() async {
+  Future getCachePhotos() async {
     final data = await SharedUtil.instance.getString(Keys.imageCacheList);
     if (data == null) return;
     List<PhotoBean> beans = PhotoBean.fromMapList(jsonDecode(data));
@@ -78,7 +87,7 @@ class NetPicturesPageLogic {
 
   void loadMorePhoto() {
     getPhotos(
-      page: _model.photos.length ~/ 20 + 1,
+      page: _model.photos.length ~/ 30 + 1,
       cancelToken: _model.cancelToken,
     );
   }

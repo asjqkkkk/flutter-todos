@@ -45,9 +45,8 @@ class ApiService {
         if (data.toString().contains("errors")) {
           failed(data);
         } else {
-          SharedUtil.instance.saveString(Keys.imageCacheList, jsonEncode(data));
           List<PhotoBean> beans = PhotoBean.fromMapList(data);
-          success(beans);
+          success(beans,data);
         }
       },
       params: params,
