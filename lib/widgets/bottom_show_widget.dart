@@ -7,6 +7,7 @@ import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:circle_list/circle_list.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:todo_list/pages/navigator/settings/setting_page.dart';
 
 class BottomShowWidget extends StatefulWidget {
   final VoidCallback onExit;
@@ -122,9 +123,13 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                       }),
                       innerCircleColor: Theme.of(context).primaryColorLight,
                       outerCircleColor: globalModel.logic.getBgInDark(),
+                      innerCircleRotateWithChildren: true,
                       centerWidget: GestureDetector(
                           onTap: () {
-                            doExit(context, _controller);
+//                            doExit(context, _controller);
+                            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+                              return SettingPage();
+                            }));
                             debugPrint("点击");
                           },
                           child: Container(
@@ -137,9 +142,9 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                             child: Container(
                               color: Colors.transparent,
                               child: Icon(
-                                Icons.keyboard_arrow_down,
+                                Icons.settings,
                                 color: Colors.white,
-                                size: 50,
+                                size: 40,
                               ),
                             ),
                           )),

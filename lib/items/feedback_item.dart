@@ -90,7 +90,7 @@ class FeedbackItem extends StatelessWidget {
                         SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        SelectableText(
                           suggestion ?? "nothing",
                           style: TextStyle(
                             fontSize: 16,

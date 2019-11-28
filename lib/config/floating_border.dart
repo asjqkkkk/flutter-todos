@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:todo_list/utils/size_util.dart';
 
-//正六边形实现
+///正六边形实现
 class FloatingBorder extends ShapeBorder {
   @override
   EdgeInsetsGeometry get dimensions => EdgeInsets.only();
@@ -15,11 +15,11 @@ class FloatingBorder extends ShapeBorder {
 
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    //正六边形中心
+    ///正六边形中心
     Offset center = rect.center;
-    //正六边形边长
+    ///正六边形边长
     double length = rect.width / 2;
-    //正六边形以最左为起点，顺时针六个点的坐标
+    ///正六边形以最左为起点，顺时针六个点的坐标
     Point one = Point(center.dx - length, center.dy);
     Point two = Point(length / 2 + one.x, center.dy - ((sqrt(3) / 2) * length));
     Point three = Point(two.x + length, two.y);

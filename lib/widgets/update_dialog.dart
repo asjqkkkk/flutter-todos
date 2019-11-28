@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/utils/file_util.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:todo_list/utils/overlay_util.dart';
+import 'package:todo_list/widgets/top_show_widget.dart';
+import 'package:todo_list/widgets/update_progress_widget.dart';
 import 'package:open_file/open_file.dart';
 
 class UpdateDialog extends StatefulWidget {
@@ -125,11 +127,9 @@ class UpdateDialogState extends State<UpdateDialog> {
                               return;
                             uploadingFlag = UploadingFlag.uploading;
                             if (mounted) setState(() {});
-                            if (Platform.isAndroid) {
-                              _androidUpdate();
-                            } else if (Platform.isIOS) {
-                              _iosUpdate();
-                            }
+                            _showOverlay();
+                            Navigator.pop(context);
+                            return;
                           },
                           child: Text(
                             DemoLocalizations.of(context).update,
@@ -144,39 +144,6 @@ class UpdateDialogState extends State<UpdateDialog> {
         ),
       ),
     );
-  }
-
-  void _androidUpdate() async {
-    final apkPath = await FileUtil.getInstance().getSavePath("/Download/");
-    try {
-      await ApiStrategy.getInstance().client.download(
-          widget.updateUrl, apkPath + "todo-list.apk", cancelToken: token,
-          onReceiveProgress: (int count, int total) {
-        if (mounted) {
-          setState(() {
-            _downloadProgress = ((count / total) * 100).toInt();
-            if (_downloadProgress == 100) {
-              if (mounted) {
-                setState(() {
-                  uploadingFlag = UploadingFlag.uploaded;
-                });
-              }
-              debugPrint("读取的目录:$apkPath");
-              try {
-                OpenFile.open(apkPath + "todo-list.apk");
-              } catch (e) {}
-              Navigator.of(context).pop();
-            }
-          });
-        }
-      },options: Options(connectTimeout: 15*1000,receiveTimeout: 360*1000),);
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          uploadingFlag = UploadingFlag.uploadingFailed;
-        });
-      }
-    }
   }
 
   Widget getLoadingWidget() {
@@ -247,8 +214,13 @@ class UpdateDialogState extends State<UpdateDialog> {
     return Container();
   }
 
-  void _iosUpdate() {
-    launch(widget.updateUrl);
+
+  void _showOverlay() {
+    OverlayUtil.getInstance().show(context,
+        showWidget: TopAnimationShowWidget(
+          child: UpdateProgressWidget(updateUrl: widget.updateUrl,),
+          distanceY: 100,
+        ),duration: Duration(seconds: 4));
   }
 
   @override
