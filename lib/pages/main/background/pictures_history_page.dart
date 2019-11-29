@@ -153,12 +153,13 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
         accountPageModel.refresh();
         break;
       case NetPicturesUseType.navigatorHeader:
-        SharedUtil.instance.saveString(Keys.currentAccountBackground, currentUrl);
-        SharedUtil.instance.saveString(Keys.currentAccountBackgroundType, AccountBGType.netPicture);
-        final accountPageModel = widget.accountPageModel;
-        accountPageModel.backgroundUrl = currentUrl;
-        accountPageModel.backgroundType = AccountBGType.netPicture;
-        accountPageModel.refresh();
+        SharedUtil.instance
+            .saveString(Keys.currentNetPicUrl, currentUrl);
+        SharedUtil.instance
+            .saveString(Keys.currentNavHeader, widget.useType);
+        globalModel.currentNetPicUrl = currentUrl;
+        globalModel.currentNavHeader = widget.useType;
+        globalModel.refresh();
         break;
       case NetPicturesUseType.taskCardBackground:
         widget.taskBean?.backgroundUrl = currentUrl;
