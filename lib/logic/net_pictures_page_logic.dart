@@ -1,16 +1,16 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_list/config/all_types.dart';
-import 'package:todo_list/config/api_service.dart';
-import 'package:todo_list/database/database.dart';
-import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/all_model.dart';
+import 'package:todo_list/config/all_types.dart';
+import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/database/database.dart';
+import 'package:todo_list/config/api_service.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/pages/main/background/image_page.dart';
 import 'package:todo_list/pages/main/background/pictures_history_page.dart';
-import 'package:todo_list/utils/shared_util.dart';
 
 class NetPicturesPageLogic {
   final NetPicturesPageModel _model;
@@ -153,9 +153,14 @@ class NetPicturesPageLogic {
                 _model.taskBean?.backgroundUrl = currentUrl;
                 DBProvider.db.updateTask(_model.taskBean);
                 final searchModel = globalModel.searchPageModel;
-                searchModel?.refresh();
                 final mainPageModel = globalModel.mainPageModel;
                 mainPageModel?.refresh();
+                if(searchModel != null){
+                  searchModel?.refresh();
+                  mainPageModel?.logic?.getTasks()?.then((v){
+                    mainPageModel?.refresh();
+                  });
+                }
                 break;
               default:
                 SharedUtil.instance
@@ -167,6 +172,7 @@ class NetPicturesPageLogic {
                 globalModel.refresh();
                 break;
             }
+            CachedNetworkImage(imageUrl: currentUrl);
             Navigator.of(_model.context).pop();
           },);
     }));

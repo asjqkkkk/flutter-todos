@@ -1,13 +1,14 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/all_types.dart';
-import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
-import 'package:todo_list/model/net_pictures_page_model.dart';
-import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/widgets/loading_widget.dart';
+import 'package:todo_list/widgets/net_image_widget.dart';
+import 'package:todo_list/model/net_pictures_page_model.dart';
+
 
 class NetPicturesPage extends StatelessWidget {
   @override
@@ -56,21 +57,7 @@ class NetPicturesPage extends StatelessWidget {
                             borderRadius: BorderRadius.all(Radius.circular(20)),
                             child: Hero(
                               tag: "tag_$index",
-                              child: CachedNetworkImage(
-                                imageUrl: url,
-                                fit: BoxFit.cover,
-                                placeholder: (context, url) => new Container(
-                                  alignment: Alignment.center,
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                        Theme.of(context).primaryColor),
-                                  ),
-                                ),
-                                errorWidget: (context, url, error) => new Icon(
-                                  Icons.error,
-                                  color: Colors.redAccent,
-                                ),
-                              ),
+                              child: NetImage(url),
                             ),
                           ),
                         ),

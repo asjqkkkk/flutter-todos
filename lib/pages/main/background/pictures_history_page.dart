@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/database/database.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/account_page_model.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:flutter_cache_manager/src/cache_manager.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/custom_animated_switcher.dart';
 
@@ -37,7 +39,7 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("历史图片"),
+        title: Text(DemoLocalizations.of(context).netPicHistory),
         actions: <Widget>[
           Container(
             margin: EdgeInsets.only(right: 20),
@@ -49,8 +51,7 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
                     ),
                     secondChild: Icon(
                       Icons.check,
-                      size: 20,
-                      color: Colors.greenAccent,
+                      size: 25,
                     ),
                     hasChanged: isDeleting,
                     onTap: () {
@@ -165,11 +166,16 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
         widget.taskBean?.backgroundUrl = currentUrl;
         DBProvider.db.updateTask(widget.taskBean);
         final searchModel = globalModel.searchPageModel;
-        searchModel?.refresh();
         final taskDetailPageModel = globalModel.taskDetailPageModel;
         taskDetailPageModel?.refresh();
         final mainPageModel = globalModel.mainPageModel;
         mainPageModel?.refresh();
+        if(searchModel != null){
+          searchModel?.refresh();
+          mainPageModel?.logic?.getTasks()?.then((v){
+            mainPageModel?.refresh();
+          });
+        }
         break;
       default :
         SharedUtil.instance.saveString(Keys.currentMainPageBackgroundUrl, currentUrl);
@@ -187,6 +193,7 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
 
   void onPictureDelete(String url){
     pictureUrls.remove(url);
+    DefaultCacheManager().removeFile(url);
     SharedUtil.instance.saveStringList(Keys.allHistoryNetPictureUrls, pictureUrls);
     setState(() {});
   }
