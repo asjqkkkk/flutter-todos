@@ -59,6 +59,7 @@ class NetPicturesPageModel extends ChangeNotifier{
     isDisposed = true;
     refreshController.dispose();
     if(!cancelToken.isCancelled) cancelToken.cancel();
+    ImageCache().clear();
     super.dispose();
     debugPrint("NetPicturesPageModel销毁了");
   }
