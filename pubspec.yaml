@@ -45,7 +45,7 @@ dev_dependencies:
   #取色框
   flutter_colorpicker: ^0.2.5
   #图片缓存
-  cached_network_image: ^1.1.0
+  cached_network_image: ^2.0.0-rc
   #图片选取
   image_picker: ^0.6.0+16
   #权限申请

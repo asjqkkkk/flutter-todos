@@ -20,7 +20,7 @@ class ProviderConfig {
   ///全局provider
   ChangeNotifierProvider<GlobalModel> getGlobal(Widget child) {
     return ChangeNotifierProvider<GlobalModel>(
-      builder: (context) => GlobalModel(),
+      create: (context) => GlobalModel(),
       child: child,
     );
   }
@@ -28,7 +28,7 @@ class ProviderConfig {
   ///主页provider
   ChangeNotifierProvider<MainPageModel> getMainPage() {
     return ChangeNotifierProvider<MainPageModel>(
-      builder: (context) => MainPageModel(),
+      create: (context) => MainPageModel(),
       child: MainPage(),
     );
   }
@@ -41,7 +41,7 @@ class ProviderConfig {
     SearchPageModel searchPageModel,
   }) {
     return ChangeNotifierProvider<TaskDetailPageModel>(
-      builder: (context) => TaskDetailPageModel(
+      create: (context) => TaskDetailPageModel(
         taskBean,
         doneTaskPageModel: doneTaskPageModel,
         searchPageModel: searchPageModel,
@@ -57,7 +57,7 @@ class ProviderConfig {
       {TaskDetailPageModel taskDetailPageModel,
       TaskBean taskBean}) {
     return ChangeNotifierProvider<EditTaskPageModel>(
-      builder: (context) => EditTaskPageModel(oldTaskBean: taskBean),
+      create: (context) => EditTaskPageModel(oldTaskBean: taskBean),
       child: EditTaskPage(
         taskIcon,
         taskDetailPageModel: taskDetailPageModel,
@@ -68,7 +68,7 @@ class ProviderConfig {
   ///图标设置页provider
   ChangeNotifierProvider<IconSettingPageModel> getIconSettingPage() {
     return ChangeNotifierProvider<IconSettingPageModel>(
-      builder: (context) => IconSettingPageModel(),
+      create: (context) => IconSettingPageModel(),
       child: IconSettingPage(),
     );
   }
@@ -76,7 +76,7 @@ class ProviderConfig {
   ///主题设置页provider
   ChangeNotifierProvider<ThemePageModel> getThemePage() {
     return ChangeNotifierProvider<ThemePageModel>(
-      builder: (context) => ThemePageModel(),
+      create: (context) => ThemePageModel(),
       child: ThemePage(),
     );
   }
@@ -85,7 +85,7 @@ class ProviderConfig {
   ChangeNotifierProvider<AvatarPageModel> getAvatarPage(
       {MainPageModel mainPageModel}) {
     return ChangeNotifierProvider<AvatarPageModel>(
-      builder: (context) => AvatarPageModel(),
+      create: (context) => AvatarPageModel(),
       child: AvatarPage(
         mainPageModel: mainPageModel,
       ),
@@ -95,7 +95,7 @@ class ProviderConfig {
   ///完成列表页provider
   ChangeNotifierProvider<DoneTaskPageModel> getDoneTaskPage() {
     return ChangeNotifierProvider<DoneTaskPageModel>(
-      builder: (context) => DoneTaskPageModel(),
+      create: (context) => DoneTaskPageModel(),
       child: DoneTaskPage(),
     );
   }
@@ -103,7 +103,7 @@ class ProviderConfig {
   ///搜索任务页provider
   ChangeNotifierProvider<SearchPageModel> getSearchPage() {
     return ChangeNotifierProvider<SearchPageModel>(
-      builder: (context) => SearchPageModel(),
+      create: (context) => SearchPageModel(),
       child: SearchPage(),
     );
   }
@@ -112,7 +112,7 @@ class ProviderConfig {
   ChangeNotifierProvider<FeedbackPageModel> getFeedbackPage(
       FeedbackWallPageModel feedbackWallPageModel) {
     return ChangeNotifierProvider<FeedbackPageModel>(
-      builder: (context) => FeedbackPageModel(),
+      create: (context) => FeedbackPageModel(),
       child: FeedbackPage(feedbackWallPageModel),
     );
   }
@@ -120,7 +120,7 @@ class ProviderConfig {
   ///意见反馈墙页provider
   ChangeNotifierProvider<FeedbackWallPageModel> getFeedbackWallPage() {
     return ChangeNotifierProvider<FeedbackWallPageModel>(
-      builder: (context) => FeedbackWallPageModel(),
+      create: (context) => FeedbackWallPageModel(),
       child: FeedbackWallPage(),
     );
   }
@@ -128,7 +128,7 @@ class ProviderConfig {
   ///登录页provider
   ChangeNotifierProvider<LoginPageModel> getLoginPage({bool isFirst = false}) {
     return ChangeNotifierProvider<LoginPageModel>(
-      builder: (context) => LoginPageModel(isFirst: isFirst),
+      create: (context) => LoginPageModel(isFirst: isFirst),
       child: LoginPage(),
     );
   }
@@ -136,7 +136,7 @@ class ProviderConfig {
   ///注册页provider
   ChangeNotifierProvider<RegisterPageModel> getRegisterPage() {
     return ChangeNotifierProvider<RegisterPageModel>(
-      builder: (context) => RegisterPageModel(),
+      create: (context) => RegisterPageModel(),
       child: RegisterPage(),
     );
   }
@@ -145,7 +145,7 @@ class ProviderConfig {
   ChangeNotifierProvider<ResetPasswordPageModel> getResetPasswordPage(
       {bool isReset = true}) {
     return ChangeNotifierProvider<ResetPasswordPageModel>(
-      builder: (context) => ResetPasswordPageModel(isReset),
+      create: (context) => ResetPasswordPageModel(isReset),
       child: ResetPasswordPage(),
     );
   }
@@ -156,7 +156,7 @@ class ProviderConfig {
       AccountPageModel accountPageModel,
       TaskBean taskBean}) {
     return ChangeNotifierProvider<NetPicturesPageModel>(
-      builder: (context) => NetPicturesPageModel(
+      create: (context) => NetPicturesPageModel(
         useType: useType,
         accountPageModel: accountPageModel,
         taskBean: taskBean,
@@ -168,7 +168,7 @@ class ProviderConfig {
   ///账号页面的provider
   ChangeNotifierProvider<AccountPageModel> getAccountPage() {
     return ChangeNotifierProvider<AccountPageModel>(
-      builder: (context) => AccountPageModel(),
+      create: (context) => AccountPageModel(),
       child: AccountPage(),
     );
   }

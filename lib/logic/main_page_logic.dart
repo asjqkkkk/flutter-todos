@@ -39,22 +39,32 @@ class MainPageLogic {
           taskBean,
           onEdit: () => _model.logic.editTask(taskBean),
           onDelete: () => showDialog(
-            context: _model.context,
-            builder: (ctx) {
-              return AlertDialog(
-                title: Text("${DemoLocalizations.of(_model.context).doDelete}${taskBean.taskName}"),
-                actions: <Widget>[
-                  FlatButton(onPressed: (){
-                    Navigator.of(context).pop();
-                    _model.logic.deleteTask(taskBean);
-
-                  }, child: Text("删除",style: TextStyle(color: Colors.redAccent),)),
-                  FlatButton(onPressed: (){
-                    Navigator.of(context).pop();
-                  }, child: Text("取消",style: TextStyle(color: Colors.green),)),
-                ],
-              );
-            }),
+              context: _model.context,
+              builder: (ctx) {
+                return AlertDialog(
+                  title: Text(
+                      "${DemoLocalizations.of(_model.context).doDelete}${taskBean.taskName}"),
+                  actions: <Widget>[
+                    FlatButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          _model.logic.deleteTask(taskBean);
+                        },
+                        child: Text(
+                          "删除",
+                          style: TextStyle(color: Colors.redAccent),
+                        )),
+                    FlatButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          "取消",
+                          style: TextStyle(color: Colors.green),
+                        )),
+                  ],
+                );
+              }),
         ),
         onTap: () {
           _model.currentTapIndex = index;
@@ -113,7 +123,9 @@ class MainPageLogic {
         ? BoxDecoration(
             image: DecorationImage(
             image: CachedNetworkImageProvider(
-                globalModel.currentMainPageBgUrl),
+              globalModel.currentMainPageBgUrl,
+
+            ),
             fit: BoxFit.cover,
           ))
         : BoxDecoration(
@@ -513,7 +525,7 @@ class MainPageLogic {
     );
   }
 
-  void onBackGroundTap(GlobalModel globalModel){
+  void onBackGroundTap(GlobalModel globalModel) {
     Navigator.of(_model.context).push(new CupertinoPageRoute(builder: (ctx) {
       return ProviderConfig.getInstance().getNetPicturesPage(
         useType: NetPicturesUseType.mainPageBackground,

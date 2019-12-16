@@ -9,7 +9,6 @@ import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
-import 'package:todo_list/widgets/custom_icon_widget.dart';
 import 'package:todo_list/widgets/net_loading_widget.dart';
 
 class TaskDetailPageLogic {

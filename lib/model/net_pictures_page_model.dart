@@ -7,7 +7,7 @@ import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'account_page_model.dart';
-
+import 'package:flutter/painting.dart' as painting;
 
 class NetPicturesPageModel extends ChangeNotifier{
 
@@ -22,9 +22,6 @@ class NetPicturesPageModel extends ChangeNotifier{
   RefreshController refreshController = RefreshController(initialRefresh: true);
   CancelToken cancelToken = CancelToken();
 
-
-  //是否有图片列表的数据缓存
-  bool hasCache = false;
 
   ///用于判断是否被销毁，防止与dio搭配使用报错
   bool isDisposed = false;
@@ -59,7 +56,7 @@ class NetPicturesPageModel extends ChangeNotifier{
     isDisposed = true;
     refreshController.dispose();
     if(!cancelToken.isCancelled) cancelToken.cancel();
-    ImageCache().clear();
+    painting.imageCache.clear();
     super.dispose();
     debugPrint("NetPicturesPageModel销毁了");
   }

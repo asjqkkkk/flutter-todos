@@ -12,6 +12,7 @@ import 'package:todo_list/pages/main/background/image_page.dart';
 import 'package:todo_list/pages/main/background/pictures_history_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
+
 class NetPicturesPageLogic {
   final NetPicturesPageModel _model;
 
@@ -25,30 +26,12 @@ class NetPicturesPageLogic {
     ApiService.instance.getPhotos(
         success: (beans,data) {
           List<PhotoBean> datas = beans;
-
-          if (_model.hasCache) {
-            _model.hasCache = false;
-            _model.photos.clear();
-            _model.loadingFlag = LoadingFlag.success;
-            _model.photos.addAll(datas);
-            final dataList = List.generate(_model.photos.length, (index){
-              return _model.photos[index].tpMap();
-            });
-            SharedUtil.instance.saveString(Keys.imageCacheList, jsonEncode(dataList));
-            _model.refreshController.loadComplete();
-            _model.refresh();
-            return;
-          }
           if (datas.length == 0) {
             _model.loadingFlag = LoadingFlag.empty;
             _model.refreshController.footerMode.value = LoadStatus.noMore;
           } else {
             _model.loadingFlag = LoadingFlag.success;
             _model.photos.addAll(datas);
-            final dataList = List.generate(_model.photos.length, (index){
-              return _model.photos[index].tpMap();
-            });
-            SharedUtil.instance.saveString(Keys.imageCacheList, jsonEncode(dataList));
             _model.refreshController.loadComplete();
           }
           _model.refresh();
@@ -79,7 +62,6 @@ class NetPicturesPageLogic {
     if (data == null) return;
     List<PhotoBean> beans = PhotoBean.fromMapList(jsonDecode(data));
     _model.loadingFlag = LoadingFlag.success;
-    _model.hasCache = true;
     _model.photos.addAll(beans);
     _model.refreshController.loadComplete();
     _model.refresh();

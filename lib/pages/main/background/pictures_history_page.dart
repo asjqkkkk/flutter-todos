@@ -8,6 +8,8 @@ import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/custom_animated_switcher.dart';
+import 'package:flutter/painting.dart' as painting;
+
 
 class PicturesHistoryPage extends StatefulWidget {
   final String useType;
@@ -29,6 +31,12 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
   void initState() {
     super.initState();
     getHistoryPictures();
+  }
+
+  @override
+  void dispose() {
+    painting.imageCache.clear();
+    super.dispose();
   }
 
   @override
@@ -81,22 +89,19 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
                     aspectRatio: 1.0,
                     child: Container(
                       margin: EdgeInsets.all(10),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        child: CachedNetworkImage(
-                          imageUrl: imageUrl,
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) => new Container(
-                            alignment: Alignment.center,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                  Theme.of(context).primaryColor),
-                            ),
+                      child: CachedNetworkImage(
+                        imageUrl: imageUrl,
+                        fit: BoxFit.contain,
+                        placeholder: (context, url) => new Container(
+                          alignment: Alignment.center,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                Theme.of(context).primaryColor),
                           ),
-                          errorWidget: (context, url, error) => new Icon(
-                            Icons.error,
-                            color: Colors.redAccent,
-                          ),
+                        ),
+                        errorWidget: (context, url, error) => new Icon(
+                          Icons.error,
+                          color: Colors.redAccent,
                         ),
                       ),
                     ),
