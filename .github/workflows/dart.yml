@@ -22,7 +22,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.9.1+hotfix.6'
+          flutter-version: 'v1.12.13+hotfix.6'
           channel: 'stable'
       - run: flutter packages get
       - run: flutter test

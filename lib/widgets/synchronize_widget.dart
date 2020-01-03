@@ -139,21 +139,23 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         return Container(
           width: 60,
           height: 60,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(bottom: 5),
-                width: 20,
-                height: 20,
-                child: CircularProgressIndicator(
-                  value: 1.0,
-                  valueColor: AlwaysStoppedAnimation(Colors.white),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(bottom: 5),
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(
+                    value: 1.0,
+                    valueColor: AlwaysStoppedAnimation(Colors.white),
+                  ),
                 ),
-              ),
-              Text(DemoLocalizations.of(context).synchronizeFailed,style: TextStyle(color: Colors.white),)
-            ],
+                Text(DemoLocalizations.of(context).synchronizeFailed,style: TextStyle(color: Colors.white),)
+              ],
+            ),
           ),
         );
         break;
@@ -177,7 +179,6 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         updateLocalTasks(token);
       },
       failed: (UploadTaskBean bean){
-        print("失败：${bean.toString()}");
         setState(() {
           synFlag = SynFlag.failSynced;
         });
@@ -205,6 +206,10 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         updateLocalTasks(token);
       },
       failed: (CommonBean bean){
+        if(bean.description == "任务不存在"){
+          uploadTask(taskBean, token);
+          return;
+        }
         taskBean.needUpdateToCloud = 'true';
         widget.mainPageModel.needSyn = true;
         widget.mainPageModel.refresh();

@@ -51,7 +51,7 @@ class MainPageLogic {
                           _model.logic.deleteTask(taskBean);
                         },
                         child: Text(
-                          "删除",
+                          DemoLocalizations.of(_model.context).delete,
                           style: TextStyle(color: Colors.redAccent),
                         )),
                     FlatButton(
@@ -59,7 +59,7 @@ class MainPageLogic {
                           Navigator.of(context).pop();
                         },
                         child: Text(
-                          "取消",
+                          DemoLocalizations.of(_model.context).cancel,
                           style: TextStyle(color: Colors.green),
                         )),
                   ],
