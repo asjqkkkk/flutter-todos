@@ -19,15 +19,41 @@ class RegisterPage extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.only(left: 20,right: 20),
-        child: Form(
-          key: model.formKey,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(height: 24.0),
-                TextFormField(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: 24.0),
+              Form(
+                key: model.emailKey,
+                child: TextFormField(
+                  focusNode: model.emailFocusNode..addListener((){
+                    if(!model.emailFocusNode.hasFocus){
+                      model.emailKey.currentState.validate();
+                    }
+                  }),
+                  validator: (text) => model.logic.validatorEmail(text),
+                  decoration: InputDecoration(
+                    filled: true,
+                    prefixIcon: Icon(Icons.email),
+                    fillColor: Colors.transparent,
+                    hintText: DemoLocalizations.of(context).setEmailAccount,
+                    labelText: DemoLocalizations.of(context).emailAccount,
+                  ),
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                  keyboardType: TextInputType.emailAddress,
+                ),
+              ),
+              const SizedBox(height: 48.0),
+              Form(
+                key: model.userNameKey,
+                child: TextFormField(
+                  focusNode: model.userNameFocusNode..addListener((){
+                    if(!model.userNameFocusNode.hasFocus){
+                      model.userNameKey.currentState.validate();
+                    }
+                  }),
                   validator: (text) => model.logic.validatorUserName(text),
                   maxLength: 20,
                   textCapitalization: TextCapitalization.words,
@@ -41,42 +67,16 @@ class RegisterPage extends StatelessWidget {
                   style: TextStyle(
                   textBaseline: TextBaseline.alphabetic),
                 ),
-                SizedBox(height: 24.0),
-                TextFormField(
-                  validator: (text) => model.logic.validatorEmail(text),
-                  decoration: InputDecoration(
-                    filled: true,
-                    prefixIcon: Icon(Icons.email),
-                    fillColor: Colors.transparent,
-                    hintText: DemoLocalizations.of(context).setEmailAccount,
-                    labelText: DemoLocalizations.of(context).emailAccount,
-                  ),
-                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
-                  keyboardType: TextInputType.emailAddress,
-                ),
-                const SizedBox(height: 48.0),
-                TextFormField(
-                  validator: (verifyCode) =>
-                      model.logic.validatorVerifyCode(verifyCode),
-                  maxLength: 6,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    filled: true,
-                      fillColor: Colors.transparent,
-                      prefixIcon: Icon(Icons.message),
-                    hintText:
-                        DemoLocalizations.of(context).inputVerifyCode,
-                    labelText: DemoLocalizations.of(context).verifyCode,
-                    suffixIcon: VerifyCodeWidget(
-                      account: model.email,
-                      isEmailOk: model.isEmailOk,
-                      isUserNameOk: model.isUserNameOk,
-                    )
-                  ),
-                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
-                ),
-                SizedBox(height: 24.0),
-                TextFormField(
+              ),
+              SizedBox(height: 24.0),
+              Form(
+                key: model.passwordKey,
+                child: TextFormField(
+                  focusNode: model.passwordFocusNode..addListener((){
+                    if(!model.passwordFocusNode.hasFocus){
+                      model.passwordKey.currentState.validate();
+                    }
+                  }),
                   maxLength: 20,
                   validator: (password) =>
                       model.logic.validatePassword(password),
@@ -90,8 +90,16 @@ class RegisterPage extends StatelessWidget {
                   obscureText: true,
                   style: TextStyle(textBaseline: TextBaseline.alphabetic),
                 ),
-                const SizedBox(height: 24.0),
-                TextFormField(
+              ),
+              const SizedBox(height: 24.0),
+              Form(
+                key: model.rePasswordKey,
+                child: TextFormField(
+                  focusNode: model.rePasswordFocusNode..addListener((){
+                    if(!model.rePasswordFocusNode.hasFocus){
+                      model.rePasswordKey.currentState.validate();
+                    }
+                  }),
                   maxLength: 20,
                   validator: (rePassword) =>
                       model.logic.validateRePassword(rePassword),
@@ -105,9 +113,37 @@ class RegisterPage extends StatelessWidget {
                   ),
                   obscureText: true,
                 ),
-                const SizedBox(height: 24.0),
-              ],
-            ),
+              ),
+              const SizedBox(height: 24.0),
+              Form(
+                key: model.verifyCodeKey,
+                child: TextFormField(
+                  focusNode: model.verifyCodeFocusNode..addListener((){
+                    if(!model.verifyCodeFocusNode.hasFocus){
+                      model.verifyCodeKey.currentState.validate();
+                    }
+                  }),
+                  validator: (verifyCode) =>
+                      model.logic.validatorVerifyCode(verifyCode),
+                  maxLength: 6,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.transparent,
+                      prefixIcon: Icon(Icons.message),
+                      hintText:
+                      DemoLocalizations.of(context).inputVerifyCode,
+                      labelText: DemoLocalizations.of(context).verifyCode,
+                      suffixIcon: VerifyCodeWidget(
+                        account: model.email,
+                        isEmailOk: model.isEmailOk,
+                        isUserNameOk: model.isUserNameOk,
+                      )
+                  ),
+                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                ),
+              ),
+            ],
           ),
         ),
       ),

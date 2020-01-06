@@ -8,6 +8,7 @@ import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/custom_animated_switcher.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter/painting.dart' as painting;
 
 
@@ -193,6 +194,7 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
   void onPictureDelete(String url){
     pictureUrls.remove(url);
     SharedUtil.instance.saveStringList(Keys.allHistoryNetPictureUrls, pictureUrls);
+    DefaultCacheManager().removeFile(url);
     setState(() {});
   }
 }

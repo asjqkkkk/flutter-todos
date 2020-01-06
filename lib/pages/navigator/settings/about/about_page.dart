@@ -211,7 +211,7 @@ class _AboutPageState extends State<AboutPage> {
                                     SizedBox(
                                       width: 12,
                                     ),
-                                    Expanded(child: Text(data)),
+                                    Expanded(child: SelectableText(data)),
                                   ],
                                 ),
                               );

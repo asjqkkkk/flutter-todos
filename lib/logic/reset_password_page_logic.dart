@@ -21,6 +21,7 @@ class ResetPasswordPageLogic {
     } else {
       _model.verifyCode = verifyCode;
       _model.isVerifyCodeOk = true;
+      _model.refresh();
       return null;
     }
   }
@@ -38,6 +39,7 @@ class ResetPasswordPageLogic {
     else {
       _model.isEmailOk = true;
       _model.emailAccount = email;
+      _model.refresh();
       return null;
     }
   }
@@ -54,6 +56,7 @@ class ResetPasswordPageLogic {
     } else {
       _model.rePassword = rePassword;
       _model.isRePasswordOk = true;
+      _model.refresh();
       return null;
     }
   }
@@ -70,6 +73,7 @@ class ResetPasswordPageLogic {
     } else {
       _model.newPassword = password;
       _model.isNewPasswordOk = true;
+      _model.refresh();
       return null;
     }
   }
@@ -86,6 +90,7 @@ class ResetPasswordPageLogic {
     } else {
       _model.oldPassword = password;
       _model.isOldPasswordOk = true;
+      _model.refresh();
       return null;
     }
   }
@@ -93,7 +98,6 @@ class ResetPasswordPageLogic {
   void onSubmit() {
     final model = _model;
     final context = _model.context;
-    _model.formKey.currentState.validate();
     ///如果是重新设置密码
     if (model.isReset) {
       if (!model.isOldPasswordOk ||

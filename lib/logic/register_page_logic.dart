@@ -25,6 +25,8 @@ class RegisterPageLogic{
     } else {
       _model.userName = userName;
       _model.isUserNameOk = true;
+      print("用户名通过");
+      _model.refresh();
       return null;
     }
   }
@@ -39,6 +41,8 @@ class RegisterPageLogic{
     } else {
       _model.verifyCode = verifyCode;
       _model.isVerifyCodeOk = true;
+      print("验证码通过");
+      _model.refresh();
       return null;
     }
   }
@@ -56,6 +60,8 @@ class RegisterPageLogic{
     else {
       _model.isEmailOk = true;
       _model.email = email;
+      print("邮箱通过");
+      _model.refresh();
       return null;
     }
   }
@@ -73,6 +79,8 @@ class RegisterPageLogic{
     else {
       _model.rePassword = rePassword;
       _model.isRePasswordOk = true;
+      print("密码2通过");
+      _model.refresh();
       return null;
     }
   }
@@ -89,6 +97,8 @@ class RegisterPageLogic{
     } else {
       _model.password = password;
       _model.isPasswordOk = true;
+      print("密码通过");
+      _model.refresh();
       return null;
     }
   }
@@ -96,7 +106,6 @@ class RegisterPageLogic{
   void onSubmit(){
     final model = _model;
     final context = _model.context;
-    _model.formKey.currentState.validate();
     if(!model.isUserNameOk || !model.isEmailOk || !model.isVerifyCodeOk || !model.isPasswordOk || !model.isRePasswordOk){
       _showTextDialog(DemoLocalizations.of(context).wrongParams, context);
       return;

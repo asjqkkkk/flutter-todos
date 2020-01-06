@@ -26,7 +26,19 @@ class ResetPasswordPageModel extends ChangeNotifier {
 
   CancelToken cancelToken = CancelToken();
   LoadingController loadingController = LoadingController();
-  final formKey = GlobalKey<FormState>();
+
+  final emailKey = GlobalKey<FormState>();
+  final oldPasswordKey = GlobalKey<FormState>();
+  final passwordKey = GlobalKey<FormState>();
+  final rePasswordKey = GlobalKey<FormState>();
+  final verifyCodeKey = GlobalKey<FormState>();
+
+  final emailFocusNode = FocusNode();
+  final oldPasswordFocusNode = FocusNode();
+  final passwordFocusNode = FocusNode();
+  final rePasswordFocusNode = FocusNode();
+  final verifyCodeFocusNode = FocusNode();
+
 
 
   ResetPasswordPageModel(bool isReset) {
@@ -40,13 +52,24 @@ class ResetPasswordPageModel extends ChangeNotifier {
     }
   }
 
+  void disposeNode(){
+    emailFocusNode.dispose();
+    oldPasswordFocusNode.dispose();
+    passwordFocusNode.dispose();
+    rePasswordFocusNode.dispose();
+    verifyCodeFocusNode.dispose();
+  }
+
+
   @override
   void dispose() {
     cancelToken?.cancel();
-    formKey?.currentState?.dispose();
+    disposeNode();
     super.dispose();
     debugPrint("ResetPasswordPageModel销毁了");
   }
+
+
 
   void refresh() {
     notifyListeners();

@@ -21,7 +21,18 @@ class RegisterPageModel extends ChangeNotifier{
 
 
   CancelToken cancelToken = CancelToken();
-  final formKey = GlobalKey<FormState>();
+
+  final emailKey = GlobalKey<FormState>();
+  final userNameKey = GlobalKey<FormState>();
+  final passwordKey = GlobalKey<FormState>();
+  final rePasswordKey = GlobalKey<FormState>();
+  final verifyCodeKey = GlobalKey<FormState>();
+
+  final emailFocusNode = FocusNode();
+  final userNameFocusNode = FocusNode();
+  final passwordFocusNode = FocusNode();
+  final rePasswordFocusNode = FocusNode();
+  final verifyCodeFocusNode = FocusNode();
 
 
 
@@ -38,9 +49,18 @@ class RegisterPageModel extends ChangeNotifier{
   @override
   void dispose(){
     cancelToken?.cancel();
-    formKey?.currentState?.dispose();
+//    formKey?.currentState?.dispose();
+    disposeNode();
     super.dispose();
     debugPrint("RegisterPageModel销毁了");
+  }
+
+  void disposeNode(){
+    emailFocusNode.dispose();
+    userNameFocusNode.dispose();
+    passwordFocusNode.dispose();
+    rePasswordFocusNode.dispose();
+    verifyCodeFocusNode.dispose();
   }
 
   void refresh(){

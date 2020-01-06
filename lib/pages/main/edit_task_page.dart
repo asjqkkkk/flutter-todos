@@ -83,11 +83,12 @@ class EditTaskPage extends StatelessWidget {
                   overScroll.disallowGlow();
                   return true;
                 },
-                child: ListView.builder(
-                  padding: EdgeInsets.only(bottom: 100),
-                  itemCount: model.taskDetails.length,
-                  controller: model.scrollController,
-                  itemBuilder: (ctx, index) {
+                child: ReorderableListView(
+                  onReorder: (oldIndex, newIndex){
+                    debugPrint("old:$oldIndex   new$newIndex");
+                    model.logic.moveTaskDetail(oldIndex, newIndex);
+                  },
+                  children: List.generate(model.taskDetails.length, (index){
                     return Dismissible(
                       background: Container(
                         alignment: Alignment.centerLeft,
@@ -133,19 +134,11 @@ class EditTaskPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            IconButton(
-                              icon: Icon(
-                                Icons.arrow_upward,
-                                color: iconColor,
-                              ),
-                              onPressed: () => model.logic
-                                  .moveToTop(index, model.taskDetails),
-                            )
                           ],
                         ),
                       ),
                     );
-                  },
+                  }),
                 ),
               ),
             ),

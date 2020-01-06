@@ -43,12 +43,13 @@ class EditTaskPageLogic {
     if (text.isEmpty) return;
     _model.taskDetails.add(TaskDetailBean(taskDetailName: text));
 //    WidgetsBinding.instance.addPostFrameCallback( (_) => controller.clear());
+    controller.clear();
     _model.refresh();
-    final scroller = _model.scrollController;
-    scroller?.animateTo(scroller?.position?.maxScrollExtent,
-        duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine)?.then((a){
-      controller.text = "";
-    });
+//    final scroller = _model.scrollController;
+//    scroller?.animateTo(scroller?.position?.maxScrollExtent,
+//        duration: Duration(milliseconds: 200), curve: Curves.easeInOutSine)?.then((a){
+//      controller.text = "";
+//    });
   }
 
   //监测软键盘
@@ -440,5 +441,15 @@ class EditTaskPageLogic {
               iconName: iconBean.iconName,
             ));
       },);
+  }
+
+  void moveTaskDetail(int oldIndex, int newIndex) {
+    var oldDetail = _model.taskDetails.removeAt(oldIndex);
+    if(newIndex >= _model.taskDetails.length){
+      _model.taskDetails.add(oldDetail);
+    } else {
+      _model.taskDetails.insert(newIndex, oldDetail);
+    }
+    _model.refresh();
   }
 }

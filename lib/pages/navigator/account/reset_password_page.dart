@@ -25,33 +25,46 @@ class ResetPasswordPage extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.only(left: 20, right: 20),
-        child: Form(
-          key: model.formKey,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                model.isReset ? Container() : SizedBox(height: 24.0),
-                model.isReset
-                    ? Container()
-                    : TextFormField(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              model.isReset ? Container() : SizedBox(height: 24.0),
+              model.isReset
+                  ? Container()
+                  : Form(
+                      key: model.emailKey,
+                      child: TextFormField(
+                        focusNode: model.emailFocusNode
+                          ..addListener(() {
+                            if (!model.emailFocusNode.hasFocus) {
+                              model.emailKey.currentState.validate();
+                            }
+                          }),
                         validator: (text) => model.logic.validatorEmail(text),
                         decoration: InputDecoration(
                           filled: true,
                           prefixIcon: Icon(Icons.email),
                           fillColor: Colors.transparent,
                           hintText: DemoLocalizations.of(context).inputEmail,
-                          labelText:
-                              DemoLocalizations.of(context).emailAccount,
+                          labelText: DemoLocalizations.of(context).emailAccount,
                         ),
                         keyboardType: TextInputType.emailAddress,
-                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                        style: TextStyle(textBaseline: TextBaseline.alphabetic),
                       ),
-                model.isReset ? Container() : const SizedBox(height: 24.0),
-                model.isReset
-                    ? Container()
-                    : TextFormField(
+                    ),
+              model.isReset ? Container() : const SizedBox(height: 24.0),
+              model.isReset
+                  ? Container()
+                  : Form(
+                key: model.verifyCodeKey,
+                      child: TextFormField(
+                        focusNode: model.verifyCodeFocusNode..addListener((){
+                          if(!model.verifyCodeFocusNode.hasFocus){
+                            model.verifyCodeKey.currentState.validate();
+                          }
+                        }),
                         validator: (verifyCode) =>
                             model.logic.validatorVerifyCode(verifyCode),
                         maxLength: 6,
@@ -63,17 +76,24 @@ class ResetPasswordPage extends StatelessWidget {
                             prefixIcon: Icon(Icons.message),
                             hintText:
                                 DemoLocalizations.of(context).inputVerifyCode,
-                            labelText:
-                                DemoLocalizations.of(context).verifyCode,
+                            labelText: DemoLocalizations.of(context).verifyCode,
                             suffixIcon: VerifyCodeWidget(
                               account: model.emailAccount,
                               isEmailOk: model.isEmailOk,
                             )),
                       ),
-                model.isReset ? const SizedBox(height: 24.0) : Container(),
-                model.isReset
-                    ? TextFormField(
-                  style: TextStyle(textBaseline: TextBaseline.alphabetic),
+                    ),
+              model.isReset ? const SizedBox(height: 24.0) : Container(),
+              model.isReset
+                  ? Form(
+                key: model.oldPasswordKey,
+                    child: TextFormField(
+                      focusNode: model.oldPasswordFocusNode..addListener((){
+                        if(!model.oldPasswordFocusNode.hasFocus){
+                          model.oldPasswordKey.currentState.validate();
+                        }
+                      }),
+                        style: TextStyle(textBaseline: TextBaseline.alphabetic),
                         maxLength: 20,
                         validator: (password) =>
                             model.logic.validateOldPassword(password),
@@ -83,14 +103,21 @@ class ResetPasswordPage extends StatelessWidget {
                           prefixIcon: Icon(Icons.lock_open),
                           hintText:
                               DemoLocalizations.of(context).inputOldPassword,
-                          labelText:
-                              DemoLocalizations.of(context).oldPassword,
+                          labelText: DemoLocalizations.of(context).oldPassword,
                         ),
                         obscureText: true,
-                      )
-                    : Container(),
-                SizedBox(height: 24.0),
-                TextFormField(
+                      ),
+                  )
+                  : Container(),
+              SizedBox(height: 24.0),
+              Form(
+                key: model.passwordKey,
+                child: TextFormField(
+                  focusNode: model.passwordFocusNode..addListener((){
+                    if(!model.passwordFocusNode.hasFocus){
+                      model.passwordKey.currentState.validate();
+                    }
+                  }),
                   maxLength: 20,
                   validator: (password) =>
                       model.logic.validateNewPassword(password),
@@ -104,8 +131,16 @@ class ResetPasswordPage extends StatelessWidget {
                   obscureText: true,
                   style: TextStyle(textBaseline: TextBaseline.alphabetic),
                 ),
-                const SizedBox(height: 24.0),
-                TextFormField(
+              ),
+              const SizedBox(height: 24.0),
+              Form(
+                key: model.rePasswordKey,
+                child: TextFormField(
+                  focusNode: model.rePasswordFocusNode..addListener((){
+                    if(!model.rePasswordFocusNode.hasFocus){
+                      model.rePasswordKey.currentState.validate();
+                    }
+                  }),
                   maxLength: 20,
                   validator: (rePassword) =>
                       model.logic.validateRePassword(rePassword),
@@ -119,9 +154,9 @@ class ResetPasswordPage extends StatelessWidget {
                   obscureText: true,
                   style: TextStyle(textBaseline: TextBaseline.alphabetic),
                 ),
-                const SizedBox(height: 24.0),
-              ],
-            ),
+              ),
+              const SizedBox(height: 24.0),
+            ],
           ),
         ),
       ),
