@@ -59,7 +59,6 @@ class _PicturesHistoryPagState extends State<PicturesHistoryPage> {
                     secondChild: Icon(
                       Icons.check,
                       size: 20,
-                      color: Colors.greenAccent,
                     ),
                     hasChanged: isDeleting,
                     onTap: () {

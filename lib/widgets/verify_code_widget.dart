@@ -11,12 +11,13 @@ class VerifyCodeWidget extends StatefulWidget {
   final String account;
   final bool isUserNameOk;
   final bool isEmailOk;
+  final bool isForgetPassword;
 
   const VerifyCodeWidget({
     Key key,
     this.account,
     this.isUserNameOk = true,
-    this.isEmailOk = true,
+    this.isEmailOk = true, this.isForgetPassword = false,
   }) : super(key: key);
 
   @override
@@ -70,7 +71,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget> {
         ApiService.instance.getVerifyCode(
           params: {
             "account": widget.account,
-            "why": "emailRegister",
+            "why": widget.isForgetPassword ? "emailForget" : "emailRegister",
             "language": globalModel.currentLanguageCode[0]
           },
           success: (CommonBean bean) {

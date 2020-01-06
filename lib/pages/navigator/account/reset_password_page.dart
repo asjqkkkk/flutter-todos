@@ -80,6 +80,7 @@ class ResetPasswordPage extends StatelessWidget {
                             suffixIcon: VerifyCodeWidget(
                               account: model.emailAccount,
                               isEmailOk: model.isEmailOk,
+                              isForgetPassword: true,
                             )),
                       ),
                     ),
