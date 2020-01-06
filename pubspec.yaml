@@ -29,9 +29,9 @@ dev_dependencies:
   #网络请求
   dio: ^2.1.2
   #本地存储
-  shared_preferences: ^0.5.2
+  shared_preferences: ^0.5.6
   #状态管理
-  provider: ^3.0.0+1
+  provider: ^4.0.1
   #单元测试
   test: ^1.6.0
   #滑动控件
