@@ -20,7 +20,7 @@ class AvatarPage extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text(DemoLocalizations.of(context).avatar,),
+        title: Text(IntlLocalizations.of(context).avatar,),
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (value) => model.logic.onAvatarSelect(value, context),
@@ -29,14 +29,14 @@ class AvatarPage extends StatelessWidget {
                 PopupMenuItem(
                   value: AvatarType.local,
                   child: Container(
-                    child: Text(DemoLocalizations.of(context).avatarLocal),
+                    child: Text(IntlLocalizations.of(context).avatarLocal),
                     alignment: Alignment.centerLeft,
                   ),
                 ),
                 PopupMenuItem(
                   value: AvatarType.history,
                   child: Container(
-                    child: Text(DemoLocalizations.of(context).avatarHistory),
+                    child: Text(IntlLocalizations.of(context).avatarHistory),
                     alignment: Alignment.centerLeft,
                   ),
                 ),
@@ -69,7 +69,7 @@ class AvatarPage extends StatelessWidget {
               highlightColor: Theme.of(context).primaryColorLight,
               colorBrightness: Brightness.dark,
               splashColor: Theme.of(context).primaryColorDark,
-              child: Text(DemoLocalizations.of(context).save),
+              child: Text(IntlLocalizations.of(context).save),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0)),
               onPressed: model.logic.onSaveTap,

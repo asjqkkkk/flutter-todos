@@ -49,7 +49,7 @@ class EditTaskPage extends StatelessWidget {
                 Icons.check,
                 color: iconColor,
               ),
-              tooltip: DemoLocalizations.of(context).submit,
+              tooltip: IntlLocalizations.of(context).submit,
               onPressed: model.logic.onSubmitTap,)
         ],
         title: Container(
@@ -165,7 +165,7 @@ class EditTaskPage extends StatelessWidget {
                           textBaseline: TextBaseline.alphabetic
                       ),
                       decoration: InputDecoration(
-                          hintText: DemoLocalizations.of(context).addTask,
+                          hintText: IntlLocalizations.of(context).addTask,
                           border: InputBorder.none,
                           hintStyle: TextStyle(
                             color: hintTextColor,

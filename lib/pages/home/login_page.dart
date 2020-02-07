@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: bgColor,
         title: Text(
-          DemoLocalizations.of(context).login,
+          IntlLocalizations.of(context).login,
           style: TextStyle(color: iconColor),
         ),
         elevation: 0.0,

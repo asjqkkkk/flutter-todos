@@ -38,7 +38,7 @@ class DoneTaskPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: globalModel.logic.getBgInDark(),
         title: Text(
-          DemoLocalizations
+          IntlLocalizations
               .of(context)
               .doneList,
           style: TextStyle(
@@ -101,7 +101,7 @@ class DoneTaskPage extends StatelessWidget {
                                         ),
                                       ),
                                       Text(
-                                        "${DemoLocalizations
+                                        "${IntlLocalizations
                                             .of(context)
                                             .taskNum}:${task.taskDetailNum}",
                                         style: TextStyle(
@@ -112,7 +112,7 @@ class DoneTaskPage extends StatelessWidget {
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                       Text(
-                                        "${DemoLocalizations
+                                        "${IntlLocalizations
                                             .of(context)
                                             .createDate}:${model.logic.getTimeText(
                                             task.createDate)}",
@@ -193,7 +193,7 @@ class DoneTaskPage extends StatelessWidget {
                                       Container(
                                         width: itemHeight,
                                         child: Text(
-                                          "${DemoLocalizations
+                                          "${IntlLocalizations
                                               .of(context)
                                               .spendTime}:${model.logic.getDiffTimeText(
                                               task.createDate, task.finishDate)}",
@@ -206,7 +206,7 @@ class DoneTaskPage extends StatelessWidget {
                                         ),
                                       ),
                                       Text(
-                                        "${DemoLocalizations
+                                        "${IntlLocalizations
                                             .of(context)
                                             .changedTimes}:${task.changeTimes}",
                                         style: TextStyle(
@@ -217,7 +217,7 @@ class DoneTaskPage extends StatelessWidget {
                                         maxLines: 2,
                                       ),
                                       Text(
-                                        "${DemoLocalizations
+                                        "${IntlLocalizations
                                             .of(context)
                                             .completeDate}:${model.logic.getTimeText(
                                             task.finishDate)}",
@@ -247,7 +247,7 @@ class DoneTaskPage extends StatelessWidget {
           textColor: globalModel.logic.getPrimaryGreyInDark(context),
           flag: model.loadingFlag,
           errorCallBack: () {},
-          emptyText: DemoLocalizations
+          emptyText: IntlLocalizations
               .of(context)
               .toFinishTask,
         ),

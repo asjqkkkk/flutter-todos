@@ -20,7 +20,7 @@ class FeedbackWallPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(DemoLocalizations.of(context).feedbackWall),
+        title: Text(IntlLocalizations.of(context).feedbackWall),
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.add),

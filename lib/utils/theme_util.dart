@@ -70,37 +70,37 @@ class ThemeUtil {
 
   List<ThemeBean> defaultThemeBeans(BuildContext context) => [
         ThemeBean(
-          themeName: DemoLocalizations.of(context).pink,
+          themeName: IntlLocalizations.of(context).pink,
           colorBean: ColorBean.fromColor(MyThemeColor.defaultColor),
           themeType: MyTheme.defaultTheme,
         ),
         ThemeBean(
-          themeName: DemoLocalizations.of(context).dark,
+          themeName: IntlLocalizations.of(context).dark,
           colorBean: ColorBean.fromColor(MyThemeColor.darkColor),
           themeType: MyTheme.darkTheme,
         ),
         ThemeBean(
-          themeName: DemoLocalizations.of(context).coffee,
+          themeName: IntlLocalizations.of(context).coffee,
           colorBean: ColorBean.fromColor(MyThemeColor.coffeeColor),
           themeType: MyTheme.coffeeTheme,
         ),
         ThemeBean(
-          themeName: DemoLocalizations.of(context).green,
+          themeName: IntlLocalizations.of(context).green,
           colorBean: ColorBean.fromColor(MyThemeColor.greenColor),
           themeType: MyTheme.greenTheme,
         ),
         ThemeBean(
-          themeName: DemoLocalizations.of(context).purple,
+          themeName: IntlLocalizations.of(context).purple,
           colorBean: ColorBean.fromColor(MyThemeColor.purpleColor),
           themeType: MyTheme.purpleTheme,
         ),
         ThemeBean(
-          themeName: DemoLocalizations.of(context).cyan,
+          themeName: IntlLocalizations.of(context).cyan,
           colorBean: ColorBean.fromColor(MyThemeColor.cyanColor),
           themeType: MyTheme.cyanTheme,
         ),
         ThemeBean(
-          themeName: DemoLocalizations.of(context).blueGray,
+          themeName: IntlLocalizations.of(context).blueGray,
           colorBean: ColorBean.fromColor(MyThemeColor.blueGrayColor),
           themeType: MyTheme.blueGrayTheme,
         ),

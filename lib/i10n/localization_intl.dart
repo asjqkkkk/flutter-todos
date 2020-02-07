@@ -3,19 +3,19 @@ import 'package:intl/intl.dart';
 import 'package:todo_list/i10n/messages_all.dart';
 
 
-class DemoLocalizations {
-  static Future<DemoLocalizations> load(Locale locale) {
+class IntlLocalizations {
+  static Future<IntlLocalizations> load(Locale locale) {
     final String name = locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
     final String localeName = Intl.canonicalizedLocale(name);
     print("name是：$localeName");
     return initializeMessages(localeName).then((b) {
       Intl.defaultLocale = localeName;
-      return new DemoLocalizations();
+      return new IntlLocalizations();
     });
   }
 
-  static DemoLocalizations of(BuildContext context) {
-    return Localizations.of<DemoLocalizations>(context, DemoLocalizations);
+  static IntlLocalizations of(BuildContext context) {
+    return Localizations.of<IntlLocalizations>(context, IntlLocalizations);
   }
 
   String get appName{
@@ -115,6 +115,8 @@ class DemoLocalizations {
 
 
 
+  String get blog => Intl.message('Blog', name: 'blog', desc: '博客',);
+  String get myBlog => Intl.message('Flutter Web Blog', name: 'myBlog', desc: 'flutter web博客',);
 
   String get aboutApp {
     return Intl.message(
@@ -469,7 +471,7 @@ class DemoLocalizations {
 }
 
 //Locale代理类
-class DemoLocalizationsDelegate extends LocalizationsDelegate<DemoLocalizations> {
+class DemoLocalizationsDelegate extends LocalizationsDelegate<IntlLocalizations> {
   const DemoLocalizationsDelegate();
 
   //是否支持某个Local
@@ -478,9 +480,9 @@ class DemoLocalizationsDelegate extends LocalizationsDelegate<DemoLocalizations>
 
   // Flutter会调用此类加载相应的Locale资源类
   @override
-  Future<DemoLocalizations> load(Locale locale) {
+  Future<IntlLocalizations> load(Locale locale) {
     //3
-    return  DemoLocalizations.load(locale);
+    return  IntlLocalizations.load(locale);
   }
 
   // 当Localizations Widget重新build时，是否调用load重新加载Locale资源.

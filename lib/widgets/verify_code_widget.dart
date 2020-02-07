@@ -48,23 +48,23 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget> {
     final globalModel = Provider.of<GlobalModel>(context);
 
     if (verifyTextShow == null) {
-      verifyTextShow = DemoLocalizations.of(context).getVerifyCode;
+      verifyTextShow = IntlLocalizations.of(context).getVerifyCode;
     }
     return FlatButton(
       onPressed: () {
         if (isGettingCode) return;
         if (!widget.isEmailOk) {
           _showTextDialog(
-              DemoLocalizations.of(context).checkYourEmail, context);
+              IntlLocalizations.of(context).checkYourEmail, context);
           return;
         }
         if (!widget.isUserNameOk) {
           _showTextDialog(
-              DemoLocalizations.of(context).checkYourUserName, context);
+              IntlLocalizations.of(context).checkYourUserName, context);
           return;
         }
         setState(() {
-          verifyTextShow = DemoLocalizations.of(context).waiting;
+          verifyTextShow = IntlLocalizations.of(context).waiting;
           codeColor = Colors.grey;
           isGettingCode = true;
         });
@@ -87,7 +87,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget> {
               } else {
                 timer.cancel();
                 isGettingCode = false;
-                verifyTextShow = DemoLocalizations.of(context).getVerifyCode;
+                verifyTextShow = IntlLocalizations.of(context).getVerifyCode;
                 codeColor = Colors.green;
                 setState(() {});
               }
@@ -117,7 +117,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget> {
   }
 
   void initialCodeData(BuildContext context) {
-    verifyTextShow = DemoLocalizations.of(context).getVerifyCode;
+    verifyTextShow = IntlLocalizations.of(context).getVerifyCode;
     codeColor = Colors.green;
     isGettingCode = false;
   }

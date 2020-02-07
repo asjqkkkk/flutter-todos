@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-11-28T14:49:16.779320",
+  "@@last_modified": "2020-02-07T17:20:50.859748",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -239,6 +239,18 @@
   "weatherSuccess": "the weather is successful",
   "@weatherSuccess": {
     "description": "天气获取成功",
+    "type": "text",
+    "placeholders": {}
+  },
+  "blog": "Blog",
+  "@blog": {
+    "description": "博客",
+    "type": "text",
+    "placeholders": {}
+  },
+  "myBlog": "Flutter Web Blog",
+  "@myBlog": {
+    "description": "flutter web博客",
     "type": "text",
     "placeholders": {}
   },

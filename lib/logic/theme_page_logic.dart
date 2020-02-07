@@ -37,7 +37,7 @@ class ThemePageLogic {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
             elevation: 0.0,
-            title: Text(DemoLocalizations.of(context).pickAColor),
+            title: Text(IntlLocalizations.of(context).pickAColor),
             content: SingleChildScrollView(
               child: MaterialPicker(
                 pickerColor: Theme.of(context).primaryColor,
@@ -50,7 +50,7 @@ class ThemePageLogic {
             actions: <Widget>[
               FlatButton(
                 child: Text(
-                  DemoLocalizations.of(context).cancel,
+                  IntlLocalizations.of(context).cancel,
                   style: TextStyle(color: Colors.redAccent),
                 ),
                 onPressed: () {
@@ -58,7 +58,7 @@ class ThemePageLogic {
                 },
               ),
               FlatButton(
-                child: Text(DemoLocalizations.of(context).ok),
+                child: Text(IntlLocalizations.of(context).ok),
                 onPressed: () async {
                   final beans = await SharedUtil.instance.readList(Keys.themeBeans) ?? [];
                   if (beans.length >= 10) {
@@ -66,9 +66,9 @@ class ThemePageLogic {
                     return;
                   }
                   ThemeBean themeBean = ThemeBean(
-                    themeName: DemoLocalizations.of(context).customTheme +
+                    themeName: IntlLocalizations.of(context).customTheme +
                         " ${beans.length + 1}",
-                    themeType: DemoLocalizations.of(context).customTheme +
+                    themeType: IntlLocalizations.of(context).customTheme +
                         " ${beans.length + 1}",
                     colorBean: ColorBean.fromColor(_model.customColor),
                   );
@@ -92,7 +92,7 @@ class ThemePageLogic {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
             content:
-                Text(DemoLocalizations.of(_model.context).canNotAddMoreTheme),
+                Text(IntlLocalizations.of(_model.context).canNotAddMoreTheme),
           );
         });
   }

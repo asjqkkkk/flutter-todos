@@ -26,23 +26,23 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
     if(descriptions.isEmpty){
-      descriptions.add(DemoLocalizations.of(context).version110);
-      descriptions.add(DemoLocalizations.of(context).version109);
-      descriptions.add(DemoLocalizations.of(context).version108);
-      descriptions.add(DemoLocalizations.of(context).version107);
-      descriptions.add(DemoLocalizations.of(context).version106);
-      descriptions.add(DemoLocalizations.of(context).version105);
-      descriptions.add(DemoLocalizations.of(context).version104);
-      descriptions.add(DemoLocalizations.of(context).version103);
-      descriptions.add(DemoLocalizations.of(context).version102);
-      descriptions.add(DemoLocalizations.of(context).version101);
-      descriptions.add(DemoLocalizations.of(context).version100);
+      descriptions.add(IntlLocalizations.of(context).version110);
+      descriptions.add(IntlLocalizations.of(context).version109);
+      descriptions.add(IntlLocalizations.of(context).version108);
+      descriptions.add(IntlLocalizations.of(context).version107);
+      descriptions.add(IntlLocalizations.of(context).version106);
+      descriptions.add(IntlLocalizations.of(context).version105);
+      descriptions.add(IntlLocalizations.of(context).version104);
+      descriptions.add(IntlLocalizations.of(context).version103);
+      descriptions.add(IntlLocalizations.of(context).version102);
+      descriptions.add(IntlLocalizations.of(context).version101);
+      descriptions.add(IntlLocalizations.of(context).version100);
     }
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          DemoLocalizations.of(context).aboutApp,
+          IntlLocalizations.of(context).aboutApp,
           style: TextStyle(
             color: Colors.grey,
           ),
@@ -93,7 +93,7 @@ class _AboutPageState extends State<AboutPage> {
                           Expanded(
                             child: Container(
                               child: Text(
-                                DemoLocalizations.of(context).appName,
+                                IntlLocalizations.of(context).appName,
                                 style: TextStyle(
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold,
@@ -165,7 +165,7 @@ class _AboutPageState extends State<AboutPage> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Text(
-                                      DemoLocalizations.of(context)
+                                      IntlLocalizations.of(context)
                                           .versionDescription,
                                       style: TextStyle(
                                         fontSize: 15,
@@ -174,14 +174,14 @@ class _AboutPageState extends State<AboutPage> {
                                     ),
                                     InkWell(
                                       child: Text(
-                                        "✨${DemoLocalizations.of(context).projectLink}✨",
+                                        "✨${IntlLocalizations.of(context).projectLink}✨",
                                         style: TextStyle(color: Colors.blue),
                                       ),
                                       onTap: () {
                                         Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
                                           return WebViewPage(
                                             "https://github.com/asjqkkkk/todo-list-app",
-                                            title: DemoLocalizations.of(context).myGithub,
+                                            title: IntlLocalizations.of(context).myGithub,
                                           );
                                         }));
                                       },
@@ -240,7 +240,7 @@ class _AboutPageState extends State<AboutPage> {
           CancelToken cancelToken = CancelToken();
           return NetLoadingWidget(
             loadingController: loadingController,
-            successText: DemoLocalizations.of(context).noUpdate,
+            successText: IntlLocalizations.of(context).noUpdate,
             onSuccess: () {
               Navigator.pop(context);
             },

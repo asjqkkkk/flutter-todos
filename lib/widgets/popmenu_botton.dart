@@ -59,7 +59,7 @@ class PopMenuBt extends StatelessWidget {
           PopupMenuItem(
             value: "edit",
             child: ListTile(
-              title: Text(DemoLocalizations.of(context).editTask),
+              title: Text(IntlLocalizations.of(context).editTask),
               leading: Icon(
                 Icons.edit,
                 color: iconColor,
@@ -69,13 +69,13 @@ class PopMenuBt extends StatelessWidget {
           PopupMenuItem(
               value: "delete",
               child: ListTile(
-                title: Text(DemoLocalizations.of(context).deleteTask),
+                title: Text(IntlLocalizations.of(context).deleteTask),
                 leading: Icon(Icons.delete, color: iconColor),
               )),
           PopupMenuItem(
             value: "background",
             child: ListTile(
-              title: Text(DemoLocalizations.of(context).setBackground),
+              title: Text(IntlLocalizations.of(context).setBackground),
               leading: Icon(Icons.image, color: iconColor),
             ),
           ),
@@ -84,14 +84,14 @@ class PopMenuBt extends StatelessWidget {
               : PopupMenuItem(
                   value: "clearBackground",
                   child: ListTile(
-                    title: Text(DemoLocalizations.of(context).clearBackground),
+                    title: Text(IntlLocalizations.of(context).clearBackground),
                     leading: Icon(Icons.clear, color: iconColor),
                   ),
                 ),
           PopupMenuItem(
             value: "textColor",
             child: ListTile(
-              title: Text(DemoLocalizations.of(context).textColor),
+              title: Text(IntlLocalizations.of(context).textColor),
               leading: Icon(Icons.format_color_text, color: iconColor),
             ),
           ),

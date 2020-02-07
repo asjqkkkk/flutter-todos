@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:todo_list/pages/navigator/settings/about/webview_page.dart';
+
 import '../main/background/image_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,6 @@ import 'package:todo_list/widgets/nav_head.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/weather_widget.dart';
 
-
 class NavPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,72 +26,88 @@ class NavPage extends StatelessWidget {
       children: <Widget>[
         getNavHeader(globalModel, context),
         globalModel.enableWeatherShow
-            ? WeatherWidget(globalModel: globalModel,)
+            ? WeatherWidget(
+                globalModel: globalModel,
+              )
             : SizedBox(),
         ListTile(
-          title: Text(DemoLocalizations.of(context).myAccount),
+          title: Text(IntlLocalizations.of(context).myAccount),
           leading: Icon(Icons.account_circle),
           trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () async{
+          onTap: () async {
             final account = await SharedUtil.instance.getString(Keys.account);
-            if(account == "default" || account == null){
-              Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+            if (account == "default" || account == null) {
+              Navigator.push(context, CupertinoPageRoute(builder: (ctx) {
                 return ProviderConfig.getInstance().getLoginPage();
               }));
             } else {
-              Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+              Navigator.push(context, CupertinoPageRoute(builder: (ctx) {
                 return ProviderConfig.getInstance().getAccountPage();
               }));
             }
-
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations.of(context).doneList),
+          title: Text(IntlLocalizations.of(context).doneList),
           leading: Icon(Icons.done_all),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+            Navigator.push(context, CupertinoPageRoute(builder: (ctx) {
               return ProviderConfig.getInstance().getDoneTaskPage();
             }));
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations.of(context).languageTitle),
+          title: Text(IntlLocalizations.of(context).languageTitle),
           leading: Icon(Icons.language),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+            Navigator.push(context, CupertinoPageRoute(builder: (ctx) {
               return LanguagePage();
             }));
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations.of(context).changeTheme),
+          title: Text(IntlLocalizations.of(context).changeTheme),
           leading: Icon(Icons.color_lens),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+            Navigator.push(context, CupertinoPageRoute(builder: (ctx) {
               return ProviderConfig.getInstance().getThemePage();
             }));
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations.of(context).feedbackWall),
+          title: Text(IntlLocalizations.of(context).feedbackWall),
           leading: Icon(Icons.subtitles),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+            Navigator.push(context, CupertinoPageRoute(builder: (ctx) {
               return ProviderConfig.getInstance().getFeedbackWallPage();
             }));
           },
         ),
         ListTile(
-          title: Text(DemoLocalizations.of(context).appSetting),
+          title: Text(IntlLocalizations.of(context).blog),
+          leading: Icon(
+            Icons.chrome_reader_mode,
+          ),
+          trailing: Icon(Icons.keyboard_arrow_right),
+          onTap: () {
+            Navigator.of(context).push(CupertinoPageRoute(builder: (ctx) {
+              return WebViewPage(
+                'https://oldchen.top/flutter-blog/#/',
+                title: IntlLocalizations.of(context).myBlog,
+              );
+            }));
+          },
+        ),
+        ListTile(
+          title: Text(IntlLocalizations.of(context).appSetting),
           leading: Icon(Icons.settings),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
+            Navigator.push(context, CupertinoPageRoute(builder: (ctx) {
               return SettingPage();
             }));
           },
@@ -109,7 +126,7 @@ class NavPage extends StatelessWidget {
       bool isDailyPic = model.currentNavHeader == NavHeadType.dailyPic;
       return GestureDetector(
         onTap: () {
-          Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+          Navigator.of(context).push(CupertinoPageRoute(builder: (ctx) {
             return ImagePage(
               imageUrls: [isDailyPic ? NavHeadType.DAILY_PIC_URL : url],
             );
@@ -127,15 +144,14 @@ class NavPage extends StatelessWidget {
                   : CachedNetworkImage(
                       fit: BoxFit.cover,
                       imageUrl: url,
-                      placeholder: (context, url) => new Container(
-                            alignment: Alignment.center,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                  Theme.of(context).primaryColor),
-                            ),
-                          ),
-                      errorWidget: (context, url, error) =>
-                          new Icon(Icons.error),
+                      placeholder: (context, url) => Container(
+                        alignment: Alignment.center,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              Theme.of(context).primaryColor),
+                        ),
+                      ),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
                     ),
             )),
       );

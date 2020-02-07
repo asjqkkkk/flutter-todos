@@ -19,8 +19,8 @@ class NetPicturesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(model.useType == NetPicturesUseType.navigatorHeader
-            ? DemoLocalizations.of(context).netPicture
-            : DemoLocalizations.of(context).accountBackgroundSetting),
+            ? IntlLocalizations.of(context).netPicture
+            : IntlLocalizations.of(context).accountBackgroundSetting),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.history),

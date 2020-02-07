@@ -24,7 +24,7 @@ class IconSettingPageLogic {
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
               elevation: 0.0,
               contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-              title: Text(DemoLocalizations.of(_model.context).customIcon),
+              title: Text(IntlLocalizations.of(_model.context).customIcon),
               content: CustomIconWidget(
                 iconData: IconBean.fromBean(iconBean),
                 onApplyTap: (color) async {
@@ -33,7 +33,7 @@ class IconSettingPageLogic {
                       ColorBean.fromColor(_model.currentPickerColor);
                   TaskIconBean taskIconBean = TaskIconBean(
                       taskName: _model.currentIconName.isEmpty
-                          ? DemoLocalizations.of(_model.context).defaultIconName
+                          ? IntlLocalizations.of(_model.context).defaultIconName
                           : _model.currentIconName,
                       colorBean: colorBean,
                       iconBean: iconBean);
@@ -58,7 +58,7 @@ class IconSettingPageLogic {
                     : ColorBean.fromBean(colorBean),
                 onTextChange: (text) {
                   final name = text.isEmpty
-                      ? DemoLocalizations.of(_model.context).defaultIconName
+                      ? IntlLocalizations.of(_model.context).defaultIconName
                       : text;
                   _model.currentIconName = name;
                 },
@@ -92,7 +92,7 @@ class IconSettingPageLogic {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
             content:
-                Text(DemoLocalizations.of(_model.context).canNotAddMoreIcon),
+                Text(IntlLocalizations.of(_model.context).canNotAddMoreIcon),
           );
         });
   }
@@ -199,7 +199,7 @@ class IconSettingPageLogic {
           }),
         onEditingComplete: () => _model.focusNode.unfocus(),
         decoration: new InputDecoration(
-          hintText: DemoLocalizations.of(_model.context).searchIcon,
+          hintText: IntlLocalizations.of(_model.context).searchIcon,
           hintStyle: TextStyle(color: textColor),
           suffixIcon: IconButton(
             icon: Icon(

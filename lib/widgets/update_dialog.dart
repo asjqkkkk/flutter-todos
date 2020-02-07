@@ -62,7 +62,7 @@ class UpdateDialogState extends State<UpdateDialog> {
                   margin: EdgeInsets.fromLTRB(5, 30, 5, 5),
                   child: Material(
                     child: Text(
-                      DemoLocalizations.of(context).newVersionIsComing,
+                      IntlLocalizations.of(context).newVersionIsComing,
                       style: TextStyle(
                           color: widget.updateInfoColor ?? Colors.white,
                           fontSize: 20),
@@ -107,7 +107,7 @@ class UpdateDialogState extends State<UpdateDialog> {
                                   Navigator.of(context).pop();
                                 },
                                 child: Text(
-                                  DemoLocalizations.of(context).cancel,
+                                  IntlLocalizations.of(context).cancel,
                                   style: TextStyle(
                                       color: Colors.grey, fontSize: 16),
                                 )),
@@ -132,7 +132,7 @@ class UpdateDialogState extends State<UpdateDialog> {
                             return;
                           },
                           child: Text(
-                            DemoLocalizations.of(context).update,
+                            IntlLocalizations.of(context).update,
                             style: TextStyle(color: Colors.black, fontSize: 16),
                           )),
                     ),
@@ -176,7 +176,7 @@ class UpdateDialogState extends State<UpdateDialog> {
             ),
             Material(
               child: Text(
-                DemoLocalizations.of(context).waiting,
+                IntlLocalizations.of(context).waiting,
                 style: TextStyle(color: widget.updateInfoColor ?? Colors.white),
               ),
               color: Colors.transparent,
@@ -202,7 +202,7 @@ class UpdateDialogState extends State<UpdateDialog> {
               ),
               Material(
                 child: Text(
-                  DemoLocalizations.of(context).timeOut,
+                  IntlLocalizations.of(context).timeOut,
                   style:
                       TextStyle(color: widget.updateInfoColor ?? Colors.white),
                 ),

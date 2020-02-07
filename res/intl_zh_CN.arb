@@ -518,6 +518,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "blog": "我的博客",
+  "@blog": {
+    "description": "我的博客",
+    "type": "text",
+    "placeholders": {}
+  },
+  "myBlog": "flutter web博客",
+  "@myBlog": {
+    "description": "flutter web博客",
+    "type": "text",
+    "placeholders": {}
+  },
   "aboutApp": "关于",
   "@aboutApp": {
     "description": "关于",

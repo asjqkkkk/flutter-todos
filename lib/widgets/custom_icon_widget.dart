@@ -64,7 +64,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                 },
                 style: TextStyle(textBaseline: TextBaseline.alphabetic),
                 decoration: InputDecoration(
-                  hintText: DemoLocalizations.of(context).setIconName,
+                  hintText: IntlLocalizations.of(context).setIconName,
                   prefixIcon: Icon(
                     widget.iconData,
                     color: currentIconColor,
@@ -136,7 +136,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                       alignment: Alignment.centerRight,
                       child: FlatButton(
                         child: Text(
-                          DemoLocalizations.of(context).cancel,
+                          IntlLocalizations.of(context).cancel,
                           style: TextStyle(color: Colors.redAccent),
                         ),
                         onPressed: () {
@@ -150,7 +150,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                     alignment: Alignment.centerRight,
                     child: FlatButton(
                       child: Text(
-                        DemoLocalizations.of(context).ok,
+                        IntlLocalizations.of(context).ok,
                         style: TextStyle(color: Colors.black),
                       ),
                       onPressed: () {
@@ -176,7 +176,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
             elevation: 0.0,
-            title: Text(DemoLocalizations.of(context).pickAColor),
+            title: Text(IntlLocalizations.of(context).pickAColor),
             content: SingleChildScrollView(
               child: ColorPicker(
                 pickerColor: currentIconColor,
@@ -191,7 +191,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
             actions: <Widget>[
               FlatButton(
                 child: Text(
-                  DemoLocalizations.of(context).cancel,
+                  IntlLocalizations.of(context).cancel,
                   style: TextStyle(color: Colors.redAccent),
                 ),
                 onPressed: () {
@@ -201,7 +201,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                 },
               ),
               FlatButton(
-                child: Text(DemoLocalizations.of(context).ok),
+                child: Text(IntlLocalizations.of(context).ok),
                 onPressed: () {
                   setState(() {});
                   Navigator.of(context).pop();

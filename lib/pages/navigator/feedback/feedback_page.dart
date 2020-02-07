@@ -24,7 +24,7 @@ class FeedbackPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(DemoLocalizations.of(context).feedback),
+        title: Text(IntlLocalizations.of(context).feedback),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.check),
@@ -78,7 +78,7 @@ class FeedbackPage extends StatelessWidget {
                       contentPadding: EdgeInsets.all(10),
                       border: InputBorder.none,
                       hintText:
-                          DemoLocalizations.of(context).writeYourFeedback,
+                          IntlLocalizations.of(context).writeYourFeedback,
                       hintStyle: TextStyle(color: Colors.grey)),
                   maxLength: 2000,
                 ),
@@ -113,7 +113,7 @@ class FeedbackPage extends StatelessWidget {
                       color: primaryColor,
                     ),
                     hintText:
-                        DemoLocalizations.of(context).writeYourContactInfo,
+                        IntlLocalizations.of(context).writeYourContactInfo,
                     hintStyle: TextStyle(color: Colors.grey),
                   ),
                 ),

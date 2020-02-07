@@ -31,7 +31,7 @@ class _TextColorPickerState extends State<TextColorPicker> {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0))),
       elevation: 0.0,
-      title: Text(DemoLocalizations.of(context).pickAColor),
+      title: Text(IntlLocalizations.of(context).pickAColor),
       content: SingleChildScrollView(
         child: ColorPicker(
           pickerColor: defaultColor,
@@ -45,7 +45,7 @@ class _TextColorPickerState extends State<TextColorPicker> {
       actions: <Widget>[
         FlatButton(
           child: Text(
-            DemoLocalizations.of(context).cancel,
+            IntlLocalizations.of(context).cancel,
             style: TextStyle(color: Colors.redAccent),
           ),
           onPressed: () {
@@ -53,7 +53,7 @@ class _TextColorPickerState extends State<TextColorPicker> {
           },
         ),
         FlatButton(
-          child: Text(DemoLocalizations.of(context).ok),
+          child: Text(IntlLocalizations.of(context).ok),
           onPressed: () {
             widget.onColorChanged(defaultColor);
             setState(() {});

@@ -34,8 +34,8 @@ class LoginWidget extends StatelessWidget {
                     textDirection: TextDirection.ltr,
                     style: TextStyle(textBaseline: TextBaseline.alphabetic),
                     decoration: InputDecoration(
-                        hintText: DemoLocalizations.of(context).inputEmail,
-                        labelText: DemoLocalizations.of(context).email,
+                        hintText: IntlLocalizations.of(context).inputEmail,
+                        labelText: IntlLocalizations.of(context).email,
                         labelStyle: TextStyle(fontWeight: FontWeight.bold),
                         prefixIcon: Icon(
                           Icons.email,
@@ -59,8 +59,8 @@ class LoginWidget extends StatelessWidget {
                     textDirection: TextDirection.ltr,
                     style: TextStyle(textBaseline: TextBaseline.alphabetic),
                     decoration: InputDecoration(
-                      hintText: DemoLocalizations.of(context).inputPassword,
-                      labelText: DemoLocalizations.of(context).password,
+                      hintText: IntlLocalizations.of(context).inputPassword,
+                      labelText: IntlLocalizations.of(context).password,
                       labelStyle: TextStyle(fontWeight: FontWeight.bold),
                       prefixIcon: Icon(
                         Icons.lock,
@@ -72,7 +72,7 @@ class LoginWidget extends StatelessWidget {
                         splashColor: Colors.grey,
                         onPressed: loginPageModel.logic.onForget,
                         child: Text(
-                          DemoLocalizations.of(context).forget,
+                          IntlLocalizations.of(context).forget,
                           style: TextStyle(color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
@@ -96,7 +96,7 @@ class LoginWidget extends StatelessWidget {
                       colorBrightness: Brightness.dark,
                       splashColor: Colors.grey,
                       child: Text(
-                        DemoLocalizations.of(context).logIn,
+                        IntlLocalizations.of(context).logIn,
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
@@ -123,7 +123,7 @@ class LoginWidget extends StatelessWidget {
                       colorBrightness: Brightness.dark,
                       splashColor: Colors.grey,
                       child: Text(
-                        DemoLocalizations.of(context).haveNoAccount,
+                        IntlLocalizations.of(context).haveNoAccount,
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
@@ -146,7 +146,7 @@ class LoginWidget extends StatelessWidget {
                       highlightColor: primaryColorLight,
                       colorBrightness: Brightness.dark,
                       splashColor: Colors.grey,
-                      child: Text(DemoLocalizations.of(context).skip),
+                      child: Text(IntlLocalizations.of(context).skip),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)),
                       onPressed: loginPageModel.logic.onSkip,

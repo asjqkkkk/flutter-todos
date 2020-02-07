@@ -15,7 +15,7 @@ class IconSettingPage extends StatelessWidget {
 
     return Scaffold(
       appBar: model.isSearching ? model.logic.getSearchBar(globalModel) : AppBar(
-        title: Text(DemoLocalizations.of(context).iconSetting),
+        title: Text(IntlLocalizations.of(context).iconSetting),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.search), onPressed: () {
             model.isSearching = true;
@@ -30,7 +30,7 @@ class IconSettingPage extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: Container(
-                  child: Text(DemoLocalizations.of(context).currentIcons),
+                  child: Text(IntlLocalizations.of(context).currentIcons),
                   margin: EdgeInsets.only(top: 20, left: 25),
                   alignment: Alignment.centerLeft,
                 ),

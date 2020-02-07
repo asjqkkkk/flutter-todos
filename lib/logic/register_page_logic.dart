@@ -19,13 +19,13 @@ class RegisterPageLogic{
     final context = _model.context;
     _model.isUserNameOk = false;
     if (userName.isEmpty) {
-      return DemoLocalizations.of(context).usernameCantBeEmpty;
+      return IntlLocalizations.of(context).usernameCantBeEmpty;
     } else if (userName.contains(" ")) {
-      return DemoLocalizations.of(context).userNameContainEmpty;
+      return IntlLocalizations.of(context).userNameContainEmpty;
     } else {
       _model.userName = userName;
       _model.isUserNameOk = true;
-      print("用户名通过");
+      debugPrint("用户名通过");
       _model.refresh();
       return null;
     }
@@ -35,13 +35,13 @@ class RegisterPageLogic{
     final context = _model.context;
     _model.isVerifyCodeOk = false;
     if (verifyCode.isEmpty) {
-      return DemoLocalizations.of(context).verifyCodeCantBeEmpty;
+      return IntlLocalizations.of(context).verifyCodeCantBeEmpty;
     } else if (verifyCode.contains(" ")) {
-      return DemoLocalizations.of(context).verifyCodeContainEmpty;
+      return IntlLocalizations.of(context).verifyCodeContainEmpty;
     } else {
       _model.verifyCode = verifyCode;
       _model.isVerifyCodeOk = true;
-      print("验证码通过");
+      debugPrint("验证码通过");
       _model.refresh();
       return null;
     }
@@ -54,13 +54,13 @@ class RegisterPageLogic{
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regex = new RegExp(pattern);
     if (email.isEmpty)
-      return DemoLocalizations.of(context).emailCantBeEmpty;
+      return IntlLocalizations.of(context).emailCantBeEmpty;
     else if (!regex.hasMatch(email))
-      return DemoLocalizations.of(context).emailIncorrectFormat;
+      return IntlLocalizations.of(context).emailIncorrectFormat;
     else {
       _model.isEmailOk = true;
       _model.email = email;
-      print("邮箱通过");
+      debugPrint("邮箱通过");
       _model.refresh();
       return null;
     }
@@ -70,16 +70,16 @@ class RegisterPageLogic{
     _model.isRePasswordOk = false;
     final context = _model.context;
     if (rePassword.isEmpty) {
-      return DemoLocalizations.of(context).confirmPasswordCantBeEmpty;
+      return IntlLocalizations.of(context).confirmPasswordCantBeEmpty;
     } else if (_model.password != rePassword) {
-      return DemoLocalizations.of(context).twoPasswordsNotSame;
+      return IntlLocalizations.of(context).twoPasswordsNotSame;
     } else if(rePassword.contains(" ")){
-      return DemoLocalizations.of(context).confirmPasswordContainEmpty;
+      return IntlLocalizations.of(context).confirmPasswordContainEmpty;
     }
     else {
       _model.rePassword = rePassword;
       _model.isRePasswordOk = true;
-      print("密码2通过");
+      debugPrint("密码2通过");
       _model.refresh();
       return null;
     }
@@ -89,25 +89,35 @@ class RegisterPageLogic{
     _model.isPasswordOk = false;
     final context = _model.context;
     if (password.isEmpty) {
-      return  DemoLocalizations.of(context).passwordCantBeEmpty;
+      return  IntlLocalizations.of(context).passwordCantBeEmpty;
     } else if (password.length < 8) {
-      return DemoLocalizations.of(context).passwordTooShort;
+      return IntlLocalizations.of(context).passwordTooShort;
     } else if (password.length > 20) {
-      return DemoLocalizations.of(context).passwordTooLong;
+      return IntlLocalizations.of(context).passwordTooLong;
     } else {
       _model.password = password;
       _model.isPasswordOk = true;
-      print("密码通过");
+      debugPrint("密码通过");
       _model.refresh();
       return null;
     }
   }
 
+  void _validate(){
+    bool b1 = _model.emailKey?.currentState?.validate();
+    bool b2 = _model.userNameKey?.currentState?.validate();
+    bool b3 = _model.rePasswordKey?.currentState?.validate();
+    bool b4 = _model.passwordKey?.currentState?.validate();
+    bool b5 = _model.verifyCodeKey?.currentState?.validate();
+    debugPrint("$b1 - $b2 - $b3 - $b4 - $b5");
+  }
+
   void onSubmit(){
     final model = _model;
     final context = _model.context;
+    _validate();
     if(!model.isUserNameOk || !model.isEmailOk || !model.isVerifyCodeOk || !model.isPasswordOk || !model.isRePasswordOk){
-      _showTextDialog(DemoLocalizations.of(context).wrongParams, context);
+      _showTextDialog(IntlLocalizations.of(context).wrongParams, context);
       return;
     }
     showDialog(context: context, builder: (ctx){

@@ -126,7 +126,7 @@ class TaskDetailPageLogic {
         context: _model.context,
         builder: (ctx) {
           return AlertDialog(
-            title: Text("${DemoLocalizations.of(_model.context).doDelete}${_model.taskBean.taskName}"),
+            title: Text("${IntlLocalizations.of(_model.context).doDelete}${_model.taskBean.taskName}"),
             actions: <Widget>[
               FlatButton(onPressed: (){
                 Navigator.of(_model.context).pop();

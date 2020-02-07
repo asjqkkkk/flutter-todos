@@ -14,8 +14,8 @@ class ResetPasswordPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(model.isReset
-            ? DemoLocalizations.of(context).resetPassword
-            : DemoLocalizations.of(context).forgetPassword),
+            ? IntlLocalizations.of(context).resetPassword
+            : IntlLocalizations.of(context).forgetPassword),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.check),
@@ -47,8 +47,8 @@ class ResetPasswordPage extends StatelessWidget {
                           filled: true,
                           prefixIcon: Icon(Icons.email),
                           fillColor: Colors.transparent,
-                          hintText: DemoLocalizations.of(context).inputEmail,
-                          labelText: DemoLocalizations.of(context).emailAccount,
+                          hintText: IntlLocalizations.of(context).inputEmail,
+                          labelText: IntlLocalizations.of(context).emailAccount,
                         ),
                         keyboardType: TextInputType.emailAddress,
                         style: TextStyle(textBaseline: TextBaseline.alphabetic),
@@ -75,8 +75,8 @@ class ResetPasswordPage extends StatelessWidget {
                             fillColor: Colors.transparent,
                             prefixIcon: Icon(Icons.message),
                             hintText:
-                                DemoLocalizations.of(context).inputVerifyCode,
-                            labelText: DemoLocalizations.of(context).verifyCode,
+                                IntlLocalizations.of(context).inputVerifyCode,
+                            labelText: IntlLocalizations.of(context).verifyCode,
                             suffixIcon: VerifyCodeWidget(
                               account: model.emailAccount,
                               isEmailOk: model.isEmailOk,
@@ -103,8 +103,8 @@ class ResetPasswordPage extends StatelessWidget {
                           fillColor: Colors.transparent,
                           prefixIcon: Icon(Icons.lock_open),
                           hintText:
-                              DemoLocalizations.of(context).inputOldPassword,
-                          labelText: DemoLocalizations.of(context).oldPassword,
+                              IntlLocalizations.of(context).inputOldPassword,
+                          labelText: IntlLocalizations.of(context).oldPassword,
                         ),
                         obscureText: true,
                       ),
@@ -126,8 +126,8 @@ class ResetPasswordPage extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.transparent,
                     prefixIcon: Icon(Icons.lock_outline),
-                    hintText: DemoLocalizations.of(context).setNewPassword,
-                    labelText: DemoLocalizations.of(context).newPassword,
+                    hintText: IntlLocalizations.of(context).setNewPassword,
+                    labelText: IntlLocalizations.of(context).newPassword,
                   ),
                   obscureText: true,
                   style: TextStyle(textBaseline: TextBaseline.alphabetic),
@@ -149,8 +149,8 @@ class ResetPasswordPage extends StatelessWidget {
                     filled: true,
                     prefixIcon: Icon(Icons.lock),
                     fillColor: Colors.transparent,
-                    hintText: DemoLocalizations.of(context).reSetPassword,
-                    labelText: DemoLocalizations.of(context).confirmPassword,
+                    hintText: IntlLocalizations.of(context).reSetPassword,
+                    labelText: IntlLocalizations.of(context).confirmPassword,
                   ),
                   obscureText: true,
                   style: TextStyle(textBaseline: TextBaseline.alphabetic),

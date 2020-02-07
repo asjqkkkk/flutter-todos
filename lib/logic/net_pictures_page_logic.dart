@@ -77,15 +77,15 @@ class NetPicturesPageLogic {
   Widget getRefreshFooter(BuildContext context, LoadStatus mode) {
     Widget body;
     if (mode == LoadStatus.idle) {
-      body = Text(DemoLocalizations.of(context).pullUpToLoadMore);
+      body = Text(IntlLocalizations.of(context).pullUpToLoadMore);
     } else if (mode == LoadStatus.loading) {
       body = CircularProgressIndicator(
         valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
       );
     } else if (mode == LoadStatus.failed) {
-      body = Text(DemoLocalizations.of(context).loadingError);
+      body = Text(IntlLocalizations.of(context).loadingError);
     } else {
-      body = Text(DemoLocalizations.of(context).loadingEmpty);
+      body = Text(IntlLocalizations.of(context).loadingEmpty);
     }
     return Container(
       height: 55.0,
@@ -97,9 +97,9 @@ class NetPicturesPageLogic {
     final type = _model.useType;
     final context = _model.context;
     if (type == NetPicturesUseType.navigatorHeader)
-      return Text(DemoLocalizations.of(context).netPicture);
+      return Text(IntlLocalizations.of(context).netPicture);
 
-    return Text(DemoLocalizations.of(context).accountBackgroundSetting);
+    return Text(IntlLocalizations.of(context).accountBackgroundSetting);
   }
 
   void onPictureTap(List<String> urls, int index, GlobalModel globalModel) {

@@ -22,12 +22,12 @@ class SettingPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(DemoLocalizations.of(context).appSetting),
+        title: Text(IntlLocalizations.of(context).appSetting),
       ),
       body: ListView(
         children: <Widget>[
           SwitchListTile(
-            title: Text(DemoLocalizations.of(context).backgroundGradient),
+            title: Text(IntlLocalizations.of(context).backgroundGradient),
             secondary: const Icon(
               Icons.invert_colors,
             ),
@@ -41,7 +41,7 @@ class SettingPage extends StatelessWidget {
             },
           ),
           SwitchListTile(
-            title: Text(DemoLocalizations.of(context).bgChangeWithCard),
+            title: Text(IntlLocalizations.of(context).bgChangeWithCard),
             secondary: const Icon(
               Icons.format_color_fill,
             ),
@@ -60,7 +60,7 @@ class SettingPage extends StatelessWidget {
             },
           ),
           SwitchListTile(
-            title: Text(DemoLocalizations.of(context).cardChangeWithBg),
+            title: Text(IntlLocalizations.of(context).cardChangeWithBg),
             secondary: Transform(
               transform: Matrix4.rotationY(pi),
               origin: Offset(12, 0.0),
@@ -83,7 +83,7 @@ class SettingPage extends StatelessWidget {
             },
           ),
           SwitchListTile(
-            title: Text(DemoLocalizations.of(context).splashAnimation),
+            title: Text(IntlLocalizations.of(context).splashAnimation),
             secondary: const Icon(
               Icons.subscriptions,
             ),
@@ -97,7 +97,7 @@ class SettingPage extends StatelessWidget {
             },
           ),
           SwitchListTile(
-            title: Text(DemoLocalizations.of(context).enableWeatherShow),
+            title: Text(IntlLocalizations.of(context).enableWeatherShow),
             secondary: const Icon(
               Icons.wb_sunny,
             ),
@@ -106,7 +106,7 @@ class SettingPage extends StatelessWidget {
             onChanged: (value) => onWeatherOpen(value, context, globalModel),
           ),
           SwitchListTile(
-            title: Text(DemoLocalizations.of(context).enableNetPicBgInMainPage),
+            title: Text(IntlLocalizations.of(context).enableNetPicBgInMainPage),
             secondary: const Icon(
               Icons.image,
             ),
@@ -115,7 +115,7 @@ class SettingPage extends StatelessWidget {
             onChanged: (value) => onNetPicBgSelect(value, context, globalModel),
           ),
           SwitchListTile(
-            title: Text(DemoLocalizations.of(context).enableInfiniteScroll),
+            title: Text(IntlLocalizations.of(context).enableInfiniteScroll),
             secondary: const Icon(
               Icons.repeat,
             ),
@@ -129,37 +129,38 @@ class SettingPage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text(DemoLocalizations.of(context).iconSetting),
+            title: Text(IntlLocalizations.of(context).iconSetting),
             leading: Icon(
               Icons.insert_emoticon,
             ),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+              Navigator.of(context).push( CupertinoPageRoute(builder: (ctx) {
                 return ProviderConfig.getInstance().getIconSettingPage();
               }));
             },
           ),
           ListTile(
-            title: Text(DemoLocalizations.of(context).navigatorSetting),
+            title: Text(IntlLocalizations.of(context).navigatorSetting),
             leading: Icon(
               Icons.navigation,
             ),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+              Navigator.of(context).push(CupertinoPageRoute(builder: (ctx) {
                 return NavSettingPage();
               }));
             },
           ),
+
           ListTile(
-            title: Text(DemoLocalizations.of(context).aboutApp),
+            title: Text(IntlLocalizations.of(context).aboutApp),
             leading: Icon(
               Icons.info_outline,
             ),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {
+              Navigator.of(context).push(CupertinoPageRoute(builder: (ctx) {
                 return AboutPage();
               }));
             },
@@ -176,8 +177,8 @@ class SettingPage extends StatelessWidget {
         builder: (ctx1) {
           return EditDialog(
             positiveWithPop: false,
-            title: DemoLocalizations.of(context).enableWeatherShow,
-            hintText: DemoLocalizations.of(context).inputCurrentCity,
+            title: IntlLocalizations.of(context).enableWeatherShow,
+            hintText: IntlLocalizations.of(context).inputCurrentCity,
             initialValue: globalModel.currentPosition,
             onValueChanged: (text){
               globalModel.currentPosition = text;
@@ -193,9 +194,9 @@ class SettingPage extends StatelessWidget {
                     globalModel.logic.getWeatherNow(globalModel.currentPosition,controller: globalModel.loadingController);
                   },
                   cancelToken: cancelToken,
-                  errorText: DemoLocalizations.of(context).weatherGetWrong,
-                  loadingText: DemoLocalizations.of(context).weatherGetting,
-                  successText: DemoLocalizations.of(context).weatherSuccess,
+                  errorText: IntlLocalizations.of(context).weatherGetWrong,
+                  loadingText: IntlLocalizations.of(context).weatherGetting,
+                  successText: IntlLocalizations.of(context).weatherSuccess,
                   onSuccess: (){
                     Navigator.of(context).pop();
                     Navigator.of(context).pop();

@@ -75,7 +75,7 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0)),
                         onPressed: widget.onSuccess ?? (){},
-                        child: Text(DemoLocalizations.of(context).ok),
+                        child: Text(IntlLocalizations.of(context).ok),
                       )
                     ],
                   ),
@@ -115,13 +115,13 @@ class _NetLoadingWidgetState extends State<NetLoadingWidget> {
   String getLoadingText() {
     switch (loadingFlag) {
       case LoadingFlag.loading:
-        return widget.loadingText ?? DemoLocalizations.of(context).waitAMoment;
+        return widget.loadingText ?? IntlLocalizations.of(context).waitAMoment;
         break;
       case LoadingFlag.error:
-        return widget.errorText ?? DemoLocalizations.of(context).submitAgain;
+        return widget.errorText ?? IntlLocalizations.of(context).submitAgain;
         break;
       case LoadingFlag.success:
-        return widget.successText ?? DemoLocalizations.of(context).submitSuccess;
+        return widget.successText ?? IntlLocalizations.of(context).submitSuccess;
         break;
       case LoadingFlag.empty:
         return widget.emptyText ??  "";

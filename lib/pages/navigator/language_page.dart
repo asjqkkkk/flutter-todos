@@ -16,7 +16,7 @@ class LanguagePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(DemoLocalizations.of(context).languageTitle),
+        title: Text(IntlLocalizations.of(context).languageTitle),
       ),
       body: Container(
         child: ListView(

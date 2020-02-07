@@ -29,9 +29,9 @@ class LoginPageLogic {
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regex = new RegExp(pattern);
     if (email.isEmpty)
-      return DemoLocalizations.of(context).emailCantBeEmpty;
+      return IntlLocalizations.of(context).emailCantBeEmpty;
     else if (!regex.hasMatch(email))
-      return DemoLocalizations.of(context).emailIncorrectFormat;
+      return IntlLocalizations.of(context).emailIncorrectFormat;
     else {
       _model.isEmailOk = true;
       return null;
@@ -42,11 +42,11 @@ class LoginPageLogic {
     final context = _model.context;
     _model.isPasswordOk = false;
     if (password.isEmpty) {
-      return DemoLocalizations.of(context).passwordCantBeEmpty;
+      return IntlLocalizations.of(context).passwordCantBeEmpty;
     } else if (password.length < 8) {
-      return DemoLocalizations.of(context).passwordTooShort;
+      return IntlLocalizations.of(context).passwordTooShort;
     } else if (password.length > 20) {
-      return DemoLocalizations.of(context).passwordTooLong;
+      return IntlLocalizations.of(context).passwordTooLong;
     } else {
       _model.isPasswordOk = true;
       return null;
@@ -57,7 +57,7 @@ class LoginPageLogic {
     final context = _model.context;
     _model.formKey.currentState.validate();
     if (!_model.isEmailOk || !_model.isPasswordOk) {
-      _showDialog(DemoLocalizations.of(context).checkYourEmailOrPassword, context);
+      _showDialog(IntlLocalizations.of(context).checkYourEmailOrPassword, context);
       return;
     }
     showDialog(context: _model.context, builder: (ctx){

@@ -43,7 +43,7 @@ class MainPageLogic {
               builder: (ctx) {
                 return AlertDialog(
                   title: Text(
-                      "${DemoLocalizations.of(_model.context).doDelete}${taskBean.taskName}"),
+                      "${IntlLocalizations.of(_model.context).doDelete}${taskBean.taskName}"),
                   actions: <Widget>[
                     FlatButton(
                         onPressed: () {
@@ -51,7 +51,7 @@ class MainPageLogic {
                           _model.logic.deleteTask(taskBean);
                         },
                         child: Text(
-                          DemoLocalizations.of(_model.context).delete,
+                          IntlLocalizations.of(_model.context).delete,
                           style: TextStyle(color: Colors.redAccent),
                         )),
                     FlatButton(
@@ -59,7 +59,7 @@ class MainPageLogic {
                           Navigator.of(context).pop();
                         },
                         child: Text(
-                          DemoLocalizations.of(_model.context).cancel,
+                          IntlLocalizations.of(_model.context).cancel,
                           style: TextStyle(color: Colors.green),
                         )),
                   ],
@@ -351,8 +351,8 @@ class MainPageLogic {
         context: context,
         builder: (ctx) {
           return EditDialog(
-            title: DemoLocalizations.of(context).customUserName,
-            hintText: DemoLocalizations.of(context).inputUserName,
+            title: IntlLocalizations.of(context).customUserName,
+            hintText: IntlLocalizations.of(context).inputUserName,
             positiveWithPop: false,
             onValueChanged: (text) {
               _model.currentEditingUserName = text;
@@ -361,7 +361,7 @@ class MainPageLogic {
             onPositive: () async {
               if (_model.currentEditingUserName.isEmpty) {
                 _showTextDialog(
-                    DemoLocalizations.of(context).userNameCantBeNull);
+                    IntlLocalizations.of(context).userNameCantBeNull);
                 return;
               }
               final account = await SharedUtil.instance.getString(Keys.account);

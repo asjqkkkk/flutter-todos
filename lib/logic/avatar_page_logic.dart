@@ -26,9 +26,9 @@ class AvatarPageLogic {
         PermissionReqUtil.getInstance().requestPermission(
           PermissionGroup.photos,
           granted: getImage,
-          deniedDes: DemoLocalizations.of(context).deniedDes,
+          deniedDes: IntlLocalizations.of(context).deniedDes,
           context: context,
-          openSetting: DemoLocalizations.of(context).openSystemSetting,
+          openSetting: IntlLocalizations.of(context).openSystemSetting,
         );
         break;
       case AvatarType.history:
@@ -53,9 +53,9 @@ class AvatarPageLogic {
           granted: () {
             _saveAndGetAvatarFile(image);
           },
-          deniedDes: DemoLocalizations.of(context).deniedDes,
+          deniedDes: IntlLocalizations.of(context).deniedDes,
           context: context,
-          openSetting: DemoLocalizations.of(context).openSystemSetting,
+          openSetting: IntlLocalizations.of(context).openSystemSetting,
         );
         return;
       }

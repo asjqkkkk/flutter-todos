@@ -95,7 +95,6 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                   child: AnimatedBuilder(
                     animation: _animation,
                     child: CircleList(
-                      initialAngle: pi / 2,
                       origin: Offset(0, -min(size.height, size.width) / 2 + 20),
                       showInitialAnimation: true,
                       children: List.generate(_children.length, (index) {

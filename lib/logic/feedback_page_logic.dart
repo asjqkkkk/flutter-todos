@@ -48,28 +48,28 @@ class FeedbackPageLogic {
     ///限制建议内容不能为空，长度不能小于10
     if (_model.feedbackContent.isEmpty) {
       showWrongDialog(
-          context, DemoLocalizations.of(context).feedbackCantBeNull);
+          context, IntlLocalizations.of(context).feedbackCantBeNull);
       return;
     } else if (_model.feedbackContent.length < 10) {
       showWrongDialog(
-          context, DemoLocalizations.of(context).feedbackIsTooLittle);
+          context, IntlLocalizations.of(context).feedbackIsTooLittle);
       return;
     }
 
     ///限制：需要选择评价表情
     if (_model.currentSelectSvg == -99) {
-      showWrongDialog(context, DemoLocalizations.of(context).feedbackNeedEmoji);
+      showWrongDialog(context, IntlLocalizations.of(context).feedbackNeedEmoji);
       return;
     }
 
     ///防止过多提交
     bool canSubmitSuggest = await canSubmit();
     if(!canSubmitSuggest){
-      showWrongDialog(context, DemoLocalizations.of(context).feedbackFrequently);
+      showWrongDialog(context, IntlLocalizations.of(context).feedbackFrequently);
       return;
     }
 
-    final userName = await SharedUtil.instance.getString(Keys.currentUserName) ?? DemoLocalizations.of(context).noName;
+    final userName = await SharedUtil.instance.getString(Keys.currentUserName) ?? IntlLocalizations.of(context).noName;
     final suggestion = _model.feedbackContent;
     final avatarPath = await SharedUtil.instance.getString(Keys.localAvatarPath) ?? "";
     String fileName = avatarPath
@@ -116,14 +116,14 @@ class FeedbackPageLogic {
                 Column(
                   children: <Widget>[
                     Text(
-                      DemoLocalizations.of(context).submitSuccess,
+                      IntlLocalizations.of(context).submitSuccess,
                       style: TextStyle(fontSize: 30),
                     ),
                     SizedBox(height: 10,),
                     Container(
                       margin: EdgeInsets.only(left: 10,right: 10),
                       child: Text(
-                        DemoLocalizations.of(context).thanksForFeedback,
+                        IntlLocalizations.of(context).thanksForFeedback,
                         style: TextStyle(fontSize: 30),
                       ),
                     ),
@@ -140,7 +140,7 @@ class FeedbackPageLogic {
                     Navigator.of(context).pop();
                     Navigator.of(context).pop();
                   },
-                  child: Text(DemoLocalizations.of(context).ok),
+                  child: Text(IntlLocalizations.of(context).ok),
                 )
               ],
             ),

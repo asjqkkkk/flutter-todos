@@ -92,7 +92,7 @@ class TaskInfoWidget extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: Text(
-                  "(${DemoLocalizations.of(context).notSynced})",
+                  "(${IntlLocalizations.of(context).notSynced})",
                   style: TextStyle(
                     color: textColor,
                       fontSize: 12,),
@@ -147,7 +147,7 @@ class TaskInfoWidget extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: Text(
-                    "${DemoLocalizations.of(context).itemNumber(taskBean.taskDetailNum)}",
+                    "${IntlLocalizations.of(context).itemNumber(taskBean.taskDetailNum)}",
                     style: TextStyle(fontSize: 10,color: textColor),
                   ),
                 ),
@@ -238,8 +238,8 @@ class TaskInfoWidget extends StatelessWidget {
                 color: Colors.transparent,
                 child: Text(
                   showHour
-                      ? DemoLocalizations.of(context).hours(hours)
-                      : DemoLocalizations.of(context).days(days),
+                      ? IntlLocalizations.of(context).hours(hours)
+                      : IntlLocalizations.of(context).days(days),
                   style: TextStyle(color: taskColor,),
                 ),
               )),
@@ -274,8 +274,8 @@ class TaskInfoWidget extends StatelessWidget {
                   color: Colors.transparent,
                   child: Text(
                     showHour
-                        ? DemoLocalizations.of(context).hours(hours)
-                        : DemoLocalizations.of(context).days(days),
+                        ? IntlLocalizations.of(context).hours(hours)
+                        : IntlLocalizations.of(context).days(days),
                     style: TextStyle(
                       color: taskColor,
                     ),

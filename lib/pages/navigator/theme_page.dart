@@ -19,7 +19,7 @@ class ThemePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(DemoLocalizations.of(context).changeTheme),
+        title: Text(IntlLocalizations.of(context).changeTheme),
         actions: <Widget>[
           model.themes.length > 7 ? CustomAnimatedSwitcher(
             firstChild: IconButton(

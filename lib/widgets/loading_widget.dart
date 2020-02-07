@@ -49,7 +49,7 @@ class LoadingWidget extends StatelessWidget {
                 height: size / 5,
               ),
               Text(
-                loadingText ?? DemoLocalizations.of(context).loading,
+                loadingText ?? IntlLocalizations.of(context).loading,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
@@ -73,7 +73,7 @@ class LoadingWidget extends StatelessWidget {
               FlatButton(
                   onPressed: errorCallBack ?? (){},
                   child: Text(
-                    "${errorText??""}".isEmpty?DemoLocalizations.of(context).reLoading:errorText,
+                    "${errorText??""}".isEmpty?IntlLocalizations.of(context).reLoading:errorText,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
                   )),
@@ -97,7 +97,7 @@ class LoadingWidget extends StatelessWidget {
                 semanticsLabel: 'empty list',
               ),
               Text(
-                emptyText ?? DemoLocalizations.of(context).loadingEmpty,
+                emptyText ?? IntlLocalizations.of(context).loadingEmpty,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),
@@ -120,7 +120,7 @@ class LoadingWidget extends StatelessWidget {
                 semanticsLabel: 'idle',
               ),
               Text(
-                idleText ?? DemoLocalizations.of(context).loadingIdle,
+                idleText ?? IntlLocalizations.of(context).loadingIdle,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: textSize ?? size / 5, color: textColor ?? primaryColor),

@@ -49,7 +49,7 @@ class EditDialog extends StatelessWidget {
             Navigator.of(context).pop();
           },
           child: Text(
-            DemoLocalizations.of(context).cancel,
+            IntlLocalizations.of(context).cancel,
             style: cancelTextStyle ?? TextStyle(color: Colors.redAccent),
           ),
         ),
@@ -58,7 +58,7 @@ class EditDialog extends StatelessWidget {
             onPositive?.call();
             if(positiveWithPop) Navigator.of(context).pop();
           },
-          child: Text(DemoLocalizations.of(context).ok,
+          child: Text(IntlLocalizations.of(context).ok,
               style: sureTextStyle ?? TextStyle(color: Colors.black)),
         ),
       ],

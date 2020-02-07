@@ -53,7 +53,7 @@ class DoneTaskPageLogic {
 
 
     return diff.inDays == 0
-        ? "${DemoLocalizations.of(context).hours(diff.inHours.abs())}"
-        : "${DemoLocalizations.of(context).days(diff.inDays.abs())}";
+        ? "${IntlLocalizations.of(context).hours(diff.inHours.abs())}"
+        : "${IntlLocalizations.of(context).days(diff.inDays.abs())}";
   }
 }

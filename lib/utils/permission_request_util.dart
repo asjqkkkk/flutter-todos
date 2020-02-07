@@ -43,8 +43,8 @@ class PermissionReqUtil {
           showDialog,
           context,
           reqPermissions,
-          deniedDes ?? DemoLocalizations.of(context).deniedDes,
-          openSetting ?? DemoLocalizations.of(context).openSystemSetting,
+          deniedDes ?? IntlLocalizations.of(context).deniedDes,
+          openSetting ?? IntlLocalizations.of(context).openSystemSetting,
           showOpenSettingButton: true,
         );
         break;

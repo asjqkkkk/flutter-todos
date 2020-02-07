@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/config/api_strategy.dart';
+import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/database/database.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/task_bean.dart';
@@ -88,7 +89,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
                   valueColor: AlwaysStoppedAnimation(Colors.white),
                 ),
               ),
-              Text(DemoLocalizations.of(context).clickToSyn,style: TextStyle(color: Colors.white),),
+              Text(IntlLocalizations.of(context).clickToSyn,style: TextStyle(color: Colors.white),),
               Text("(0 / $needSyncedLength)",style: TextStyle(color: Colors.white, fontSize: 12),),
             ],
           ),
@@ -109,7 +110,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
                   valueColor: AlwaysStoppedAnimation(Colors.white),
                 ),
               ),
-              Text(DemoLocalizations.of(context).synchronizing,style: TextStyle(color: Colors.white),),
+              Text(IntlLocalizations.of(context).synchronizing,style: TextStyle(color: Colors.white),),
               Text("(${needSynTasks.length} / $needSyncedLength)",style: TextStyle(color: Colors.white, fontSize: 12),),
             ],
           ),
@@ -130,7 +131,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
                   valueColor: AlwaysStoppedAnimation(Colors.white),
                 ),
               ),
-              Text(DemoLocalizations.of(context).cloudSynchronizing,style: TextStyle(color: Colors.white,fontSize: 12),),
+              Text(IntlLocalizations.of(context).cloudSynchronizing,style: TextStyle(color: Colors.white,fontSize: 12),),
             ],
           ),
         );
@@ -153,7 +154,7 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
                     valueColor: AlwaysStoppedAnimation(Colors.white),
                   ),
                 ),
-                Text(DemoLocalizations.of(context).synchronizeFailed,style: TextStyle(color: Colors.white),)
+                Text(IntlLocalizations.of(context).synchronizeFailed,style: TextStyle(color: Colors.white),)
               ],
             ),
           ),
@@ -371,9 +372,20 @@ class _SynchronizeWidgetState extends State< SynchronizeWidget> {
         });
       },
       failed: (LoginBean loginBean) {
-        setState(() {
-          synFlag = SynFlag.failSynced;
+        SharedUtil.instance
+            .saveString(Keys.account, "default")
+            .then((v) {
+          SharedUtil.instance
+              .saveBoolean(Keys.hasLogged, false);
         });
+        Navigator.of(context).pushAndRemoveUntil(
+            new MaterialPageRoute(builder: (context) {
+              return ProviderConfig.getInstance()
+                  .getLoginPage(isFirst: true);
+            }), (router) => router == null);
+//        setState(() {
+//          synFlag = SynFlag.failSynced;
+//        });
       },
       error: (msg) {
         setState(() {

@@ -52,7 +52,7 @@ class AccountPage extends StatelessWidget {
             child: Scaffold(
               backgroundColor: Colors.transparent,
               appBar: AppBar(
-                title: Text(DemoLocalizations.of(context).myAccount),
+                title: Text(IntlLocalizations.of(context).myAccount),
                 backgroundColor: Colors.transparent,
               ),
               body: Container(
@@ -90,7 +90,7 @@ class AccountPage extends StatelessWidget {
                         highlightColor: primaryColorLight,
                         colorBrightness: Brightness.dark,
                         splashColor: Colors.grey,
-                        child: Text(DemoLocalizations.of(context).logout),
+                        child: Text(IntlLocalizations.of(context).logout),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0)),
                         onPressed: model.logic.onLogoutPressed,
@@ -101,7 +101,7 @@ class AccountPage extends StatelessWidget {
                         colorBrightness: Brightness.dark,
                         splashColor: Colors.grey,
                         child:
-                            Text(DemoLocalizations.of(context).resetPassword),
+                            Text(IntlLocalizations.of(context).resetPassword),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0)),
                         onPressed: model.logic.onResetPasswordPressed,

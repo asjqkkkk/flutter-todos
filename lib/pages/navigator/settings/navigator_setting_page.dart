@@ -17,7 +17,7 @@ class NavSettingPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(DemoLocalizations.of(context).navigatorSetting),
+        title: Text(IntlLocalizations.of(context).navigatorSetting),
       ),
       body: Container(
         child: ListView(
@@ -27,20 +27,20 @@ class NavSettingPage extends StatelessWidget {
               groupValue: globalModel.currentNavHeader,
               subtitle: NavHead(),
               onChanged: (value) => onChanged(globalModel, value),
-              title: Text(DemoLocalizations.of(context).meteorShower),
+              title: Text(IntlLocalizations.of(context).meteorShower),
             ),
             RadioListTile(
               value: NavHeadType.dailyPic,
               groupValue: globalModel.currentNavHeader,
               subtitle: Image.network(NavHeadType.DAILY_PIC_URL),
               onChanged: (value) => onChanged(globalModel, value),
-              title: Text(DemoLocalizations.of(context).dailyPic),
+              title: Text(IntlLocalizations.of(context).dailyPic),
             ),
             RadioListTile(
               value: NavHeadType.netPicture,
               groupValue: globalModel.currentNavHeader,
               onChanged: (value) => onChanged(globalModel, value,context: context),
-              title: Text(DemoLocalizations.of(context).netPicture),
+              title: Text(IntlLocalizations.of(context).netPicture),
               subtitle: globalModel.currentNetPicUrl == "" ? null : GestureDetector(
                 onTap: (){
                   Navigator.of(context).push(new CupertinoPageRoute(builder: (ctx) {

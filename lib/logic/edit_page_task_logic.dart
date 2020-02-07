@@ -104,7 +104,7 @@ class EditTaskPageLogic {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     content: Text(
-                        DemoLocalizations.of(_model.context).endBeforeStart),
+                        IntlLocalizations.of(_model.context).endBeforeStart),
                   );
                 });
             return;
@@ -133,7 +133,7 @@ class EditTaskPageLogic {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     content: Text(
-                        DemoLocalizations.of(_model.context).startAfterEnd),
+                        IntlLocalizations.of(_model.context).startAfterEnd),
                   );
                 });
             return;
@@ -176,7 +176,7 @@ class EditTaskPageLogic {
       final time = _model.deadLine;
       return "${time.year}-${time.month}-${time.day}";
     }
-    return DemoLocalizations.of(_model.context).deadline;
+    return IntlLocalizations.of(_model.context).deadline;
   }
 
   //将开始时间做转换
@@ -185,7 +185,7 @@ class EditTaskPageLogic {
       final time = _model.startDate;
       return "${time.year}-${time.month}-${time.day}";
     }
-    return DemoLocalizations.of(_model.context).startDate;
+    return IntlLocalizations.of(_model.context).startDate;
   }
 
   //将DateTime转换为String
@@ -214,7 +214,7 @@ class EditTaskPageLogic {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
               content: Text(
-                  DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
+                  IntlLocalizations.of(_model.context).writeAtLeastOneTaskItem),
             );
           });
       return;
@@ -256,7 +256,7 @@ class EditTaskPageLogic {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
               content: Text(
-                  DemoLocalizations.of(_model.context).writeAtLeastOneTaskItem),
+                  IntlLocalizations.of(_model.context).writeAtLeastOneTaskItem),
             );
           });
       return;
@@ -399,7 +399,7 @@ class EditTaskPageLogic {
     bool isEdit = isEditOldTask();
     final context = _model.context;
     String defaultTitle =
-        "${DemoLocalizations.of(context).defaultTitle}:${_model.taskIcon.taskName}";
+        "${IntlLocalizations.of(context).defaultTitle}:${_model.taskIcon.taskName}";
     String oldTaskTitle = "${_model?.oldTaskBean?.taskName}";
     return isEdit ? oldTaskTitle : defaultTitle;
   }
@@ -424,7 +424,7 @@ class EditTaskPageLogic {
                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
             elevation: 0.0,
             contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-            title: Text(DemoLocalizations.of(_model.context).customIcon),
+            title: Text(IntlLocalizations.of(_model.context).customIcon),
             content: CustomIconWidget(
               iconData: IconBean.fromBean(iconBean),
               onApplyTap: (Color color) async {
@@ -434,7 +434,7 @@ class EditTaskPageLogic {
               pickerColor: ColorBean.fromBean(colorBean),
               onTextChange: (text) {
                 final name = text.isEmpty
-                    ? DemoLocalizations.of(_model.context).defaultIconName
+                    ? IntlLocalizations.of(_model.context).defaultIconName
                     : text;
                 _model.taskIcon.iconBean.iconName = name;
               },

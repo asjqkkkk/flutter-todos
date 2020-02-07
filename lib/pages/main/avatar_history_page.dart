@@ -38,7 +38,7 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(DemoLocalizations.of(context).avatarHistory),
+        title: Text(IntlLocalizations.of(context).avatarHistory),
         actions: <Widget>[
           Container(
             margin: EdgeInsets.only(right: 20),
