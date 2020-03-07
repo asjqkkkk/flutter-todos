@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/widgets/custom_cache_image.dart';
 
 import '../main/background/image_page.dart';
@@ -120,12 +121,7 @@ class NavPage extends StatelessWidget {
             tag: "tag_0",
             child: Container(
               height: netImageHeight,
-              child: isDailyPic
-                  ? Image.network(
-                      NavHeadType.DAILY_PIC_URL,
-                      fit: BoxFit.cover,
-                    )
-                  : CustomCacheImage(url: url,),
+              child: CustomCacheImage(url: isDailyPic ? NavHeadType.DAILY_PIC_URL : url,cacheManager: isDailyPic ? CustomCacheManager():null,)
             )),
       );
     }

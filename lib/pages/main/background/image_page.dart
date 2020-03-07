@@ -2,6 +2,8 @@ import 'package:flutter_cache_manager/src/cache_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:todo_list/config/all_types.dart';
+import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
@@ -51,14 +53,16 @@ class _ImagePageState extends State<ImagePage> {
                     Icons.check,
                     color: Colors.white,
                   ),
-                  onPressed: () async{
-                    final urls = await SharedUtil.instance.getStringList(Keys.allHistoryNetPictureUrls) ?? [];
+                  onPressed: () async {
+                    final urls = await SharedUtil.instance
+                            .getStringList(Keys.allHistoryNetPictureUrls) ??
+                        [];
                     final url = widget.imageUrls[currentPage];
-                    if(!urls.contains(url)){
+                    if (!urls.contains(url)) {
                       urls.add(url);
-                      SharedUtil.instance.saveStringList(Keys.allHistoryNetPictureUrls, urls);
+                      SharedUtil.instance
+                          .saveStringList(Keys.allHistoryNetPictureUrls, urls);
                     }
-                    DefaultCacheManager().getSingleFile(url);
                     Navigator.pop(context);
                     widget.onSelect(currentPage);
                   },
@@ -73,7 +77,10 @@ class _ImagePageState extends State<ImagePage> {
               builder: (BuildContext context, int index) {
                 final url = widget.imageUrls[index];
                 return PhotoViewGalleryPageOptions(
-                  imageProvider: CachedNetworkImageProvider(url),
+                  imageProvider: CachedNetworkImageProvider(url,
+                      cacheManager: url == NavHeadType.DAILY_PIC_URL
+                          ? CustomCacheManager()
+                          : null),
                   initialScale: PhotoViewComputedScale.contained,
                   heroTag: widget.heroTag ?? "tag_$index",
                 );

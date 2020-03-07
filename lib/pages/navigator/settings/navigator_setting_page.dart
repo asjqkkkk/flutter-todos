@@ -4,12 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/config/all_types.dart';
+import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/custom_cache_image.dart';
 import 'package:todo_list/widgets/nav_head.dart';
+
 
 class NavSettingPage extends StatelessWidget {
   @override
@@ -34,7 +36,7 @@ class NavSettingPage extends StatelessWidget {
             RadioListTile(
               value: NavHeadType.dailyPic,
               groupValue: globalModel.currentNavHeader,
-              subtitle: Image.network(NavHeadType.DAILY_PIC_URL),
+              subtitle: CustomCacheImage(url: NavHeadType.DAILY_PIC_URL,cacheManager: CustomCacheManager(),),
               onChanged: (value) => onChanged(globalModel, value),
               title: Text(IntlLocalizations.of(context).dailyPic),
             ),
@@ -49,8 +51,7 @@ class NavSettingPage extends StatelessWidget {
                     return ProviderConfig.getInstance().getNetPicturesPage(useType: NetPicturesUseType.navigatorHeader);
                   }));
                 },
-                child: globalModel.currentNetPicUrl.startsWith('http') ? CustomCacheImage(url: globalModel.currentNetPicUrl,) : FileImage(File(globalModel.currentNetPicUrl)),
-              )
+              child: CustomCacheImage(url: globalModel.currentNetPicUrl,),)
             ),
           ],
         ),

@@ -29,7 +29,7 @@ dev_dependencies:
   #网络请求
   dio: ^2.1.2
   #本地存储
-  shared_preferences: ^0.5.6
+  shared_preferences: ^0.5.6+2
   #状态管理
   provider: ^4.0.1
   #单元测试
@@ -49,15 +49,15 @@ dev_dependencies:
   #图片选取
   image_picker: ^0.6.0+16
   #权限申请
-  permission_handler: ^3.2.0
+  permission_handler: ^4.4.0
   #路径获取
-  path_provider: ^1.1.2
+  path_provider: ^1.6.5
   #图片裁剪
   image_crop: ^0.3.0
   #svg----这个控件真是饱受挫折呀！
   flutter_svg: ^0.13.1
   #获取package信息
-  package_info: ^0.4.0+5
+  package_info: ^0.4.0+14
   #网页
   flutter_webview_plugin: ^0.3.5
   #上拉加载

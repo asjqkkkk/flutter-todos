@@ -6,6 +6,7 @@ import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/json/task_icon_bean.dart';
 import 'package:todo_list/items/task_detail_item.dart';
+import 'package:todo_list/widgets/custom_cache_provider.dart';
 import 'package:todo_list/widgets/popmenu_botton.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
@@ -45,7 +46,7 @@ class TaskDetailPage extends StatelessWidget {
               color: globalModel.logic.getBgInDark(),
               borderRadius: BorderRadius.circular(15.0),
                   image: bgUrl == null ? null : DecorationImage(
-                    image: bgUrl.startsWith('http') ? CachedNetworkImageProvider(bgUrl) : FileImage(File(bgUrl)),
+                    image: getProvider(bgUrl),
                     fit: BoxFit.cover,
                   ),
             )),

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -26,14 +27,15 @@ class AccountPage extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-              width: size.width,
-              height: size.height,
-              child: model.backgroundType == AccountBGType.defaultType
-                  ? SvgPicture.asset(
-                      "svgs/bg.svg",
-                      fit: BoxFit.cover,
-                    )
-                  : CustomCacheImage(url: model.backgroundUrl)),
+            width: size.width,
+            height: size.height,
+            child: model.backgroundType == AccountBGType.defaultType
+                ? SvgPicture.asset(
+                    "svgs/bg.svg",
+                    fit: BoxFit.cover,
+                  )
+                : CustomCacheImage(url: model.backgroundUrl)
+          ),
           model.isExisting
               ? Container()
               : BackdropFilter(

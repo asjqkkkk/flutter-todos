@@ -48,7 +48,7 @@ class PermissionReqUtil {
           showOpenSettingButton: true,
         );
         break;
-      case PermissionStatus.disabled:
+      case PermissionStatus.neverAskAgain:
         debugPrint("disabled权限:$reqPermissions");
         if (disabled != null) {
           disabled();

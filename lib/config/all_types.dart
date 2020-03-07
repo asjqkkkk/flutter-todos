@@ -9,7 +9,7 @@ class NavHeadType{
 
 
   ///每日壁纸的图片地址
-  static const String DAILY_PIC_URL =  "https://api.dujin.org/bing/1366.php";
+  static const String DAILY_PIC_URL =  "https://source.unsplash.com/random/300x200";
 }
 
 

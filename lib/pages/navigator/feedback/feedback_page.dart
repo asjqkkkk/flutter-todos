@@ -62,26 +62,23 @@ class FeedbackPage extends StatelessWidget {
                   width: 3,
                 ),
               ),
-              child: Form(
-                autovalidate: true,
-                child: TextFormField(
-                  expands: true,
-                  maxLines: null,
-                  validator: (text) {
-                    model.feedbackContent = text;
-                    return null;
-                  },
-                  style: TextStyle(
-                      color: isDarkNow ? Colors.grey : Colors.black,
-                      textBaseline: TextBaseline.alphabetic),
-                  decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(10),
-                      border: InputBorder.none,
-                      hintText:
-                          IntlLocalizations.of(context).writeYourFeedback,
-                      hintStyle: TextStyle(color: Colors.grey)),
-                  maxLength: 2000,
-                ),
+              child: TextFormField(
+                expands: true,
+                maxLines: null,
+                  textInputAction: TextInputAction.newline,
+                onChanged: (text){
+                  model.feedbackContent = text;
+                },
+                style: TextStyle(
+                    color: isDarkNow ? Colors.grey : Colors.black,
+                    textBaseline: TextBaseline.alphabetic),
+                decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(10),
+                    border: InputBorder.none,
+                    hintText:
+                        IntlLocalizations.of(context).writeYourFeedback,
+                    hintStyle: TextStyle(color: Colors.grey)),
+                maxLength: 2000,
               ),
             ),
             Container(
