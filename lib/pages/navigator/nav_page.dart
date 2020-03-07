@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:todo_list/pages/navigator/settings/about/webview_page.dart';
+import 'package:todo_list/widgets/custom_cache_image.dart';
 
 import '../main/background/image_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,7 +14,6 @@ import 'package:todo_list/pages/navigator/language_page.dart';
 import 'package:todo_list/pages/navigator/settings/setting_page.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/widgets/nav_head.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/weather_widget.dart';
 
 class NavPage extends StatelessWidget {
@@ -88,21 +88,6 @@ class NavPage extends StatelessWidget {
           },
         ),
         ListTile(
-          title: Text(IntlLocalizations.of(context).blog),
-          leading: Icon(
-            Icons.chrome_reader_mode,
-          ),
-          trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () {
-            Navigator.of(context).push(CupertinoPageRoute(builder: (ctx) {
-              return WebViewPage(
-                'https://oldchen.top/flutter-blog/#/',
-                title: IntlLocalizations.of(context).myBlog,
-              );
-            }));
-          },
-        ),
-        ListTile(
           title: Text(IntlLocalizations.of(context).appSetting),
           leading: Icon(Icons.settings),
           trailing: Icon(Icons.keyboard_arrow_right),
@@ -141,18 +126,7 @@ class NavPage extends StatelessWidget {
                       NavHeadType.DAILY_PIC_URL,
                       fit: BoxFit.cover,
                     )
-                  : CachedNetworkImage(
-                      fit: BoxFit.cover,
-                      imageUrl: url,
-                      placeholder: (context, url) => Container(
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                              Theme.of(context).primaryColor),
-                        ),
-                      ),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
-                    ),
+                  : CustomCacheImage(url: url,),
             )),
       );
     }

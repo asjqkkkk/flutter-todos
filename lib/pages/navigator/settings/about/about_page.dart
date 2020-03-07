@@ -68,20 +68,30 @@ class _AboutPageState extends State<AboutPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      child: Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
-                          child: Container(
-                              width: 70,
-                              height: 70,
-                              margin: EdgeInsets.all(10),
-                              child: Image.asset(
-                                "images/icon_2.png",
-                                fit: BoxFit.contain,
-                              ))),
+                    InkWell(
+                      onTap: (){
+                        Navigator.of(context).push(CupertinoPageRoute(builder: (ctx) {
+                          return WebViewPage(
+                            'https://oldchen.top/flutter-blog/#/',
+                            title: IntlLocalizations.of(context).myBlog,
+                          );
+                        }));
+                      },
+                      child: Container(
+                        child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                            child: Container(
+                                width: 70,
+                                height: 70,
+                                margin: EdgeInsets.all(10),
+                                child: Image.asset(
+                                  "images/icon_2.png",
+                                  fit: BoxFit.contain,
+                                ))),
+                      ),
                     ),
                     Container(
                       margin: EdgeInsets.only(left: 50, top: 2),
@@ -102,42 +112,46 @@ class _AboutPageState extends State<AboutPage> {
                             ),
                           ),
                           Expanded(
-                            child: Container(
-                              alignment: Alignment.bottomLeft,
-                              child: FutureBuilder(
-                                  future: PackageInfo.fromPlatform(),
-                                  builder: (context, snapshot) {
-                                    if (snapshot.hasData) {
-                                      PackageInfo packageInfo = snapshot.data;
-                                      return Text(
-                                        packageInfo.version,
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            color: Theme.of(context)
-                                                        .primaryColor ==
-                                                    Color(0xff212121)
-                                                ? Colors.white
-                                                : Color.fromRGBO(
-                                                    141, 141, 141, 1.0)),
-                                      );
-                                    } else
-                                      return Container();
-                                  }),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                Container(
+                                  alignment: Alignment.bottomLeft,
+                                  child: FutureBuilder(
+                                      future: PackageInfo.fromPlatform(),
+                                      builder: (context, snapshot) {
+                                        if (snapshot.hasData) {
+                                          PackageInfo packageInfo = snapshot.data;
+                                          return Text(
+                                            packageInfo.version,
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Theme.of(context)
+                                                            .primaryColor ==
+                                                        Color(0xff212121)
+                                                    ? Colors.white
+                                                    : Color.fromRGBO(
+                                                        141, 141, 141, 1.0)),
+                                          );
+                                        } else
+                                          return Container();
+                                      }),
+                                ),
+                                SizedBox(width: 30,),
+                                Platform.isAndroid
+                                    ? GestureDetector(
+                                      child: Icon(
+                                        Icons.cloud_upload,
+                                      ),
+                                      onTap: () => checkUpdate(globalModel),
+                                    )
+                                    : SizedBox(),
+                              ],
                             ),
                           ),
                         ],
                       ),
                     ),
-                    Platform.isAndroid
-                        ? Container(
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.cloud_upload,
-                              ),
-                              onPressed: () => checkUpdate(globalModel),
-                            ),
-                          )
-                        : SizedBox(),
                   ],
                 ),
                 Expanded(

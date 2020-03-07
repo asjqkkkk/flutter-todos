@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 
 class ImagePage extends StatefulWidget {
@@ -72,7 +73,7 @@ class _ImagePageState extends State<ImagePage> {
               builder: (BuildContext context, int index) {
                 final url = widget.imageUrls[index];
                 return PhotoViewGalleryPageOptions(
-                  imageProvider: NetworkImage(url),
+                  imageProvider: CachedNetworkImageProvider(url),
                   initialScale: PhotoViewComputedScale.contained,
                   heroTag: widget.heroTag ?? "tag_$index",
                 );

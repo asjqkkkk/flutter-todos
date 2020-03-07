@@ -3,6 +3,7 @@ import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/json/photo_bean.dart';
 import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/logic/all_logic.dart';
+import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -14,6 +15,7 @@ class NetPicturesPageModel extends ChangeNotifier{
 
   NetPicturesPageLogic logic;
   BuildContext context;
+  GlobalModel globalModel;
 
   List<PhotoBean> photos = [];
   String loadingErrorText = "";
@@ -42,9 +44,10 @@ class NetPicturesPageModel extends ChangeNotifier{
     logic = NetPicturesPageLogic(this);
   }
 
-  void setContext(BuildContext context){
+  void setContext(BuildContext context, GlobalModel globalModel){
     if(this.context == null){
         this.context = context;
+        this.globalModel = globalModel;
         logic.getCachePhotos().then((v){
           logic.getPhotos(cancelToken: cancelToken);
         });
@@ -64,5 +67,11 @@ class NetPicturesPageModel extends ChangeNotifier{
   void refresh(){
     if(!isDisposed) notifyListeners();
   }
+
+}
+
+enum PopItemType {
+  local,
+  history,
 }
 

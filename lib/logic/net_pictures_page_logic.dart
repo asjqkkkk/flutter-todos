@@ -1,7 +1,8 @@
 import 'dart:convert';
-
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/config/api_service.dart';
 import 'package:todo_list/database/database.dart';
@@ -10,6 +11,7 @@ import 'package:todo_list/model/all_model.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:todo_list/pages/main/background/image_page.dart';
 import 'package:todo_list/pages/main/background/pictures_history_page.dart';
+import 'package:todo_list/utils/permission_request_util.dart';
 import 'package:todo_list/utils/shared_util.dart';
 
 
@@ -163,4 +165,70 @@ class NetPicturesPageLogic {
       );
     }));
   }
+
+  void onLocalImagePick(){
+    final context = _model.context;
+    PermissionReqUtil.getInstance().requestPermission(
+      PermissionGroup.photos,
+      granted: getImage,
+      deniedDes: IntlLocalizations.of(context).deniedDes,
+      context: context,
+      openSetting: IntlLocalizations.of(context).openSystemSetting,
+    );
+  }
+
+  Future getImage() async {
+    final context = _model.context;
+    final globalModel = _model.globalModel;
+    File imageFile = await ImagePicker.pickImage(source: ImageSource.gallery);
+    if(imageFile == null) return;
+    final currentUrl = imageFile.path;
+    switch (_model.useType) {
+      case NetPicturesUseType.accountBackground:
+        SharedUtil.instance
+            .saveString(Keys.currentAccountBackground, currentUrl);
+        SharedUtil.instance.saveString(
+            Keys.currentAccountBackgroundType, AccountBGType.netPicture);
+        final accountPageModel = _model.accountPageModel;
+        accountPageModel.backgroundUrl = currentUrl;
+        accountPageModel.backgroundType = AccountBGType.netPicture;
+        accountPageModel.refresh();
+        break;
+      case NetPicturesUseType.navigatorHeader:
+        SharedUtil.instance.saveString(Keys.currentNetPicUrl, currentUrl);
+        SharedUtil.instance.saveString(Keys.currentNavHeader, _model.useType);
+        globalModel.currentNetPicUrl = currentUrl;
+        globalModel.currentNavHeader = _model.useType;
+        globalModel.refresh();
+        break;
+      case NetPicturesUseType.taskCardBackground:
+        _model.taskBean?.backgroundUrl = currentUrl;
+        DBProvider.db.updateTask(_model.taskBean);
+        final searchModel = globalModel.searchPageModel;
+        searchModel?.refresh();
+        final taskDetailPageModel = globalModel.taskDetailPageModel;
+        taskDetailPageModel?.refresh();
+        final mainPageModel = globalModel.mainPageModel;
+        mainPageModel?.refresh();
+        break;
+      default:
+        SharedUtil.instance
+            .saveString(Keys.currentMainPageBackgroundUrl, currentUrl);
+        SharedUtil.instance.saveBoolean(Keys.enableNetPicBgInMainPage, true);
+        globalModel.currentMainPageBgUrl = currentUrl;
+        globalModel.enableNetPicBgInMainPage = true;
+        globalModel.refresh();
+        break;
+    }
+    Navigator.of(context).pop();
+  }
+
+  void onPopItemSelect(PopItemType value){
+    if(value == PopItemType.history){
+      onHistoryTap();
+    } else {
+      onLocalImagePick();
+    }
+  }
+
 }

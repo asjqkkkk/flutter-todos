@@ -752,6 +752,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "selectLocalImage": "本地图片",
+  "@selectLocalImage": {
+    "description": "本地图片",
+    "type": "text",
+    "placeholders": {}
+  },
   "deniedDes": "权限被拒绝",
   "@deniedDes": {
     "description": "权限被拒绝",

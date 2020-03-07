@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-02-07T17:20:50.859748",
+  "@@last_modified": "2020-03-07T11:44:03.809300",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -473,6 +473,12 @@
   "netPicHistory": "Net picture history",
   "@netPicHistory": {
     "description": "历史图片",
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectLocalImage": "Select local image",
+  "@selectLocalImage": {
+    "description": "本地图片",
     "type": "text",
     "placeholders": {}
   },

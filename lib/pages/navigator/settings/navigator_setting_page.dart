@@ -1,4 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +8,7 @@ import 'package:todo_list/config/provider_config.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
+import 'package:todo_list/widgets/custom_cache_image.dart';
 import 'package:todo_list/widgets/nav_head.dart';
 
 class NavSettingPage extends StatelessWidget {
@@ -47,14 +49,7 @@ class NavSettingPage extends StatelessWidget {
                     return ProviderConfig.getInstance().getNetPicturesPage(useType: NetPicturesUseType.navigatorHeader);
                   }));
                 },
-                child: CachedNetworkImage(
-                  imageUrl:globalModel.currentNetPicUrl,
-                  placeholder: (context, url) => new Container(
-                    alignment: Alignment.center,
-                    child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),),
-                  ),
-                  errorWidget: (context, url, error) => new Icon(Icons.error,color: Colors.redAccent,),
-                ),
+                child: globalModel.currentNetPicUrl.startsWith('http') ? CustomCacheImage(url: globalModel.currentNetPicUrl,) : FileImage(File(globalModel.currentNetPicUrl)),
               )
             ),
           ],

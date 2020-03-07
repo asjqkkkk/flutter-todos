@@ -119,13 +119,14 @@ class MainPageLogic {
     bool isBgGradient = globalModel.isBgGradient;
     bool isBgChangeWithCard = globalModel.isBgChangeWithCard;
     bool enableBg = globalModel.enableNetPicBgInMainPage;
+    final bgUrl = globalModel.currentMainPageBgUrl;
+
     return enableBg
         ? BoxDecoration(
             image: DecorationImage(
-            image: CachedNetworkImageProvider(
-              globalModel.currentMainPageBgUrl,
-
-            ),
+            image: bgUrl.startsWith('http')
+                ? CachedNetworkImageProvider(bgUrl)
+                : FileImage(File(bgUrl)),
             fit: BoxFit.cover,
           ))
         : BoxDecoration(

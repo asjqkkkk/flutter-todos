@@ -7,6 +7,7 @@ import 'package:todo_list/model/account_page_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_list/widgets/custom_cache_image.dart';
 
 class AccountPage extends StatelessWidget {
   @override
@@ -33,10 +34,7 @@ class AccountPage extends StatelessWidget {
                       "svgs/bg.svg",
                       fit: BoxFit.cover,
                     )
-                  : CachedNetworkImage(
-                      imageUrl: model.backgroundUrl,
-                      fit: BoxFit.cover,
-                    )),
+                  : CustomCacheImage(url: model.backgroundUrl)),
           model.isExisting
               ? Container()
               : BackdropFilter(
