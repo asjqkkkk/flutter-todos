@@ -158,7 +158,7 @@ class GlobalLogic{
   Future getAutoDarkMode() async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String account =  prefs.getString(Keys.account) ?? "default";
-    _model.enableAutoDarkMode = prefs.getBool(Keys.autoDarkMode + account)??true;
+    _model.enableAutoDarkMode = prefs.getBool(Keys.autoDarkMode + account)??false;
     _model.autoDarkModeTimeRange = prefs.getString(Keys.autoDarkModeTimeRange + account) ?? '';
   }
 

@@ -50,12 +50,12 @@ class SuggestionsListBean {
 
   static SuggestionsListBean fromMap(Map<String, dynamic> map) {
     SuggestionsListBean suggestionsListBean = new SuggestionsListBean();
-    suggestionsListBean.account = map['account'];
-    suggestionsListBean.suggestion = map['suggestion'];
-    suggestionsListBean.connectWay = map['connect_way'];
-    suggestionsListBean.avatarUrl = map['avatarUrl'];
-    suggestionsListBean.userName = map['userName'];
-    suggestionsListBean.time = map['time'];
+    suggestionsListBean.account = map['account'] ?? '';
+    suggestionsListBean.suggestion = map['suggestion'] ?? '';
+    suggestionsListBean.connectWay = map['connect_way'] ?? '';
+    suggestionsListBean.avatarUrl = map['avatarUrl'] ?? '';
+    suggestionsListBean.userName = map['userName'] ?? '';
+    suggestionsListBean.time = map['time'] ?? '';
     suggestionsListBean.id = map['id'];
     return suggestionsListBean;
   }
