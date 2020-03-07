@@ -6,7 +6,7 @@ description: A new Flutter project.
 version: 1.1.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -74,6 +74,8 @@ dev_dependencies:
   encrypt: ^3.2.0
   #列表动画
   flutter_staggered_animations: ^0.1.2
+  #滚轮选择
+  wheel_chooser: ^0.1.0
 
 
 # The following section is specific to Flutter.

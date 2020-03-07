@@ -45,7 +45,7 @@ class TaskDetailPage extends StatelessWidget {
               color: globalModel.logic.getBgInDark(),
               borderRadius: BorderRadius.circular(15.0),
                   image: bgUrl == null ? null : DecorationImage(
-                    image: CachedNetworkImageProvider(bgUrl),
+                    image: bgUrl.startsWith('http') ? CachedNetworkImageProvider(bgUrl) : FileImage(File(bgUrl)),
                     fit: BoxFit.cover,
                   ),
             )),

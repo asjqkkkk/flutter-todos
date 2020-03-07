@@ -8,7 +8,6 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<RegisterPageModel>(context)..setContext(context);
-    final primaryColor = Theme.of(context).primaryColor;
 
     return Scaffold(
       appBar: AppBar(

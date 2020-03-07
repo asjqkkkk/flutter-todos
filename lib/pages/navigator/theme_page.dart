@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
-import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/theme_page_model.dart';
-import 'package:todo_list/utils/shared_util.dart';
-import 'package:todo_list/utils/theme_util.dart';
-import 'dart:convert';
 
 import 'package:todo_list/widgets/custom_animated_switcher.dart';
 
@@ -21,74 +17,44 @@ class ThemePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(IntlLocalizations.of(context).changeTheme),
         actions: <Widget>[
-          model.themes.length > 7 ? CustomAnimatedSwitcher(
-            firstChild: IconButton(
-              icon: Icon(
-                Icons.border_color,
-                size: 18,
-                color: globalModel.logic.getWhiteInDark(),
-              ),
-              onPressed: null,
-            ),
-            secondChild: IconButton(
-              icon: Icon(
-                Icons.check,
-                color: globalModel.logic.getWhiteInDark(),
-              ),
-              onPressed: null,
-            ),
-            hasChanged: model.isDeleting,
-            onTap: () {
-              model.isDeleting = !model.isDeleting;
-              model.refresh();
-            },
-          ) : SizedBox(),
+          model.themes.length > 7
+              ? CustomAnimatedSwitcher(
+                  firstChild: IconButton(
+                    icon: Icon(
+                      Icons.border_color,
+                      size: 18,
+                      color: globalModel.logic.getWhiteInDark(),
+                    ),
+                    onPressed: null,
+                  ),
+                  secondChild: IconButton(
+                    icon: Icon(
+                      Icons.check,
+                      color: globalModel.logic.getWhiteInDark(),
+                    ),
+                    onPressed: null,
+                  ),
+                  hasChanged: model.isDeleting,
+                  onTap: () {
+                    model.isDeleting = !model.isDeleting;
+                    model.refresh();
+                  },
+                )
+              : SizedBox(),
         ],
       ),
       body: Container(
         alignment: Alignment.topCenter,
-        child: SingleChildScrollView(
-          child: Wrap(
-            children: List.generate(model.themes.length + 1, (index) {
-              if (index == model.themes.length) {
-                return AbsorbPointer(
-                  absorbing: model.isDeleting,
-                  child: Opacity(
-                    opacity: model.isDeleting ? 0 : 1,
-                    child: InkWell(
-                      onTap: model.logic.createCustomTheme,
-                      child: Container(
-                        height: (size.width - 140) / 3,
-                        width: (size.width - 140) / 3,
-                        margin: EdgeInsets.all(20),
-                        alignment: Alignment.center,
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                          size: 40,
-                        ),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            gradient: LinearGradient(
-                                colors: [
-                                  Colors.redAccent,
-                                  Colors.greenAccent,
-                                  Colors.blueAccent,
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight)),
-                      ),
-                    ),
-                  ),
-                );
-              }
+        child: ListView(
+          children: <Widget>[
+            model.logic.getRandomColorBloc(size, globalModel),
+            ...List.generate(model.themes.length, (index) {
               final themeBean = model.themes[index];
               return Stack(
                 children: <Widget>[
                   AbsorbPointer(
                     absorbing: model.isDeleting,
-                    child: getThemeBloc(
+                    child: model.logic.getThemeBloc(
                       themeBean,
                       size,
                       globalModel,
@@ -97,53 +63,85 @@ class ThemePage extends StatelessWidget {
                   Positioned(
                     top: 0,
                     right: 0,
-                    child: AbsorbPointer(
-                      absorbing: model.isDeleting ? false : true,
-                      child: Opacity(
-                        opacity: model.isDeleting ? 1.0 : 0.0,
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.cancel,
-                            color: Colors.redAccent,
-                          ),
-                          onPressed: () => model.logic.removeIcon(index),
-                        ),
-                      ),
-                    ),
+                    child: model.isDeleting
+                        ? IconButton(
+                            icon: Icon(
+                              Icons.cancel,
+                              color: Colors.redAccent,
+                            ),
+                            onPressed: () => model.logic.removeIcon(index),
+                          )
+                        : Container(),
                   )
                 ],
               );
             }),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget getThemeBloc(ThemeBean themeBean, Size size, GlobalModel globalModel) {
-    return InkWell(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      onTap: () {
-        globalModel.currentThemeBean = themeBean;
-        globalModel.refresh();
-        SharedUtil.instance
-            .saveString(Keys.currentThemeBean, jsonEncode(themeBean.toMap()));
-      },
-      child: Container(
-        height: (size.width - 140) / 3,
-        width: (size.width - 140) / 3,
-        margin: EdgeInsets.all(20),
-        alignment: Alignment.center,
-        child: Text(
-          themeBean.themeName,
-          style: TextStyle(color: Colors.white, fontSize: 12),
-        ),
-        decoration: BoxDecoration(
-          color: themeBean.themeType == MyTheme.darkTheme
-              ? Colors.black
-              : ColorBean.fromBean(themeBean.colorBean),
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+            Container(
+              height: (size.width - 140) / 4,
+              margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  gradient: globalModel.enableAutoDarkMode
+                      ? LinearGradient(colors: [
+                          Colors.grey,
+                          Colors.white,
+                        ], begin: Alignment.topLeft, end: Alignment.bottomRight)
+                      : LinearGradient(
+                          colors: [
+                              Colors.white,
+                              Colors.grey,
+                            ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight)),
+              child: SwitchListTile(
+                title: Text(
+                  '    ' +
+                      IntlLocalizations.of(context).autoDarkMode +
+                      ' ${model.logic.getTimeRangeText(globalModel.autoDarkModeTimeRange, globalModel.enableAutoDarkMode)}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 12),
+                ),
+                secondary: Icon(
+                  Icons.highlight,
+                  color: globalModel.enableAutoDarkMode
+                      ? Colors.white
+                      : Theme.of(context).iconTheme.color,
+                ),
+                value: globalModel.enableAutoDarkMode,
+                activeColor: Colors.black,
+                onChanged: (value) =>
+                    model.logic.onAutoThemeChanged(globalModel, value),
+              ),
+            ),
+            model.isDeleting
+                ? Container()
+                : InkWell(
+                    onTap: model.logic.createCustomTheme,
+                    child: Container(
+                      height: (size.width - 140) / 4,
+                      margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      alignment: Alignment.center,
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          gradient: LinearGradient(
+                              colors: [
+                                Colors.redAccent,
+                                Colors.greenAccent,
+                                Colors.blueAccent,
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight)),
+                    ),
+                  ),
+          ],
         ),
       ),
     );

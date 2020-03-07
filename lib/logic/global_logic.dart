@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
+import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/model/all_model.dart';
@@ -68,8 +70,30 @@ class GlobalLogic{
     final theme = await SharedUtil.instance.getString(Keys.currentThemeBean);
     if(theme == null) return;
     ThemeBean themeBean = ThemeBean.fromMap(jsonDecode(theme));
-    if(themeBean.themeType == _model.currentThemeBean.themeType) return;
+    if(themeBean.themeType == MyTheme.random){
+      themeBean.colorBean = ColorBean.fromColor(Colors.primaries[Random().nextInt(Colors.primaries.length)]);
+    } else if(themeBean.themeType == _model.currentThemeBean.themeType) return;
     _model.currentThemeBean = themeBean;
+  }
+
+  ///根据数据来决定显示什么主题
+  void chooseTheme(){
+    if(!_model.enableAutoDarkMode) return;
+    if(_model.autoDarkModeTimeRange.isEmpty) return;
+    final times = _model.autoDarkModeTimeRange.split('/');
+    if(times.length < 2) return;
+    final start = int.parse(times[0]);
+    final end = int.parse(times[1]);
+    final time = DateTime.now();
+    if(time.hour < start || time.hour > end){
+      final String languageCode = _model.currentLanguageCode[0];
+      _model.currentThemeBean = ThemeBean(
+        themeName: languageCode == 'zh' ? '不见五指' : 'dark',
+        colorBean: ColorBean.fromColor(MyThemeColor.darkColor),
+        themeType: MyTheme.darkTheme,
+      );
+    }
+
   }
 
   ///获取app的名字
@@ -128,6 +152,14 @@ class GlobalLogic{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String account =  prefs.getString(Keys.account) ?? "default";
     _model.enableSplashAnimation = prefs.getBool(Keys.enableSplashAnimation + account)??true;
+  }
+
+  ///是否开启自动黑夜模式
+  Future getAutoDarkMode() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String account =  prefs.getString(Keys.account) ?? "default";
+    _model.enableAutoDarkMode = prefs.getBool(Keys.autoDarkMode + account)??true;
+    _model.autoDarkModeTimeRange = prefs.getString(Keys.autoDarkModeTimeRange + account) ?? '';
   }
 
   ///获取当前的位置,拿到天气

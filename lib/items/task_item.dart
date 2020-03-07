@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list/json/task_bean.dart';
@@ -39,7 +41,7 @@ class TaskItem extends StatelessWidget {
                   color: globalModel.logic.getBgInDark(),
                   borderRadius: BorderRadius.circular(15.0),
                 image: bgUrl == null ? null : DecorationImage(
-                  image: CachedNetworkImageProvider(bgUrl),
+                  image: bgUrl.startsWith('http') ? CachedNetworkImageProvider(bgUrl) : FileImage(File(bgUrl)),
                   fit: BoxFit.cover,
                 ),
               ),

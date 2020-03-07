@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/json/theme_bean.dart';
@@ -17,11 +19,11 @@ class GlobalModel extends ChangeNotifier {
   TaskDetailPageModel taskDetailPageModel;
 
   ///app的名字
-  String appName = "一日";
+  String appName = '一日';
 
   ///当前的主题颜色数据
   ThemeBean currentThemeBean = ThemeBean(
-    themeName: "pink",
+    themeName: 'pink',
     colorBean: ColorBean.fromColor(MyThemeColor.defaultColor),
     themeType: MyTheme.defaultTheme,
   );
@@ -49,11 +51,17 @@ class GlobalModel extends ChangeNotifier {
   ///是否开启主页背景为网络图片
   bool enableNetPicBgInMainPage = false;
 
+  ///是否开启自动夜间模式
+  bool enableAutoDarkMode = false;
+
+  ///当前自动夜间模式，白天的时间区间,比如：'7/20'
+  String autoDarkModeTimeRange = '';
+
   ///当前主页网络背景图片地址
-  String currentMainPageBgUrl = "";
+  String currentMainPageBgUrl = '';
 
   ///当前位置信息(经纬度)
-  String currentPosition = "";
+  String currentPosition = '';
 
   ///当前天气的json
   WeatherBean weatherBean;
@@ -62,8 +70,8 @@ class GlobalModel extends ChangeNotifier {
   LoadingController loadingController = LoadingController();
 
   ///当前语言
-  List<String> currentLanguageCode = ["zh", "CN"];
-  String currentLanguage = "中文";
+  List<String> currentLanguageCode = ['zh', 'CN'];
+  String currentLanguage = '中文';
   Locale currentLocale;
 
   ///当前导航栏头部背景
@@ -95,11 +103,13 @@ class GlobalModel extends ChangeNotifier {
         logic.getEnableInfiniteScroll(),
         logic.getEnableSplashAnimation(),
         logic.getEnableWeatherShow(),
+        logic.getAutoDarkMode(),
         logic.getLoginState(),
         logic.getCurrentMainPageBgUrl(),
         logic.getEnableNetPicBgInMainPage(),
         logic.getCurrentPosition(),
       ]).then((value) {
+        logic.chooseTheme();
         currentLocale = Locale(currentLanguageCode[0], currentLanguageCode[1]);
         refresh();
       });

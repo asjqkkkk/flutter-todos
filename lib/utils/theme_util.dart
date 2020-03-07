@@ -127,6 +127,7 @@ class MyTheme {
   static const String purpleTheme = "purple";
   static const String greenTheme = "green";
   static const String blueGrayTheme = "blueGray";
+  static const String random = "random";
 }
 
 class MyThemeColor {

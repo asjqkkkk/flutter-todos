@@ -9,7 +9,6 @@ class ResetPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<ResetPasswordPageModel>(context)
       ..setContext(context);
-    final primaryColor = Theme.of(context).primaryColor;
 
     return Scaffold(
       appBar: AppBar(

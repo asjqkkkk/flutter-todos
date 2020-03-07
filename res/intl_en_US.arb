@@ -836,6 +836,12 @@
     "type": "text",
     "placeholders": {}
   },
+  "random": "random",
+  "@random": {
+    "description": "随心所欲",
+    "type": "text",
+    "placeholders": {}
+  },
   "pink": "pink",
   "@pink": {
     "description": "主题颜色",
@@ -917,6 +923,36 @@
   "fontSize": "Font Size",
   "@fontSize": {
     "description": "字体大小:",
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoDarkMode": "auto dark mode",
+  "@autoDarkMode": {
+    "description": "自动夜间模式",
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectLightTime": "select day time interval",
+  "@selectLightTime": {
+    "description": "选择白天时间区间",
+    "type": "text",
+    "placeholders": {}
+  },
+  "start": "start",
+  "@start": {
+    "description": "开始",
+    "type": "text",
+    "placeholders": {}
+  },
+  "end": "end",
+  "@end": {
+    "description": "结束",
+    "type": "text",
+    "placeholders": {}
+  },
+  "timeError": "start time cannot be less than end time",
+  "@timeError": {
+    "description": "开始时间不能小于结束时间",
     "type": "text",
     "placeholders": {}
   },

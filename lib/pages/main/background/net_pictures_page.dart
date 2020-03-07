@@ -5,7 +5,6 @@ import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/net_pictures_page_model.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/custom_cache_image.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';

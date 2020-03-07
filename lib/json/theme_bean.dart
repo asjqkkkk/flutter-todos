@@ -23,4 +23,11 @@ class ThemeBean {
       'themeType': themeType
     };
   }
+
+  @override
+  bool operator ==(other) {
+    return other.themeName == themeName;
+  }
+
+
 }

@@ -1,14 +1,10 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
-import 'package:todo_list/utils/file_util.dart';
 import 'package:todo_list/utils/overlay_util.dart';
 import 'package:todo_list/widgets/top_show_widget.dart';
 import 'package:todo_list/widgets/update_progress_widget.dart';
-import 'package:open_file/open_file.dart';
 
 class UpdateDialog extends StatefulWidget {
   final String version;

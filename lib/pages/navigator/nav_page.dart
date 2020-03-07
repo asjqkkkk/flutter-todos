@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'package:todo_list/pages/navigator/settings/about/webview_page.dart';
 import 'package:todo_list/widgets/custom_cache_image.dart';
 
 import '../main/background/image_page.dart';

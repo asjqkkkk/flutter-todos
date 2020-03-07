@@ -203,14 +203,8 @@ class IntlLocalizations {
   String get userNameCantBeNull => Intl.message('username can not be empty', name: 'userNameCantBeNull', desc: '昵称不能为空哦!',);
 
 
-
-  String get pink{
-    return Intl.message(
-      'pink',
-      name: 'pink',
-      desc: '主题颜色',
-    );
-  }
+  String get random{return Intl.message('random', name: 'random', desc: '随心所欲',);}
+  String get pink{return Intl.message('pink', name: 'pink', desc: '主题颜色',);}
 
   String get coffee{
     return Intl.message(
@@ -317,6 +311,12 @@ class IntlLocalizations {
   String get clearBackground => Intl.message('Clear Background', name: 'clearBackground', desc: '清除背景:',);
   String get textColor => Intl.message('Text Color', name: 'textColor', desc: '文字颜色:',);
   String get fontSize => Intl.message('Font Size', name: 'fontSize', desc: '字体大小:',);
+  String get autoDarkMode => Intl.message('auto dark mode', name: 'autoDarkMode', desc: '自动夜间模式',);
+  String get selectLightTime => Intl.message('select day time interval', name: 'selectLightTime', desc: '选择白天时间区间',);
+  String get start => Intl.message('start', name: 'start', desc: '开始',);
+  String get end => Intl.message('end', name: 'end', desc: '结束',);
+  String get timeError => Intl.message('start time cannot be less than end time', name: 'timeError', desc: '开始时间不能小于结束时间',);
+
 
 
 
