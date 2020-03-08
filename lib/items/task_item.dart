@@ -6,7 +6,6 @@ import 'package:todo_list/json/task_bean.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/widgets/custom_cache_provider.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class TaskItem extends StatelessWidget {
   final int index;
