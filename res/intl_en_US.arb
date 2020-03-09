@@ -620,6 +620,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "cartOpacity": "Card background opacity",
+  "@cartOpacity": {
+    "description": "卡片背景透明度",
+    "type": "text",
+    "placeholders": {}
+  },
+  "enableTaskDetailOpacity": "Enable task page background to be transparent",
+  "@enableTaskDetailOpacity": {
+    "description": "开启任务界面背景透明",
+    "type": "text",
+    "placeholders": {}
+  },
   "currentIcons": "Current Icons",
   "@currentIcons": {
     "description": "当前图标",

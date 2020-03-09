@@ -112,6 +112,7 @@ class GlobalModel extends ChangeNotifier {
         logic.chooseTheme();
         currentLocale = Locale(currentLanguageCode[0], currentLanguageCode[1]);
         refresh();
+        logic.getRefreshDailyPicTime();
       });
     }
   }

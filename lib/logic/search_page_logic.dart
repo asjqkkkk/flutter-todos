@@ -37,13 +37,14 @@ class SearchPageLogic{
     }
   }
 
-  void onTaskTap(int index,TaskBean taskBean){
+  void onTaskTap(int index,TaskBean taskBean, GlobalModel globalModel){
     _model.currentTapIndex = index;
     Navigator.of(_model.context).push(new PageRouteBuilder(
         pageBuilder: (ctx, anm, anmS) {
           return ProviderConfig.getInstance()
               .getTaskDetailPage(taskBean.id, taskBean, searchPageModel: _model);
         },
+        opaque: !globalModel.mainPageModel.enableTaskPageOpacity,
         transitionDuration: Duration(milliseconds: 800)));
   }
 

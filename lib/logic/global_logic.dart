@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/config/api_service.dart';
-import 'package:todo_list/i10n/localization_intl.dart';
+import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/json/weather_bean.dart';
 import 'package:todo_list/model/all_model.dart';
@@ -194,6 +195,18 @@ class GlobalLogic{
     if(currentMainPageBgUrl == null) return;
     if(currentMainPageBgUrl == _model.currentMainPageBgUrl) return;
     _model.currentMainPageBgUrl = currentMainPageBgUrl;
+  }
+
+  ///每日壁纸 12h 刷新
+  Future getRefreshDailyPicTime() async{
+    final time = await SharedUtil.instance.getString(Keys.everyDayPicRefreshTime);
+    if(time == null) return;
+    final now = DateTime.now();
+    final date = DateTime.parse(time);
+    if(date.difference(now).inHours > 12){
+      SharedUtil.instance.saveString(Keys.everyDayPicRefreshTime, now.toIso8601String());
+      CustomCacheManager().removeFile(NavHeadType.DAILY_PIC_URL);
+    }
   }
 
   void getWeatherNow(String position,{BuildContext context, LoadingController controller}){

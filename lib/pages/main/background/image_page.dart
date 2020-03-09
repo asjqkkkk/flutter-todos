@@ -1,4 +1,4 @@
-import 'package:flutter_cache_manager/src/cache_manager.dart';
+
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
@@ -7,6 +7,7 @@ import 'package:todo_list/config/custom_image_cache_manager.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:todo_list/widgets/loading_widget.dart';
+import 'dart:io';
 
 class ImagePage extends StatefulWidget {
   final List<String> imageUrls;
@@ -97,5 +98,17 @@ class _ImagePageState extends State<ImagePage> {
         ],
       ),
     );
+  }
+
+  ImageProvider getProvider(String url) {
+    if(url.startsWith('http')){
+      File file = File(url);
+      if(file.existsSync()) return FileImage(file);
+      return AssetImage('images/icon_2.png');
+    }
+
+    return CachedNetworkImageProvider(url,
+        cacheManager:
+            url == NavHeadType.DAILY_PIC_URL ? CustomCacheManager() : null);
   }
 }

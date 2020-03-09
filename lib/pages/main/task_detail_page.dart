@@ -18,7 +18,7 @@ class TaskDetailPage extends StatelessWidget {
     final globalModel = Provider.of<GlobalModel>(context);
     final mainPageModel = globalModel.mainPageModel;
     final model = Provider.of<TaskDetailPageModel>(context)
-      ..setContext(context,globalModel);
+      ..setContext(context, globalModel);
 
     globalModel.setTaskDetailPageModel(model);
     final taskColor = globalModel.isCardChangeWithBg
@@ -31,6 +31,8 @@ class TaskDetailPage extends StatelessWidget {
     final int heroTag = model.heroTag;
     final size = MediaQuery.of(context).size;
     final bgUrl = model.taskBean.backgroundUrl;
+    final opacity = mainPageModel.currentTransparency;
+    final enableOpacity = model.doneTaskPageModel == null ? mainPageModel.enableTaskPageOpacity : false;
 
     return WillPopScope(
       onWillPop: () {
@@ -43,12 +45,21 @@ class TaskDetailPage extends StatelessWidget {
             tag: "task_bg$heroTag",
             child: Container(
                 decoration: BoxDecoration(
-              color: globalModel.logic.getBgInDark(),
+              color: globalModel.logic
+                  .getBgInDark()
+                  .withOpacity(enableOpacity ? opacity : 1.0),
               borderRadius: BorderRadius.circular(15.0),
-                  image: bgUrl == null ? null : DecorationImage(
-                    image: getProvider(bgUrl),
-                    fit: BoxFit.cover,
-                  ),
+              image: bgUrl == null
+                  ? null
+                  : DecorationImage(
+                      image: getProvider(bgUrl),
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(
+                            enableOpacity ? opacity : 1.0,
+                          ),
+                          BlendMode.dstATop),
+                      fit: BoxFit.cover,
+                    ),
             )),
           ),
           Scaffold(

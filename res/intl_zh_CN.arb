@@ -596,6 +596,18 @@
     "type": "text",
     "placeholders": {}
   },
+  "cartOpacity": "卡片背景透明度",
+  "@cartOpacity": {
+    "description": "卡片背景透明度",
+    "type": "text",
+    "placeholders": {}
+  },
+  "enableTaskDetailOpacity": "开启任务界面背景透明",
+  "@enableTaskDetailOpacity": {
+    "description": "开启任务界面背景透明",
+    "type": "text",
+    "placeholders": {}
+  },
   "currentIcons": "当前图标",
   "@currentIcons": {
     "description": "当前图标",

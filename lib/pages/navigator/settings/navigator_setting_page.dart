@@ -68,6 +68,11 @@ class NavSettingPage extends StatelessWidget {
       return;
     }
 
+    if(value == NavHeadType.dailyPic){
+      final time = await SharedUtil.instance.getString(Keys.everyDayPicRefreshTime);
+      if(time == null) SharedUtil.instance.saveString(Keys.everyDayPicRefreshTime, DateTime.now().toIso8601String());
+    }
+
     if(globalModel.currentNavHeader != value){
       globalModel.currentNavHeader = value;
       globalModel.refresh();

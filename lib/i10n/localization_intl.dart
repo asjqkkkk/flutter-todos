@@ -138,6 +138,8 @@ class IntlLocalizations {
   String get netPicture => Intl.message('Network Picture', name: 'netPicture', desc: '网络图片',);
   String get accountBackgroundSetting => Intl.message('Background setting', name: 'accountBackgroundSetting', desc: '背景设置',);
   String get picture => Intl.message('Picture', name: 'picture', desc: '图片',);
+  String get cartOpacity => Intl.message('Card background opacity', name: 'cartOpacity', desc: '卡片背景透明度',);
+  String get enableTaskDetailOpacity => Intl.message('Enable task page background to be transparent', name: 'enableTaskDetailOpacity', desc: '开启任务界面背景透明',);
 
   String get currentIcons => Intl.message('Current Icons', name: 'currentIcons', desc: '当前图标',);
   String get game => Intl.message('Game', name: 'game', desc: '打游戏',);

@@ -73,6 +73,7 @@ class MainPageLogic {
                 return ProviderConfig.getInstance()
                     .getTaskDetailPage(taskBean.id, taskBean);
               },
+              opaque: !_model.enableTaskPageOpacity,
               transitionDuration: Duration(milliseconds: 800)));
         },
       );
@@ -113,6 +114,19 @@ class MainPageLogic {
     if (currentUserName == null) return;
     if (currentUserName == _model.currentUserName) return;
     _model.currentUserName = currentUserName;
+  }
+
+  Future getCurrentTransparency() async{
+    final transparency = await SharedUtil.instance.getDouble(Keys.currentTransparency);
+    if (transparency == null) return;
+    if (transparency == _model.currentTransparency) return;
+    _model.currentTransparency = transparency;
+  }
+
+  Future getEnableCardPageOpacity() async{
+    final enable = await SharedUtil.instance.getBoolean(Keys.enableCardPageOpacity);
+    if (enable == null) return;
+    _model.enableTaskPageOpacity = enable;
   }
 
   Decoration getBackground(GlobalModel globalModel) {

@@ -125,10 +125,11 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
                       innerCircleRotateWithChildren: true,
                       centerWidget: GestureDetector(
                           onTap: () {
-//                            doExit(context, _controller);
-                            Navigator.push(context, new CupertinoPageRoute(builder: (ctx) {
-                              return SettingPage();
-                            }));
+                            showModalBottomSheet(context: context, builder: (ctx){
+                              return buildSettingListView(context, globalModel);
+                            }).then((v){
+                              doExit(context, _controller);
+                            });
                             debugPrint("点击");
                           },
                           child: Container(
@@ -167,10 +168,9 @@ class _BottomShowWidgetState extends State<BottomShowWidget>
     );
   }
 
-  void doExit(BuildContext context, AnimationController controller) {
+  Future doExit(BuildContext context, AnimationController controller) async{
     widget?.onExit();
-    controller.reverse().then((r) {
-      Navigator.of(context).pop();
-    });
+    await controller.reverse();
+    Navigator.of(context).pop();
   }
 }

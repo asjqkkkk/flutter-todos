@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-03-07T18:01:40.191800",
+  "@@last_modified": "2020-03-09T23:28:45.971934",
   "appName": "One Day List",
   "@appName": {
     "description": "app的名字",
@@ -317,6 +317,18 @@
   "picture": "Picture",
   "@picture": {
     "description": "图片",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cartOpacity": "Card background opacity",
+  "@cartOpacity": {
+    "description": "卡片背景透明度",
+    "type": "text",
+    "placeholders": {}
+  },
+  "enableTaskDetailOpacity": "Enable task page background to be transparent",
+  "@enableTaskDetailOpacity": {
+    "description": "开启任务界面背景透明",
     "type": "text",
     "placeholders": {}
   },

@@ -24,6 +24,8 @@ class Keys{
   static final String enableWeatherShow = "enable_weather_show";
   static final String enableNetPicBgInMainPage = "enable_net_pic_bg_in_main_page";
   static final String currentUserName = "current_user_name";
+  static final String currentTransparency = "current_transparency";
+  static final String enableCardPageOpacity = "enable_card_page_opacity";
   static final String lastSuggestTime = "last_suggest_time";
   static final String token = "token";
   static final String hasLogged = "has_logged";
@@ -35,6 +37,7 @@ class Keys{
   static final String feedbackWallCacheList = "feedback_wall_cache_list";
   static final String imageCacheList = "imageCacheList";
   static final String cardBackgroundUrl = "card_background_url";
+  static final String everyDayPicRefreshTime = "every_day_pic_refresh_time";
 
 
 }

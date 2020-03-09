@@ -67,7 +67,7 @@ class SearchPage extends StatelessWidget {
                 children: List.generate(model.searchTasks.length, (index) {
                   final task = model.searchTasks[index];
                   return GestureDetector(
-                    onTap: () => model.logic.onTaskTap(index, task),
+                    onTap: () => model.logic.onTaskTap(index, task, globalModel),
                     child: AspectRatio(
                       aspectRatio: 1,
                       child: TaskItem(

@@ -27,3 +27,4 @@ flutter_export_environment.sh
 flutter_01.log
 flutter_02.log
 .flutter-plugins-dependencies
+Flutter.podspec

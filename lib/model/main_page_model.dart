@@ -38,6 +38,12 @@ class MainPageModel extends ChangeNotifier {
   ///是否需要与云端同步信息
   bool needSyn = true;
 
+  ///当前卡片背景透明度
+  double currentTransparency = 1.0;
+
+  ///是否开启任务详情界面背景透明
+  bool enableTaskPageOpacity = false;
+
   CancelToken cancelToken = CancelToken();
 
 
@@ -59,6 +65,8 @@ class MainPageModel extends ChangeNotifier {
             logic.getTasks(),
             logic.getCurrentAvatar(),
             logic.getCurrentUserName(),
+            logic.getCurrentTransparency(),
+            logic.getEnableCardPageOpacity(),
           ],
         ).then((value) {
           refresh();

@@ -29,6 +29,7 @@ class TaskItem extends StatelessWidget {
     );
 
     final bgUrl = taskBean.backgroundUrl;
+    final opacity = globalModel.mainPageModel.currentTransparency;
 
     return Container(
       margin: EdgeInsets.all(10),
@@ -38,35 +39,42 @@ class TaskItem extends StatelessWidget {
             tag: "task_bg$index",
             child: Container(
               decoration: BoxDecoration(
-                  color: globalModel.logic.getBgInDark(),
-                  borderRadius: BorderRadius.circular(15.0),
-                image: bgUrl == null ? null : DecorationImage(
-                  image: getProvider(bgUrl),
-                  fit: BoxFit.cover,
-                ),
+                color: globalModel.logic.getBgInDark().withOpacity(opacity),
+                borderRadius: BorderRadius.circular(15.0),
+                image: bgUrl == null
+                    ? null
+                    : DecorationImage(
+                        image: getProvider(bgUrl),
+                        colorFilter: new ColorFilter.mode(
+                            Colors.black.withOpacity(opacity), BlendMode.dstATop),
+                        fit: BoxFit.cover,
+                      ),
               ),
             ),
           ),
           Container(
-            child: bgUrl == null ? Card(
-              margin: EdgeInsets.all(0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              child: Container(
-                margin: EdgeInsets.only(left: 16, right: 16),
-                child: widget,
-              ),
-            ) : Container(
-              margin: EdgeInsets.all(0),
-              decoration:BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              child: Container(
-                margin: EdgeInsets.only(left: 16, right: 16),
-                child: widget,
-              ),
-            ),
+            child: bgUrl == null
+                ? Card(
+              color: globalModel.logic.getBgInDark().withOpacity(opacity),
+                    margin: EdgeInsets.all(0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Container(
+                      margin: EdgeInsets.only(left: 16, right: 16),
+                      child: widget,
+                    ),
+                  )
+                : Container(
+                    margin: EdgeInsets.all(0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Container(
+                      margin: EdgeInsets.only(left: 16, right: 16),
+                      child: widget,
+                    ),
+                  ),
           ),
         ],
       ),
