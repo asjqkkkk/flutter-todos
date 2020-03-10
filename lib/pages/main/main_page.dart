@@ -6,6 +6,7 @@ import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/model/global_model.dart';
 import 'package:todo_list/model/main_page_model.dart';
 import 'package:todo_list/pages/navigator/nav_page.dart';
+import 'package:todo_list/pages/navigator/settings/setting_page.dart';
 import 'package:todo_list/widgets/animated_floating_button.dart';
 import 'package:todo_list/widgets/menu_icon.dart';
 import 'package:todo_list/widgets/synchronize_widget.dart';
@@ -50,10 +51,17 @@ class MainPage extends StatelessWidget {
           ),
           floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: AnimatedFloatingButton(
-            bgColor: globalModel.isBgChangeWithCard
-                ? model.logic.getCurrentCardColor()
-                : null,
+          floatingActionButton: GestureDetector(
+            onLongPress: (){
+              showModalBottomSheet(context: context, builder: (ctx){
+                return buildSettingListView(context, globalModel);
+              });
+            },
+            child: AnimatedFloatingButton(
+              bgColor: globalModel.isBgChangeWithCard
+                  ? model.logic.getCurrentCardColor()
+                  : null,
+            ),
           ),
           body: Container(
             child: SingleChildScrollView(

@@ -474,11 +474,21 @@ class IntlLocalizations {
   String get version111 => Intl.message('Version:1.1.1 \n\n'
       '1. Fix: Bugs you may have encountered or you have never encountered~~\n'
       '2. New: It is now possible to set the time period for automatically entering dark mode ^_^\n'
-      'New: Local pictures can now be used directly in the picture background!!\n',
+      '3. New: Local pictures can now be used directly in the picture background!!\n',
     name: 'version111', desc: '版本:1.1.1 \n\n'
         '1.修复：你可能已经遇到过,或者你从来没遇到过的bug~~ \n'
         '2.新增：现在可以设置自动进入夜间模式的时间段了 ^_^ \n'
         '3.新增：图片背景下现在可以直接使用本地图片了哦!! \n',
+  );
+
+  String get version112 => Intl.message('Version:1.1.2 \n\n'
+      '1. Fix: Bugs mentioned in FeedbackWallPage~~ \n'
+      '2. New: Now you can change the background transparency of the task card!! \n'
+      '3. Operation: Long press \' + \' button to pop up setting options \n',
+    name: 'version112', desc: '版本:1.1.2 \n\n'
+        '1.修复：反馈墙中提及的bug们~~ \n'
+        '2.新增：现在任务卡片可以设置背景透明度了 \n'
+        '3.操作：长按 ‘+’ 按钮可以弹出设置选项哦! \n',
   );
 
 }

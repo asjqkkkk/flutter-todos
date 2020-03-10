@@ -26,6 +26,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     final globalModel = Provider.of<GlobalModel>(context);
     if(descriptions.isEmpty){
+      descriptions.add(IntlLocalizations.of(context).version112);
       descriptions.add(IntlLocalizations.of(context).version111);
       descriptions.add(IntlLocalizations.of(context).version110);
       descriptions.add(IntlLocalizations.of(context).version109);
