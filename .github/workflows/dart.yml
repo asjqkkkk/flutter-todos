@@ -42,3 +42,5 @@ jobs:
 #        with:
 #          args: 'build/app-armeabi-v7a-release.apk'
 
+# git tag xxx
+# git push --tag
