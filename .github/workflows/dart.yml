@@ -29,11 +29,16 @@ jobs:
       - run: flutter packages get
       - run: flutter test
       - run: flutter build apk --target-platform android-arm --split-per-abi
-#      - run: ls
-#      - run: mv build/app/outputs/apk/release/app-armeabi-v7a-release.apk build/app-armeabi-v7a-release.apk
+      - run: ls
+      - run: mv build/app/outputs/apk/release/app-armeabi-v7a-release.apk build/todo-list.apk
       - name: Release apk
-          uses: ncipollo/release-action@v1.5.0
-          with:
-            artifacts: "build/app/outputs/apk/release/*.apk"
-            token: ${{ secrets.GITHUB_RElEASE_TOKEN }}
+        uses: ncipollo/release-action@v1.5.0
+        with:
+          artifacts: "build/*.apk"
+          token: ${{ secrets.ACTION_TOKEN }}
+#      - uses: skx/github-action-publish-binaries@master
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+#        with:
+#          args: 'build/app-armeabi-v7a-release.apk'
 
