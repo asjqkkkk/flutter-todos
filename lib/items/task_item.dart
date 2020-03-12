@@ -41,6 +41,7 @@ class TaskItem extends StatelessWidget {
               decoration: BoxDecoration(
                 color: globalModel.logic.getBgInDark().withOpacity(opacity),
                 borderRadius: BorderRadius.circular(15.0),
+                border: Border.all(color: Theme.of(context).cardColor),
                 image: bgUrl == null
                     ? null
                     : DecorationImage(
@@ -53,28 +54,16 @@ class TaskItem extends StatelessWidget {
             ),
           ),
           Container(
-            child: bgUrl == null
-                ? Card(
-              color: globalModel.logic.getBgInDark().withOpacity(opacity),
-                    margin: EdgeInsets.all(0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Container(
-                      margin: EdgeInsets.only(left: 16, right: 16),
-                      child: widget,
-                    ),
-                  )
-                : Container(
-                    margin: EdgeInsets.all(0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Container(
-                      margin: EdgeInsets.only(left: 16, right: 16),
-                      child: widget,
-                    ),
-                  ),
+            child: Container(
+              margin: EdgeInsets.all(0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: Container(
+                margin: EdgeInsets.only(left: 16, right: 16),
+                child: widget,
+              ),
+            )
           ),
         ],
       ),
