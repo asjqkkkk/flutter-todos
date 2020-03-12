@@ -44,6 +44,9 @@ class MainPageModel extends ChangeNotifier {
   ///是否开启任务详情界面背景透明
   bool enableTaskPageOpacity = false;
 
+  ///用于在透明模式下，打开任务卡片时，隐藏头像等内容
+  bool canHideWidget = false;
+
   CancelToken cancelToken = CancelToken();
 
 

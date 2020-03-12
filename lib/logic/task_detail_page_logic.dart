@@ -46,6 +46,7 @@ class TaskDetailPageLogic {
   void exitPage({bool isDeleting = false}) {
     final context = _model.context;
     final mainPageModel = _model.globalModel.mainPageModel;
+    mainPageModel.canHideWidget = false;
     bool needUpdate = needUpdateDatabase();
     if (needUpdate && !isDeleting) {
       ///如果一个任务中的所有任务项都完成了,因为主页面都是未完成任务，所以删除主页面的该任务
@@ -100,6 +101,7 @@ class TaskDetailPageLogic {
     }
     _model.isExiting = true;
     _model.refresh();
+    mainPageModel.refresh();
     if(isDeleting){
       Future.delayed(
           Duration(

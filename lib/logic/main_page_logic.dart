@@ -68,6 +68,10 @@ class MainPageLogic {
         ),
         onTap: () {
           _model.currentTapIndex = index;
+          Future.delayed(Duration(milliseconds: 400), (){
+            _model.canHideWidget = true;
+            _model.refresh();
+          });
           Navigator.of(context).push(new PageRouteBuilder(
               pageBuilder: (ctx, anm, anmS) {
                 return ProviderConfig.getInstance()

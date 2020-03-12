@@ -200,8 +200,11 @@ class GlobalLogic{
   ///每日壁纸 12h 刷新
   Future getRefreshDailyPicTime() async{
     final time = await SharedUtil.instance.getString(Keys.everyDayPicRefreshTime);
-    if(time == null) return;
     final now = DateTime.now();
+    if(time == null) {
+      SharedUtil.instance.saveString(Keys.everyDayPicRefreshTime, now.toIso8601String());
+      return;
+    };
     final date = DateTime.parse(time);
     if(date.difference(now).inHours > 12){
       SharedUtil.instance.saveString(Keys.everyDayPicRefreshTime, now.toIso8601String());

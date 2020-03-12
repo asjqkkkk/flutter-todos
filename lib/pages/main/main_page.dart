@@ -13,11 +13,14 @@ import 'package:todo_list/widgets/synchronize_widget.dart';
 
 class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
+
     final model = Provider.of<MainPageModel>(context);
     final globalModel = Provider.of<GlobalModel>(context);
     final size = MediaQuery.of(context).size;
+    final canHideWidget = model.canHideWidget;
     model.setContext(context,globalModel: globalModel);
     globalModel.setMainPageModel(model);
+
     return GestureDetector(
       onLongPress:  () => model.logic.onBackGroundTap(globalModel),
       child: Container(
@@ -29,21 +32,21 @@ class MainPage extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0,
             title: Text(IntlLocalizations.of(context).appName),
-            leading: FlatButton(
+            leading: !canHideWidget ? FlatButton(
               child: MenuIcon(globalModel.logic.getWhiteInDark()),
               onPressed: () {
                 model.scaffoldKey.currentState.openDrawer();
               },
-            ),
+            ): Container(),
             actions: <Widget>[
-              IconButton(
+              !canHideWidget ? IconButton(
                 icon: Icon(
                   Icons.search,
                   size: 28,
                   color: globalModel.logic.getWhiteInDark(),
                 ),
                 onPressed: () => model.logic.onSearchTap(),
-              )
+              ): Container()
             ],
           ),
           drawer: Drawer(
@@ -51,7 +54,7 @@ class MainPage extends StatelessWidget {
           ),
           floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: GestureDetector(
+          floatingActionButton: !canHideWidget ? GestureDetector(
             onLongPress: (){
               showModalBottomSheet(context: context, builder: (ctx){
                 return buildSettingListView(context, globalModel);
@@ -62,7 +65,7 @@ class MainPage extends StatelessWidget {
                   ? model.logic.getCurrentCardColor()
                   : null,
             ),
-          ),
+          ): Container(),
           body: Container(
             child: SingleChildScrollView(
               child: Column(
@@ -74,7 +77,7 @@ class MainPage extends StatelessWidget {
                       children: <Widget>[
                         Expanded(
                           flex: 1,
-                          child: Container(
+                          child: !canHideWidget ? Container(
                             alignment: Alignment.centerLeft,
                             child: InkWell(
                               onTap: model.logic.onAvatarTap,
@@ -90,7 +93,7 @@ class MainPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                          ),
+                          ): Container(height: 60,),
                         ),
                         Expanded(
                           flex: 1,
@@ -113,7 +116,7 @@ class MainPage extends StatelessWidget {
                               child: InkWell(
                                 onTap: model.currentUserName.isEmpty ? null : model.logic.onUserNameTap,
                                 child: Text(
-                                  "${IntlLocalizations.of(context).welcomeWord}${model.currentUserName}",
+                                  !canHideWidget ?  "${IntlLocalizations.of(context).welcomeWord}${model.currentUserName}" : '\n',
                                   style: TextStyle(
                                       fontSize: 30,
                                       color: globalModel.logic.getWhiteInDark()),
@@ -122,8 +125,8 @@ class MainPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            model.currentUserName.isEmpty
-                                ? IconButton(
+                            model.currentUserName.isEmpty && !canHideWidget
+                      ? IconButton(
                                     icon: Icon(Icons.account_circle, color: globalModel.logic.getWhiteInDark(),),
                                     onPressed: model.logic.onUserNameTap,
                                   )
@@ -133,12 +136,12 @@ class MainPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
+                   Container(
                     margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
                     child: Container(
                       margin: EdgeInsets.only(top: 8, left: 12),
                       child: Text(
-                        "${IntlLocalizations.of(context).taskItems(model.tasks.length)}",
+                        !canHideWidget ? "${IntlLocalizations.of(context).taskItems(model.tasks.length)}": '',
                         style: TextStyle(
                             fontSize: 15,
                             color: globalModel.logic.getWhiteInDark()),
