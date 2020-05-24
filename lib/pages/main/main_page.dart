@@ -13,16 +13,15 @@ import 'package:todo_list/widgets/synchronize_widget.dart';
 
 class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
-
     final model = Provider.of<MainPageModel>(context);
     final globalModel = Provider.of<GlobalModel>(context);
     final size = MediaQuery.of(context).size;
     final canHideWidget = model.canHideWidget;
-    model.setContext(context,globalModel: globalModel);
+    model.setContext(context, globalModel: globalModel);
     globalModel.setMainPageModel(model);
 
     return GestureDetector(
-      onLongPress:  () => model.logic.onBackGroundTap(globalModel),
+      onLongPress: () => model.logic.onBackGroundTap(globalModel),
       child: Container(
         decoration: model.logic.getBackground(globalModel),
         child: Scaffold(
@@ -32,144 +31,170 @@ class MainPage extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0,
             title: Text(IntlLocalizations.of(context).appName),
-            leading: !canHideWidget ? FlatButton(
-              child: MenuIcon(globalModel.logic.getWhiteInDark()),
-              onPressed: () {
-                model.scaffoldKey.currentState.openDrawer();
-              },
-            ): Container(),
+            leading: !canHideWidget
+                ? FlatButton(
+                    child: MenuIcon(globalModel.logic.getWhiteInDark()),
+                    onPressed: () {
+                      model.scaffoldKey.currentState.openDrawer();
+                    },
+                  )
+                : Container(),
             actions: <Widget>[
-              !canHideWidget ? IconButton(
-                icon: Icon(
-                  Icons.search,
-                  size: 28,
-                  color: globalModel.logic.getWhiteInDark(),
-                ),
-                onPressed: () => model.logic.onSearchTap(),
-              ): Container()
+              !canHideWidget
+                  ? IconButton(
+                      icon: Icon(
+                        Icons.search,
+                        size: 28,
+                        color: globalModel.logic.getWhiteInDark(),
+                      ),
+                      onPressed: () => model.logic.onSearchTap(),
+                    )
+                  : Container()
             ],
           ),
           drawer: Drawer(
             child: NavPage(),
           ),
           floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: !canHideWidget ? GestureDetector(
-            onLongPress: (){
-              showModalBottomSheet(context: context, builder: (ctx){
-                return buildSettingListView(context, globalModel);
-              });
-            },
-            child: AnimatedFloatingButton(
-              bgColor: globalModel.isBgChangeWithCard
-                  ? model.logic.getCurrentCardColor()
-                  : null,
-            ),
-          ): Container(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: !canHideWidget
+              ? GestureDetector(
+                  onLongPress: () {
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (ctx) {
+                          return buildSettingListView(context, globalModel);
+                        });
+                  },
+                  child: AnimatedFloatingButton(
+                    bgColor: globalModel.isBgChangeWithCard
+                        ? model.logic.getCurrentCardColor()
+                        : null,
+                  ),
+                )
+              : Container(),
           body: Container(
             child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.fromLTRB(62, 8, 50, 0),
-                    child: Row(
+                  Opacity(
+                    opacity: canHideWidget ? 0.0 : 1.0,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Expanded(
-                          flex: 1,
-                          child: !canHideWidget ? Container(
-                            alignment: Alignment.centerLeft,
-                            child: InkWell(
-                              onTap: model.logic.onAvatarTap,
-                              child: Hero(
-                                tag: 'avatar',
+                        Container(
+                          margin: EdgeInsets.fromLTRB(62, 8, 50, 0),
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 1,
                                 child: Container(
-                                  width: 60,
-                                  height: 60,
-                                  child: ClipRRect(
-                                    child: model.logic.getAvatarWidget(),
-                                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                                  alignment: Alignment.centerLeft,
+                                  child: InkWell(
+                                    onTap: model.logic.onAvatarTap,
+                                    child: Hero(
+                                      tag: 'avatar',
+                                      child:  Container(
+                                              width: 60,
+                                              height: 60,
+                                              child: ClipRRect(
+                                                child: model.logic.getAvatarWidget(),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(30)),
+                                              ),
+                                            ),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ): Container(height: 60,),
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  alignment: Alignment.centerRight,
+                                  child: model.needSyn
+                                      ? SynchronizeWidget(
+                                          mainPageModel: model,
+                                        )
+                                      : Container(),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        Expanded(
-                          flex: 1,
+                        Container(
+                          margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
                           child: Container(
-                            alignment: Alignment.centerRight,
-                            child: model.needSyn ? SynchronizeWidget(mainPageModel: model,) : Container(),
+                            margin: EdgeInsets.only(top: 20, left: 12),
+                            child: SingleChildScrollView(
+                              child: Row(
+                                children: <Widget>[
+                                  Flexible(
+                                    child: InkWell(
+                                      onTap: model.currentUserName.isEmpty
+                                          ? null
+                                          : model.logic.onUserNameTap,
+                                      child: Text( "${IntlLocalizations.of(context).welcomeWord}${model.currentUserName}",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color:
+                                                globalModel.logic.getWhiteInDark()),
+                                        maxLines: 3,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ),
+                                  model.currentUserName.isEmpty
+                                      ? IconButton(
+                                          icon:  Icon(
+                                            Icons.account_circle,
+                                            color: globalModel.logic.getWhiteInDark(),
+                                          ) ,
+                                          onPressed: model.logic.onUserNameTap,
+                                        )
+                                      : SizedBox()
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
+                          child: Container(
+                            margin: EdgeInsets.only(top: 8, left: 12),
+                            child: Text( "${IntlLocalizations.of(context).taskItems(model.tasks.length)}" ,
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: globalModel.logic.getWhiteInDark()),
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
-                    child: Container(
-                      margin: EdgeInsets.only(top: 20, left: 12),
-                      child: SingleChildScrollView(
-                        child: Row(
-                          children: <Widget>[
-                            Flexible(
-                              child: InkWell(
-                                onTap: model.currentUserName.isEmpty ? null : model.logic.onUserNameTap,
-                                child: Text(
-                                  !canHideWidget ?  "${IntlLocalizations.of(context).welcomeWord}${model.currentUserName}" : '\n',
-                                  style: TextStyle(
-                                      fontSize: 30,
-                                      color: globalModel.logic.getWhiteInDark()),
-                                  maxLines: 3,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ),
-                            model.currentUserName.isEmpty && !canHideWidget
-                      ? IconButton(
-                                    icon: Icon(Icons.account_circle, color: globalModel.logic.getWhiteInDark(),),
-                                    onPressed: model.logic.onUserNameTap,
-                                  )
-                                : SizedBox()
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                   Container(
-                    margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
-                    child: Container(
-                      margin: EdgeInsets.only(top: 8, left: 12),
-                      child: Text(
-                        !canHideWidget ? "${IntlLocalizations.of(context).taskItems(model.tasks.length)}": '',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: globalModel.logic.getWhiteInDark()),
-                      ),
-                    ),
-                  ),
                   model.tasks.length == 0
                       ? model.logic.getEmptyWidget(globalModel)
                       : Container(
-                          margin: EdgeInsets.only(top: 40, bottom: 40),
-                          child: CarouselSlider(
-                            items: model.logic.getCards(context),
-                            aspectRatio: 16 / 9,
-                            height: min(size.width, size.height) - 100,
-                            viewportFraction:
-                                size.height >= size.width ? 0.8 : 0.5,
-                            initialPage: 0,
-                            enableInfiniteScroll: model.tasks.length >= 3 &&
-                                globalModel.enableInfiniteScroll,
-                            reverse: false,
-                            enlargeCenterPage: true,
-                            onPageChanged: (index) {
-                              model.currentCardIndex = index;
-                              if (globalModel.isBgChangeWithCard) model.refresh();
-                            },
-                            scrollDirection: Axis.horizontal,
-                          ),
-                        ),
+                    margin: EdgeInsets.only(top: 40, bottom: 40),
+                    child: CarouselSlider(
+                      items: model.logic.getCards(context),
+                      aspectRatio: 16 / 9,
+                      height: min(size.width, size.height) - 100,
+                      viewportFraction:
+                      size.height >= size.width ? 0.8 : 0.5,
+                      initialPage: 0,
+                      enableInfiniteScroll: model.tasks.length >= 3 &&
+                          globalModel.enableInfiniteScroll,
+                      reverse: false,
+                      enlargeCenterPage: true,
+                      onPageChanged: (index) {
+                        model.currentCardIndex = index;
+                        if (globalModel.isBgChangeWithCard)
+                          model.refresh();
+                      },
+                      scrollDirection: Axis.horizontal,
+                    ),
+                  ),
                 ],
               ),
             ),

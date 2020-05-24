@@ -153,8 +153,8 @@ class _AvatarHistoryPageState extends State<AvatarHistoryPage> {
       String fileName, BuildContext context) async {
     _showLoadingDialog(context);
     ApiService.instance.uploadAvatar(
-      params: FormData.from({
-        "avatar": new UploadFileInfo(new File(filePath), fileName),
+      params: FormData.fromMap({
+        "avatar": await MultipartFile.fromFile(filePath),
         "account": account,
         "token": token
       }),

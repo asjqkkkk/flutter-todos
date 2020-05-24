@@ -220,6 +220,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version107" : MessageLookupByLibrary.simpleMessage("版本:1.0.7 \n\n1.修复：已经发现的一些bug\n2.新增：现在可以将主页的背景更换为网络图片啦，非常漂亮哦！ \n"),
     "version108" : MessageLookupByLibrary.simpleMessage("版本:1.0.8 \n\n1.修复：输入框的验证提示将会在点击按钮后显示\n2.新增：你使用过的网络背景图片现在可以在历史记录中找到了 \n"),
     "version109" : MessageLookupByLibrary.simpleMessage("版本:1.0.9 \n\n1.修复：输入框光标与文字不对齐的问题 \n2.优化：任务圆盘的滑动事件不再局限于任务图标，而是在整个圆盘上触发 \n3.新增：✨开场动画！✨ \n"),
+    "version110" : MessageLookupByLibrary.simpleMessage("版本:1.1.0 \n\n1.修复：任务编辑界面,点击\"提交按钮\"后无法输入文字 \n2.优化：下载过程可以在后台处理了;部分页面新增网络缓存; \n3.新增：🚀全面的、对任务卡片的自定义操作！🚀 \n4.操作：主页长按可进入背景设置界面;任务编辑界面可以进行图标编辑; \n"),
     "version111" : MessageLookupByLibrary.simpleMessage("版本:1.1.1 \n\n1.修复：你可能已经遇到过,或者你从来没遇到过的bug~~ \n2.新增：现在可以设置自动进入夜间模式的时间段了 ^_^ \n3.新增：图片背景下现在可以直接使用本地图片了哦!! \n"),
     "version112" : MessageLookupByLibrary.simpleMessage("版本:1.1.2 \n\n1.修复：反馈墙中提及的bug们~~ \n2.新增：现在任务卡片可以设置背景透明度了 \n3.操作：长按 ‘+’ 按钮可以弹出设置选项哦! \n"),
     "versionDescription" : MessageLookupByLibrary.simpleMessage("版本描述"),

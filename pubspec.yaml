@@ -27,7 +27,7 @@ dev_dependencies:
 
 
   #网络请求
-  dio: ^2.1.2
+  dio: ^3.0.0
   #本地存储
   shared_preferences: ^0.5.6+2
   #状态管理
@@ -47,7 +47,7 @@ dev_dependencies:
   #图片缓存
   cached_network_image: ^2.0.0
   #图片选取
-  image_picker: ^0.6.0+16
+  image_picker: ^0.6.6+4
   #权限申请
   permission_handler: ^4.4.0
   #路径获取
@@ -55,7 +55,7 @@ dev_dependencies:
   #图片裁剪
   image_crop: ^0.3.0
   #svg----这个控件真是饱受挫折呀！
-  flutter_svg: ^0.13.1
+  flutter_svg: ^0.17.4
   #获取package信息
   package_info: ^0.4.0+14
   #网页

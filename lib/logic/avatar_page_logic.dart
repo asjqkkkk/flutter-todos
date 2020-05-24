@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/api_service.dart';
+import 'package:todo_list/config/api_strategy.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/upload_avatar_bean.dart';
 import 'package:todo_list/model/all_model.dart';
@@ -111,8 +112,8 @@ class AvatarPageLogic {
     final context = _model.context;
     _showLoadingDialog(context);
     ApiService.instance.uploadAvatar(
-      params: FormData.from({
-        "avatar": new UploadFileInfo(new File(filePath), fileName),
+      params: FormData.fromMap({
+        "avatar": await MultipartFile.fromFile(filePath),
         "account": account,
         "token": token
       }),

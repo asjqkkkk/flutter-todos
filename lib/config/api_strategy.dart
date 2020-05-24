@@ -133,10 +133,10 @@ class ApiStrategy {
           );
         }
       } else {
-        if (params != null && params.isNotEmpty || formData.isNotEmpty) {
+        if (params != null && params.isNotEmpty) {
           response = await _client.post(
             url,
-            data: formData ?? new FormData.from(params),
+            data: formData ?? new FormData.fromMap(params),
             onSendProgress: progressCallBack,
             cancelToken: token,
           );

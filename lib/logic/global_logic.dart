@@ -204,7 +204,7 @@ class GlobalLogic{
     if(time == null) {
       SharedUtil.instance.saveString(Keys.everyDayPicRefreshTime, now.toIso8601String());
       return;
-    };
+    }
     final date = DateTime.parse(time);
     if(date.difference(now).inHours > 12){
       SharedUtil.instance.saveString(Keys.everyDayPicRefreshTime, now.toIso8601String());

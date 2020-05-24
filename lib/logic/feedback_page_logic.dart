@@ -84,11 +84,11 @@ class FeedbackPageLogic {
         context: context,
         builder: (ctx) {
           return NetLoadingWidget(
-            onRequest: (){
+            onRequest: () async {
               _model.loadingController.setFlag(LoadingFlag.loading);
               ApiService.instance.postSuggestionWithAvatar(
-                params: FormData.from({
-                  "avatar": new UploadFileInfo(new File(avatarPath), transFormName),
+                params: FormData.fromMap({
+                  "avatar": await MultipartFile.fromFile(avatarPath),
                   "account": account,
                   "suggestion": suggestion,
                   "connectWay": connectWay,
