@@ -55,7 +55,7 @@ dev_dependencies:
   #图片裁剪
   image_crop: ^0.3.0
   #svg----这个控件真是饱受挫折呀！
-  flutter_svg: ^0.17.4
+  flutter_svg: ^0.18.1
   #获取package信息
   package_info: ^0.4.0+14
   #网页
