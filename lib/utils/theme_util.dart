@@ -63,7 +63,7 @@ class ThemeUtil {
       color: bgColor,
       elevation: 0.0,
       textTheme: TextTheme(
-        title: TextStyle(color: iconColor, fontSize: 20),
+        subtitle1: TextStyle(color: iconColor, fontSize: 20),
       ),
     );
   }

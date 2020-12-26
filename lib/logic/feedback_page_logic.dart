@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:todo_list/config/api_service.dart';
@@ -72,10 +70,10 @@ class FeedbackPageLogic {
     final userName = await SharedUtil.instance.getString(Keys.currentUserName) ?? IntlLocalizations.of(context).noName;
     final suggestion = _model.feedbackContent;
     final avatarPath = await SharedUtil.instance.getString(Keys.localAvatarPath) ?? "";
-    String fileName = avatarPath
-        .substring(avatarPath.lastIndexOf("/") + 1, avatarPath.length)
-        .replaceAll(" ", "");
-    String transFormName = Uri.encodeFull(fileName).replaceAll("%", "");
+//    String fileName = avatarPath
+//        .substring(avatarPath.lastIndexOf("/") + 1, avatarPath.length)
+//        .replaceAll(" ", "");
+//    String transFormName = Uri.encodeFull(fileName).replaceAll("%", "");
     ///由于写后端的时候忘记添加表情的字段，现在把它放这里面
     final connectWay = "${(_model.contactWay ?? "") + "<emoji>${_model.currentSelectSvg + 1}<emoji>"}";
     final account = await SharedUtil.instance.getString(Keys.account) ?? "default";
@@ -92,7 +90,6 @@ class FeedbackPageLogic {
                   "account": account,
                   "suggestion": suggestion,
                   "connectWay": connectWay,
-                  "userName": userName,
                   "userName": userName,
                 }),
                 success: (bean){

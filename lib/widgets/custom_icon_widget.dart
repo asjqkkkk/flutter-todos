@@ -55,7 +55,7 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
             margin: EdgeInsets.all(10),
             width: 260,
             child: Form(
-              autovalidate: true,
+              autovalidateMode: AutovalidateMode.always,
               child: TextFormField(
                 initialValue: widget.iconName ?? null,
                 validator: (text){
