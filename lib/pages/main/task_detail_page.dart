@@ -10,7 +10,6 @@ import 'package:todo_list/widgets/custom_cache_provider.dart';
 import 'package:todo_list/widgets/popmenu_botton.dart';
 import 'package:todo_list/widgets/task_info_widget.dart';
 import 'package:todo_list/model/task_detail_page_model.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class TaskDetailPage extends StatelessWidget {
   @override

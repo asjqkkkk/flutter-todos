@@ -11,7 +11,7 @@ class CommonBean {
   }
 
   static List<CommonBean> fromMapList(dynamic mapList) {
-    List<CommonBean> list = new List(mapList.length);
+    List<CommonBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

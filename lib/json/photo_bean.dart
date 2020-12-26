@@ -60,7 +60,7 @@ class PhotoBean {
   }
 
   static List<PhotoBean> fromMapList(dynamic mapList) {
-    List<PhotoBean> list = new List(mapList.length);
+    List<PhotoBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -102,7 +102,7 @@ class LinksBean {
   }
 
   static List<LinksBean> fromMapList(dynamic mapList) {
-    List<LinksBean> list = new List(mapList.length);
+    List<LinksBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -149,7 +149,7 @@ class UrlsBean {
   }
 
   static List<UrlsBean> fromMapList(dynamic mapList) {
-    List<UrlsBean> list = new List(mapList.length);
+    List<UrlsBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -225,7 +225,7 @@ class UserBean {
   }
 
   static List<UserBean> fromMapList(dynamic mapList) {
-    List<UserBean> list = new List(mapList.length);
+    List<UserBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -254,7 +254,7 @@ class ProfileImageBean {
   }
 
   static List<ProfileImageBean> fromMapList(dynamic mapList) {
-    List<ProfileImageBean> list = new List(mapList.length);
+    List<ProfileImageBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:todo_list/config/all_types.dart';
 import 'package:todo_list/json/theme_bean.dart';

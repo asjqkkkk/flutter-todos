@@ -41,7 +41,6 @@ class LoginPageModel extends ChangeNotifier{
     emailController.dispose();
     passwordController.dispose();
     cancelToken?.cancel();
-    formKey?.currentState?.dispose();
     super.dispose();
     debugPrint("LoginPageModel销毁了");
   }

@@ -13,7 +13,7 @@ class WeatherBean {
   }
 
   static List<WeatherBean> fromMapList(dynamic mapList) {
-    List<WeatherBean> list = new List(mapList.length);
+    List<WeatherBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -46,7 +46,7 @@ class HeWeather6ListBean {
   }
 
   static List<HeWeather6ListBean> fromMapList(dynamic mapList) {
-    List<HeWeather6ListBean> list = new List(mapList.length);
+    List<HeWeather6ListBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -90,7 +90,7 @@ class BasicBean {
   }
 
   static List<BasicBean> fromMapList(dynamic mapList) {
-    List<BasicBean> list = new List(mapList.length);
+    List<BasicBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -149,7 +149,7 @@ class NowBean {
   }
 
   static List<NowBean> fromMapList(dynamic mapList) {
-    List<NowBean> list = new List(mapList.length);
+    List<NowBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -175,7 +175,7 @@ class UpdateBean {
   }
 
   static List<UpdateBean> fromMapList(dynamic mapList) {
-    List<UpdateBean> list = new List(mapList.length);
+    List<UpdateBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

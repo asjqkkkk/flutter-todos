@@ -46,7 +46,7 @@ class AvatarPageLogic {
   Future getImage() async {
     final context = _model.context;
 
-    File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    PickedFile image = await ImagePicker().getImage(source: ImageSource.gallery);
     if (image != null) {
       if (Platform.isAndroid) {
         PermissionReqUtil.getInstance().requestPermission(
@@ -64,7 +64,7 @@ class AvatarPageLogic {
     }
   }
 
-  void _saveAndGetAvatarFile(File file) async {
+  void _saveAndGetAvatarFile(PickedFile file) async {
     _model.currentAvatarType = CurrentAvatarType.local;
     _model.currentAvatarUrl = file.path;
     _model.refresh();

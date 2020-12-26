@@ -134,7 +134,7 @@ class TaskBean {
   }
 
   static List<TaskBean> fromMapList(dynamic mapList) {
-    List<TaskBean> list = new List(mapList.length);
+    List<TaskBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -142,7 +142,7 @@ class TaskBean {
   }
 
   static List<TaskBean> fromNetMapList(dynamic mapList) {
-    List<TaskBean> list = new List(mapList.length);
+    List<TaskBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromNetMap(mapList[i]);
     }
@@ -214,7 +214,7 @@ class TaskDetailBean {
   }
 
   static List<TaskDetailBean> fromMapList(dynamic mapList) {
-    List<TaskDetailBean> list = new List(mapList.length);
+    List<TaskDetailBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

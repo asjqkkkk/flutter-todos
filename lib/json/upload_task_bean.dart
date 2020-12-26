@@ -19,7 +19,7 @@ class UploadTaskBean {
   }
 
   static List<UploadTaskBean> fromMapList(dynamic mapList) {
-    List<UploadTaskBean> list = new List(mapList.length);
+    List<UploadTaskBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
