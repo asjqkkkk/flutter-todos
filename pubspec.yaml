@@ -17,65 +17,64 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^1.0.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   #intl语言包
-  intl_translation: ^0.17.5
+  intl: ^0.17.0
+
 
 
   #网络请求
-  dio: ^3.0.0
+  dio: ^4.0.4
   #本地存储
-  shared_preferences: ^0.5.6+2
+  shared_preferences: ^2.0.9
   #状态管理
-  provider: ^4.0.1
-  #单元测试
-  test: ^1.6.0
+  provider: ^6.0.1
   #滑动控件
-  carousel_slider: ^1.3.0
+  carousel_slider: ^4.0.0
   #环形列表
-  circle_list: ^1.0.1
+  circle_list: ^1.0.5
 #  #intl语言包
 #  intl: ^0.16.0
   #本地数据库
-  sqflite: ^1.1.6
+  sqflite: ^2.0.1
   #取色框
-  flutter_colorpicker: ^0.2.5
+  flutter_colorpicker: ^1.0.2
   #图片缓存
-  cached_network_image: ^2.0.0
+  cached_network_image: ^3.2.0
   #图片选取
-  image_picker: ^0.6.6+4
+  image_picker: ^0.8.4+4
   #权限申请
-  permission_handler: ^4.4.0
+  permission_handler: ^8.3.0
   #路径获取
-  path_provider: ^1.6.5
+  path_provider: ^2.0.7
   #图片裁剪
-  image_crop: ^0.3.0
+  image_crop: ^0.4.0
   #svg----这个控件真是饱受挫折呀！
-  flutter_svg: ^0.18.1
+  flutter_svg: ^1.0.0
   #获取package信息
-  package_info: ^0.4.0+14
+  package_info: ^2.0.2
   #网页
-  flutter_webview_plugin: ^0.3.5
+  flutter_webview_plugin: ^0.4.0
   #上拉加载
-  pull_to_refresh: ^1.5.0
+  pull_to_refresh: ^2.0.0
   #看图片
-  photo_view: ^0.4.2
+  photo_view: ^0.13.0
   #url,可以用来打开应用商店
-  url_launcher: ^5.1.0
+  url_launcher: ^6.0.17
   #打开文件，android更新下载安装包用
-  open_file: ^2.0.3
+  open_file: ^3.2.1
   #flare动画
-  flare_flutter: ^1.5.4
+  flare_flutter: ^3.0.2
   #加密
-  encrypt: ^3.2.0
+  encrypt: ^5.0.1
   #列表动画
-  flutter_staggered_animations: ^0.1.2
+  flutter_staggered_animations: ^1.0.0
   #滚轮选择
-  wheel_chooser: ^0.1.0
+  wheel_chooser: ^1.0.0
 
 
 # The following section is specific to Flutter.

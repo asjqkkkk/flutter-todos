@@ -184,7 +184,6 @@ class _CustomIconWidgetState extends State<CustomIconWidget> {
                   currentIconColor = color;
                   currentSelectIndex = 7;
                 },
-                enableLabel: true,
                 pickerAreaHeightPercent: 0.8,
               ),
             ),

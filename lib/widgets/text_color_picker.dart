@@ -38,7 +38,6 @@ class _TextColorPickerState extends State<TextColorPicker> {
           onColorChanged: (color) {
             defaultColor = color;
           },
-          enableLabel: true,
           pickerAreaHeightPercent: 0.8,
         ),
       ),

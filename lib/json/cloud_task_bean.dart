@@ -21,7 +21,7 @@ class CloudTaskBean {
   }
 
   static List<CloudTaskBean> fromMapList(dynamic mapList) {
-    List<CloudTaskBean> list = new List(mapList.length);
+    List<CloudTaskBean> list =  List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

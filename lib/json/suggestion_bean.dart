@@ -19,7 +19,7 @@ class SuggestionBean {
   }
 
   static List<SuggestionBean> fromMapList(dynamic mapList) {
-    List<SuggestionBean> list = new List(mapList.length);
+    List<SuggestionBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -61,7 +61,7 @@ class SuggestionsListBean {
   }
 
   static List<SuggestionsListBean> fromMapList(dynamic mapList) {
-    List<SuggestionsListBean> list = new List(mapList.length);
+    List<SuggestionsListBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

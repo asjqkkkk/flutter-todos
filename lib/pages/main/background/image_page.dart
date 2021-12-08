@@ -83,11 +83,11 @@ class _ImagePageState extends State<ImagePage> {
                           ? CustomCacheManager()
                           : null),
                   initialScale: PhotoViewComputedScale.contained,
-                  heroTag: widget.heroTag ?? "tag_$index",
+                  heroAttributes: PhotoViewHeroAttributes(tag: widget.heroTag ?? "tag_$index"),
                 );
               },
               itemCount: widget.imageUrls.length,
-              loadingChild: LoadingWidget(),
+              loadingBuilder: (ctx, event) => LoadingWidget(),
               pageController: pageController,
               onPageChanged: (page) {
                 currentPage = page;

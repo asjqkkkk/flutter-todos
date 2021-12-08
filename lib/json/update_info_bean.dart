@@ -25,7 +25,7 @@ class UpdateInfoBean {
   }
 
   static List<UpdateInfoBean> fromMapList(dynamic mapList) {
-    List<UpdateInfoBean> list = new List(mapList.length);
+    List<UpdateInfoBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

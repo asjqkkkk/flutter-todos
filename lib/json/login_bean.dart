@@ -20,7 +20,7 @@ class LoginBean{
   }
 
   static List<LoginBean> fromMapList(dynamic mapList) {
-    List<LoginBean> list = new List(mapList.length);
+    List<LoginBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

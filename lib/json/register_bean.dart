@@ -16,7 +16,7 @@ class RegisterBean{
   }
 
   static List<RegisterBean> fromMapList(dynamic mapList) {
-    List<RegisterBean> list = new List(mapList.length);
+    List<RegisterBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

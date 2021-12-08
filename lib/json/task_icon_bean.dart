@@ -20,7 +20,7 @@ class TaskIconBean {
   }
 
   static List<TaskIconBean> fromMapList(dynamic mapList) {
-    List<TaskIconBean> list = new List(mapList.length);
+    List<TaskIconBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }
@@ -73,7 +73,7 @@ class IconBean {
   }
 
   static List<IconBean> fromMapList(dynamic mapList) {
-    List<IconBean> list = new List(mapList.length);
+    List<IconBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

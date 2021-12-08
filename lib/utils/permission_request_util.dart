@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 export 'package:permission_handler/permission_handler.dart';
+import 'package:permission_handler_platform_interface/permission_handler_platform_interface.dart';
 
 class PermissionReqUtil {
   static PermissionReqUtil _instance;
@@ -15,7 +16,7 @@ class PermissionReqUtil {
 
   PermissionReqUtil._internal();
 
-  void requestPermission(PermissionGroup reqPermissions, {
+  void requestPermission(Permission reqPermissions, {
     bool showDialog = true,
     @required BuildContext context,
     @required VoidCallback granted,
@@ -29,8 +30,8 @@ class PermissionReqUtil {
     String unknownDes,
     String openSetting,
   }) async {
-    Map<PermissionGroup, PermissionStatus> output =
-    await PermissionHandler().requestPermissions([reqPermissions]);
+    Map<Permission, PermissionStatus> output =
+    await PermissionHandlerPlatform.instance.requestPermissions([reqPermissions]);
 
     switch (output[reqPermissions]) {
       case PermissionStatus.granted:
@@ -48,7 +49,7 @@ class PermissionReqUtil {
           showOpenSettingButton: true,
         );
         break;
-      case PermissionStatus.neverAskAgain:
+      case PermissionStatus.permanentlyDenied:
         debugPrint("disabled权限:$reqPermissions");
         if (disabled != null) {
           disabled();
@@ -62,7 +63,7 @@ class PermissionReqUtil {
         toShow(showDialog, context, reqPermissions, restrictedDes,openSetting,
             showOpenSettingButton: true);
         break;
-      case PermissionStatus.unknown:
+      case PermissionStatus.limited:
         debugPrint("未知权限:$reqPermissions");
         if (unknown != null) unknown();
         toShow(showDialog, context, reqPermissions, unknownDes,openSetting);
@@ -71,7 +72,7 @@ class PermissionReqUtil {
   }
 
   void toShow(bool showDialog, BuildContext context,
-      PermissionGroup reqPermissions, String description, String openSetting,
+      Permission reqPermissions, String description, String openSetting,
       {bool showOpenSettingButton = false}) {
     if (showDialog) {
       if (context == null)
@@ -98,7 +99,7 @@ class PermissionReqUtil {
               showOpenSettingButton
                   ? FlatButton(
                   onPressed: () {
-                    PermissionHandler().openAppSettings();
+                    openAppSettings();
                   },
                   child: Text(openSetting))
                   : SizedBox(),

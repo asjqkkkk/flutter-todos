@@ -19,7 +19,7 @@ class UploadAvatarBean {
   }
 
   static List<UploadAvatarBean> fromMapList(dynamic mapList) {
-    List<UploadAvatarBean> list = new List(mapList.length);
+    List<UploadAvatarBean> list = List.filled(mapList.length, null);
     for (int i = 0; i < mapList.length; i++) {
       list[i] = fromMap(mapList[i]);
     }

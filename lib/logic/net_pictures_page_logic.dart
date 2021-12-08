@@ -169,7 +169,7 @@ class NetPicturesPageLogic {
   void onLocalImagePick(){
     final context = _model.context;
     PermissionReqUtil.getInstance().requestPermission(
-      PermissionGroup.photos,
+      Permission.photos,
       granted: getImage,
       deniedDes: IntlLocalizations.of(context).deniedDes,
       context: context,
@@ -180,7 +180,7 @@ class NetPicturesPageLogic {
   Future getImage() async {
     final context = _model.context;
     final globalModel = _model.globalModel;
-    File imageFile = await ImagePicker.pickImage(source: ImageSource.gallery);
+    XFile imageFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     if(imageFile == null) return;
     final currentUrl = imageFile.path;
     switch (_model.useType) {
