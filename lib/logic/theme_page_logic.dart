@@ -3,13 +3,13 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/material_picker.dart';
 import 'package:todo_list/i10n/localization_intl.dart';
 import 'package:todo_list/json/theme_bean.dart';
 import 'package:todo_list/model/all_model.dart';
 import 'package:todo_list/utils/shared_util.dart';
 import 'package:todo_list/utils/theme_util.dart';
 import 'package:todo_list/widgets/custom_time_picker.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class ThemePageLogic {
   final ThemePageModel _model;

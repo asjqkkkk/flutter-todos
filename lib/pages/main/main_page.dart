@@ -95,15 +95,15 @@ class MainPage extends StatelessWidget {
                                     onTap: model.logic.onAvatarTap,
                                     child: Hero(
                                       tag: 'avatar',
-                                      child:  Container(
-                                              width: 60,
-                                              height: 60,
-                                              child: ClipRRect(
-                                                child: model.logic.getAvatarWidget(),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(30)),
-                                              ),
-                                            ),
+                                      child: Container(
+                                        width: 60,
+                                        height: 60,
+                                        child: ClipRRect(
+                                          child: model.logic.getAvatarWidget(),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(30)),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -134,11 +134,12 @@ class MainPage extends StatelessWidget {
                                       onTap: model.currentUserName.isEmpty
                                           ? null
                                           : model.logic.onUserNameTap,
-                                      child: Text( "${IntlLocalizations.of(context).welcomeWord}${model.currentUserName}",
+                                      child: Text(
+                                        "${IntlLocalizations.of(context).welcomeWord}${model.currentUserName}",
                                         style: TextStyle(
                                             fontSize: 30,
-                                            color:
-                                                globalModel.logic.getWhiteInDark()),
+                                            color: globalModel.logic
+                                                .getWhiteInDark()),
                                         maxLines: 3,
                                         overflow: TextOverflow.ellipsis,
                                       ),
@@ -146,10 +147,11 @@ class MainPage extends StatelessWidget {
                                   ),
                                   model.currentUserName.isEmpty
                                       ? IconButton(
-                                          icon:  Icon(
+                                          icon: Icon(
                                             Icons.account_circle,
-                                            color: globalModel.logic.getWhiteInDark(),
-                                          ) ,
+                                            color: globalModel.logic
+                                                .getWhiteInDark(),
+                                          ),
                                           onPressed: model.logic.onUserNameTap,
                                         )
                                       : SizedBox()
@@ -162,7 +164,8 @@ class MainPage extends StatelessWidget {
                           margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
                           child: Container(
                             margin: EdgeInsets.only(top: 8, left: 12),
-                            child: Text( "${IntlLocalizations.of(context).taskItems(model.tasks.length)}" ,
+                            child: Text(
+                              "${IntlLocalizations.of(context).taskItems(model.tasks.length)}",
                               style: TextStyle(
                                   fontSize: 15,
                                   color: globalModel.logic.getWhiteInDark()),
@@ -175,26 +178,28 @@ class MainPage extends StatelessWidget {
                   model.tasks.length == 0
                       ? model.logic.getEmptyWidget(globalModel)
                       : Container(
-                    margin: EdgeInsets.only(top: 40, bottom: 40),
-                    child: CarouselSlider(
-                      items: model.logic.getCards(context),
-                      aspectRatio: 16 / 9,
-                      height: min(size.width, size.height) - 100,
-                      viewportFraction:
-                      size.height >= size.width ? 0.8 : 0.5,
-                      initialPage: 0,
-                      enableInfiniteScroll: model.tasks.length >= 3 &&
-                          globalModel.enableInfiniteScroll,
-                      reverse: false,
-                      enlargeCenterPage: true,
-                      onPageChanged: (index) {
-                        model.currentCardIndex = index;
-                        if (globalModel.isBgChangeWithCard)
-                          model.refresh();
-                      },
-                      scrollDirection: Axis.horizontal,
-                    ),
-                  ),
+                          margin: EdgeInsets.only(top: 40, bottom: 40),
+                          child: CarouselSlider(
+                            items: model.logic.getCards(context),
+                            options: CarouselOptions(
+                              aspectRatio: 16 / 9,
+                              height: min(size.width, size.height) - 100,
+                              viewportFraction:
+                                  size.height >= size.width ? 0.8 : 0.5,
+                              initialPage: 0,
+                              enableInfiniteScroll: model.tasks.length >= 3 &&
+                                  globalModel.enableInfiniteScroll,
+                              reverse: false,
+                              enlargeCenterPage: true,
+                              scrollDirection: Axis.horizontal,
+                              onPageChanged: (index, reason) {
+                                model.currentCardIndex = index;
+                                if (globalModel.isBgChangeWithCard)
+                                  model.refresh();
+                              },
+                            ),
+                          ),
+                        ),
                 ],
               ),
             ),

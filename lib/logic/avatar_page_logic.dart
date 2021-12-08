@@ -25,7 +25,7 @@ class AvatarPageLogic {
     switch (type) {
       case AvatarType.local:
         PermissionReqUtil.getInstance().requestPermission(
-          PermissionGroup.photos,
+          Permission.photos,
           granted: getImage,
           deniedDes: IntlLocalizations.of(context).deniedDes,
           context: context,
@@ -46,11 +46,11 @@ class AvatarPageLogic {
   Future getImage() async {
     final context = _model.context;
 
-    PickedFile image = await ImagePicker().getImage(source: ImageSource.gallery);
+    XFile image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image != null) {
       if (Platform.isAndroid) {
         PermissionReqUtil.getInstance().requestPermission(
-          PermissionGroup.photos,
+          Permission.photos,
           granted: () {
             _saveAndGetAvatarFile(image);
           },
@@ -64,7 +64,7 @@ class AvatarPageLogic {
     }
   }
 
-  void _saveAndGetAvatarFile(PickedFile file) async {
+  void _saveAndGetAvatarFile(XFile file) async {
     _model.currentAvatarType = CurrentAvatarType.local;
     _model.currentAvatarUrl = file.path;
     _model.refresh();
