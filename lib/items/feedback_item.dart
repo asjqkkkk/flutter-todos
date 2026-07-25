@@ -77,7 +77,7 @@ class FeedbackItem extends StatelessWidget {
                           height: 9,
                         ),
                         Text(
-                          submitTime ?? "unkown time",
+                          submitTime ?? "unknown time",
                           style: TextStyle(
                             fontSize: 12,
                             color: Color.fromRGBO(216, 216, 216, 1.0),
